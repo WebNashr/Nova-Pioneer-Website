@@ -159,7 +159,7 @@ function novap_add_event_rsvp($data){
 
         if($_event_rsvp):
             // notify rsvp of receipt by email and notify novapioneer admins of rsvp via email
-            novap_notify_on_rsvp($rsvp, $post);
+            // novap_notify_on_rsvp($rsvp, $post);
         endif;
     }
 
@@ -172,45 +172,26 @@ function novap_render_rsvp_metabox($post)
 
     $rsvps = get_post_meta($post->ID, '_event_rsvp');
 
-    if(!empty($rsvps)):
-    ?>
 
-        <table class="widefat fixed striped" cellspacing="0">
-            <thead>
-                <tr>
-                    <th class="manage-column column-name" scope="col" ><strong>Name</strong></th>
-                    <th class="manage-column column-email" scope="col" ><strong>Email</strong></th>
-                    <th class="manage-column column-attendance" scope="col" ><strong>Attendance</strong></th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($rsvps as $rsvp): $rsvp = (object)$rsvp; ?>
-                <tr> 
-                    <td class="format-standard level-0">
-                        <?php echo $rsvp->name; ?>
-                        <div class="row-actions">
-                            <span class="trash">
-                            <?php $delete_nonce = wp_create_nonce( 'novap_delete_rsvp' ); ?>
-                            <?php $the_rsvp = urlencode(json_encode($rsvp)); ?>
-                            <a href="<?php echo get_admin_url(null, sprintf('/post.php?post=%s&action=edit&rsvp=%s&_wpnonce=%s', $post->ID, $the_rsvp, $delete_nonce)); ?>" 
-                               aria-label="Edit “<?php echo $rsvp->name; ?>”" 
-                               class="submitdelete">Delete</a>
-                            </span>
-                        </div>
-                    </td>
-                    <td class="format-standard level-0"><?php echo $rsvp->email; ?></td>
-                    <td class="format-standard level-0"><?php echo ucfirst($rsvp->attendance); ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-        <br class="clear">
+    $rsvps_to_render = array();     
+    
+    foreach ($rsvps as $rsvp): 
+        $rsvp = (object)$rsvp;
+        $delete_nonce = wp_create_nonce( 'novap_delete_rsvp' ); 
+        $urlencoded_rsvp = urlencode(json_encode($rsvp));
+        $delete_url = get_admin_url(
+            null, 
+            sprintf("/post.php?post=%s&action=edit&rsvp=%s&_wpnonce=%s", $post->ID, $urlencoded_rsvp, $delete_nonce)
+        );
+        $rsvp->delete_url = $delete_url;
+        $rsvps_to_render[] = $rsvp;
+    endforeach;
 
-    <?php
+    $rsvp_metabox_content_view = new View("metaboxes/rsvp/content.html");
 
-    else:
-        echo _e("There are no RSVP's yet for this event.", "novap");
-    endif;
+    $rsvp_metabox_content_view->render(array(
+        "rsvps" => $rsvps_to_render
+    ));
     
 }
 
