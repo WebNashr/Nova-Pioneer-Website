@@ -159,7 +159,7 @@ function novap_add_event_rsvp($data){
 
         if($_event_rsvp):
             // notify rsvp of receipt by email and notify novapioneer admins of rsvp via email
-            // novap_notify_on_rsvp($rsvp, $post);
+            novap_notify_on_rsvp($rsvp, $post);
         endif;
     }
 
