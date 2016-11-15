@@ -1,0 +1,2 @@
+# Ignore twig cache
+cache/twig

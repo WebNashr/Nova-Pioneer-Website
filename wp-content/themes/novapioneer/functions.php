@@ -1,5 +1,15 @@
 <?php
 
+if( !defined('NOVAP_THEME_PATH') )
+{
+    define('NOVAP_THEME_PATH', get_template_directory() . '/');
+}
+
+require_once NOVAP_THEME_PATH . 'vendor/autoload.php';
+use NovaPioneer\View;
+use NovaPioneer\Mailer;
+
+
 function novap_setup(){
 
   /*
@@ -95,3 +105,151 @@ function novap_body_class($classes) {
   return array_merge($classes, $additional_classes);
 }
 add_filter('body_class', 'novap_body_class');
+
+
+
+function novap_notify_on_rsvp(array $rsvp, $post)
+{
+    $rsvp = (object)$rsvp;
+    $event_date = get_field('date', $post->ID);
+    $admin_email_view = new View("emails/notify_admin_on_rsvp.html");
+    $user_email_view = new View("emails/notify_user_on_rsvp.html");
+
+    $mailer = new Mailer();
+
+    // Send user autorespond email first
+    $user_subject = "Thank you for your RSVP!";
+    $mailer->sendMail($user_subject, $user_email_view->render([
+        "title" => $user_subject,
+        "rsvp_name" => $rsvp->name,
+        "rsvp_email" => $rsvp->email,
+        "rsvp_attendance" => $rsvp->attendance,
+        "event_name" => $post->post_title,
+        "event_date" => $event_date
+    ],false), [$rsvp->email => $rsvp->name]);
+
+    // Then send notification to admin
+    $admin_subject = "RSVP from " . $rsvp->name . "<" . $rsvp->email . ">";
+    $mailer->sendMail($admin_subject, $admin_email_view->render([
+        "title" => $admin_subject,
+        "rsvp_name" => $rsvp->name,
+        "rsvp_email" => $rsvp->email,
+        "rsvp_attendance" => $rsvp->attendance,
+        "event_name" => $post->post_title,
+        "event_date" => $event_date
+    ],false), ["schambach@circle.co.ke" => "Schambach", "maria@circle.co.ke" => "Maria"]);
+    
+}
+
+
+function novap_add_event_rsvp($data){
+    global $post;
+    $data = (object)$data;
+
+    if(isset($data->rsvp_name) && isset($data->rsvp_email) && isset($data->rsvp_attendance))
+    {
+        $rsvp = array(
+            'name' => sanitize_text_field($data->rsvp_name),
+            'email' => sanitize_email($data->rsvp_email),
+            'attendance' => sanitize_text_field($data->rsvp_attendance)
+        );
+
+        $_event_rsvp =  add_post_meta($post->ID, '_event_rsvp', $rsvp);
+
+        if($_event_rsvp):
+            // notify rsvp of receipt by email and notify novapioneer admins of rsvp via email
+            novap_notify_on_rsvp($rsvp, $post);
+        endif;
+    }
+
+    return false;
+    
+}
+
+function novap_render_rsvp_metabox($post)
+{
+
+    $rsvps = get_post_meta($post->ID, '_event_rsvp');
+
+    if(!empty($rsvps)):
+    ?>
+
+        <table class="widefat fixed striped" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class="manage-column column-name" scope="col" ><strong>Name</strong></th>
+                    <th class="manage-column column-email" scope="col" ><strong>Email</strong></th>
+                    <th class="manage-column column-attendance" scope="col" ><strong>Attendance</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($rsvps as $rsvp): $rsvp = (object)$rsvp; ?>
+                <tr> 
+                    <td class="format-standard level-0">
+                        <?php echo $rsvp->name; ?>
+                        <div class="row-actions">
+                            <span class="trash">
+                            <?php $delete_nonce = wp_create_nonce( 'novap_delete_rsvp' ); ?>
+                            <?php $the_rsvp = urlencode(json_encode($rsvp)); ?>
+                            <a href="<?php echo get_admin_url(null, sprintf('/post.php?post=%s&action=edit&rsvp=%s&_wpnonce=%s', $post->ID, $the_rsvp, $delete_nonce)); ?>" 
+                               aria-label="Edit “<?php echo $rsvp->name; ?>”" 
+                               class="submitdelete">Delete</a>
+                            </span>
+                        </div>
+                    </td>
+                    <td class="format-standard level-0"><?php echo $rsvp->email; ?></td>
+                    <td class="format-standard level-0"><?php echo ucfirst($rsvp->attendance); ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <br class="clear">
+
+    <?php
+
+    else:
+        echo _e("There are no RSVP's yet for this event.", "novap");
+    endif;
+    
+}
+
+
+function novap_add_meta_boxes()
+{
+    add_meta_box('novap-events-rsvps', 'RSVP\'s', 'novap_render_rsvp_metabox', 'events', 'normal', 'high');
+}
+add_action('add_meta_boxes', 'novap_add_meta_boxes');
+
+
+function novap_delete_rsvp_from_event()
+{
+    if(is_admin()):
+
+        if(get_current_screen()->id === "events"):
+
+
+            if( isset($_REQUEST['post']) && isset($_REQUEST['rsvp']) && isset($_REQUEST['_wpnonce']) ):
+
+                $post_id = intval( $_REQUEST['post'] );
+
+                $nonce = esc_attr($_REQUEST['_wpnonce']);
+
+                $rsvp = (array)json_decode(
+                    stripslashes(
+                        urldecode($_REQUEST['rsvp'])
+                    ) 
+                );
+
+                if( wp_verify_nonce( $nonce, 'novap_delete_rsvp' ) ):
+                    // delete the rsvp
+                    delete_post_meta($post_id, '_event_rsvp', $rsvp);
+                endif;
+                
+            endif;
+
+
+        endif;
+        
+    endif;
+}
+add_action('load-post.php', 'novap_delete_rsvp_from_event');
