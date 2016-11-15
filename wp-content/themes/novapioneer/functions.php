@@ -115,11 +115,12 @@ function novap_notify_on_rsvp(array $rsvp, $post)
     $admin_email_view = new View("emails/notify_admin_on_rsvp.html");
     $user_email_view = new View("emails/notify_user_on_rsvp.html");
 
-    $mailer = new Mailer();
+    $admin_mailer = new Mailer();
+    $user_mailer  = new Mailer();
 
     // Send user autorespond email first
     $user_subject = "Thank you for your RSVP!";
-    $mailer->sendMail($user_subject, $user_email_view->render([
+    $autoresponder_sent = $user_mailer->sendMail($user_subject, $user_email_view->render([
         "title" => $user_subject,
         "rsvp_name" => $rsvp->name,
         "rsvp_email" => $rsvp->email,
@@ -130,7 +131,7 @@ function novap_notify_on_rsvp(array $rsvp, $post)
 
     // Then send notification to admin
     $admin_subject = "RSVP from " . $rsvp->name . "<" . $rsvp->email . ">";
-    $mailer->sendMail($admin_subject, $admin_email_view->render([
+    $admin_notification_sent = $admin_mailer->sendMail($admin_subject, $admin_email_view->render([
         "title" => $admin_subject,
         "rsvp_name" => $rsvp->name,
         "rsvp_email" => $rsvp->email,
@@ -138,7 +139,7 @@ function novap_notify_on_rsvp(array $rsvp, $post)
         "event_name" => $post->post_title,
         "event_date" => $event_date
     ],false), ["schambach@circle.co.ke" => "Schambach", "maria@circle.co.ke" => "Maria"]);
-    
+
 }
 
 
