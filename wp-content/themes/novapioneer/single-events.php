@@ -28,7 +28,6 @@ endif;
                 <input type="email" name="rsvp_email" required/><br/>
                 <label> <strong>Attendance: </strong> </label>
                 <input type="radio" name="rsvp_attendance" value="yes" required/> <label>Yes</label>
-                <input type="radio" name="rsvp_attendance" value="no"  required/> <label>No</label>
                 <input type="radio" name="rsvp_attendance" value="maybe"  required/><label>Maybe</label><br/>
                 <button type="submit">RSVP</button>
             </form>
