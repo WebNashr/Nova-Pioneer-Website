@@ -167,6 +167,17 @@ function novap_admin_display_custom_column($taxonomy, $post, $class = NULL)
     endif;
 }
 
+
+function novap_admin_posts_columns($columns)
+{
+    $columns['country'] = "Country";
+    $columns['school']  = "School";
+    return $columns;
+}
+add_filter('manage_edit-post_columns', 'novap_admin_posts_columns');
+add_filter('manage_edit-page_columns', 'novap_admin_posts_columns');
+
+
 function novap_admin_show_columns($name)
 {
     global $post;
