@@ -67,7 +67,7 @@ function novap_default_countries($post_id, $post, $update)
     foreach($country_privileges_map as $role => $country):
         if(current_user_can($role) && taxonomy_exists('country')):
             $country_term = get_term($country, 'country', OBJECT);
-            wp_set_post_terms($post_id, $country_term->term_id ,'country', true);
+            wp_set_post_terms($post_id, [$country_term->term_id] ,'country', true);
             break; // Don't need to continue looping
         endif;
     endforeach;
