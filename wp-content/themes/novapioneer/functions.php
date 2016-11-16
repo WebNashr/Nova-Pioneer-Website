@@ -9,6 +9,15 @@ require_once NOVAP_THEME_PATH . 'vendor/autoload.php';
 use NovaPioneer\View;
 use NovaPioneer\Mailer;
 
+/** Start Global Variables **/
+
+$country_privileges_map = array(
+    "edit_kenyan_content" => "kenya", 
+    "edit_south_african_content" => "south-africa"
+);
+
+/** End Global Variables **/
+
 
 function novap_setup(){
 
@@ -40,12 +49,140 @@ function novap_setup(){
    * See http://codex.wordpress.org/Post_Formats
    */
   add_theme_support('post-formats', array(
-      'image', 'video'
+      'image', 'video', 'gallery', 'quote'
   ));
 
 
 } // novap_setup
 add_action('after_setup_theme', 'novap_setup');
+
+// Chooses the default country for a post based on user capabilities
+function novap_default_countries($post_id, $post, $update)
+{
+    if($update)
+        return;
+    
+    global $country_privileges_map;
+
+    foreach($country_privileges_map as $role => $country):
+        if(current_user_can($role) && taxonomy_exists('country')):
+            wp_set_post_terms($post_id, $country ,'country', true);
+            break; // Don't need to continue looping
+        endif;
+    endforeach;
+
+}
+add_action('save_post', 'novap_default_countries', 10, 3);
+
+
+// Filters posts by country taxonomy
+function novap_filter_posts_by_country($query)
+{
+    if(is_admin()):
+
+        // Get current user's info
+        $current_user = wp_get_current_user();
+
+        // First privilege a user has will be used to filter posts
+        global $country_privileges_map;
+        $taxonomy = 'country';
+
+        // Filter posts depending on role/capability
+        foreach($country_privileges_map as $role => $country):
+            if(current_user_can($role) && taxonomy_exists('country')):
+                $query->set('tax_query', array(
+                    'relation' => 'OR',
+
+                    // Get Posts in user's country
+                    array(
+                        'taxonomy' => $taxonomy,
+                        'field' => 'slug',
+                        'terms' => $country
+                    ),
+                    
+                    // Get Posts not in any country
+                    array(
+                        'taxonomy' => $taxonomy,
+                        'field' => 'slug',
+                        'terms' => get_terms(array(
+                            'taxonomy' => $taxonomy,
+                            'fields' => 'names'
+                        )),
+                        'operator' => 'NOT IN'
+                    )
+                ));
+                break; // Don't need to continue looping
+            endif;
+        endforeach;
+
+    endif;
+
+}
+add_action('pre_get_posts', 'novap_filter_posts_by_country');
+
+// Display Country and School Column
+function novap_admin_display_custom_column($taxonomy, $post, $class = NULL)
+{
+
+    if(taxonomy_exists($taxonomy)):
+        $taxonomy_object = get_taxonomy($taxonomy);
+        $countries = get_the_terms( $post->ID, $taxonomy);
+        if(is_array($countries)):
+            $out = array();
+            foreach($countries as $country):
+                $posts_in_term_qv = array();
+                if ( 'post' != $post->post_type ) {
+                    $posts_in_term_qv['post_type'] = $post->post_type;
+                }
+                if ( $taxonomy_object->query_var ) {
+                    $posts_in_term_qv[ $taxonomy_object->query_var ] = $country->slug;
+                } else {
+                    $posts_in_term_qv['taxonomy'] = $taxonomy;
+                    $posts_in_term_qv['term'] = $country->slug;
+                }
+                $label = esc_html( sanitize_term_field( 'name', $country->name, $country->term_id, $taxonomy, 'display' ) );
+                $edit_url = add_query_arg( $posts_in_term_qv, 'edit.php' );
+
+                $class_html = '';
+                if ( ! empty( $class ) ) {
+                    $class_html = sprintf(
+                        ' class="%s"',
+                        esc_attr( $class )
+                    );
+                }
+
+                $out[] =  sprintf(
+                    '<a href="%s"%s>%s</a>',
+                    esc_url( $edit_url ),
+                    $class_html,
+                    $label
+                );
+            endforeach;
+            echo join( __( ', ' ), $out );
+        else:
+            echo '<span aria-hidden="true">&#8212;</span><span class="screen-reader-text">' . $taxonomy_object->labels->no_terms . '</span>';
+        endif;
+    else:
+        echo "";
+    endif;
+}
+
+function novap_admin_show_columns($name)
+{
+    global $post;
+
+    switch ($name) {
+        case 'country':
+            novap_admin_display_custom_column('country', $post);
+            break;
+        case 'school':
+            novap_admin_display_custom_column('school', $post);
+            break;       
+
+    }
+}
+add_action('manage_posts_custom_column',  'novap_admin_show_columns');
+add_action('manage_pages_custom_column', 'novap_admin_show_columns');
 
 
 // Replaces the excerpt "Read More" text by a link
