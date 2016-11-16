@@ -63,9 +63,9 @@ add_filter('excerpt_more', 'novap_excerpt_more');
  * @global $wp_query http://codex.wordpress.org/Class_Reference/WP_Query
  * @return Prints the HTML for the pagination if a template is $paged
  */
-function novap_base_pagination($query) {
+function novap_base_pagination( WP_Query $query = null ) {
     global $wp_query;
-    $query = !empty($query) ? $query : $wp_query;
+    $query = !is_null($query) && !empty($query) ? $query : $wp_query;
 
     $big = 999999999; // This needs to be an unlikely integer
 
@@ -75,8 +75,7 @@ function novap_base_pagination($query) {
         'base' => str_replace( $big, '%#%', get_pagenum_link($big) ),
         'current' => max( 1, get_query_var('paged') ),
         'total' => $query->max_num_pages,
-        'mid_size' => 5,
-        'type' => 'array'
+        'mid_size' => 5
 
     ) );
 
