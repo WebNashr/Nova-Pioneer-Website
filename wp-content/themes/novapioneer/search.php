@@ -9,6 +9,7 @@
 
 <div>
     Search for: <?php echo get_search_query(); ?>
+    <p><?php global $wp_query; echo $wp_query->found_posts; ?> results found.</p>
 </div>
 
 <?php if(have_posts()): ?>
@@ -18,7 +19,7 @@
 
     <article class="search-result">
         <header>
-            <h1> <?php echo get_the_title(); ?> </h1>
+            <h1> <a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?> </a> </h1>
         </header>
         <section>
             <?php echo get_the_excerpt(); ?>
