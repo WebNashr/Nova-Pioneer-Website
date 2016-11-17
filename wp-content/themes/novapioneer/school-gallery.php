@@ -12,14 +12,7 @@ get_header(); ?>
 
     <?php while(have_posts()): the_post(); ?>
 
-        <article>
-            <header>
-                <h1> <?php echo get_the_title(); ?> </h1>
-            </header>
-            <section>
-                <?php echo get_the_content(); ?>
-            </section>
-        </article>
+        <?php get_template_part('includes/partials/content', 'gallery'); ?>
 
     <?php endwhile; ?>
 

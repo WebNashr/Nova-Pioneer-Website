@@ -9,12 +9,19 @@
 
    <?php while(have_posts()): the_post();?>
 
-     <article>
-       <header>
-         <h1><?php echo get_the_title(); ?></h1>
-       </header>
-       <?php echo get_the_content(); ?>
-     </article>
+    <?php if( has_post_format('gallery') ): ?>
+
+      <?php get_template_part('includes/partials/content', 'gallery'); ?>
+
+    <?php else: ?>
+      <article>
+        <header>
+          <h1><?php echo get_the_title(); ?></h1>
+        </header>
+        <?php echo get_the_content(); ?>
+      </article>
+
+    <?php endif; ?>
 
    <?php endwhile; ?>
 
