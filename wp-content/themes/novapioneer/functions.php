@@ -401,3 +401,14 @@ function novap_render_google_map($lat, $long)
     async defer></script>
 <?php
 }
+
+function novap_download_file($fullpath)
+{
+    $fullpath = str_ireplace(home_url() . '/', ABSPATH, $fullpath);
+    $fsize = filesize($fullpath);
+    $filedata = (object)pathinfo($fullpath);
+    $ext = strtolower($filedata->extension);
+    header('Content-type: application/$ext');
+    header('Content-disposition: attachment; filename="' . $filedata->basename . '"');
+    readfile($fullpath); //Read and stream the file
+}
