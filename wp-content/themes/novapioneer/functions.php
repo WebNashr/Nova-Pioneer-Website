@@ -383,3 +383,21 @@ function novap_delete_rsvp_from_event()
     endif;
 }
 add_action('load-post.php', 'novap_delete_rsvp_from_event');
+
+
+function novap_render_google_map($lat, $long)
+{?>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    async defer></script>
+<?php
+}
