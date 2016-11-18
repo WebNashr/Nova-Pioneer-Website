@@ -27,8 +27,6 @@ get_header();?>
         <?php if( $careers_query->have_posts() ): ?>
 
         <div>
-            <h1>Open Job Positions</h1>
-
             <?php while( $careers_query->have_posts() ): $careers_query->the_post();
                 $description  = get_field('description');
                 $application_deadline   = get_field('application_deadline');
