@@ -12,6 +12,7 @@ get_header();?>
         $contacts       = get_field('contacts');
         $latitude       = get_field('latitude');
         $longitude      = get_field('longitude');
+        $info_text      = get_field('info_text');
     
     ?>
 
@@ -21,7 +22,7 @@ get_header();?>
             <?php echo $contacts; ?>
         </section>
         <section>
-            <?php novap_render_google_map($latitude, $longitude); ?>
+            <?php novap_render_google_map($latitude, $longitude, $info_text); ?>
         </section>
     </article>
 
