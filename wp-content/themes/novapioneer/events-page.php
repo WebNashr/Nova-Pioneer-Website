@@ -8,6 +8,9 @@ get_header();?>
 
 <?php $events_query = new WP_Query(array(
     "post_type" => "events",
+    'orderby' => 'menu_order',
+    'order' => 'ASC',
+    'posts_per_page' => -1
 )); ?>
 
 <?php if( $events_query->have_posts() ): ?>
