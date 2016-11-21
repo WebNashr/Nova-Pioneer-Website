@@ -162,9 +162,12 @@ if ( ! function_exists( 'wpuxss_eml_admin_menu' ) ) {
  *  @created  14/06/16
  */
 
-function wpuxss_eml_load_media_options_page() {
+if ( ! function_exists( 'wpuxss_eml_load_media_options_page' ) ) {
 
-    do_action( 'load-options-media.php' );
+    function wpuxss_eml_load_media_options_page() {
+
+        do_action( 'load-options-media.php' );
+    }
 }
 
 

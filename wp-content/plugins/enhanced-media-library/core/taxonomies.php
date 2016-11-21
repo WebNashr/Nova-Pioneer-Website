@@ -202,69 +202,85 @@ if ( ! function_exists( 'wpuxss_eml_ajax_query_attachments_args' ) ) {
     function wpuxss_eml_ajax_query_attachments_args( $query ) {
 
         $wpuxss_eml_taxonomies = get_option( 'wpuxss_eml_taxonomies', array() );
-        $uncategorized = ( isset( $query['uncategorized'] ) && $query['uncategorized'] ) ? 1 : 0;
         $tax_query = array();
+        $eml_query = isset( $_REQUEST['query'] ) ? (array) $_REQUEST['query'] : array();
+        $processed_taxonomies = get_object_taxonomies( 'attachment', 'object' );
+        $keys = array(
+            'uncategorized'
+        );
+
+        foreach ( $processed_taxonomies as $taxonomy => $params ) {
+            if ( isset( $eml_query[$taxonomy] ) ) {
+                $keys[] = $taxonomy;
+            }
+        }
+
+        $eml_query = array_intersect_key( $eml_query, array_flip( $keys ) );
+        $query = array_merge( $query, $eml_query );
+
+        $uncategorized = ( isset( $query['uncategorized'] ) && $query['uncategorized'] ) ? 1 : 0;
 
 
-        foreach ( get_object_taxonomies( 'attachment', 'object' ) as $taxonomy ) {
+        foreach ( $processed_taxonomies as $taxonomy_name => $params ) {
 
-            if ( ! array_key_exists( $taxonomy->name, $wpuxss_eml_taxonomies ) ) {
+            if ( ! array_key_exists( $taxonomy_name, $wpuxss_eml_taxonomies ) ) {
                 continue;
             }
 
             if ( $uncategorized ) {
 
-                $terms = get_terms( $taxonomy->name, array( 'fields' => 'ids', 'get' => 'all' ) );
+                $terms = get_terms( $taxonomy_name, array( 'fields' => 'ids', 'get' => 'all' ) );
 
-                $tax_query[] = array(
-                    'taxonomy' => $taxonomy->name,
-                    'field' => 'term_id',
-                    'terms' => $terms,
-                    'operator' => 'NOT IN'
-                );
+                if ( ! empty( $terms ) ) {
+
+                    $tax_query[] = array(
+                        'taxonomy' => $taxonomy_name,
+                        'field' => 'term_id',
+                        'terms' => $terms,
+                        'operator' => 'NOT IN'
+                    );
+
+                    unset( $query['uncategorized'] );
+                }
             }
             else {
 
-                if ( isset( $query[$taxonomy->query_var] ) && $query[$taxonomy->query_var] ) {
+                if ( isset( $query[$taxonomy_name] ) && $query[$taxonomy_name] ) {
 
-                    if( is_numeric( $query[$taxonomy->query_var] ) ||
-                        is_array( $query[$taxonomy->query_var] ) ) {
+                    if( is_numeric( $query[$taxonomy_name] ) || is_array( $query[$taxonomy_name] ) ) {
 
                         $tax_query[] = array(
-                            'taxonomy' => $taxonomy->name,
+                            'taxonomy' => $taxonomy_name,
                             'field' => 'term_id',
-                            'terms' => (array) $query[$taxonomy->query_var]
+                            'terms' => (array) $query[$taxonomy_name]
                         );
                     }
-                    elseif ( 'not_in' === $query[$taxonomy->query_var] ) {
+                    elseif ( 'not_in' === $query[$taxonomy_name] ) {
 
-                        $terms = get_terms( $taxonomy->name, array('fields'=>'ids','get'=>'all') );
+                        $terms = get_terms( $taxonomy_name, array('fields'=>'ids','get'=>'all') );
 
                         $tax_query[] = array(
-                            'taxonomy' => $taxonomy->name,
+                            'taxonomy' => $taxonomy_name,
                             'field' => 'term_id',
                             'terms' => $terms,
                             'operator' => 'NOT IN',
                         );
                     }
-                    elseif ( 'in' === $query[$taxonomy->query_var] ) {
+                    elseif ( 'in' === $query[$taxonomy_name] ) {
 
-                        $terms = get_terms( $taxonomy->name, array('fields'=>'ids','get'=>'all') );
+                        $terms = get_terms( $taxonomy_name, array('fields'=>'ids','get'=>'all') );
 
                         $tax_query[] = array(
-                            'taxonomy' => $taxonomy->name,
+                            'taxonomy' => $taxonomy_name,
                             'field' => 'term_id',
                             'terms' => $terms,
                             'operator' => 'IN',
                         );
                     }
+
+                    unset( $query[$taxonomy_name] );
                 }
             }
-
-            if ( isset( $query[$taxonomy->query_var] ) ) {
-                unset( $query[$taxonomy->query_var] );
-            }
-
         } // endforeach
 
         if ( ! empty( $tax_query ) ) {

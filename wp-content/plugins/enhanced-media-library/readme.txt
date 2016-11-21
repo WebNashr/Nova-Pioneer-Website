@@ -3,7 +3,7 @@ Contributors: webbistro
 Tags: media library, media category, media categories, media gallery, gallery shortcode, media tag, media tags, media taxonomy, media taxonomies, media uploader, mime type, mime, mime types, file types, media types, media filter, attachment, gallery, image, images, media, ux, user experience, wp-admin, admin, taxonomy, taxonomies
 Requires at least: 4.5
 Tested up to: 4.6.1
-Stable tag: 2.3.3
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -162,6 +162,14 @@ Please notice that you use the Enhanced Media Library with other plugins that ad
 
 == Changelog ==
 
+= 2.3.4 =
+*Release Date - November 19, 2016*
+
+= Bugfixes =
+* A bug of v2.3.2 and v2.3.3 with incorrect media filtering fixed
+
+
+&nbsp;
 = 2.3.3 =
 *Release Date - November 13, 2016*
 
@@ -201,7 +209,7 @@ Please notice that you use the Enhanced Media Library with other plugins that ad
 *Release Date - June 27, 2016*
 
 = Improvements =
-* All bulk operations are now dramatically (!) faster: save order, bulk assign terms (PRO only), bulk trash / restore / delete (PRO only). It actually takes seconds now to assign hundreds of media items in bulk.
+* All bulk operations are now dramatically (!) faster: save order, bulk assign terms (PRO only), bulk trash / restore / delete (PRO only). It actually takes seconds now to assign hundreds of media items in bulk
 * Bulk Trash / Restore added (PRO only)
 * "Show Count" option added to Media Taxonomies tab
 * Term count is now being calculated correctly and separately for different post types when they share a taxonomy with media library
