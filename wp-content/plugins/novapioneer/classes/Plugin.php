@@ -57,7 +57,7 @@ class Plugin
         ), array(
             "settings_fields" => "novap-redirection-settings",
             "settings_sections" => array(
-                "novap-redirection-urls-section"
+                "novap-options-redirection"
             )
         ));
         $this->pages[$redirection_settings_page->getSlug()] = $redirection_settings_page;
