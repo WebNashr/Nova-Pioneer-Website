@@ -11,6 +11,8 @@ class Plugin
 
     private $pages;
 
+    private $main_page;
+
     public function __construct()
     {
         register_activation_hook( NOVAP_PLUGIN_FILE, array( $this, 'activate') );
@@ -20,6 +22,7 @@ class Plugin
         add_action('admin_menu', array( $this, 'admin_menu') );
 
         $this->pages = array();
+        $this->main_page = "novap-options";
     }
 
     public function activate()
@@ -44,23 +47,20 @@ class Plugin
             "page_title" => "General Settings",
             "menu_title" => "Novapioneer",
             "capability" => "manage_options",
-            "menu_slug"  => "novap-options"
+            "menu_slug"  => $this->main_page
         ));
-        $this->pages[$main_page->getSlug()] = $main_page;
+        $this->add_page($main_page);
 
         $redirection_settings_page = new SubPage("admin_pages/redirection_settings.php", array(
-            "parent_slug" => $main_page->getSlug(),
+            "parent_slug" => $this->main_page,
             "page_title" => "Redirection Settings",
             "menu_title" => "Redirection",
             "capability" => "manage_options",
             "menu_slug"  => "novap-options-redirection"
         ), array(
-            "settings_fields" => "novap-redirection-settings",
-            "settings_sections" => array(
-                "novap-options-redirection"
-            )
+            "settings_fields" => "novap-redirection-settings"
         ));
-        $this->pages[$redirection_settings_page->getSlug()] = $redirection_settings_page;
+        $this->add_page($redirection_settings_page);
 
         add_action('admin_init', array( $this, 'register_settings' )); 
 
@@ -144,5 +144,10 @@ class Plugin
         );
 
         return $location_data;
+    }
+
+
+    private function add_page(Page $page){
+        $this->pages[$page->getSlug()] = $page;
     }
 }

@@ -7,11 +7,7 @@
             <form method="post" action="options.php">
                 <?php settings_fields( $settings_fields ); ?>
 
-                <?php 
-                    foreach( $settings_sections as $section ): 
-                        do_settings_sections( $section );
-                    endforeach; 
-                ?>
+                <?php do_settings_sections( $page_slug ); ?>
 
                 <?php submit_button(); ?>
 

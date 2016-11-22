@@ -136,6 +136,8 @@ class Page {
     public function render()
     {
 		extract($this->view_vars);
+
+		$page_slug = $this->getSlug();
 		
         require_once NOVAP_PLUGIN_PATH . "templates/" . $this->template_name;
     }
