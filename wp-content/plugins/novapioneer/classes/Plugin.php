@@ -106,22 +106,30 @@ class Plugin
 
     private function redirect()
     {
+        $actual_link = $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
-        if( !is_admin() ):
+        if( !is_admin() && ( $actual_link == site_url('/') ) ):
 
-            $country = _npcr_get_location()["geoplugin_countryName"];
+            $country = $this->get_location()["geoplugin_countryName"];
 
-            switch($country){
-                case "Kenya":
-                    header("Location:".site_url('/kenya'), true, 301); 
-                    break;
-                case "South Africa":
-                    header("Location:".site_url('/south-africa'), true, 301);
-                    break;
-                default:
-                    // do nothing
-                    break;
-            }
+            $kenya_redirect_url = get_option('novap_kenya_redirection');
+            $sa_redirect_url    = get_option('novap_sa_redirection');
+
+            if( !empty($kenya_redirect_url) && !empty($sa_redirect_url) ):
+
+                switch($country){
+                    case "Kenya":
+                        wp_redirect(site_url("/{$kenya_redirect_url}"), 301);  exit;
+                        break;
+                    case "South Africa":
+                        wp_redirect(site_url("/{$sa_redirect_url}"), 301); exit;
+                        break;
+                    default:
+                        // do nothing
+                        break;
+                }
+
+            endif;
 
         endif;
 
