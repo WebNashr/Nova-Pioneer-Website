@@ -48,10 +48,12 @@ function _npcr_redirect()
 
             switch($country){
                 case "Kenya":
-                    header("Location:".site_url("/{$kenya_redirect_url}"), true, 301); 
+                    flush();
+                    header("Location:".site_url("/{$kenya_redirect_url}"), true, 301);  exit;
                     break;
                 case "South Africa":
-                    header("Location:".site_url("/{$sa_redirect_url}"), true, 301);
+                    flush();
+                    header("Location:".site_url("/{$sa_redirect_url}"), true, 301); exit;
                     break;
                 default:
                     // do nothing
