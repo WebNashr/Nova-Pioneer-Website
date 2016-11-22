@@ -35,22 +35,31 @@ function npcr_init()
 
 function _npcr_redirect()
 {
-
-    if( !is_admin() ):
+    
+    if( !is_admin() && ( $_SERVER["REQUEST_URI"] == "/") ):
 
         $country = _npcr_get_location()["geoplugin_countryName"];
 
-        switch($country){
-            case "Kenya":
-                header("Location:".site_url('/kenya'), true, 301); 
-                break;
-            case "South Africa":
-                header("Location:".site_url('/south-africa'), true, 301);
-                break;
-            default:
-                // do nothing
-                break;
-        }
+        $kenya_redirect_url = get_option('npcr_kenya_redirection');
+        $sa_redirect_url    = get_option('npcr_sa_redirection');
+
+        if( !empty($kenya_redirect_url) && !empty($sa_redirect_url) ):
+
+            switch($country){
+                case "Kenya":
+                    header("Location:".site_url('/'.$kenya_redirect_url), true, 301); 
+                    break;
+                case "South Africa":
+                    header("Location:".site_url('/'.$sa_redirect_url), true, 301);
+                    break;
+                default:
+                    // do nothing
+                    break;
+            }
+
+        endif;
+
+
 
     endif;
 
