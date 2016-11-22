@@ -35,8 +35,9 @@ function npcr_init()
 
 function _npcr_redirect()
 {
-    
-    if( !is_admin() && ( $_SERVER["REQUEST_URI"] == "/") ):
+    $actual_link = $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+    if( !is_admin() && ( $actual_link == site_url()) ):
 
         $country = _npcr_get_location()["geoplugin_countryName"];
 
