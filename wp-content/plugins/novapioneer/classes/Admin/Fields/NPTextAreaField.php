@@ -24,8 +24,11 @@ class NPTextAreaField extends SettingsField
         $this->attachToSection($section);
     }
 
-    public function render()
+    public function render(array $args)
     {
+        extract($args);
+        $this->value = get_option($this->name);
+        
         echo '<textarea id="'.$this->id.'" class="'.$this->class.'" name="'.$this->name.'" rows="'.$this->rows.'" cols="'.$this->cols.'" placeholder="'.$this->placeholder.'">';
         
         echo $this->value;

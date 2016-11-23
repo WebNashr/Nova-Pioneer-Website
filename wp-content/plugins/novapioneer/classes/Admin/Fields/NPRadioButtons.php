@@ -22,8 +22,10 @@ class NPRadioButtons extends SettingsField
         $this->attachToSection($section);
     }
 
-    public function render()
+    public function render(array $args)
     {
+        extract($args);
+
         echo '<div id="'.$this->id.'" class="'.$this->class.'" >';
 
         $this->render_options();
@@ -33,6 +35,10 @@ class NPRadioButtons extends SettingsField
 
     private function render_options()
     {
+        $this->refreshValue();
+
+        // TODO: populate values from db. This is gonna be a little complex for this field.
+        // TODO: only check default values if the current value for this field in the db is null or empty
 
         foreach( $this->options as $option ):
 

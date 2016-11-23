@@ -19,8 +19,11 @@ class NPSearchField extends SettingsField
         $this->attachToSection($section);
     }
 
-    public function render()
+    public function render(array $args)
     {
+        extract($args);
+        $this->value = get_option($this->name);
+        
         echo '<input id="'.$this->id.'" class="'.$this->class.'" type="search" name="'.$this->name.'" value="'.$this->value.'" placeholder="'.$this->placeholder.'"/>';
     }
 }

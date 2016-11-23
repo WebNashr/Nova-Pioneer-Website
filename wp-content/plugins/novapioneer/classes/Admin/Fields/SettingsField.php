@@ -36,6 +36,18 @@ abstract class SettingsField
         $this->section = $section;
     }
 
+    public function getCurrentValue()
+    {
+        return get_option($this->name);
+    }
+
+    public function refreshValue()
+    {
+        $this->value = $this->getCurrentValue();
+
+        return $this->value;
+    }
+
     public function register()
     {
         if( isset($this->page) && !empty($this->page) && isset($this->section) && !empty($this->section) ):
