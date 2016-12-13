@@ -1,0 +1,17 @@
+
+/* Truncation */
+/* ==================================================== */
+
+
+@mixin truncate($width: 100%) {
+    display: block;
+    width: $width;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+// Usage:
+// div { @include truncate(100px); }

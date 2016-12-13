@@ -1,0 +1,29 @@
+
+/*  Main */
+/* ==================================================== */
+
+
+main {
+	// width: calc(100% - #{$space-tiny * 10}); // was 12
+	width: 100%;
+	//background: $white;
+	// transition: all 1.0s ease;
+
+	.page-home & {
+		// width: 100%;
+		z-index: 9;
+		margin-top: 100vh;
+
+		&.scroll {
+			// width: calc(100% - #{$space-tiny * 10}); // was 12
+		}
+	}
+}
+.page-home {
+    background: lighten($background-grey, 8%);
+    width: 100%;
+    .page-home & {
+		z-index: 9;
+		margin-top: 100vh;
+	}
+}

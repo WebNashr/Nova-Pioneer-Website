@@ -1,0 +1,39 @@
+
+/* Font weights */
+/* ==================================================== */
+
+
+/* Black */
+%font-weight-black {
+	font-weight: black;
+}
+
+/* Bold */
+%font-weight-bold {
+	font-weight: bold;
+}
+
+/* Medium */
+%font-weight-medium {
+	font-weight: medium;
+}
+
+/* Regular */
+%font-weight-regular {
+	font-weight: regular;
+}
+
+
+/* Light */
+%font-weight-light {
+	font-weight: light;
+}
+
+/* Thin */
+%font-weight-thin {
+	font-weight: thin;
+}
+
+
+// Usage:
+// div { @extend %font-weight-regular; }

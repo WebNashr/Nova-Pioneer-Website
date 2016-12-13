@@ -1,0 +1,62 @@
+
+/*  Structure */
+/* ==================================================== */
+
+
+/* Declare charset */
+@charset 'UTF-8';
+
+
+/* Box sizing */
+*,
+*:before,
+*:after {
+	@include box-sizing(border-box);
+}
+
+
+/* Base HTML */
+html {
+	@include copy(regular);
+	@include font-size(16px);
+	@include line-height(24px);
+
+	@include break-point(tablet) {
+
+	}
+
+	@include break-point(laptop) {
+
+	}
+
+	@include break-point(desktop) {
+
+	}
+}
+
+
+/* Base body */
+body {
+	@include flexbox();
+	@include flex-direction(column);
+	// @include flex-wrap(wrap);
+	//background: lighten($light, 2.5%);
+	background: $white;
+
+	// @include flexbox();
+	// @include flex-wrap(nowrap);
+	// @include flex-direction(column);
+	// justify-content: center;
+	// align-content: stretch;
+}
+
+
+.body-container {
+	@include flexbox();
+	@include flex-direction(row);
+	//min-height: 100vh;
+	// max-width: 1440px;
+	// margin: 0 auto;
+	//border-left: 1px solid $light;
+	//border-right: 1px solid $light;
+}

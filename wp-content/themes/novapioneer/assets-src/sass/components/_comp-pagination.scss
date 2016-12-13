@@ -1,0 +1,47 @@
+
+/*  Pagination */
+/* ==================================================== */
+
+
+.page-pagination {
+	border-top: 1px solid $grey;
+	margin-top: calc(#{$space-tiny} * 4);
+    padding: calc(#{$space-tiny} * 3) 0 calc(#{$space-tiny} * 2);
+
+}
+
+
+.button-pagination:not(:first-child) {
+    margin-left: calc(#{$space-tiny} * 1);
+}
+
+.button-pagination {
+    font-size: 0.8rem;
+    text-align: center;
+    min-width: calc(#{$space-tiny} * 3);
+    display: block;
+    background: $blue;
+    border-radius: 0;
+    float: left;
+    padding: 0.25rem 0.5rem;
+    &:hover {
+        background: $dark-blue;
+        border: none;
+        color: $white;
+    }
+}
+
+.page-numbers:not(:first-child) {
+    @extend .button-pagination:not(:first-child);
+}
+
+.page-numbers {
+    @extend .button;
+    @extend .button-default;
+    @extend .button-primary;
+    @extend .button-pagination;
+
+    &.current{
+        background: $sky;
+    }
+}

@@ -1,0 +1,11 @@
+
+/* Tex-indent */
+/* ==================================================== */
+
+
+@mixin text-indent($text-indent: null) {
+	text-indent: $text-indent;
+}
+
+// Usage:
+// div { @include text-indent(12px); }

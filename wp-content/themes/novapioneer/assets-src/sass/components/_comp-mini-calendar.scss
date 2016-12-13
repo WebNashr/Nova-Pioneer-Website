@@ -1,0 +1,163 @@
+.cal {
+  position: relative;
+  padding: 4px;
+  font-weight: bold;
+  //background: $dark-grey;
+  //background: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+}
+
+.cal:before {
+  content: '';
+  position: absolute;
+ 
+}
+
+.cal a {
+  text-decoration: none;
+}
+
+.cal tr:first-child td {
+  border-top: 0;
+}
+
+.cal td:first-child {
+  border-left: 0;
+}
+
+.cal tr:first-child a {
+  border-top: 0;
+  margin-top: 0;
+}
+
+.cal tr:last-child a {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.cal td:first-child a {
+  border-left: 0;
+  margin-left: 0;
+}
+
+.cal td:last-child a {
+  border-right: 0;
+  margin-right: 0;
+}
+
+.cal tr:last-child td:first-child a {
+  border-radius: 0 0 0 3px;
+}
+
+.cal tr:last-child td:last-child a {
+  border-radius: 0 0 3px 0;
+}
+
+.cal-table {
+  position: relative;
+  margin: 0 0 1px;
+  border-collapse: separate;
+  border-left: 1px solid darken($grey, 25%);
+  border-right: 1px solid darken($grey, 25%);
+  border-bottom: 1px solid darken($grey, 25%)
+  //border-radius: 0 0 3px 3px;
+  //box-shadow: 1px 0 rgba(0, 0, 0, 0.1), -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cal-caption {
+  width: 100%;
+  //padding-bottom: 1px;
+  //padding-top: 0.5rem;
+  line-height: 1;
+  color: $white;
+  text-align: center;
+  background: $green-blue;
+  p {
+    padding-top: 0.65rem;
+    color: $white;
+  }
+}
+
+.cal-caption a {
+  line-height: 30px;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: normal;
+  color: white;
+}
+
+.cal-caption .prev {
+  float: left;
+  color: $white;
+}
+
+.cal-caption .next {
+  float: right;
+  color: $white;
+}
+
+.cal-body td {
+  width: 30px;
+  font-size: 11px;
+  border-top: 1px solid #eaeaea;
+  border-left: 1px solid #eaeaea;
+}
+
+.cal-body a {
+  display: block;
+  position: relative;
+  line-height: 28px;
+  color: #555;
+  text-align: center;
+  background: white;
+}
+
+.cal-body a:hover {
+  background: #fafafa;
+}
+
+.cal-off a {
+  color: #ccc;
+  font-weight: normal;
+}
+
+.cal-today a {
+  color: black;
+  background: darken($grey, 25%);
+}
+
+.cal-selected a, .cal-body a:active {
+  margin: -1px;
+  color: $blue;
+  
+  border: 1px solid $green-blue;
+}
+
+.cal-check a {
+  color: #f79901;
+  overflow: hidden;
+}
+
+.cal-check a:before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  background: #ffb83b;
+  background-image: linear-gradient(to bottom, #ffb83b, #ff6c00);
+  transform: rotate(-45deg);
+}
+
+.lt-ie8 .cal-table {
+  *border-collapse: collapse;
+}
+
+.lt-ie8 .cal-body a {
+  zoom: 1;
+}

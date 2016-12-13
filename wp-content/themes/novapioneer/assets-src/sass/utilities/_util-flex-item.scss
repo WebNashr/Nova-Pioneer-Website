@@ -1,0 +1,40 @@
+
+/* Flex-box item */
+/* ==================================================== */
+
+
+/* Flex Order */
+@mixin flex-order($order) {
+	order: $order;
+}
+
+// div { @include flex-order(0); }
+
+
+/* Flex */
+@mixin flex($grow, $shrink, $basis) {
+	flex: $grow $shrink $basis;
+}
+
+// div { @include flex(1, 1, 512px); }
+
+
+@mixin flex-grow($grow) {
+	flex-grow: $grow;
+}
+
+// div { @include flex-grow(0); }
+
+
+@mixin flex-shrink($shrink) {
+	flex-shrink: $shrink;
+}
+
+// div { @include flex-shrink(30rem); }
+
+
+@mixin flex-basis($basis) {
+	flex-basis: $basis;
+}
+
+// div { @include flex-basis(30rem); }

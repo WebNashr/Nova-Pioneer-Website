@@ -3,11 +3,39 @@ get_header(); ?>
 
 <?php while(have_posts()): the_post(); ?>
 
-    <article>
-        <header>
-            <?php the_title(); ?>
-        </header>
-        <?php the_content(); ?>
-    </article>
+    <section class="section trigger-offset">
+        <article>
+            <header class="article-header">
+                <h1><?php the_title(); ?></h1>
+            </header>
+
+            <div class="article-container">
+                <aside class="article-aside">
+                    <div class="article-meta">
+                        <p class="article-meta-title">Posted</p>
+                        <small><?php echo get_the_date('jS M Y'); ?></small>
+                        <small>Updated <?php echo get_the_modified_date('jS M Y'); ?></small>
+                    </div>
+
+                    <div class="article-meta">
+                        <?php $categories = get_the_category(); ?>
+                        <p class="article-meta-title">Posted in</p>
+                        <?php foreach($categories as $category): ?>
+                          <small>
+                              <a href="<?php echo get_category_link( $category->cat_ID ); ?>" title=""><?php echo $category->name; ?></a>
+                          </small>
+                        <?php endforeach; ?>
+                    </div>
+                </aside>
+
+                <div class="article-inner">
+                    <div class="article-excerpt"> <?php the_excerpt(); ?> </div>
+                    <?php the_content(); ?>
+                </div>
+            </div>
+        </article>
+    </section>
 
 <?php endwhile; ?>
+
+<?php get_footer(); ?>

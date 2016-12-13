@@ -1,0 +1,42 @@
+
+/*  Button Size */
+/* ==================================================== */
+
+
+@mixin button-size($button-size) {
+	/* Large */
+	@if $button-size == 'large' {
+		$p: 19px; 
+		@include font-size(19px);
+		@include letter-spacing(small);
+		padding: $p calc(#{$p} * 1.5);
+	} 
+
+	/* Default */
+	@else if $button-size == 'default' {
+		$p: 14px;
+		@include font-size(14px);
+		@include letter-spacing(small);
+		padding: $p calc(#{$p} * 1.5);
+	}
+
+	/* Small */
+	@else if $button-size == 'small' {
+		$p: 13px; 
+		@include font-size(13px);
+		@include letter-spacing(tiny);
+		padding: $p calc(#{$p} * 1.5);
+	}
+
+	/* Tiny */
+	@else if $button-size == 'tiny' {
+		$p: 10px; 
+		@include font-size(12px);
+		@include letter-spacing(tiny);
+		padding: $p calc(#{$p} * 1.5);
+	}
+}
+
+// div { @include button-size(large); }
+
+

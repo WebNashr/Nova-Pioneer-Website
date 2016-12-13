@@ -1,0 +1,110 @@
+
+/*  Icons */
+/* ==================================================== */
+
+
+// .new-menu { //start new menu
+
+// mangly stuff
+.section-hero {
+    min-height: 75vh;
+    min-height: 80vh;
+    padding: 0;
+}
+
+.hero-container {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    // background: red;
+ //    background-image: -moz-linear-gradient(
+	// 	bottom, 
+	// 	rgba(0, 0, 0, 0.5), 
+	// 	rgba(0, 0, 0, 0.25) 25%, 
+	// 	rgba(0, 0, 0, 0.125) 50%, 
+	// 	rgba(0, 0, 0, 0.06125) 75%, 
+	// 	transparent 100%
+	// );
+}
+
+.main-callout-box {
+	position: absolute;
+	top: unset;
+	right: unset;
+		right: 0;
+	bottom: 0;
+	left: calc(#{$space-tiny} * 6);
+	max-width: 75vw;
+		max-width: 34vw;
+	margin: 0;
+	padding: calc(#{$space-tiny} * 2.5);
+	text-align: left;
+	background: unset;
+	box-shadow: unset;
+	border: unset;
+		// background-image: -moz-linear-gradient(
+		// 	bottom, 
+		// 	rgba(0, 0, 0, 0.5), 
+		// 	rgba(0, 0, 0, 0.25) 25%, 
+		// 	rgba(0, 0, 0, 0.125) 50%, 
+		// 	rgba(0, 0, 0, 0.06125) 75%, 
+		// 	transparent 100%
+		// );
+		background: rgba(0, 0, 49, 0.75);
+		background: rgba(7, 33, 52, 0.785);
+
+	hr {
+		padding: 3px 0;
+		background: #357eae;
+		width: 3rem;
+	}
+
+	h1 {
+	    @include copy(bold);
+	    @include font-size(26px);
+	    max-width: 768px;
+	    margin: 2rem 0;
+	    margin: calc(#{$space-tiny} * 1.5) 0 0;
+	    letter-spacing: 2px;
+	    // @include text-shadow(0px 1px 2px rgba(0, 0, 49, 0.5));
+	    color: $white;
+	}
+
+	p {
+        @include title(regular);
+        @include font-size(20px);
+        	max-width: 768px;
+        
+        margin: calc(#{$space-tiny} * 1.5) 0 0;
+        padding: 0;
+        line-height: 1.5;
+        @include text-shadow(0px 1px 2px rgba(0, 0, 49, 0.5));
+        color: $white;	
+        display: none;	
+    }
+
+    a {
+        display: unset;
+        font-size: unset;
+        color: unset;
+        text-decoration: unset;
+        padding-top: unset;
+
+        &:hover {
+            color: unset;
+            text-decoration: unset;
+        }
+    }
+
+    a.button {
+        @extend .button;
+        @extend .button-default;
+        @extend .button-primary;
+        margin: calc(#{$space-tiny} * 1.5) 0 0;
+    }
+}
+
+
+// } // end new menu
+
+

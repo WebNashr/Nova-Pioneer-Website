@@ -1,0 +1,28 @@
+
+/* Vertical rhythm */
+/* ==================================================== */
+
+
+@mixin rhythm($line: null) {
+	line-height: $line;
+}
+
+// Usage:
+// div { @include rhythm(12px); }
+
+
+
+
+
+@function rem-size($size) {
+	$remSize: $size / $root-size; // $size / 16px
+	@return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+	font-size: $size;
+	font-size: rem-size($size);
+}
+
+// Usage:
+// div { @include font-size(23px); }

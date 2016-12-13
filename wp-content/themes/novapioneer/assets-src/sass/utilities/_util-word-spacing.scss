@@ -1,0 +1,25 @@
+
+/* Word spacing */
+/* ==================================================== */
+
+
+@mixin word-spacing($word-space) {
+	/* Small spacing */
+	@if $word-space == 'small' {
+		word-spacing: calc($size / 92);
+	}
+
+	/* Medium spacing */
+	@else if $word-space == 'medium' {
+		word-spacing: calc($size / 72);
+	}
+
+	/* Large spacing */
+	@else if $word-space == 'large' {
+		word-spacing: calc($size / 48);
+	}
+}
+
+
+// Usage:
+// div { @include word-spacing(small); }

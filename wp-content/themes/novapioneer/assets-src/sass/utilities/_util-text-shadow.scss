@@ -1,0 +1,11 @@
+
+/* Text shadow */
+/* ==================================================== */
+
+
+@mixin text-shadow($x-axis: null, $y-axis: null, $spread: null, $colour: null) {
+    text-shadow: $x-axis $y-axis $spread $colour;
+}
+
+// Usage
+// div { @include text-shadow(2px 6px 24px rgba(255, 89, 45, 0.51)); }

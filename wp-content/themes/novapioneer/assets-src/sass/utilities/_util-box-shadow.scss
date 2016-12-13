@@ -1,0 +1,12 @@
+
+/* Box-shadow */
+/* ==================================================== */
+
+
+@mixin box-shadow($x-axis: null, $y-axis: null, $blur: null, $spread: null, $colour: null) {
+    box-shadow: $x-axis $y-axis $blur $spread $colour;
+}
+
+
+// Usage:
+// div { @include box-shadow(8px, 8px, 24px, 12px, rgba(0,0,0,1)); }

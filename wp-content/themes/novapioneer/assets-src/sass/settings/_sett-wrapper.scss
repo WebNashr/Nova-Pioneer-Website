@@ -1,0 +1,24 @@
+
+/* Wrapper */
+/* ==================================================== */
+
+
+%wrapper {
+	@extend %clearfix;
+	width: 100%;
+
+    @include break-point(tablet) {
+
+    }
+
+    @include break-point(laptop) {
+
+    }
+
+    @include break-point(desktop) {
+
+    }
+}
+
+// Usage:
+// div { @extend %wrapper; }

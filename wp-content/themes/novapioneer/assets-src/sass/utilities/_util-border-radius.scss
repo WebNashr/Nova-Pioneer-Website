@@ -1,0 +1,14 @@
+
+/*  Border-radius */
+/* ==================================================== */
+
+
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	background-clip: padding-box;
+}
+
+
+// Usage:
+// div { @include border-radius(12px); }
+

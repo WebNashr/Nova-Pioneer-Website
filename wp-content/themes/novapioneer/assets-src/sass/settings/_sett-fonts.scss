@@ -1,0 +1,83 @@
+
+/* Typefaces */
+/* ==================================================== */
+
+
+$font-url: 'https://fonts.googleapis.com/css?family=Gentium+Basic:400,400i,700|Lato:400,700';
+
+@if variable-exists(font-url) {
+  @import url($font-url);
+}
+
+/* Title font */
+@mixin title($title) {
+font-family: 'Gentium Basic', serif;
+
+	/* Black */
+	// @if $title == 'black' {
+	// 	font-weight: 900;
+	// }
+
+	/* Bold */
+	@if $title == 'bold' {
+		font-weight: 700;
+	}
+
+	// /* Semi-bold */
+	// @else if $title == 'semi' {
+	// 	font-weight: 500;
+	// }
+
+	/* Regular */
+	@else if $title == 'regular' {
+		font-weight: 400;
+	}
+
+	// /* Light */
+	// @else if $title == 'light' {
+	// 	font-weight: 100;
+	// }
+}
+
+/* Copy font */
+@mixin copy($copy) {
+	font-family: 'Lato', sans-serif;
+	/* Black */
+	// @if $copy == 'black' {
+	// 	font-weight: 900;
+	// }
+
+	/* Bold */
+	@if $copy == 'bold' {
+		font-weight: 900;
+	}
+
+	// /* Semi-bold */
+	// @else if $copy == 'semi' {
+	// 	font-weight: 500;
+	// }
+
+	/* Regular */
+	@else if $copy == 'regular' {
+		font-weight: 400;
+	}
+
+	// /* Light */
+	// @else if $copy == 'light' {
+	// 	font-weight: 100;
+	// }
+	// /* Regular Italic*/
+	// @else if $copy == 'regular-italic' {
+	// 	@include copy(regular);
+	// 	font-style: italic;
+	// }
+	// /* Light-Italic */
+	// @else if $copy == 'light-italic' {
+	// 	@include copy(light);
+	// 	font-style: italic;
+	// }
+}
+
+
+// Usage:
+// div { @include copy(regular); }

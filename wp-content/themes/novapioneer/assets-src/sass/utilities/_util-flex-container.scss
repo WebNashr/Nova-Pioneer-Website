@@ -1,0 +1,36 @@
+
+/* Flex-box container */
+/* ==================================================== */
+
+
+/* Flexbox */
+@mixin flexbox {
+	// add support on IE 8 & 9
+	-js-display: flex;
+	// normal flexbox
+	display: flex;
+}
+
+// div { @include flexbox(); }
+
+
+/* Flex Direction */
+@mixin flex-direction($direction) {
+	@if $direction == column {
+		flex-direction: column;
+	}
+
+	@else {
+		flex-direction: row;
+	}
+}
+
+// div { @include flex-direction(row); }
+
+
+/* Flexbox */
+@mixin flex-wrap($flow) {
+	flex-wrap: $flow;
+}
+
+// div { @include flex-wrap(wrap); }

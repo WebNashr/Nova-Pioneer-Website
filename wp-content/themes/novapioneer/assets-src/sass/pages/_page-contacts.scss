@@ -1,0 +1,138 @@
+.contacts-container {
+	margin-top: 8rem;
+	.card {
+		margin-bottom: 1rem;
+		h2 {
+			margin-bottom: 1rem;
+		}
+		p{
+			margin-bottom: 1rem;
+			
+			@include copy(semi);
+		}
+	}
+
+	.contact-info {
+		@include font-size(18px);
+		line-height: 1.75rem;
+		span {
+			margin-bottom: 1rem;
+			a {
+				display: block;
+			}
+		}
+
+	}
+	h2 {
+		text-align: left;
+	}
+}
+
+.all-school-contacts {
+	@include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    padding: calc(#{$space-tiny} * 2);
+    margin-bottom: 2rem;
+    height: 100%;
+    width: 100%;
+
+    .section-nav {
+		@include flex-direction(column);
+		flex-basis:20%;
+		//height: 100vh;
+		 h1 {
+		 	@include copy(semi);
+		 	@include font-size(36px);
+		 	color: $green-blue;
+		 	text-shadow: none;
+		 	padding-right: 1rem;
+		 	margin-bottom: 1rem;
+		 }
+		 a {
+		 	display: block;
+		 	color: $blue;
+		 	line-height: 2;
+		 	&:hover {
+		 		color: $dark-blue;
+		 		text-decoration: underline;
+		 	}
+		 }
+
+	}
+	
+	.inner-container {
+	 	@include flexbox();
+		border-left: 1px $light-grey solid;
+		padding-left: calc(#{$space-tiny} * 2);
+		padding-right: 0;
+		flex-basis: 80%;
+		overflow: hidden;
+	}
+	.location-map {
+		width: 100%;
+		height: 100vh;
+
+		iframe {
+		    width: 100%;
+		    height: 100%;
+		}
+	}
+	.contact-info {
+		//width: 30%;
+		width: auto;
+		@include font-size(18px);
+		line-height: 1.5;
+		color: $dark-grey;
+		margin-bottom: 2rem;
+
+		.phone-contact-one,
+		.phone-contact-two,
+		.email-contact,
+		 {
+			display: block;
+		}
+	}
+	address{
+		flex-basis: 75%;
+		@include font-size(21px);
+		@include copy(regular);
+		font-style: normal;
+		color: $dark-grey;
+		line-height: 1.5;
+		a {
+			color: $blue;
+		}
+	}
+}
+.social-media-links {
+	list-style: none;
+    margin: 0;
+	padding: 0;
+	li {
+	 	display: inline-block;
+	 	font-size: 1rem;
+	 	margin-right: 1.5rem;
+	}
+	a{
+		background-image: url('/wp-content/themes/novapioneer/img/np-social-icons.png');
+	    background-image: url(/wp-content/themes/novapioneer/img/np-social-icons.svg), none; 
+	    background-repeat: no-repeat;
+	    display: block;
+	    min-width:50px;
+	    height: 50px;
+		transition: all 350ms ease-out;
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+	.facebook{
+	    background-position: 0 0;
+	}
+	.twitter{
+	    background-position: -53px 0;
+	}
+	.linkedin{
+	    background-position: -107px 0;
+	}
+}

@@ -1,0 +1,160 @@
+
+/*  Forms */
+/* ==================================================== */
+
+
+form {
+	@extend %clearfix;
+	@include copy(regular);
+	position: relative;
+	width: 100%;
+	display: block;
+	background: transparent;
+}
+
+
+
+fieldset {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	font-size: 1rem;
+	background: transparent;
+	border: 0 none;
+	@extend %clearfix;
+
+	&:not(:first-of-type) {
+		margin-top: calc(#{$space-tiny} * 1.75);
+
+		&.column-3 {
+		}
+	}
+}
+
+
+label {
+	display: block;
+	margin: 0 0 0.751rem;
+	padding: 0;
+	@include font-size(18px);
+	@include font-size(16px);
+	@include line-height(1.1);
+	text-transform: capitalize;
+	color: $grey;
+	color: lighten($blue, 2.5%);
+
+	&.radio-check {
+		display: inline;
+		font-weight: normal;
+	}
+
+	span {
+		color: $blue;
+		// font-weight: bold;
+		font-size: 1.25rem;
+	}
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+	@include font-size(16px);
+	@include letter-spacing(tiny);
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 0.75rem 1rem;
+	color: $grey;
+	background: $white;
+	appearance: none;
+	border: 0 none;
+	outline: 0 none;
+	border: 1px solid $sky;
+	border-radius: 2px;
+
+	&:hover {
+		color: $sky;
+		border: 1px solid $green-blue;
+	}
+
+	&:focus {
+		color: $dark-blue;
+		border: 1px solid $dark-blue;
+	}
+
+	&::placeholder {
+		color: $blue;
+		opacity: 1;
+	}
+}
+
+
+textarea {
+	height: 10rem;
+}
+
+
+select {
+	min-width: 25%;
+	width: 100%;
+	margin: 0;
+	border-radius: 3px;
+}
+
+
+option {
+	padding: 0.25rem 0 0;
+	border: 0 none;
+	outline: 0 none;
+}
+
+
+fieldset.radio ul {
+	@extend %clearfix;
+	margin-top: 0.25rem;
+	list-style-type: none;
+}
+
+
+fieldset.radio ul li {
+	float: left;
+	margin: 0 2rem 0.25rem 0;
+}
+
+
+fieldset.radio ul li:last-child {
+	margin: 0;
+}
+
+
+p.form-help {
+	display: inline-block;
+	margin: 0.125rem 0 0.25rem;
+	@include font-size(15px);
+	color: #999;
+}
+
+p.form-data {
+	display: inline-block;
+	margin: 0.125rem 0 0.75rem;
+	@include font-size(18px);
+}
+
+
+input[type="submit"] {
+	appearance: none;
+	@include border(0, solid, transparant);
+	@include outline(0, solid, transparant);
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+	}
+
+	&:active {
+	}
+}

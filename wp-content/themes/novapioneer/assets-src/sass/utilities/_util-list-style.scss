@@ -1,0 +1,19 @@
+
+/* List style */
+/* ==================================================== */
+
+
+/* None */
+%list-style-none {
+	list-style: none;
+}
+
+
+/* Initial */
+%list-style-initial {
+	list-style: initial;
+}
+
+
+// Usage:
+// div { @extend %list-style-none; }

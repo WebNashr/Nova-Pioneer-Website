@@ -1,0 +1,13 @@
+
+/*  Box-sizing */
+/* ==================================================== */
+
+
+/* Box Sizing */
+@mixin box-sizing($type) {
+    box-sizing: $type;
+}
+
+
+// Usage:
+// div { @include box-sizing(border-box); }

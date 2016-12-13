@@ -1,0 +1,11 @@
+
+/* Dropcaps */
+/* ==================================================== */
+
+
+.post div:first-of-type p:first-of-type:first-letter {
+	@extend %float-left;
+	@extend %text-align-center;
+}
+
+

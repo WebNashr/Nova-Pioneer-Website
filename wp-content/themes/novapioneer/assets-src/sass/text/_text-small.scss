@@ -1,0 +1,22 @@
+
+/* Small */
+/* ==================================================== */
+
+
+small {
+	display: block;
+
+	@include break-point(tablet) {
+
+	}
+
+	@include break-point(laptop) {
+
+	}
+
+	@include break-point(desktop) {
+
+	}
+}
+
+

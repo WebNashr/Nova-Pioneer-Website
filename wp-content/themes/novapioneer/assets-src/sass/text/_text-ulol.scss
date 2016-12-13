@@ -1,0 +1,68 @@
+
+/* Lists */
+/* ==================================================== */
+
+
+ul,
+ol {
+	@extend %list-style-none;
+	width: 100%;
+
+	.article-inner & {
+		list-style: unset;
+		//margin: 1.5rem 0 1.5rem 1.5rem;
+		line-height: 1.75;
+		text-indent: 1rem;
+		color: $dark-grey;
+	}
+}
+
+
+ul {
+	margin: 0 0 1.25rem 0;
+	text-indent: 0.125rem;
+	li {
+		//@include font-size(14px);
+		list-style-type: none;
+		//margin: 1.5rem 0 0 1rem;
+		&:before {
+			content: "\2022";
+			padding-right: 0.75rem;
+			color: $green-blue;
+			@include font-size(16px);
+		}
+	}
+	ul {
+		margin: 0 0 0 1.125rem;
+		li {
+			margin: 0 0 0 1.125rem;
+			@include font-size(14px);
+			&:before {
+				padding-right: 0.5rem;
+				content: "\2013";
+				@include copy(bold);
+				
+				
+			}
+					
+		}
+	}
+}
+ol {
+	margin: 0 0 1.25rem 0;
+	text-indent: 0.125rem;
+	counter-reset: number-counter;
+	li {
+		//@include font-size(14px);
+		list-style-type: none;
+		//margin: 1.5rem 0 0 1rem;
+		&:before {
+			content: counter(number-counter) ".";
+			counter-increment: number-counter;
+			@include copy(bold);
+			color: $green-blue;
+			padding-right: 0.75rem;
+			@include font-size(16px);
+		}
+	}
+}

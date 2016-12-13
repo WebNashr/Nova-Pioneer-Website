@@ -1,0 +1,176 @@
+
+/*  Home Page */
+/* ==================================================== */
+.country-select-container {
+    // @include flexbox();
+    // @include flex-direction(row);
+    // @include flex-wrap(wrap);
+    // width:100%;
+    @extend %column;
+  	@extend %columns;
+  	@extend %column-12;
+    justify-content: center;
+    margin: auto;
+    //margin-bottom: 2rem;
+
+}
+.country-select {
+    // width: 40%;
+    // @include flexbox();
+    // @include flex-direction(row);
+    // @include flex-wrap(wrap);
+    @extend %column;
+    @extend %column-4;
+    justify-content: flex-start;
+    align-items: center;
+    img {
+      border-radius: 50%;
+      max-width: 250px;
+      border: 4px solid darken($grey, 5%);
+    }
+    .country-image {
+      text-align: center;
+    }
+    .country-description {
+      padding-top: calc(#{$space-tiny} * 0.5);
+
+       p {
+          padding: calc(#{$space-tiny} * 1);
+          @include font-size(18px);
+          @include copy(regular);
+          text-align: center;
+          line-height: 1.35;
+       }
+    }
+
+    // &:hover {
+    //     .country-description {
+    //         display: inline-block;
+    //         width: 100%;
+    //         height: 100%;
+    //         //background: rgba(19,59,85,.9);
+    //         background: rgba(0,0,0,.8);
+    //         position: absolute;
+    //         top: 0;
+    //         left: 0;
+    //         padding: calc(#{$space-tiny} * 1);
+    //         animation: fadeIn 0.6s;
+    //
+    //     }
+    // }
+
+}
+.country-button {
+    @include button-size(large);
+    // ////@include button-style(solid);
+    //@include button-state(normal);
+    @include copy(bold);
+    @include font-size(36px);
+    @extend %columns;
+    align-items: center;
+    //width: 100%;
+    color: $white;
+    background: $blue;
+    border-radius: 5px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    a {
+      color: $white;
+      text-align: center;
+    }
+    &:hover {
+        background: $dark-blue;
+        color: $white;
+        border: none;
+        transition: background 0.3s ease;
+    }
+}
+.south-africa-flag{
+    // @include flexbox();
+    // @include flex-direction(row);
+    // @include flex-wrap(nowrap);
+    @extend %columns;
+    align-items: center;
+
+    &:before {
+        content:url('/wp-content/themes/novapioneer/img/sa-flag-round.png');
+        padding-right: calc(#{$space-tiny} * 1.5);
+        //position: relative;
+        //justify-content: flex-start;
+        // margin-right: 18%;
+        // margin-left:1%;
+
+     }
+}
+.kenya-flag{
+    // @include flexbox();
+    // @include flex-direction(row);
+    // @include flex-wrap(nowrap);
+    @extend %columns;
+    align-items: center;
+
+    &:before {
+        content:url('/wp-content/themes/novapioneer/img/kenya-flag-round.png');
+        padding-right: calc(#{$space-tiny} * 1.5);
+        //position: relative;
+        // justify-content: flex-start;
+        // margin-right: 28%;
+        // margin-left:1%;
+
+     }
+}
+// .country-thumbnails{
+//     //background: $grey;
+//     width: 90%;
+//     @include flexbox();
+//     @include flex-direction(row);
+//     @include flex-wrap(wrap);
+//     overflow: hidden;
+//     justify-content: center;
+//     background: $white;
+//     padding: calc(#{$space-tiny} * 1);
+//     position: relative;
+//     top: -0.5rem;
+//     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.25);
+//
+//     .first-column {
+//         flex: 1;
+//
+//     }
+//     .second-column {
+//         @include flex-direction(column);
+//         flex: 1;
+//     }
+//     .country-thumb-1, {
+//         @include flex-order(1);
+//         //flex: 1;
+//         //margin-top: 0.5rem;
+//         margin-bottom: 0;
+//         //width: 100%;
+//         //padding-left: 7%;
+//         &:first-child {
+//             margin-bottom: 0.65rem;
+//         }
+//         &:last-child {
+//
+//
+//         }
+//         img {
+//             width: 100%;
+//         }
+//     }
+//
+//     .country-thumb-2 {
+//         @include flex-order(2);
+//         flex: 1;
+//         margin-top: 0;
+//         margin-bottom: 0;
+//         width: 100%;
+//         padding-left: 8%;
+//         img {
+//             width: 98%;
+//
+//         }
+//     }
+//
+// }

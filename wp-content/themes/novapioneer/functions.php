@@ -224,15 +224,19 @@ function novap_base_pagination( WP_Query $query = null ) {
         'base' => str_replace( $big, '%#%', get_pagenum_link($big) ),
         'current' => max( 1, get_query_var('paged') ),
         'total' => $query->max_num_pages,
+        'prev_text' => '&lt;',
+        'next_text' => '&gt;',
         'mid_size' => 5
 
     ) );
 
     // Display the pagination if more than one page is found
     if ( $paginate_links ) {
-        echo '<div class="page-pagination"><nav role="navigation">';
+        echo '<footer class="page-pagination"><nav role="navigation">';
+        
         echo $paginate_links;
-        echo '</nav></div><!--// end .pagination -->';
+
+        echo '</nav></footer><!--// end .pagination -->';
     }
 }
 
@@ -246,8 +250,12 @@ add_action('wp_enqueue_scripts', 'novap_setup_assets');
 function novap_body_class($classes) {
   $additional_classes = [];
 
-  if(is_front_page()){
+  if( is_front_page() ){
     $additional_classes[] = 'page-home';
+  }
+  
+  if( is_404() || is_single() || is_search()){
+      $additional_classes[] = 'non-hero';
   }
 
   return array_merge($classes, $additional_classes);
@@ -410,3 +418,15 @@ function novap_download_file($fullpath)
     header('Content-disposition: attachment; filename="' . $filedata->basename . '"');
     readfile($fullpath); //Read and stream the file
 }
+
+function novap_enqueue_assets()
+{
+    /** STYLES **/
+    wp_register_style('novapioneer_styles', get_template_directory_uri() . '/assets/css/main.min.css', '1.0.0', 'all');
+    wp_enqueue_style('novapioneer_styles');
+
+    /** SCRIPTS **/
+    wp_register_script('novapioneer_scripts', get_template_directory_uri() . '/assets/js/main.min.js', array(), '1.0.0', true);
+    wp_enqueue_script('novapioneer_scripts');
+}
+add_action('wp_enqueue_scripts', 'novap_enqueue_assets');

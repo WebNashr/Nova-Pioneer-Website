@@ -1,0 +1,39 @@
+
+/*  Media-queries */
+/* ==================================================== */
+
+
+@mixin break-point($point) {
+    @if $point == desktop {
+        @media only screen and (min-width: 1366px) { //1366px
+            @content;
+        }
+    }
+
+    @else if $point == laptop {
+        @media only screen and (min-width: 1024px) { //1072px
+            @content;
+        }
+    }
+
+    @else if $point == tablet {
+        @media only screen and (min-width: 600px) { //960px
+            @content;
+        }
+    }
+
+    @else if $point == mobile {
+        @media only screen and (max-width: 599px) { //600px
+            @content;
+        }
+    }
+}
+
+
+// Usage:
+// div {
+//     @include break-point(mobile) {
+//         margin: 2em;
+//     }
+// }
+

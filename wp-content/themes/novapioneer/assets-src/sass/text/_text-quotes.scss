@@ -1,0 +1,147 @@
+
+/* Quotes */
+/* ==================================================== */
+
+// blockquote {
+// 	margin: 1.5rem 0 1.5rem 1.5rem;
+// 	line-height: 1.75;
+// 	font-size: 1.35rem;
+// 	font-family: 'Georgia', 'Times', serif;
+// 	font-weight: 500;
+// 	font-style: italic;
+// 	color: $dark-grey;
+// }
+
+.testimonial {
+	// @include flexbox();
+	// @include flex-wrap(nowrap);
+	@extend %columns;
+  @extend %column;
+  @extend %column-12;
+	justify-content: center;
+	// padding-top: calc(#{$space-tiny} * 2);
+	// padding-bottom: calc(#{$space-tiny} * 1);
+	background: lighten($background-grey, 5%);
+	//width: 100%;
+	padding: calc(#{$space-tiny} * 3);
+	&.full-width-quote {
+		background: lighten($green-blue, 30%);
+		min-height: 300px;
+		margin: 2rem 0 3rem 0;
+		padding: calc(#{$space-tiny} * 5) 0;
+		&.home-page-quote,
+		&.bottom-quote {
+			margin-bottom: 0;
+		}
+		blockquote {
+			color: darken($grey, 50%);
+			padding-top: 0;
+			cite {
+				&:before {
+					border-top: 1px solid darken($grey, 25%);
+				}
+			}
+		}
+	}
+	&.pull-quote {
+		background: none;
+		padding: calc(#{$space-tiny} * 2) 0;
+
+
+		blockquote {
+			@include font-size(21px);
+			padding-left: 0;
+		}
+		blockquote:before {
+			@include font-size(70px);
+			top: -30px;
+		}
+	}
+	.spacing-to-center {
+		@extend %columns;
+		@extend %column-2;
+		content: " "
+	}
+	figure {
+		//padding: calc(#{$space-tiny} * 2);
+		align-self: center;
+		img {
+			max-width: 200px;
+			height: 200px;
+			border-radius: 50%;
+
+		}
+
+
+		@extend %columns;
+		@extend %column-3;
+		&.full-width-figure {
+			//padding: calc(#{$space-tiny} * 2);
+			@extend %column-2;
+			align-self: center;
+		}
+
+	}
+
+	blockquote {
+		@extend %columns;
+		@extend %column-5;
+		@include font-size(24px);
+		@include copy(regular);
+		color: lighten($dark-grey, 15%);
+		font-style: italic;
+		line-height: 1.5;
+		font-family: 'Gentium Basic', serif;
+		width: auto;
+		// max-width: 650px;
+		//padding: 0.25rem 0.5rem;
+		//padding-top: calc(#{$space-tiny} * 2;
+		padding-right: calc(#{$space-tiny} * 2);
+		padding-left: calc(#{$space-tiny} * 2);
+		position: relative;
+		//color: lighten($dark-grey, 10%);
+		//color: $green-blue;
+		.center-quote {
+			width: 650px;
+		}
+		svg {
+				width: 30px;
+				height: 30px;
+				fill: lighten($blue, 10%);
+				margin-bottom: 1rem;
+
+		}
+
+	}
+	// blockquote:before {
+	// 	display: block;
+	// 	background-image: url(/wp-content/themes/novapioneer/img/quote-mark.svg);
+	// 	//content: "\201C";
+	// 	//@include font-size(100px);
+	// 	//position: absolute;
+	// 	//top: -41px;
+	// 	color: $blue;
+	// }
+	blockquote cite {
+		color: $dark-grey;
+		@include font-size(14px);
+		@include copy(regular);
+		font-style: normal;
+		display: block;
+		padding-top: calc(#{$space-tiny} * 1);
+
+	span {
+		@include copy(bold);
+	}
+	&:before {
+			display: block;
+			padding-bottom: calc(#{$space-tiny} * 0.5);
+			//margin-top: 0.5rem;
+			content:"";
+			border-top: 1px solid darken($grey, 15%);
+			width: 20%;
+			padding-top: calc(#{$space-tiny} * 0.5);
+		}
+	}
+
+}

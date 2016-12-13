@@ -1,0 +1,11 @@
+
+/* Line-height */
+/* ==================================================== */
+
+
+@mixin line-height($leading: null) {
+	line-height: $leading;
+}
+
+// Usage:
+// div { @include line-height(12px); }

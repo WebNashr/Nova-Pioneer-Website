@@ -1,0 +1,14 @@
+
+/* Outline */
+/* ==================================================== */
+
+
+@mixin outline($width: null, $style: null, $color: null) {
+	outline-width: $width;
+	outline-style: $style;
+	outline-color: $color;
+}
+
+
+// Usage:
+// div { @include outline(4px, solid, red); }

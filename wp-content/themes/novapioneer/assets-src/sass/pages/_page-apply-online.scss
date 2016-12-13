@@ -1,0 +1,227 @@
+selec.application-content{
+	margin: 4rem auto 2rem auto;
+	width: 60%;
+
+	h1 {
+		max-width: 100%;
+		margin-bottom: 2rem;
+		color: $green-blue;
+		padding-right: calc(#{$space-tiny} * 2);
+		padding-left: calc(#{$space-tiny} * 2);
+		&.page-title {
+			text-align: center;
+		}
+	}
+	h2 {
+		padding-right: calc(#{$space-tiny} * 2);
+		padding-left: calc(#{$space-tiny} * 2);
+	}
+	p {
+		@include copy(regular);
+		@include font-size(21px);
+		line-height: 1.65;
+		margin-bottom: 2rem;
+		padding-right: calc(#{$space-tiny} * 2);
+		padding-left: calc(#{$space-tiny} * 2);
+
+	}
+	.intro-paragraph{
+		@include font-size(26px);
+		@include copy(light);
+		//line-height: 1.5;
+	}
+	b {
+		color: darken($green-blue, 20%);
+	}
+	ul {
+		color: $dark-grey;
+		@include font-size(18px);
+		list-style-type: disc;
+		line-height: 1.5;
+		margin-top: -1rem;
+		padding-right: calc(#{$space-tiny} * 4);
+		padding-left: calc(#{$space-tiny} * 4);
+
+		li {
+			margin-bottom: 1rem;
+			&:last-child {
+				margin-bottom: 2rem;
+			}
+		}
+		b {
+			color: $dark-grey;
+		}
+	}
+
+}
+.application-form-container {
+	//width: 100%;
+	//margin: 0 25%;
+	margin-bottom: 5rem;
+	@include flexbox();
+    @include flex-direction(row);
+   	justify-content: center;
+   	 h2 {
+   	 	color: $green-blue;
+   	 	text-align: center;
+   	 }
+   	 h3 {
+   	 	color: $green-blue;
+   	 	@include font-size(21px);
+		@include copy(semi);
+		line-height: 1.5;
+		margin-bottom: 0.5rem;
+   	 }
+}
+#application-form {
+        //text-align: center;
+        position: relative;
+        width: 600px;
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    //Hide all except first fieldset
+     #application-form .field2, .field3 {
+        display: none;
+    }
+    label {
+		color: $dark-grey;
+		@include copy(semi);
+	}
+	select {
+		padding: 15px;
+		//margin-right: 2%;
+		//align-self: flex-end;
+		//@include flex(1, 1, 40%);
+		//appearance: normal;
+		padding: 0.6rem 1rem;
+		//color: $blue;
+		color: lighten($dark-grey, 10%);
+
+		option {
+			color: $blue;
+			&::checked {
+				color: $blue;
+			}
+			&:not(:checked) {
+				color: darken($dark-grey, 10%);
+			}
+		}
+	}
+
+     #application-form input[text="text"], #application-form textarea {
+        padding: 15px;
+        border: 1px solid #ccc;
+        //border-radius: 3px;
+        margin-bottom: 10px;
+        //width: 100%;
+        box-sizing: border-box;
+        color: darken($dark-grey, 10%);
+        @include copy(regular);
+    	@include font-size(21px);
+    	&::placeholder {
+			color: lighten($dark-grey, 20%);
+			opacity: 1;
+		}
+		&:focus {
+			border: 1px solid $blue;
+		}
+
+		input[type=radio]{
+		  width: 28px;
+		  margin: 0;
+		  padding: 0;
+		  display: inline-block;
+		}
+
+    }
+     #application-form .action-button {
+        //width: 100px;
+        width: auto;
+        //font-weight: bold;
+        border: 0 none;
+        color: $white;
+        text-align: center;
+        //border-radius: 1px;
+        cursor: pointer;
+        //padding: 10px 5px;
+        margin: 10px 5px;
+        background: lighten($blue, 20%);
+	    height: auto;
+	    padding:0.4rem 2rem;
+	    @include copy(light);
+    	@include font-size(21px);
+	    &:hover {
+	        background: $blue;
+	        border: none;
+
+	    }
+	    &.submit-button {
+	    	background: $blue;
+	    	&:hover {
+	    		background: $dark-blue;
+	    	}
+	    }
+    }
+    #application-form .action-button:hover, #msform .action-button:focus {
+        //box-shadow: 0 0 0 2px white, 0 0 0 3px #900;
+    }
+     #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        counter-reset: step;
+        /*CSS counters to number the steps*/
+    }
+    #progressbar li {
+        list-style-type: none;
+        //font-size: 10px;
+        @include font-size(14px);
+        @include copy(bold);
+        color: lighten($dark-grey, 20%);
+        width: 30%;
+        float: left;
+        position: relative;
+        text-align: center;
+    }
+    #progressbar li:before {
+        content: counter(step);
+        counter-increment: step;
+        //width: 20px;
+        width: 40px;
+        line-height: 20px;
+        display: block;
+        @include font-size(21px);
+        @include copy(bold);
+
+        color: lighten($dark-grey, 20%);
+        background: $white;
+        padding: 0.35rem;
+        margin: 0 auto 5px auto;
+    }
+    //progressbar connectors
+     #progressbar li:after {
+        content:'';
+        width: 100%;
+        height: 2px;
+        background: white;
+        position: absolute;
+        left: -50%;
+        top: 9px;
+        z-index: -1;
+        /*put it behind the numbers*/
+    }
+    #progressbar li:first-child:after {
+        content: none;
+        //connector not needed before the first step*/
+    }
+    //marking active/completed steps
+
+    //The number of the step and the connector before it
+     #progressbar li.active:before, #progressbar li.active:after {
+        background: $green-blue;
+        color: $white;
+        @include font-size(21px);
+        @include copy(bold);
+        padding: 0.35rem;
+    }

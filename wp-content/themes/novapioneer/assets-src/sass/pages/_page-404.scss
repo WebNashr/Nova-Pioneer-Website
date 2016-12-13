@@ -1,0 +1,105 @@
+
+/*  404 */
+/* ==================================================== */
+
+
+.section-404 {
+
+}
+
+.header-404 {
+	text-align: center;
+}
+
+.header-404 h1 {
+	max-width: unset;
+	text-shadow: unset;
+	padding-bottom: 2rem;
+	font-size: 3rem;
+}
+
+.header-404 p {
+	font-size: 1.75rem;
+}
+
+.header-404 a {
+	color: $green-blue;
+
+	&:hover {
+		color: $green-blue-light;
+	}
+}
+                        
+.search-404 {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(row);
+	align-self: flex-end;
+	margin-left: auto;
+	background: transparent;
+	margin: 5rem auto 0;
+	flex-direction: unset;
+	flex-wrap: unset;
+	align-self: unset;
+	max-width: 30rem;
+	display: block;
+	width: auto;
+}
+
+.search-404 fieldset {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(row);
+}
+
+.search-404 input[type="text"] {
+	width: calc(100% - 2.5rem);
+	padding: 0.5rem 1rem;
+	font-size: 2rem;
+	color: $blue;
+	background: transparent;
+	border: 0 none;
+	outline: 0 none;
+	border-bottom: 2px solid darken($blue, 5%);
+
+	&:hover,
+	&:focus {
+		border: 0 none;
+		outline: 0 none;
+		border-bottom: 2px solid lighten($blue, 15%);
+	}
+}
+
+.search-404 input[type="submit"] {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	opacity: 0;
+	z-index: 9;
+}
+
+.search-404 svg {
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-top: 4px;
+	margin-left: 4px;
+}
+
+.search-404 svg circle,
+.search-404 svg line {
+	stroke: darken($blue, 5%);
+	stroke-width: 2;
+}
+
+.search-404 input[type="submit"]:hover ~ svg circle,
+.search-404 input[type="submit"]:hover ~ svg line,
+.search-404 input[type="text"]:hover ~ svg circle,
+.search-404 input[type="text"]:hover ~ svg line,
+.search-404 input[type="text"]:focus ~ svg circle,
+.search-404 input[type="text"]:focus ~ svg line {
+	stroke: lighten($blue, 15%);
+}
+
+

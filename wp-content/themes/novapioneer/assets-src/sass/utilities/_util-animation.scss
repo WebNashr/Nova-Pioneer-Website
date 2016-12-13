@@ -1,0 +1,37 @@
+
+/*  Animation */
+/* ==================================================== */
+
+
+// .page-header,
+.page-header nav,
+.section-overview,
+.section-articles,
+.section-reports,
+.section-data,
+[class*="home-item-"],
+// [class*="news-item-"],
+[class*="download-report-"] {
+	&.appear {
+		opacity: 0;
+	}
+	
+	&.appear.animated {
+		opacity: 1;
+	}
+}
+
+
+
+// .logo-hero,
+// .title-hero,
+.caption-hero {
+	&.appear {
+		opacity: 1;
+	}
+	
+	&.appear.animated {
+		opacity: 0;
+	}
+}
+

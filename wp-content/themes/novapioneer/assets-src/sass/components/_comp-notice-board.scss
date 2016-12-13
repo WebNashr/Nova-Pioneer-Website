@@ -1,0 +1,227 @@
+.general-notices-container {
+    @extend %columns;
+    clear: both;
+
+    &.school-notices {
+      // padding-top: 0;
+      // padding-bottom: calc(1rem * 4);
+      margin-top: -4rem;
+    }
+
+	.large-notice-container  {
+		@extend %column;
+		@extend %columns;
+  	@extend %column-10;
+  	background-image: url('/wp-content/themes/novapioneer/img/school-notice-image.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+		h1 {
+	    	margin: 0 auto;
+	    	color: $white;
+	    	text-align: center;
+	    	max-width: 100%;
+        text-shadow: 1px 1px darken($dark-grey, 50%);
+		}
+		P {
+	    	@include font-size(28px);
+	    	@include copy(semi);
+	    	line-height: 1.5;
+	    	color: $white;
+	    	padding: calc(#{$space-tiny} * 2);
+	    	padding-top: calc(#{$space-tiny} * 1);
+	    	text-align: center;
+        text-shadow: 1px 1px darken($dark-grey, 50%);
+        &.call-to-action {
+          text-shadow: none;
+          padding: 0;
+        }
+		}
+		a {
+			//display: block;
+			//color: $white;
+			@include font-size(21px);
+			//color: $grey;
+			text-align: center;
+			&:hover {
+				//color: $green-blue;
+				//cursor: pointer;
+
+			}
+		}
+	}
+	.large-notice {
+    width: 100%;
+		margin: 0 auto;
+		margin-bottom: 0;
+		background: rgba(19,59,85,.8);
+
+		.notice-content {
+      padding: calc(#{$space-tiny} * 3);
+      padding-bottom: calc(1rem * 3);
+		}
+    .school-notice-content {
+        padding: calc(#{$space-tiny} * 2);
+        padding-bottom: calc(1rem * 3);
+    }
+
+	}
+	.small-notice-container {
+    @extend %column;
+		@extend %columns;
+    @extend %column-2;
+
+    	h1 {
+    		@include font-size(18px);
+    		text-align: center;
+	    	margin: auto;
+	    	line-height: 1.25;
+
+    	}
+    	h2 {
+    		@include font-size(16px);
+    		color: $dark-grey;
+    		text-align: center;
+    		@include title(regular);
+	    	margin: auto;
+	    	padding: calc(#{$space-tiny} * 0.5);
+
+    	}
+    	p {
+    		@include font-size(14px);
+	    	@include copy(semi);
+        padding-bottom: calc(#{$space-tiny} * 1);
+	    	line-height: 1;
+	    	text-align: center;
+    	}
+      a{
+    	    @include font-size(16px);
+          text-align: center;
+    	    //margin-top: 1.25rem;
+
+    	}
+	}
+	.small-notice {
+    @extend %column;
+    text-align: center;
+
+		&:last-child {
+			margin-bottom: 0;
+      margin-left: 0;
+		}
+
+	}
+	.bar-notice {
+    @extend %column;
+		@extend %columns;
+    justify-content: space-around;
+    align-items: center;
+		width: 100%;
+		//background: lighten($blue, 20%);
+    background: $dark-blue;
+		color: $grey;
+		p {
+			@include font-size(16px);
+      @include copy(regular);
+			padding: calc(#{$space-tiny} * 1);
+			line-height: 1;
+			color: $grey;
+			text-align: center;
+      text-shadow: none;
+		}
+		a {
+			color: $white;
+      @include copy(regular);
+			@include font-size(18px);
+			text-decoration: none;
+			display: inline;
+			&:hover {
+        color: $green-blue;
+
+			}
+		}
+    .contact {
+      text-align: center;
+    }
+
+	}
+
+}
+
+.school-description-container {
+	@extend %columns;
+  @extend %column;
+  @extend %column-12;
+	margin: 0 auto;
+	clear: both;
+  // padding: calc(1rem * 4);
+	padding-bottom: 0;
+	.school-name {
+		// @extend %columns;
+		// @extend %column;
+		@extend %column-3;
+		//background: darken($grey, 50%);
+
+		// border-top: 1px solid lighten($blue, 10%);
+		// border-bottom: 1px solid lighten($blue, 10%);
+		padding: calc(#{$space-tiny} * 1);
+    border-top: 1px solid darken($grey, 10%);
+		border-bottom: 1px solid darken($grey, 10%);
+		h1 {
+			@include font-size(24px);
+			text-align: center;
+      margin-top: 0.125rem;
+      margin-bottom: 0;
+		}
+	}
+	.description-inner-wrap {
+		@extend %columns;
+		// @extend %column;
+		@extend %column-9;
+  	justify-content: space-between;
+  	padding: 1rem 2rem;
+  	align-items: center;
+    border-top: 1px solid darken($grey, 10%);
+		border-bottom: 1px solid darken($grey, 10%);
+		//margin-left: 0 !important;
+  	//background: $background-grey;
+
+		.detail-separator {
+				content: " ";
+    		padding: 0 1rem;
+				&:after {
+					content: "|";
+					@include copy(light);
+					text-align: center;
+					color: darken($grey, 20%);
+				}
+			}
+		}
+  	.school-detail{
+  		color: $dark-grey;
+  		@include font-size(14px);
+  		@include copy(regular);
+  		text-align: center;
+      text-transform: uppercase;
+  		&:last-child:after {
+  			content: none;
+  		}
+
+  	.button {
+  	    @include button-size(large);
+  	    // ////@include button-style(solid);
+  	    // ////@include button-state(normal);
+  	    @include font-size(21px);
+  	    width: 100%;
+  	    margin-top: 1rem;
+  	    position: relative;
+  	    &:hover {
+  	        background: $dark-blue;
+  	        border: none;
+  	        transition: background 0.3s ease;
+
+  	    }
+  	}
+  }
+}

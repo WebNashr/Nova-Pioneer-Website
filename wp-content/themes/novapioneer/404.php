@@ -5,12 +5,13 @@
 
  get_header();?>
 
-<h1>Sorry, we could not find the page you are looking for!</h1> 
+<section class="section section-404 trigger-offset">
+    <header class="header-404">
+        <h1>Page not found</h1>
+        <p>Try searching our site, or going back to <a href="<?php echo home_url(); ?>" style="">our home page</a>.</p>
+    </header>
 
-<?php get_search_form(); ?>
-
-<p>
-    <a href="<?php echo home_url(); ?>">Back to homepage</a>
-</p>
+    <?php get_search_form(); ?>
+</section>
 
  <?php get_footer();?>

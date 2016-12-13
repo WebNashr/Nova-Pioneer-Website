@@ -1,0 +1,89 @@
+
+/*  Subscription form */
+/* ==================================================== */
+
+
+.section-subscribe {
+	padding-top: calc(#{$space-tiny} * 4);
+	padding-bottom: calc(#{$space-tiny} * 4);
+	background: $grey;
+
+	header {
+		//flex: 0 1 100%;
+		@include flexbox();
+		@include flex-direction(column);
+		padding-bottom: calc(#{$space-tiny} * 2);
+		//flex: 1;
+		p{
+			@include font-size(21px);
+		}
+	}
+
+	.sign-up {
+		//@include flexbox();
+	 	//@include flex-direction(row);
+	 	//justify-content: space-around;
+	 	//align-items: flex-start;
+	 	//width: 100%;
+	 	@extend %columns;
+	 	fieldset {
+			width: auto;
+		}
+
+		input {
+			//width: 80%;
+			//margin-right: 2%;
+			//align-self: flex-start;
+			//flex: 2 1 80%;
+			//flex-grow: 2;
+			//@include flex(2, 1, 80%);
+			width: auto;
+			
+			&[type="text"] {
+				display: inline;
+				@extend %column;
+				@extend %column-5;
+				margin-right: 2rem;
+			}
+			&[type="submit"] {
+				display: inline;
+				@extend %column;
+				@extend %column-2;
+			}
+		}
+		
+		select {
+			&.select-option{
+				display: inline;
+				width: auto;
+				@extend %column;
+				@extend %column-2;
+				float: left;
+			}
+
+		}
+		
+
+		.submit-button {
+			//@include flex(1, 1, auto);
+			@extend %column;
+			@extend %column-4;
+			color: $white;
+			background: $blue;
+		    //align-self: flex-end;
+		    height: auto;
+		    padding:0.4rem 1rem;
+		    @include copy(light);
+	    	@include font-size(21px);
+		    
+		    &:hover {
+		        background: $dark-blue;
+		        border: none;
+
+		    }
+
+		}
+	}
+}
+
+

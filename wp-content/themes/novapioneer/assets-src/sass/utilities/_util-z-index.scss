@@ -1,0 +1,10 @@
+
+/* Z-index */
+/* ==================================================== */
+
+
+$indices: z-one, z-two, z-three, z-four, z-five, z-six, z-seven, z-eight, z-nine;
+
+
+// Usage:
+// div { z-index: index($indices, z-six); }

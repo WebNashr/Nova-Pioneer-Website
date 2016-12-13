@@ -1,0 +1,269 @@
+
+/*  Header */
+/* ==================================================== */
+
+
+header {
+	
+}
+
+.page-header-aux {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(row);
+	padding: calc(#{$space-tiny} * 0.65);
+	background: darken($dark-blue, 2.5%);
+
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 0.65) calc(#{$space-tiny} * 6);
+    }
+}
+
+.page-header {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(row);
+    padding: calc(#{$space-tiny} * 3);
+	color: $white;
+	background: $dark-blue;
+
+	@include break-point(tablet) {
+		padding: 0 calc(#{$space-tiny} * 6);
+    }
+}
+
+
+
+.page-header-box {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(column);
+	width: 44%;
+	align-self: center;
+}
+
+.page-header-box-left {
+    padding-right: 2rem;
+
+	@include break-point(laptop) {
+		// @include flex-direction(row);
+    }
+}
+
+.page-header-box-right {
+    padding-left: 2rem;
+
+	@include break-point(laptop) {
+		// @include flex-direction(row);
+    }
+}
+
+.page-header-box-centre {
+    width: 12%;
+    max-width: 7rem;
+
+	@include break-point(laptop) {
+		// @include flex-direction(row);
+    }
+}
+
+
+.main-logo {
+     @include flexbox();
+     @include flex-direction(row);
+     @include flex-wrap(nowrap);
+     justify-content: center;
+     margin: 1rem 0;
+}
+
+.school-page-header {
+	@include flexbox();
+    @include flex-direction(row);
+	width: 100%;
+	//padding: calc(#{$space-tiny} * 2);
+	clear: both;
+	padding-right: calc(#{$space-tiny} * 4);
+	padding-left: calc(#{$space-tiny} * 4);
+	padding-bottom: 0.35rem;
+	//border-right: 1px solid $light;
+	box-shadow: inset -1px -1px 4px rgba(0, 0, 0, 0.075);
+	transition: all 0.5s ease;
+	background: darken($dark-blue, 5%);
+	z-index: index($indices, z-three);
+	.school-location {
+		display: block;
+		text-transform: uppercase;
+		padding: 0 0 0.5rem 0;
+		text-align: center;
+		@include font-size(26px);
+		@include copy(semi);
+		margin-top: 0.35rem;
+	}
+}
+
+
+
+.logo {
+    // align-self: auto;
+   //max-width: 9rem;
+    // margin: 0 auto 2rem;
+    padding: 0;
+    font-size: 1.85rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    color: $white;
+}
+
+.header-menu {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(column);
+    // justify-content: center;
+
+    &.header-menu-left {
+		// margin-right: 1rem;
+		margin-left: auto;
+		align-self: flex-end;
+	}
+
+	&.header-menu-right {
+		margin-right: auto;
+		// margin-left: 1rem;
+		align-self: flex-start;
+	}
+
+	@include break-point(laptop) {
+		@include flex-direction(row);
+    }
+
+    @include break-point(desktop) {
+		@include flex-direction(row);
+    }
+}
+
+.header-menu-item {
+	font-family: 'Georgia', 'Times', serif;
+	@include font-size(16px);
+	@include line-height(16px);
+	letter-spacing: 0.75px;
+	word-spacing: 1px;
+	text-transform: capitalize;
+	color: $green-blue;
+	padding: 0.875rem 1.125rem;
+	padding: 0.75rem 1rem;
+
+	&:not(:first-of-type) {
+		// margin-left: 0.5rem;
+	}
+
+	&:hover {
+		color: $green-blue-light;
+		background: darken($dark-blue, 2.5%);
+	}
+}
+
+.header-menu-item-current {
+    color: $white;
+    background: darken($dark-blue, 1.5%);
+}
+
+
+.select-country {
+	display: flex;
+	flex-direction: row;
+	width: auto;
+	background: transparent;
+	max-width: 15rem;
+	align-self: flex-start;
+	margin-right: auto;
+	cursor: pointer;
+}
+
+.select-country .text {
+    margin-left: 8px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+	color: lighten($blue, 10%);
+
+	&:hover {
+		color: lighten($blue, 5%);
+	}
+}
+
+.select-country .show {
+	display: block;
+}
+
+.select-country .hide {
+	display: none;
+}
+
+
+
+
+
+
+
+.header-search {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(row);
+	align-self: flex-end;
+	max-width: 15rem;
+	margin-left: auto;
+	background: transparent;
+}
+
+.header-search fieldset {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(row);
+}
+
+.header-search input[type="text"] {
+	width: calc(100% - 2rem);
+	padding: 2px;
+	background: transparent;
+	border: 0 none;
+	outline: 0 none;
+	border-bottom: 1px solid darken($blue, 5%);
+
+	&:hover,
+	&:focus {
+		border: 0 none;
+		outline: 0 none;
+		border-bottom: 1px solid lighten($blue, 5%);
+	}
+}
+
+.header-search input[type="submit"] {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 2rem;
+	height: 1.25rem;
+	opacity: 0;
+	z-index: 9;
+}
+
+.header-search svg {
+	width: 2rem;
+	margin-top: 4px;
+}
+
+.header-search svg circle,
+.header-search svg line {
+	stroke: darken($blue, 5%);
+	stroke-width: 1.5;
+}
+
+.header-search input[type="submit"]:hover ~ svg circle,
+.header-search input[type="submit"]:hover ~ svg line,
+.header-search input[type="text"]:hover ~ svg circle,
+.header-search input[type="text"]:hover ~ svg line,
+.header-search input[type="text"]:focus ~ svg circle,
+.header-search input[type="text"]:focus ~ svg line {
+	stroke: lighten($blue, 5%);
+}
+

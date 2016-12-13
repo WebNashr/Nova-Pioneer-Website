@@ -1,0 +1,25 @@
+
+/* Container */
+/* ==================================================== */
+
+
+%container {
+	@extend %clearfix;
+	max-width: 1160px;
+	margin: auto;
+
+    @include break-point(tablet) {
+
+    }
+
+    @include break-point(laptop) {
+
+    }
+
+    @include break-point(desktop) {
+
+    }
+}
+
+// Usage:
+// div { @extend %container; }

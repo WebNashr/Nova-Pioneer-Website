@@ -1,0 +1,53 @@
+
+/* Paragraphs */
+/* ==================================================== */
+
+
+p {
+	position: relative;
+	color: $dark-grey;
+	font-size: 0.9875rem;//16px
+	line-height: 1.6;
+	/*margin-top: 0.5rem;*/
+
+	&:not(:first-of-type) {
+
+	}
+
+	&:only-of-type {
+		/*background: cyan;*/
+	}
+
+	&:not(:first-of-type) {
+		margin-top: $space-tiny;
+	}
+
+	.toggle-list &,
+	.general-content > .toggle-list & {
+		@include font-size(18px);
+	}
+
+	.learning-approach & {
+		@include font-size(16px);
+		padding: calc(#{$space-tiny} * 1);
+		text-align: center;
+	}
+
+	@include break-point(tablet) {
+
+	}
+
+	@include break-point(laptop) {
+
+	}
+
+	@include break-point(desktop) {
+
+	}
+}
+
+
+p + p {
+	margin-top: 1.5rem;
+	/*background: red;*/
+}

@@ -1,0 +1,54 @@
+
+/*  Profiles */
+/* ==================================================== */
+.team-profile-container {
+	width: 100%;
+	// margin-top: 6rem;
+	padding-top: calc(#{$space-tiny} * 6);
+
+	&:last-of-type {
+		margin-top: 0;
+		margin-bottom: 6rem;
+	}
+}
+
+.profile {
+	text-align: center;
+
+	&:last-child {
+		margin-right: 0;
+	}
+	img {
+		margin-bottom: 1rem;
+	}
+}
+
+.profile-img {
+	margin-bottom: 1rem;
+}
+
+.profile-name {
+	@include copy(bold);
+	@include font-size(21px);
+	text-align: center;
+	color: $blue;
+	font-family: 'Gentium Basic', serif;
+	&:hover {
+		color: $dark-blue;
+	}
+}
+
+.profile-role {
+	@include font-size(16px);
+	@include copy(semi);
+  	text-align: center;
+	color: $dark-grey;
+	display: block;
+	padding: calc(#{$space-tiny} * 0.5);
+}
+
+.profile-description {
+	p {
+		@include font-size(16px);
+	}
+}
