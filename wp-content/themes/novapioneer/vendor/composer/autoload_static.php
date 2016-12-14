@@ -33,6 +33,7 @@ class ComposerStaticInit713aebe272d5ed00e290e1fea48aa725
     public static $classMap = array (
         'EasyPeasyICS' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
         'NovaPioneer\\Mailer' => __DIR__ . '/../..' . '/includes/classes/Mailer.php',
+        'NovaPioneer\\TopMenuWalker' => __DIR__ . '/../..' . '/includes/classes/TopMenuWalker.php',
         'NovaPioneer\\View' => __DIR__ . '/../..' . '/includes/classes/View.php',
         'PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmailer.php',
         'PHPMailerOAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmaileroauth.php',

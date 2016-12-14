@@ -56,6 +56,36 @@ function novap_setup(){
 } // novap_setup
 add_action('after_setup_theme', 'novap_setup');
 
+
+function novap_menus()
+{
+    // Header Menu
+    register_nav_menu( 'novap-header-menu', 'Header Menu' );
+
+    // Footer Menu
+    register_nav_menu( 'novap-footer-menu', 'Footer Menu' );
+
+}
+add_action( 'init', 'novap_menus' );
+
+function novap_menu_css_classes( $classes, $item, $args )
+{
+
+    if('novap-header-menu' === $args->theme_location)
+    {
+        $classes[] = 'menu-item-main';
+    }
+
+    if($item->current == true)
+    {
+        $classes[] = 'menu-item-current';
+    }
+
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'novap_menu_css_classes', 10, 3 );
+
+
 // Chooses the default country for a post based on user capabilities
 function novap_default_countries($post_id, $post, $update)
 {
@@ -250,11 +280,22 @@ add_action('wp_enqueue_scripts', 'novap_setup_assets');
 function novap_body_class($classes) {
   $additional_classes = [];
 
+  /** Front page only **/
   if( is_front_page() ){
     $additional_classes[] = 'page-home';
   }
+
+  /** Add non-hero class **/
+  $post_types = array(
+      'careers',
+      'events'
+  );
+
+  $page_templates = array(
+      'careers-page.php'
+  );
   
-  if( is_404() || is_single() || is_search()){
+  if( is_404() || is_search() || is_singular($post_types) || is_page_template($page_templates) ){
       $additional_classes[] = 'non-hero';
   }
 

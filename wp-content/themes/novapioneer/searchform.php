@@ -1,4 +1,4 @@
-<form action="<?php echo esc_url( home_url('/') ); ?>" class="search-404">
+<form action="<?php echo esc_url( home_url('/') ); ?>" class="<?php if(is_search()): echo 'page-search'; else: echo 'search-404'; endif; ?>">
     <fieldset>
         <input type="text" name="s" />
         <input type="submit" name="submit" />

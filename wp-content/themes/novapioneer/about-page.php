@@ -5,18 +5,6 @@
 
 get_header();?>
 
-<section class="section section-hero about-np">
-    <div class="container hero-container">
-        <div class="main-callout-box">
-            <hr>
-            <h1>About Nova Pioneer</h1>
-            <p>Developing innovators &amp; leaders who will shape the future</p>
-        </div>
-    </div>
-</section>
-
-<div class="trigger"></div>
-
 <?php if( have_posts() ): ?>
 
     <?php while( have_posts() ): the_post();
@@ -30,7 +18,17 @@ get_header();?>
         $our_mission_paragraphs = $matches[1];
     
     ?>
+        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?>>
+            <div class="container hero-container">
+                <div class="main-callout-box">
+                    <hr>
+                    <h1><?php the_title(); ?></h1>
+                </div>
+            </div>
+        </section>
 
+        <div class="trigger"></div>
+        
         <section class="section">
             <article class="article article-body general-content">
 
@@ -53,10 +51,10 @@ get_header();?>
             </article>
         </section>
 
-        <figure class="full-width-image about-np-bgd-image">
+        <figure class="full-width-image" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);">
             <div class="section-content full-image-caption">
                 <figcaption>
-                    <p>We believe that you cannot have great learning or build a great community without a great and positive culture.</p>
+                    <?php echo get_field('our_culture_banner_image_caption'); ?>
                 </figcaption>
             </div>
         </figure>

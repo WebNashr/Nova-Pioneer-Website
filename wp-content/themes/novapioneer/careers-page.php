@@ -9,45 +9,77 @@ get_header();?>
 
     <?php while( have_posts() ): the_post(); ?>
 
-    <article>
-        <header>
-            <h1><?php echo get_the_title(); ?></h1>
-        </header>
-        <section>
-            <?php echo get_the_content(); ?>
+        <section class="section trigger-offset">
+            <header class="article-header">
+                <h1>Nova Pioneer Careers</h1>
+            </header>
         </section>
 
-        <?php $careers_query = new WP_Query(array(
-            "post_type" => "careers",
-            "orderby" => "menu_order",
-            "order" => "ASC",
-            "posts_per_page" => -1,
-        )); ?>
+        <?php 
+            $career_categories =  array(
+                'operations'              => 'Operations',
+                'learning'                => 'Learning',
+                'talent-and-partnerships' => 'Talent and Partnerships',
+                'marketing'               => 'Marketing'
+            );
+        ?>
 
-        <?php if( $careers_query->have_posts() ): ?>
+        <?php foreach($career_categories as $cc_slug => $cc_title): ?>
 
-        <div>
-            <?php while( $careers_query->have_posts() ): $careers_query->the_post();
-                $description  = get_field('description');
-                $application_deadline   = get_field('application_deadline');
-            ?>
+            <?php $careers = new WP_Query(array(
+                "post_type" => "careers",
+                "orderby" => "menu_order",
+                "order" => "ASC",
+                "tax_query" => array(
+                    array(
+                        'taxonomy' => 'career_category',
+                        'field'    => 'slug',
+                        'terms'    => $cc_slug,
+                    ),
+                ),
+                "posts_per_page" => -1,
+            )); ?>
 
-            <article>
-                <header>
-                    <h1> <a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?> </a> </h1>
-                    <p>Apply By: <?php echo $application_deadline; ?></p>
-                </header>
-                <section>
-                    <?php echo $description; ?>
-                </section>                      
-            </article>
+            <?php if( $careers->have_posts() ): ?>
+                <section class="section">
 
-            <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
-        </div>
+                    <div class="section-pair">
+                        <div class="section-navigation">
+                            <h1><?php echo $cc_title; ?></h1>
+                        </div>
+                        <div class="section-content">
+                            <div class="section-content-item">
 
-        <?php endif; ?>
-    </article>
+                                    <?php while( $careers->have_posts() ): $careers->the_post(); ?>
+
+                                        <article class="job-details-container ">
+                                            <div class="job-details">
+                                                <header>
+                                                    <h2><a href="<?php echo get_permalink(); ?>" class="" title=""><?php the_title(); ?></a></h1>
+                                                    <h4 class="job-location"><?php echo get_field('job_location'); ?></h5>
+                                                    <h5 class="job-type">Job Type: <span><?php echo get_field('job_type'); ?></span></h5>
+                                                    <h5 class="job-experience">Experience: <span><?php echo get_field('experience'); ?></span></h5>
+                                                    <h5 class="job-deadline">Application Deadline: <span><?php echo get_field('application_deadline'); ?></span></h5>
+                                                </header>
+                                                
+                                                <?php echo get_field('description'); ?>
+
+                                                <p class="call-to-action"><a href="<?php echo get_permalink(); ?>" class="button button-tiny button-primary" target="_blank">View Job Details</a></p>
+                                            </div>
+                                        </article>
+
+                                    <?php endwhile; ?>
+                                    <?php wp_reset_postdata(); ?>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            <?php endif; ?>
+
+        <?php endforeach; ?>
+
+        <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 
     <?php endwhile; ?>
 

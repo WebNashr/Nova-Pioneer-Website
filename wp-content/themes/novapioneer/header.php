@@ -14,7 +14,7 @@
     <body <?php body_class(); ?>>
 
             <!-- page-header -->
-        <header class="page-header">
+        <header class="page-header" <?php if(is_admin_bar_showing()): echo 'style="position:relative; top: 32px;"'; endif; ?>>
             <section class="header-section header-section-aux">
                 <div class="select-country">
                     <span class="country show">
@@ -47,20 +47,22 @@
             </section>
 
             <section class="header-section header-section-main">
-                <a href="index.html" title="" class="logo header-logo">
+                <a href="<?php echo home_url(); ?>" class="logo header-logo">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/nova-logo-2-white.svg" alt="">
                 </a>
+                <!-- start navigation -->
+                <?php wp_nav_menu( array(
+                    'menu' => 'Top Menu',
+                    'menu_class' => 'menu menu-main',
+                    'walker' => new NovaPioneer\TopMenuWalker,
+                    'items_wrap' => '<nav role="navigation" id="%1$s" class="%2$s">%3$s</nav>',
+                    'theme_location' => 'novap-header-menu',
+                    'container' => ''
+                ) ); ?>
 
-                <nav role="navigation" class="menu menu-main">    
-                    <a href="#" class="menu-item menu-item-main" title="">About</a>
-                    <a href="#" class="menu-item  menu-item-main menu-item-current" title="">Our Schools</a>
-                    <a href="#" class="menu-item menu-item-main" title="">Learning</a>
-                    <a href="#" class="menu-item menu-item-main" title="">Admissions</a>
-                    <a href="#" class="menu-item menu-item-main" title="">Meet the students</a>
-                    <a href="#" class="menu-item menu-item-main" title="">Careers</a>
-                </nav>
+                <!-- end navigation -->
 
-                <a href="#" class="button button-small button-primary header-apply" title="">Apply now</a>
+                <a href="<?php echo site_url('/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
             </section>
         </header>
         <!-- end page-header -->

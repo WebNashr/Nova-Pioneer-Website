@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'EasyPeasyICS' => $vendorDir . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
     'NovaPioneer\\Mailer' => $baseDir . '/includes/classes/Mailer.php',
+    'NovaPioneer\\TopMenuWalker' => $baseDir . '/includes/classes/TopMenuWalker.php',
     'NovaPioneer\\View' => $baseDir . '/includes/classes/View.php',
     'PHPMailer' => $vendorDir . '/phpmailer/phpmailer/class.phpmailer.php',
     'PHPMailerOAuth' => $vendorDir . '/phpmailer/phpmailer/class.phpmaileroauth.php',
