@@ -48,14 +48,14 @@
                 <div class="testimonial full-width-quote home-page-quote">
                     <div class="spacing-to-center"></div>
                     <figure class="full-width-figure">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
+                        <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $testimonial->ID ), 'single-post-thumbnail' )[0]; ?>" alt="" class="">
                     </figure>
                     <blockquote>
                         <svg aria-hidden="true">
                         <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                         </svg>
                         <?php echo $testimonial->post_content; ?>
-                        <cite><?php echo $testimonial->post_title; ?> </cite>
+                        <cite> <span><?php echo get_field('reviewer_name', $testimonial->ID); ?>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?> </cite>
                     </blockquote>
                     <div class="spacing-to-center"></div>
                 </div>

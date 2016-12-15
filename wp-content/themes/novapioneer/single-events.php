@@ -93,14 +93,12 @@ get_header();?>
                             <div class="event-inner-wrap">
 
                                 <div class="event-details">
-                                    <p>Contact Email: <a href="mailto:events@novapioneer.com">events@novapioneer.com</a> </p>
-                                    <p>Contact Number: <a href="tel:011 496 1202 ">011 496 1202 </a> </p>
+                                    <p>Contact Email: <a href="mailto:<?php echo get_field('contact_email'); ?>"><?php echo get_field('contact_email'); ?></a> </p>
+                                    <p>Contact Number: <a href="tel:<?php echo get_field('contact_number'); ?> "><?php echo get_field('contact_number'); ?> </a> </p>
                                     <p>
                                         Location:<br />
                                         <span>
-                                            49 Dorado Avenue, Ormonde<br />
-                                            Johannesburg South, 2091<br />
-                                            South Africa
+                                            <?php echo get_field('venue'); ?>
                                         </span>
                                     </p>
                                 </div>
@@ -108,7 +106,7 @@ get_header();?>
                                 <div class="event-summary">
                                     <h2><?php the_title(); ?></h2>
                                     <h4 class="date"><?php echo get_field('date'); ?></h4>
-                                    <h5 class="time">8.30am - 1.00pm</h4>
+                                    <h5 class="time"><?php echo get_field('time'); ?></h4>
                                     <?php the_content(); ?>
                                     <a href="#" id="rsvp-node" class="modal-toggle button button-tiny button-secondary" title="">Send an RSVP</a>
                                 </div>

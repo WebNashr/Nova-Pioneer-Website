@@ -4,7 +4,7 @@
 
     <div class="modal-container">
         <header class="modal-header">
-            <img class="modal-logo" src="img/nova-logo-2-white.svg" alt="">
+            <img class="modal-logo" src="<?php echo get_template_directory_uri(); ?>/img/nova-logo-2-white.svg" alt="">
             <div class="modal-title">
                 <h2>Ormonde School</h2>
                 <h1>Open Day</h1>
