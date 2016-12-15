@@ -6,20 +6,20 @@
 p {
 	position: relative;
 	color: $dark-grey;
-	font-size: 0.9875rem;//16px
+	@include font-size(18px);
 	line-height: 1.6;
-	/*margin-top: 0.5rem;*/
+
 
 	&:not(:first-of-type) {
 
 	}
 
 	&:only-of-type {
-		/*background: cyan;*/
+
 	}
 
 	&:not(:first-of-type) {
-		margin-top: $space-tiny;
+
 	}
 
 	.toggle-list &,
@@ -48,6 +48,5 @@ p {
 
 
 p + p {
-	margin-top: 1.5rem;
-	/*background: red;*/
+	margin-top: calc(#{$space-tiny} * 2);
 }

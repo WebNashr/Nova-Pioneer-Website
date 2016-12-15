@@ -9,7 +9,7 @@
     <div class="container hero-container">
         <div class="main-callout-box">
             <hr>
-            <h1>Preparing Youth in Africa for Global Success</h1>
+            <h1><?php echo get_field('callout_box'); ?></h1>
         </div>
     </div>
 </section>
@@ -21,17 +21,17 @@
     <div class="country-select">
         <h1 class="country-image"><img src="<?php echo get_template_directory_uri(); ?>/img/country-image-sa.jpg" alt=""></h1>
         <div class="country-button">
-            <a href="country-home.html" class="south-africa-flag" title="">South Africa</a>
+            <a href="<?php echo site_url('/sa'); ?>" class="south-africa-flag" title="">South Africa</a>
         </div>
         <div class="country-description">
-            <p>We have three schools in South Africa. Nova Pioneer Ormonde, Nova Pioneer Midrand and Nova Pioneer Jackal Creek, Johannesburg.</p>
+            <?php echo get_field('south_africa_description'); ?>
         </div>
     </div>
     <div class="country-select">
         <h1 class="country-image"><img src="<?php echo get_template_directory_uri(); ?>/img/country-image-ke.jpg" alt=""></h1>
-        <a href="#" class="country-button kenya-flag" title="">Kenya</a>
+        <a href="<?php echo site_url('/kenya'); ?>" class="country-button kenya-flag" title="">Kenya</a>
         <div class="country-description">
-            <p>We have one school in Kenya. Nova Pioneer Ondiri, with a girl's high school being launched this year in Tatu City, Kiambu.</p>
+            <?php echo get_field('kenya_description'); ?>
         </div>
     </div>
     </div>
@@ -40,11 +40,9 @@
 
  <?php if(have_posts()): ?>
 
-    <?php $testimonials = get_field('testimonials'); ?>
+    <?php $testimonial = get_field('testimonial'); ?>
 
-    <?php if( !is_null($testimonials) && !empty($testimonials) ): ?>
-
-        <?php foreach ($testimonials as $testimonial): ?>
+    <?php if( !is_null($testimonial) && !empty($testimonial) ): ?>
 
             <aside>
                 <div class="testimonial full-width-quote home-page-quote">
@@ -62,8 +60,6 @@
                     <div class="spacing-to-center"></div>
                 </div>
             </aside>
-
-        <?php endforeach; ?>
 
     <?php endif; ?>
 

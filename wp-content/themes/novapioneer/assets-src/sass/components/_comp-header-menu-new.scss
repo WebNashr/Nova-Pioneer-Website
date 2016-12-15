@@ -13,7 +13,7 @@
 	padding: 0;
 	background: transparent;
 	transition: $ease;
-	z-index: 9;
+	z-index: index($indices, z6);
 
 	&.stuck,
 	.non-hero & {
@@ -97,8 +97,8 @@
 }
 
 .select-country .text {
+    @include font-size(14px);
     margin-left: 8px;
-    font-size: 0.875rem;
     text-transform: uppercase;
 	color: lighten($blue, 10%);
 	display: none;

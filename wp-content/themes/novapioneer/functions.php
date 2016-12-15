@@ -282,7 +282,7 @@ function novap_body_class($classes) {
 
   /** Front page only **/
   if( is_front_page() ){
-    $additional_classes[] = 'page-home';
+    $additional_classes[] = 'front-page';
   }
 
   /** Add non-hero class **/

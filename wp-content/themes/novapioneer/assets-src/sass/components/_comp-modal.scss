@@ -27,27 +27,26 @@ body {
 }
 
 .modal-close {
+    @include font-size(32px);
     position: absolute;
     right: 2rem;
     top: 2rem;
-    font-size: 2rem;
     font-weight: 700;
-    color: white;
+    color: $white;
     cursor: pointer;
 }
 
 .modal-container {
     width: auto;
     height: auto;
-    max-width: 44rem;
+    max-width: 38rem;
     margin: auto;
     padding: 2.5rem;
-    border: 2px solid $white;
+    border: 3px solid $white;
 }
 
 .modal-header {
     @include flexbox();
-    // margin-bottom: 2rem;
     margin-bottom: 1rem;
 }
 
@@ -62,34 +61,43 @@ body {
 }
 
 .modal-title h2 {
+    @include title(regular);
+    @include font-size(24px);
     margin: 0;
-    margin-bottom: 0.25rem;
-    font-size: 1.25rem;
-    color: white;
+    color: $white;
     font-weight: 400;
     letter-spacing: 4px;
 	text-transform: uppercase;
 }
 
 .modal-title h1 {
-    color: white;
+    @include copy(regular);
+    @include font-size(17px);
+    color: $white;
     text-shadow: unset;
-    font-family: 'Georgia', 'Times', serif;
-    font-size: 1.25rem;
-    font-weight: 300;
-    // font-style: italic;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    margin: 0.25rem 0 0.5rem;
 }
 
-.modal time,
-.modal address,
-.modal p {
-	margin-bottom: 0.5rem;
-	font-size: 1rem;
+.modal time {
+    @include copy(regular);
+    @include font-size(17px);
+    margin-left: 0.5rem;
 	font-weight: 300;
 	font-style: normal;
+    letter-spacing: 1px;
 	color: $white;
+}
+
+.modal address,
+.modal p {
+    @include font-size(14px);
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    font-style: normal;
+    @include line-height(1.45);
+    letter-spacing: 1px;
+    color: $white;
 }
 
 .modal fieldset {
@@ -105,24 +113,55 @@ body {
 
 .modal label,
 .radio-label {
-    font-size: 0.875rem;
     font-weight: 300;
     color: $white;
+}
+
+.modal label {
+    @include font-size(16px);
+}
+
+.radio-label {
+    @include font-size(13px);
 }
 
 .radio-pair:not(:first-of-type) {
     margin-left: 2rem;
 }
 
-.modal input[type="text"] {
-	border: 0 none;
-	outline: 0 none;
+.modal input[type="text"],
+.modal input[type="email"],
+.modal input[type="password"],
+.modal textarea,
+.modal select {
+    padding: 0.5rem 0.75rem;
+    color: $blue;
+    border: 0 none;
+    outline: 0 none;
+    border-radius: 2px;
+
+    &:hover {
+        color: $sky;
+        border: 0 none;
+        outline: 0 none;
+    }
+
+    &:focus {
+        color: $dark-blue;
+        border: 0 none;
+        outline: 0 none;
+    }
+
+    &::placeholder {
+        color: $blue;
+        opacity: 1;
+    }
 }
 
 .modal input[type="submit"] {
-	appearance: none;
-	padding: 0.75rem 1rem;
-	font-size: 1rem;
+	@include font-size(16px);
+    appearance: none;
+	padding: 0.5rem 1rem;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	color: $white;

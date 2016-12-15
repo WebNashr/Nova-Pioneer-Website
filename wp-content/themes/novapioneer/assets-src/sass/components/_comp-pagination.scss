@@ -3,45 +3,49 @@
 /* ==================================================== */
 
 
-.page-pagination {
-	border-top: 1px solid $grey;
-	margin-top: calc(#{$space-tiny} * 4);
-    padding: calc(#{$space-tiny} * 3) 0 calc(#{$space-tiny} * 2);
+.pagination {
 
 }
 
-
-.button-pagination:not(:first-child) {
-    margin-left: calc(#{$space-tiny} * 1);
-}
-
-.button-pagination {
-    font-size: 0.8rem;
-    text-align: center;
-    min-width: calc(#{$space-tiny} * 3);
-    display: block;
-    background: $blue;
-    border-radius: 0;
-    float: left;
-    padding: 0.25rem 0.5rem;
-    &:hover {
-        background: $dark-blue;
-        border: none;
-        color: $white;
-    }
-}
-
-.page-numbers:not(:first-child) {
-    @extend .button-pagination:not(:first-child);
-}
-
+.page-nav,
 .page-numbers {
-    @extend .button;
-    @extend .button-default;
-    @extend .button-primary;
-    @extend .button-pagination;
+    display: inline-block;width: auto;
+    margin: 0;
+    padding: 0.7rem 0.75rem 0.65rem;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    letter-spacing: 0.05rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: $light-grey;
+    cursor: pointer;    
 
-    &.current{
-        background: $sky;
+    // &.prev,
+    // &.next {
+    //     &:hover {
+    //         color: $white;
+    //         background: $blue;
+    //     }
+    // }
+
+    &.current {
+        width: 2rem;
+        height: 2rem;
+        padding: 10px 0 0;
+        color: $white;
+        background: $green-blue;
+        border-radius: 50%;
+    }
+
+    &:hover {
+        color: $blue;
+
+        &.current {
+            color: $white;
+            background: $green-blue;
+        }
     }
 }
+
+

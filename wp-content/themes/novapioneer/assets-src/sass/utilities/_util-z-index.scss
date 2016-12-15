@@ -3,8 +3,8 @@
 /* ==================================================== */
 
 
-$indices: z-one, z-two, z-three, z-four, z-five, z-six, z-seven, z-eight, z-nine;
+$indices: z1, z2, z3, z4, z5, z6, z7, z8, z9;
 
 
 // Usage:
-// div { z-index: index($indices, z-six); }
+// div { z-index: index($indices, z6); }

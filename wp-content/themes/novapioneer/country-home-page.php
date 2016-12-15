@@ -7,21 +7,8 @@ get_header(); ?>
 
 <?php if(have_posts()): ?>
 
-    <?php while(have_posts()): the_post();
+    <?php while(have_posts()): the_post(); ?>
     
-        $our_students_description       = get_field('our_students_description');
-        $our_students_video             = get_field('our_students_video');
-        $learning_at_novapioneer_video  = get_field('learning_at_novapioneer_video');
-        $leadership_team_members        = get_field('leadership_team_members');
-        $video_from_influencer          = get_field('video_from_influencer');
-        $events                         = get_field('events');
-        $admission_call_to_action       = get_field('admission_call_to_action');
-        $admission_contacts             = get_field('admission_contacts');
-        $testimonial                    = get_field('testimonial');
-        $schools                        = get_field('schools');    
-    ?>
-
-
         <section class="section section-hero country-home">
             <div class="container hero-container">
                 <!-- <heading class="hero-heading">
@@ -39,6 +26,7 @@ get_header(); ?>
         <div class="trigger"></div>
 
         <section class="section section-school-list">
+            <?php $schools = get_field('schools'); ?>
             <?php foreach($schools as $school): ?>
                 <div class="section-school-list-select">
                     <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/ormonde-school.jpg" alt=""></p>
@@ -57,13 +45,14 @@ get_header(); ?>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
-                    <?php echo $our_students_description; ?>
+                    <?php echo get_field('our_students_description'); ?>
 
                         <div class="testimonial pull-quote">
-                            <?php 
-                            $vid_caption = get_field('video_caption', $our_students_video->ID); 
-                            $student_name = get_field('student_name', $our_students_video->ID);
-                            $video = get_field('video', $our_students_video->ID);
+                            <?php
+                                $our_students_video             = get_field('our_students_video');
+                                $vid_caption = get_field('video_caption', $our_students_video->ID); 
+                                $student_name = get_field('student_name', $our_students_video->ID);
+                                $video = get_field('video', $our_students_video->ID);
                             ?>
                             <blockquote>
                                 <svg aria-hidden="true">
@@ -94,11 +83,12 @@ get_header(); ?>
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
                     <div class="testimonial pull-quote">
-                        <?php 
-                        $vid_caption = get_field('video_caption', $learning_at_novapioneer_video->ID); 
-                        $caption_speaker = get_field('caption_speaker', $learning_at_novapioneer_video->ID);
-                        $caption_speaker_title = get_field('caption_speaker_title', $learning_at_novapioneer_video->ID);
-                        $video = get_field('video', $learning_at_novapioneer_video->ID);
+                        <?php
+                            $learning_at_novapioneer_video  = get_field('learning_at_novapioneer_video'); 
+                            $vid_caption = get_field('video_caption', $learning_at_novapioneer_video->ID); 
+                            $caption_speaker = get_field('caption_speaker', $learning_at_novapioneer_video->ID);
+                            $caption_speaker_title = get_field('caption_speaker_title', $learning_at_novapioneer_video->ID);
+                            $video = get_field('video', $learning_at_novapioneer_video->ID);
                         ?>
                         <blockquote>
                             <svg aria-hidden="true">
@@ -129,11 +119,12 @@ get_header(); ?>
 
         <div class="full-width-container">
             <section class="section section-pair">
-                <?php 
-                $vid_caption = get_field('video_caption', $video_from_influencer->ID); 
-                $caption_speaker = get_field('caption_speaker', $video_from_influencer->ID);
-                $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
-                $video = get_field('video', $video_from_influencer->ID);
+                <?php
+                    $video_from_influencer          = get_field('video_from_influencer');
+                    $vid_caption = get_field('video_caption', $video_from_influencer->ID); 
+                    $caption_speaker = get_field('caption_speaker', $video_from_influencer->ID);
+                    $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
+                    $video = get_field('video', $video_from_influencer->ID);
                 ?>
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video">
@@ -163,6 +154,7 @@ get_header(); ?>
             </div>
 
             <div class="section-content">
+                <?php $leadership_team_members        = get_field('leadership_team_members'); ?>
                 <?php foreach($leadership_team_members as $member): ?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0];  ?>" alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>" class="profile-img">
@@ -178,13 +170,14 @@ get_header(); ?>
                 <div class="large-notice-container">
                     <div class="large-notice">
                         <div class="notice-content">                            
-                            <?php echo $admission_call_to_action; ?>
+                            <?php echo get_field('admission_call_to_action'); ?>
                             <p class="call-to-action"><a href="#" class="button button-large button-secondary" title="">Enrol Now</a></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="small-notice-container">
+                    <?php $events = get_field('events'); ?>
                     <?php foreach($events as $event): ?>
                     <div class="small-notice">
                         <h1><?php echo $event->post_title; ?></h1>
@@ -216,92 +209,10 @@ get_header(); ?>
             </div>
         </aside>
 
-        <section class="section section-pair section-subscribe">
-            <div class="section-navigation">
-                <h1>Stay Updated</h1>
-            </div>
-
-            <div class="section-content">
-                <div class="section-content-item section-content-item-full">
-                    <header>
-                        <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
-                    </header>
-
-                    <form action="" method="POST">
-                        <fieldset class="sign-up" >
-                            <input name="email" placeholder="Your Email Address" class="" type="text">
-                            <select>
-                                <option value="Please Select Your Area of Interest">Please Select Your Area of Interest</option>
-                                <option value="School Admissions">School Admissions</option>
-                                <option value="School Events">School Events</option>
-                                <option value="Latest News">Latest News</option>
-                            </select>
-                            <input name="Sign Up" value="Sign Up" class="button button-default button-primary" style="" type="submit">
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </section>
-
     <?php endwhile; ?>
 
+    <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
+    <?php get_template_part('includes/partials/content', 'rsvp-modal'); ?>
 <?php endif; ?>
 
-<!-- page-modal -->
-<div class="modal">
-    <span class="modal-toggle modal-close">×</span>
-
-    <div class="modal-container">
-        <header class="modal-header">
-            <img class="modal-logo" src="<?php echo get_template_directory_uri(); ?>/img/nova-logo-2-white.svg" alt="">
-            <div class="modal-title">
-                <h2>Ormonde School</h2>
-                <h1>Open Day</h1>
-                <time datetime="2017-10-15 09:00+02:00">15th October, 2017</time>
-                <address>49 Dorado Avenue, Ormonde, Johannesburg, South Africa</address>
-            </div>
-        </header>
-
-        <!-- <p>We hope you will able to make it for our 2017 Open Day. Please confirm your attendance by completing the form below.</p> -->
-
-        <form action="" class="rsvp">
-            <fieldset>
-                <label for="name">Name</label>
-                <input type="text" id="name" required autofocus>
-            </fieldset>
-
-            <fieldset>
-                <label for="email">Email</label>
-                <input type="email" id="email">
-            </fieldset>
-
-            <fieldset>
-                <label for="guests">Guests</label>
-                <input type="text" id="guests" min="0" maxlength="1">
-            </fieldset>
-
-            <fieldset>
-                <label for="">Attendance</label>
-                <span class="radio-pair">
-                    <label for="yes" class="radio-label">Yes</label>
-                    <input type="radio" value="yes" id="yes" class="radio-button" checked>
-                </span>
-                <span class="radio-pair">
-                    <label for="no" class="radio-label">No</label>
-                    <input type="radio" value="no" id="no" class="radio-button">
-                </span>
-                <span class="radio-pair">
-                    <label for="maybe" class="radio-label">Maybe</label>
-                    <input type="radio" value="maybe" id="maybe" class="radio-button">
-                </span>
-            </fieldset>
-
-            <fieldset>
-                <!-- <label for="email">Email</label> -->
-                <input type="submit" id="submit" value="Send">
-            </fieldset>
-        </form>
-    </div>
-</div>
-<!-- end page-modal -->
 <?php get_footer(); ?>

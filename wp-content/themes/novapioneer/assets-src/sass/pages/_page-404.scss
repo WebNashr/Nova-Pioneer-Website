@@ -14,12 +14,11 @@
 .header-404 h1 {
 	max-width: unset;
 	text-shadow: unset;
-	padding-bottom: 2rem;
-	font-size: 3rem;
+	padding-bottom: 1rem;
 }
 
 .header-404 p {
-	font-size: 1.75rem;
+	@include font-size(24px);
 }
 
 .header-404 a {
@@ -31,19 +30,18 @@
 }
                         
 .search-404 {
-	@include flexbox();
-	@include flex-wrap(nowrap);
-    @include flex-direction(row);
-	align-self: flex-end;
-	margin-left: auto;
-	background: transparent;
-	margin: 5rem auto 0;
 	flex-direction: unset;
 	flex-wrap: unset;
 	align-self: unset;
-	max-width: 30rem;
 	display: block;
 	width: auto;
+	max-width: 32.5rem;
+	margin: 4rem auto 0;
+	background: transparent;
+
+	&-non {
+		margin-top: 0;
+	}
 }
 
 .search-404 fieldset {
@@ -53,20 +51,22 @@
 }
 
 .search-404 input[type="text"] {
+	@include font-size(20px);
 	width: calc(100% - 2.5rem);
-	padding: 0.5rem 1rem;
-	font-size: 2rem;
+	padding: 0.75rem 1rem;
+	// font-size: 2rem;
 	color: $blue;
 	background: transparent;
 	border: 0 none;
 	outline: 0 none;
-	border-bottom: 2px solid darken($blue, 5%);
+	border: 2px solid $blue;
 
 	&:hover,
 	&:focus {
 		border: 0 none;
 		outline: 0 none;
-		border-bottom: 2px solid lighten($blue, 15%);
+		color: lighten($blue, 5%);
+		border: 2px solid lighten($blue, 5%);
 	}
 }
 
@@ -83,14 +83,14 @@
 .search-404 svg {
 	width: 2.5rem;
 	height: 2.5rem;
-	margin-top: 4px;
-	margin-left: 4px;
+	margin-top: 8px;
+	margin-left: 16px;
 }
 
 .search-404 svg circle,
 .search-404 svg line {
-	stroke: darken($blue, 5%);
-	stroke-width: 2;
+	stroke: $blue;
+	stroke-width: 1.5;
 }
 
 .search-404 input[type="submit"]:hover ~ svg circle,
@@ -99,7 +99,7 @@
 .search-404 input[type="text"]:hover ~ svg line,
 .search-404 input[type="text"]:focus ~ svg circle,
 .search-404 input[type="text"]:focus ~ svg line {
-	stroke: lighten($blue, 15%);
+	stroke: lighten($blue, 5%);
 }
 
 

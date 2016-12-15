@@ -7,14 +7,12 @@
         <meta name="viewport" content="; initial-scale=1.0; maximum-scale=1.0;">
         <meta name="description" content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
         <meta http-equiv="cleartype" content="on">
-        <script src="https://use.typekit.net/yzd5wlt.js"></script>
-        <script>try{Typekit.load({ async: true });}catch(e){}</script>
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-
+        
             <!-- page-header -->
-        <header class="page-header" <?php if(is_admin_bar_showing()): echo 'style="position:relative; top: 32px;"'; endif; ?>>
+        <header class="page-header"  <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>>
             <section class="header-section header-section-aux">
                 <div class="select-country">
                     <span class="country show">

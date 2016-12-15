@@ -1,7 +1,7 @@
 .school-menu-container {
     background: $dark-blue;
     width: 100%;
-    z-index: index($indices, z-three);
+    z-index: index($indices, z3);
     //@include flexbox();
     //@include flex-direction(row);
 } 

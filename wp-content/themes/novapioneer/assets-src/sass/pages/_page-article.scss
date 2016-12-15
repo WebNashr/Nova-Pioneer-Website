@@ -1,0 +1,108 @@
+
+/*  Articles */
+/* ==================================================== */
+
+
+.article-header {
+	border-bottom: 1px solid lighten($light-grey, 32%);
+}
+
+.article-header h1 {
+	@include font-size(46px);
+	@include title(bold);
+	max-width: 1024px;
+	margin: 0;
+	padding-bottom: calc(#{$space-tiny} * 2);
+	text-shadow: unset;
+}
+
+.article-container {
+	@include flexbox();
+}
+
+.article-aside {
+	max-width: 14rem;
+	padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) 0 0;
+	.downloads {
+		padding-right: calc(#{$space-tiny} * 1.5);
+		h4 {
+			@include font-size(18px);
+			line-height: 1.25;
+		}
+		p {
+				@include font-size(14px);
+		}
+		&:not(:first-of-type) {
+			margin-top: calc(#{$space-tiny} * 1.5);
+			padding-top: calc(#{$space-tiny} * 0.25);
+			border-top: 1px solid lighten($light-grey, 32%);
+		}
+
+	}
+}
+
+.article-meta {
+	&:not(:first-of-type) {
+		margin-top: calc(#{$space-tiny} * 1.5);
+		padding-top: calc(#{$space-tiny} * 1.5);
+		border-top: 1px solid lighten($light-grey, 32%);
+	}
+}
+
+.article-meta-title {
+	@include copy(bold);
+	@include font-size(14px);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: $dark-grey;
+}
+
+.article-meta-item {
+	@include font-size(13px);
+	color: $dark-grey;
+}
+
+.article-meta-link {
+	@include font-size(13px);
+	color: $green-blue;
+}
+
+.article-inner {
+	max-width: calc(100% - 16rem);
+	margin-left: calc(#{$space-tiny} * 2);
+	padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 9) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
+	border-left: 1px solid lighten($light-grey, 32%);
+}
+
+.article-inner * + * {
+	margin-top: calc(#{$space-tiny} * 2);
+}
+
+.article-excerpt {
+	@include title(regular);
+	@include font-size(26px);
+	@include line-height(1.35);
+}
+
+.article-img {
+	padding: 0.5rem;
+	border: 1px solid lighten($light-grey, 30%);
+}
+
+.article-inner blockquote {
+	@include title(regular);
+	@include font-size(24px);
+	width: 90%;
+	max-width: 728px;
+	margin: 0.5rem 0 0.5rem auto;
+	padding: calc(#{$space-tiny} * 1.25) calc(#{$space-tiny} * 1.5);
+	line-height: 1.65;
+	text-align: right;
+	font-style: italic;
+	color: $dark-grey;
+	background: #bedddc;
+}
+
+.article-inner li + li {
+	margin-top: calc(#{$space-tiny} * 0.75);
+}

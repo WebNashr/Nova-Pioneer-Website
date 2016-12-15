@@ -20,9 +20,6 @@ h6 {
 	clear: both;
 	display: block;
 	margin: 1rem 0 0.5rem;
-	//margin: 1.414em 0 0.5em;
-	//line-height :1.5;
-	/*margin-top: 1rem;*/
 }
 
 
@@ -43,6 +40,10 @@ h1 {
 	 	@include title(semi);
 	 	@include font-size(30px);
 	 	margin-bottom: 1rem;
+		&.current {
+			color: $dark-grey;
+			color: lighten($dark-grey, 10%);
+		}
 	}
 	&.full-width-heading  {
 		text-align: center;
@@ -52,6 +53,10 @@ h1 {
 		text-align: center;
 		margin-top: 0;
 	}
+
+	.article-header & {
+		@include copy(bold);
+	}
 }
 
 
@@ -59,6 +64,11 @@ h2 {
 	@include font-size(28px);
 	@include title(bold);
 	color: lighten($blue, 5%);
+
+	.search-results & {
+		@include copy(bold);
+		@include font-size(32px);
+	}
 }
 
 

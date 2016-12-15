@@ -89,7 +89,7 @@ header {
 	box-shadow: inset -1px -1px 4px rgba(0, 0, 0, 0.075);
 	transition: all 0.5s ease;
 	background: darken($dark-blue, 5%);
-	z-index: index($indices, z-three);
+	z-index: index($indices, z3);
 	.school-location {
 		display: block;
 		text-transform: uppercase;
