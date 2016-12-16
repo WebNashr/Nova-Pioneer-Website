@@ -160,21 +160,16 @@
 
 
 	.sign-up {
-		@extend %column;
 		@extend %columns;
 		align-items: center;
-
+		// justify-content: center;
 		// @extend %columns;
-		.selector:not(*:root) {
-			.email {
-				display: none;
-			}
-		}
+
 
 		.email {
 
-			@extend %column-5;
-			//display: inline-block;
+			@extend %column-4;
+			display: inline-block;
 
 		}
 		// input {
@@ -182,8 +177,8 @@
 		// }
 		select {
 
-			@extend %column-5;
-			//display: inline-block;
+			@extend %column-4;
+			display: inline-block;
 		}
 		.button {
 
