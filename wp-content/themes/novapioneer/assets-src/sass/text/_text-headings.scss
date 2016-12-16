@@ -39,7 +39,7 @@ h1 {
 	.section-navigation & {
 	 	@include title(semi);
 	 	@include font-size(30px);
-	 	margin-bottom: 1rem;
+		margin-bottom: 1rem;
 		&.current {
 			color: $dark-grey;
 			color: lighten($dark-grey, 10%);

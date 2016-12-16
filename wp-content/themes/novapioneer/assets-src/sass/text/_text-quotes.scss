@@ -51,6 +51,22 @@
 		blockquote {
 			@include font-size(21px);
 			padding-left: 0;
+			width: 100%;
+			p {
+				@include font-size(20px);
+				width: 90%;
+				padding-left: calc(#{$space-tiny} * 1.5);
+				color: lighten($dark-grey, 15%);
+				line-height: 1.5;
+			}
+			svg {
+
+				width: 25px;
+				height: 25px;
+				fill: lighten($blue, 10%);
+				margin-top: 0.25rem;
+
+			}
 		}
 		blockquote:before {
 			@include font-size(70px);

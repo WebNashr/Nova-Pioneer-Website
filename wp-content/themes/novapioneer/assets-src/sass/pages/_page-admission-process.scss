@@ -1,22 +1,16 @@
-// .admission-steps {
-// 	margin-top: 12rem;
-
-	
-// }
 
 .step-number{
-    width:100px;
-    height:100px;
-    border: 1px $green-blue solid;
-    border-radius:50%;
-    @include font-size(32px);
     @include copy(bold);
-    color: $green-blue;
-    line-height:100px;
-    text-align:center;
+    @include font-size(32px);
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    line-height: 64px;
+    border: 3px solid $dark-blue;
+    border-radius: 50%;
+    color: $dark-blue;
     background: $white;
-    margin: 0 auto;
-    margin-bottom: 1.5rem;
 }
 
 .cta-container {
@@ -25,38 +19,7 @@
     @include flex-direction(row); 
    	justify-content: center;
     margin-top: -2rem;
-
-   //  .cta-button {
-   //  	@include button-size(large);
-   //  	//@include button-state(normal);
-   //  	//@include button-style(solid);
-   //  	@include font-size(32px);
-   //  	@include copy(semi);
-   //  	align-self: center;
-   //  	padding-right: calc(#{$space-tiny} * 3);
-   //  	padding-left: calc(#{$space-tiny} * 3);
-   //  	&:hover {
-	 	// 	background: $dark-blue;
-	 	// 	cursor: pointer;
-	 	// }
-   //  }
 }
-
-// .faqs-container {
-// 	@include flexbox();
-//     @include flex-direction(row);
-//     @include flex-wrap(wrap);
-//     padding: calc(#{$space-tiny} * 2);
-//     //margin-top: 5rem;
-//     margin-bottom: 5rem;
-//     //height: 100vh;
-//     width: 100%;
-    
-// 	p {
-// 	 	@include font-size(20px);
-// 	 	line-height: 1.5;
-// 	}
-// }
 
 .admission-contacts {
 	@include flexbox();
@@ -85,7 +48,6 @@
 		}
 	}
 	.contact-info {
-		//width: 30%;
 		width: auto;
 		@include font-size(21px);
 		line-height: 2;
@@ -99,41 +61,10 @@
 			display: block;
 		}
 	}
-	// address{
-	// 	flex-basis: 75%;
-	// 	@include font-size(21px);
-	// 	@include copy(regular);
-	// 	font-style: normal;
-	// 	color: $dark-grey;
-	// 	line-height: 1.5;
-	// 	a {
-	// 		color: $blue;
-	// 	}
-	// }
 }
 
 .button-link{
 	margin: -2rem 0 4rem 0;
 }
 
-// .admissions-calendar-container {
-// 	@include flexbox();
-//     @include flex-direction(row);
-//     @include flex-wrap(wrap);
-//     padding: calc(#{$space-tiny} * 2);
-//     margin-top: 8rem;
-//     margin-bottom: 0;
-//     height: 100%;
-//     width: 100%;
-
-
-// 	.inner-container {
-// 	 	@include flexbox();
-// 		border-left: 1px $light-grey solid;
-// 		padding-left: calc(#{$space-tiny} * 2);
-// 		padding-right: 0;
-// 		flex-basis: 80%;
-// 	}
-	
-// }
 

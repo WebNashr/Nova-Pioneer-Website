@@ -43,6 +43,10 @@
 	&.gallery-selected {
 		color: $white;
 		border-color: $blue;
+
+		.image-slider-container-alt & {
+			color: $blue;
+		}
 	}
 }
 

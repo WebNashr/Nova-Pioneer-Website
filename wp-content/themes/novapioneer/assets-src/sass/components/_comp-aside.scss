@@ -40,23 +40,26 @@
   	position: relative;
   	//flex-basis: 21%;
   	@extend %column;
-  	@extend %column-2;
+  	@extend %column-3;
   	background: $dark-blue;
-		opacity: 0.9;
-	 	text-align: left;
-	 	padding: calc(#{$space-tiny} * 1.5);
-	 	padding-top: calc(#{$space-tiny} * 1.5);
-	 	top: -1rem;
+	opacity: 0.9;
+ 	text-align: left;
+ 	padding: calc(#{$space-tiny} * 1.5);
+ 	padding-top: calc(#{$space-tiny} * 1.5);
+ 	top: -1rem;
+
 	 	p {
 	 		color: $white;
 	 		@include font-size(18px);
 	 		@include copy(regular);
 	 	}
+
 	 	a {
 	 		display: block;
 	 		@include font-size(16px);
 	 		color: lighten($blue, 20%);
 	 		padding-top: 0.75rem;
+
 	 		&:hover {
 	 			color: $light-grey;
 	 		}

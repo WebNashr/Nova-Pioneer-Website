@@ -65,10 +65,10 @@ select {
 	@include font-size(16px);
 	@include letter-spacing(tiny);
 	position: relative;
-	display: block;
+	//display: block;
 	width: 100%;
 	padding: 0.75rem 1rem;
-	color: $grey;
+	//color: $grey;
 	background: $white;
 	appearance: none;
 	border: 0 none;
@@ -82,12 +82,12 @@ select {
 	}
 
 	&:focus {
-		color: $dark-blue;
+		color: $blue;
 		border: 1px solid $dark-blue;
 	}
 
 	&::placeholder {
-		color: $blue;
+		color: $dark-grey;
 		opacity: 1;
 	}
 }

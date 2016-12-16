@@ -40,15 +40,13 @@
 .image-slider-container {
 	//max-height: 575px;
 	clear: both;
-  padding-top: calc(1rem * 4);
+  	padding-top: calc(1rem * 4);
 	padding-bottom: 0;
 	@extend %columns;
 	@extend %column-12;
 	//margin-bottom: 1rem;
 	//background: yellow;
-	.section-content{
-		border-left: none;
-	}
+
 	.section-navigation {
 		@extend %column-2;
 		background: $dark-blue;
@@ -56,10 +54,32 @@
 		padding-left: calc(1rem * 4);
 		height: 88.85%;
 		min-width: 20%;
+
 		.gallery-nav{
 			@include font-size(16px);
 		}
 		//max-height: 597.5px;
+	}
+
+	.section-content{
+		border-left: none;
+	}
+}
+
+.image-slider-container-alt {
+	clear: both;
+  	padding-top: calc(1rem * 4);
+
+	.section-content {
+		border-left: none;
+	}
+
+	.section-navigation {
+		background: transparent;
+		
+		.gallery-nav{
+			@include font-size(16px);
+		}
 	}
 }
 
