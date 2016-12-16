@@ -292,7 +292,8 @@ function novap_body_class($classes) {
   );
 
   $page_templates = array(
-      'careers-page.php'
+      'careers-page.php',
+      'events-page.php'
   );
   
   if( is_404() || is_search() || is_singular($post_types) || is_page_template($page_templates) ){
@@ -471,3 +472,9 @@ function novap_enqueue_assets()
     wp_enqueue_script('novapioneer_scripts');
 }
 add_action('wp_enqueue_scripts', 'novap_enqueue_assets');
+
+
+function novap_upcoming_events_navigation_calendar()
+{
+    get_template_part('includes/partials/content', 'upcoming-events-nav');
+}
