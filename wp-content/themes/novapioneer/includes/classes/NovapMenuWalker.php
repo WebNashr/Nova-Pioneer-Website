@@ -4,7 +4,7 @@ namespace NovaPioneer;
 
 use Walker;
 
-class TopMenuWalker extends Walker
+class NovapMenuWalker extends Walker
 {
 
     /**
@@ -73,7 +73,14 @@ class TopMenuWalker extends Walker
             $n = "\n";
         }
         $indent = str_repeat( $t, $depth );
-        $output .= "$indent</div>{$n}";
+
+        if($args->theme_location == "novap-footer-menu")
+        {
+            $output .= "$indent</div>{$n}</div>";  
+        }
+        else{
+            $output .= "$indent</div>{$n}";
+        }
     }
 
 
@@ -201,6 +208,14 @@ class TopMenuWalker extends Walker
         $item_output .= $args->link_before . $title . $args->link_after;
         $item_output .= $args->after;
 
+        if($args->theme_location == "novap-footer-menu")
+        {
+            if( $depth === 0 )
+            {
+                $output .= '<div class="footer-box">';
+            }
+        }
+
         $output .= $indent . '<a' . $id . $class_names . $attributes . '>';
  
         /**
@@ -243,6 +258,16 @@ class TopMenuWalker extends Walker
             $n = "\n";
         }
         $output .= "</a>{$n}";
+        
+
+        if($args->theme_location == "novap-footer-menu")
+        {
+            
+            if( ($depth === 0) && !in_array('menu-item-has-children', $item->classes) )
+            {
+                $output .= '</div>';
+            }
+        }
     }
 
 }

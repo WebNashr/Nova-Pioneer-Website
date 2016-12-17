@@ -65,25 +65,49 @@ function novap_menus()
     // Footer Menu
     register_nav_menu( 'novap-footer-menu', 'Footer Menu' );
 
+    // Footer Aux Menu
+    register_nav_menu( 'novap-footer-aux-menu', 'Footer Aux Menu' );
+
 }
 add_action( 'init', 'novap_menus' );
 
-function novap_menu_css_classes( $classes, $item, $args )
+function novap_menu_css_classes( $classes, $item, $args, $depth )
 {
-
     if('novap-header-menu' === $args->theme_location)
     {
         $classes[] = 'menu-item-main';
+
+        if($item->current == true)
+        {
+            $classes[] = 'menu-item-current';
+        }
+
     }
 
-    if($item->current == true)
+
+    if('novap-footer-menu' === $args->theme_location)
     {
-        $classes[] = 'menu-item-current';
+        $classes[] ='footer-box-item';
+        $classes[] ='footer-box-menu-item';
+        
     }
+
+
+    if('novap-footer-aux-menu' === $args->theme_location)
+    {
+        $classes[] ='footer-menu-aux-item';
+        $classes[] ='footer-menu-aux-item-page';
+
+        if($item->current == true)
+        {
+            $classes[] = 'footer-menu-aux-item-current';
+        }
+    }
+
 
     return $classes;
 }
-add_filter( 'nav_menu_css_class', 'novap_menu_css_classes', 10, 3 );
+add_filter( 'nav_menu_css_class', 'novap_menu_css_classes', 10, 4 );
 
 
 // Chooses the default country for a post based on user capabilities

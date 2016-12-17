@@ -50,9 +50,8 @@
                 </a>
                 <!-- start navigation -->
                 <?php wp_nav_menu( array(
-                    'menu' => 'Top Menu',
                     'menu_class' => 'menu menu-main',
-                    'walker' => new NovaPioneer\TopMenuWalker,
+                    'walker' => new NovaPioneer\NovapMenuWalker,
                     'items_wrap' => '<nav role="navigation" id="%1$s" class="%2$s">%3$s</nav>',
                     'theme_location' => 'novap-header-menu',
                     'container' => ''
