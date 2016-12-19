@@ -317,7 +317,10 @@ function novap_body_class($classes) {
 
   $page_templates = array(
       'careers-page.php',
-      'events-page.php'
+      'events-page.php',
+      'school-gallery.php',
+      'fees-structure-page.php',
+      'apply-online-page.php'
   );
   
   if( is_404() || is_search() || is_singular($post_types) || is_page_template($page_templates) ){
@@ -507,4 +510,29 @@ function novap_upcoming_events_navigation_calendar()
 function novap_ga_tracking_id()
 {
     return get_option('novap_ga_id');
+}
+
+function novap_get_gallery_images($current_gallery)
+{
+    switch($current_gallery):
+
+        case 'school_grounds':
+            $images = get_field('school_grounds_pictures');
+            break;
+        case 'classrooms':
+            $images = get_field('classroom_pictures');
+            break;
+        case 'library':
+            $images = get_field('library_pictures');
+            break;
+        case 'play_area':
+            $images = get_field('play_area_pictures');
+            break;
+        default:
+            $images = null;
+            break;
+            
+    endswitch;
+
+    return $images;
 }

@@ -36,5 +36,28 @@
   <!-- end footer -->
 
   <?php wp_footer(); ?>
+
+  <?php if( is_page_template('apply-online-page.php') ): ?>
+
+        <script type="text/javascript">
+          $(document).ready(function () {
+
+              $('.next').click(function () {
+                  $('.current').removeClass('current').hide().next().show().addClass('current');
+                  $('#progressbar li.active').next().addClass('active');
+
+                  if ($('#progress')) {};
+
+              });
+
+              $('.previous').click(function () {
+                  $('.current').removeClass('current').hide().prev().show().addClass('current');
+                  $('#progressbar li.active').removeClass('active').prev().addClass('active');
+              });
+          });
+        </script>
+
+  <?php endif; ?>
+  
   </body>
 </html>
