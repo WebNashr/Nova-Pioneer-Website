@@ -4,6 +4,7 @@
             <h1><?php echo get_admin_page_title(); ?></h1>
         </header>
         <section>
+            <?php settings_errors(); ?>
             <form method="post" action="options.php">
                 <?php settings_fields( $settings_fields ); ?>
 

@@ -4,7 +4,7 @@
 <!-- start footer -->
   <footer class="page-footer">
       <nav role="navigation" class="footer-menu">
-          <a href="" title="" class="footer-logo">
+          <a href="<?php echo site_url(); ?>" class="footer-logo">
               <img src="<?php echo get_template_directory_uri(); ?>/img/nova-logo-2-white.svg" alt="Nova Pioneer">
           </a>
 

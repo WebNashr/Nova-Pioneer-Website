@@ -502,3 +502,9 @@ function novap_upcoming_events_navigation_calendar()
 {
     get_template_part('includes/partials/content', 'upcoming-events-nav');
 }
+
+
+function novap_ga_tracking_id()
+{
+    return get_option('novap_ga_id');
+}
