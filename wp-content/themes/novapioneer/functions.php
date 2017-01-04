@@ -529,10 +529,26 @@ function novap_get_gallery_images($current_gallery)
             $images = get_field('play_area_pictures');
             break;
         default:
-            $images = null;
+            $images = get_field('school_grounds_pictures');
             break;
             
     endswitch;
 
     return $images;
+}
+
+add_filter( 'wp_get_nav_menu_items','nav_items', 11, 3 );
+
+function nav_items( $items, $menu, $args )
+{
+    if( is_admin() )
+        return $items;
+
+    foreach( $items as $item )
+    {
+        if( 'Gallery' == $item->post_title)
+            $item->url .= '?current=school_grounds';
+
+    }
+    return $items;
 }
