@@ -11,7 +11,7 @@ get_header();?>
     <?php while( have_posts() ): the_post(); ?>
 
 
-        <section class="section section-hero leadership-team">
+        <section class="section section-hero leadership-team" <?php echo set_post_new_bg()?>>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>

@@ -11,7 +11,7 @@ get_header();?>
 
 
 
-        <section class="section section-hero working-at-np">
+        <section class="section section-hero working-at-np" <?php echo set_post_new_bg()?>>
             <div class="container hero-container">
 
                 <div class="main-callout-box">
