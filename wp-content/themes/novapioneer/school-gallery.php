@@ -54,7 +54,8 @@ get_header(); ?>
                                                     <h3><?php echo $image->caption; ?></h3>
                                                 </div>
                                                 <img
-                                                    src="<?php echo $image->url; ?>">
+                                                    src="<?php echo $image->url; ?>" style="
+                                                    max-height: 546px;">
                                             </article>
                                         <?php endforeach; ?>
                                     </div>
