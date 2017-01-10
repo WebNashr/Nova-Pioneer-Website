@@ -1,26 +1,26 @@
-<aside>
-    <div class="section subscription-form">
+<section class="section section-pair section-subscribe">
+    <div class="section-navigation">
+        <h1>Stay Updated</h1>
+    </div>
 
-            <div class="section-nav">
-            <h1>Stay Updated</h1>
-            </div>
-            <div class="inner-container">
-                <header>
-                    <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
-                </header>
-                <form action="" method="POST">
-                    <fieldset class="sign-up" >
-                        <input name="email" placeholder="Your Email Address" class="" type="text">
-                        <select>
+    <div class="section-content">
+        <div class="section-content-item section-content-item-full">
+            <header>
+                <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
+            </header>
+
+            <form action="" method="POST" class="sign-up">
+                    <input name="email" class="email-input" placeholder="Your Email Address" class="" type="text">
+                    <div class="selector">
+                    <select class="dropdown">
                             <option value="Please Select Your Area of Interest">Please Select Your Area of Interest</option>
                             <option value="School Admissions">School Admissions</option>
                             <option value="School Events">School Events</option>
                             <option value="Latest News">Latest News</option>
-                        </select>
-                        <input name="Sign Up" value="Sign Up" class="submit-button" style="" type="submit">
-                    </fieldset>
-                </form>
-            </div>
-
+                    </select>
+                    </div>
+                    <input name="Sign Up" value="Sign Up" class="button button-default button-primary submit-btn" style="" type="submit">
+            </form>
+        </div>
     </div>
-</aside>
+</section>

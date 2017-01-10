@@ -318,12 +318,12 @@ function novap_body_class($classes)
     /** Add non-hero class **/
     $post_types = array(
         'careers',
-        'events'
+        'tribe_events'
     );
 
     $page_templates = array(
         'careers-page.php',
-        'events-page.php',
+        'tribe-events.php',
         'school-gallery.php',
         'fees-structure-page.php',
         'apply-online-page.php'
