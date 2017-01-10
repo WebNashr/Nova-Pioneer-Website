@@ -101,13 +101,14 @@
     }
 }
 
+
 .footer-box-item {
 	@include font-size(16px);
 	@include line-height(32px);
 	color: $white;
 }
 
-.footer-box-main-item {
+.footer-box > .footer-box-menu-item {
 	@include title(semi);
 	// @include font-size(16px);
 	letter-spacing: 1.26667px;
@@ -120,10 +121,10 @@
 	}
 }
 
-.footer-box-menu-item {
+.sub-menu .footer-box-menu-item {
 	@include title(regular);
 	// @include font-size(15px);
-	display: inline-table;
+	display: block;
 	letter-spacing: 0.5px;
 	text-transform: capitalize;
 	color: $sky;
@@ -132,7 +133,6 @@
 		color: $green-blue-light;
 	}
 }
-
 
 
 

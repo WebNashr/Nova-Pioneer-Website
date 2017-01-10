@@ -10,3 +10,4 @@ wp-content/uploads
 
 # Other Files
 .htaccess
+.idea/

@@ -24,17 +24,19 @@
                     </div>
 
                     <div class="article-meta">
-                        <?php $categories = get_the_category(); ?>
+
+                        <?php  $tax =wp_get_post_terms( get_the_ID() ,'country');?>
                         <p class="article-meta-title">Posted in</p>
-                        <?php foreach($categories as $category): ?>
+
                           <small>
-                              <a href="<?php echo get_category_link( $category->cat_ID ); ?>" title=""><?php echo $category->name; ?></a>
+                              <a href="<?php  ?>" title=""><?php echo $tax[0]->name; ?></a>
                           </small>
-                        <?php endforeach; ?>
+
                     </div>
                 </aside>
 
                 <div class="article-inner">
+
                     <div class="article-excerpt"> <?php the_excerpt(); ?> </div>
                     <?php the_content(); ?>
                 </div>

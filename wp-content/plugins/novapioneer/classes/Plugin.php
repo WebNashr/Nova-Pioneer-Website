@@ -48,13 +48,26 @@ class Plugin
             "menu_title" => "Novapioneer",
             "capability" => "manage_options",
             "menu_slug"  => $this->main_page
+        ), array(
+            "settings_fields" => "novap-general-settings"
         ));
         $this->add_page($main_page);
+
+        $general_settings = new SubPage('admin_pages/main_page.php', array(
+            "parent_slug" => $this->main_page,
+            "page_title"  => "General Settings",
+            "menu_title"  => "General Settings",
+            "capability"  => "manage_options",
+            "menu_slug"   => $this->main_page
+        ), array(
+            "settings_fields" => "novap-general-settings"
+        ));
+        $this->add_page($general_settings);
 
         $redirection_settings_page = new SubPage("admin_pages/redirection_settings.php", array(
             "parent_slug" => $this->main_page,
             "page_title" => "Redirection Settings",
-            "menu_title" => "Redirection",
+            "menu_title" => "Redirection Settings",
             "capability" => "manage_options",
             "menu_slug"  => "novap-options-redirection"
         ), array(
@@ -69,6 +82,8 @@ class Plugin
     public function register_settings()
     {
         /** Register Settings **/
+        register_setting('novap-general-settings', 'novap_ga_id', 'sanitize_text_field');
+
         register_setting('novap-redirection-settings', 'novap_kenya_redirection', 'sanitize_text_field');
         register_setting('novap-redirection-settings', 'novap_sa_redirection', 'sanitize_text_field');
 
@@ -78,6 +93,13 @@ class Plugin
             'Redirection Options',
             $this->pages['novap-options-redirection'],
             'Customize country redirection urls for: '
+        );
+
+        $google_analytics_section = new Section(
+            'novap-ga-section',
+            'Google Analytics',
+            $this->pages['novap-options'],
+            'Add settings for Google analytics: '
         );
 
         /** Add Fields **/
@@ -102,6 +124,16 @@ class Plugin
             $redirection_urls_section
         );
 
+        $ga_id = new NPTextField(
+            'novap_ga_id',
+            'Tracking ID:',
+            array(
+                'id' => 'novap_ga_id',
+                'class' => 'regular-text'
+            ),
+            $this->pages['novap-options'],
+            $google_analytics_section
+        );
     }
 
     private function redirect()

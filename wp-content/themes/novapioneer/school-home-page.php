@@ -53,22 +53,22 @@ get_header();?>
         <section class="section">
 
             <div class="general-notices-container school-notices">
-            <div class="large-notice-container">
+            <div class="large-notice-container" style="background-image: url(<?php echo get_field('admission_photo'); ?>);">
                 <div class="large-notice">
                     <div class="bar-notice">
                         <div class="contact">
-                            <p>General Enquiries Call: <a href="tel:011 496 1202 ">011 496 1202 </a></p>
+                            <p>General Enquiries Call: <a href="tel:<?php echo get_field('general_enquiries_number'); ?>"><?php echo get_field('general_enquiries_number'); ?> </a></p>
                         </div>
                         <div class="contact">
-                            <p>Admission Enquiries Call: <a href="tel:011 496 1202 ">011 496 1202 </a></p>
+                            <p>Admission Enquiries Call: <a href="tel:<?php echo get_field('admission_enquiries_number'); ?>"><?php echo get_field('admission_enquiries_number'); ?> </a></p>
                         </div>
                         <div class="contact">
-                            <p>Email Us: <a href="mailto:learn@novapioneer.com">learn@novapioneer.com</a></p>
+                            <p>Email Us: <a href="mailto:<?php echo get_field('school_email'); ?>"><?php echo get_field('school_email'); ?></a></p>
                         </div>
                     </div>
                     <div class="notice-content">
                         <h1>Learn About Our Admission Process</h1>
-                        <p>Take the first step in securing a Nova Pioneer education for your child using our simple process.</p>
+                        <?php echo get_field('admission_call_to_action'); ?>
                         <p class="call-to-action"><a href="#" class="button button-large button-secondary" title="">Enrol Now</a></p>
                     </div>
                 </div>

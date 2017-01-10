@@ -8,7 +8,7 @@ get_header(); ?>
 <?php if(have_posts()): ?>
 
     <?php while(have_posts()): the_post(); ?>
-    
+
         <section class="section section-hero country-home">
             <div class="container hero-container">
                 <!-- <heading class="hero-heading">
@@ -29,7 +29,7 @@ get_header(); ?>
             <?php $schools = get_field('schools'); ?>
             <?php foreach($schools as $school): ?>
                 <div class="section-school-list-select">
-                    <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/ormonde-school.jpg" alt=""></p>
+                    <p class="school-photo"><img src="<?php echo get_the_post_thumbnail_url($school->ID,'thumbnail'); ?>" alt=""></p>
                     <h1><a href="<?php echo get_permalink($school->ID); ?>" class="school-link" title=""><?php echo $school->post_title; ?></a></h1>
                     <p class="school-summary"><?php echo get_field('summary', $school->ID); ?></p>
                 </div>
@@ -50,7 +50,7 @@ get_header(); ?>
                         <div class="testimonial pull-quote">
                             <?php
                                 $our_students_video             = get_field('our_students_video');
-                                $vid_caption = get_field('video_caption', $our_students_video->ID); 
+                                $vid_caption = get_field('video_caption', $our_students_video->ID);
                                 $student_name = get_field('student_name', $our_students_video->ID);
                                 $video = get_field('video', $our_students_video->ID);
                             ?>
@@ -84,8 +84,8 @@ get_header(); ?>
                 <div class="section-content-item section-content-item-half">
                     <div class="testimonial pull-quote">
                         <?php
-                            $learning_at_novapioneer_video  = get_field('learning_at_novapioneer_video'); 
-                            $vid_caption = get_field('video_caption', $learning_at_novapioneer_video->ID); 
+                            $learning_at_novapioneer_video  = get_field('learning_at_novapioneer_video');
+                            $vid_caption = get_field('video_caption', $learning_at_novapioneer_video->ID);
                             $caption_speaker = get_field('caption_speaker', $learning_at_novapioneer_video->ID);
                             $caption_speaker_title = get_field('caption_speaker_title', $learning_at_novapioneer_video->ID);
                             $video = get_field('video', $learning_at_novapioneer_video->ID);
@@ -121,7 +121,7 @@ get_header(); ?>
             <section class="section section-pair">
                 <?php
                     $video_from_influencer          = get_field('video_from_influencer');
-                    $vid_caption = get_field('video_caption', $video_from_influencer->ID); 
+                    $vid_caption = get_field('video_caption', $video_from_influencer->ID);
                     $caption_speaker = get_field('caption_speaker', $video_from_influencer->ID);
                     $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
                     $video = get_field('video', $video_from_influencer->ID);
@@ -169,9 +169,9 @@ get_header(); ?>
                 <div class="general-notices-container">
                 <div class="large-notice-container">
                     <div class="large-notice">
-                        <div class="notice-content">                            
+                        <div class="notice-content">
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="#" class="button button-large button-secondary" title="">Enrol Now</a></p>
+                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process')?>" class="button button-large button-secondary" title="">Enrol Now</a></p>
                         </div>
                     </div>
                 </div>
@@ -194,18 +194,22 @@ get_header(); ?>
 
         <aside>
             <div class="testimonial full-width-quote bottom-quote">
+                <?php  $args = array( 'post_type' => 'testimonials', 'posts_per_page' => 1 );
+                $loop = new WP_Query( $args );
+                while ( $loop->have_posts() ) : $loop->the_post();?>
                 <div class="spacing-to-center"></div>
                 <figure class="full-width-figure">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
+                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'thumbnail'); ?>" alt="" class="">
                 </figure>
                 <blockquote>
                     <svg aria-hidden="true">
                     <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                     </svg>
-                    I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
-                    <cite><span>Bridget,</span> Nova Pioneer Parent</cite>
+                   <?php the_content()?>
+                    <cite><span><?php the_field('reviewer_name')?>,</span> <?php the_field('reviewer_title')?></cite>
                 </blockquote>
                 <div class="spacing-to-center"></div>
+                   <?php  endwhile; wp_reset_query();?>
             </div>
         </aside>
 
