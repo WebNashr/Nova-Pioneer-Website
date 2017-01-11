@@ -42,29 +42,56 @@
   	@extend %column;
   	@extend %column-3;
   	background: $dark-blue;
-	opacity: 0.9;
- 	text-align: left;
- 	padding: calc(#{$space-tiny} * 1.5);
- 	padding-top: calc(#{$space-tiny} * 1.5);
- 	top: -1rem;
+		opacity: 0.9;
+	 	text-align: left;
+		padding: calc(#{$space-tiny} * 1);
+		// 	padding-top: calc(#{$space-tiny} * 1.5);
+	 	top: -1rem;
+		left:-1rem;
+		max-width: 200px;
 
-	 	p {
-	 		color: $white;
-	 		@include font-size(18px);
-	 		@include copy(regular);
-	 	}
+			p {
+		 		color: $white;
+		 		@include font-size(14px);
+		 		@include copy(regular);
 
-	 	a {
-	 		display: block;
-	 		@include font-size(16px);
-	 		color: lighten($blue, 20%);
-	 		padding-top: 0.75rem;
+				@include break-point(desktop) {
+					@include font-size(18px);
+				}
+		 	}
 
-	 		&:hover {
-	 			color: $light-grey;
-	 		}
-	 	}
+			a {
+		 		display: block;
+		 		@include font-size(14px);
+		 		color: lighten($blue, 20%);
+		 		padding-top: 0.25rem;
+
+		 		&:hover {
+		 			color: $light-grey;
+		 		}
+				@include break-point(desktop) {
+					padding-top: 0.75rem;
+					@include font-size(16px);
+				}
+		 	}
+			@include break-point(laptop) {
+				max-width: 200px;
+				padding: calc(#{$space-tiny} * 1);
+				left: 0;
+			}
+			@include break-point(desktop) {
+				padding: calc(#{$space-tiny} * 1.5);
+				max-width: 270px;
+			}
+
     }
+		&.parallax {
+		//height: 75vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+		}
 
 }
 
@@ -78,7 +105,7 @@
   	background: $grey;
 
 
-  	.section-nav {
+.section-nav {
 	@include flex-direction(column);
 	flex-basis:21.5%;
 	height: auto;
@@ -96,7 +123,7 @@
 	 	}
 	 }
 
-	}
+}
 	.inner-container {
 	 	@include flexbox();
 	 	@include flex-direction(column);
@@ -125,40 +152,38 @@
 	 	width: 100%;
 	 	fieldset {
 			width: auto;
-		}
+	}
 
-		input {
-			//width: 80%;
-			margin-right: 2%;
-			align-self: flex-start;
-			//flex: 2 1 80%;
-			//flex-grow: 2;
-			@include flex(1, 1, 40%);
-		}
-		select {
-			margin-right: 2%;
-			align-self: flex-end;
-			@include flex(1, 1, 40%);
-			border-radius: 0;
-			appearance: normal;
-			padding: 0.6rem 1rem;
-			//color: $blue;
-			color: lighten($dark-grey, 10%);
+	input {
+		//width: 80%;
+		margin-right: 2%;
+		align-self: flex-start;
+		//flex: 2 1 80%;
+		//flex-grow: 2;
+		@include flex(1, 1, 40%);
+	}
+	select {
+		margin-right: 2%;
+		align-self: flex-end;
+		@include flex(1, 1, 40%);
+		border-radius: 0;
+		appearance: normal;
+		padding: 0.6rem 1rem;
+		//color: $blue;
+		color: lighten($dark-grey, 10%);
 
-
-
-			option {
+		option {
+			color: $blue;
+			&:checked {
 				color: $blue;
-				&:checked {
-					color: $blue;
-				}
-				&:not(:checked) {
-					color: lighten($dark-grey, 10%);
-				}
+			}
+			&:not(:checked) {
+				color: lighten($dark-grey, 10%);
 			}
 		}
+	}
 
-		.submit-button {
+	.submit-button {
 		@include flex(1, 1, auto);
 		color: $white;
 		background: $blue;
@@ -168,12 +193,11 @@
 	    @include copy(light);
     	@include font-size(21px);
 	    &:hover {
-	        background: $dark-blue;
-	        border: none;
+        background: $dark-blue;
+        border: none;
 
 	    }
-
+		}
 	}
-}
 
 }
