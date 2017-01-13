@@ -31,8 +31,8 @@ get_header();?>
             </article>
         </section>
 
-        <figure class="full-width-image" style="background-image: url(<?php echo get_field('banner_image'); ?>);">
-            <div class="section-content full-image-caption">
+        <figure class="full-width-image working-at-np-bgd-image parallax" style="background-image: url(<?php echo get_field('banner_image'); ?>);">
+            <div class="section-content full-image-caption animated caption">
                 <figcaption>
                     <?php echo get_field('banner_text'); ?>
                     <a href="<?php echo site_url('/careers'); ?>" >Learn More</a>
@@ -44,6 +44,20 @@ get_header();?>
             <article class="article article-body general-content">
                 <h1>Education Pathways</h1>
                 <?php echo get_field('education_pathways'); ?>
+
+                <div class="section-content section-content-plain section-card-container">
+                    <?php foreach( get_field('education_pathways_cards') as $pathway): $pathway = (object)$pathway; ?>
+                    <div class="section-content-item section-content-item-half section-card">
+                        <h3> <?php echo $pathway->title; ?> </h3>
+                        <div class="small-divider"></div>
+                        <p class="card-description"> <?php echo $pathway->description; ?> </p>
+                    </div>
+                    <?php endforeach; ?>
+
+                    <div class="cta-container">
+                        <a href="<?php echo site_url('/careers/'); ?>" class="button button-large button-primary" title="">View Open Positions</a>
+                    </div>
+                </div>
             </article> 
         </section>
 

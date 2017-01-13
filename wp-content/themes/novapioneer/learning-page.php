@@ -73,87 +73,65 @@ get_header();?>
         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
 
             <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span>
-            <figure class="full-width-image" style="background-image: url(<?php echo $stage->banner_image; ?>);">
-                <div class="section-content full-image-caption">
+            <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);">
+                <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo $stage->banner_image_caption; ?></p>
                     </figcaption>
                 </div>
             </figure>
 
-            <section class="section section-pair education-stage">
-                <div class="section-content-item section-content-item-half">
-                    <h1><?php echo $stage->title; ?></h1>
-                    
-                    <?php echo $stage->description; ?>
+            <section class="education-stage even-section">
+                <div class="section-title"><h1><?php echo $stage->title; ?></h1></div>
 
-                    <div class="testimonial pull-quote">
-                        <?php 
-                            $vid_caption = get_field('video_caption', $stage->video->ID); 
-                            $type = get_field('type', $stage->video->ID);
-                            $video = get_field('video', $stage->video->ID);
-                            $speaker = "";
-                            $speaker_title ="";
+                <div class="section section-pair">
 
-                            if($type === "general"){
-                                $speaker = get_field('caption_speaker', $stage->video->ID);
-                                $speaker_title = get_field('caption_speaker_title', $stage->video->ID);    
-                            }
+                    <div class="section-content-item section-content-item-half">
+                        
+                        <?php echo $stage->description; ?>
 
-                            if($type === "student"){
-                                $speaker = get_field('student_name', $stage->video->ID);
-                                $speaker_title = "Nova Pioneer Student";
-                            }
-                            
-                        ?>
-                        <blockquote>
-                            <svg aria-hidden="true">
-                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                            </svg>
-                            <?php echo $vid_caption; ?>
-                            <cite><span><?php echo $speaker; ?>,</span> <?php echo $speaker_title; ?></cite>
-                        </blockquote>
+                        <div class="testimonial pull-quote">
+                            <?php 
+                                $vid_caption = get_field('video_caption', $stage->video->ID); 
+                                $type = get_field('type', $stage->video->ID);
+                                $video = get_field('video', $stage->video->ID);
+                                $speaker = "";
+                                $speaker_title ="";
+
+                                if($type === "general"){
+                                    $speaker = get_field('caption_speaker', $stage->video->ID);
+                                    $speaker_title = get_field('caption_speaker_title', $stage->video->ID);    
+                                }
+
+                                if($type === "student"){
+                                    $speaker = get_field('student_name', $stage->video->ID);
+                                    $speaker_title = "Nova Pioneer Student";
+                                }
+                                
+                            ?>
+                            <blockquote>
+                                <svg aria-hidden="true">
+                                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                </svg>
+                                <?php echo $vid_caption; ?>
+                                <cite><span><?php echo $speaker; ?>,</span> <?php echo $speaker_title; ?></cite>
+                            </blockquote>
+                        </div>
+
                     </div>
 
-                </div>
-
-                <div class="section-content-item section-content-item-half">
-                    <div class="media youtube-video">
-                        <?php echo $video; ?>
+                    <div class="section-content-item section-content-item-half">
+                        <div class="media youtube-video">
+                            <?php echo $video; ?>
+                        </div>
                     </div>
+
                 </div>
             </section>
 
         <?php endforeach; ?>
 
-        <section class="section section-pair section-subscribe">
-            <div class="section-navigation">
-                <h1>Stay Updated</h1>
-            </div>
-
-            <div class="section-content">
-                <div class="section-content-item section-content-item-full">
-                    <header>
-                        <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
-                    </header>
-
-                    <form action="" method="POST">
-                        <fieldset class="sign-up" >
-                            <input name="email" placeholder="Your Email Address" class="" type="text">
-
-                            <select id="select-option">
-                                    <option value="Please Select Your Area of Interest">Please Select Your Area of Interest</option>
-                                    <option value="School Admissions">School Admissions</option>
-                                    <option value="School Events">School Events</option>
-                                    <option value="Latest News">Latest News</option>
-                            </select>
-                            <input name="Sign Up" value="Sign Up" class="button button-large button-primary" style="" type="submit">
-
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </section>
+    <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 
     <?php endwhile; ?>
 
