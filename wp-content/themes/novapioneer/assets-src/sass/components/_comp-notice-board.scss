@@ -5,38 +5,54 @@
     &.school-notices {
       // padding-top: 0;
       // padding-bottom: calc(1rem * 4);
-      margin-top: -4rem;
+      margin-top: 0;
+      @include break-point(tablet) {
+        // margin-top: -4rem;
+      }
     }
 
 	.large-notice-container  {
 		@extend %column;
 		@extend %columns;
-  	@extend %column-10;
-  	background-image: url('/wp-content/themes/novapioneer/img/school-notice-image.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+	  	@extend %column-10;
+	  	background-image: url('/wp-content/themes/novapioneer/img/school-notice-image.jpg');
+	    background-size: cover;
+	    background-position: center center;
+	    background-repeat: no-repeat;
 
 		h1 {
 	    	margin: 0 auto;
+        @include font-size(32px);
+        line-height: 1.25;
 	    	color: $white;
 	    	text-align: center;
 	    	max-width: 100%;
         text-shadow: 1px 1px darken($dark-grey, 50%);
+        @include break-point(tablet) {
+          @include font-size(40px);
+          line-height: 1.5;
+        }
 		}
-		P {
-	    	@include font-size(28px);
+		p {
+	    	@include font-size(21px);
 	    	@include copy(semi);
 	    	line-height: 1.5;
 	    	color: $white;
-	    	padding: calc(#{$space-tiny} * 2);
+	    	padding: calc(#{$space-tiny} * 1)  calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 2)  calc(#{$space-tiny} * 0.5)  ;
 	    	padding-top: calc(#{$space-tiny} * 1);
 	    	text-align: center;
         text-shadow: 1px 1px darken($dark-grey, 50%);
+
         &.call-to-action {
           text-shadow: none;
           margin: 0;
           padding: 0;
+        }
+        @include break-point(tablet) {
+          @include font-size(28px);
+  	    	@include copy(semi);
+          line-height: 1.5;
+          padding: calc(#{$space-tiny} * 2);
         }
 		}
 		a {
@@ -56,11 +72,15 @@
     width: 100%;
 		margin: 0 auto;
 		margin-bottom: 0;
-		background: rgba(19,59,85,.8);
+		background: rgba(19,59,85,.7);
 
 		.notice-content {
-      padding: calc(#{$space-tiny} * 3);
-      padding-bottom: calc(1rem * 3);
+      padding: calc(#{$space-tiny} * 1);
+      padding-bottom: calc(1rem * 2);
+      @include break-point(tablet) {
+        padding: calc(#{$space-tiny} * 3);
+        padding-bottom: calc(1rem * 3);
+      }
 		}
     .school-notice-content {
         padding: calc(#{$space-tiny} * 2);
@@ -69,9 +89,14 @@
 
 	}
 	.small-notice-container {
-    @extend %column;
+		@extend %column;
 		@extend %columns;
-    @extend %column-2;
+		@extend %column-2;
+		margin-top: 2rem;
+
+		&:not(:first-of-type) {
+	        margin-left: 0;
+	    }
 
     	h1 {
     		@include font-size(18px);
@@ -92,17 +117,49 @@
     	p {
     		@include font-size(14px);
 	    	@include copy(semi);
-        padding-bottom: calc(#{$space-tiny} * 1);
+        	padding-bottom: calc(#{$space-tiny} * 1);
 	    	line-height: 1;
 	    	text-align: center;
     	}
-      a{
+      	a{
     	    @include font-size(16px);
           text-align: center;
     	    //margin-top: 1.25rem;
-
     	}
+
+      	@include break-point(laptop) {
+			margin-top: 0;
+
+			&:not(:first-of-type) {
+				margin-left: $gut;
+			}
+		}
+
+    @include break-point(desktop) {
+			margin-top: 0;
+		}
+
+
+      .divider {
+      	width: 100%;
+      	padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) ;
+
+      	&:after {
+      		content: ' ';
+      	    display: block;
+      	    width: 100%;
+      			border-top: 1px solid #d4d9d7;
+      	}
+      	@include break-point(tablet) {
+      		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) ;
+      	}
+      	@include break-point(laptop) {
+      		padding: calc(#{$space-tiny} * 2) 0;
+      	}
+      }
 	}
+
+
 	.small-notice {
     @extend %column;
     text-align: center;
@@ -120,6 +177,7 @@
     align-items: center;
 		width: 100%;
 		//background: lighten($blue, 20%);
+    padding: calc(#{$space-tiny} * 1) 0;
     background: $dark-blue;
 		color: $grey;
 		p {
@@ -136,15 +194,22 @@
       @include copy(regular);
 			@include font-size(18px);
 			text-decoration: none;
-			display: inline;
+			display: block;
+      padding: calc(#{$space-tiny} * 0.5) 0;
 			&:hover {
         color: $green-blue;
 
 			}
+      @include break-point(tablet) {
+        display: inline;
+       }
 		}
     .contact {
       text-align: center;
     }
+    @include break-point(laptop) {
+  		padding: 0;
+  	}
 
 	}
 
@@ -191,11 +256,16 @@
 		.detail-separator {
 				content: " ";
     		padding: 0 1rem;
+
 				&:after {
-					content: "|";
+					content: "—";
 					@include copy(light);
 					text-align: center;
 					color: darken($grey, 20%);
+
+          @include break-point(laptop) {
+        		content: "|";
+        	}
 				}
 			}
 		}

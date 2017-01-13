@@ -39,19 +39,67 @@ h1 {
 	.section-navigation & {
 	 	@include title(semi);
 	 	@include font-size(30px);
-		margin-bottom: 1rem;
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+		line-height: 1.15;
+
 		&.current {
 			color: $dark-grey;
 			color: lighten($dark-grey, 10%);
 		}
+		// @include break-point(tablet) {
+		// 	margin-bottom: 1rem;
+		// }
+		@include break-point(tablet) {
+			margin-bottom: 0.5rem;
+		}
+		@include break-point(laptop) {
+			margin-bottom: 1rem;
+		}
 	}
 	&.full-width-heading  {
-		text-align: center;
-		margin-top: 0;
+		text-align: left;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		@include title(semi);
+	 	@include font-size(30px);
+		@include break-point(tablet) {
+			text-align: left;
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+
+		}
+		@include break-point(laptop) {
+			text-align: left;
+			margin-top: 0;
+		}
+		@include break-point(desktop) {
+			text-align: center;
+			margin-top: 0;
+		}
 	}
 	.section-school-list-select & {
 		text-align: center;
-		margin-top: 0;
+		margin-top: -0.5rem;
+		margin-bottom: 0;
+		// margin-left: 0.83em;//chrome fix
+		line-height: 1;
+		@include break-point(tablet) {
+			line-height: 1.5;
+			margin-top: 0;
+			margin-left: 0;
+		}
+		@include break-point(laptop) {
+			line-height: 0.65;
+			margin-top: 0;
+			margin-bottom: 0.5rem;
+			margin-left: 0;
+		}
+		@include break-point(desktop) {
+			line-height: 0.75;
+			margin-top: 0;
+			margin-left: 0;
+		}
 	}
 
 	.article-header & {
@@ -68,6 +116,10 @@ h2 {
 	.search-results & {
 		@include copy(bold);
 		@include font-size(32px);
+	}
+
+	.article-aside & {
+		margin-top: 0;
 	}
 }
 
@@ -93,13 +145,17 @@ h3 {
 
 	.toggle-list & {
 		@include copy(regular);
-		@include font-size(22px);
+		@include font-size(20px);
 	}
 
 	.learning-approach & {
 		text-align: center;
 		@include font-size(21px);
 		@include copy(semi);
+	}
+
+	.article-aside & {
+		margin-top: 0;
 	}
 }
 

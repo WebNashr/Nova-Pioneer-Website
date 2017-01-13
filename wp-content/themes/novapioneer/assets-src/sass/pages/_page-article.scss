@@ -4,7 +4,7 @@
 
 
 .article-header {
-	border-bottom: 1px solid lighten($light-grey, 32%);
+	// border-bottom: 1px solid lighten($light-grey, 32%);
 }
 
 .article-header h1 {
@@ -18,60 +18,143 @@
 
 .article-container {
 	@include flexbox();
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
+    border-top: 1px solid lighten($light-grey, 32%);
+
+    .section-learning-content & {
+    	border: 0 none;
+    }
+
+    @include break-point(laptop) {
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+    }
 }
 
 .article-aside {
-	max-width: 14rem;
-	padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) 0 0;
+	flex: 2;
+	max-width: 100%;
+	padding: calc(#{$space-tiny} * 1) 0;
+	border-bottom: 1px solid lighten($light-grey, 32%);
+	
 	.downloads {
 		padding-right: calc(#{$space-tiny} * 1.5);
+		
 		h4 {
 			@include font-size(18px);
 			line-height: 1.25;
+
+			@include break-point(tablet) {
+				display: inline-block;
+		    }
+
+		    @include break-point(laptop) {
+				display: block;
+		    }
 		}
+
 		p {
-				@include font-size(14px);
+			@include font-size(14px);
+			margin-top: calc(#{$space-tiny} * 0.5);
 		}
+
 		&:not(:first-of-type) {
 			margin-top: calc(#{$space-tiny} * 1.5);
 			padding-top: calc(#{$space-tiny} * 0.25);
 			border-top: 1px solid lighten($light-grey, 32%);
 		}
-
 	}
+
+    @include break-point(tablet) {
+		.button {
+			float: right;
+			margin-top: 1rem;
+		}
+    }
+
+    @include break-point(laptop) {
+		max-width: 14rem;
+		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 0.5) 0 0;
+		border-bottom: unset;
+
+		.button {
+			float: none;
+			margin-top: 0;
+		}
+    }
 }
 
 .article-meta {
 	&:not(:first-of-type) {
-		margin-top: calc(#{$space-tiny} * 1.5);
-		padding-top: calc(#{$space-tiny} * 1.5);
-		border-top: 1px solid lighten($light-grey, 32%);
+		margin-top: calc(#{$space-tiny} * 0.125);
+		padding-top: calc(#{$space-tiny} * 0.125);
 	}
+
+    @include break-point(laptop) {
+		&:not(:first-of-type) {
+			margin-top: calc(#{$space-tiny} * 1.5);
+			padding-top: calc(#{$space-tiny} * 1.5);
+			border-top: 1px solid lighten($light-grey, 32%);
+		}
+    }
 }
 
 .article-meta-title {
 	@include copy(bold);
 	@include font-size(14px);
+	display: inline;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	color: $dark-grey;
+
+    @include break-point(laptop) {
+		display: block;
+    }
 }
 
 .article-meta-item {
 	@include font-size(13px);
+	display: inline;
+	margin-left: 0.75rem;
 	color: $dark-grey;
+
+    @include break-point(laptop) {
+		display: block;
+		margin-left: unset;
+    }
 }
 
 .article-meta-link {
 	@include font-size(13px);
+	display: inline;
+	margin-left: 0.75rem;
 	color: $green-blue;
+
+    @include break-point(laptop) {
+		display: block;
+		margin-left: unset;
+    }
 }
 
 .article-inner {
-	max-width: calc(100% - 16rem);
-	margin-left: calc(#{$space-tiny} * 2);
-	padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 9) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
-	border-left: 1px solid lighten($light-grey, 32%);
+	flex: 10;
+	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
+
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 0);
+    }
+
+    @include break-point(laptop) {
+		max-width: calc(100% - 16rem);
+		margin-left: calc(#{$space-tiny} * 2);
+		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 0) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
+		border-left: 1px solid lighten($light-grey, 32%);
+    }
+
+    @include break-point(largelaptop) {
+		padding-right: calc(#{$space-tiny} * 9);
+    }
 }
 
 .article-inner * + * {
@@ -84,6 +167,18 @@
 	@include line-height(1.35);
 }
 
+.article-inner h2 + p {
+	margin-top: calc(#{$space-tiny} * 1);
+}
+
+.article-inner header + p {
+	margin-top: calc(#{$space-tiny} * 0.5);
+}
+
+.article-inner p + p {
+	margin-top: 0;
+}
+
 .article-img {
 	padding: 0.5rem;
 	border: 1px solid lighten($light-grey, 30%);
@@ -94,7 +189,7 @@
 	@include font-size(24px);
 	width: 90%;
 	max-width: 728px;
-	margin: 0.5rem 0 0.5rem auto;
+	margin: calc(#{$space-tiny} * 2) 0 0.5rem auto;
 	padding: calc(#{$space-tiny} * 1.25) calc(#{$space-tiny} * 1.5);
 	line-height: 1.65;
 	text-align: right;

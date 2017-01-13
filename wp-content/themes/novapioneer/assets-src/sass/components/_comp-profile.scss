@@ -1,9 +1,10 @@
 
 /*  Profiles */
 /* ==================================================== */
+
+
 .team-profile-container {
 	width: 100%;
-	// margin-top: 6rem;
 	padding-top: calc(#{$space-tiny} * 6);
 
 	&:last-of-type {
@@ -13,29 +14,121 @@
 }
 
 .profile {
+	max-width: auto;
 	text-align: center;
+
+	&:not(:first-of-type) {
+		margin-top: $gut;
+	}
 
 	&:last-child {
 		margin-right: 0;
 	}
+
 	img {
-		margin-bottom: 1rem;
+		max-width: 360px;
+		margin-top: unset;
+		margin-right: auto;
+		margin-bottom: 0.5rem;
+		margin-left: auto;
+
+	}
+	&:first-of-type{
+		// margin-top: 2rem;
+
+	}
+	@include break-point(tablet) {
+		&:not(:first-of-type) {
+			margin-top: 0;
+		}
+
+		&:nth-child(2n+3) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: $gut;
+        }
+	}
+	@include break-point(laptop) {
+		&:first-of-type{
+			margin-top: unset;
+		}
+	}
+
+
+	@include break-point(laptop) {
+		align-self: auto;
+
+		&:nth-child(2n+3) {
+            margin-left: $gut;
+        }
+
+        &:nth-of-type(n+3) {
+			margin-top: 0;
+		}
+
+		&:nth-child(4n+5) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+5) {
+            margin-top: $gut;
+        }
+
+		img {
+			max-width: 196px;
+		}
+	}
+}
+
+.profile-school {
+	@include break-point(tablet) {
+		&:not(:first-of-type) {
+			margin-top: calc(#{$gut} / 3);
+			margin-left: 0;
+		}
+
+	    &:nth-child(n+3) {
+	        margin-left: $gut;
+	    }
+	}
+
+	@include break-point(laptop) {
+		&:not(:first-of-type) {
+			margin-left: $gut;
+		}
+
+	    &:nth-child(n+3) {
+	        // background: yellow;
+	    }
 	}
 }
 
 .profile-img {
+	// margin-top: 4rem;
 	margin-bottom: 1rem;
+
+	@include break-point(laptop) {
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+	}
+
+	@include break-point(desktop) {
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+	}
 }
 
 .profile-name {
-	@include copy(bold);
-	@include font-size(21px);
+	@include title(bold);
+	@include font-size(24px);
 	text-align: center;
 	color: $blue;
-	font-family: 'Gentium Basic', serif;
-	&:hover {
-		color: $dark-blue;
-	}
+	margin: 0;
+	padding: calc(#{$space-tiny} * 0.25) 0 calc(#{$space-tiny} * 0.35) 0;
+	line-height: 1;
+	display: block;
 }
 
 .profile-role {
@@ -43,12 +136,29 @@
 	@include copy(semi);
   	text-align: center;
 	color: $dark-grey;
-	display: block;
-	padding: calc(#{$space-tiny} * 0.5);
+	margin: 0.25rem 0 0;
+	padding: 0;
+
+	@include break-point(desktop) {
+		@include font-size(16px);
+		padding: 0 calc(#{$space-tiny} * 0.25) calc(#{$space-tiny} * 0.5) 0;
+	}
 }
 
 .profile-description {
+	max-width: 360px;
+	margin-right: auto;
+	margin-left: auto;
+
 	p {
 		@include font-size(16px);
+		@include line-height(1.275);
+		padding: 0 0 calc(#{$space-tiny} * 0.75) ;
+	}
+
+	@include break-point(laptop) {
+		max-width: unset;
+		margin-right: unset;
+		margin-left: unset;
 	}
 }

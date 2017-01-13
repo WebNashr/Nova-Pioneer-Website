@@ -14,9 +14,9 @@
   background-position: center center;
   background-repeat: no-repeat;
   padding-top: calc(#{$space-tiny} * 1);
-	padding-right: calc(#{$space-tiny} * 4);
+	padding-right: calc(#{$space-tiny} * 3);
 	padding-bottom: calc(#{$space-tiny} * 4);
-	padding-left: calc(#{$space-tiny} * 4);
+	padding-left: calc(#{$space-tiny} * 3);
   align-items: flex-start;
 
     &.secondary-bgd-image {
@@ -36,35 +36,71 @@
     	background-image: url('/wp-content/themes/novapioneer/img/large-bgd-about-np.jpg');
     }
 
+
     figcaption {
-  	position: relative;
-  	//flex-basis: 21%;
-  	@extend %column;
-  	@extend %column-3;
-  	background: $dark-blue;
-	opacity: 0.9;
- 	text-align: left;
- 	padding: calc(#{$space-tiny} * 1.5);
- 	padding-top: calc(#{$space-tiny} * 1.5);
- 	top: -1rem;
+	  	position: relative;
+	  	//flex-basis: 21%;
+	  	@extend %column;
+	  	@extend %column-3;
+	  	background: $dark-blue;
+			opacity: 0.9;
+		 	text-align: left;
+		 	padding: calc(#{$space-tiny} * 1);
+			// 	padding-top: calc(#{$space-tiny} * 1.5);
+		 	top: -1rem;
+			left:-1rem;
+			max-width: 200px;
+
+
 
 	 	p {
 	 		color: $white;
-	 		@include font-size(18px);
+	 		@include font-size(14px);
 	 		@include copy(regular);
+
+			@include break-point(desktop) {
+				@include font-size(18px);
+			}
 	 	}
 
 	 	a {
 	 		display: block;
-	 		@include font-size(16px);
+	 		@include font-size(14px);
 	 		color: lighten($blue, 20%);
-	 		padding-top: 0.75rem;
+	 		padding-top: 0.25rem;
 
 	 		&:hover {
 	 			color: $light-grey;
 	 		}
+			@include break-point(desktop) {
+				padding-top: 0.75rem;
+				@include font-size(16px);
+			}
 	 	}
+		@include break-point(laptop) {
+			max-width: 200px;
+			padding: calc(#{$space-tiny} * 1);
+			left: 0;
+		}
+		@include break-point(desktop) {
+			padding: calc(#{$space-tiny} * 1.5);
+			max-width: 270px;
+		}
+
+
+
     }
+		&.parallax {
+		//height: 75vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+		}
+
+
+
 
 }
 

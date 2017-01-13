@@ -28,3 +28,5 @@ $background-grey: rgba(225, 225, 225, 1.0000);
 $flare: red;
 
 $sky: rgba(53, 126, 174, 1.0000);
+
+$sky-light: lighten($sky, 15%);

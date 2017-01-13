@@ -29,7 +29,7 @@ p {
 
 	.learning-approach & {
 		@include font-size(16px);
-		padding: calc(#{$space-tiny} * 1);
+		padding:  calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 1);
 		text-align: center;
 	}
 

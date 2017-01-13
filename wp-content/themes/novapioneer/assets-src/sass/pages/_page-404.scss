@@ -4,7 +4,7 @@
 
 
 .section-404 {
-
+	margin-bottom: 3rem;
 }
 
 .header-404 {
@@ -28,7 +28,7 @@
 		color: $green-blue-light;
 	}
 }
-                        
+
 .search-404 {
 	flex-direction: unset;
 	flex-wrap: unset;
@@ -36,11 +36,14 @@
 	display: block;
 	width: auto;
 	max-width: 32.5rem;
-	margin: 4rem auto 0;
+	margin: 2rem auto 0;
 	background: transparent;
 
 	&-non {
 		margin-top: 0;
+	}
+	@include break-point(tablet) {
+		margin: 4rem auto 0;
 	}
 }
 
@@ -101,5 +104,3 @@
 .search-404 input[type="text"]:focus ~ svg line {
 	stroke: lighten($blue, 5%);
 }
-
-

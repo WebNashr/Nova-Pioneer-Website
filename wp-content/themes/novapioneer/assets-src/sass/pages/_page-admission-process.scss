@@ -16,9 +16,9 @@
 .cta-container {
 	width: 100%;
 	@include flexbox();
-    @include flex-direction(row); 
+    @include flex-direction(row);
    	justify-content: center;
-    margin-top: -2rem;
+    // margin-top: -2rem;
 }
 
 .admission-contacts {
@@ -30,7 +30,7 @@
     margin-bottom: 0;
     height: 100%;
     width: 100%;
-	
+
 	.inner-container {
 	 	@include flexbox();
 		border-left: 1px $light-grey solid;
@@ -38,7 +38,7 @@
 		padding-right: 0;
 		flex-basis: 80%;
 	}
-	
+
 	.location-map {
 		flex-basis: 57%;
 		margin-right: 3%;
@@ -66,5 +66,3 @@
 .button-link{
 	margin: -2rem 0 4rem 0;
 }
-
-
