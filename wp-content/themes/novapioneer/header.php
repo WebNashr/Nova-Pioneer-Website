@@ -88,6 +88,6 @@
             </section>
         </header>
         <!-- end page-header -->
-        <div class="body-container"> <!-- start body-container -->
+
             <!-- start content -->
             <main role="main">
