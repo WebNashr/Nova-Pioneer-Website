@@ -77,7 +77,7 @@
 
                 <!-- end navigation -->
 
-                <a href="<?php echo site_url('/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
+                <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
 
                 <label for="modal-check" class="modal-check-label">
                     <span class="modal-dot"></span>

@@ -51,8 +51,8 @@ get_header();?>
             </article>
         </section>
 
-        <figure class="full-width-image" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);">
-            <div class="section-content full-image-caption">
+        <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);">
+            <div class="section-content full-image-caption animated caption">
                 <figcaption>
                     <?php echo get_field('our_culture_banner_image_caption'); ?>
                 </figcaption>
