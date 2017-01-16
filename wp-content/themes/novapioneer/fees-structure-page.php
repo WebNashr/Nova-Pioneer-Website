@@ -12,104 +12,136 @@ get_header();?>
 
 <?php if( have_posts() ): ?>
 
-    <?php while( have_posts() ): the_post(); $n=0; ?>
+    <?php while( have_posts() ): the_post();?>
+
+        <section class="section trigger-offset">
+            <article class="article article-body general-content">
+                <h1 class="page-title">Fees Structure</h1>
+                <?php the_content(); ?>
+            </article>
+        </section>
 
         <?php foreach( get_field('sections') as $section ): $section = (object)$section; ?>
-            <section class="section trigger-offset">
-                <article class="article article-body general-content">
-                    <?php if($n == 0): ?>
-                        <h1 class="page-title">Fees Structure</h1>
-                    <?php endif; ?>
-
-                    <h2><?php echo $section->title; ?></h2>
-                    <?php echo $section->description; ?>
-                </article>
-            </section>
 
             <?php if( !empty($section->fees) ): ?>
                 <section class="section">
-                    <div class='fees-container'>
-                        <div class='schedule-content'>
-                            <header class='table-header'>Fees</header>
-                            <table class='fees-table'>
-                                <thead>
-                                    <th class='text'>Item</th>
-                                    <th class='text'>Term 1</th>
-                                    <th class='text'>Term 2</th>
-                                    <th class='text'>Term 3</th>
-                                </thead>
+                    <article class="article article-body general-content">
+                        <div class="fees-container">
+                            <div class="schedule-content">
+                                <header class="table-header"><?php echo $section->title; ?></header>
+                                <table class="fees-table">
+                                    <thead>
+                                        <th class="text">Item</th>
+                                        <th class="text">Term 1</th>
+                                        <th class="text">Term 2</th>
+                                        <th class="text">Term 3</th>
+                                    </thead>
 
-                                <tbody>
-                                    <?php foreach( $section->fees as $fee ): $fee = (object)$fee; ?>
-                                        <tr class=''>
-                                            <td class='text row-title'><?php echo $fee->item_name; ?></td>
-                                            <td class='text ' data-title='Term 1'><?php echo $fee->term_1; ?></td>
-                                            <td class='text ' data-title='Term 2'><?php echo $fee->term_2; ?></td>
-                                            <td class='text ' data-title='Term 3'><?php echo $fee->term_3; ?></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                        <?php foreach( $section->fees as $fee ): $fee = (object)$fee; ?>
+                                            <tr class="">
+                                                <td class="text row-title"><?php echo $fee->item_name; ?></td>
+                                                <td class="text" data-title="Term 1"><?php echo $fee->term_1; ?></td>
+                                                <td class="text" data-title="Term 2"><?php echo $fee->term_2; ?></td>
+                                                <td class="text" data-title="Term 3"><?php echo $fee->term_3; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+
+
+                                <?php if( !empty($section->additional_fees) ): ?>
+                                    <table class="fees-table">
+                                        <thead class="secondary">
+                                            <th class="text">Other fees</th>
+                                            <th class="text"></th>
+                                            <th class="text"></th>
+                                        </thead>
+
+                                        <tbody>
+                                            <?php foreach( $section->additional_fees as $fee ): $fee = (object)$fee; ?>
+                                                <tr class="">
+                                                    <td class="text row-title" data-title="First"><?php echo $fee->item_name; ?></td>
+                                                    <td class="text cost" data-title="Term 1"><?php echo $fee->fee; ?></td>
+                                                    <td class="text" data-title="Term 2"><?php echo $fee->notes; ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                <?php endif; ?>
+                            <a href="<?php echo $section->fees_document; ?>" class="button button-small button-primary" title="">Download the Fees Structure</a>
+                            </div>
                         </div>
-                    </div>
+                    </article> 
                 </section>
             <?php endif; ?>
 
-            <?php if( !empty($section->additional_fees) ): ?>
-                <section class="section">
-                    <div class='fees-container'>
-                        <header class='table-header'>Additional Fees</header>
-                        <table class='fees-table'>
-                            <thead>
-                                <th class='text'>Item</th>
-                                <th class='text'>Fee</th>
-                                <th class='text'>Notes</th>
-                            </thead>
 
-                            <tbody>
-                                <?php foreach( $section->additional_fees as $fee ): $fee = (object)$fee; ?>
-                                    <tr class=''>
-                                        <td class='text row-title' data-title='First'><?php echo $fee->item_name; ?></td>
-                                        <td class='text cost' data-title='Term 1'><?php echo $fee->fee; ?></td>
-                                        <td class='text ' data-title='Term 2'><?php echo $fee->notes; ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            <?php endif; ?>
-        <?php  $n++; endforeach ?>
-
-        <section class="section">
-            <div class='fees-container'>
-                <a href="#" class="button button-large button-primary" title="">Download the Fees Structures</a>
-            </div>
-        </section>
+        <?php endforeach ?>
 
         <section class="section">
             <article class="article article-body general-content">
                 <h2>Frequently Asked Questions</h2>
 
                 <ul class="toggle-list">
+                    <?php $n = 0; ?>
                     <?php foreach( get_field('faqs') as $faq ): $faq = (object)$faq; ?>
-                        <li>
+                        <li class="<?php if($n <= 0): echo 'show'; endif; ?>">
                             <h3 class="toggle-list-title"><?php echo $faq->question; ?></h3>
 
                             <div class="toggle-list-content">
                                 <?php echo $faq->response; ?>
                             </div>
                         </li>
+                        <?php $n++; ?>
                     <?php endforeach; ?>
                 </ul>
             </article>
         </section>
 
+
         <section class="section">
-            <article class="article article-body general-content">
-                <?php the_content(); ?>
-            </article>
+            <div class="fees-container">
+                <div class="schedule-content">
+                    <header class="table-header">How to make payment</header>
+
+                    <table class="fees-table">
+                        <thead>
+                        
+                            <th class="text"></th>
+                            <th class="text">Payment method</th>
+                            <th class="text">Instructions</th>
+                            <th class="text">Proof of payment</th>
+
+                        </thead>
+
+                        <tbody>
+                            <?php $x = 1; ?>
+                            <?php foreach( get_field('payment_methods') as $method ): $method = (object)$method; ?>
+                                <tr>
+                                    <td class="text row-title row-title-alt" data-title='First'><?php echo $x; ?></td>
+                                    <td class="text" data-title='Term 1'><?php echo $method->method; ?></td>
+                                    <td class="text" data-title='Term 2'>
+                                        <?php echo $method->instructions; ?>
+                                    </td>
+                                    <td class="text" data-title='Term 3'><?php echo $method->proof_of_payment; ?></td>   
+                                </tr>
+                                <?php $x++; ?>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                    <table class="fees-table">
+                        <tbody>
+                            <tr class="">
+                                <td><?php echo get_field('foot_note'); ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
+
     <?php endwhile; ?>
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>

@@ -161,7 +161,7 @@
 	margin-top: calc(#{$space-tiny} * 2);
 }
 
-.article-excerpt {
+.article-excerpt, .article-excerpt p {
 	@include title(regular);
 	@include font-size(26px);
 	@include line-height(1.35);
@@ -184,7 +184,7 @@
 	border: 1px solid lighten($light-grey, 30%);
 }
 
-.article-inner blockquote {
+.article-inner blockquote, .article-inner blockquote p {
 	@include title(regular);
 	@include font-size(24px);
 	width: 90%;

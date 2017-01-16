@@ -58,8 +58,8 @@ get_header(); ?>
         elseif (is_paged()): ?>
             <footer class="page-pagination">
                 <nav role="navigation" class="pagination">
-                    <a class="button button-default button-primary button-pagination"><?php next_posts_link('&lt;') ?></a>
-                    <a class="button button-default button-primary button-pagination"><?php previous_posts_link('&gt;') ?></a>
+                    <a class="button button-default button-primary button-pagination"><?php next_posts_link('Prev') ?></a>
+                    <a class="button button-default button-primary button-pagination"><?php previous_posts_link('Next') ?></a>
                 </nav>
             </footer>
         <?php endif; ?>
