@@ -33,7 +33,10 @@ get_header(); ?>
 
                         <!-- Timeline begin here -->
                         <div id="timeline">
-                            <?php $i = 0; $query = new WP_Query(array('post_type' => 'a_day_in_the_life'));
+                            <?php $i = 0;
+                            $query = new WP_Query(array('post_type' => 'a_day_in_the_life',
+                            'order' => 'ASC',
+                                'posts_per_page' => -1));
                             if ($query->have_posts()) :
                                 while ($query->have_posts()) : $query->the_post();
                                     if (isEven($i)):?>
@@ -41,7 +44,7 @@ get_header(); ?>
                                             <div class="timeline-icon">
                                             </div>
                                             <div class="timeline-content">
-                                                <h2><?php the_title()?></h2>
+                                                <h2><?php the_title() ?></h2>
                                                 <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
                                                 <p>
                                                     <?php the_content(); ?>
@@ -55,7 +58,7 @@ get_header(); ?>
 
                                             </div>
                                             <div class="timeline-content right">
-                                                <h2><?php the_title()?></h2>
+                                                <h2><?php the_title() ?></h2>
                                                 <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
                                                 <p>
                                                     <?php the_content(); ?>
