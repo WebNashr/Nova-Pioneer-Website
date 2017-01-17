@@ -47,7 +47,7 @@ get_header(); ?>
 
                         <div class="testimonial pull-quote">
                             <?php
-                                $our_students_video             = get_field('our_students_video');
+                                $our_students_video  = get_field('our_students_video');
                                 $vid_caption = get_field('video_caption', $our_students_video->ID);
                                 $student_name = get_field('student_name', $our_students_video->ID);
                                 $video = get_field('video', $our_students_video->ID);
