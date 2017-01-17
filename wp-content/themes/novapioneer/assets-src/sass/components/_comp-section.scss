@@ -123,6 +123,10 @@
 .section-content-item {
 	@extend %column;
 
+	&-sixth {
+		@extend %column-2;
+	}
+
   &-quarter {
 		@extend %column-3;
 	}

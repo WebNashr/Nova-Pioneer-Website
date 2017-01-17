@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Template Name: Leadership Team Page
@@ -24,9 +24,9 @@ get_header();?>
 
         <section class="section section-pair team-profile-container">
 
-            <div class="section-content section-content-plain">            
+            <div class="section-content section-content-plain">
                 <?php foreach( get_field('management') as $manager): $manager = (object)$manager; ?>
-                    <div class="section-content-item section-content-item-quarter profile">
+                    <div class="section-content-item section-content-item-sixth profile">
                         <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $manager->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $manager->post_title; ?>">
                         <h1 class="profile-name"><?php echo $manager->post_title; ?></h1>
                         <h2 class="profile-role"><?php echo get_field('title', $manager->ID); ?></h2>
@@ -43,7 +43,7 @@ get_header();?>
                                     <?php foreach($description_paragraphs as $paragraph): ?>
                                         <p><?php echo $paragraph; ?></p>
                                     <?php endforeach; ?>
-                                </span>     
+                                </span>
                             </div>
                             <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label>
                         </div>
@@ -64,7 +64,7 @@ get_header();?>
                     </div>
                 <?php endforeach; ?>
             </div>
-            
+
         </section>
 
 

@@ -68,13 +68,13 @@
 			margin-top: 0;
 		}
 
-		&:nth-child(4n+5) {
-            margin-left: 0;
-        }
+		// &:nth-child(4n+5) {
+    //         margin-left: 0;
+    //     }
 
-        &:nth-child(n+5) {
-            margin-top: $gut;
-        }
+        // &:nth-child(n+5) {
+        //     margin-top: $gut;
+        // }
 
 		img {
 			max-width: 196px;
@@ -134,10 +134,11 @@
 .profile-role {
 	@include font-size(16px);
 	@include copy(semi);
-  	text-align: center;
+  text-align: center;
 	color: $dark-grey;
 	margin: 0.25rem 0 0;
 	padding: 0;
+	align-self: center;
 
 	@include break-point(desktop) {
 		@include font-size(16px);
