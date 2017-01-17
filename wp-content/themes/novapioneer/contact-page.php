@@ -50,11 +50,6 @@ get_header(); ?>
                                             <?php if (have_rows('contacts_')): while (have_rows('contacts_')) : the_row(); ?>
                                                 <span class="phone-contact-one">   <?php the_sub_field('label')?> <a
                                                         href="tel:<?php the_sub_field('contact')?> "> <?php the_sub_field('contact')?> </a></span>
-                                                <?php if( strpos(get_sub_field('label'), 'email')):?>
-                                                    <span class="email-contact">Email us: <a
-                                                            href="mailto:learn@novapioneer.com">learn@novapioneer.com</a></span>
-                                                    <?php endif;?>
-
                                             <?php endwhile; endif; ?>
                                         </div>
                                     </address>
@@ -97,10 +92,7 @@ get_header(); ?>
                                             <?php if (have_rows('contacts_')): while (have_rows('contacts_')) : the_row(); ?>
                                                 <span class="phone-contact-one">   <?php the_sub_field('label')?> <a
                                                         href="tel:<?php the_sub_field('contact')?> "> <?php the_sub_field('contact')?> </a></span>
-                                                <?php if( strpos(get_sub_field('label'), 'email')):?>
-                                                    <span class="email-contact">Email us: <a
-                                                            href="mailto:learn@novapioneer.com">learn@novapioneer.com</a></span>
-                                                <?php endif;?>
+
 
                                             <?php endwhile; endif; ?>
                                         </div>
@@ -134,7 +126,7 @@ get_header(); ?>
                                 and admission opportunities.</p>
                         </header>
 
-                        <?php echo do_shortcode('[contact-form-7 id="610" title="Stay Updated" html_class="sign-up"]'); ?>
+                        <?php echo do_shortcode('[contact-form-7 id="654" title="Stay Updated" html_class="sign-up"]'); ?>
                     </div>
                 </div>
             </section>
