@@ -8,171 +8,202 @@ $gut: 3rem;
 
 %columns {
     @include flexbox();
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    // background: lime;
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
+
+    @include break-point(laptop) {
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+    }
 }
 
 %column {
-    // margin-bottom: 0.25rem;
-    // padding: 1rem;
-    // color: white;
-    // text-align: center;
-    // background: blue;
-
-    &:not(:first-of-type) {
-        margin-left: $gut;
+    @include break-point(tablet) {
+        &:not(:first-of-type) {
+            margin-left: $gut;
+        }
     }
 }
 
 
 %column-1 {
-    flex: 1;
+    // flex: 1;
+
+    @include break-point(laptop) {
+        flex: 1;
+    }
 }
 
 %column-2 {
-    flex: 2;
-    flex-basis: calc((100% - calc(3rem * 5)) / 6);
-    max-width: calc((100% - calc(3rem * 5)) / 6);
-    
-    &:nth-child(6n+7) {
-        margin-left: 0;
-        // background: red;
-    }
+    // flex: 2;
 
-    &:nth-child(n+7) {
-        margin-top: $gut;
+    @include break-point(laptop) {
+        flex: 2;
+        flex-basis: calc((100% - calc(3rem * 5)) / 6);
+        max-width: calc((100% - calc(3rem * 5)) / 6);
+        
+        &:nth-child(6n+7) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+7) {
+            margin-top: $gut;
+        }
     }
 }
 
 %column-3 {
-    flex: 3;
-    flex-basis: calc((100% - calc(3rem * 3)) / 4);
-    max-width: calc((100% - calc(3rem * 3)) / 4);
-    
-    &:nth-child(4n+5) {
-        margin-left: 0;
-        // background: red;
+    // flex: 3;
+
+    @include break-point(tablet) {
+        flex: 6;
+        flex-basis: calc((100% - calc(3rem * 1)) / 2);
+        max-width: calc((100% - calc(3rem * 1)) / 2);
+        
+        &:nth-child(2n+3) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: $gut;
+        }
     }
 
-    &:nth-child(n+5) {
-        margin-top: $gut;
+    @include break-point(laptop) {
+        flex: 3;
+        flex-basis: calc((100% - calc(3rem * 3)) / 4);
+        max-width: calc((100% - calc(3rem * 3)) / 4);
+        
+        &:nth-child(2n+3) {
+            margin-left: $gut;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 0;
+        }
+
+        &:nth-child(4n+5) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+5) {
+            margin-top: $gut;
+        }
     }
 }
 
 %column-4 {
-    flex: 4;
-    flex-basis: calc((100% - calc(3rem * 2)) / 3);
-    max-width: calc((100% - calc(3rem * 2)) / 3);
-    
-    &:nth-child(3n+4) {
-        margin-left: 0;
-        // background: red;
+    // flex: 4;
+
+    @include break-point(tablet) {
+        flex: 6;
+        flex-basis: calc((100% - calc(3rem * 1)) / 2);
+        max-width: calc((100% - calc(3rem * 1)) / 2);
+        
+        &:nth-child(2n+3) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: $gut;
+        }
     }
 
-    &:nth-child(n+4) {
-        margin-top: $gut;
+    @include break-point(laptop) {
+        flex: 4;
+        flex-basis: calc((100% - calc(3rem * 2)) / 3);
+        max-width: calc((100% - calc(3rem * 2)) / 3);
+
+        &:nth-child(2n+3) {
+            margin-left: $gut;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 0;
+        }
+
+        &:nth-child(3n+4) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+4) {
+            margin-top: $gut;
+        }
     }
 }
 
 %column-5 {
-    flex: 5;
+    // flex: 5;
+
+    @include break-point(laptop) {
+        flex: 5;
+    }
 }
 
 %column-6 {
-    flex: 6;
-    flex-basis: calc((100% - calc(3rem * 1)) / 2);
-    max-width: calc((100% - calc(3rem * 1)) / 2);
-    
-    &:nth-child(2n+3) {
-        margin-left: 0;
-        // background: red;
-    }
+    // flex: 6;
 
-    &:nth-child(n+3) {
-        margin-top: $gut;
+    @include break-point(laptop) {
+        flex: 6;
+        flex-basis: calc((100% - calc(3rem * 1)) / 2);
+        max-width: calc((100% - calc(3rem * 1)) / 2);
+        
+        &:nth-child(2n+3) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: $gut;
+        }
     }
 }
 
 %column-7 {
-    flex: 7;
+    // flex: 7;
+
+    @include break-point(laptop) {
+        flex: 7;
+    }
 }
 
 %column-8 {
-    flex: 8;
+    // flex: 8;
+
+    @include break-point(laptop) {
+        flex: 8;
+    }
 }
 
 %column-9 {
-    flex: 9;
+    // flex: 9;
+
+    @include break-point(laptop) {
+        flex: 9;
+    }
 }
 
 %column-10 {
-    flex: 10;
+    // flex: 10;
+
+    @include break-point(laptop) {
+        flex: 10;
+    }
 }
 
 %column-11 {
-    flex: 11;
+    // flex: 11;
+
+    @include break-point(laptop) {
+        flex: 11;
+    }
 }
 
 %column-12 {
-    flex: 12;
+    // flex: 12;
+
+    @include break-point(laptop) {
+        flex: 12;
+    }
 }
 
 
-
-
-// .columns {
-//     @extend %columns;
-// }
-
-// .column {
-//     @extend %column;
-// }
-
-// .column-1 {
-//     @extend %column-1;
-// }
-
-// .column-2 {
-//     @extend %column-2;
-// }
-
-// .column-3 {
-//     @extend %column-3;
-// }
-
-// .column-4 {
-//     @extend %column-4;
-// }
-
-// .column-5 {
-//     @extend %column-5;
-// }
-
-// .column-6 {
-//     @extend %column-6;
-// }
-
-// .column-7 {
-//     @extend %column-7;
-// }
-
-// .column-8 {
-//     @extend %column-8;
-// }
-
-// .column-9 {
-//     @extend %column-9;
-// }
-
-// .column-10 {
-//     @extend %column-10;
-// }
-
-// .column-11 {
-//     @extend %column-11;
-// }
-
-// .column-12 {
-//     @extend %column-12;
-// }

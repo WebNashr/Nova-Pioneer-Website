@@ -20,7 +20,8 @@ ol {
 
 ul {
 	margin: 0 0 1.25rem 0;
-	text-indent: 0.125rem;
+	// text-indent: 0.125rem;
+	text-indent: -1.255rem;
 	li {
 		//@include font-size(14px);
 		list-style-type: none;
@@ -41,10 +42,7 @@ ul {
 				padding-right: 0.5rem;
 				content: "\2013";
 				@include copy(bold);
-				
-				
 			}
-					
 		}
 	}
 }
@@ -64,5 +62,33 @@ ol {
 			padding-right: 0.75rem;
 			@include font-size(16px);
 		}
+	}
+}
+
+.school-description {
+	padding-bottom: calc(#{$space-tiny} * 1.5);
+  ul {
+    color: $dark-grey;
+    margin-bottom: 0;
+		text-indent: -1.255rem;
+		padding: 0 calc(#{$space-tiny} * 1.5) ;
+  }
+  li {
+
+		margin: 1rem 0;
+
+		@include break-point(tablet) {
+			&:first-of-type {
+				margin-top: 0;
+			}
+	  }
+  }
+  @include break-point(laptop) {
+    padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
+  }
+	strong {
+		@include copy(bold);
+	}
+	@include break-point(laptop) {
 	}
 }

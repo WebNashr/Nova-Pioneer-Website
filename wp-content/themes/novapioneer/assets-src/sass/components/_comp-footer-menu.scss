@@ -4,21 +4,29 @@
 
 
 .page-footer {
-	padding: calc(#{$space-tiny} * 3);
+	padding: calc(#{$space-tiny} * 2);
 	color: $white;
 	background: $dark-blue;
 
 	@include break-point(tablet) {
-		padding: calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 6);
+		padding: calc(#{$space-tiny} * 3);
+    }
+
+    @include break-point(laptop) {
+		padding: calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4);
     }
 }
 
 .page-footer-aux {
-	padding: calc(#{$space-tiny} * 23);
+	padding: calc(#{$space-tiny} * 2);
 	background: darken($dark-blue, 2.5%);
 
 	@include break-point(tablet) {
-		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 6);
+		padding: calc(#{$space-tiny} * 3);
+    }
+
+    @include break-point(laptop) {
+		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
     }
 }
 
@@ -101,16 +109,14 @@
     }
 }
 
-
 .footer-box-item {
 	@include font-size(16px);
 	@include line-height(32px);
 	color: $white;
 }
 
-.footer-box > .footer-box-menu-item {
+.footer-box-main-item {
 	@include title(semi);
-	// @include font-size(16px);
 	letter-spacing: 1.26667px;
 	text-transform: uppercase;
 	opacity: 0.85;
@@ -121,10 +127,9 @@
 	}
 }
 
-.sub-menu .footer-box-menu-item {
-	@include title(regular);
-	// @include font-size(15px);
-	display: block;
+.footer-box-menu-item {
+	@include copy(regular);
+	display: inline-table;
 	letter-spacing: 0.5px;
 	text-transform: capitalize;
 	color: $sky;
@@ -133,6 +138,7 @@
 		color: $green-blue-light;
 	}
 }
+
 
 
 
@@ -152,15 +158,15 @@
 }
 
 .footer-menu-aux-item {
-    @include title(regular);
-    @include font-size(15px);
+    @include copy(regular);
+    @include font-size(14px);
     @include flex(1, auto, 0);
     align-self: flex-start;
-	text-transform: uppercase;
+	// text-transform: uppercase;
     text-align: left;
     text-decoration: none;
     letter-spacing: 0.75px;
-    color: lighten($light-grey, 5%);
+    color: $white;
     
     &:hover {
         color: $green-blue-light;

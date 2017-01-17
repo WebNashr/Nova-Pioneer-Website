@@ -1,62 +1,67 @@
 
 .page-navigation-container {
-
-	//@extend %column-7;
 	width: 100%;
-	//margin: 0 calc(100% / 3.3);
-
-	//calc(100% - (1rem * 2)
-	//display: block;
 	clear: both;
 	padding-bottom: 0;
+
 	.navigation-wrap {
-		@extend %column;
-		@extend %columns;
-		max-width: 768px;
+		@include flexbox();
+	    @include flex-direction(column);
+	    @include flex-wrap(wrap);
 		margin: 0 auto;
 	}
+
 	.section-title {
-		//@extend %column-3;
 		padding: calc(#{$space-tiny} * 1);
-    border-top: 1px solid darken($grey, 10%);
-		border-bottom: 1px solid darken($grey, 10%);
-		margin-left: auto;
+    	border-top: 1px solid lighten($light-grey, 32%);
+		border-bottom: 1px solid lighten($light-grey, 32%);
+
 		h1 {
 			@include font-size(24px);
 			text-align: center;
-      margin-top: 0.125rem;
-      margin-bottom: 0;
+			margin-top: 0.125rem;
+			margin-bottom: 0;
 		}
 	}
+
 	.links-inner-wrap {
-		@extend %columns;
-		//@extend %column-4;
-  	//justify-content: space-between;
-  	padding: 1rem 2rem;
-		margin-right: auto;
-  	align-items: center;
+		@include flexbox();
+	    @include flex-direction(column);
+	    @include flex-wrap(wrap);
+		padding: 1rem;
+		align-items: center;
 		justify-content: center;
-    border-top: 1px solid darken($grey, 10%);
-		border-bottom: 1px solid darken($grey, 10%);
+		border-bottom: 1px solid lighten($light-grey, 32%);
 
 		.link-separator {
-				content: " ";
+			display: none;
+			content: " ";
     		padding: 0 1rem;
-				&:after {
-					content: "|";
-					@include copy(light);
-					text-align: center;
-					color: darken($grey, 20%);
-				}
+
+			&:after {
+				content: "|";
+				@include copy(light);
+				text-align: center;
+				color: darken($grey, 20%);
 			}
 		}
-	.anchor-link{
+	}
+
+	.anchor-link {
 		color: $dark-grey;
 		@include font-size(18px);
 		@include copy(regular);
 		text-align: center;
+
 		&:last-child:after {
 			content: none;
+		}
+
+		&:not(:first-of-type) {
+			width: 100%;
+			margin-top: 0.5rem;
+			padding-top: 0.5rem;
+			border-top: 1px solid lighten($light-grey, 32%);
 		}
 
 		.button {
@@ -65,42 +70,81 @@
 		    width: 100%;
 		    margin-top: 1rem;
 		    position: relative;
+
 		    &:hover {
 		        background: $dark-blue;
 		        border: none;
 		        transition: background 0.3s ease;
-
 		    }
+		}
+	}
+
+	@include break-point(tablet) {
+        .navigation-wrap {
+			@include flex-direction(row);
+	        @include flex-wrap(nowrap);
+		}
+
+		.links-inner-wrap {
+			@include flex-direction(row);
+	        @include flex-wrap(nowrap);
+	        padding: 1rem;
+			border-top: 1px solid darken($grey, 10%);
+
+			.link-separator {
+				display: block;
+			}
+		}
+
+		.anchor-link {
+			&:not(:first-of-type) {
+				width: unset;
+				margin-top: unset;
+				padding-top: unset;
+				border-top: unset;
+			}
+		}
+    }
+
+    @include break-point(laptop) {
+        .navigation-wrap {
+			max-width: 768px;
+		}
+
+		.section-title {
+			margin-left: auto;
+		}
+
+		.links-inner-wrap {
+	        margin-right: auto;
+	        padding: 1rem 2rem;
 		}
 	}
 }
 
 
+.learning-approach {
+	&:not(:first-of-type) {
+        margin-top: 2rem;
+    }
 
-//
-// .education-stage {
-// 	//@include flexbox();
-// 	//@include flex-wrap(wrap);
-// 	//@include flex-direction(row);
-// 	//width: 100%;
-// 	//padding-top: 0;
-// 	//padding-bottom: calc(#{$space-tiny} * 4);
-// 	//margin-bottom: 2rem;
-//
-//
-// 	h1 {
-//
-// 		color: $green-blue;
-// 	 	@include font-size(36px);
-// 	 	@include copy(semi);
-// 	 	line-height: 1.5;
-// 	 	margin-bottom: 1rem;
-//
-// 	}
-//
-//
-//
-//
-//
-//
-// }
+    @include break-point(tablet) {
+        &:not(:first-of-type) {
+	        margin-top: unset;
+	    }
+
+	    &:nth-of-type(n+3) {
+	        margin-top: 2rem;
+	    }
+	}
+
+	@include break-point(laptop) {
+        &:not(:first-of-type) {
+	        // margin-top: unset;
+	    }
+
+	    &:nth-of-type(n+3) {
+	        margin-top: unset;
+	    }
+	}
+}

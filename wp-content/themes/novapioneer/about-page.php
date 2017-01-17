@@ -51,8 +51,8 @@ get_header();?>
             </article>
         </section>
 
-        <figure class="full-width-image" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);">
-            <div class="section-content full-image-caption">
+        <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);">
+            <div class="section-content full-image-caption animated caption">
                 <figcaption>
                     <?php echo get_field('our_culture_banner_image_caption'); ?>
                 </figcaption>
@@ -63,6 +63,19 @@ get_header();?>
             <article class="article article-body general-content">
                 <h1>School &amp; Company Culture</h1>
                 <?php echo $our_culture; ?>
+
+                <div class="section-content section-content-plain principles-container">
+                    <?php $number = 1; ?>
+                    <?php foreach( get_field('culture_principles') as $principle ): $principle = (object)$principle; ?>
+                    <div class="section-content-item section-content-item-third principle-card">
+                        <h2 class="number"><?php echo $number; ?></h2>
+                        <h3><?php echo $principle->title; ?></h3>
+                        <div class="small-divider"></div>
+                        <p class="description"><?php echo $principle->description; ?></p>
+                    </div>
+                    <?php endforeach; ?>
+
+                </div>
             </article>
         </section>
 

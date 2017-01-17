@@ -1,3 +1,5 @@
+
+
 .card-container {
 	@include flexbox();
 	@include flex-direction(row);
@@ -6,12 +8,15 @@
 	width: 70%;
 	justify-content: space-around;
 	margin-bottom: -4rem;
+
 	&.team-profile-container {
 		width: 100%;
 	}
+
 	&.steps-container {
 		width: 100%;
 	}
+
 	&.all-contacts-container {
 		width: 100%;
 	}
@@ -19,10 +24,7 @@
 
 
 .card {
-	//position: relative;
-	//overflow: hidden;
 	width: 40%;
-	//margin-right: 5%;
 	margin-bottom: 5rem;
 	text-align: center;
 	
@@ -31,18 +33,19 @@
 		font-size: inherit;
 		line-height: 1.75;
 	}
+
 	h2 {
 		text-align: center;
 		@include copy(semi);
     	@include font-size(28px);
-    	//color: $dark-grey;
     	color: $green-blue;
-    	//color: darken($dark-grey, 5%)
 	}
+
 	p {
 		@include font-size(18px);
 		line-height: 1.5;
 	}
+
 	&.member-profile {
 		width: 25%;
 
@@ -50,35 +53,43 @@
 			@include copy(semi);
     		@include font-size(18px);
 		}
+
 		.member-name {
 		 	@include copy(semi);
 		 	@include font-size(26px);
-		 	//align-self: center;
 		 	color: $green-blue;
 		 	text-shadow: none;
 		 	text-align: center;
 		}
 	}
+
 	&.admission-step {
-		width: 25%;
-		padding-right: calc(#{$space-tiny} * 2);
-    	padding-left: calc(#{$space-tiny} * 2);
+		width: unset;
+		@extend %column-3;
+
+    	@include break-point(laptop) {
+			&:not(:first-of-type) {
+	    		margin-left: calc(#{$space-tiny} * 2);
+	    	}
+	    }
 	}
+
 	&.school-contact {
 		width: 30%;
 		padding-right: calc(#{$space-tiny} * 1);
     	padding-left: calc(#{$space-tiny} * 1);
+
     	.kenya-schools {
     		width: 40%;
     	}
 	}
-	
 }
 
 .card figure {
 	img {
-		//margin-bottom: 0.75rem;
 		margin: 0 auto 1.5rem auto;
 		width: auto;
 	}
 }
+
+

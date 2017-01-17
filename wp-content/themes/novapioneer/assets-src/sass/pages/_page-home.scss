@@ -9,57 +9,172 @@
     @extend %column;
   	@extend %columns;
   	@extend %column-12;
-    justify-content: center;
+    // justify-content: center;
     margin: auto;
+    padding: 0 !important;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &.kenya {
+      background-image: url('/wp-content/themes/novapioneer/img/country-image-ke-wide.jpg');
+    }
+    &.south-africa {
+      background-image: url('/wp-content/themes/novapioneer/img/country-image-sa-wide.jpg');
+      margin-top: -6rem;
+      @include break-point(tablet) {
+        margin-top: -4rem;
+      }
+      @include break-point(laptop) {
+        margin-top: -6rem;
+      }
+
+    }
+    @include break-point(tablet) {
+      // margin-bottom: 3rem;
+    }
     //margin-bottom: 2rem;
 
 }
+
 .country-select {
-    // width: 40%;
-    // @include flexbox();
-    // @include flex-direction(row);
-    // @include flex-wrap(wrap);
-    @extend %column;
-    @extend %column-4;
-    justify-content: flex-start;
-    align-items: center;
+  background: rgba(19,59,85,1);
+  background: linear-gradient(
+    to right,
+    rgba(19,59,85,1) 0%,
+    rgba(19,59,85,0.9) 50%,
+    rgba(19,59,85,0.8) 75%,
+    rgba(19,59,85,0.5) 90%,
+    rgba(19,59,85,0.0) 100%
+  );
+
+
+  z-index: 2;
+  @extend %columns;
+  @extend %column-5;
+
+  // background-color: $blue;
+  padding: calc(#{$space-tiny} * 2);
+  // margin-left: 2rem;
+  // justify-content: flex-start;
+  .country-flag {
+    // @extend %column;
+    // @extend %column-1;
+    align-self: flex-start;
+    margin-left: 2rem;
+    @include break-point(laptop) {
+      align-self: center;
+      margin-left: 0;
+    }
     img {
+      max-width: 60px;
       border-radius: 50%;
-      max-width: 250px;
-      border: 4px solid darken($grey, 5%);
+      border: 2px solid $white;
+      @include break-point(laptop) {
+        max-width: 85px;
+      }
     }
-    .country-image {
-      text-align: center;
-    }
-    .country-description {
-      padding-top: calc(#{$space-tiny} * 0.5);
+  }
+  .country-description {
+    align-self: center;
+    margin-left: 2rem !important;
+    @extend %column;
+    @extend %column-5;
+    p {
+      color: $white;
+      padding: 0 calc(#{$space-tiny} * 8) calc(#{$space-tiny} * 1) 0;
+      text-shadow: 1px 1px darken($dark-grey, 50%);
+      @include break-point(tablet) {
+        padding: 0 calc(#{$space-tiny} * 8) calc(#{$space-tiny} * 1) 0;
+      }
 
-       p {
-          padding: calc(#{$space-tiny} * 1);
-          @include font-size(18px);
-          @include copy(regular);
-          text-align: center;
-          line-height: 1.35;
-       }
+      @include break-point(laptop) {
+        padding: 0 0 calc(#{$space-tiny} * 1) 0;
+      }
     }
-
-    // &:hover {
-    //     .country-description {
-    //         display: inline-block;
-    //         width: 100%;
-    //         height: 100%;
-    //         //background: rgba(19,59,85,.9);
-    //         background: rgba(0,0,0,.8);
-    //         position: absolute;
-    //         top: 0;
-    //         left: 0;
-    //         padding: calc(#{$space-tiny} * 1);
-    //         animation: fadeIn 0.6s;
-    //
-    //     }
-    // }
+    .button {
+      border: 1px $green-blue solid;
+      &:hover {
+        border: 1px $white solid;
+      }
+    }
+  }
+  .country-name {
+    @include title(semi);
+    @include font-size(36px);
+    text-transform: uppercase;
+    text-shadow: 1px 1px darken($dark-grey, 50%);
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $white;
+  }
 
 }
+.country-image {
+  @extend %columns;
+  @extend %column-7;
+  content: " ";
+
+  // background-image: linear-gradient(
+  //   to right,
+  //   rgba(0, 0, 0, 0.75),
+  //   rgba(0, 0, 0, 0.65) 10%,
+  //   rgba(0, 0, 0, 0.6) 15%,
+  //   rgba(0, 0, 0, 0.5) 20%,
+  //   rgba(0, 0, 0, 0.45) 25%,
+  //   rgba(0, 0, 0, 0.35) 50%,
+  //   rgba(0, 0, 0, 0.30) 65%,
+  //   rgba(0, 0, 0, 0.25) 75%,
+  //   transparent 100%
+  // );
+}
+// .country-select {
+//
+//     @extend %column;
+//     @extend %column-4;
+//     justify-content: flex-start;
+//     align-items: center;
+//     img {
+//       border-radius: 50%;
+//       max-width: 70%;
+//       margin-top: 3rem;
+//       border: 4px solid darken($grey, 5%);
+//       @include break-point(laptop) {
+//         max-width: 250px;
+//         margin-top: 0;
+//       }
+//     }
+//     .country-image {
+//       text-align: center;
+//       // margin-left: 3em;//chrome fix
+//
+//       @include break-point(tablet) {
+//         margin-left: 3em;
+//       }
+//       @include break-point(laptop) {
+//         margin-left: 0;
+//       }
+//
+//     }
+//     .country-description {
+//       padding-top: calc(#{$space-tiny} * 0.5);
+//
+//        p {
+//           padding: calc(#{$space-tiny} * 1);
+//           @include font-size(18px);
+//           @include copy(regular);
+//           text-align: center;
+//           line-height: 1.35;
+//        }
+//     }
+//     &.last {
+//       margin-left: 0;
+//       @include break-point(laptop) {
+//         margin-left: 10rem;
+//       }
+//     }
+//
+// }
 .country-button {
     @include button-size(large);
     // ////@include button-style(solid);
@@ -94,11 +209,12 @@
 
     &:before {
         content:url('/wp-content/themes/novapioneer/img/sa-flag-round.png');
-        padding-right: calc(#{$space-tiny} * 1.5);
-        //position: relative;
-        //justify-content: flex-start;
-        // margin-right: 18%;
-        // margin-left:1%;
+        padding-right: 0;
+        margin-bottom: 1rem;
+        @include break-point(laptop) {
+          margin-bottom: 0;
+          padding-right: calc(#{$space-tiny} * 1.5);
+        }
 
      }
 }
@@ -111,11 +227,12 @@
 
     &:before {
         content:url('/wp-content/themes/novapioneer/img/kenya-flag-round.png');
-        padding-right: calc(#{$space-tiny} * 1.5);
-        //position: relative;
-        // justify-content: flex-start;
-        // margin-right: 28%;
-        // margin-left:1%;
+        padding-right: 0;
+        margin-bottom: 1rem;
+        @include break-point(laptop) {
+          margin-bottom: 0;
+          padding-right: calc(#{$space-tiny} * 1.5);
+        }
 
      }
 }

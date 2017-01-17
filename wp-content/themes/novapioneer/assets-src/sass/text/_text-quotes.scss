@@ -27,12 +27,37 @@
 	&.full-width-quote {
 		background: lighten($green-blue, 30%);
 		min-height: 300px;
-		margin: 2rem 0 3rem 0;
-		padding: calc(#{$space-tiny} * 5) 0;
+		margin: -1.5rem 0 0 0;
+		@include break-point(tablet) {
+			margin: -4rem 0 0 0;
+		}
+		@include break-point(laptop) {
+			padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 2) 0;
+		}
+		@include break-point(desktop) {
+			// margin: -5rem 0 3rem 0;
+			margin: -5rem 0 0 0;
+		}
+		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) 0;
+
+
 		&.home-page-quote,
 		&.bottom-quote {
+			margin-top: 1rem;
 			margin-bottom: 0;
+			blockquote{
+				padding-right: calc(#{$space-tiny} * 3);
+
+				@include break-point(laptop) {
+					margin-left: 3rem;
+					// padding-right: 0;
+				}
+				@include break-point(desktop) {
+					margin-left: -1rem;
+				}
+			}
 		}
+
 		blockquote {
 			color: darken($grey, 50%);
 			padding-top: 0;
@@ -41,11 +66,27 @@
 					border-top: 1px solid darken($grey, 25%);
 				}
 			}
+			@include break-point(laptop) {
+				padding-top: calc(#{$space-tiny} * 2);
+				padding-left: calc(#{$space-tiny} * 5);
+			}
+			@include break-point(desktop) {
+				padding-top: 0;
+				padding-left: 0;
+			}
+		}
+
+		@include break-point(desktop) {
+			padding: calc(#{$space-tiny} * 3) 0;
 		}
 	}
 	&.pull-quote {
 		background: none;
-		padding: calc(#{$space-tiny} * 2) 0;
+		padding: 0 0 calc(#{$space-tiny} * 1) 0 !important;
+		// padding: 0 0 calc(#{$space-tiny} * 1) 0;
+		// @include break-point(laptop) {
+		// 	padding: 0 0 calc(#{$space-tiny} * 1) 0;
+		// }
 
 
 		blockquote {
@@ -54,20 +95,40 @@
 			width: 100%;
 			p {
 				@include font-size(20px);
-				width: 90%;
-				padding-left: calc(#{$space-tiny} * 1.5);
+				width: 100%;
+				padding-top: 0;
+				padding-left: calc(#{$space-tiny} * 3);
+				margin-top: -2.75rem;
+				margin-left: 0;
 				color: lighten($dark-grey, 15%);
 				line-height: 1.5;
+				@include break-point(tablet) {
+					padding-top: calc(#{$space-tiny} * 1);
+					padding-left: calc(#{$space-tiny} * 3);
+				}
+				@include break-point(laptop) {
+					padding-top: 0;
+					padding-left: calc(#{$space-tiny} * 1.5);
+					margin-top: 0;
+					margin-left: 0;
+					width: 90%;
+				}
 			}
 			svg {
-
 				width: 25px;
 				height: 25px;
 				fill: lighten($blue, 10%);
-				margin-top: 0.25rem;
+				margin-top: 2rem;
+				@include break-point(tablet) {
+					margin-top: 1rem;
+				}
+				@include break-point(laptop) {
+					margin-top: 0.25rem;
+				}
 
 			}
 		}
+
 		blockquote:before {
 			@include font-size(70px);
 			top: -30px;
@@ -82,10 +143,9 @@
 		//padding: calc(#{$space-tiny} * 2);
 		align-self: center;
 		img {
-			max-width: 200px;
-			height: 200px;
+			width: 175px;
+			height: 175px;
 			border-radius: 50%;
-
 		}
 
 
@@ -112,8 +172,8 @@
 		// max-width: 650px;
 		//padding: 0.25rem 0.5rem;
 		//padding-top: calc(#{$space-tiny} * 2;
-		padding-right: calc(#{$space-tiny} * 2);
-		padding-left: calc(#{$space-tiny} * 2);
+		// padding-right: calc(#{$space-tiny} * 3);
+		padding-left: calc(#{$space-tiny} * 3);
 		position: relative;
 		//color: lighten($dark-grey, 10%);
 		//color: $green-blue;
@@ -126,6 +186,10 @@
 				fill: lighten($blue, 10%);
 				margin-bottom: 1rem;
 
+		}
+		@include break-point(laptop) {
+			padding-right: 0;
+			padding-left: 0;
 		}
 
 	}
@@ -160,4 +224,10 @@
 		}
 	}
 
+	@include break-point(laptop) {
+		&.pull-quote {
+			background: none;
+			padding: calc(#{$space-tiny} * 2) 0;
+		}
+	}
 }

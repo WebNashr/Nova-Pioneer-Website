@@ -28,9 +28,9 @@
 }
 
 .table-header {
-	margin-bottom: 1rem;
-	@include font-size(24px);
+	@include font-size(28px);
 	@include title(bold);
+	margin-bottom: 1.5rem;
 	text-align: left;
 	color: $blue;
 }
@@ -88,13 +88,23 @@ table.schedule-table thead,
 table.fees-table thead, {
 	//border-bottom: 1px solid #ddd;
 	// background: $green-blue;
-	background: $blue;
+	// background: $blue;
+	// background: $sky;
+	background: $sky-light;
+
+	// &.secondary {
+		// background: $sky-light;
+	// }
 }
 
 table.schedule-table tr,
 table.fees-table tr{
 	border-bottom: 1px solid #ddd;
 	color: $grey;
+
+	&:last-of-type {
+		border: 0 none;
+	}
 }
 
 table.schedule-table tr.highlight,
@@ -109,21 +119,28 @@ table.schedule-table.zebra tr:nth-child(even) {
 table.schedule-table th,
 table.fees-table th {
 	@include copy(semi);
+	// @include title(regular);
 	padding: calc(1rem * 0.5) calc(1rem * 1);
 	@include font-size(16px);
+	// @include font-size(18px);
+	@include line-height(1.25);
 	color: $white;
-	text-transform: uppercase;
+	// text-transform: uppercase;
+	letter-spacing: 0.025rem;
 }
 
 table.schedule-table td,
 table.fees-table td {
 	//width: 15%;
 	padding: calc(#{$space-tiny} * 1);
-	@include font-size(18px);
+	@include font-size(16px);
+	@include line-height(1.25);
 
 	&.row-title {
 		@include copy(semi);
 		color: $green-blue;
+		// color: $sky;
+		// color: $blue;
 		//width: 20%;
 	}
 
@@ -135,6 +152,11 @@ table.fees-table td {
 table.fees-table td {
 	&.row-title {
 		width: 25%;
+
+		&-alt {
+			width: unset;
+			min-width: 2rem;
+		}
 	}
 }
 

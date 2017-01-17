@@ -13,8 +13,11 @@
 
 	h1 {
 		max-width: 100%;
-		// margin-bottom: 2rem;
-		color: $green-blue;
+		@include font-size(30px);
+		// color: $green-blue;
+		@include break-point(tablet) {
+			@include font-size(40px);
+		}
 		// padding-right: calc(#{$space-tiny} * 2);
 		// padding-left: calc(#{$space-tiny} * 2);
 	}
@@ -26,12 +29,12 @@
 
 	p {
 		// @include copy(regular);
-		@include font-size(21px);
+		@include font-size(18px);
 		line-height: 1.65;
 		font-style: normal;
-		// margin-bottom: 2rem;
-		// padding-right: calc(#{$space-tiny} * 2);
-		// padding-left: calc(#{$space-tiny} * 2);
+		@include break-point(tablet) {
+			@include font-size(21px);
+		}
 	}
 
 	.intro-paragraph{
@@ -66,10 +69,15 @@
 			color: $dark-grey;
 		}
 	}
-	
+	.contact-info {
+		padding-bottom: calc(#{$space-tiny} * 3);
+		@include break-point(laptop) {
+			padding-bottom: 0;
+		}
+	}
+
 }
 
 // .first-content{
-// 	padding-top: calc(#{$space-tiny} * 6);	
+// 	padding-top: calc(#{$space-tiny} * 6);
 // }
-

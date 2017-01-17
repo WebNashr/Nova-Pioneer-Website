@@ -14,7 +14,7 @@ get_header(); ?>
         $images = novap_get_gallery_images($current_gallery); ?>
         <?php //wp_die( var_dump( $images ) ); ?>
         <section class="section-pair section-gallery trigger-offset">
-            <div class="image-slider-container image-slider-container-alt">
+            <div class="image-slider-container">
                 <div class="section-navigation">
                     <h1>Gallery</h1>
                     <nav class="gallery-nav">
@@ -36,14 +36,13 @@ get_header(); ?>
                         <article id="cc-slider">
                             <?php $im = 1;
                             foreach ($images as $image): $image = (object)$image; ?>
-                                <?php if ($im == 1) ?>
-                                    <input
-                                <?php if ($im == 1) echo 'checked="checked"' ?>
-                                name="cc-slider"
-                                id="slide<?php echo $im; ?>"
-
-                                type="radio">
-                                <?php $im++; endforeach; ?>
+                                <input
+                                    checked="<?php if ($im == 1): echo "checked"; endif; ?>"
+                                    name="cc-slider"
+                                    id="slide<?php echo $im; ?>"
+                                    type="radio" />
+                                <?php $im++; ?>
+                            <?php endforeach; ?>
 
                             <div id="cc-slides">
                                 <div id="overflow">
@@ -54,8 +53,7 @@ get_header(); ?>
                                                     <h3><?php echo $image->caption; ?></h3>
                                                 </div>
                                                 <img
-                                                    src="<?php echo $image->url; ?>" style="
-                                                    max-height: 546px;">
+                                                    src="<?php echo $image->url; ?>" />
                                             </article>
                                         <?php endforeach; ?>
                                     </div>

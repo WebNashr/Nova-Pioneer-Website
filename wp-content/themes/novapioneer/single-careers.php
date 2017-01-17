@@ -11,17 +11,20 @@ get_header();?>
             <h1>Nova Pioneer Careers</h1>
         </header>
 
-            <div class="section-pair">
-            <div class="section-navigation">
-                <h1 class="current">Operations</h1>
+        <div class="article-container">
+        
+            <div class="article-aside">
+                <h2 class="current">Operations</h2>
                 <a href="<?php echo site_url('/careers'); ?>" >Back to Job List</a>
             </div>
-            <div class="section-content">
+
+            <div class="article-inner">
+
                 <div class="section-content-item">
                     <article class="job-details-container">
                         <div class="job-details">
                             <header>
-                                <h2><a href="<?php echo get_permalink(); ?>" ><?php the_title(); ?></a></h1>
+                                <h2><?php the_title(); ?></h1>
                                 <h4 class="job-location"><?php echo get_field('job_location'); ?></h5>
                                 <h5 class="job-type">Job Type: <span><?php echo get_field('job_type'); ?></span></h5>
                                 <h5 class="job-experience">Experience: <span><?php echo get_field('experience'); ?></span></h5>
@@ -43,8 +46,10 @@ get_header();?>
 
                     </article>
                 </div>
+
             </div>
-            </div>
+
+        </div>
     </section>
 
 

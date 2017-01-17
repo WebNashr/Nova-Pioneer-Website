@@ -42,7 +42,7 @@ get_header(); ?>
             </article> 
         </section>
 
-        <section class="section">
+        <!--<section class="section">
             <article class="article article-body general-content">
                 <h2>Frequently Asked Questions</h2>
 
@@ -58,20 +58,22 @@ get_header(); ?>
                 <?php endforeach; ?>
                 </ul>
             </article>
-        </section>
+        </section>-->
 
         <section class="section">
             <article class="article article-body general-content">
                 <h3>Admissions Contacts</h3>
 
                 <address class="contact-info">
-                    <?php foreach( get_field('admissions_contacts') as $contact ): $contact = (object)$contact; ?>
-                        <?php if( $contact->contact_type == 'number' ): ?>
-                            <p class="phone-contact-one"><?php echo $contact->label; ?>: <a href="tel:<?php echo $contact->contact_number; ?>"><?php echo $contact->contact_number; ?></a> </p>
-                        <?php elseif( $contact->contact_type = 'email' ): ?>
-                            <p class="phone-contact-one"> <?php echo $contact->label; ?>: <a href="mailto:<?php echo $contact->contact_email; ?>"><?php echo $contact->contact_email; ?></a></p>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+                    <p class="phone-contact-one">
+                        <?php foreach( get_field('admissions_contacts') as $contact ): $contact = (object)$contact; ?>
+                            <?php if( $contact->contact_type == 'number' ): ?>
+                                <?php echo $contact->label; ?>: <a href="tel:<?php echo $contact->contact_number; ?>"><?php echo $contact->contact_number; ?></a> <br/>
+                            <?php elseif( $contact->contact_type = 'email' ): ?>
+                                <?php echo $contact->label; ?>: <a href="mailto:<?php echo $contact->contact_email; ?>"><?php echo $contact->contact_email; ?></a> <br/> 
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </p>
                 </address>
             </article>
         </section>

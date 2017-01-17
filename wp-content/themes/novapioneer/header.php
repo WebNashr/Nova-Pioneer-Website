@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=yes">
         <meta name="viewport" content="; initial-scale=1.0; maximum-scale=1.0;">
         <meta name="description" content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
         <meta http-equiv="cleartype" content="on">
@@ -54,6 +54,10 @@
                             <span class="search-toggle-icon magnify open">⚲</span>
                             <span class="search-toggle-icon cross">×</span>
                         </button>
+                        <button class="search-toggle search-toggle-menu">
+                            <span class="search-toggle-icon magnify open">⚲</span>
+                            <span class="search-toggle-icon cross">×</span>
+                        </button>
                     </fieldset>
                 </form>
             </section>
@@ -73,10 +77,17 @@
 
                 <!-- end navigation -->
 
-                <a href="<?php echo site_url('/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
+                <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
+
+                <label for="modal-check" class="modal-check-label">
+                    <span class="modal-dot"></span>
+                    <span class="modal-dot"></span>
+                    <span class="modal-dot"></span>
+                </label>
+                
             </section>
         </header>
         <!-- end page-header -->
-        <div class="body-container"> <!-- start body-container -->
+
             <!-- start content -->
             <main role="main">

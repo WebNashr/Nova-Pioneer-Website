@@ -1,6 +1,6 @@
 
-  </main> <!-- end content -->    
-  </div> <!-- end body-container -->
+  </main> <!-- end content -->
+  
 <!-- start footer -->
   <footer class="page-footer">
       <nav role="navigation" class="footer-menu">

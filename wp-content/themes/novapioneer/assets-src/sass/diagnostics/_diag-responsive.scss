@@ -1,0 +1,71 @@
+
+/*  Page section */
+/* ==================================================== */
+
+
+body {
+	&:before {
+		@include copy(regular);
+		@include font-size(12px);
+		@include line-height(1);
+		position: fixed;
+		bottom: 0.75rem;
+		left: 0.75rem;
+		padding: 0.2rem 0.2rem 0.25rem 0.25rem;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		background: black;
+		border: 0.125rem solid black;
+		z-index: index($indices, z9);
+	}
+
+	@include break-point(mobile) {
+		&:before {
+			content: 'mobile';
+			color: red;
+			border-color: red;
+		}
+    }
+
+    @include break-point(tablet) {
+		&:before {
+			content: 'tablet';
+			color: orange;
+			border-color: orange;
+		}
+    }
+
+    @include break-point(laptop) {
+		&:before {
+			content: 'laptop';
+			color: yellow;
+			border-color: yellow;
+		}
+    }
+
+    @include break-point(largelaptop) {
+		&:before {
+			content: 'large laptop';
+			color: blue;
+			border-color: blue;
+		}
+    }
+
+    @include break-point(desktop) {
+		&:before {
+			content: 'desktop';
+			color: indigo;
+			border-color: indigo;
+		}
+    }
+
+    @include break-point(monitor) {
+		&:before {
+			content: 'monitor';
+			color: violet;
+			border-color: violet;
+		}
+    }
+}
+
+

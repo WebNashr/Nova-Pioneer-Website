@@ -281,8 +281,8 @@ function novap_base_pagination(WP_Query $query = null)
         'base' => str_replace($big, '%#%', get_pagenum_link($big)),
         'current' => max(1, get_query_var('paged')),
         'total' => $query->max_num_pages,
-        'prev_text' => '&lt;',
-        'next_text' => '&gt;',
+        'prev_text' => 'Prev',
+        'next_text' => 'Next',
         'mid_size' => 5
 
     ));
@@ -318,7 +318,9 @@ function novap_body_class($classes)
     /** Add non-hero class **/
     $post_types = array(
         'careers',
-        'tribe_events'
+        'tribe_events',
+        'post',
+        'articles'
     );
 
     $page_templates = array(
@@ -331,6 +333,14 @@ function novap_body_class($classes)
 
     if (is_404() || is_search() || is_singular($post_types) || is_page_template($page_templates)) {
         $additional_classes[] = 'non-hero';
+    }
+
+    // Remove search-results class from body classes in search page
+    if( is_search() ) {
+
+        $blacklist = array('search-results');
+
+        $classes = array_diff( $classes, $blacklist );
     }
 
     return array_merge($classes, $additional_classes);

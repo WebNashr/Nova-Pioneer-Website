@@ -17,16 +17,30 @@
 	}
 
 }
+
 #cc-slider label:hover {
 	color: #ff0042 !important;
 }
 
-#slide1:checked ~ #cc-slides .inner { margin-left:0; }
-#slide2:checked ~ #cc-slides .inner { margin-left:-100%; }
-#slide3:checked ~ #cc-slides .inner { margin-left:-200%; }
-#slide4:checked ~ #cc-slides .inner { margin-left:-300%; }
-#slide5:checked ~ #cc-slides .inner { margin-left:-400%; }
+#slide1:checked ~ #cc-slides .inner {
+	margin-left: 0;
+}
 
+#slide2:checked ~ #cc-slides .inner {
+	margin-left: -100%;
+}
+
+#slide3:checked ~ #cc-slides .inner {
+	margin-left: -200%;
+}
+
+#slide4:checked ~ #cc-slides .inner {
+	margin-left: -300%;
+}
+
+#slide5:checked ~ #cc-slides .inner {
+	margin-left: -400%;
+}
 
 #overflow {
 	width: 100%;
@@ -49,9 +63,19 @@
 }
 
 #controls {
-	margin: -8% 0 0 80.5%;
+	margin: -26% 0 0 80.5%;
 	width: 15%;
 	height: 50px;
+	@include break-point(tablet) {
+		margin: -12% 0 0 80.5%;
+	}
+	@include break-point(laptop) {
+		margin: -11.5% 0 0 80.5%;
+	}
+	@include break-point(desktop) {
+		margin: -8% 0 0 80.5%;
+	}
+
 }
 
 #controls label {
@@ -92,10 +116,13 @@
 	background: url('/wp-content/themes/novapioneer/img/next.png') no-repeat;
 	float: right;
 	margin: 0 10px 0 0;
-	display: block;
-	background-color: $blue;
-}
+	display: inline;
 
+	background-color: $blue;
+	@include break-point(tablet) {
+		display: block
+	}
+}
 
 #slide1:checked ~ #controls label:nth-child(5),
 #slide2:checked ~ #controls label:nth-child(1),
@@ -105,8 +132,17 @@
 	background: url('/wp-content/themes/novapioneer/img/prev.png') no-repeat;
 	float: left;
 	margin: 0 0 0 17px;
-	display: block;
+	display: inline;
+	margin-left: -5rem;
 	background-color:$blue;
+	@include break-point(tablet) {
+		display: block;
+		margin-left:0;
+	}
+	@include break-point(desktop) {
+		display: block;
+		margin-left:4rem;
+	}
 }
 
 .cctooltip {
@@ -115,7 +151,7 @@
 	position: absolute;
 	bottom: calc(#{$space-tiny} * 2);
 	// max-width: 250px;
-	width: 33.3333%;
+	width: 45%;
 	max-width: 480px;
 	margin-top: 0;
 	padding-left: calc(#{$space-tiny} * 2);
@@ -123,38 +159,45 @@
 	transition: $ease;
 	color: $white;
 	opacity: 0;
+	@include break-point(tablet) {
+		width: 33.3333%;
+	}
 }
 
 .cctooltip h3 {
 	// margin: 0 0 5px;
-	@include font-size(18px);
+	@include font-size(14px);
 	@include copy(regular);
 	padding: calc(#{$space-tiny} * 1);
 	color: $white;
 	background: $blue;
 	opacity: 0.9;
+	@include break-point(tablet) {
+		@include font-size(16px);
+	}
+	@include break-point(laptop) {
+		@include font-size(18px);
+	}
 }
-
 
 #cc-slides {
 	margin: auto;
 	height: auto;
 }
 
-
 #cc-slides .inner {
 	-webkit-transform: translateZ(0);
 	-webkit-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
 	-moz-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
     -ms-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-     -o-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-        transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    -o-transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
 
 	-webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 	-moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
     -ms-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-     -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-        transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 }
 
 #cc-slider {

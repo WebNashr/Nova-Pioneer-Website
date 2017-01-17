@@ -16,26 +16,50 @@
 
 <div class="trigger"></div>
 
-<section class="section section-articles">
-    <div class="country-select-container">
-    <div class="country-select">
-        <h1 class="country-image"><img src="<?php echo get_template_directory_uri(); ?>/img/country-image-sa.jpg" alt=""></h1>
-        <div class="country-button">
-            <a href="<?php echo site_url('/sa'); ?>" class="south-africa-flag" title="">South Africa</a>
-        </div>
-        <div class="country-description">
-            <?php echo get_field('south_africa_description'); ?>
-        </div>
-    </div>
-    <div class="country-select">
-        <h1 class="country-image"><img src="<?php echo get_template_directory_uri(); ?>/img/country-image-ke.jpg" alt=""></h1>
-        <a href="<?php echo site_url('/kenya'); ?>" class="country-button kenya-flag" title="">Kenya</a>
-        <div class="country-description">
-            <?php echo get_field('kenya_description'); ?>
-        </div>
-    </div>
-    </div>
+<section class="section section-pair">
+    <div class="country-select-container kenya">
 
+        <div class="country-select">
+
+            <div class="country-flag">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/kenya-flag-square.png" >
+            </div>
+
+            <div class="country-description">
+                <h1 class="country-name">Kenya</h1> 
+                <?php echo get_field('kenya_description'); ?>
+                <a href="<?php echo site_url('/kenya'); ?>" class="button button-default button-secondary" title="">Learn More</a>
+            </div>
+
+            <div class="country-image">
+                <!-- <img src="<?php echo get_template_directory_uri(); ?>/img/country-image-ke.jpg" alt=""> -->
+            </div>
+
+        </div>
+    
+    </div>
+</section>
+
+<section class="section section-pair">
+    <div class="country-select-container south-africa">
+
+        <div class="country-select">
+
+            <div class="country-flag">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/sa-flag-square.png" >
+            </div>
+
+            <div class="country-description">
+                <h1 class="country-name">South Africa</h1> 
+                <?php echo get_field('south_africa_description'); ?>
+                <a href="<?php echo site_url('/sa'); ?>" class="button button-default button-secondary" title="">Learn More</a>
+            </div>
+
+            <div class="country-image">
+                <!-- <img src="<?php echo get_template_directory_uri(); ?>/img/country-image-sa.jpg" alt=""> -->
+            </div>
+        </div>
+    </div>
 </section>
 
  <?php if(have_posts()): ?>
