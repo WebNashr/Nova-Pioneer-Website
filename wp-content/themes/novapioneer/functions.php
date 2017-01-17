@@ -580,3 +580,11 @@ function set_post_new_bg()
     return;
 
 }
+
+function isEven($num){
+    if( $num % 2 === 0 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
