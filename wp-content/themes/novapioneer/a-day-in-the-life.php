@@ -1,84 +1,103 @@
-<?php 
+<?php
 /**
-* Template Name: A Day in the Life
-*/
+ * Template Name: A Day in the Life
+ */
 
-get_header();?>
+get_header(); ?>
 
-<?php if( have_posts() ): ?>
+<?php if (have_posts()): ?>
 
-    <?php while( have_posts() ): the_post(); ?>
+    <?php while (have_posts()): the_post(); ?>
+        <!-- start content -->
+        <main role="main">
+            <!-- <section class="section section-hero about-np">
+                <div class="container hero-container">
+                    <heading class="hero-heading">
+                        <h1>Developing innovators &amp; leaders who will shape the future</h1>
+                    </heading>
+                    <div class="main-callout-box">
+                        <h2>About  Nova Pioneer</h2>
+                        <p>We started Nova Pioneer to equip as many of those youth as we can to realise their great dream</p>
+                    </div>
+                </div>
+            </section> -->
 
-        <article>
-            <header>
-                <h1><?php echo get_the_title(); ?></h1>
-            </header>
-            <section>
-                <?php the_content(); ?>
+
+            <section class="section trigger-offset">
+                <article class="article article-container">
+                    <div class="article-body timeline-container">
+                        <header class="article-header">
+                            <h1><?php the_title() ?></h1>
+                        </header>
+
+
+                        <!-- Timeline begin here -->
+                        <div id="timeline">
+                            <?php $i = 0; $query = new WP_Query(array('post_type' => 'a_day_in_the_life'));
+                            if ($query->have_posts()) :
+                                while ($query->have_posts()) : $query->the_post();
+                                    if (isEven($i)):?>
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon">
+                                            </div>
+                                            <div class="timeline-content">
+                                                <h2><?php the_title()?></h2>
+                                                <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
+                                                <p>
+                                                    <?php the_content(); ?>
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="timeline-item">
+                                            <div class="timeline-icon">
+
+                                            </div>
+                                            <div class="timeline-content right">
+                                                <h2><?php the_title()?></h2>
+                                                <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
+                                                <p>
+                                                    <?php the_content(); ?>
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php $i++;endwhile;
+                                wp_reset_postdata(); endif; ?>
+
+
+                        </div>
+                        <!-- Timeline ends here -->
+
+                    </div>
+
+                </article>
+
             </section>
-        </article>
-
-    <?php endwhile; ?>
 
 
-    <?php $articles_query = new WP_Query(array(
-        "post_type" => "articles",
-        'orderby' => 'menu_order',
-        'order' => 'ASC',
-        'posts_per_page' => -1
-    )); ?>
+            <section class="section section-pair section-subscribe">
+                <div class="section-navigation">
+                    <h1>Stay Updated</h1>
+                </div>
 
-    <?php if( $articles_query->have_posts() ): ?>
+                <div class="section-content">
+                    <div class="section-content-item section-content-item-full">
+                        <header>
+                            <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events
+                                and admission opportunities.</p>
+                        </header>
 
-        <h1>Articles</h1>
-
-        <?php while( $articles_query->have_posts() ): $articles_query->the_post(); ?>
-
-            <article>
-                <header>
-                    <h1> <a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?> </a> </h1>
-                </header>
-                <section>
-                    <?php the_excerpt(); ?>
-                </section>
-            </article>
-
-        <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
-
-    <?php endif; ?>
+                        <?php echo do_shortcode('[contact-form-7 id="654" title="Stay Updated" html_class="sign-up"]'); ?>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- end content -->
 
 
-    <?php $videos_query = new WP_Query(array(
-        "post_type" => "student_video",
-        'orderby' => 'menu_order',
-        'order' => 'ASC',
-        'posts_per_page' => -1
-    )); ?>
-
-    <?php if( $videos_query->have_posts() ): ?>
-
-        <h1>Videos</h1>
-
-        <?php while( $videos_query->have_posts() ): $videos_query->the_post(); ?>
-
-            <article>
-                <header>
-                    <h1> <a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?> </a> </h1>
-                    <p> <?php echo get_field('student_name'); ?> - <?php echo get_field('student_grade'); ?>  </p>
-                </header>
-                <section>
-                    <?php echo get_field('video'); ?>
-                    <p><?php echo get_field('video_caption'); ?></
-                </section>
-            </article>
-
-        <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
-
-    <?php endif; ?>
-
-
-<?php endif; ?>
+    <?php endwhile; endif; ?>
 
 <?php get_footer(); ?>
