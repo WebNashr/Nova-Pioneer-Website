@@ -94,6 +94,17 @@ $(document).ready(function() {
     {
         offset: '72.5%'
     });
+    
+    $('.anchor-link a[href^="#"]').on('click', function(event) {
+        console.log('scroll');
+        var target = $(this.getAttribute('href'));
+        if( target.length ) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+    });
 
 
 });
