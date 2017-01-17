@@ -28,7 +28,7 @@ get_header(); ?>
                     <a href="<?php echo get_permalink($school->ID); ?>">
                         <p class="school-photo"><img src="<?php echo get_the_post_thumbnail_url($school->ID,'thumbnail'); ?>" alt=""></p>
                         <h3><?php echo $school->post_title; ?></h3>
-                        <p class="school-summary"><?php echo get_field('summary', $school->ID); ?></p>
+                        <div class="school-summary"><?php echo get_field('summary_intro', $school->ID); ?></div>
                     </a>
                 </div>
             <?php endforeach; ?>
