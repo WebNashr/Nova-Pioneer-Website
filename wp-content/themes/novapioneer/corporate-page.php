@@ -14,7 +14,7 @@ get_header();?>
         $school_vision  = get_field('school_vision');
         $company_structure = get_field('company_structure');
     ?>
-        <section class="section section-hero corporate-hero" <?php echo set_post_new_bg()?>>
+        <!-- <section class="section section-hero corporate-hero" <?php echo set_post_new_bg()?>>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -23,8 +23,8 @@ get_header();?>
             </div>
         </section>
 
-        <div class="trigger"></div>
-        <section class="section">
+        <div class="trigger"></div> -->
+        <section class="section trigger-offset"> <!-- $$$ ### ^^^ remove trigger-offset class if using hero & trigger -->
             <article class="article">
                 <header class="article-header">
                     <h1>Nova Pioneer Education Group</h1>
@@ -32,6 +32,8 @@ get_header();?>
 
                 <div class="article-container">
                     <aside class="article-aside">
+                        <!-- $$$ ### ^^^ ask Maria what is supposed to replace "report" in this aside -->
+
                         <div class="downloads">
                             <p>Our Annual Reports give a concise overview of our operations in a given year. Download them as a PDF document below:</p>
                         </div>
