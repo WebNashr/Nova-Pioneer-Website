@@ -23,29 +23,12 @@ get_header();?>
 
         <div class="trigger"></div>
 
-        <section class="section">
-            <div class="school-description-container">
-            <div class="school-name"><h1><?php the_title(); ?></h1></div>
+        <section class="section section-pair school-description even-section">
+            <div class="section-navigation"><h1><?php the_title(); ?></h1></div>
 
-                <div class="description-inner-wrap"
-                <div class="section-content-item">
-
-                        <div class="school-detail">
-                            <?php echo get_field('school_type'); ?>
-                        </div>
-                        <div class="detail-separator">&nbsp;</div>
-                        <div class="school-detail">
-                            Ages <?php echo get_field('minimum_age'); ?> - <?php echo get_field('maximum_age'); ?> years
-                        </div>
-                        <div class="detail-separator">&nbsp;</div>
-                        <div class="school-detail">
-                            Grades <?php echo get_field('lowest_grade'); ?> - <?php echo get_field('highest_grade'); ?>
-                        </div>
-                        <div class="detail-separator">&nbsp;</div>
-                        <div class="school-detail">
-                            <?php echo get_field('curriculum'); ?>
-                        </div>
-                </div>
+            <div class="section-content">
+                <div class="section-content-item section-content-item-half">
+                    <?php echo get_field('summary_intro'); ?>
                 </div>
             </div>
         </section>
@@ -92,35 +75,6 @@ get_header();?>
             </div>
         </section>
 
-
-
-        <section class="section section-pair">
-            <div class="section-navigation">
-                <h1>Leadership Team</h1>
-                <a href="#"  title="">Our team</a>
-            </div>
-
-            <div class="section-content">
-                <div class="section-content-item section-content-item-half">
-                    <p>Our leadership team comes from some of the best schools and organisations in South Africa and around the world. Our team is deeply committed towards developing leaders and innovators who are equipped to shape the world they envision.</p>
-                </div>
-
-                <div class="section-content-item section-content-item-quarter profile">
-                    <img src="img/gavin-profile-pic.jpg" alt="" class="profile-img">
-                    <a href="#" class="profile-name" title="">Gavin Esterhuizen</a>
-                    <span class="profile-role">Head of School</span>
-                </div>
-
-                <div class="section-content-item section-content-item-quarter profile">
-                    <img src="img/female-profile-photo.jpg" alt="" class="profile-img">
-                    <a href="#" class="profile-name" title="">Ms. Seshoka</a>
-                    <span class="profile-role">Lead Teacher for Leadership &amp; Personal Mastery</span>
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
         <section class="section section-pair">
             <div class="section-navigation">
                 <h1>Our Students</h1>
@@ -131,72 +85,114 @@ get_header();?>
                 <div class="section-content-item section-content-item-half">
                         <div class="testimonial pull-quote">
 
+                            <?php
+                                $our_students_video  = get_field('our_students_video');
+                                $vid_caption = get_field('video_caption', $our_students_video->ID);
+                                $student_name = get_field('student_name', $our_students_video->ID);
+                                $video = get_field('video', $our_students_video->ID);
+                            ?>
                             <blockquote>
-                            <svg aria-hidden="true">
-                                <use xlink:href="img/quote-mark-icon.svg#quote-mark"></use>
-                            </svg>
-                                Growth mindset is having a mindset that when you fail, you can still strive to achieve better. You cant just give up. it gives you an opportunity to learn from your mistakes and failure.
-                                <cite><span>Nigel Mutuku,</span> Nova Pioneer Student</cite>
+                                <svg aria-hidden="true">
+                                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                </svg>
+                                <?php echo $vid_caption; ?>
+                                <cite><span><?php echo $student_name; ?>,</span> Nova Pioneer Student</cite>
                             </blockquote>
                         </div>
 
                 </div>
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video">
-                        <iframe width="347" height="194" src="https://www.youtube.com/embed/QcJA8Vwowa0" frameborder="0" allowfullscreen></iframe>
+                        <?php echo $video; ?>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section-pair section-gallery">
+        <div class="divider"></div>
 
+        <section class="section section-pair">
+            <div class="section-navigation">
+                <h1>Leadership Team</h1>
+                <a href="#"  title="">Our team</a>
+            </div>
+
+            <div class="section-content">
+                <div class="section-content-item section-content-item-half">
+                    <?php echo get_field('leadership_team_description'); ?>
+                </div>
+
+                <?php $leadership_team_members = get_field('leadership_team_members'); $x = 0;?>
+                <?php foreach($leadership_team_members as $member): if($x >= 2): break; endif; ?>
+                    <div class="section-content-item section-content-item-quarter profile">
+                        <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0];  ?>" alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>" class="profile-img">
+                        <a href="<?php echo get_permalink($member->ID); ?>" class="profile-name" title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
+                        <span class="profile-role"><?php echo get_field('title', $member->ID); ?></span>
+                    </div>
+                    <? $x++; ?>
+                <?php endforeach; ?>
+            </div>
+        </section>
+
+        <a name="gallery"></a>
+        <section class="section-pair section-gallery">
 
             <div class="image-slider-container">
 
                 <div class="section-navigation">
+                    <?php
+                        $current_gallery = $_GET['current_gallery'];
+                        $images = novap_get_gallery_images($current_gallery);
+                    ?>
                     <h1>Gallery</h1>
                     <nav class="gallery-nav">
-                        <a href="" class="gallery-select" title="">School grounds</a>
-                        <a href="" class="gallery-select gallery-selected" title="">Classrooms</a>
-                        <a href="" class="gallery-select" title="">Library</a>
-                        <a href="" class="gallery-select" title="">Play Area</a>
+                        <a href="<?php get_permalink(); ?>?current_gallery=school_grounds#gallery"
+                           class="gallery-select <?php if ($current_gallery === 'school_grounds'): echo 'gallery-selected'; endif; ?>">School
+                            grounds</a>
+                        <a href="<?php get_permalink(); ?>?current_gallery=classrooms#gallery"
+                           class="gallery-select <?php if ($current_gallery === 'classrooms'): echo 'gallery-selected'; endif; ?>">Classrooms</a>
+                        <a href="<?php get_permalink(); ?>?current_gallery=library#gallery"
+                           class="gallery-select <?php if ($current_gallery === 'library'): echo 'gallery-selected'; endif; ?>">Library</a>
+                        <a href="<?php get_permalink(); ?>?current_gallery=play_area#gallery"
+                           class="gallery-select <?php if ($current_gallery === 'play_area'): echo 'gallery-selected'; endif; ?>">Play
+                            Area</a>
                     </nav>
                 </div>
 
                 <div class="section-content-item-full">
                     <div class="media gallery">
                         <article id="cc-slider">
-                            <input checked="checked" name="cc-slider" id="slide1" type="radio">
-                            <input name="cc-slider" id="slide2" type="radio">
-                            <input name="cc-slider" id="slide3" type="radio">
+                            <?php $im = 1;
+                            foreach ($images as $image): $image = (object)$image; ?>
+                                <input
+                                    checked="<?php if ($im == 1): echo "checked"; endif; ?>"
+                                    name="cc-slider"
+                                    id="slide<?php echo $im; ?>"
+                                    type="radio" />
+                                <?php $im++; ?>
+                            <?php endforeach; ?>
 
                             <div id="cc-slides">
-                            <div id="overflow">
-                                <div class="inner">
-                                <article>
-                                    <div class="cctooltip">
-                                    <h3>This is a sample caption for the current image</h3>
+                                <div id="overflow">
+                                    <div class="inner">
+                                        <?php foreach ($images as $image): $image = (object)$image; ?>
+                                            <article>
+                                                <div class="cctooltip">
+                                                    <h3><?php echo $image->caption; ?></h3>
+                                                </div>
+                                                <img
+                                                    src="<?php echo $image->url; ?>" />
+                                            </article>
+                                        <?php endforeach; ?>
                                     </div>
-                                    <img src="img/slide-1.jpg">
-                                </article>
-                                <article>
-                                    <div class="cctooltip">
-                                    <h3>Sample Image Caption</h3>
-                                    </div>
-                                    <img src="img/slide-2.jpg"> </article>
-                                <article>
-                                    <div class="cctooltip">
-                                    <h3>Sample Image Caption</h3>
-                                    </div>
-                                    <img src="img/slide-3.jpg"> </article>
                                 </div>
                             </div>
-                            </div>
+
                             <div id="controls">
-                            <label for="slide1"></label>
-                            <label for="slide2"></label>
-                            <label for="slide3"></label>
+                                <?php $lb = 1;
+                                foreach ($images as $image): $image = (object)$image; ?>
+                                    <label for="slide<?php echo $lb; ?>"></label>
+                                    <?php $lb++; endforeach; ?>
                             </div>
                         </article>
                     </div>
@@ -206,16 +202,17 @@ get_header();?>
 
         <aside>
             <div class="testimonial full-width-quote">
+                <?php $testimonial = get_field('testimonial'); ?>
                 <div class="spacing-to-center"></div>
                 <figure class="full-width-figure">
-                    <img src="img/parent-profile-pic-2.jpg" alt="" class="">
+                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID,'thumbnail'); ?>" />
                 </figure>
                 <blockquote>
                     <svg aria-hidden="true">
-                    <use xlink:href="img/quote-mark-icon.svg#quote-mark"></use>
+                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                     </svg>
-                    I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to. The teachers are knowledgeable, friendly and helpful. You can see they are passionate about children and teaching.
-                    <cite><span>Bridget,</span> Nova Pioneer Parent</cite>
+                    <?php echo $testimonial->post_content; ?>
+                    <cite><span><?php echo get_field('reviewer_name', $testimonial->ID)?>,</span> <?php echo get_field('reviewer_title', $testimonial->ID)?></cite>
                 </blockquote>
                 <div class="spacing-to-center"></div>
             </div>
@@ -230,23 +227,15 @@ get_header();?>
             </div>
 
             <div class="section-content">
-                <div class="section-content-item section-content-item-third blog-article">
-                    <img src="img/image-wide-1.jpg" alt="">
-                    <a href="#" class="blog-article-title" title="">Are We Good Enough?</a>
-                    <p class="article-author">Article Author</p>
-                </div>
+                <?php foreach( get_field('blog_posts') as $blog_post ): $blog_post = (object)$blog_post; ?>
+                    
+                    <div class="section-content-item section-content-item-third blog-article">
+                        <img src="<?php echo get_the_post_thumbnail_url($blog_post->ID,'thumbnail'); ?>" alt="<?php echo $blog_post->post_title; ?>">
+                        <a href="<?php echo get_permalink($blog_post->ID); ?>" class="blog-article-title" title="<?php echo $blog_post->post_title; ?>"><?php echo $blog_post->post_title; ?></a>
+                        <p class="article-author"><?php echo get_the_author_meta('display_name', get_post_field('post_author', $blog_post->ID) ); ?></p>
+                    </div>
 
-                <div class="section-content-item section-content-item-third blog-article">
-                    <img src="img/image-wide-2.jpg" alt="">
-                    <a href="#" class="blog-article-title" title="">Visual. Audio. Reading. Writing.</a>
-                    <p class="article-author">Article Author</p>
-                </div>
-
-                <div class="section-content-item section-content-item-third blog-article">
-                    <img src="img/image-wide-3.jpg" alt="">
-                    <a href="#" class="blog-article-title" title="">We Are Always Growing In Everything We Do</a>
-                    <p class="article-author">Article Author</p>
-                </div>
+                <?php endforeach; ?>
             </div>
         </section>
             <div class="divider"></div>
@@ -259,22 +248,19 @@ get_header();?>
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
                     <div class="media">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d19106.579929676856!2d28.00426426922892!3d-26.247365180124465!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28fd6a66006ddf9a!2sPioneer+Academy+Ormonde!5e0!3m2!1sen!2s!4v1479403217254" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <?php echo novap_render_google_map( get_field('school_latitude'), get_field('school_longitude') ); ?>
                     </div>
                 </div>
 
                 <div class="section-content-item section-content-item-half">
                     <div class="contact-info">
-                        <span class="phone-contact-one">Call us: <a href="tel:011 496 1201 ">011 496 1201 </a></span>
-                        <span class="phone-contact-two">Admission Enquiries:  <a href="tel:011 496 1202 ">011 496 1202 </a></span>
-                        <span class="email-contact">Email us: <a href="mailto:learn@novapioneer.com">learn@novapioneer.com</a></span>
+                        <span class="phone-contact-one">Call us: <a href="tel:<?php echo get_field('main_phone_number'); ?> "><?php echo get_field('main_phone_number'); ?> </a></span>
+                        <span class="phone-contact-two">Admission Enquiries:  <a href="tel:<?php echo get_field('admission_enquiries_number'); ?> "><?php echo get_field('admission_enquiries_number'); ?> </a></span>
+                        <span class="email-contact">Email us: <a href="mailto:<?php echo get_field('email_address'); ?>"><?php echo get_field('email_address'); ?></a></span>
                     </div>
 
                     <div class="contact-info">
-                        <p><b>NovaPioneer Ormonde</b><br>
-                        49 Dorado Avenue, Ormonde<br>
-                        Johannesburg South, 2091<br>
-                        South Africa</p>
+                        <?php echo get_field('physical_address'); ?>
                     </div>
                 </div>
             </div>
