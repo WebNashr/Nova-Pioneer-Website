@@ -141,7 +141,7 @@ get_header(); ?>
                     </div>
 
                     <div class="section-content-item section-content-item-full">
-                        <?php echo do_shortcode('[contact-form-7 id="606" title="Meet A Student Contact A Student"]')?>
+                        <?php echo do_shortcode('[contact-form-7 id="653" title="Meet A Student Contact A Student"]')?>
                     </div>
                 </div>
             </section>
@@ -158,7 +158,7 @@ get_header(); ?>
                             <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
                         </header>
 
-                        <?php echo do_shortcode('[contact-form-7 id="610" title="Stay Updated" html_class="sign-up"]');?>
+                        <?php echo do_shortcode('[contact-form-7 id="654" title="Stay Updated" html_class="sign-up"]');?>
 
                       <!--  <form action="" method="POST" class="sign-up">
                             <input name="email" class="email-input" placeholder="Your Email Address" class="" type="text">
