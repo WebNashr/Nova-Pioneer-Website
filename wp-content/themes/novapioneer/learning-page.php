@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * Template Name: Learning Page
 *
@@ -13,7 +13,7 @@ get_header();?>
         $introduction       = get_field('introduction');
         $intro_cards        = get_field('intro_cards');
         $education_stages   = get_field('education_stages');
-    
+
     ?>
 
         <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?>>
@@ -72,7 +72,7 @@ get_header();?>
 
         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
 
-            <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span>
+            <!-- <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span> -->
             <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
@@ -81,18 +81,18 @@ get_header();?>
                 </div>
             </figure>
 
-            <section class="education-stage even-section">
+            <section class="education-stage even-section anchor-link" id="<?php echo strtolower($stage->title); ?>">
                 <div class="section-title"><h1><?php echo $stage->title; ?></h1></div>
 
                 <div class="section section-pair">
 
                     <div class="section-content-item section-content-item-half">
-                        
+
                         <?php echo $stage->description; ?>
 
                         <div class="testimonial pull-quote">
-                            <?php 
-                                $vid_caption = get_field('video_caption', $stage->video->ID); 
+                            <?php
+                                $vid_caption = get_field('video_caption', $stage->video->ID);
                                 $type = get_field('type', $stage->video->ID);
                                 $video = get_field('video', $stage->video->ID);
                                 $speaker = "";
@@ -100,14 +100,14 @@ get_header();?>
 
                                 if($type === "general"){
                                     $speaker = get_field('caption_speaker', $stage->video->ID);
-                                    $speaker_title = get_field('caption_speaker_title', $stage->video->ID);    
+                                    $speaker_title = get_field('caption_speaker_title', $stage->video->ID);
                                 }
 
                                 if($type === "student"){
                                     $speaker = get_field('student_name', $stage->video->ID);
                                     $speaker_title = "Nova Pioneer Student";
                                 }
-                                
+
                             ?>
                             <blockquote>
                                 <svg aria-hidden="true">
