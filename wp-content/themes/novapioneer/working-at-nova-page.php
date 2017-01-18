@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * Template Name: Working At Nova Pioneer
 */
@@ -42,23 +42,23 @@ get_header();?>
 
         <section class="section">
             <article class="article article-body general-content">
-                <h1>Education Pathways</h1>
+                <h1>Career Pathways</h1>
                 <?php echo get_field('education_pathways'); ?>
-
-                <div class="section-content section-content-plain section-card-container">
-                    <?php foreach( get_field('education_pathways_cards') as $pathway): $pathway = (object)$pathway; ?>
+                <!-- <div class="section-content section-content-plain section-card-container"> -->
+                <div class="section-content section-content-plain">
+                    <!-- <?php foreach( get_field('education_pathways_cards') as $pathway): $pathway = (object)$pathway; ?>
                     <div class="section-content-item section-content-item-half section-card">
                         <h3> <?php echo $pathway->title; ?> </h3>
                         <div class="small-divider"></div>
                         <p class="card-description"> <?php echo $pathway->description; ?> </p>
                     </div>
-                    <?php endforeach; ?>
+                    <?php endforeach; ?> -->
 
-                    <div class="cta-container">
-                        <a href="<?php echo site_url('/careers/'); ?>" class="button button-large button-primary" title="">View Open Positions</a>
+                    <div class="button-container">
+                        <a href="<?php echo site_url('/careers/'); ?>" class="button button-default button-primary" title="">View Open Positions</a>
                     </div>
                 </div>
-            </article> 
+            </article>
         </section>
 
 
