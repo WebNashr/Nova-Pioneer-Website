@@ -33,9 +33,9 @@ get_header(); ?>
                     <div class="section-navigation">
                         <h1>South Africa</h1>
                         <div class="social-media-links">
-                            <a href=" <?php the_field('facebook')?>"><span class="social-icon facebook-icon"></span>Facebook</a><br/>
-                            <a href=" <?php the_field('twitter')?>"><span class="social-icon twitter-icon"></span>Twitter</a><br/>
-                            <a href=" <?php the_field('linkedin')?>"><span class="social-icon linkedin-icon"></span>LinkedIn</a><br/>
+                            <a href=" <?php the_field('facebook')?>"><span class="social-icon facebook-icon" target="_blank"></span>Facebook</a><br/>
+                            <a href=" <?php the_field('twitter')?>"><span class="social-icon twitter-icon" target="_blank"></span>Twitter</a><br/>
+                            <a href=" <?php the_field('linkedin')?>"><span class="social-icon linkedin-icon" target="_blank"></span>LinkedIn</a><br/>
                         </div>
                     </div>
                     <div class="section-content">
@@ -75,9 +75,9 @@ get_header(); ?>
                     <div class="section-navigation">
                         <h1>Kenya</h1>
                         <div class="social-media-links">
-                            <a href=" <?php the_field('facebook_ke')?>"><span class="social-icon facebook-icon"></span>Facebook</a><br/>
-                            <a href=" <?php the_field('twitter_ke')?>"><span class="social-icon twitter-icon"></span>Twitter</a><br/>
-                            <a href=" <?php the_field('linkedin_ke')?>"><span class="social-icon linkedin-icon"></span>LinkedIn</a><br/>
+                            <a href=" <?php the_field('facebook_ke')?>"><span class="social-icon facebook-icon" target="_blank"></span>Facebook</a><br/>
+                            <a href=" <?php the_field('twitter_ke')?>"><span class="social-icon twitter-icon" target="_blank"></span>Twitter</a><br/>
+                            <a href=" <?php the_field('linkedin_ke')?>"><span class="social-icon linkedin-icon"target="_blank"></span>LinkedIn</a><br/>
                         </div>
                     </div>
                     <div class="section-content">
