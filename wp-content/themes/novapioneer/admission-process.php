@@ -36,7 +36,7 @@ get_header(); ?>
 
         <section class="section">
             <article class="article">
-                <div class="cta-container">
+                <div class="cta-container-XXX"> <!-- $$$ ### ^^^ remove the -XXX class if design/layout is approved -->
                     <a href="<?php echo site_url('/apply-online'); ?>" class="button button-large button-primary" title="">Apply Online</a>
                 </div>
             </article> 
@@ -61,7 +61,7 @@ get_header(); ?>
         </section>-->
 
         <section class="section">
-            <article class="article article-body general-content">
+            <article class="article article-body general-content-XXX"> <!-- $$$ ### ^^^ remove the -XXX class if design/layout is approved -->
                 <h3>Admissions Contacts</h3>
 
                 <address class="contact-info">
