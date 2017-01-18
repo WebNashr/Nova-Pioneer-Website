@@ -32,6 +32,7 @@ get_header();?>
                         <h2 class="profile-role"><?php echo get_field('title', $manager->ID); ?></h2>
                         <div class="profile-description">
                             <input type="checkbox" class="read-more-state" id="post-1" />
+                            <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label>
                             <?php
                                 // Get the paragraphs in the post content for implementing the read-more functionality
                                 preg_match_all('|<p>(.+?)</p>|', $manager->post_content, $matches);
@@ -45,7 +46,7 @@ get_header();?>
                                     <?php endforeach; ?>
                                 </span>
                             </div>
-                            <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label>
+                            <!-- <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label> -->
                         </div>
                     </div>
                 <?php endforeach; ?>

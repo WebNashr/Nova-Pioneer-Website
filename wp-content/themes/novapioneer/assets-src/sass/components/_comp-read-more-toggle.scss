@@ -31,10 +31,10 @@
 .read-more-trigger {
   cursor: pointer;
   display: inline-block;
-  margin-top: 1rem;
 
   .profile & {
-    margin: 0;
+    // margin: 0;
+    margin-bottom: 0.75rem;
   }
 
   &:hover{
