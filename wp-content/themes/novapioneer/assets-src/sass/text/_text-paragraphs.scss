@@ -4,11 +4,10 @@
 
 
 p {
-	position: relative;
-	color: $dark-grey;
 	@include font-size(18px);
-	line-height: 1.6;
-
+	@include line-height(24px);
+	position: relative;
+	// color: $dark-grey;
 
 	&:not(:first-of-type) {
 
@@ -24,13 +23,18 @@ p {
 
 	.toggle-list &,
 	.general-content > .toggle-list & {
-		@include font-size(18px);
+		// @include font-size(18px);
 	}
 
 	.learning-approach & {
-		@include font-size(16px);
-		padding:  calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 1);
+		// @include font-size(16px);
+		padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 1);
 		text-align: center;
+	}
+
+	&.article-excerpt {
+		@include font-size(24px);
+		@include line-height(1.25);
 	}
 
 	@include break-point(tablet) {
@@ -46,7 +50,25 @@ p {
 	}
 }
 
-
 p + p {
 	margin-top: calc(#{$space-tiny} * 2);
 }
+
+// .article-excerpt {
+// 	@include font-size(24px);
+// 	@include line-height(1.25);
+// }
+
+h2 + p {
+	margin-top: calc(#{$space-tiny} * 1);
+}
+
+header + p {
+	margin-top: calc(#{$space-tiny} * 0.5);
+}
+
+// .article-inner p + p {
+// 	// margin-top: 0;
+// }
+
+

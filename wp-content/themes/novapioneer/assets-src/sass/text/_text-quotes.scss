@@ -2,44 +2,29 @@
 /* Quotes */
 /* ==================================================== */
 
-// blockquote {
-// 	margin: 1.5rem 0 1.5rem 1.5rem;
-// 	line-height: 1.75;
-// 	font-size: 1.35rem;
-// 	font-family: 'Georgia', 'Times', serif;
-// 	font-weight: 500;
-// 	font-style: italic;
-// 	color: $dark-grey;
-// }
 
 .testimonial {
-	// @include flexbox();
-	// @include flex-wrap(nowrap);
 	@extend %columns;
-  @extend %column;
-  @extend %column-12;
+	@extend %column;
+	@extend %column-12;
 	justify-content: center;
-	// padding-top: calc(#{$space-tiny} * 2);
-	// padding-bottom: calc(#{$space-tiny} * 1);
 	background: lighten($background-grey, 5%);
-	//width: 100%;
 	padding: calc(#{$space-tiny} * 3);
+
 	&.full-width-quote {
 		background: lighten($green-blue, 30%);
 		min-height: 300px;
 		margin: -1.5rem 0 0 0;
+
 		@include break-point(tablet) {
 			margin: -4rem 0 0 0;
 		}
-		@include break-point(laptop) {
-			padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 2) 0;
-		}
+
 		@include break-point(desktop) {
-			// margin: -5rem 0 3rem 0;
 			margin: -5rem 0 0 0;
 		}
-		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) 0;
 
+		padding: calc(#{$space-tiny} * 3) 0;
 
 		&.home-page-quote,
 		&.bottom-quote {
@@ -50,7 +35,7 @@
 
 				@include break-point(laptop) {
 					margin-left: 3rem;
-					// padding-right: 0;
+					padding-right: 0;
 				}
 				@include break-point(desktop) {
 					margin-left: -1rem;
@@ -77,22 +62,23 @@
 		}
 
 		@include break-point(desktop) {
-			padding: calc(#{$space-tiny} * 3) 0;
+			padding: calc(#{$space-tiny} * 5) 0;
 		}
 	}
+
 	&.pull-quote {
 		background: none;
-		padding: 0 0 calc(#{$space-tiny} * 1) 0 !important;
-		// padding: 0 0 calc(#{$space-tiny} * 1) 0;
-		// @include break-point(laptop) {
-		// 	padding: 0 0 calc(#{$space-tiny} * 1) 0;
-		// }
+		padding: calc(#{$space-tiny} * 1) 0;
 
+		@include break-point(laptop) {
+			padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 2) 0;
+		}
 
 		blockquote {
 			@include font-size(21px);
 			padding-left: 0;
 			width: 100%;
+
 			p {
 				@include font-size(20px);
 				width: 100%;
@@ -102,30 +88,25 @@
 				margin-left: 0;
 				color: lighten($dark-grey, 15%);
 				line-height: 1.5;
+
 				@include break-point(tablet) {
-					padding-top: calc(#{$space-tiny} * 1);
 					padding-left: calc(#{$space-tiny} * 3);
 				}
+
 				@include break-point(laptop) {
-					padding-top: 0;
+					padding: 0 0;
 					padding-left: calc(#{$space-tiny} * 1.5);
 					margin-top: 0;
 					margin-left: 0;
 					width: 90%;
 				}
 			}
+
 			svg {
 				width: 25px;
 				height: 25px;
 				fill: lighten($blue, 10%);
-				margin-top: 2rem;
-				@include break-point(tablet) {
-					margin-top: 1rem;
-				}
-				@include break-point(laptop) {
-					margin-top: 0.25rem;
-				}
-
+				margin-top: 0.25rem;
 			}
 		}
 
@@ -134,29 +115,29 @@
 			top: -30px;
 		}
 	}
+
 	.spacing-to-center {
 		@extend %columns;
 		@extend %column-2;
 		content: " "
 	}
+
 	figure {
-		//padding: calc(#{$space-tiny} * 2);
 		align-self: center;
+
 		img {
 			width: 175px;
 			height: 175px;
 			border-radius: 50%;
 		}
 
-
 		@extend %columns;
 		@extend %column-3;
+
 		&.full-width-figure {
-			//padding: calc(#{$space-tiny} * 2);
 			@extend %column-2;
 			align-self: center;
 		}
-
 	}
 
 	blockquote {
@@ -169,39 +150,25 @@
 		line-height: 1.5;
 		font-family: 'Gentium Basic', serif;
 		width: auto;
-		// max-width: 650px;
-		//padding: 0.25rem 0.5rem;
-		//padding-top: calc(#{$space-tiny} * 2;
-		// padding-right: calc(#{$space-tiny} * 3);
 		padding-left: calc(#{$space-tiny} * 3);
 		position: relative;
-		//color: lighten($dark-grey, 10%);
-		//color: $green-blue;
+
 		.center-quote {
 			width: 650px;
 		}
-		svg {
-				width: 30px;
-				height: 30px;
-				fill: lighten($blue, 10%);
-				margin-bottom: 1rem;
 
+		svg {
+			width: 30px;
+			height: 30px;
+			fill: lighten($blue, 10%);
+			margin-bottom: 1rem;
 		}
 		@include break-point(laptop) {
 			padding-right: 0;
 			padding-left: 0;
 		}
-
 	}
-	// blockquote:before {
-	// 	display: block;
-	// 	background-image: url(/wp-content/themes/novapioneer/img/quote-mark.svg);
-	// 	//content: "\201C";
-	// 	//@include font-size(100px);
-	// 	//position: absolute;
-	// 	//top: -41px;
-	// 	color: $blue;
-	// }
+
 	blockquote cite {
 		color: $dark-grey;
 		@include font-size(14px);
@@ -210,13 +177,13 @@
 		display: block;
 		padding-top: calc(#{$space-tiny} * 1);
 
-	span {
-		@include copy(bold);
-	}
-	&:before {
+		span {
+			@include copy(bold);
+		}
+
+		&:before {
 			display: block;
 			padding-bottom: calc(#{$space-tiny} * 0.5);
-			//margin-top: 0.5rem;
 			content:"";
 			border-top: 1px solid darken($grey, 15%);
 			width: 20%;

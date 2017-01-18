@@ -116,7 +116,7 @@
 }
 
 .footer-box-main-item {
-	@include title(semi);
+	@include copy(bold);
 	letter-spacing: 1.26667px;
 	text-transform: uppercase;
 	opacity: 0.85;

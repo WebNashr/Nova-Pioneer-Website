@@ -100,7 +100,7 @@
     }
   }
   .country-name {
-    @include title(semi);
+    @include copy(bold);
     @include font-size(36px);
     text-transform: uppercase;
     text-shadow: 1px 1px darken($dark-grey, 50%);

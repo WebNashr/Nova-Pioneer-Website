@@ -61,7 +61,7 @@ body {
 }
 
 .modal-title h2 {
-    @include title(regular);
+    @include copy(regular);
     @include font-size(24px);
     margin: 0;
     color: $white;

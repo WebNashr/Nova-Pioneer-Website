@@ -143,7 +143,7 @@
 
 
 .school-name {
-	@include title(regular);
+	@include copy(regular);
 	@include font-size(22px);
 	@include line-height(1);
 	align-self: center;
@@ -475,7 +475,7 @@
 }
 
 .menu-item-main {
-	@include title(regular);
+	@include copy(regular);
 	@include font-size(18px);
 	text-transform: capitalize;
 	transition: $ease;

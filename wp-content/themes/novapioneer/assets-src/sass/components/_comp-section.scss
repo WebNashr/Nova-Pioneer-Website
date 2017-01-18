@@ -1135,7 +1135,7 @@
 				color: #fff;
 				margin: -27px -20px 0 -20px;
 				border-radius: 5px 5px 0 0;
-				@include title(semi);
+				@include copy(bold);
 				text-align: center;
 			}
 
@@ -1283,7 +1283,7 @@
 			margin-top: 0;
 		}
 		.number {
-			@include title(bold);
+			@include copy(black);
 			@include font-size(26px);
 			color: $sky;
 			text-align: center;
@@ -1297,7 +1297,7 @@
 			&:before,
 			&:after {
 				content: ' - ';
-				@include title(regular);
+				@include copy(regular);
 				color: lighten($light-grey, 20%);
 			}
 		}

@@ -109,7 +109,7 @@
     		@include font-size(16px);
     		color: $dark-grey;
     		text-align: center;
-    		@include title(regular);
+    		@include copy(regular);
 	    	margin: auto;
 	    	padding: calc(#{$space-tiny} * 0.5);
 

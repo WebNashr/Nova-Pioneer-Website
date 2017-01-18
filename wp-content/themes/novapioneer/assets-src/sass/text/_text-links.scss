@@ -4,12 +4,12 @@
 
 
 a {
-	// @include copy(regular);
 	text-decoration: none;
 	border: 0 none;
 	outline: 0 none;
 	cursor: pointer;
 	color: $green-blue;
+
 	h1 &,
 	h2 &,
 	h3 &,
@@ -24,8 +24,9 @@ a {
 	}
 
 	.section-navigation & {
-		@include font-size(16px);
-	 	@include copy(semi);
+		// @include font-size(16px);
+	 	// @include copy(semi);
+	 	
 	 	&:hover {
 	 		text-decoration: none;
 	 		cursor: pointer;
@@ -38,15 +39,4 @@ a {
 		text-decoration: none;
 		color: darken($green-blue, 10%);
 	}
-
-	// @include break-point(tablet) {
-	// 	@include font-size(14px);
-	// 	line-height: 0.75;
-	// 	margin-top: 0;
-	// }
-	// @include break-point(desktop) {
-	// 	@include font-size(16px);
-	// 	line-height: 0.75;
-	// 	margin-top: 0;
-	// }
 }

@@ -121,7 +121,7 @@
 }
 
 .profile-name {
-	@include title(bold);
+	@include copy(black);
 	@include font-size(24px);
 	text-align: center;
 	color: $blue;

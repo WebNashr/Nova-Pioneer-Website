@@ -29,7 +29,7 @@
 
 .table-header {
 	@include font-size(28px);
-	@include title(bold);
+	@include copy(black);
 	margin-bottom: 1.5rem;
 	text-align: left;
 	color: $blue;
@@ -119,7 +119,7 @@ table.schedule-table.zebra tr:nth-child(even) {
 table.schedule-table th,
 table.fees-table th {
 	@include copy(semi);
-	// @include title(regular);
+	// @include copy(regular);
 	padding: calc(1rem * 0.5) calc(1rem * 1);
 	@include font-size(16px);
 	// @include font-size(18px);

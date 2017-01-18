@@ -85,7 +85,7 @@
 	}
 
 	p {
-        @include title(regular);
+        @include copy(regular);
         @include font-size(20px);
         	max-width: 768px;
         

@@ -51,7 +51,7 @@ ul.toggle-list li {
 }
 
 .toggle-list-title {
-    @include title(regular);
+    @include copy(regular);
     display: inline;
     width: calc(100% - 1.5rem);
 
@@ -87,7 +87,7 @@ ul.toggle-list li {
 .toggle-list-content {
     display: none;
     margin-top: 1rem;
-    // @include title(regular);
+    // @include copy(regular);
 
     .show & {
         display: block;
