@@ -6,9 +6,6 @@
 .section {
 	clear: both;
 	padding: calc(#{$space-tiny} * 2);
-	@include break-point(tablet) {
-		padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 2);
-	}
 
 	&.full-width {
 		padding-right: 0;
@@ -25,14 +22,34 @@
 }
 
 
+// $$$ ### ^^^ revisit when settling spacing problems
+// .section {
+// 	clear: both;
+// 	padding: calc(#{$space-tiny} * 2);
+
+// 	&.full-width {
+// 		padding-right: 0;
+// 		padding-left: 0;
+// 	}
+
+// 	@include break-point(tablet) {
+// 		padding: calc(#{$space-tiny} * 3);
+//     }
+
+//     @include break-point(laptop) {
+// 		padding: 0 calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4);
+//     }
+// }
+
+
 .section-pair {
     @extend %columns;
 
     &.even-section {
-			background: lighten($background-grey, 5%);
-			// background: $background-grey;
-		}
-		@include break-point(laptop) {
+		background: lighten($background-grey, 5%);
+	}
+
+	@include break-point(laptop) {
 
     }
 }
