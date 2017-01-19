@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * Template Name: Our Team
 */
@@ -50,6 +50,7 @@ get_header();?>
                         <h2 class="profile-role"><?php echo get_field('title', $member->ID); ?></h2>
                         <div class="profile-description">
                             <input type="checkbox" class="read-more-state" id="post-<?php echo $i?>" />
+                            <label for="post-<?php echo $i?>" class="read-more-trigger button button-tiny button-primary"></label>
                             <?php
                                 // Get the paragraphs in the post content for implementing the read-more functionality
                                 preg_match_all('|<p>(.+?)</p>|', $member->post_content, $matches);
@@ -61,9 +62,9 @@ get_header();?>
                                     <?php foreach($description_paragraphs as $paragraph): ?>
                                         <p><?php echo $paragraph; ?></p>
                                     <?php endforeach; ?>
-                                </span> 
+                                </span>
                             </div>
-                            <label for="post-<?php echo $i?>" class="read-more-trigger button button-tiny button-primary"></label>
+
                         </div>
                     </div>
 
