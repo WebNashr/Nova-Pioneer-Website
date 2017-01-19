@@ -11,6 +11,9 @@
 		padding-right: 0;
 		padding-left: 0;
 	}
+	&.even-section {
+	background: lighten($background-grey, 5%);
+}
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);

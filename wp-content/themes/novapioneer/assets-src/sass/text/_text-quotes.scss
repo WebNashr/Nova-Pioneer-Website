@@ -43,8 +43,10 @@
 
 		&.home-page-quote,
 		&.bottom-quote {
-			margin-top: 1rem;
+			margin-top: 0;
 			margin-bottom: 0;
+			padding-top: calc(#{$space-tiny} * 4);
+			padding-bottom: calc(#{$space-tiny} * 4);
 			blockquote{
 				padding-right: calc(#{$space-tiny} * 3);
 

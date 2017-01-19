@@ -163,13 +163,13 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section even-section">
                 <div class="general-notices-container">
                 <div class="large-notice-container">
                     <div class="large-notice">
                         <div class="notice-content">
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process')?>" class="button button-large button-secondary" title="">Enrol Now</a></p>
+                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process')?>" class="button button-tiny button-secondary" title="">Apply Now</a></p>
                         </div>
                     </div>
                 </div>
@@ -183,7 +183,7 @@ get_header(); ?>
                         <p><?php echo get_field('venue', $event->ID); ?></p>
                         <button class="modal-toggle button button-tiny button-secondary">Send an RSVP</button>
                     </div>
-                    <div class="divider"></div>
+                    <!-- <div class="divider"></div> -->
                     <?php endforeach; ?>
                 </div>
 

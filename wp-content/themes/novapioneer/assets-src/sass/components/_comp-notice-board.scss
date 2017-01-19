@@ -52,13 +52,13 @@
           @include font-size(28px);
   	    	@include copy(semi);
           line-height: 1.5;
-          padding: calc(#{$space-tiny} * 2);
+          padding: calc(#{$space-tiny} * 1);
         }
 		}
 		a {
 			//display: block;
 			//color: $white;
-			@include font-size(21px);
+			@include font-size(16px);
 			//color: $grey;
 			text-align: center;
 			&:hover {
@@ -106,10 +106,10 @@
 
     	}
     	h2 {
-    		@include font-size(16px);
+    		@include font-size(14px);
     		color: $dark-grey;
     		text-align: center;
-    		@include title(regular);
+    		@include copy(regular);
 	    	margin: auto;
 	    	padding: calc(#{$space-tiny} * 0.5);
 
@@ -163,7 +163,15 @@
 	.small-notice {
     @extend %column;
     text-align: center;
+    &:first-of-type {
+      margin-bottom: 1.5rem;
+      padding-bottom: calc(#{$space-tiny} * 2);
+      border-bottom: 1px solid darken($grey, 10%);
+    }
 
+    &:not(:first-of-type) {
+      margin-left: 0;
+    }
 		&:last-child {
 			margin-bottom: 0;
       margin-left: 0;
