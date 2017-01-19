@@ -28,8 +28,8 @@ get_header();?>
                 <?php foreach( get_field('management') as $manager): $manager = (object)$manager; ?>
                     <div class="section-content-item section-content-item-sixth profile">
                         <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $manager->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $manager->post_title; ?>">
-                        <h1 class="profile-name"><?php echo $manager->post_title; ?></h1>
-                        <h2 class="profile-role"><?php echo get_field('title', $manager->ID); ?></h2>
+                        <h3 class="profile-name"><?php echo $manager->post_title; ?></h3>
+                        <h6 class="profile-role"><?php echo get_field('title', $manager->ID); ?></h6>
                         <div class="profile-description">
                             <input type="checkbox" class="read-more-state" id="post-1" />
                             <?php
@@ -59,8 +59,8 @@ get_header();?>
                 <?php foreach( get_field('team_members') as $member): $member = (object)$member; ?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $member->post_title; ?>">
-                        <h1 class="profile-name"><?php echo $member->post_title; ?></h1>
-                        <h2 class="profile-role"><?php echo get_field('title', $member->ID); ?></h2>
+                        <h3 class="profile-name"><?php echo $member->post_title; ?></h3>
+                        <h6 class="profile-role"><?php echo get_field('title', $member->ID); ?></h6>
                     </div>
                 <?php endforeach; ?>
             </div>

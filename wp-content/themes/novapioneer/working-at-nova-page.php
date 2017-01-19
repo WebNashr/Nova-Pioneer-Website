@@ -26,7 +26,7 @@ get_header();?>
 
         <section class="section">
             <article class="article article-body general-content general-content-first">
-                <h1>Why work at NovaPioneer? </h1>
+                <h2>Why work at NovaPioneer? </h2>
                 <?php echo get_field('why_work_at_novap'); ?>
             </article>
         </section>
@@ -42,7 +42,7 @@ get_header();?>
 
         <section class="section">
             <article class="article article-body general-content">
-                <h1>Education Pathways</h1>
+                <h2>Education Pathways</h2>
                 <?php echo get_field('education_pathways'); ?>
 
                 <div class="section-content section-content-plain section-card-container">

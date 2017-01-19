@@ -31,7 +31,9 @@ get_header();?>
 
             <div class="page-navigation-container">
                 <div class="navigation-wrap">
-                <div class="section-title"><h1>Our Education Stages</h1></div>
+                    <div class="section-title">
+                        <h3>Our Education Stages</h3>
+                    </div>
                     <div class="links-inner-wrap">
                         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
                             <div class="section-content-item">
@@ -82,7 +84,9 @@ get_header();?>
             </figure>
 
             <section class="education-stage even-section anchor-link" id="<?php echo strtolower($stage->title); ?>">
-                <div class="section-title"><h1><?php echo $stage->title; ?></h1></div>
+                <div class="section-title">
+                    <h2><?php echo $stage->title; ?></h2>
+                </div>
 
                 <div class="section section-pair">
 

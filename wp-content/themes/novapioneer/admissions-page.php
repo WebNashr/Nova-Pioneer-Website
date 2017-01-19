@@ -28,7 +28,7 @@ get_header();?>
 
         <section class="section section-pair">
             <div class="section-navigation section-navigation-admissions">
-                <h1>Upcoming Admissions</h1>
+                <h2>Upcoming Admissions</h2>
                 <div class="even-list-container">
                     <div class="event-item">
                         <div class="event-day">
@@ -36,7 +36,7 @@ get_header();?>
                             <div class="month">November</div>
                         </div>
                         <div class="event-details">
-                            <h2>Nova Pioneer Ormonde Enrollment</h2>
+                            <h6>Nova Pioneer Ormonde Enrollment</h6>
                             <p>Student Applications begin. <a href="#" class="" title="">View Details</a> </p>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ get_header();?>
                             <div class="month">November</div>
                         </div>
                         <div class="event-details">
-                            <h2>Nova Pioneer Midrand Enrollment</h2>
+                            <h6>Nova Pioneer Midrand Enrollment</h6>
                             <p>Student Applications begin. <a href="#" class="" title="">View Details</a> </p>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ get_header();?>
                             <div class="month">November</div>
                         </div>
                         <div class="event-details">
-                            <h2>Nova Pioneer Jackal Creek Enrollment</h2>
+                            <h6>Nova Pioneer Jackal Creek Enrollment</h6>
                             <p>Student Applications begin. <a href="#" class="" title="">View Details</a> </p>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ get_header();?>
                 <div class="section-content-item section-content-item-full">
                     <div id="calendar-wrap">
                         <header>
-                            <h1>November 2016</h1>
+                            <h3>November 2016</h3>
                         </header>
 
                         <div id="calendar">

@@ -8,7 +8,6 @@ get_header();?>
 <?php if( have_posts() ): ?>
 
     <?php while( have_posts() ): the_post();
-
         $our_vision = get_field('our_vision');
         $our_mission = get_field('our_mission');
         $our_culture = get_field('our_culture');
@@ -16,7 +15,6 @@ get_header();?>
         // Get the paragraphs in $our_mission for implementing the read-more functionality
         preg_match_all('|<p>(.+?)</p>|', $our_mission, $matches);
         $our_mission_paragraphs = $matches[1];
-    
     ?>
         <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?>>
             <div class="container hero-container">
@@ -31,12 +29,11 @@ get_header();?>
         
         <section class="section">
             <article class="article article-body general-content">
-
-                <h1>Our Vision</h1>
+                <h2>Our Vision</h2>
                 <?php echo $our_vision; ?>
                 <br/><br/>
 
-                <h1>Our Mission</h1>
+                <h2>Our Mission</h2>
                 <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
                 <div class="read-more-wrap">
                     <p><?php echo array_shift($our_mission_paragraphs); ?></p>
@@ -47,7 +44,6 @@ get_header();?>
                     </span>        
                 </div>
                 <label for="post-<?php echo get_the_ID(); ?>" class="read-more-trigger button button-tiny button-primary"></label>
-
             </article>
         </section>
 
@@ -61,7 +57,7 @@ get_header();?>
 
         <section class="section">
             <article class="article article-body general-content">
-                <h1>School &amp; Company Culture</h1>
+                <h2>School &amp; Company Culture</h2>
                 <?php echo $our_culture; ?>
 
                 <div class="section-content section-content-plain principles-container">
@@ -74,7 +70,6 @@ get_header();?>
                         <p class="description"><?php echo $principle->description; ?></p>
                     </div>
                     <?php endforeach; ?>
-
                 </div>
             </article>
         </section>

@@ -31,7 +31,7 @@ get_header(); ?>
                 </header> -->
                 <div class="section-pair">
                     <div class="section-navigation">
-                        <h1>South Africa</h1>
+                        <h2>South Africa</h2>
                         <div class="social-media-links">
                             <a href=" <?php the_field('facebook')?>" target="_blank"><span class="social-icon facebook-icon"></span>Facebook</a><br/>
                             <a href=" <?php the_field('twitter')?>" target="_blank"><span class="social-icon twitter-icon"></span>Twitter</a><br/>
@@ -73,7 +73,7 @@ get_header(); ?>
                 </header> -->
                 <div class="section-pair">
                     <div class="section-navigation">
-                        <h1>Kenya</h1>
+                        <h2>Kenya</h2>
                         <div class="social-media-links">
                             <a href=" <?php the_field('facebook_ke')?>" target="_blank"><span class="social-icon facebook-icon" target="_blank"></span>Facebook</a><br/>
                             <a href=" <?php the_field('twitter_ke')?>" target="_blank"><span class="social-icon twitter-icon" target="_blank"></span>Twitter</a><br/>

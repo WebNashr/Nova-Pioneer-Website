@@ -34,7 +34,9 @@ get_header(); ?>
             <section class="section">
                 <div class="page-navigation-container">
                     <div class="navigation-wrap">
-                        <div class="section-title"><h1>Our Students</h1></div>
+                        <div class="section-title">
+                            <h3>Our Students</h3>
+                        </div>
                         <div class="links-inner-wrap"
                         <div class="section-content-item">
                             <div class="anchor-link">
@@ -56,7 +58,7 @@ get_header(); ?>
 
             <section class="section section-pair">
                 <div class="section-navigation">
-                    <h1>Junior Students</h1>
+                    <h2>Junior Students</h2>
                 </div>
 
                 <div class="section-content">
@@ -95,7 +97,7 @@ get_header(); ?>
 
             <section class="section section-pair even-section">
                 <div class="section-navigation">
-                    <h1>Senior Students</h1>
+                    <h2>Senior Students</h2>
                 </div>
 
                 <div class="section-content">
@@ -132,7 +134,7 @@ get_header(); ?>
 
             <section class="section section-pair">
                 <div class="section-navigation">
-                    <h1>Contact a Student</h1>
+                    <h2>Contact a Student</h2>
                 </div>
 
                 <div class="section-content the-students ">
@@ -149,7 +151,7 @@ get_header(); ?>
 
             <section class="section section-pair section-subscribe">
                 <div class="section-navigation">
-                    <h1>Stay Updated</h1>
+                    <h2>Stay Updated</h2>
                 </div>
 
                 <div class="section-content">

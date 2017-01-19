@@ -9,7 +9,8 @@ h3,
 h4,
 h5,
 h6 {
-	@include line-height(1);
+	// @include line-height(1);
+	@include line-height(1.25);
 	clear: both;
 	display: block;
 }
@@ -46,26 +47,6 @@ h1 {
 	.hero-half.stuck & {
 		font-size: 2.5rem;
 		text-shadow: unset;
-	}
-
-	.section-navigation & {
-	 	// @include copy(medium);
-	 	// @include font-size(30px);
-		margin-bottom: 0.5rem;
-		line-height: 1.15;
-
-		&.current {
-			// color: $dark-grey;
-			// color: lighten($dark-grey, 10%);
-		}
-
-		// @include break-point(tablet) {
-		// 	margin-bottom: 1rem;
-		// }
-
-		@include break-point(laptop) {
-			margin-bottom: 1rem;
-		}
 	}
 
 	&.full-width-heading  {
@@ -118,7 +99,7 @@ h1 {
 	}
 
 	.article-header & {
-		@include line-height(1.25);
+		// @include line-height(1.25);
 	}
 }
 
@@ -135,6 +116,30 @@ h2 {
 
 	.article-aside & {
 		margin-top: 0;
+	}
+
+	.education-stage & {
+		margin-bottom: calc(#{$space-tiny} * 1);
+	}
+
+	.section-navigation & {
+	 	// @include copy(medium);
+	 	// @include font-size(30px);
+		margin-bottom: 0.5rem;
+		// line-height: 1.15;
+
+		&.current {
+			// color: $dark-grey;
+			// color: lighten($dark-grey, 10%);
+		}
+
+		// @include break-point(tablet) {
+		// 	margin-bottom: 1rem;
+		// }
+
+		@include break-point(laptop) {
+			margin-bottom: calc(#{$space-tiny} * 1);
+		}
 	}
 }
 
@@ -166,6 +171,7 @@ h3 {
 	.learning-approach & {
 		// @include copy(semi);
 		// @include font-size(21px);
+		margin-bottom: calc(#{$space-tiny} * 1);
 		text-align: center;
 	}
 

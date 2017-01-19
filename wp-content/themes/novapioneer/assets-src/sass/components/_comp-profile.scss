@@ -50,6 +50,7 @@
             margin-top: $gut;
         }
 	}
+
 	@include break-point(laptop) {
 		&:first-of-type{
 			margin-top: unset;
@@ -121,8 +122,6 @@
 }
 
 .profile-name {
-	@include copy(black);
-	@include font-size(24px);
 	text-align: center;
 	color: $blue;
 	margin: 0;
@@ -132,16 +131,13 @@
 }
 
 .profile-role {
-	@include font-size(16px);
-	@include copy(semi);
-  text-align: center;
+  	text-align: center;
 	color: $dark-grey;
 	margin: 0.25rem 0 0;
 	padding: 0;
 	align-self: center;
 
 	@include break-point(desktop) {
-		@include font-size(16px);
 		padding: 0 calc(#{$space-tiny} * 0.25) calc(#{$space-tiny} * 0.5) 0;
 	}
 }
@@ -153,7 +149,6 @@
 
 	p {
 		@include font-size(16px);
-		@include line-height(1.275);
 		padding: 0 0 calc(#{$space-tiny} * 0.75) ;
 	}
 
