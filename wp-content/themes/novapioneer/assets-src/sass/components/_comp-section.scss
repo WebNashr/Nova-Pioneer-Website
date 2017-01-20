@@ -208,7 +208,7 @@
 			padding: calc(#{$space-tiny} * 3);
 		}
 		@include break-point(desktop) {
-			padding: calc(#{$space-tiny} * 4);
+			padding: calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
 		}
 
 }
@@ -331,6 +331,32 @@
 	padding-top: calc(#{$space-tiny} * 2);
 	padding-bottom: calc(#{$space-tiny} * 2);
 	background: darken($background-grey, 7%);
+	//---contact form 7 overrides----
+	.wpcf7 {
+		padding: 0;
+		margin: 0;
+		p {
+			padding: 0 !important;
+
+			&:first-of-type {
+				margin-left: 0 !important;
+				padding-left: 0;
+			}
+			span.wpcf7-not-valid-tip {
+				margin-left: 0 !important;
+				@include font-size(14px);
+				color: $flare;
+				// color: lighten($dark-grey, 10%);
+			}
+
+
+			// &:not(:first-of-type) {
+			// 	margin: 0 !important;
+			// }
+		}
+
+
+	}
 	// @extend %columns;
 	// align-items: center;
 	@include break-point(desktop) {
@@ -401,6 +427,7 @@
 				width: auto;
 			}
 		 &:after {
+
 			  top: 50%;
 		    left: 88%;
 		    border: solid transparent;
@@ -414,18 +441,22 @@
 		    border-width: 0.65rem;
 		    margin-top: -0.2rem;
 		    z-index: 2;
+
 				@include break-point(tablet) {
 					width: auto;
-					left: 95%;
+					left: 86%;
 				}
 				@include break-point(largelaptop) {
-					left: 90%;
+					top:-27%;
+					left: 86%;
+					position: relative;
 				}
 				@include break-point(desktop) {
 					width: auto;
-					left: 90%;
+					left: 86%;
 				}
 		 	}
+
 
 		 .dropdown {
 	 			// @extend %column-5;
@@ -458,14 +489,23 @@
  		}
 
 	}
-		.selector:not(*:root) {}
+	.selector:not(*:root) {}
 
-		.submit-btn {
-			// width: auto;
-			//  @extend %column-2;
-			padding: 0.75rem 1rem;
-			margin-bottom: 1rem;
-		}
+	.submit-btn {
+		// width: auto;
+		//  @extend %column-2;
+		padding: 0.75rem 1rem;
+		margin-bottom: 1rem;
+	}
+	div.wpcf7-validation-errors {
+		border: 1px solid $flare;
+	}
+	div.wpcf7-response-output {
+		margin: 1rem 0 0 0;
+		color: $dark-grey;
+		@include font-size(14px);
+	}
+
 
 }
 
