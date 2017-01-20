@@ -54,7 +54,7 @@ get_header(); ?>
                                 array_push($locations, array(
                                     "latitude"  => $school_branch->latitude,
                                     "longitude" => $school_branch->longitude,
-                                    "info_text" => ""
+                                    "info_text" => "Novapioneer ". $school_branch->branch_name
                                 ));
                             ?>
 
