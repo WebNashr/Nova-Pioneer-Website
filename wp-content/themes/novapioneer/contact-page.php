@@ -61,7 +61,7 @@ get_header(); ?>
                         <?php endforeach; ?>
                         <?php 
                             $map_zoom_level = get_field('map_zoom_level');
-                            novap_render_google_map($locations, $map_zoom_level); 
+                            novap_render_google_map($locations); 
                         ?>
 
                     </div>
