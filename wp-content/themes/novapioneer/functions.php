@@ -480,16 +480,15 @@ function novap_delete_rsvp_from_event()
 add_action('load-post.php', 'novap_delete_rsvp_from_event');
 
 
-function novap_render_google_map($lat, $long, $info_text = null)
+function novap_render_google_map(array $locations, $zoom)
 {
     $map_view = new View("map.html");
 
-    if (!empty($lat) && !empty($long)):
+    if ( !empty($locations) ):
 
         $map_view->render(array(
-            "latitude" => $lat,
-            "longitude" => $long,
-            "info_text" => isset($info_text) ? $info_text : ""
+            "locations" => json_encode($locations),
+            "zoom" => intval($zoom) ? intval($zoom) : 12
         ));
 
     endif;
