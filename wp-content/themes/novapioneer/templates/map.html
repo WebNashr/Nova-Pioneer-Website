@@ -29,7 +29,6 @@
         });
 
         let markers = [];
-        let infoWindows = [];
 
         locations.forEach(function(location){
 
@@ -45,18 +44,22 @@
                     content: location.info_text
                 });
 
-                infoWindows.push(infoWindow);
-
-                google.maps.event.addListener(marker,'click',function(e){        
-                    infoWindows[infoWindows.length - 1].open(map, markers[markers.length - 1]);        
+                google.maps.event.addListener(marker, 'click', function(e){        
+                    infoWindow.open(map, this);        
                 });
             }
  
         });
 
+        // Add markers and Autocenter map
+        let bounds = new google.maps.LatLngBounds();
+        
         markers.forEach(function(marker){
             marker.setMap(map);
+            bounds.extend(marker.position);
         });
+
+        map.fitBounds(bounds);
 
 
       }
