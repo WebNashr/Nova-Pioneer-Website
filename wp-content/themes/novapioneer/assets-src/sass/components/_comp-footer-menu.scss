@@ -6,7 +6,8 @@
 .page-footer {
 	padding: calc(#{$space-tiny} * 2);
 	color: $white;
-	background: $dark-blue;
+	// background: $dark-blue;
+		// background: $grey-lt;
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);
@@ -20,6 +21,7 @@
 .page-footer-aux {
 	padding: calc(#{$space-tiny} * 2);
 	background: darken($dark-blue, 2.5%);
+		background: $blue-dk;
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);
@@ -113,6 +115,7 @@
 	@include font-size(16px);
 	@include line-height(32px);
 	color: $white;
+	color: $blue-dk;
 }
 
 .footer-box-main-item {
@@ -122,7 +125,7 @@
 	opacity: 0.85;
 
 	&:hover {
-		color: $green-blue;
+		color: $green-dk;
 		opacity: 1;
 	}
 }
@@ -135,7 +138,7 @@
 	color: $sky;
 
 	&:hover {
-		color: $green-blue-light;
+		color: $green-dk;
 	}
 }
 

@@ -26,8 +26,8 @@
     <body <?php body_class(); ?>>
         
             <!-- page-header -->
-        <header class="page-header" <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>>
-            <!-- <section class="header-section header-section-aux">
+        <header class="page-header"  <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>>
+            <section class="header-section header-section-aux">
                 <div class="select-country">
                     <span class="country show">
                         <span class="flag-icon flag-icon-za"></span>
@@ -60,13 +60,12 @@
                         </button>
                     </fieldset>
                 </form>
-            </section> -->
+            </section>
 
             <section class="header-section header-section-main">
                 <a href="<?php echo home_url(); ?>" class="logo header-logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-horizontal-coloured-blue.svg" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/nova-logo-2-white.svg" alt="">
                 </a>
-
                 <!-- start navigation -->
                 <?php wp_nav_menu( array(
                     'menu_class' => 'menu menu-main',
@@ -75,6 +74,7 @@
                     'theme_location' => 'novap-header-menu',
                     'container' => ''
                 ) ); ?>
+
                 <!-- end navigation -->
 
                 <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>

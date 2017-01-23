@@ -36,7 +36,7 @@ h6 {
 
 
 h1 {
-	@include font-size(46px);
+	@include font-size(48px);
 	// max-width: 628px;
 	color: lighten($blue, 10%);
 
