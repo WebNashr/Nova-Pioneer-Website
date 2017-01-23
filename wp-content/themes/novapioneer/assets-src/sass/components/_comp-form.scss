@@ -158,3 +158,8 @@ input[type="submit"] {
 	&:active {
 	}
 }
+img.ajax-loader {
+	max-height: 16px;
+	max-width: 16px;
+	display: none;
+}

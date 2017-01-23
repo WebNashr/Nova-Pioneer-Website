@@ -6,10 +6,10 @@
 get_header(); ?>
 
 <style>
-    img.ajax-loader{
+    /*img.ajax-loader{
         max-height: 16px;
         max-width: 16px;
-    }
+    }*/
 </style>
 
 <?php if (have_posts()): ?>
