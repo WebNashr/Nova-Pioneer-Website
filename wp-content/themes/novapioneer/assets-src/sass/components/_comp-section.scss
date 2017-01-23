@@ -346,6 +346,7 @@
 				margin-left: 0 !important;
 				@include font-size(14px);
 				color: $flare;
+				padding-bottom: calc(#{$space-tiny} * 1)
 				// color: lighten($dark-grey, 10%);
 			}
 
@@ -365,7 +366,7 @@
 	}
 		header {
 			@extend %column-5;
-				padding-bottom: calc(#{$space-tiny} * 2);
+				// padding-bottom: calc(#{$space-tiny} * 2);
 
 			p {
 				@include font-size(21px);
@@ -385,8 +386,8 @@
 
 		.email-input {
 			// @extend %column-5;
-			width: 100%;
-			// flex: 2;
+			width: 245%;
+
 			margin-bottom: 1rem;
 			//display: inline-block;
 
@@ -394,9 +395,13 @@
 				display: block;
 				width: 100%;
 			}
+			@include break-point(laptop) {
+				display: inline-block;
+				width: 191%;
+			}
 			@include break-point(largelaptop) {
 				display: inline-block;
-				width: auto;
+				width: 100%;
 			}
 		}
 
@@ -447,7 +452,7 @@
 
 				@include break-point(tablet) {
 					width: auto;
-					left: 86%;
+					left: 95%;
 				}
 				@include break-point(largelaptop) {
 					top:-27%;
@@ -455,8 +460,8 @@
 					position: relative;
 				}
 				@include break-point(desktop) {
-					width: auto;
-					left: 86%;
+					width: 100;
+					left: 90%;
 				}
 		 	}
 
@@ -473,7 +478,7 @@
 					width: 100%;
 				}
 				@include break-point(desktop) {
-					width: auto;
+					width: 100%;
 				}
 
 				option{
@@ -508,6 +513,12 @@
 		margin: 1rem 0 0 0;
 		color: $dark-grey;
 		@include font-size(14px);
+		@include break-point(tablet) {
+			margin: 4rem 0 0 -6.25rem;
+		}
+		@include break-point(desktop) {
+			margin: 0 0 0 0;
+		}
 	}
 
 
