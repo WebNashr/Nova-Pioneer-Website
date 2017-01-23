@@ -10,7 +10,6 @@ ol {
 
 	.article-inner & {
 		list-style: unset;
-		//margin: 1.5rem 0 1.5rem 1.5rem;
 		line-height: 1.75;
 		text-indent: 1rem;
 		color: $dark-grey;
@@ -20,75 +19,83 @@ ol {
 
 ul {
 	margin: 0 0 1.25rem 0;
-	// text-indent: 0.125rem;
 	text-indent: -1.255rem;
+
 	li {
-		//@include font-size(14px);
 		list-style-type: none;
-		//margin: 1.5rem 0 0 1rem;
+
 		&:before {
-			content: "\2022";
-			padding-right: 0.75rem;
-			color: $green-blue;
 			@include font-size(16px);
+			padding-right: 0.75rem;
+			content: "\2022";
+			color: $green-blue;
 		}
 	}
+
 	ul {
 		margin: 0 0 0 1.125rem;
+
 		li {
-			margin: 0 0 0 1.125rem;
 			@include font-size(14px);
+			margin: 0 0 0 1.125rem;
+
 			&:before {
+				@include copy(bold);
 				padding-right: 0.5rem;
 				content: "\2013";
-				@include copy(bold);
 			}
 		}
 	}
 }
+
 ol {
 	margin: 0 0 1.25rem 0;
 	text-indent: 0.125rem;
 	counter-reset: number-counter;
+
 	li {
-		//@include font-size(14px);
 		list-style-type: none;
-		//margin: 1.5rem 0 0 1rem;
+
 		&:before {
+			@include copy(bold);
+			@include font-size(16px);
+			padding-right: 0.75rem;
 			content: counter(number-counter) ".";
 			counter-increment: number-counter;
-			@include copy(bold);
 			color: $green-blue;
-			padding-right: 0.75rem;
-			@include font-size(16px);
 		}
 	}
 }
 
 .school-description {
 	padding-bottom: calc(#{$space-tiny} * 1.5);
-  ul {
-    color: $dark-grey;
-    margin-bottom: 0;
+
+	ul {
+		margin-bottom: 0;
+		padding: 0  calc(#{$space-tiny} * 1.5);
 		text-indent: -1.255rem;
-		padding: 0 calc(#{$space-tiny} * 1.5) ;
-  }
-  li {
+		color: $dark-grey;
+	}
 
-		margin: 1rem 0;
+	li {
+		margin-top: 1rem;
 
-		@include break-point(tablet) {
-			&:first-of-type {
-				margin-top: 0;
-			}
-	  }
-  }
-  @include break-point(laptop) {
-    padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
-  }
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+
+	@include break-point(laptop) {
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
+	}
+
 	strong {
 		@include copy(bold);
 	}
+
 	@include break-point(laptop) {
+
 	}
 }
+
+

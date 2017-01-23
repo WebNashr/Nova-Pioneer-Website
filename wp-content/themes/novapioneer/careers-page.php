@@ -45,31 +45,32 @@ get_header();?>
 
                     <div class="section-pair">
                         <div class="section-navigation">
-                            <h1><?php echo $cc_title; ?></h1>
+                            <h2><?php echo $cc_title; ?></h2>
                         </div>
                         <div class="section-content">
                             <div class="section-content-item">
+                                <?php while( $careers->have_posts() ): $careers->the_post(); ?>
+                                    <article class="job-details-container ">
+                                        <div class="job-details">
+                                            <header class="job-details-header">
+                                                <h3>
+                                                    <a href="<?php echo get_permalink(); ?>" class="" title=""><?php the_title(); ?></a>
+                                                </h3>
+                                                <h5 class="job-location"><?php echo get_field('job_location'); ?></h5>
+                                                <h6 class="job-type">Job Type: <span><?php echo get_field('job_type'); ?></span></h6>
+                                                <h6 class="job-experience">Experience: <span><?php echo get_field('experience'); ?></span></h6>
+                                                <h6 class="job-deadline">Application Deadline: <span><?php echo get_field('application_deadline'); ?></span></h6>
+                                            </header>
+                                            
+                                            <?php echo get_field('description'); ?>
 
-                                    <?php while( $careers->have_posts() ): $careers->the_post(); ?>
-
-                                        <article class="job-details-container ">
-                                            <div class="job-details">
-                                                <header>
-                                                    <h2><a href="<?php echo get_permalink(); ?>" class="" title=""><?php the_title(); ?></a></h1>
-                                                    <h4 class="job-location"><?php echo get_field('job_location'); ?></h5>
-                                                    <h5 class="job-type">Job Type: <span><?php echo get_field('job_type'); ?></span></h5>
-                                                    <h5 class="job-experience">Experience: <span><?php echo get_field('experience'); ?></span></h5>
-                                                    <h5 class="job-deadline">Application Deadline: <span><?php echo get_field('application_deadline'); ?></span></h5>
-                                                </header>
-                                                
-                                                <?php echo get_field('description'); ?>
-
-                                                <p class="call-to-action"><a href="<?php echo get_permalink(); ?>" class="button button-tiny button-primary" target="_blank">View Job Details</a></p>
-                                            </div>
-                                        </article>
-
-                                    <?php endwhile; ?>
-                                    <?php wp_reset_postdata(); ?>
+                                            <p class="call-to-action">
+                                                <a href="<?php echo get_permalink(); ?>" class="button button-tiny button-primary" target="_blank">View Job Details</a>
+                                            </p>
+                                        </div>
+                                    </article>
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); ?>
                             </div>
                         </div>
                     </div>

@@ -7,31 +7,31 @@
 	/* Primary */
 	@if $button-order == 'primary' {
 		color: $white;
-		background: $sky;
+		background: $green-lt;
 	}
 
 	/* Primary alternative */
 	@else if $button-order == 'primary-alt' {
-		color: $sky;
+		color: $green-lt;
 		background: $white;
 	}
 
 	/* Secondary */
 	@else if $button-order == 'secondary' {
 		color: $white;
-		background: $green-blue;
+		background: $green-dk;
 	}
 
 	/* Secondary alternative */
 	@else if $button-order == 'secondary-alt' {
-		color: $green-blue;
+		color: $green-lt;
 		background: $white;
 	}
 
 	/* Disabled */
 	@else if $button-order == 'disabled' {
-		color: $grey;
-		background: $light-grey;
+		color: $grey-dk;
+		background: $grey-dk;
 		cursor: none;
 	}
 }

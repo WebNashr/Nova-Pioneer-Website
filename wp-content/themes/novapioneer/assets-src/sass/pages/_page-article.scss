@@ -8,8 +8,8 @@
 }
 
 .article-header h1 {
-	@include font-size(46px);
-	@include title(bold);
+	// @include font-size(46px);
+	// @include copy(black);
 	max-width: 1024px;
 	margin: 0;
 	padding-bottom: calc(#{$space-tiny} * 2);
@@ -42,8 +42,8 @@
 		padding-right: calc(#{$space-tiny} * 1.5);
 		
 		h4 {
-			@include font-size(18px);
-			line-height: 1.25;
+			// @include font-size(18px);
+			// line-height: 1.25;
 
 			@include break-point(tablet) {
 				display: inline-block;
@@ -55,7 +55,7 @@
 		}
 
 		p {
-			@include font-size(14px);
+			// @include font-size(14px);
 			margin-top: calc(#{$space-tiny} * 0.5);
 		}
 
@@ -161,23 +161,23 @@
 	margin-top: calc(#{$space-tiny} * 2);
 }
 
-.article-excerpt, .article-excerpt p {
-	@include title(regular);
-	@include font-size(26px);
-	@include line-height(1.35);
-}
+// .article-excerpt, .article-excerpt p {
+// 	@include copy(regular);
+// 	@include font-size(26px);
+// 	@include line-height(1.35);
+// }
 
-.article-inner h2 + p {
-	margin-top: calc(#{$space-tiny} * 1);
-}
+// .article-inner h2 + p {
+// 	margin-top: calc(#{$space-tiny} * 1);
+// }
 
-.article-inner header + p {
-	margin-top: calc(#{$space-tiny} * 0.5);
-}
+// .article-inner header + p {
+// 	margin-top: calc(#{$space-tiny} * 0.5);
+// }
 
-.article-inner p + p {
-	margin-top: 0;
-}
+// .article-inner p + p {
+// 	margin-top: 0;
+// }
 
 .article-img {
 	padding: 0.5rem;
@@ -185,7 +185,7 @@
 }
 
 .article-inner blockquote, .article-inner blockquote p {
-	@include title(regular);
+	@include copy(regular);
 	@include font-size(24px);
 	width: 90%;
 	max-width: 728px;

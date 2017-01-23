@@ -24,7 +24,9 @@ get_header();?>
         <div class="trigger"></div>
 
         <section class="section section-pair school-description even-section">
-            <div class="section-navigation"><h1><?php the_title(); ?></h1></div>
+            <div class="section-navigation">
+                <h1><?php the_title(); ?></h1>
+            </div>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
@@ -77,7 +79,7 @@ get_header();?>
 
         <section class="section section-pair">
             <div class="section-navigation">
-                <h1>Our Students</h1>
+                <h2>Our Students</h2>
                 <a href="#" title="">Meet the Students</a>
             </div>
 
@@ -113,7 +115,7 @@ get_header();?>
 
         <section class="section section-pair">
             <div class="section-navigation">
-                <h1>Leadership Team</h1>
+                <h2>Leadership Team</h2>
                 <a href="#"  title="">Our team</a>
             </div>
 
@@ -144,7 +146,7 @@ get_header();?>
                         $current_gallery = $_GET['current_gallery'];
                         $images = novap_get_gallery_images($current_gallery);
                     ?>
-                    <h1>Gallery</h1>
+                    <h2>Gallery</h2>
                     <nav class="gallery-nav">
                         <a href="<?php get_permalink(); ?>?current_gallery=school_grounds#gallery"
                            class="gallery-select <?php if ($current_gallery === 'school_grounds'): echo 'gallery-selected'; endif; ?>">School
@@ -222,7 +224,7 @@ get_header();?>
 
         <section class="section section-pair section-school-blog">
             <div class="section-navigation">
-                <h1>Student Blog</h1>
+                <h2>Student Blog</h2>
                 <a href="#"  title="">View All Blog Posts</a>
             </div>
 
@@ -242,7 +244,7 @@ get_header();?>
 
         <section class="section section-pair section-school-location">
             <div class="section-navigation">
-                <h1>Contact Us</h1>
+                <h2>Contact Us</h2>
             </div>
 
             <div class="section-content">

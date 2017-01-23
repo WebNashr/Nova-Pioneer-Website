@@ -5,28 +5,41 @@
 
 h1,
 h2,
-h3 {
-	@include copy(bold);
-}
-
-h1,
-h2,
 h3,
 h4,
 h5,
 h6 {
-	@include title(bold);
-	@include line-height(1.35);
+	// @include line-height(1);
+	@include line-height(1.25);
 	clear: both;
 	display: block;
-	margin: 1rem 0 0.5rem;
 }
 
 
 h1 {
-	@include font-size(40px);
-	max-width: 628px;
+	@include copy(bold);
+}
+
+
+h2,
+h3 {
+	@include copy(medium);
+}
+
+
+// h3,
+h4,
+h5,
+h6 {
+	@include copy(bold);
+}
+
+
+h1 {
+	@include font-size(48px);
+	// max-width: 628px;
 	color: lighten($blue, 10%);
+
 	.page-article & {
 		max-width: 90%;
 	}
@@ -36,122 +49,130 @@ h1 {
 		text-shadow: unset;
 	}
 
-	.section-navigation & {
-	 	@include title(semi);
-	 	@include font-size(30px);
-		margin-top: 0;
-		margin-bottom: 0.5rem;
-		line-height: 1.15;
-
-		&.current {
-			color: $dark-grey;
-			color: lighten($dark-grey, 10%);
-		}
-		// @include break-point(tablet) {
-		// 	margin-bottom: 1rem;
-		// }
-		@include break-point(tablet) {
-			margin-bottom: 0.5rem;
-		}
-		@include break-point(laptop) {
-			margin-bottom: 1rem;
-		}
-	}
 	&.full-width-heading  {
+		// @include copy(medium);
+	 	// @include font-size(30px);
+	 	margin-top: 2rem;
 		text-align: left;
-		margin-top: 2rem;
-		margin-bottom: 1rem;
-		@include title(semi);
-	 	@include font-size(30px);
-		@include break-point(tablet) {
-			text-align: left;
-			margin-top: 2rem;
-			margin-bottom: 1rem;
 
-		}
-		@include break-point(laptop) {
+		@include break-point(tablet) {
+			margin-top: 2rem;
 			text-align: left;
-			margin-top: 0;
 		}
-		@include break-point(desktop) {
-			text-align: center;
+
+		@include break-point(laptop) {
 			margin-top: 0;
+			text-align: left;
+		}
+
+		@include break-point(desktop) {
+			margin-top: 0;
+			text-align: center;
 		}
 	}
+
 	.section-school-list-select & {
-		text-align: center;
 		margin-top: -0.5rem;
 		margin-bottom: 0;
 		// margin-left: 0.83em;//chrome fix
 		line-height: 1;
+		text-align: center;
+
 		@include break-point(tablet) {
-			line-height: 1.5;
 			margin-top: 0;
 			margin-left: 0;
+			line-height: 1.5;
 		}
+
 		@include break-point(laptop) {
-			line-height: 0.65;
 			margin-top: 0;
 			margin-bottom: 0.5rem;
 			margin-left: 0;
+			line-height: 0.65;
 		}
+
 		@include break-point(desktop) {
-			line-height: 0.75;
 			margin-top: 0;
 			margin-left: 0;
+			line-height: 0.75;
 		}
 	}
 
 	.article-header & {
-		@include copy(bold);
+		// @include line-height(1.25);
 	}
 }
 
 
 h2 {
-	@include font-size(28px);
-	@include title(bold);
-	color: lighten($blue, 5%);
+	@include font-size(32px);
+	// color: $blue;
+	color: lighten($blue, 10%);
 
 	.search-results & {
-		@include copy(bold);
-		@include font-size(32px);
+		// @include copy(bold);
+		// @include font-size(32px);
 	}
 
 	.article-aside & {
 		margin-top: 0;
+	}
+
+	.education-stage & {
+		margin-bottom: calc(#{$space-tiny} * 1);
+	}
+
+	.section-navigation & {
+	 	// @include copy(medium);
+	 	// @include font-size(30px);
+		margin-bottom: 0.5rem;
+		// line-height: 1.15;
+
+		&.current {
+			// color: $dark-grey;
+			// color: lighten($dark-grey, 10%);
+		}
+
+		// @include break-point(tablet) {
+		// 	margin-bottom: 1rem;
+		// }
+
+		@include break-point(laptop) {
+			margin-bottom: calc(#{$space-tiny} * 1);
+		}
 	}
 }
 
 
 h3 {
 	@include font-size(24px);
-	color: $blue;
-	@include title(semi);
+	// color: $blue;
+	color: lighten($blue, 10%);
 
 	.content-box & {
-		color: $white;
 		max-width: 728px;
-		font-size: 2.5rem;
-		line-height: 1.125;
+		// font-size: 2.5rem;
+		// line-height: 1.125;
+		// color: $white;
 	}
 
 	.section-history & {
-		line-height: 1.125;
-		margin: 0.5rem 0px 1.25rem;
-		font-size: 2.5rem;
 		max-width: 728px;
+		margin: 0.5rem 0px 1.25rem;
+		// font-size: 2.5rem;
+		// line-height: 1.125;
 	}
 
 	.toggle-list & {
-		@include copy(regular);
-		@include font-size(20px);
+		// @include copy(regular);
+		// @include font-size(20px);
 	}
 
 	.learning-approach & {
+		// @include copy(semi);
+		// @include font-size(21px);
+		margin-bottom: calc(#{$space-tiny} * 1);
 		text-align: center;
-		@include font-size(21px);
-		@include copy(semi);
 	}
 
 	.article-aside & {
@@ -162,16 +183,15 @@ h3 {
 
 h4 {
 	@include font-size(20px);
-	color: $dark-grey;
-	@include title(semi);
+	
 	.content-box & {
-		color: $white;
 		max-width: 598px;
+		// color: $white;
 	}
 
 	.section-history & {
-		color: $blue;
 		font-size: 1.25rem;
+		// color: $blue;
 	}
 
 	.recent-reports & {
@@ -187,10 +207,10 @@ h4 {
 
 h5 {
 	@include font-size(18px);
-	color: darken($dark-grey, 10%);
+
 	.recent-reports & {
 		margin-bottom: 1rem;
-		color: $dark-grey;
+		// color: $dark-grey;
 	}
 
 	.person & {
@@ -200,7 +220,7 @@ h5 {
 
 
 h6 {
-	@include title(bold);
 	@include font-size(16px);
-	color: darken($dark-grey, 15%);
 }
+
+

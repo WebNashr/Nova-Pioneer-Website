@@ -25,7 +25,7 @@ get_header(); ?>
             <section class="section">
                 <div class="section-pair">
                     <div class="section-navigation">
-                        <h1><?php echo get_field('country'); ?></h1>
+                        <h2><?php echo get_field('country'); ?></h2>
                         <div class="social-media-links">
                             <a href=" <?php echo get_field('facebook'); ?>" target="_blank"><span class="social-icon facebook-icon"></span>Facebook</a><br/>
                             <a href=" <?php echo get_field('twitter'); ?>" target="_blank"><span class="social-icon twitter-icon"></span>Twitter</a><br/>
@@ -34,7 +34,6 @@ get_header(); ?>
                     </div>
                     <div class="section-content">
                         <?php foreach( get_field('school_branches') as $school_branch ): $school_branch = (object)$school_branch; ?>
-
                             <div class="section-content-item section-content-item-third">
                                 <div class="school-contact">
                                     <h3><?php echo $school_branch->branch_name; ?></h3>

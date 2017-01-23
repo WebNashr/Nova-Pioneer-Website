@@ -26,7 +26,7 @@
             </div>
 
             <div class="country-description">
-                <h1 class="country-name">Kenya</h1> 
+                <h3 class="country-name">Kenya</h3> 
                 <?php echo get_field('kenya_description'); ?>
                 <a href="<?php echo site_url('/kenya'); ?>" class="button button-default button-secondary" title="">Learn More</a>
             </div>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="country-description">
-                <h1 class="country-name">South Africa</h1> 
+                <h3 class="country-name">South Africa</h3> 
                 <?php echo get_field('south_africa_description'); ?>
                 <a href="<?php echo site_url('/sa'); ?>" class="button button-default button-secondary" title="">Learn More</a>
             </div>

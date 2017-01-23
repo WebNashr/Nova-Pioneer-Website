@@ -2,14 +2,9 @@
 /*  Home Page */
 /* ==================================================== */
 .country-select-container {
-    // @include flexbox();
-    // @include flex-direction(row);
-    // @include flex-wrap(wrap);
-    // width:100%;
     @extend %column;
   	@extend %columns;
   	@extend %column-12;
-    // justify-content: center;
     margin: auto;
     padding: 0 !important;
     background-size: cover;
@@ -22,19 +17,19 @@
     &.south-africa {
       background-image: url('/wp-content/themes/novapioneer/img/country-image-sa-wide.jpg');
       margin-top: -6rem;
+
       @include break-point(tablet) {
         margin-top: -4rem;
       }
+
       @include break-point(laptop) {
         margin-top: -6rem;
       }
-
     }
+
     @include break-point(tablet) {
-      // margin-bottom: 3rem;
-    }
-    //margin-bottom: 2rem;
 
+    }
 }
 
 .country-select {
@@ -62,14 +57,17 @@
     // @extend %column-1;
     align-self: flex-start;
     margin-left: 2rem;
+
     @include break-point(laptop) {
-      align-self: center;
+      // align-self: center;
       margin-left: 0;
     }
+
     img {
       max-width: 60px;
       border-radius: 50%;
       border: 2px solid $white;
+
       @include break-point(laptop) {
         max-width: 85px;
       }
@@ -100,12 +98,12 @@
     }
   }
   .country-name {
-    @include title(semi);
-    @include font-size(36px);
+    // @include copy(bold);
+    // @include font-size(36px);
     text-transform: uppercase;
     text-shadow: 1px 1px darken($dark-grey, 50%);
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
     color: $white;
   }
 

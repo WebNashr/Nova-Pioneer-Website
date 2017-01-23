@@ -16,12 +16,12 @@
     	border-top: 1px solid lighten($light-grey, 32%);
 		border-bottom: 1px solid lighten($light-grey, 32%);
 
-		h1 {
-			@include font-size(24px);
-			text-align: center;
-			margin-top: 0.125rem;
-			margin-bottom: 0;
-		}
+		// h1 {
+		// 	@include font-size(24px);
+		// 	text-align: center;
+		// 	margin-top: 0.125rem;
+		// 	margin-bottom: 0;
+		// }
 	}
 
 	.links-inner-wrap {

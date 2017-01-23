@@ -37,7 +37,7 @@ get_header(); ?>
 
         <section class="section section-pair even-section">
             <div class="section-navigation">
-                <h1>Our Students</h1>
+                <h2>Our Students</h2>
                 <a href="#"  title="">Meet the Students</a>
             </div>
 
@@ -75,7 +75,7 @@ get_header(); ?>
 
         <section class="section section-pair">
             <div class="section-navigation">
-                <h1>Learning at Nova Pioneer</h1>
+                <h2>Learning at Nova Pioneer</h2>
             </div>
 
             <div class="section-content">
@@ -130,7 +130,7 @@ get_header(); ?>
                     </div>
                 </div>
                 <div class="section-content-item section-content-item-half">
-                    <h1 class="full-width-heading">Video from Influencer</h1>
+                    <h2 class="full-width-heading">Video from Influencer</h2>
                     <div class="testimonial pull-quote">
                         <blockquote>
                             <svg aria-hidden="true">
@@ -147,7 +147,7 @@ get_header(); ?>
 
         <section class="section section-pair">
             <div class="section-navigation">
-                <h1>Leadership Team</h1>
+                <h2>Leadership Team</h2>
                 <a href="<?php echo site_url('/leadership-team'); ?>">View the team</a>
             </div>
 

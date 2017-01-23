@@ -147,7 +147,7 @@
 		@extend %column-2;
 	}
 
-  &-quarter {
+  	&-quarter {
 		@extend %column-3;
 	}
 
@@ -168,15 +168,16 @@
 	}
 
 	p {
-		@include font-size(18px);
-		padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1) 0;
+		// @include font-size(18px);
+		// padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1) 0;
 
 		@include break-point(tablet) {
 			padding: 0 0 calc(#{$space-tiny} * 2) 0;
+
 			&:first-of-type {
 				padding-top: calc(#{$space-tiny} * 1);
 			}
-	  }
+	  	}
 		@include break-point(laptop) {
 			&:first-of-type {
 				padding-top: 0;
@@ -720,10 +721,10 @@
 .education-stage {
 	margin: 0 auto;
 
-	h1 {
-		margin-top: 0;
-		margin-bottom: 1rem;
-	}
+	// h1 {
+	// 	margin-top: 0;
+	// 	margin-bottom: 1rem;
+	// }
 	p {
 		&:first-of-type {
 			padding-top: 0;
@@ -913,37 +914,38 @@
 
 	.job-details {
 		// padding: 0 0 calc(#{$space-tiny} * 2);
-
 		&:not(:first-of-type) {
 			padding-top: calc(#{$space-tiny} * 2);
 		}
 
-		h1 {
-			// @include copy(bold);
-			// @include font-size(26px);
-			// color: $blue;
-		}
+		
 
-		h2 {
-			margin-top: .25rem;
-			margin-bottom: 0.15rem;
-		}
+		.job-details-header {
+			margin-bottom: calc(#{$space-tiny} * 1);
 
-		h4 {
-			margin-top: 0;
-			@include copy(bold);
-			@include font-size(18px);
-		}
+			h3 {
+				margin-top: .25rem;
+				margin-bottom: 0.15rem;
+			}
 
-		h5 {
-			margin-top: 0;
-			@include copy(regular);
-			@include font-size(14px);
-			color: lighten($dark-grey, 15%);
+			h5 {
+				// @include copy(bold);
+				// @include font-size(18px);
+				@include line-height(1.5);
+				margin-top: 0;
+			}
 
-			span {
-				color: $dark-grey;
-				@include copy(bold);
+			h6 {
+				// @include copy(regular);
+				// @include font-size(14px);
+				@include line-height(1.5);
+				margin-top: 0;
+				color: lighten($dark-grey, 15%);
+
+				span {
+					color: $dark-grey;
+					@include copy(bold);
+				}
 			}
 		}
 
@@ -973,7 +975,7 @@
 
 			&.call-to-action {
 				margin-top: 0;
-				padding-top: calc(#{$space-tiny} * 1);
+				padding-top: 0;
 			}
 
 			&.note {
@@ -981,20 +983,19 @@
 				color: lighten($dark-grey, 10%);
 				line-height: 1.5;
 				margin-bottom: 2rem;
-
 			}
 		}
 
 		ul {
 			list-style-type: disc;
-			color: $dark-grey;
-			margin-top: 0;
+			// color: $dark-grey;
+			margin-top: calc(#{$space-tiny} * 1);
 			margin-left: 1rem;
-			padding-left: calc(#{$space-tiny} * 2);
+			// padding-left: calc(#{$space-tiny} * 2);
 
 			li {
-				@include font-size(16px);
-				padding-bottom: calc(#{$space-tiny} * 0.5);
+				// @include font-size(16px);
+				// padding-bottom: calc(#{$space-tiny} * 0.5);
 				list-style-position: inside;
 				text-indent: -1.35em;
 			}
@@ -1009,7 +1010,7 @@
 	padding-top: calc(#{$space-tiny} * 0.45);
 
 	h3 {
-		margin-bottom: 0;
+		margin-bottom: calc(#{$space-tiny} * 1);
 	}
 
 	p {
@@ -1193,7 +1194,7 @@
 				color: #fff;
 				margin: -27px -20px 0 -20px;
 				border-radius: 5px 5px 0 0;
-				@include title(semi);
+				@include copy(bold);
 				text-align: center;
 			}
 
@@ -1341,7 +1342,7 @@
 			margin-top: 0;
 		}
 		.number {
-			@include title(bold);
+			@include copy(black);
 			@include font-size(26px);
 			color: $sky;
 			text-align: center;
@@ -1355,7 +1356,7 @@
 			&:before,
 			&:after {
 				content: ' - ';
-				@include title(regular);
+				@include copy(regular);
 				color: lighten($light-grey, 20%);
 			}
 		}

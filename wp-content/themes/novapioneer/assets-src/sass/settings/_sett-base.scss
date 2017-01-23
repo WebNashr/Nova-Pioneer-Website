@@ -20,6 +20,7 @@ html {
 	@include copy(regular);
 	@include font-size(16px);
 	@include line-height(24px);
+	color: $dark-grey;
 
 	@include break-point(tablet) {
 
@@ -39,24 +40,11 @@ html {
 body {
 	@include flexbox();
 	@include flex-direction(column);
-	// @include flex-wrap(wrap);
-	//background: lighten($light, 2.5%);
 	background: $white;
-
-	// @include flexbox();
-	// @include flex-wrap(nowrap);
-	// @include flex-direction(column);
-	// justify-content: center;
-	// align-content: stretch;
 }
 
 
 .body-container {
 	@include flexbox();
 	@include flex-direction(row);
-	//min-height: 100vh;
-	// max-width: 1440px;
-	// margin: 0 auto;
-	//border-left: 1px solid $light;
-	//border-right: 1px solid $light;
 }

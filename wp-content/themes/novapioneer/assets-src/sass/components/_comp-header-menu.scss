@@ -54,35 +54,13 @@
 
 .header-section-main {
     padding: calc(#{$space-tiny} * 1);
-	background: transparent;
-	// background-image: linear-gradient(
-	// 	to bottom, 
-	// 	rgba(7, 33, 52, 0.8),
-	// 	rgba(7, 33, 52, 0.75) 25%,
-	// 	rgba(7, 33, 52, 0.5) 50%,
-	// 	rgba(7, 33, 52, 0.25) 75%,
-	// 	transparent 100%
-	// );
-	background-image: linear-gradient(
-		to bottom, 
-		rgba(7, 7, 7, 1.0) 0.1%,
-		rgba(7, 7, 7, 0.9) 10%,
-		rgba(7, 7, 7, 0.8) 20%,
-		rgba(7, 7, 7, 0.7) 30%,
-		rgba(7, 7, 7, 0.6) 40%,
-		rgba(7, 7, 7, 0.5) 50%,
-		rgba(7, 7, 7, 0.4) 60%,
-		rgba(7, 7, 7, 0.3) 70%,
-		rgba(7, 7, 7, 0.2) 80%,
-		rgba(7, 7, 7, 0.1) 90%,
-		transparent 100%
-	);
+	background: $white;
 	transition: $ease;
 
-	&.stuck,
-	.non-hero & {
-		background: $blue;
-	}
+	// &.stuck,
+	// .non-hero & {
+	// 	background: $blue;
+	// }
 
 	.modal &,
 	.non-hero .modal & {
@@ -96,11 +74,11 @@
 	}
 
 	@include break-point(tablet) {
-		padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4) calc(1rem * 0.5);
+		padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
 
 	    &.stuck,
 		.non-hero & {
-			// padding: calc(#{$space-tiny} * 0.75) calc(#{$space-tiny} * 4);
+			padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4);
 		}
     }
 }
@@ -143,7 +121,7 @@
 
 
 .school-name {
-	@include title(regular);
+	@include copy(regular);
 	@include font-size(22px);
 	@include line-height(1);
 	align-self: center;
@@ -356,7 +334,7 @@
 
 
 .header-logo {
-   	max-width: 7.125rem;
+   	max-width: 18rem;
     padding: 0;
     font-size: 1.85rem;
     font-weight: bold;
@@ -368,7 +346,7 @@
 
     &.stuck,
 	.non-hero & {
-		max-width: 5rem;
+		max-width: 14.5rem;
 	}
 
 	.modal & {
@@ -400,7 +378,7 @@
     display: none;
 
 	&.menu-aux {
-		margin-left: 2rem;
+		margin-left: 3rem;
 
 		.modal & {
 			@include flex-order(3);
@@ -411,7 +389,7 @@
 	}
 
 	&.menu-main {
-		margin-left: 2rem;
+		margin-left: 3rem;
 
 		.modal & {
 			@include flex-direction(column);
@@ -427,7 +405,7 @@
 
     @include break-point(largelaptop) {
 		&.menu-main {
-			margin-left: 2.5rem;
+			margin-left: 3.75rem;
 		}
     }
 
@@ -437,15 +415,15 @@
 }
 
 .menu-item {
-	@include font-size(16px);
+	// @include font-size(16px);
 	@include line-height(1);
 	text-align: center;
-	letter-spacing: 0.75px;
-	color: $white;
+	// letter-spacing: 0.75px;
 	padding: 0;
 
 	&:hover {
-		color: $green-blue-light;
+		color: $green-lt;
+			color: $green-blue-light;
 	}
 
 	@include break-point(laptop) {
@@ -457,6 +435,7 @@
 	@include copy(regular);
 	@include font-size(13px);
 	// text-transform: uppercase;
+	color: $white;
 
 	.modal & {
 		display: block;
@@ -475,10 +454,13 @@
 }
 
 .menu-item-main {
-	@include title(regular);
-	@include font-size(18px);
+	@include copy(regular);
+		@include copy(bold);
+	@include font-size(16px);
 	text-transform: capitalize;
 	transition: $ease;
+	color: $grey-dk;
+	color: $blue-dk;
 
 	&.stuck,
 	.non-hero & {
@@ -494,14 +476,21 @@
 	}
 
 	@include break-point(laptop) {
+		@include font-size(18px);
+
+		&.stuck,
+		.non-hero & {
+			@include font-size(16px);
+		}
+
 		&:not(:first-of-type) {
 			margin-top: 0;
-			margin-left: 1.5rem;
+			margin-left: 1.25rem;
 		}
     }
 
     @include break-point(largelaptop) {
-		@include font-size(22px);
+		@include font-size(20px);
 
 		&.stuck,
 		.non-hero & {
@@ -509,7 +498,7 @@
 		}
 
 		&:not(:first-of-type) {
-			margin-left: 2rem;
+			margin-left: 1.5rem;
 		}
     }
 }
@@ -567,7 +556,7 @@
     width: 5px;
     height: 5px;
     margin: 0 auto;
-    background: $white;
+    background: $grey-md;
 
     .modal & {
     	width: 24px;

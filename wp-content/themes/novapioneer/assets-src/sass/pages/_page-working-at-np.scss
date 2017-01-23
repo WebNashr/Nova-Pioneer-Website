@@ -13,10 +13,10 @@
 
 	h1 {
 		max-width: 100%;
-		@include font-size(30px);
+		// @include font-size(30px);
 		// color: $green-blue;
 		@include break-point(tablet) {
-			@include font-size(40px);
+			// @include font-size(40px);
 		}
 		// padding-right: calc(#{$space-tiny} * 2);
 		// padding-left: calc(#{$space-tiny} * 2);
@@ -29,17 +29,17 @@
 
 	p {
 		// @include copy(regular);
-		@include font-size(18px);
-		line-height: 1.65;
+		// @include font-size(18px);
+		// line-height: 1.65;
 		font-style: normal;
 		@include break-point(tablet) {
-			@include font-size(21px);
+			// @include font-size(21px);
 		}
 	}
 
 	.intro-paragraph{
-		@include font-size(26px);
-		@include copy(light);
+		// @include font-size(26px);
+		// @include copy(light);
 		//line-height: 1.5;
 	}
 

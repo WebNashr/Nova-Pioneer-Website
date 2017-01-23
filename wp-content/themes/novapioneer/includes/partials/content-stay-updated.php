@@ -1,6 +1,6 @@
 <section class="section section-pair section-subscribe">
     <div class="section-navigation">
-        <h1>Stay Updated</h1>
+        <h2>Stay Updated</h2>
     </div>
 
     <div class="section-content">
