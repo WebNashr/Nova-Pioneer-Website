@@ -47,7 +47,31 @@
 
 
 .section-inner {
-	padding: 0 0 calc(#{$space-tiny} * 6);
+	&:first-of-type {
+		padding: 0;
+	}
+
+	&:not(:first-of-type) {
+		padding: calc(#{$space-tiny} * 3) 0 0;
+	}
+
+	@include break-point(tablet) {
+		&:not(:first-of-type) {
+			padding: calc(#{$space-tiny} * 4) 0 0;
+		}
+    }
+
+    @include break-point(laptop) {
+		&:not(:first-of-type) {
+			padding: calc(#{$space-tiny} * 6) 0 0;
+		}
+    }
+
+    @include break-point(largelaptop) {
+		&:not(:first-of-type) {
+			// padding: calc(#{$space-tiny} * 8) 0 0;
+		}
+    }
 }
 
 .section-pair {
