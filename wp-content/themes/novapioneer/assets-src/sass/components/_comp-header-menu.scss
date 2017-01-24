@@ -464,8 +464,9 @@
 	padding: 0;
 
 	&:hover {
-		color: $green-blue-light;
-		color: $green-lt;	
+		// color: $green-blue-light;
+		color: $green-lt;
+		color: $orange-lt;
 	}
 
 	@include break-point(laptop) {
@@ -504,6 +505,11 @@
 	color: $grey-dk;
 	color: $blue-dk;
 	color: $grey-mdk;
+
+	&.menu-item-current {
+		color: $blue-lt;
+		// border-bottom: 2px solid $blue-lt;
+	}
 
 	&.stuck,
 	.non-hero & {
@@ -545,6 +551,8 @@
 		}
     }
 }
+
+
 
 
 

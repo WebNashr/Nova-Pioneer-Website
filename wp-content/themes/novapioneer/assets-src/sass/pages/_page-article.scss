@@ -152,10 +152,21 @@
 		margin-left: calc(#{$space-tiny} * 2);
 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 0) calc(#{$space-tiny} * 0) calc(#{$space-tiny} * 3);
 		border-left: 1px solid lighten($light-grey, 32%);
+
+		&-alt {
+		    max-width: 768px;
+		    margin: 0 auto;
+		    padding: 0;
+		    border: 0 none;
+		}
     }
 
     @include break-point(largelaptop) {
 		padding-right: calc(#{$space-tiny} * 9);
+
+		&-alt {
+		    padding-right: 0;
+		}
     }
 }
 

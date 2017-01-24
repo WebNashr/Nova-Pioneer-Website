@@ -28,10 +28,9 @@ get_header();?>
         <div class="trigger"></div>
         
         <section class="section">
-            <article class="article article-body general-content">
+            <article class="article article-inner article-inner-alt">
                 <h2>Our Vision</h2>
                 <?php echo $our_vision; ?>
-                <br/><br/>
 
                 <h2>Our Mission</h2>
                 <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
@@ -56,7 +55,7 @@ get_header();?>
         </figure>
 
         <section class="section">
-            <article class="article article-body general-content">
+            <article class="article article-inner article-inner-alt">
                 <h2>School &amp; Company Culture</h2>
                 <?php echo $our_culture; ?>
 
