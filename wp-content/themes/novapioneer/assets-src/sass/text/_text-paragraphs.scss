@@ -5,7 +5,7 @@
 
 p {
 	@include font-size(18px);
-	@include line-height(24px);
+	@include line-height(1.35);
 	position: relative;
 	// color: $dark-grey;
 
@@ -33,8 +33,9 @@ p {
 	}
 
 	&.article-excerpt {
-		@include font-size(24px);
-		@include line-height(1.25);
+		@include font-size(25px);
+		// @include line-height(1.25);
+		margin-top: calc(#{$space-tiny} * 1.25);
 	}
 
 	@include break-point(tablet) {

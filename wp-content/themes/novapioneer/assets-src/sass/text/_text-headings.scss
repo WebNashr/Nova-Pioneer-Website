@@ -39,6 +39,7 @@ h1 {
 	@include font-size(48px);
 	// max-width: 628px;
 	color: lighten($blue, 10%);
+	color: $blue-dk;
 
 	.page-article & {
 		max-width: 90%;

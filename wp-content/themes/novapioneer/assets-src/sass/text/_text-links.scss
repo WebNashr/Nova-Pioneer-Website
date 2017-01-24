@@ -9,6 +9,8 @@ a {
 	outline: 0 none;
 	cursor: pointer;
 	color: $green-blue;
+	color: $green-lt;
+	color: $blue-lt;
 
 	h1 &,
 	h2 &,
@@ -38,5 +40,7 @@ a {
 	&:active {
 		text-decoration: none;
 		color: darken($green-blue, 10%);
+		color: $orange-dk;
+		color: $green-lt;
 	}
 }

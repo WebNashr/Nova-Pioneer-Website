@@ -21,7 +21,7 @@
 .page-footer-aux {
 	padding: calc(#{$space-tiny} * 2);
 	background: darken($dark-blue, 2.5%);
-		background: $blue-dk;
+		background: $white;
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);
@@ -136,6 +136,7 @@
 	letter-spacing: 0.5px;
 	text-transform: capitalize;
 	color: $sky;
+		color: $blue-dk;
 
 	&:hover {
 		color: $green-dk;
@@ -170,9 +171,10 @@
     text-decoration: none;
     letter-spacing: 0.75px;
     color: $white;
+    	color: $blue-dk;
     
     &:hover {
-        color: $green-blue-light;
+        color: $green-dk;
     }
 }
 

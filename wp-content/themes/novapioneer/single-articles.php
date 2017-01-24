@@ -2,6 +2,7 @@
 /**
  * Single Articles Template
  */
+
 get_header(); ?>
 
 <?php if(have_posts()): ?>
@@ -34,7 +35,8 @@ get_header(); ?>
                     </aside>
 
                     <div class="article-inner">
-                        <div class="article-excerpt"> <?php the_excerpt(); ?> </div>
+                        <hr class="article-mark">
+                        <!-- <div class="article-excerpt"> <?php the_excerpt(); ?> </div> -->
                         <?php the_content(); ?>
                     </div>
                 </div>

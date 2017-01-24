@@ -34,7 +34,7 @@ get_header(); ?>
                     </aside>
 
                     <div class="article-inner">
-                        <div class="article-excerpt"> <?php the_excerpt(); ?> </div>
+                        <!-- <div class="article-excerpt"> <?php the_excerpt(); ?> </div> -->
                         <?php the_content(); ?>
                     </div>
                 </div>

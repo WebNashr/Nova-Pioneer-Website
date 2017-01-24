@@ -5,7 +5,7 @@
   <footer class="page-footer">
       <nav role="navigation" class="footer-menu">
           <a href="<?php echo site_url(); ?>" class="footer-logo">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/nova-logo-2-white.svg" alt="Nova Pioneer">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-vertical-coloured-blue.svg" alt="Nova Pioneer">
           </a>
 
           <div class="footer-boxes">
