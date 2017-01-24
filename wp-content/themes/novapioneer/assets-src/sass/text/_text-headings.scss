@@ -107,7 +107,7 @@ h1 {
 
 
 h2 {
-	@include font-size(28px);
+	@include font-size(32px);
 	// color: $blue;
 	color: lighten($blue, 10%);
 

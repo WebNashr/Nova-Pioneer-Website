@@ -58,7 +58,6 @@ get_header();?>
 
         <section class="section">
             <div class="section-content section-content-plain">
-
                 <?php foreach($intro_cards as $card): $card = (object)$card; ?>
                     <div class="section-content-item section-content-item-quarter learning-approach">
                         <figure>
@@ -73,7 +72,6 @@ get_header();?>
 
 
         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
-
             <!-- <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span> -->
             <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);">
                 <div class="section-content full-image-caption animated caption">
@@ -83,56 +81,42 @@ get_header();?>
                 </div>
             </figure>
 
-            <section class="education-stage even-section anchor-link" id="<?php echo strtolower($stage->title); ?>">
-                <div class="section-title">
+            <section class="section">
+                <article class="article article-inner article-inner-alt">
                     <h2><?php echo $stage->title; ?></h2>
-                </div>
+                    <?php echo $stage->description; ?>
+                    <?php
+                        $vid_caption = get_field('video_caption', $stage->video->ID);
+                        $type = get_field('type', $stage->video->ID);
+                        $video = get_field('video', $stage->video->ID);
+                        $speaker = "";
+                        $speaker_title ="";
 
-                <div class="section section-pair">
+                        if($type === "general"){
+                            $speaker = get_field('caption_speaker', $stage->video->ID);
+                            $speaker_title = get_field('caption_speaker_title', $stage->video->ID);
+                        }
 
-                    <div class="section-content-item section-content-item-half">
+                        if($type === "student"){
+                            $speaker = get_field('student_name', $stage->video->ID);
+                            $speaker_title = "Nova Pioneer Student";
+                        }
+                    ?>
 
-                        <?php echo $stage->description; ?>
+                    <blockquote>
+                        <!-- <svg aria-hidden="true">
+                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                        </svg> -->
+                        <?php echo $vid_caption; ?>
+                        <!-- <hr> -->
+                        <span><?php echo $speaker; ?>, <?php echo $speaker_title; ?></span>
+                    </blockquote>
 
-                        <div class="testimonial pull-quote">
-                            <?php
-                                $vid_caption = get_field('video_caption', $stage->video->ID);
-                                $type = get_field('type', $stage->video->ID);
-                                $video = get_field('video', $stage->video->ID);
-                                $speaker = "";
-                                $speaker_title ="";
-
-                                if($type === "general"){
-                                    $speaker = get_field('caption_speaker', $stage->video->ID);
-                                    $speaker_title = get_field('caption_speaker_title', $stage->video->ID);
-                                }
-
-                                if($type === "student"){
-                                    $speaker = get_field('student_name', $stage->video->ID);
-                                    $speaker_title = "Nova Pioneer Student";
-                                }
-
-                            ?>
-                            <blockquote>
-                                <svg aria-hidden="true">
-                                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                                </svg>
-                                <?php echo $vid_caption; ?>
-                                <cite><span><?php echo $speaker; ?>,</span> <?php echo $speaker_title; ?></cite>
-                            </blockquote>
-                        </div>
-
+                    <div class="media youtube-video">
+                        <?php echo $video; ?>
                     </div>
-
-                    <div class="section-content-item section-content-item-half">
-                        <div class="media youtube-video">
-                            <?php echo $video; ?>
-                        </div>
-                    </div>
-
-                </div>
+                </article>
             </section>
-
         <?php endforeach; ?>
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
@@ -142,3 +126,5 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+
+
