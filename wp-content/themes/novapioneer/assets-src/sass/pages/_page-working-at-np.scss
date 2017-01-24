@@ -1,83 +1,83 @@
 
 
-.general-content {
-	max-width: 768px;
-	margin: 0rem auto;
-	// width: 60%;
+// .general-content {
+// 	max-width: 768px;
+// 	margin: 0rem auto;
+// 	// width: 60%;
 
-	// &:first-of-type,
-	// &-first {
-	// 	margin-top: calc(#{$space-tiny} * 6);
-	// 	padding-top: calc(#{$space-tiny} * 6);
-	// }
+// 	// &:first-of-type,
+// 	// &-first {
+// 	// 	margin-top: calc(#{$space-tiny} * 6);
+// 	// 	padding-top: calc(#{$space-tiny} * 6);
+// 	// }
 
-	h1 {
-		max-width: 100%;
-		// @include font-size(30px);
-		// color: $green-blue;
-		@include break-point(tablet) {
-			// @include font-size(40px);
-		}
-		// padding-right: calc(#{$space-tiny} * 2);
-		// padding-left: calc(#{$space-tiny} * 2);
-	}
+// 	h1 {
+// 		max-width: 100%;
+// 		// @include font-size(30px);
+// 		// color: $green-blue;
+// 		@include break-point(tablet) {
+// 			// @include font-size(40px);
+// 		}
+// 		// padding-right: calc(#{$space-tiny} * 2);
+// 		// padding-left: calc(#{$space-tiny} * 2);
+// 	}
 
-	h2 {
-		// padding-right: calc(#{$space-tiny} * 2);
-		// padding-left: calc(#{$space-tiny} * 2);
-	}
+// 	h2 {
+// 		// padding-right: calc(#{$space-tiny} * 2);
+// 		// padding-left: calc(#{$space-tiny} * 2);
+// 	}
 
-	p {
-		// @include copy(regular);
-		// @include font-size(18px);
-		// line-height: 1.65;
-		font-style: normal;
-		@include break-point(tablet) {
-			// @include font-size(21px);
-		}
-	}
+// 	p {
+// 		// @include copy(regular);
+// 		// @include font-size(18px);
+// 		// line-height: 1.65;
+// 		font-style: normal;
+// 		@include break-point(tablet) {
+// 			// @include font-size(21px);
+// 		}
+// 	}
 
-	.intro-paragraph{
-		// @include font-size(26px);
-		// @include copy(light);
-		//line-height: 1.5;
-	}
+// 	.intro-paragraph{
+// 		// @include font-size(26px);
+// 		// @include copy(light);
+// 		//line-height: 1.5;
+// 	}
 
-	b {
-		color: darken($green-blue, 20%);
-	}
+// 	b {
+// 		color: darken($green-blue, 20%);
+// 	}
 
-	ul {
-		margin:1rem 0 1.25rem 0;
-		color: $dark-grey;
-		@include font-size(18px);
-		list-style-type: disc;
-		line-height: 1.5;
-		// margin-top: -1rem;
-		// padding-right: calc(#{$space-tiny} * 4);
-		// padding-left: calc(#{$space-tiny} * 4);
+// 	ul {
+// 		margin:1rem 0 1.25rem 0;
+// 		color: $dark-grey;
+// 		@include font-size(18px);
+// 		list-style-type: disc;
+// 		line-height: 1.5;
+// 		// margin-top: -1rem;
+// 		// padding-right: calc(#{$space-tiny} * 4);
+// 		// padding-left: calc(#{$space-tiny} * 4);
 
-		li {
-			margin-bottom: 1rem;
+// 		li {
+// 			margin-bottom: 1rem;
 
-			&:last-child {
-				margin-bottom: 2rem;
-			}
-		}
+// 			&:last-child {
+// 				margin-bottom: 2rem;
+// 			}
+// 		}
 
-		b {
-			color: $dark-grey;
-		}
-	}
-	.contact-info {
-		padding-bottom: calc(#{$space-tiny} * 3);
-		@include break-point(laptop) {
-			padding-bottom: 0;
-		}
-	}
+// 		b {
+// 			color: $dark-grey;
+// 		}
+// 	}
+// 	.contact-info {
+// 		padding-bottom: calc(#{$space-tiny} * 3);
+// 		@include break-point(laptop) {
+// 			padding-bottom: 0;
+// 		}
+// 	}
 
-}
-
-// .first-content{
-// 	padding-top: calc(#{$space-tiny} * 6);
 // }
+
+// // .first-content{
+// // 	padding-top: calc(#{$space-tiny} * 6);
+// // }
