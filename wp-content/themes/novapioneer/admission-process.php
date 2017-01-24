@@ -27,14 +27,14 @@ get_header(); ?>
                 <?php foreach( get_field('steps') as $step ): $step = (object)$step; $step_number++; ?>
                     <div class="card admission-step">
                         <div class="step-number"><?php echo $step_number; ?></div>
-                        <h3><?php echo $step->title; ?></h3>
+                        <h4><?php echo $step->title; ?></h4>
                         <?php echo $step->description; ?>
                     </div>
                 <?php endforeach; ?>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" style="padding-top: 0; padding-bottom: 0;">
             <article class="article">
                 <div class="cta-container-XXX"> <!-- $$$ ### ^^^ remove the -XXX class if design/layout is approved -->
                     <a href="<?php echo site_url('/apply-online'); ?>" class="button button-large button-primary" title="">Apply Online</a>
