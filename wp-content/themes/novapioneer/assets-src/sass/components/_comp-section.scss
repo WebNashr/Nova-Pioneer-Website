@@ -11,9 +11,10 @@
 		padding-right: 0;
 		padding-left: 0;
 	}
+
 	&.even-section {
-	background: lighten($background-grey, 5%);
-}
+		background: lighten($background-grey, 5%);
+	}
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);
@@ -44,6 +45,10 @@
 //     }
 // }
 
+
+.section-inner {
+	padding: 0 0 calc(#{$space-tiny} * 6);
+}
 
 .section-pair {
     @extend %columns;
@@ -172,15 +177,15 @@
 		// padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1) 0;
 
 		@include break-point(tablet) {
-			padding: 0 0 calc(#{$space-tiny} * 2) 0;
+			// padding: 0 0 calc(#{$space-tiny} * 2) 0;
 
 			&:first-of-type {
-				padding-top: calc(#{$space-tiny} * 1);
+				// padding-top: calc(#{$space-tiny} * 1);
 			}
 	  	}
 		@include break-point(laptop) {
 			&:first-of-type {
-				padding-top: 0;
+				// padding-top: 0;
 			}
 		}
 
@@ -921,32 +926,32 @@
 		
 
 		.job-details-header {
-			margin-bottom: calc(#{$space-tiny} * 1);
+			// margin-bottom: calc(#{$space-tiny} * 1);
 
-			h3 {
-				margin-top: .25rem;
-				margin-bottom: 0.15rem;
-			}
+			// h3 {
+			// 	margin-top: .25rem;
+			// 	margin-bottom: 0.15rem;
+			// }
 
-			h5 {
-				// @include copy(bold);
-				// @include font-size(18px);
-				@include line-height(1.5);
-				margin-top: 0;
-			}
+			// h5 {
+			// 	@include copy(bold);
+			// 	@include font-size(18px);
+			// 	@include line-height(1.5);
+			// 	margin-top: 0;
+			// }
 
-			h6 {
-				// @include copy(regular);
-				// @include font-size(14px);
-				@include line-height(1.5);
-				margin-top: 0;
-				color: lighten($dark-grey, 15%);
+			// h6 {
+			// 	@include copy(regular);
+			// 	@include font-size(14px);
+			// 	@include line-height(1.5);
+			// 	margin-top: 0;
+			// 	color: lighten($dark-grey, 15%);
 
-				span {
-					color: $dark-grey;
-					@include copy(bold);
-				}
-			}
+			// 	span {
+			// 		color: $dark-grey;
+			// 		@include copy(bold);
+			// 	}
+			// }
 		}
 
 		.job-location {
@@ -973,10 +978,10 @@
 			//padding-top: calc(#{$space-tiny} * 1);
 			//padding-bottom: calc(#{$space-tiny} * 1);
 
-			&.call-to-action {
-				margin-top: 0;
-				padding-top: 0;
-			}
+			// &.call-to-action {
+			// 	margin-top: 0;
+			// 	padding-top: 0;
+			// }
 
 			&.note {
 				@include font-size(16px);

@@ -7,19 +7,19 @@
 	/* Primary */
 	@if $button-order == 'primary' {
 		color: $white;
-		background: $green-lt;
+		background: $blue-lt;
 	}
 
 	/* Primary alternative */
 	@else if $button-order == 'primary-alt' {
-		color: $green-lt;
+		color: $blue-lt;
 		background: $white;
 	}
 
 	/* Secondary */
 	@else if $button-order == 'secondary' {
 		color: $white;
-		background: $green-dk;
+		background: $green-lt;
 	}
 
 	/* Secondary alternative */
@@ -30,8 +30,8 @@
 
 	/* Disabled */
 	@else if $button-order == 'disabled' {
-		color: $grey-dk;
-		background: $grey-dk;
+		color: $grey-lt;
+		background: $grey-mdk;
 		cursor: none;
 	}
 }

@@ -7,7 +7,7 @@
 }
 
 .search-term {
-    font-size: 1.5rem;
+    @include font-size(24px);
     color: $blue;
 }
 
@@ -36,41 +36,39 @@
 
 	&:hover {
         .search-number {
-            background: $blue;
+            background: $orange-lt;
         }
 
         .result-title {
-            color: $green-blue;
+            color: $grey-mdk;
         }
 
         .result-excerpt {
-            color: $light-grey;
+            color: $grey-mdk;
         }
 
         .result-more {
-            color: $blue;
+            color: $orange-lt;
         }
 
         .result-url {
-            color: $green-blue;
+            color: $grey-mdk;
         }
 
         .result-date {
-            color: $light-grey;
+            color: $grey-mdk;
         }
 	}
 
 	&:active {
 
 	}
-
-	// @include break-point(tablet) {
-	// 	padding: 1.5rem;
-	// }
 }
 
 .search-number {
     @include copy(regular);
+    @include font-size(18px);
+    @include line-height(1);
     display: inline-block;
     position: relative;
     top: -1px;
@@ -78,66 +76,37 @@
     height: 2.5rem;
     margin-right: 8px;
     padding-top: 11px;
-    font-size: 1.125rem;
-    line-height: 1;
     text-align: center;
     color: $white;
-    background: $green-blue;
+    background: $green-lt;
     border-radius: 50%;
-
-// 	@include break-point(mobile) {
-// 		min-width: 2.5rem;
-// 		height: 2.5rem;
-// 		margin: 0 1.5rem 0 0;
-// 		padding: 0.7rem 0.5rem;
-// 		font-size: 1.25rem;
-// 	}
 }
-
-
 
 .result-title {
 	margin: 0;
-    color: $blue;
-
-	// @include break-point(tablet) {
-	// 	font-size: 1.75rem;
-	// 	line-height: 2.25rem;
-	// }
-
-	// @include break-point(mobile) {
-	// 	font-size: 1.25rem;
-	// 	line-height: 1.75rem;
-	// }
+    color: $grey-mdk;
 }
 
 .result-excerpt {
 	margin: 0.75rem 0;
-    color: $dark-grey;
+    color: $grey-mdk;
 
-	// @include break-point(tablet) {
-	// 	font-size: 1.125rem;
-	// }
 }
 
 .result-more {
-    color: $green-blue;
-    // background: lightgray;
-    // padding: 0px 8px 2.5px;
-    // position: relative;
-    // top: -3px;
-    margin-left: 8px;
-    // border-radius: 1px;
-    // font-size: 0.75rem;
-    // font-weight: bold;
+    @include font-size(24px);
+    position: absolute;
+    margin-top: -0.35rem;
+    margin-left: 0.5rem;
+    color: $green-lt;
 }
 
 .result-url,
 .result-date {
+    @include font-size(14px);
     display: block;
     font-family: sans-serif;
-    font-size: 0.875rem;
-    color: $dark-grey;
+    color: $grey-mdk;
 }
 
 

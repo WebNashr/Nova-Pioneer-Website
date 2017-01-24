@@ -37,12 +37,17 @@ h6 {
 
 h1 {
 	@include font-size(48px);
-	// max-width: 628px;
-	color: lighten($blue, 10%);
 	color: $blue-dk;
 
-	.page-article & {
-		max-width: 90%;
+	// .page-article & {
+	// 	max-width: 90%;
+	// }
+
+	.header-404 &,
+	.article-header & {
+		@include font-size(42px);
+		max-width: 1024px;
+		padding-bottom: calc(#{$space-tiny} * 2.75);
 	}
 
 	.hero-half.stuck & {
@@ -50,7 +55,7 @@ h1 {
 		text-shadow: unset;
 	}
 
-	&.full-width-heading  {
+	&.full-width-heading {
 		// @include copy(medium);
 	 	// @include font-size(30px);
 	 	margin-top: 2rem;
@@ -98,15 +103,11 @@ h1 {
 			line-height: 0.75;
 		}
 	}
-
-	.article-header & {
-		// @include line-height(1.25);
-	}
 }
 
 
 h2 {
-	@include font-size(32px);
+	@include font-size(28px);
 	// color: $blue;
 	color: lighten($blue, 10%);
 
@@ -117,6 +118,7 @@ h2 {
 
 	.article-aside & {
 		margin-top: 0;
+		margin-bottom: calc(#{$space-tiny} * 1);
 	}
 
 	.education-stage & {
@@ -179,6 +181,10 @@ h3 {
 	.article-aside & {
 		margin-top: 0;
 	}
+
+	.job-details-header & {
+		margin-bottom: calc(#{$space-tiny} * 1);
+	}
 }
 
 
@@ -222,6 +228,11 @@ h5 {
 
 h6 {
 	@include font-size(16px);
+
+	.job-details-header & {
+		margin-top: 0;
+		margin-bottom: calc(#{$space-tiny} * 0.35);
+	}
 }
 
 

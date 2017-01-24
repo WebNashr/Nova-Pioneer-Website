@@ -4,7 +4,7 @@
 
 
 .section-404 {
-	margin-bottom: 3rem;
+	margin-bottom: calc(#{$space-tiny} * 3);
 }
 
 .header-404 {
@@ -14,7 +14,7 @@
 .header-404 h1 {
 	max-width: unset;
 	text-shadow: unset;
-	padding-bottom: 1rem;
+	padding-bottom: calc(#{$space-tiny} * 2);
 }
 
 .header-404 p {
@@ -22,7 +22,7 @@
 }
 
 .header-404 a {
-	color: $green-blue;
+	// color: $green-blue;
 
 	&:hover {
 		color: $green-blue-light;
@@ -36,14 +36,15 @@
 	display: block;
 	width: auto;
 	max-width: 32.5rem;
-	margin: 2rem auto 0;
+	margin: 0 auto;
 	background: transparent;
 
 	&-non {
 		margin-top: 0;
 	}
+	
 	@include break-point(tablet) {
-		margin: 4rem auto 0;
+		// margin: 4rem auto 0;
 	}
 }
 

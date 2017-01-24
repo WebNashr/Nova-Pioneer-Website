@@ -34,19 +34,24 @@ get_header();?>
                     <aside class="article-aside">
                         <!-- $$$ ### ^^^ ask Maria what is supposed to replace "report" in this aside -->
 
-                        <div class="downloads">
-                            <p>Our Annual Reports give a concise overview of our operations in a given year. Download them as a PDF document below:</p>
+                        <!-- client requests we disable this until they are in a position to publish documents -->
+                        <div class="article-meta">
+                            <p class="article-meta-title">Reports</p>
+                            <small>Our Annual Reports give a concise overview of our operations in a given year. Download them as a PDF document below:</small>
                         </div>
+
                         <?php foreach( get_field('annual_reports') as $report ): $report = (object)$report; ?>
-                        <div class="downloads">
+                        <!-- client requests we disable this until they are in a position to publish documents -->
+                        <!-- <div class="downloads">
                             <h4><?php echo $report->title; ?></h4>
                             <a download="<?php echo $report->title; ?>" href="<?php echo $report->file; ?>" class="button button-tiny button-secondary">Download PDF</a>
-                        </div>
+                        </div> -->
                         <?php endforeach; ?>
                     </aside>
 
                     <div class="article-inner">
-                        <p class="article-excerpt"><?php echo get_field('intro'); ?></p>
+                        <!-- <hr class="article-mark"> -->
+                        <!-- <p class="article-excerpt"><?php echo get_field('intro'); ?></p> -->
                         <?php the_content(); ?>
                     </div>
                 </div>

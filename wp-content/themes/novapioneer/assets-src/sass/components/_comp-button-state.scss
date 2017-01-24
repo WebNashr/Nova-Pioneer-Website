@@ -8,21 +8,21 @@
 	@if $button-state == 'hover' {
 		// @include box-shadow(0px, 0px, 12px, 0px, rgba(0,0,0,0.25));
 		color: $white;
-		background: $orange-dk;
+		background: $orange-lt;
 	}
 
 	/* Focus */
 	@else if $button-state == 'focus' {
 		// @include box-shadow(0px, 0px, 12px, 0px, rgba(240,240,240,0.25));
 		color: $white;
-		background: darken($orange-lt, 7.5%);
+		background: $orange-lt;
 	}
 
 	/* Active */
 	@else if $button-state == 'active' {
 		// @include box-shadow(0px, 0px, 12px, 0px, rgba(0,0,0,0.35));
 		color: $white;
-		background: darken($orange-lt, 7.5%);
+		background: $orange-dk;
 	}
 }
 
