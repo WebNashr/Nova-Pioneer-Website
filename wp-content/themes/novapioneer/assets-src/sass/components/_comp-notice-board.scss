@@ -117,7 +117,8 @@
     	p {
     		@include font-size(14px);
 	    	@include copy(semi);
-        	padding-bottom: calc(#{$space-tiny} * 1);
+        padding-bottom: calc(#{$space-tiny} * 1);
+        margin-top: 0;
 	    	line-height: 1;
 	    	text-align: center;
     	}
@@ -214,6 +215,13 @@
 		}
     .contact {
       text-align: center;
+      a {
+        color: $orange-dk;
+        &:hover {
+          color: $orange-lt;
+        }
+
+      }
     }
     @include break-point(laptop) {
   		padding: 0;

@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * Template Name: School Homepage
 */
@@ -54,7 +54,7 @@ get_header();?>
                     <div class="notice-content">
                         <h1>Learn About Our Admission Process</h1>
                         <?php echo get_field('admission_call_to_action'); ?>
-                        <p class="call-to-action"><a href="#" class="button button-large button-secondary" title="">Enrol Now</a></p>
+                        <p class="call-to-action"><a href="#" class="button button-tiny button-secondary" title="">Apply Now</a></p>
                     </div>
                 </div>
             </div>
@@ -66,11 +66,11 @@ get_header();?>
                     <p>49 Dorado Avenue, Ormonde</p>
                     <a href="#" class="modal-toggle button button-tiny button-secondary" title="">Send an RSVP</a>
                 </div>
-                <div class="divider"></div>
+
                 <div class="small-notice">
-                    <h1>Nova Pioneer Ormonde September Intake</h1>
-                    <h2>Now in Progress</h2>
-                    <a href="#" class="button button-tiny button-secondary" title="">Apply Now</a>
+                    <h1>Download Our Fees Structure</h1>
+                    <h2>PDF Document (1MB)</h2>
+                    <a href="#" class="button button-tiny button-secondary" title="">Download</a>
                 </div>
             </div>
 
@@ -230,7 +230,7 @@ get_header();?>
 
             <div class="section-content">
                 <?php foreach( get_field('blog_posts') as $blog_post ): $blog_post = (object)$blog_post; ?>
-                    
+
                     <div class="section-content-item section-content-item-third blog-article">
                         <img src="<?php echo get_the_post_thumbnail_url($blog_post->ID,'thumbnail'); ?>" alt="<?php echo $blog_post->post_title; ?>">
                         <a href="<?php echo get_permalink($blog_post->ID); ?>" class="blog-article-title" title="<?php echo $blog_post->post_title; ?>"><?php echo $blog_post->post_title; ?></a>
