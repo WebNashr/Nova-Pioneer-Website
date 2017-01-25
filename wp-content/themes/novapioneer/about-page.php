@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * Template Name: About Page
 */
@@ -26,13 +26,13 @@ get_header();?>
         </section>
 
         <div class="trigger"></div>
-        
+
         <section class="section">
             <article class="article article-inner article-inner-alt">
-                <h2>Our Vision</h2>
+                <h2 class="centered-title">Our Vision</h2>
                 <?php echo $our_vision; ?>
 
-                <h2>Our Mission</h2>
+                <h2 class="centered-title">Our Mission</h2>
                 <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
                 <div class="read-more-wrap">
                     <p><?php echo array_shift($our_mission_paragraphs); ?></p>
@@ -40,7 +40,7 @@ get_header();?>
                         <?php foreach($our_mission_paragraphs as $paragraph): ?>
                             <p><?php echo $paragraph; ?></p>
                         <?php endforeach; ?>
-                    </span>        
+                    </span>
                 </div>
                 <label for="post-<?php echo get_the_ID(); ?>" class="read-more-trigger button button-tiny button-primary"></label>
             </article>
@@ -56,7 +56,28 @@ get_header();?>
 
         <section class="section">
             <article class="article article-inner article-inner-alt">
-                <h2>School &amp; Company Culture</h2>
+                <h2 class="centered-title">School &amp; Company Culture</h2>
+                <?php echo $our_culture; ?>
+            </article>
+        </section>
+
+        <section class="section">
+          <div class="section-content section-content-plain principles-container">
+              <?php $number = 1; ?>
+              <?php foreach( get_field('culture_principles') as $principle ): $principle = (object)$principle; ?>
+              <div class="section-content-item section-content-item-third principle-card">
+                  <h2 class="number"><?php echo $number; ?></h2>
+                  <h3><?php echo $principle->title; ?></h3>
+                  <div class="small-divider"></div>
+                  <p class="description"><?php echo $principle->description; ?></p>
+              </div>
+              <?php endforeach; ?>
+          </div>
+        </section>
+
+        <!-- <section class="section">
+            <article class="article article-inner article-inner-alt">
+                <h2 class="centered-title">School &amp; Company Culture</h2>
                 <?php echo $our_culture; ?>
 
                 <div class="section-content section-content-plain principles-container">
@@ -71,8 +92,8 @@ get_header();?>
                     <?php endforeach; ?>
                 </div>
             </article>
-        </section>
-
+        </section> -->
+        
 
     <?php endwhile; ?>
 

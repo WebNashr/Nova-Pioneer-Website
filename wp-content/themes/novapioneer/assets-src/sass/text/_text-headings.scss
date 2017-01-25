@@ -115,7 +115,12 @@ h2 {
 		// @include copy(bold);
 		// @include font-size(32px);
 	}
+	.article & {
 
+		&.centered-title {
+			text-align: center;
+		}
+	}
 	.article-aside & {
 		margin-top: 0;
 		margin-bottom: calc(#{$space-tiny} * 1);
@@ -135,6 +140,7 @@ h2 {
 			// color: $dark-grey;
 			// color: lighten($dark-grey, 10%);
 		}
+
 
 		// @include break-point(tablet) {
 		// 	margin-bottom: 1rem;
@@ -190,7 +196,7 @@ h3 {
 
 h4 {
 	@include font-size(20px);
-	
+
 	.content-box & {
 		max-width: 598px;
 		// color: $white;
@@ -234,5 +240,3 @@ h6 {
 		margin-bottom: 0;
 	}
 }
-
-
