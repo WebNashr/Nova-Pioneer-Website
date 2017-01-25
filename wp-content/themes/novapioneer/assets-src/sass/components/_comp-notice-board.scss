@@ -231,84 +231,84 @@
 
 }
 
-.school-description-container {
-	@extend %columns;
-  @extend %column;
-  @extend %column-12;
-	margin: 0 auto;
-	clear: both;
-  // padding: calc(1rem * 4);
-	padding-bottom: 0;
-	.school-name {
-		// @extend %columns;
-		// @extend %column;
-		@extend %column-3;
-		//background: darken($grey, 50%);
-
-		// border-top: 1px solid lighten($blue, 10%);
-		// border-bottom: 1px solid lighten($blue, 10%);
-		padding: calc(#{$space-tiny} * 1);
-    border-top: 1px solid darken($grey, 10%);
-		border-bottom: 1px solid darken($grey, 10%);
-		h1 {
-			@include font-size(24px);
-			text-align: center;
-      margin-top: 0.125rem;
-      margin-bottom: 0;
-		}
-	}
-	.description-inner-wrap {
-		@extend %columns;
-		// @extend %column;
-		@extend %column-9;
-  	justify-content: space-between;
-  	padding: 1rem 2rem;
-  	align-items: center;
-    border-top: 1px solid darken($grey, 10%);
-		border-bottom: 1px solid darken($grey, 10%);
-		//margin-left: 0 !important;
-  	//background: $background-grey;
-
-		.detail-separator {
-				content: " ";
-    		padding: 0 1rem;
-
-				&:after {
-					content: "—";
-					@include copy(light);
-					text-align: center;
-					color: darken($grey, 20%);
-
-          @include break-point(laptop) {
-        		content: "|";
-        	}
-				}
-			}
-		}
-  	.school-detail{
-  		color: $dark-grey;
-  		@include font-size(14px);
-  		@include copy(regular);
-  		text-align: center;
-      text-transform: uppercase;
-  		&:last-child:after {
-  			content: none;
-  		}
-
-  	.button {
-  	    @include button-size(large);
-  	    // ////@include button-style(solid);
-  	    // ////@include button-state(normal);
-  	    @include font-size(21px);
-  	    width: 100%;
-  	    margin-top: 1rem;
-  	    position: relative;
-  	    &:hover {
-  	        background: $dark-blue;
-  	        border: none;
-  	        transition: background 0.3s ease;
-
-  	    }
-  	}
-  }
-}
+// .school-description-container {
+// 	@extend %columns;
+//   @extend %column;
+//   @extend %column-12;
+// 	margin: 0 auto;
+// 	clear: both;
+//   // padding: calc(1rem * 4);
+// 	padding-bottom: 0;
+// 	.school-name {
+// 		// @extend %columns;
+// 		// @extend %column;
+// 		@extend %column-3;
+// 		//background: darken($grey, 50%);
+//
+// 		// border-top: 1px solid lighten($blue, 10%);
+// 		// border-bottom: 1px solid lighten($blue, 10%);
+// 		padding: calc(#{$space-tiny} * 1);
+//     border-top: 1px solid darken($grey, 10%);
+// 		border-bottom: 1px solid darken($grey, 10%);
+// 		h1 {
+// 			@include font-size(24px);
+// 			text-align: center;
+//       margin-top: 0.125rem;
+//       margin-bottom: 0;
+// 		}
+// 	}
+// 	.description-inner-wrap {
+// 		@extend %columns;
+// 		// @extend %column;
+// 		@extend %column-9;
+//   	justify-content: space-between;
+//   	padding: 1rem 2rem;
+//   	align-items: center;
+//     border-top: 1px solid darken($grey, 10%);
+// 		border-bottom: 1px solid darken($grey, 10%);
+// 		//margin-left: 0 !important;
+//   	//background: $background-grey;
+//
+// 		.detail-separator {
+// 				content: " ";
+//     		padding: 0 1rem;
+//
+// 				&:after {
+// 					content: "—";
+// 					@include copy(light);
+// 					text-align: center;
+// 					color: darken($grey, 20%);
+//
+//           @include break-point(laptop) {
+//         		content: "|";
+//         	}
+// 				}
+// 			}
+// 		}
+//   	.school-detail{
+//   		color: $dark-grey;
+//   		@include font-size(14px);
+//   		@include copy(regular);
+//   		text-align: center;
+//       text-transform: uppercase;
+//   		&:last-child:after {
+//   			content: none;
+//   		}
+//
+//   	.button {
+//   	    @include button-size(large);
+//   	    // ////@include button-style(solid);
+//   	    // ////@include button-state(normal);
+//   	    @include font-size(21px);
+//   	    width: 100%;
+//   	    margin-top: 1rem;
+//   	    position: relative;
+//   	    &:hover {
+//   	        background: $dark-blue;
+//   	        border: none;
+//   	        transition: background 0.3s ease;
+//
+//   	    }
+//   	}
+//   }
+// }

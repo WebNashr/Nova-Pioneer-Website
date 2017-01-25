@@ -23,14 +23,18 @@ get_header();?>
 
         <div class="trigger"></div>
 
-        <section class="section section-pair school-description even-section">
+        <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h1><?php the_title(); ?></h1>
             </div>
 
             <div class="section-content">
-                <div class="section-content-item section-content-item-half">
-                    <?php echo get_field('summary_intro'); ?>
+                <div class="section-content-item school-features">
+                  <div class="feature-item"><span class="feature-icon boys-school-icon"></span><p>Boys School</p></div>
+                  <div class="feature-item"><span class="feature-icon curriculum-icon"></span><p>8-4-4 Curriculum</p></div>
+                  <div class="feature-item"><span class="feature-icon boarding-icon"></span><p>Boarding School</p></div>
+                  <div class="feature-item"><span class="feature-icon grade-icon"></span><p>Form 1 - 4</p></div>
+                    <!-- <?php echo get_field('summary_intro'); ?> -->
                 </div>
             </div>
         </section>

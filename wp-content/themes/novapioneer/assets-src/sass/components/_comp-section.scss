@@ -138,15 +138,14 @@
 			}
 		}
 	}
+			@include break-point(tablet) {
+    	@include flex-direction(row);
+      @include flex-wrap(wrap);
 
-	@include break-point(tablet) {
-        @include flex-direction(row);
-        @include flex-wrap(wrap);
-
-    	&-plain {
-			@include flex-direction(row);
-        	@include flex-wrap(wrap);
-		}
+	    &-plain {
+				@include flex-direction(row);
+	      @include flex-wrap(wrap);
+			}
     }
 
     @include break-point(laptop) {
@@ -353,6 +352,76 @@
 	}
 	@include break-point(laptop) {
 		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
+	}
+}
+
+.school-features{
+	@extend %columns;
+	width: 100%;
+	align-items: center;
+	padding-top: calc(#{$space-tiny} * 1);
+	.feature-item{
+		// @extend %column-3;
+		flex:1;
+		// text-align: center;
+
+		// align-self: center;
+		p {
+			@include copy(semi);
+			@include font-size(16px);
+			display: inline;
+			position: relative;
+			top: 0.5rem;
+			@include break-point(laptop) {
+					@include font-size(14px);
+			}
+			@include break-point(desktop) {
+					@include font-size(16px);
+			}
+		}
+		.feature-icon {
+			background-size: contain;
+			background-repeat: no-repeat;
+			position: relative;
+			display: inline-block;
+			margin-right: 0.625rem;
+			width: 40px;
+			height: 40px;
+
+			&:before {
+				content: "\00a0";
+			}
+			&.boys-school-icon {
+				background-image: url(/wp-content/themes/novapioneer/img/icons/boys-school-icon.svg);
+			}
+			&.curriculum-icon {
+				background-image: url(/wp-content/themes/novapioneer/img/icons/curriculum-icon.svg);
+			}
+			&.boarding-icon {
+				background-image: url(/wp-content/themes/novapioneer/img/icons/boarding-icon.svg);
+			}
+			&.grade-icon {
+				background-image: url(/wp-content/themes/novapioneer/img/icons/grade-icon.svg);
+			}
+
+		}
+	}
+	@include break-point(tablet) {
+		width: 100%;
+		flex-direction: row;
+
+	}
+	@include break-point(laptop) {
+		width: 100%;
+		flex-direction: row;
+		padding-top: 0;
+		margin-left: -2rem;
+	}
+	@include break-point(desktop) {
+		width: 80%;
+		flex-direction: row;
+		padding-top: 0;
+		margin-left:0;
 	}
 }
 
@@ -605,7 +674,6 @@
     .blog-article-title {
 	 	@include copy(bold);
 	 	@include font-size(20px);
-		font-family: 'Gentium Basic', serif;
 	 	// align-self: center;
 	 	color: $blue;
 	 	line-height: 1.35;
@@ -947,7 +1015,7 @@
 			padding-top: calc(#{$space-tiny} * 2);
 		}
 
-		
+
 
 		.job-details-header {
 			// margin-bottom: calc(#{$space-tiny} * 1);
