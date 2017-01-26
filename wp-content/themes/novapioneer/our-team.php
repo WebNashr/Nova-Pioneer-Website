@@ -24,7 +24,7 @@ get_header();?>
         <section class="section section-pair section-school-leadership">
             <div class="section-navigation">
                 <?php $school_head = get_field('head_of_school'); ?>
-                <figure class="">
+                <figure class="profile">
                     <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $school_head->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $school_head->post_title; ?>" />
                     <h3 class="profile-name"><?php echo $school_head->post_title; ?></h3>
                     <h6 class="profile-role">Head of School</h6>
