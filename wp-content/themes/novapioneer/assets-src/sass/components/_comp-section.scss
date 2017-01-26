@@ -11,7 +11,9 @@
 		padding-right: 0;
 		padding-left: 0;
 	}
-
+ 	&.school-fees {
+		margin-top: -3rem;
+	}
 	&.even-section {
 		background: lighten($background-grey, 5%);
 	}
@@ -559,7 +561,7 @@
 					position: relative;
 				}
 				@include break-point(desktop) {
-					width: 100;
+					width: 100%;
 					left: 90%;
 				}
 		 	}

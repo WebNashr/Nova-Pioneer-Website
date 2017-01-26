@@ -12,6 +12,7 @@ ul.toggle-list li {
     padding: 1.25rem 0;
     cursor: pointer;
 
+
     .general-content & {
         margin-bottom: 0;
     }
@@ -36,7 +37,7 @@ ul.toggle-list li {
         position: relative;
         top: -2px;
         display: inline-block;
-        width: 1rem;
+        width: 0.5rem;
         margin-right: 1rem;
         padding: unset;
         content: "▲";
@@ -87,10 +88,10 @@ ul.toggle-list li {
 .toggle-list-content {
     display: none;
     margin-top: 1rem;
+    text-indent: 0;
     // @include copy(regular);
 
     .show & {
         display: block;
     }
 }
-
