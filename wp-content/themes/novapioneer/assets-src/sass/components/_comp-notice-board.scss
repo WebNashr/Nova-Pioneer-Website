@@ -119,7 +119,7 @@
 	    	@include copy(semi);
         padding-bottom: calc(#{$space-tiny} * 1);
         margin-top: 0;
-	    	line-height: 1;
+	    	// line-height: 1;
 	    	text-align: center;
     	}
       	a{

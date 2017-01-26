@@ -14,7 +14,7 @@ get_header(); ?>
                 <div class="main-callout-box">
                     <hr>
                     <h1>Preparing Youth in Africa for Global Success</h1>
-                    <a href="<?php echo site_url('/learning/'); ?>" class="button button-default button-primary">Learn More</a>
+                    <!-- <a href="/<?php echo site_url('/learning/'); ?>" class="button button-default button-primary">Learn More</a> -->
                 </div>
             </div>
         </section>
@@ -211,9 +211,25 @@ get_header(); ?>
             </div>
         </aside>
 
+        <section class="section section-pair section-subscribe">
+            <div class="section-navigation">
+                <h2>Stay Updated</h2>
+            </div>
+
+            <div class="section-content">
+                <div class="section-content-item section-content-item-full">
+                    <header>
+                        <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
+                    </header>
+
+                    <?php echo do_shortcode('[contact-form-7 id="654" title="Stay Updated" html_class="sign-up"]');?>
+                </div>
+            </div>
+        </section>
+
     <?php endwhile; ?>
 
-    <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
+    <!-- <?php get_template_part('includes/partials/content', 'stay-updated'); ?> -->
     <?php get_template_part('includes/partials/content', 'rsvp-modal'); ?>
 <?php endif; ?>
 

@@ -278,3 +278,23 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+
+<!-- caption animation-->
+<script>
+
+   $(document).ready(function(){
+
+     var captionWaypoint = $('.caption').waypoint(function(direction) {
+
+         if(direction == 'down') {
+
+             $(this.element).addClass('slideInLeft');
+
+             this.destroy();
+         }
+     }, {
+         offset: '95%'
+     });
+ });
+
+</script>
