@@ -11,6 +11,12 @@
 }
 
 .fees-container {
+	
+	margin: 0 auto;
+	@include break-point(desktop) {
+			max-width: 768px;
+		}
+
 // 	width: 100%;
 // 	@include copy(regular);
 // 	@include font-size(21px);
@@ -23,8 +29,8 @@
 // 	&.last-table {
 // 		//margin-bottom: 0;
 // 	}
-	max-width: 768px;
-	margin: 0 auto;
+	// max-width: 768px;
+	// margin: 0 auto;
 }
 
 .table-header {
@@ -171,7 +177,7 @@ td.number {
 	text-align: right;
 }
 
-//media queries 
+//media queries
 @media screen and (max-width: 600px) {
 	.schedule-container {
 		max-width: 600px;

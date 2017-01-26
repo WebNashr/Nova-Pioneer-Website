@@ -2,12 +2,13 @@
 .page-navigation-container {
 	width: 100%;
 	clear: both;
-	padding-bottom: 0;
+	// padding-bottom: 0;
+	padding-bottom: calc(#{$space-tiny} * 3);
 
 	.navigation-wrap {
 		@include flexbox();
-	    @include flex-direction(column);
-	    @include flex-wrap(wrap);
+	  @include flex-direction(column);
+	  @include flex-wrap(wrap);
 		margin: 0 auto;
 	}
 
@@ -26,8 +27,8 @@
 
 	.links-inner-wrap {
 		@include flexbox();
-	    @include flex-direction(column);
-	    @include flex-wrap(wrap);
+	  @include flex-direction(column);
+	  @include flex-wrap(wrap);
 		padding: 1rem;
 		align-items: center;
 		justify-content: center;
@@ -87,8 +88,8 @@
 
 		.links-inner-wrap {
 			@include flex-direction(row);
-	        @include flex-wrap(nowrap);
-	        padding: 1rem;
+	    @include flex-wrap(nowrap);
+	    padding: 1rem;
 			border-top: 1px solid darken($grey, 10%);
 
 			.link-separator {

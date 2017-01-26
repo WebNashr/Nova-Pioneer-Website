@@ -16,7 +16,7 @@ get_header();?>
 
 
         <section class="section trigger-offset">
-          <div class="section">
+          <div>
             <div class="page-navigation-container">
               <div class="navigation-wrap">
                 <div class="section-title"><h3>Fees &amp; Tuition </h3></div>
@@ -33,26 +33,59 @@ get_header();?>
                         <div class="anchor-link">
                              <a href="#faqs" class="" title="">FAQs</a>
                         </div>
+
                   </div>
                 </div>
               </div>
+              <div class="article cta-container"><a href="#" class="button button-default button-primary" title="">Download The 2017 Fees Structure</a></div>
             </div>
+
           </div>
 
-
-
-            <article class="article article-inner article-inner-alt">
-                <h1 class="page-title">Fees Structure</h1>
-                <?php the_content(); ?>
-            </article>
         </section>
 
-        <?php foreach( get_field('sections') as $section ): $section = (object)$section; ?>
 
-            <?php if( !empty($section->fees) ): ?>
 
-                <section class="section">
+                <section class="section school-fees">
+
+                  <article class="article article-inner article-inner-alt">
+                      <h1 class="page-title">Fees Structure</h1>
+                      <?php the_content(); ?>
+                  </article>
+
+
+                <?php foreach( get_field('sections') as $section ): $section = (object)$section; ?>
+
+                    <?php if( !empty($section->fees) ): ?>
+
                     <article class="article article-inner article-inner-alt">
+                      <form action="" method="" class="table-filter">
+                        <div class="selector">
+                            <select class="dropdown">
+                                    <option value=">Select a School">Select a School</option>
+                                    <option value="Ondiri">Ondiri</option>
+                                    <option value="Tatu Girls">Tatu Girls</option>
+
+                            </select>
+                        </div>
+                          <div class="selector">
+                              <select class="dropdown">
+                                      <option value="Select a Grade">Select a Grade</option>
+                                      <option value=">Standard 1">Standard 1</option>
+                                      <option value=">Standard 2">Standard 2</option>
+                                      <option value=">Standard 3">Standard 3</option>
+                              </select>
+                          </div>
+                          <div class="selector">
+                              <select class="dropdown">
+                                      <option value="Please Select Your Area of Interest">Select a Year</option>
+                                      <option value=">2017">2017</option>
+                                      <option value=">2016">2016</option>
+                                      <option value=">2015">2015</option>
+                              </select>
+                          </div>
+                          <input name="View Fees" value="View Fees" class="button button-default button-primary" style="" type="submit">
+                      </form>
                         <div class="fees-container" id="fees-table">
                             <div class="schedule-content">
                                 <header class="table-header"><?php echo $section->title; ?></header>
