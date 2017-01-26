@@ -142,3 +142,34 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+<!-- smooth scroll -->
+<script>
+   $('a[href^="#"]').on('click', function(event) {
+       var target = $(this.getAttribute('href'));
+       if( target.length ) {
+           event.preventDefault();
+           $('html, body').stop().animate({
+               scrollTop: target.offset().top
+           }, 1000);
+       }
+   });
+</script>
+<!-- caption animation-->
+<script>
+
+   $(document).ready(function(){
+
+     var captionWaypoint = $('.caption').waypoint(function(direction) {
+
+         if(direction == 'down') {
+
+             $(this.element).addClass('slideInLeft');
+
+             this.destroy();
+         }
+     }, {
+         offset: '95%'
+     });
+ });
+
+</script>
