@@ -83,8 +83,8 @@ get_header();?>
                 </div>
             </figure>
 
-            <section class="education-stage even-section anchor-link" id="<?php echo strtolower($stage->title); ?>">
-                <div class="section-title">
+            <section class="education-stage even-section">
+                <div class="section-title anchor-link" id="<?php echo strtolower($stage->title); ?>">
                     <h2><?php echo $stage->title; ?></h2>
                 </div>
 

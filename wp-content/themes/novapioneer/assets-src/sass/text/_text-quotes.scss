@@ -54,6 +54,7 @@
 			cite {
 				&:before {
 					border-top: 1px solid darken($grey, 25%);
+
 				}
 			}
 			@include break-point(laptop) {
@@ -74,6 +75,7 @@
 	&.pull-quote {
 		background: none;
 		padding: calc(#{$space-tiny} * 1) 0;
+
 
 		@include break-point(laptop) {
 			padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 2) 0;
@@ -181,7 +183,7 @@
 		font-style: normal;
 		display: block;
 		padding-top: calc(#{$space-tiny} * 1);
-
+		padding-left: calc(#{$space-tiny} * 3);
 		span {
 			@include copy(bold);
 		}
@@ -200,6 +202,7 @@
 		&.pull-quote {
 			background: none;
 			padding: calc(#{$space-tiny} * 2) 0;
+			margin-left: 0;
 		}
 	}
 }
