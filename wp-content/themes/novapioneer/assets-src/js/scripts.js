@@ -40,8 +40,7 @@ $(document).ready(function() {
 
     // 04. select-country
     $(".select-country").click(function(){
-        $(".country").toggleClass("show");
-        $(".country").toggleClass("hide");
+        $(".select-countries").toggleClass("show");
         console.log("04. select-country");
         return false;
     });
@@ -78,7 +77,7 @@ $(document).ready(function() {
             $('.header-section-main').addClass('stuck');
             $('.menu-item-main').addClass('stuck');
             $('.header-logo').addClass('stuck');
-            $('.school-name').addClass('stuck');
+            // $('.school-name').addClass('stuck');
             $('.page-header').addClass('stuck');
             console.log("08. sticky header - unstuck");
         }
@@ -86,7 +85,7 @@ $(document).ready(function() {
             $('.header-section-main').removeClass('stuck');
             $('.menu-item-main').removeClass('stuck');
             $('.header-logo').removeClass('stuck');
-            $('.school-name').removeClass('stuck');
+            // $('.school-name').removeClass('stuck');
             $('.page-header').removeClass('stuck');
             console.log("08. sticky header - stuck");
         }
@@ -94,7 +93,9 @@ $(document).ready(function() {
     {
         offset: '72.5%'
     });
-    
+
+
+    // 09. what's this? somebody add a comment please...
     $('.anchor-link a[href^="#"]').on('click', function(event) {
         console.log('scroll');
         var target = $(this.getAttribute('href'));

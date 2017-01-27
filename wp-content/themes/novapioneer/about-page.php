@@ -26,7 +26,6 @@ get_header();?>
         </section>
 
         <div class="trigger"></div>
-
         <section class="section">
             <article class="article article-inner article-inner-alt">
                 <h2 class="centered-title">Our Vision</h2>
