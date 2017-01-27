@@ -27,41 +27,6 @@
         
             <!-- page-header -->
         <header class="page-header" <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>>
-            <!-- <section class="header-section header-section-aux">
-                <div class="select-country">
-                    <span class="country show">
-                        <span class="flag-icon flag-icon-za"></span>
-                        <span class="text">Nova Pioneer South Africa</span>
-                    </span>
-                    <span class="country hide">
-                        <span class="flag-icon flag-icon-ke"></span>
-                        <span class="text">Nova Pioneer Kenya</span>
-                    </span>
-                </div>
-
-                <form action="<?php echo esc_url( home_url('/') ); ?>" class="header-search">
-                    <fieldset>
-                        <input type="text" name="s"/>
-                        <input type="submit" name="submit" />
-                        <button class="search-icon">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             width="18px" height="18px" viewBox="3.5 0.5 18 18" enable-background="new 3.5 0.5 18 18" xml:space="preserve">
-                                <circle fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" cx="10.5" cy="7.5" r="6"/>
-                                <line fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" x1="20.531" y1="17.531" x2="14.5" y2="11.5"/>
-                            </svg>
-                        </button>
-                        <button class="search-toggle">
-                            <span class="search-toggle-icon magnify open">⚲</span>
-                            <span class="search-toggle-icon cross">×</span>
-                        </button>
-                        <button class="search-toggle search-toggle-menu">
-                            <span class="search-toggle-icon magnify open">⚲</span>
-                            <span class="search-toggle-icon cross">×</span>
-                        </button>
-                    </fieldset>
-                </form>
-            </section> -->
-
             <section class="header-section header-section-main">
                 <a href="<?php echo home_url(); ?>" class="logo header-logo">
                     <!-- <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-horizontal-coloured-blue.svg" alt=""> -->
