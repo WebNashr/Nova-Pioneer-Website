@@ -254,7 +254,7 @@ get_header();?>
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
                     <div class="media">
-                        <?php echo novap_render_google_map( get_field('school_latitude'), get_field('school_longitude') ); ?>
+                        <?php echo get_field('map_embed_code'); ?>
                     </div>
                 </div>
 
