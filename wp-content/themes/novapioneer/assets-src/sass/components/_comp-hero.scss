@@ -114,7 +114,8 @@
   &.home-page-callout {
     background-image: none;
     @extend %column;
-    @extend %column-6;
+    max-width: 775px;
+    // @extend %column-6;
     // padding-right: calc(#{$space-tiny} * 1);
     h1 {
       max-width: auto;
@@ -123,13 +124,9 @@
     .country-selection {
       @extend %columns;
       justify-content: space-between;
-      padding-right: calc(#{$space-tiny} * 1.65);
+
       a {
         width: 45%;
-        // margin-right: 1.35rem;
-        &:first-of-type {
-          // margin-right: 0;
-        }
       }
       .button {
         background-color: transparent;
@@ -141,8 +138,18 @@
           @include copy(bold);
         }
       }
+      @include break-point(tablet) {
+        padding-right: calc(#{$space-tiny} * 1.65);
+        display: flex;
+        flex-flow: row;
+    	}
+      @include break-point(laptop) {
+        padding-right: calc(#{$space-tiny} * 1.65);
+        display: flex;
+    	}
     }
   }
+
 	hr {
 		width: 3rem;
 		padding: 3px 0;
