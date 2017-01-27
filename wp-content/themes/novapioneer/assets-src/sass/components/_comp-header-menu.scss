@@ -68,7 +68,7 @@
 	    @include flex-order(1);
 	    padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
 	    background-image: linear-gradient(
-			to bottom, 
+			to bottom,
 			$blue,
 			$blue 100%
 		);
@@ -82,6 +82,14 @@
 			padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4);
 		}
     }
+}
+.header-section-home {
+	background-color: transparent;
+	padding: calc(#{$space-tiny} * 1);
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+	}
+
 }
 
 
@@ -297,7 +305,7 @@
 	bottom: 0;
 	width: 2.75rem;
 	height: 2.75rem;
-	
+
 	&.magnify {
 		top: 3px;
 		left: 4px;
@@ -636,4 +644,3 @@
 	}
 
 }
-
