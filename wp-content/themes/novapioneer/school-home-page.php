@@ -81,7 +81,7 @@ get_header();?>
             </div>
         </section>
 
-        <section class="section section-pair">
+        <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
                 <a href="#" title="">Meet the Students</a>
@@ -115,7 +115,7 @@ get_header();?>
             </div>
         </section>
 
-        <div class="divider"></div>
+        <!-- <div class="divider"></div> -->
 
         <section class="section section-pair">
             <div class="section-navigation">
@@ -125,7 +125,24 @@ get_header();?>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
-                    <?php echo get_field('leadership_team_description'); ?>
+                    <!-- <?php echo get_field('leadership_team_description'); ?> -->
+
+                    <input type="checkbox" class="read-more-state" id="post-123" />
+                    <span class="read-more-wrap">
+
+                        <p>Our leadership team comes from some of the best schools and organisations in South Africa and around the world. Our team is deeply committed towards developing leaders and innovators who are equipped to shape the world they envision.</p>
+                        <br>
+
+                        <p>Our leadership team are alumni of the world’s best institutions of learning, including Harvard, Stanford, and Yale. Our team is deeply committed towards developing leaders and innovators who are equipped to shape the world they envision.</p>
+
+                        <span class="read-more-target">
+                        <br>
+                        <p>Our leadership team comes from some of the best schools and organisations in South Africa and around the world. Our team is deeply committed towards developing leaders and innovators who are equipped to shape the world they envision.</p>
+                      </span>
+                  </span>
+                  <br>
+                  <label for="post-123" class="read-more-trigger button button-tiny button-primary"></label>
+
                 </div>
 
                 <?php $leadership_team_members = get_field('leadership_team_members'); $x = 0;?>
@@ -226,7 +243,7 @@ get_header();?>
 
 
 
-        <section class="section section-pair section-school-blog">
+        <section class="section section-pair section-school-blog even-section">
             <div class="section-navigation">
                 <h2>Student Blog</h2>
                 <a href="#"  title="">View All Blog Posts</a>
@@ -244,7 +261,7 @@ get_header();?>
                 <?php endforeach; ?>
             </div>
         </section>
-            <div class="divider"></div>
+
 
         <section class="section section-pair section-school-location">
             <div class="section-navigation">
