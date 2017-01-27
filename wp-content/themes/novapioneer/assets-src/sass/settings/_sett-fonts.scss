@@ -10,21 +10,25 @@
 	/* Black */
 	@if $copy == 'black' {
 		font-weight: bolder;
+		font-weight: 900;
 	}
 
 	/* Bold */
 	@if $copy == 'bold' {
 		font-weight: bold;
+		font-weight: 600;
 	}
 
 	/* Regular */
 	@else if $copy == 'regular' {
 		font-weight: normal;
+		font-weight: 400;
 	}
 
 	/* Light */
 	@else if $copy == 'light' {
 		font-weight: lighter;
+		font-weight: 300;
 	}
 }
 

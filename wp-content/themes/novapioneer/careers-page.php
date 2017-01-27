@@ -10,7 +10,7 @@ get_header();?>
     <?php while( have_posts() ): the_post(); ?>
         <section class="section trigger-offset">
             <header class="article-header">
-                <h1>Nova Pioneer Careers</h1>
+                <h1>Careers</h1>
             </header>
 
             <?php 
@@ -56,7 +56,7 @@ get_header();?>
                                         <a href="<?php echo get_permalink(); ?>" class="" title=""><?php the_title(); ?></a>
                                     </h3>
                                     <h6 class="job-location"><?php echo get_field('job_location'); ?></h6>
-                                    <h6 class="job-type">Job Type: <span><?php echo get_field('job_type'); ?></span></h6>
+                                    <!-- <h6 class="job-type">Job Type: <span><?php echo get_field('job_type'); ?></span></h6> -->
                                     <h6 class="job-experience">Experience: <span><?php echo get_field('experience'); ?></span></h6>
                                     <h6 class="job-deadline">Application Deadline: <span><?php echo get_field('application_deadline'); ?></span></h6>
                                 </header>
