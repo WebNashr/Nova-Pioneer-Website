@@ -107,7 +107,7 @@ h1 {
 
 
 h2 {
-	@include font-size(28px);
+	@include font-size(32px);
 	// color: $blue;
 	color: lighten($blue, 10%);
 
@@ -214,7 +214,11 @@ h4 {
 
 	.person & {
 		//color: $blue;
-		margin-bottom: 1rem;
+		margin-bottom: calc(#{$space-tiny} * 1);
+	}
+
+	.admission-step & {
+		margin-bottom: calc(#{$space-tiny} * 1);
 	}
 }
 
