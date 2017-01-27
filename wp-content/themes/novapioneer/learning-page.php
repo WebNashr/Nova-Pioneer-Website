@@ -81,13 +81,10 @@ get_header();?>
                 </div>
             </figure>
 
-<<<<<<< HEAD
             <section class="education-stage even-section">
                 <div class="section-title anchor-link" id="<?php echo strtolower($stage->title); ?>">
-=======
             <section class="section">
                 <article class="article article-inner article-inner-alt">
->>>>>>> front-kumbi
                     <h2><?php echo $stage->title; ?></h2>
                     <?php echo $stage->description; ?>
                     <?php
@@ -122,6 +119,8 @@ get_header();?>
                     </div>
                 </article>
             </section>
+            </div>
+        </section>
         <?php endforeach; ?>
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
@@ -131,7 +130,8 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
-<<<<<<< HEAD
+
+
 <!-- smooth scroll -->
 <script>
    $('a[href^="#"]').on('click', function(event) {
@@ -163,7 +163,4 @@ get_header();?>
  });
 
 </script>
-=======
 
-
->>>>>>> front-kumbi

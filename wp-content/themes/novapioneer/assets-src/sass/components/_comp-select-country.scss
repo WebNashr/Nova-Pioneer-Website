@@ -1,0 +1,54 @@
+
+/*  Icons */
+/* ==================================================== */
+
+
+.select-country {
+	@include font-size(13px);
+	@include line-height(1);
+	@include flexbox();
+	// @include flex-wrap(nowrap);
+    @include flex-direction(column);
+    align-self: center;
+    position: relative;
+    min-width: 100px;
+	margin-left: auto;
+	color: $white;
+	background: transparent;
+	cursor: pointer;
+}
+
+.select-countries {
+	display: none;
+	position: absolute;
+	top: 35px;
+	width: 100%;
+	padding: calc(#{$space-tiny} * 0.25) 0 calc(#{$space-tiny} * 0.5);
+	transition: $ease;
+	background: $blue;
+
+	&.show {
+		display: block;
+		background: $blue-lt;
+	}
+}
+
+.country {
+	display: block;
+	padding: calc(#{$space-tiny} * 0.25) calc(#{$space-tiny} * 0.75);
+	color: $white;
+
+	&.country-select-toggle {
+		padding-top: calc(#{$space-tiny} * 0.5);
+	}
+
+	&:hover {
+		color: $blue-lt;
+
+		.select-countries & {
+			color: $white;
+		}
+	}
+}
+
+
