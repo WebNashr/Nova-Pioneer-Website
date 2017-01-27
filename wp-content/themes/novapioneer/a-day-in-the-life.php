@@ -8,20 +8,6 @@ get_header(); ?>
 <?php if (have_posts()): ?>
 
     <?php while (have_posts()): the_post(); ?>
-        <!-- start content -->
-        <main role="main">
-            <!-- <section class="section section-hero about-np">
-                <div class="container hero-container">
-                    <heading class="hero-heading">
-                        <h1>Developing innovators &amp; leaders who will shape the future</h1>
-                    </heading>
-                    <div class="main-callout-box">
-                        <h2>About  Nova Pioneer</h2>
-                        <p>We started Nova Pioneer to equip as many of those youth as we can to realise their great dream</p>
-                    </div>
-                </div>
-            </section> -->
-
 
             <section class="section trigger-offset">
                 <article class="article article-container">
@@ -81,26 +67,9 @@ get_header(); ?>
             </section>
 
 
-            <section class="section section-pair section-subscribe">
-                <div class="section-navigation">
-                    <h1>Stay Updated</h1>
-                </div>
-
-                <div class="section-content">
-                    <div class="section-content-item section-content-item-full">
-                        <header>
-                            <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events
-                                and admission opportunities.</p>
-                        </header>
-
-                        <?php echo do_shortcode('[contact-form-7 id="654" title="Stay Updated" html_class="sign-up"]'); ?>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!-- end content -->
-
-
-    <?php endwhile; endif; ?>
+    <?php endwhile; ?> 
+    
+    <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
+<?php endif; ?>
 
 <?php get_footer(); ?>

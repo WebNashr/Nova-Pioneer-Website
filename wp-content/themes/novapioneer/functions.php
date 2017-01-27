@@ -52,6 +52,11 @@ function novap_setup()
         'image', 'video', 'gallery', 'quote'
     ));
 
+    /**
+     * Gravity Forms Enable Hiding Labels on a field by field basis
+     */
+    add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
 
 } // novap_setup
 add_action('after_setup_theme', 'novap_setup');
@@ -584,5 +589,28 @@ function isEven($num){
         return true;
     } else {
         return false;
+    }
+}
+
+/**
+ * @param $i
+ * takes a counter as param and calculates
+ * the page number page on page being viewed
+ */
+function paginateSearchResults($i){
+    $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $uri_segments = explode('/', $uri_path);
+    if ($uri_segments[2] && $uri_segments[2] > 1) {
+        if ($uri_segments[2] > 2) {
+            if ($uri_segments[2] < 4) {
+                return $i + $uri_segments[2] +  1;
+            } else {
+                return $i + $uri_segments[2] + $uri_segments[2] -  2;
+            }
+        } else {
+           return $i + $uri_segments[2];
+        }
+    } else {
+       return $i;
     }
 }

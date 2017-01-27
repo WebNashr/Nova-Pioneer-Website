@@ -15,13 +15,9 @@ get_header(); ?>
 <?php if (have_posts()): ?>
 
     <?php while (have_posts()): the_post(); ?>
-        <!-- start content -->
-        <main role="main">
+
             <section class="section section-hero corporate-hero">
                 <div class="container hero-container">
-                    <!-- <heading class="hero-heading">
-                        <h1>We want to equip as many youth as we can to realise their great dream</h1>
-                    </heading> -->
                     <div class="main-callout-box">
                         <hr>
                         <h1><?php  the_title()?></h1>
@@ -30,7 +26,6 @@ get_header(); ?>
                 </div>
             </section>
 
-            <!-- <div class="trigger"></div> -->
             <section class="section">
                 <div class="page-navigation-container">
                     <div class="navigation-wrap">
@@ -143,46 +138,14 @@ get_header(); ?>
                     </div>
 
                     <div class="section-content-item section-content-item-full">
-                        <?php echo do_shortcode('[contact-form-7 id="653" title="Meet A Student Contact A Student"]')?>
+                        <?php echo do_shortcode('[gravityform id="3" title="false" description="false"]'); ?>
                     </div>
                 </div>
             </section>
-
-
-            <section class="section section-pair section-subscribe">
-                <div class="section-navigation">
-                    <h2>Stay Updated</h2>
-                </div>
-
-                <div class="section-content">
-                    <div class="section-content-item section-content-item-full">
-                        <header>
-                            <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
-                        </header>
-
-                        <?php echo do_shortcode('[contact-form-7 id="654" title="Stay Updated" html_class="sign-up"]');?>
-
-                      <!--  <form action="" method="POST" class="sign-up">
-                            <input name="email" class="email-input" placeholder="Your Email Address" class="" type="text">
-                            <div class="selector">
-                                <select class="dropdown">
-                                    <option value="Please Select Your Area of Interest">Please Select Your Area of Interest</option>
-                                    <option value="School Admissions">School Admissions</option>
-                                    <option value="School Events">School Events</option>
-                                    <option value="Latest News">Latest News</option>
-                                </select>
-                            </div>
-                            <input name="Sign Up" value="Sign Up" class="button button-default button-primary submit-btn" style="" type="submit">
-                        </form>-->
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!-- end content -->
-
-
 
     <?php endwhile; ?>
+
+    <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 
 <?php endif; ?>
 

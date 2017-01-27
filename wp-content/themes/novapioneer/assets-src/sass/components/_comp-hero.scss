@@ -10,11 +10,15 @@
     // $$$ ### ^^^ margin-bottom: calc(#{$space-tiny} * 4);
     padding: 0;
     background-color: $blue;
-    background-image: url('../../img/large-hero-home.jpg');
+    // background-image: url('../../img/large-hero-home.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     justify-content: center;
+    &.homepage {
+      // min-height: 0;
+      background-color: transparent;
+    }
 
     &.country-home{
         background-image: url('../../img/large-hero-country.jpg');
@@ -107,6 +111,44 @@
 		rgba(0, 0, 0, 0.25) 75%,
 		transparent 100%
 	);
+  &.home-page-callout {
+    background-image: none;
+    @extend %column;
+    max-width: 775px;
+    // @extend %column-6;
+    // padding-right: calc(#{$space-tiny} * 1);
+    h1 {
+      max-width: auto;
+      width: 100%;
+    }
+    .country-selection {
+      @extend %columns;
+      justify-content: space-between;
+
+      a {
+        width: 45%;
+      }
+      .button {
+        background-color: transparent;
+        border: 1px solid $white;
+        &:hover {
+          background-color: $white;
+          border: none;
+          color: $green-dk;
+          @include copy(bold);
+        }
+      }
+      @include break-point(tablet) {
+        padding-right: calc(#{$space-tiny} * 1.65);
+        display: flex;
+        flex-flow: row;
+    	}
+      @include break-point(laptop) {
+        padding-right: calc(#{$space-tiny} * 1.65);
+        display: flex;
+    	}
+    }
+  }
 
 	hr {
 		width: 3rem;
@@ -131,8 +173,8 @@
         margin: calc(#{$space-tiny} * 1.5) 0 0;
         padding: 0;
         line-height: 1.5;
-        color: $white;	
-        display: none;	
+        color: $white;
+        display: none;
     }
 
     a {
@@ -163,5 +205,3 @@
 
     }
 }
-
-
