@@ -52,6 +52,11 @@ function novap_setup()
         'image', 'video', 'gallery', 'quote'
     ));
 
+    /**
+     * Gravity Forms Enable Hiding Labels on a field by field basis
+     */
+    add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
 
 } // novap_setup
 add_action('after_setup_theme', 'novap_setup');
