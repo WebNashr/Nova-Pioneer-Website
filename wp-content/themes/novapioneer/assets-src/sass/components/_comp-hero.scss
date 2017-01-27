@@ -113,6 +113,35 @@
 	);
   &.home-page-callout {
     background-image: none;
+    @extend %column;
+    @extend %column-6;
+    // padding-right: calc(#{$space-tiny} * 1);
+    h1 {
+      max-width: auto;
+      width: 100%;
+    }
+    .country-selection {
+      @extend %columns;
+      justify-content: space-between;
+      padding-right: calc(#{$space-tiny} * 1.65);
+      a {
+        width: 45%;
+        // margin-right: 1.35rem;
+        &:first-of-type {
+          // margin-right: 0;
+        }
+      }
+      .button {
+        background-color: transparent;
+        border: 1px solid $white;
+        &:hover {
+          background-color: $white;
+          border: none;
+          color: $green-dk;
+          @include copy(bold);
+        }
+      }
+    }
   }
 	hr {
 		width: 3rem;

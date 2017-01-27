@@ -49,6 +49,12 @@
 	);
 	position: relative;
 	bottom: -1.125rem;
+	a {
+		color: $white;
+	}
+	.footer-menu-aux-item-copyright {
+		color: $white;
+	}
 	@include break-point(laptop) {
 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
 	}
