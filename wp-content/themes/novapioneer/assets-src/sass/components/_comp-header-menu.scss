@@ -22,6 +22,10 @@
 		@include flex-direction(column);
 		min-height: 100vh;
     }
+
+		&.page-header-home {
+			// position: relative;
+		}
 }
 
 .header-section {
@@ -64,6 +68,13 @@
 	    overflow-y: scroll;
 	}
 
+	// &.stuck,
+	// .non-hero & {
+	// 	background: $blue;
+	// }
+
+
+
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
 
@@ -91,7 +102,7 @@
 		transparent 100%
 	);
 	@include break-point(tablet) {
-		padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
 
 	}
 
