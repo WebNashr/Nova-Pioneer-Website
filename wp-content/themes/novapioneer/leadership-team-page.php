@@ -25,14 +25,14 @@ get_header();?>
         <section class="section section-pair team-profile-container">
 
             <div class="section-content section-content-plain">
-                <?php foreach( get_field('management') as $manager): $manager = (object)$manager; ?>
+                <?php $i = 0;foreach( get_field('management') as $manager): $manager = (object)$manager; ?>
                     <div class="section-content-item section-content-item-sixth profile">
                         <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $manager->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $manager->post_title; ?>">
                         <h3 class="profile-name"><?php echo $manager->post_title; ?></h3>
                         <h6 class="profile-role"><?php echo get_field('title', $manager->ID); ?></h6>
                         <div class="profile-description">
-                            <input type="checkbox" class="read-more-state" id="post-1" />
-                            <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label>
+                            <input type="checkbox" class="read-more-state" id="post-<?php echo $i?>" />
+                            <label for="post-<?php echo $i?>" class="read-more-trigger button button-tiny button-primary"></label>
                             <?php
                                 // Get the paragraphs in the post content for implementing the read-more functionality
                                 preg_match_all('|<p>(.+?)</p>|', $manager->post_content, $matches);
@@ -49,7 +49,7 @@ get_header();?>
                             <!-- <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label> -->
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php $i ++ ;endforeach; ?>
             </div>
 
         </section>

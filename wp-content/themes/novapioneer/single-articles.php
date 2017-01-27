@@ -24,7 +24,7 @@ get_header(); ?>
                         </div>
 
                         <div class="article-meta">
-                            <?php $categories = get_the_category(); ?>
+                            <?php $categories = get_the_terms(get_the_ID(),'country') ?>
                             <p class="article-meta-title">Posted in</p>
                             <?php foreach($categories as $category): ?>
                             <small>

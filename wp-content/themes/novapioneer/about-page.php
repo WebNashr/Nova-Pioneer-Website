@@ -47,9 +47,9 @@ get_header();?>
         </section>
 
         <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);">
-            <div class="section-content full-image-caption animated caption">
+            <div class="section-content full-image-caption animated caption slideInLeft">
                 <figcaption>
-                    <?php echo get_field('our_culture_banner_image_caption'); ?>
+                    <p> <?php echo get_field('our_culture_banner_image_caption'); ?></p>
                 </figcaption>
             </div>
         </figure>
@@ -57,7 +57,9 @@ get_header();?>
         <section class="section">
             <article class="article article-inner article-inner-alt">
                 <h2 class="centered-title">School &amp; Company Culture</h2>
+
                 <?php echo $our_culture; ?>
+
             </article>
         </section>
 
@@ -71,7 +73,7 @@ get_header();?>
                   <div class="small-divider"></div>
                   <p class="description"><?php echo $principle->description; ?></p>
               </div>
-              <?php endforeach; ?>
+              <?php $number++; endforeach; ?>
           </div>
         </section>
 
