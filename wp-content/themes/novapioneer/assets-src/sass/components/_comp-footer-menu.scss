@@ -60,7 +60,7 @@
 		padding: calc(#{$space-tiny} * 3)
 	}
 	@include break-point(laptop) {
-		bottom: -1.125rem;
+		bottom: -3rem;
 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
 	}
 

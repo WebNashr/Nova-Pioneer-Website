@@ -26,7 +26,7 @@
     <body class="body-home">
 
             <!-- page-header -->
-        <header class="page-header" <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>>
+        <header class="page-header page-header-home" <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>>
 
 
             <section class="header-section header-section-home">
