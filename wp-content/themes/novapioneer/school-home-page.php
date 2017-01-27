@@ -101,9 +101,10 @@ get_header();?>
                                 <svg aria-hidden="true">
                                     <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                 </svg>
-                                <?php echo $vid_caption; ?>
+                                <p><?php echo $vid_caption; ?></p>
                                 <cite><span><?php echo $student_name; ?>,</span> Nova Pioneer Student</cite>
                             </blockquote>
+
                         </div>
 
                 </div>
@@ -234,7 +235,7 @@ get_header();?>
                     <svg aria-hidden="true">
                     <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                     </svg>
-                    <?php echo $testimonial->post_content; ?>
+                    <p><?php echo $testimonial->post_content; ?></p>
                     <cite><span><?php echo get_field('reviewer_name', $testimonial->ID)?>,</span> <?php echo get_field('reviewer_title', $testimonial->ID)?></cite>
                 </blockquote>
                 <div class="spacing-to-center"></div>
