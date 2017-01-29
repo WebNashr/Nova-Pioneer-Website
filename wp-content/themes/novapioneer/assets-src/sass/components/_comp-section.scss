@@ -1380,8 +1380,14 @@
 //---Meet the Students Start--
 .the-students {
 	@extend %columns;
-	margin-bottom: 2rem;
 	width: 100%;
+	&:not(:first-of-type) {
+		margin-top: 3rem;
+	}
+	&:not(:last-of-type) {
+		margin-bottom: 2rem;
+
+	}
 
 	h4 {
 		margin-top: 0;

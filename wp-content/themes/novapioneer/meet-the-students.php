@@ -27,7 +27,7 @@ get_header(); ?>
             </section>
 
             <section class="section">
-                <div class="page-navigation-container">
+                <div class="page-navigation-container meet-students-nav">
                     <div class="navigation-wrap">
                         <div class="section-title">
                             <h3>Our Students</h3>
@@ -67,10 +67,10 @@ get_header(); ?>
                             <div class="testimonial pull-quote">
                                 <blockquote>
                                     <svg aria-hidden="true">
-                                        <use xlink:href="img/quote-mark-icon.svg#quote-mark"></use>
+                                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
-                                    <p><?php  the_sub_field('remarks');?>
-                                        <cite><span><?php  the_sub_field('student_name');?>,</span> Nova Pioneer Student</cite></p>
+                                    <?php  the_sub_field('remarks');?>
+                                        <cite><span><?php  the_sub_field('student_name');?>,</span> Nova Pioneer Student</cite>
                                 </blockquote>
                             </div>
                         </div>
@@ -106,10 +106,10 @@ get_header(); ?>
                                 <div class="testimonial pull-quote">
                                     <blockquote>
                                         <svg aria-hidden="true">
-                                            <use xlink:href="img/quote-mark-icon.svg#quote-mark"></use>
+                                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                         </svg>
-                                        <p><?php  the_sub_field('remarks');?>
-                                            <cite><span><?php  the_sub_field('student_name');?>,</span> Nova Pioneer Student</cite></p>
+                                        <?php  the_sub_field('remarks');?>
+                                            <cite><span><?php  the_sub_field('student_name');?>,</span> Nova Pioneer Student</cite>
                                     </blockquote>
                                 </div>
                             </div>
