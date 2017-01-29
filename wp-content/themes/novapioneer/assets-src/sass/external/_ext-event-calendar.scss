@@ -1,3 +1,6 @@
+.datepicker {
+  top:565px;
+}
 #tribe-events {
   #tribe-bar-form {
     background: $white;
@@ -8,6 +11,10 @@
   #tribe-bar-views {
     left: 70%;
      .tribe-bar-views-list {
+       .tribe-bar-views-option a {
+         background: none;
+         color: $green-dk;
+       }
        li {
          &::before {
            content: none;
@@ -18,9 +25,77 @@
        }
      }
   }
+  .tribe-bar-filters {
+
+    input {
+      border: 0 none;
+      &[type=text] {
+
+        &:hover {
+      		color: $sky;
+      		border: 1px solid $green-lt;
+      	}
+
+      	&:focus {
+          outline: none;
+      		color: $blue;
+      		border: 1px solid $blue-dk;
+      	}
+      }
+      @include font-size(16px);
+    	@include letter-spacing(tiny);
+    	width: 100%;
+    	padding: 0.75rem 1rem;
+    	//color: $grey;
+    	background: $white;
+    	appearance: none;
+    	border: 0 none;
+    	outline: 0 none;
+    	border: 1px solid $sky;
+    	border-radius: 2px;
+
+
+    	&::placeholder {
+    		color: $dark-grey;
+    		opacity: 1;
+    	}
+    }
+    .tribe-bar-submit {
+      // padding-top: 35px;
+      padding-bottom: 0;
+      margin-top: 0.9rem;
+      .tribe-events-button {
+        padding: 1rem 0;
+        @extend %text-align-center;
+      	@extend %text-transform-upper;
+      	@include copy(regular);
+      	@include line-height(1);
+      	// @include letter-spacing(small);
+      	@include border-radius(3px);
+      	@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+      	@include border(0, solid, transparent);
+      	@include outline(0, solid, transparent);
+      	display: inline-block;
+      	text-decoration: none;
+      	text-transform: uppercase;
+      	appearance: none;
+      	cursor: pointer;
+      	transition: $ease;
+        background-color: $blue-lt;
+        &:hover {
+          background-color: $orange-lt;
+        }
+      }
+
+            // padding-top: 20px;
+      // padding-bottom: 0;
+    }
+  }
   .tribe-bar-views-inner {
+    padding-top: 31px;
     background: none;
   }
+
 }
 
 
