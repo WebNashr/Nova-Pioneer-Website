@@ -25,8 +25,11 @@
 )); ?>
 
 <section class="section section-pair">
-    <div class="section-navigation section-navigation-admissions">
-        <h1>Upcoming Admissions</h1>
+    <div class="section-navigation">
+        <h1>Upcoming Events</h1>
+    </div>
+    <div class="section-content">
+      <!-- <div class="section-content-item section-content-item-half">
         <div class="even-list-container">
             <?php while( $admission_events_query->have_posts() ): $admission_events_query->the_post(); ?>
 
@@ -39,7 +42,7 @@
                         <h2><?php the_title(); ?></h2>
                         <div>
                             <?php the_excerpt(); ?>
-                            <a href="<?php the_permalink(); ?>" target="_blank">View Details</a> 
+                            <a href="<?php the_permalink(); ?>" target="_blank">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -47,24 +50,16 @@
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
         </div>
-    </div>
+      </div> -->
+      <div class="section-content-item section-content-item-full">
+        <?php while( have_posts() ): the_post(); ?>
 
-<?php while( have_posts() ): the_post(); ?>
+            <?php the_content(); ?>
 
-    <?php the_content(); ?>
+        <?php endwhile; ?>
+      </div>
 
-<?php endwhile; ?>
+      </div>
 
-</section>
 
-<section class="section">
-    <article class="article article-body general-content">
-        <h3>Admissions Contacts</h3>
-
-        <address class="contact-info">
-            <p class="phone-contact-one">South Africa Admission Enquiries: <a href="tel:011 496 1201 ">+27 11 496 1201</a><br>
-            Kenya Admission Enquiries: <a href="tel:011 496 1202 ">+254 20 123 4567</a><br>
-            Email us: <a href="mailto:learn@novapioneer.com">learn@novapioneer.com</a></p>
-        </address>
-    </article>
 </section>
