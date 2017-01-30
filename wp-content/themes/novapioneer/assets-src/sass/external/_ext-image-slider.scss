@@ -63,18 +63,23 @@
 }
 
 #controls {
-	margin: -26% 0 0 80.5%;
+	position: relative;
+	// margin: -6.75% 0 0 80.5%;
+	margin: -8.5% 0 0 80.5%;
 	width: 15%;
 	height: 50px;
-	@include break-point(tablet) {
-		margin: -12% 0 0 80.5%;
-	}
+	// @include break-point(tablet) {
+	// 	margin: -8.5% 0 0 80.5%;
+	// }
 	@include break-point(laptop) {
-		margin: -11.5% 0 0 80.5%;
+		margin: -10% 0 0 80.5%;
 	}
 	@include break-point(desktop) {
 		margin: -8% 0 0 80.5%;
 	}
+	// @include break-point(monitor) {
+	// 	margin: -10	% 0 0 80.5%;
+	// }
 
 }
 
@@ -141,7 +146,7 @@
 	}
 	@include break-point(desktop) {
 		display: block;
-		margin-left:4rem;
+		// margin-left:4rem;
 	}
 }
 
