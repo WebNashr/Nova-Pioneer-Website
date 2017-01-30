@@ -1,5 +1,48 @@
 .datepicker {
-  top:565px;
+  top:550px !important;
+}
+.country-colour-codes {
+  @extend %column;
+  @include copy(regular);
+  @include font-size(16px);
+  @include line-height(1);
+  color: $grey-mdk;
+  p {
+    @include font-size(15px);
+    @include line-height(2);
+    &:first-of-type{
+      margin: 0.5rem 0;
+
+    }
+  }
+  p+p{
+    margin-top: 0;
+  }
+  .kenya,
+  .south-africa
+   {
+    &:before {
+  		@include font-size(90px);
+  		margin-right: 0.5rem;
+      margin-left: -0.25rem;
+      line-height: 0;
+  		vertical-align: middle;
+  		content: "\2022";
+
+  	}
+  }
+  .kenya {
+    &:before {
+      color: lighten($green-lt, 15%);
+
+    }
+  }
+  .south-africa {
+    &:before {
+      color: lighten($orange-lt, 10%);
+    }
+  }
+
 }
 #tribe-events {
   #tribe-bar-form {
@@ -13,7 +56,12 @@
      .tribe-bar-views-list {
        .tribe-bar-views-option a {
          background: none;
-         color: $green-dk;
+        //  padding-top: 0.65rem;
+         padding-bottom: 0;
+         color: $blue-lt;
+         &:hover {
+           color: $blue-dk;
+         }
        }
        li {
          &::before {
@@ -21,7 +69,14 @@
          }
        }
        span[class^=tribe-icon-] {
+         padding-top: 7px;
+         padding-bottom: 5px;
          padding-left: 60px;
+
+       }
+       span[class^=tribe-icon-list] {
+        //  padding-top: 2px;
+
        }
      }
   }
@@ -83,6 +138,7 @@
       	transition: $ease;
         background-color: $blue-lt;
         &:hover {
+          color: $grey-dk;
           background-color: $orange-lt;
         }
       }
@@ -96,8 +152,80 @@
     background: none;
   }
 
+  .tribe-events-notices {
+    ul {
+      list-style-type: none;
+      li {
+        text-indent: 0;
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+  .tribe-events-sub-nav {
+    li {
+      text-indent: 0;
+      &::before {
+        content: none;
+      }
+    }
+    .tribe-events-nav-next {
+      li {
+        text-indent: 0;
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+  .tribe-events-button {
+    padding: 1rem 0.75rem;
+    @extend %text-align-center;
+    @extend %text-transform-upper;
+    @include copy(regular);
+    @include line-height(1);
+    // @include letter-spacing(small);
+    @include border-radius(3px);
+    @include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+    @include border(0, solid, transparent);
+    @include outline(0, solid, transparent);
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    appearance: none;
+    cursor: pointer;
+    transition: $ease;
+    background-color: $blue-lt;
+    margin-top: 0;
+    &:hover {
+      background-color: $orange-lt;
+    }
+  }
+  h3.tribe-events-month-event-title {
+      font-size: 100%;
+      @include copy(regular);
+      font-size: 1rem !important;
+      line-height: 1.25;
+  }
 }
 
+// calendar table
+.tribe-events-calendar  {
+  table {
+    border: 1px solid darken($grey, 20%);
+  }
+  th {
+    background: darken($grey, 20%);
+    color: $grey-mdk;
+  }
+
+  div[id*=tribe-events-daynum-] a {
+    @include copy(regular);
+    @include font-size(13px);
+  }
+
+}
 
 .even-list-container {
   display: none;
