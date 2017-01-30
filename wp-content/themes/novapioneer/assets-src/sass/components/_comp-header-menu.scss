@@ -415,8 +415,13 @@
 .header-apply {
     margin-left: auto;
     align-self: center;
-    padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
+    // padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
     background: $green-lt;
+
+	&.stuck,
+	.non-hero & {
+		padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
+	}
 
     .modal & {
 	    margin: 1.5rem 0;
