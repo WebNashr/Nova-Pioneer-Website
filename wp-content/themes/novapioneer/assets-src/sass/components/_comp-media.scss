@@ -62,8 +62,34 @@
 		border-left: none;
 	}
 	.inner {
+		overflow: hidden;
+
+		// @include break-point(tablet) {
+		// 	max-height: 490px;
+		// }
+		// @include break-point(laptop) {
+		// 	max-height: 409px;
+		// }
+		// @include break-point(desktop) {
+		// 	max-height: 598px;
+		// }
+		// 	@include break-point(monitor) {
+		// 		max-height: 633px;
+		// 	}
 		img {
-			max-height: 633px;
+			max-height: 576px;
+			@include break-point(tablet) {
+				max-height: 409px;
+			}
+			// @include break-point(laptop) {
+			// 	max-height: 409px;
+			// }
+			@include break-point(desktop) {
+				max-height: 576px;
+			}
+			// @include break-point(monitor) {
+			// 	max-height: 633px;
+			// }
 		}
 	}
 }
