@@ -272,6 +272,7 @@
       }
     }
   }
+
   dl {
     dt {
       display: inline;
@@ -280,6 +281,13 @@
       @include copy(bold);
       margin-top: -0.35rem;
 
+    }
+  }
+  .tribe-events-schedule {
+    .tribe-events-cost {
+      @include font-size(14px);
+      @include copy(bold);
+      color: lighten($blue, 10%);
     }
   }
 }
