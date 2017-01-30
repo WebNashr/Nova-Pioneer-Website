@@ -11,11 +11,14 @@
     </section>
 
     <section class="section section-pair">
-
+       <div class="section-navigation">
+         <h2>Event Details</h2>
+       </div>
         <div class="section-content">
 
             <div class="section-content-item">
-                <div class="event-container">
+                <div class="event-details-container">
+
                     <?php the_content(); ?>
                 </div>
 
