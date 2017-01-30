@@ -21,11 +21,12 @@
 	&.modal {
 		@include flex-direction(column);
 		min-height: 100vh;
+		overflow-y: scroll;
     }
 
-		&.page-header-home {
-			// position: relative;
-		}
+	&.page-header-home {
+		// position: relative;
+	}
 }
 
 .header-section {
@@ -40,8 +41,37 @@
     }
 }
 
+.header-section-main {
+    padding: calc(#{$space-tiny} * 0.75) calc(#{$space-tiny} * 1);
+	background: $white;
+	// transition: $ease;
+
+	.modal &,
+	.non-hero .modal & {
+	    @include flex-order(1);
+	    // min-height: 100%;
+	    // min-height: 100vh;
+	    padding: calc(#{$space-tiny} * 2);
+	    // overflow-y: scroll;
+	}
+
+	// &.stuck,
+	// .non-hero & {
+	// 	background: $blue;
+	// }
+
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+
+	    &.stuck,
+		.non-hero & {
+			padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4);
+		}
+    }
+}
+
 .header-section-aux {
-	padding: calc(#{$space-tiny} * 1);
+	padding: 0 calc(#{$space-tiny} * 1);
 	background: $dark-blue;
 	background: $blue;
 
@@ -56,43 +86,13 @@
 
 	.modal & {
 	    @include flex-order(2);
-	    padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
+	    // padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
+	    padding: calc(#{$space-tiny} * 2);
 	    background: $dark-blue;
 	}
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 0) calc(#{$space-tiny} * 4);
-    }
-}
-
-.header-section-main {
-    padding: calc(#{$space-tiny} * 0.75) calc(#{$space-tiny} * 1);
-	background: $white;
-	// transition: $ease;
-
-	.modal &,
-	.non-hero .modal & {
-	    @include flex-order(1);
-	    min-height: 100%;
-	    min-height: 100vh;
-	    padding: calc(#{$space-tiny} * 2);
-	    overflow-y: scroll;
-	}
-
-	// &.stuck,
-	// .non-hero & {
-	// 	background: $blue;
-	// }
-
-
-
-	@include break-point(tablet) {
-		padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
-
-	    &.stuck,
-		.non-hero & {
-			padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4);
-		}
     }
 }
 
@@ -135,9 +135,9 @@
 	}
 
 	.modal & {
-	    @include flex-order(2);
+	    @include flex-order(3);
 	    @include font-size(22px);
-	    margin: 1rem 0 1.5rem;
+	    margin: calc(#{$space-tiny} * 1) 0;
 	}
 }
 
@@ -153,7 +153,7 @@
 	.modal & {
 	    @include flex-order(1);
 	    width: 90%;
-		margin: 0 auto 2rem;
+		margin: 0 auto calc(#{$space-tiny} * 1);
 	}
 }
 
@@ -415,17 +415,22 @@
 .header-apply {
     margin-left: auto;
     align-self: center;
-    // padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
+    padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
     background: $green-lt;
 
-	&.stuck,
+	.stuck &,
 	.non-hero & {
 		padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
 	}
 
     .modal & {
-	    margin: 1.5rem 0;
+	    margin: calc(#{$space-tiny} * 1.5) 0 0;
 	}
+
+	@include break-point(laptop) {
+		// padding: 13px calc(13px * 1.5);
+		@include button-size(small);
+    }
 }
 
 
@@ -440,7 +445,7 @@
 		margin-left: 2rem;
 
 		.modal & {
-			@include flex-order(3);
+			@include flex-order(4);
 			@include flex-direction(column);
 			display: block;
 			margin-left: 0;
@@ -567,6 +572,9 @@
 
 
 .modal-check-label {
+	position: relative;
+	top: unset;
+	right: unset;
 	align-self: center;
 	// margin-left: 1rem;
 	margin-left: 1.5rem;
@@ -579,6 +587,9 @@
 	border-radius: 2px;
 
 	.modal & {
+		position: absolute;
+		top: 16px;
+		right: 16px;
 		margin: 0;
 	}
 

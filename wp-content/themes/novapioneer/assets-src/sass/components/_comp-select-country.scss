@@ -10,12 +10,19 @@
 	// @include flex-wrap(nowrap);
     @include flex-direction(column);
     align-self: center;
+
     position: relative;
     min-width: 100px;
 	margin-left: auto;
 	color: $white;
 	background: transparent;
 	cursor: pointer;
+
+	.modal & {
+	    @include flex-order(2);
+	    margin: 0 auto calc(#{$space-tiny} * 0.5);
+	}
+
 }
 
 .select-countries {
