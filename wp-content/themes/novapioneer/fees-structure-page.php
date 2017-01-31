@@ -20,7 +20,7 @@ get_header();?>
             <div class="page-navigation-container">
               <div class="navigation-wrap">
                 <div class="section-title"><h3>Fees &amp; Tuition </h3></div>
-                  <div class="links-inner-wrap"
+                  <div class="links-inner-wrap">
                     <div class="section-content-item">
                         <div class="anchor-link">
                           <a href="#fees-table" class="" title="">Fees Per School</a>
@@ -54,41 +54,50 @@ get_header();?>
                   </article>
 
 
-                <?php foreach( get_field('sections') as $section ): $section = (object)$section; ?>
-
-                    <?php if( !empty($section->fees) ): ?>
+                <?php 
+                    $schools = get_field('schools');
+                    $selected_school = $_GET['school'];
+                    $selected_grade  = $_GET['grade'];
+                    $selected_year   = $_GET['year'];
+                ?>
 
                     <article class="article article-inner article-inner-alt">
-                      <form action="" method="" class="table-filter">
+                      <form class="table-filter">
                         <div class="selector">
-                            <select class="dropdown">
-                                    <option value=">Select a School">Select a School</option>
-                                    <option value="Ondiri">Ondiri</option>
-                                    <option value="Tatu Girls">Tatu Girls</option>
-
+                            <select name="school" class="dropdown">
+                                <option value=">Select a School">Select a School</option>
+                                <?php foreach($schools as $school): $school = (object)$school; ?>
+                                    <option <?php if($selected_school === $school->post_title): echo "selected"; $selected_school = $school; endif; ?> value="<?php echo $school->post_title; ?>"><?php echo $school->post_title; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                           <div class="selector">
-                              <select class="dropdown">
-                                      <option value="Select a Grade">Select a Grade</option>
-                                      <option value=">Standard 1">Standard 1</option>
-                                      <option value=">Standard 2">Standard 2</option>
-                                      <option value=">Standard 3">Standard 3</option>
+                              <select name="grade" class="dropdown">
+                                    <option value="Select a Grade">Select a Grade</option>
+                                    <?php if(!empty($selected_school) && is_object($selected_school)): ?>                                           
+                                        <?php foreach( get_field('fees_structure_per_grade', $selected_school->ID) as $grade): $grade = (object)$grade; ?>
+                                            <option <?php if($selected_grade === $grade->grade): echo "selected"; $selected_grade = $grade; endif; ?> value="<?php echo $grade->grade; ?>"><?php echo $grade->grade; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                               </select>
                           </div>
                           <div class="selector">
-                              <select class="dropdown">
+                              <select name="year" class="dropdown">
                                       <option value="Please Select Your Area of Interest">Select a Year</option>
-                                      <option value=">2017">2017</option>
-                                      <option value=">2016">2016</option>
-                                      <option value=">2015">2015</option>
+                                    <?php if(!empty($selected_grade) && is_object($selected_grade)): ?>                                           
+                                        <?php foreach( $selected_grade->fees_by_year as $year): $year = (object)$year; ?>
+                                            <option <?php if($selected_year === $year->year): echo "selected"; $selected_year = $year; endif; ?> value="<?php echo $year->year; ?>"><?php echo $year->year; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                               </select>
                           </div>
-                          <input name="View Fees" value="View Fees" class="button button-default button-primary" style="" type="submit">
+                          <input name="view" value="View Fees" class="button button-default button-primary" style="" type="submit" />
                       </form>
+                      <?php if( !empty($selected_school) && !empty($selected_grade) && !empty($selected_year) &&  ($_GET["view"] === "true") ): ?>
                         <div class="fees-container" id="fees-table">
+                            <h2><?php echo $selected_school->post_title; ?> Fee Structure for <?php echo $selected_grade->grade; ?> <?php echo $selected_year->year; ?></h2>
                             <div class="schedule-content">
-                                <header class="table-header"><?php echo $section->title; ?></header>
+                                <header class="table-header"></header>
                                 <table class="fees-table">
                                     <thead>
                                         <th class="text">Item</th>
@@ -98,19 +107,19 @@ get_header();?>
                                     </thead>
 
                                     <tbody>
-                                        <?php foreach( $section->fees as $fee ): $fee = (object)$fee; ?>
-                                            <tr class="">
-                                                <td class="text row-title"><?php echo $fee->item_name; ?></td>
-                                                <td class="text" data-title="Term 1"><?php echo $fee->term_1; ?></td>
-                                                <td class="text" data-title="Term 2"><?php echo $fee->term_2; ?></td>
-                                                <td class="text" data-title="Term 3"><?php echo $fee->term_3; ?></td>
-                                            </tr>
-                                        <?php endforeach; ?>
+                                    <?php foreach( $selected_year->fees as $fees ): $fees = (object)$fees; ?>
+                                        <tr class="">
+                                            <td class="text row-title"><?php echo $fees->item_name; ?></td>
+                                            <td class="text" data-title="Term 1"><?php echo $fees->term_1; ?></td>
+                                            <td class="text" data-title="Term 2"><?php echo $fees->term_2; ?></td>
+                                            <td class="text" data-title="Term 3"><?php echo $fees->term_3; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
 
 
-                                <?php if( !empty($section->additional_fees) ): ?>
+
                                     <table class="fees-table">
                                         <thead class="secondary">
                                             <th class="text">Other fees</th>
@@ -119,25 +128,21 @@ get_header();?>
                                         </thead>
 
                                         <tbody>
-                                            <?php foreach( $section->additional_fees as $fee ): $fee = (object)$fee; ?>
+                                        <?php foreach( $selected_year->additional_fees as $additional_fees ): $additional_fees = (object)$additional_fees; ?>
                                                 <tr class="">
-                                                    <td class="text row-title" data-title="First"><?php echo $fee->item_name; ?></td>
-                                                    <td class="text cost" data-title="Term 1"><?php echo $fee->fee; ?></td>
-                                                    <td class="text" data-title="Term 2"><?php echo $fee->notes; ?></td>
+                                                    <td class="text row-title" data-title="First"><?php echo $additional_fees->item_name; ?></td>
+                                                    <td class="text cost" data-title="Term 1"><?php echo $additional_fees->fee; ?></td>
+                                                    <td class="text" data-title="Term 2"><?php echo $additional_fees->notes; ?></td>
                                                 </tr>
-                                            <?php endforeach; ?>
+                                        <?php endforeach; ?>
                                         </tbody>
                                     </table>
-                                <?php endif; ?>
-                            <a href="<?php echo $section->fees_document; ?>" class="button button-small button-primary" title="">Download the Fees Structure</a>
+                            <a href="<?php echo $selected_year->fees_structure; ?>" class="button button-small button-primary" download>Download the Fees Structure</a>
                             </div>
                         </div>
+                      <?php endif; ?>
                     </article>
                 </section>
-            <?php endif; ?>
-
-
-        <?php endforeach ?>
 
 
         <section class="section">
@@ -252,4 +257,29 @@ get_header();?>
            }, 1000);
        }
    });
+</script>
+
+<script>
+
+    (function($){
+
+        $('form.table-filter .dropdown').change(function(){
+
+            let name = $(this).prop("name");
+            let value = $(this).val();
+
+            if( (window.location.search === "") || (name === "school") || (window.location.search === null) || (window.location.search === undefined) ){
+                location.search = "?" + name + "=" + value;
+            }else{
+                location.search += "&" + name + "=" + value;
+            }
+        });
+
+        $('form.table-filter').submit(function(event){
+            event.preventDefault();
+            location.search += "&view=true";
+        });
+
+    })(jQuery);
+
 </script>
