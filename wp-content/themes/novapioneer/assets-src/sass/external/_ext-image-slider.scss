@@ -73,9 +73,14 @@
 	// }
 	@include break-point(laptop) {
 		margin: -10% 0 0 80.5%;
+
+	}
+	@include break-point(largelaptop) {
+		margin: -10% 0 0 80.5%;
 	}
 	@include break-point(desktop) {
-		margin: -8% 0 0 80.5%;
+		margin: -6.5% 0 0 80.5%;
+		width: 13%;
 	}
 	// @include break-point(monitor) {
 	// 	margin: -10	% 0 0 80.5%;

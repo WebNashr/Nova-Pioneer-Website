@@ -49,8 +49,18 @@
 		background: $dark-blue;
 		padding-top: calc(1rem * 3);
 		padding-left: calc(1rem * 4);
-		height: 88.85%;
+		// height: 88.85%;
+		height: 80.75%;
 		min-width: 20%;
+		@include break-point(largelaptop) {
+			height: 80.75%;
+		}
+		@media only (min-width: 1024px) and (max-width: 1024px) { //1024px
+				height: 88.85%;
+		}
+		@media only (min-width: 1440px) and (max-width: 1440px) { //1024px
+				height: 88.85%;
+		}
 
 		.gallery-nav{
 			@include font-size(16px);

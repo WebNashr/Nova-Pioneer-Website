@@ -16,7 +16,7 @@ get_header(); ?>
         <section class="section-pair section-gallery trigger-offset">
             <div class="image-slider-container">
                 <div class="section-navigation">
-                    <h1>Gallery</h1>
+                    <h2>Gallery</h2>
                     <nav class="gallery-nav">
                         <a href="<?php get_permalink(); ?>?current=school_grounds"
                            class="gallery-select <?php if ($current_gallery === 'school_grounds'): echo 'gallery-selected'; endif; ?>">School
