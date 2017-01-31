@@ -73,8 +73,7 @@ get_header();?>
 
                 <div class="small-notice">
                     <h1>Download Our Fees Structure</h1>
-                    <h2>PDF Document (1MB)</h2>
-                    <a href="#" class="button button-tiny button-secondary" title="">Download</a>
+                    <a download href="<?php echo get_field('fees_structure'); ?>" class="button button-tiny button-secondary" title="">Download</a>
                 </div>
             </div>
 
@@ -126,23 +125,24 @@ get_header();?>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
-                    <!-- <?php echo get_field('leadership_team_description'); ?> -->
+                    <?php 
+                        $leadership_team_description = get_field('leadership_team_description'); 
+                        // Get the paragraphs in $leadership_team_description for implementing the read-more functionality
+                        preg_match_all('|<p>(.+?)</p>|', $leadership_team_description, $matches);
+                        $leadership_team_description_paragraphs = $matches[1];
+                    ?>
 
-                    <input type="checkbox" class="read-more-state" id="post-123" />
-                    <span class="read-more-wrap">
-
-                        <p>Our leadership team comes from some of the best schools and organisations in South Africa and around the world. Our team is deeply committed towards developing leaders and innovators who are equipped to shape the world they envision.</p>
-                        <br>
-
-                        <p>Our leadership team are alumni of the world’s best institutions of learning, including Harvard, Stanford, and Yale. Our team is deeply committed towards developing leaders and innovators who are equipped to shape the world they envision.</p>
-
+                    <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
+                    <div class="read-more-wrap">
+                        <p><?php echo array_shift($leadership_team_description_paragraphs); ?></p>
                         <span class="read-more-target">
-                        <br>
-                        <p>Our leadership team comes from some of the best schools and organisations in South Africa and around the world. Our team is deeply committed towards developing leaders and innovators who are equipped to shape the world they envision.</p>
-                      </span>
-                  </span>
+                            <?php foreach($leadership_team_description_paragraphs as $paragraph): ?>
+                                <p><?php echo $paragraph; ?></p>
+                            <?php endforeach; ?>
+                        </span>
+                    </div>
                   <br>
-                  <label for="post-123" class="read-more-trigger button button-tiny button-primary"></label>
+                  <label for="post-<?php echo get_the_ID(); ?>" class="read-more-trigger button button-tiny button-primary"></label>
 
                 </div>
 
