@@ -127,13 +127,13 @@ get_header(); ?>
             </section>
 
 
-            <section class="section section-pair">
+            <section class="section section-pair contact-student">
                 <div class="section-navigation">
                     <h2>Contact a Student</h2>
                 </div>
 
-                <div class="section-content the-students ">
-                    <div class="section-content-item section-content-item-quarter">
+                <div class="section-content">
+                    <div class="section-content-item section-content-item-half">
                         <p><?php the_field('contact_text')?></p>
                     </div>
 
