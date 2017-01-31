@@ -132,12 +132,12 @@ get_header(); ?>
                     <h2>Contact a Student</h2>
                 </div>
 
-                <div class="section-content ">
-                    <div class="section-content-item section-content-item-third">
+                <div class="section-content">
+                    <div class="section-content-item section-content-item-half">
                         <p><?php the_field('contact_text')?></p>
                     </div>
 
-                    <div class="section-content-item section-content-item-half">
+                    <div class="section-content-item section-content-item-full">
                         <?php echo do_shortcode('[gravityform id="3" title="false" description="false"]'); ?>
                     </div>
                 </div>

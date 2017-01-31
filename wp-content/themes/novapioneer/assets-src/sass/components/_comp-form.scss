@@ -78,12 +78,12 @@ select {
 
 	&:hover {
 		color: $sky;
-		border: 1px solid $green-blue;
+		border: 1px solid $green-dk;
 	}
 
 	&:focus {
 		color: $blue;
-		border: 1px solid $dark-blue;
+		border: 1px solid $blue-dk;
 	}
 
 	&::placeholder {
@@ -333,6 +333,10 @@ img.ajax-loader {
 			appearance: none;
 			cursor: pointer;
 			transition: $ease;
+			&:hover {
+				color: $white;
+				background: $orange-lt;
+			}
 		}
 		// .gform_body {
 		// 	display: flex;
@@ -368,6 +372,15 @@ img.ajax-loader {
 }
 //meet the students form
 .contact-student{
+	.section-content-item-half {
+		max-width:100%;
+
+		padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 2);
+		padding-left: 0;
+		@include break-point(laptop) {
+			max-width:30%;
+		}
+	}
 	.gform_body {
 		margin-top: -1rem;
 		.gfield.gfield_html{
@@ -376,11 +389,16 @@ img.ajax-loader {
 				margin-top: 0;
 			}
 		}
+
 	}
 	.gform_wrapper {
+		margin-top: 0;
 		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
 			margin-top: 0;
-			width: 100%;
+			width: 180%;
+			@include break-point(laptop) {
+				max-width:100%;
+			}
 		}
 		input[type="text"] {
 			// width: 25% !important;
@@ -393,6 +411,12 @@ img.ajax-loader {
 			// width: 20% !important;
 			width: 100%;
 			padding: 0.5rem 1rem !important;
+		}
+		.medium {
+			width: 180%;
+			@include break-point(laptop) {
+				max-width:100%;
+			}
 		}
 		.button  {
 			// @extend %column-2;
@@ -418,10 +442,19 @@ img.ajax-loader {
 			appearance: none;
 			cursor: pointer;
 			transition: $ease;
+			&:hover {
+				color: $white;
+				background: $orange-lt;
+			}
 		}
 		.gform_footer {
 			margin-top: 0;
 			margin-left: -1.75rem;
 		}
+			@include break-point(tablet) {
+				margin-top: 1rem;
+				margin-left: -1rem;
+			}
+
 	}
 }
