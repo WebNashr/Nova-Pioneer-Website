@@ -437,55 +437,7 @@
 }
 
 
-.section-subscribe {
-	padding-top: calc(#{$space-tiny} * 2);
-	padding-bottom: calc(#{$space-tiny} * 2);
-	background: darken($background-grey, 7%);
-	p {
-		padding-bottom: calc(#{$space-tiny} * 1)
-	}
-	//---contact form 7 overrides----
-	.wpcf7 {
-		padding: 0;
-		margin: 0;
-		p {
-			padding: 0 !important;
 
-			&:first-of-type {
-				margin-left: 0 !important;
-				padding-left: 0;
-			}
-			span.wpcf7-not-valid-tip {
-				margin-left: 0 !important;
-				@include font-size(14px);
-				color: $flare;
-				padding-bottom: calc(#{$space-tiny} * 1)
-				// color: lighten($dark-grey, 10%);
-			}
-
-
-			// &:not(:first-of-type) {
-			// 	margin: 0 !important;
-			// }
-		}
-
-
-	}
-	// @extend %columns;
-	// align-items: center;
-	@include break-point(desktop) {
-		padding-top: calc(#{$space-tiny} * 3);
-		padding-bottom: calc(#{$space-tiny} * 3);
-	}
-		header {
-			@extend %column-5;
-				// padding-bottom: calc(#{$space-tiny} * 2);
-
-			p {
-				@include font-size(21px);
-			}
-		}
-	}
 
 	.sign-up {
 		// @extend %column;

@@ -265,3 +265,104 @@ img.ajax-loader {
 }
 
 }
+
+//sign up/subscription form
+.section-subscribe {
+	padding-top: calc(#{$space-tiny} * 2);
+	padding-bottom: calc(#{$space-tiny} * 2);
+	background: darken($background-grey, 7%);
+	p {
+		padding-bottom: calc(#{$space-tiny} * 1)
+	}
+	//---Gravity form overrides----
+	// .gform_body {
+	//
+	// }
+	.gform_wrapper {
+		@extend %columns;
+		clear: both;
+		// @extend %column-12;
+		width: 100%;
+		align-items: center;
+		.ginput_container {
+			width: 300px;
+			input[type="text"]{
+				width:100%;
+			}
+		}
+		 .gform_footer {
+			//  padding-top: 0;
+			//  float: right;
+			 margin-top: -3rem;
+		 }
+
+
+		input[type="text"] {
+			// width: 25% !important;
+			// @extend %column-4;
+			width: 100%;
+			padding: 0.75rem 1rem !important;
+		}
+		select {
+			// @extend %column-4;
+			// width: 20% !important;
+			width: 100%;
+			padding: 0.5rem 1rem !important;
+		}
+		.button  {
+			// @extend %column-2;
+			width:10%;
+			@extend %text-align-center;
+			@extend %text-transform-upper;
+			@include copy(regular);
+			@include line-height(1);
+			// @include letter-spacing(small);
+			@include border-radius(3px);
+			@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+			@include border(0, solid, transparent);
+			@include outline(0, solid, transparent);
+			color: $white;
+			background: $blue-lt;
+			$p: 14px;
+			@include font-size(14px);
+			@include letter-spacing(small);
+			padding: $p calc(#{$p} * 1.5);
+			display: inline-block;
+			text-decoration: none;
+			text-transform: uppercase;
+			appearance: none;
+			cursor: pointer;
+			transition: $ease;
+		}
+		// .gform_body {
+		// 	display: flex;
+		// 	flex-direction: row;
+		// }
+		ul.gform_fields {
+
+			li{
+				display: inline-flex;
+				margin-left: 2rem !important;
+				.gfield {
+
+					display: inline;
+				}
+			}
+		}
+
+	}
+	// @extend %columns;
+	// align-items: center;
+	@include break-point(desktop) {
+		padding-top: calc(#{$space-tiny} * 3);
+		padding-bottom: calc(#{$space-tiny} * 3);
+	}
+		header {
+			@extend %column-5;
+				// padding-bottom: calc(#{$space-tiny} * 2);
+
+			p {
+				@include font-size(21px);
+			}
+		}
+	}
