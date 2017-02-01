@@ -16,8 +16,26 @@ get_header();?>
 
 
         <section class="section trigger-offset">
-          <div>
-            <div class="page-navigation-container">
+          <div class="page-navigation-container">
+            <div class="navigation-wrap">
+              <div class="section-title"><h3>Fees &amp; Tuition </h3></div>
+                <div class="links-inner-wrap" <div="">
+                        <div class="anchor-link">
+                          <a href="#fees-table" class="" title="">Fees Per School</a>
+                        </div>
+                        <div class="link-separator">&nbsp;</div>
+                        <div class="anchor-link">
+                          <a href="#payment" class="" title="">How to make payment</a>
+                        </div>
+                        <div class="link-separator">&nbsp;</div>
+                        <div class="anchor-link">
+                             <a href="#faqs" class="" title="">FAQs</a>
+                        </div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- <div class="page-navigation-container">
               <div class="navigation-wrap">
                 <div class="section-title"><h3>Fees &amp; Tuition </h3></div>
                   <div class="links-inner-wrap">
@@ -33,14 +51,13 @@ get_header();?>
                         <div class="anchor-link">
                              <a href="#faqs" class="" title="">FAQs</a>
                         </div>
-
                   </div>
                 </div>
               </div>
-              <div class="article cta-container"><a href="#" class="button button-default button-primary" title="">Download The 2017 Fees Structure</a></div>
-            </div>
 
-          </div>
+            </div> -->
+            <div class="article cta-container"><a href="#" class="button button-default button-primary" title="">Download The 2017 Fees Structure</a></div>
+
 
         </section>
 
@@ -54,7 +71,7 @@ get_header();?>
                   </article>
 
 
-                <?php 
+                <?php
                     $schools = get_field('schools');
                     $selected_school = $_GET['school'];
                     $selected_grade  = $_GET['grade'];
@@ -74,7 +91,7 @@ get_header();?>
                           <div class="selector">
                               <select name="grade" class="dropdown">
                                     <option value="Select a Grade">Select a Grade</option>
-                                    <?php if(!empty($selected_school) && is_object($selected_school)): ?>                                           
+                                    <?php if(!empty($selected_school) && is_object($selected_school)): ?>
                                         <?php foreach( get_field('fees_structure_per_grade', $selected_school->ID) as $grade): $grade = (object)$grade; ?>
                                             <option <?php if($selected_grade === $grade->grade): echo "selected"; $selected_grade = $grade; endif; ?> value="<?php echo $grade->grade; ?>"><?php echo $grade->grade; ?></option>
                                         <?php endforeach; ?>
@@ -84,7 +101,7 @@ get_header();?>
                           <div class="selector">
                               <select name="year" class="dropdown">
                                       <option value="Please Select Your Area of Interest">Select a Year</option>
-                                    <?php if(!empty($selected_grade) && is_object($selected_grade)): ?>                                           
+                                    <?php if(!empty($selected_grade) && is_object($selected_grade)): ?>
                                         <?php foreach( $selected_grade->fees_by_year as $year): $year = (object)$year; ?>
                                             <option <?php if($selected_year === $year->year): echo "selected"; $selected_year = $year; endif; ?> value="<?php echo $year->year; ?>"><?php echo $year->year; ?></option>
                                         <?php endforeach; ?>

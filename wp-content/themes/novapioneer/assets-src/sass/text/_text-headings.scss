@@ -48,6 +48,9 @@ h1 {
 		@include font-size(42px);
 		max-width: 1024px;
 		padding-bottom: calc(#{$space-tiny} * 2.75);
+		&.nav-bar-below{
+			padding-bottom: calc(#{$space-tiny} * 1);
+		}
 	}
 
 	.hero-half.stuck & {
