@@ -91,7 +91,12 @@ function novap_menu_css_classes($classes, $item, $args, $depth)
 
     if ('novap-footer-menu' === $args->theme_location) {
         $classes[] = 'footer-box-item';
-        $classes[] = 'footer-box-menu-item';
+
+        if($depth == 0):
+            $classes[] = 'footer-box-main-item';
+        else:
+            $classes[] = 'footer-box-menu-item';
+        endif;
 
     }
 
