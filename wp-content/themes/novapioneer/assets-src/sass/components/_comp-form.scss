@@ -285,17 +285,19 @@ img.ajax-loader {
 		width: 100%;
 		align-items: center;
 		.ginput_container {
-			width: 300px;
+			width: 350px;
 			input[type="text"]{
 				width:100%;
 			}
 		}
-		 .gform_footer {
-			//  padding-top: 0;
-			//  float: right;
-			 margin-top: -3rem;
-		 }
-
+		.ginput_container_select {
+			.gfield_select {
+				width: 100%;
+				position: relative;
+				padding: 0.5rem 1rem !important;
+				// background: $blue;
+			}
+		}
 
 		input[type="text"] {
 			// width: 25% !important;
@@ -306,12 +308,21 @@ img.ajax-loader {
 		select {
 			// @extend %column-4;
 			// width: 20% !important;
-			width: 100%;
-			padding: 0.5rem 1rem !important;
+
+		}
+		.gform_footer {
+		 //  padding-top: 0;
+		 //  float: right;
+			margin-top: -2.85rem;
+			input[type=submit] {
+			 float:right;
+			 margin-top: -0.75rem;
+			 margin-right: 20%;
+			}
 		}
 		.button  {
 			// @extend %column-2;
-			width:10%;
+			// width:10%;
 			@extend %text-align-center;
 			@extend %text-transform-upper;
 			@include copy(regular);
@@ -323,16 +334,17 @@ img.ajax-loader {
 			@include outline(0, solid, transparent);
 			color: $white;
 			background: $blue-lt;
-			$p: 14px;
+			$p: 12px;
 			@include font-size(14px);
 			@include letter-spacing(small);
-			padding: $p calc(#{$p} * 1.5);
+			padding: $p calc(#{$p} * 1.25);
 			display: inline-block;
 			text-decoration: none;
 			text-transform: uppercase;
 			appearance: none;
 			cursor: pointer;
 			transition: $ease;
+
 			&:hover {
 				color: $white;
 				background: $orange-lt;
