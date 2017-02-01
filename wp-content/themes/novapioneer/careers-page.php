@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * Template Name: Careers Page
 */
@@ -10,10 +10,29 @@ get_header();?>
     <?php while( have_posts() ): the_post(); ?>
         <section class="section trigger-offset">
             <header class="article-header">
-                <h1>Careers</h1>
+                <h1 class="nav-bar-below">Careers</h1>
             </header>
 
-            <?php 
+            <div class="page-navigation-container">
+              <div class="navigation-wrap">
+                <div class="section-title"><h3>Departments</h3></div>
+                  <div class="links-inner-wrap" <div="">
+                          <div class="anchor-link">
+                            <a href="#operations" class="" title="">Operations</a>
+                          </div>
+                          <div class="link-separator">&nbsp;</div>
+                          <div class="anchor-link">
+                              <a href="#learning" class="" title="">Learning</a>
+                          </div>
+                          <div class="link-separator">&nbsp;</div>
+                          <div class="anchor-link">
+                               <a href="#talent-and-partnerships" class="" title="">Talent &amp; Partnerships</a>
+                          </div>
+                    </div>
+                  </div>
+              </div>
+
+            <?php
                 $career_categories =  array(
                     'operations'              => 'Operations',
                     'learning'                => 'Learning',

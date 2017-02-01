@@ -3,7 +3,7 @@
 	width: 100%;
 	clear: both;
 	// padding-bottom: 0;
-	padding-bottom: calc(#{$space-tiny} * 3);
+	padding-bottom: calc(#{$space-tiny} * 2);
 	&.meet-students-nav {
 		padding-bottom: 0;
 	}
@@ -17,7 +17,7 @@
 
 	.section-title {
 		padding: calc(#{$space-tiny} * 1);
-    	border-top: 1px solid lighten($light-grey, 32%);
+    border-top: 1px solid lighten($light-grey, 32%);
 		border-bottom: 1px solid lighten($light-grey, 32%);
 
 		// h1 {
