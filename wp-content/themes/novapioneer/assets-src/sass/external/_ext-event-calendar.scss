@@ -218,6 +218,7 @@
         margin-top: 0;
 
         &:hover {
+            color: $white;
             background-color: $orange-lt;
         }
     }
@@ -259,6 +260,11 @@
 .event-details-container {
     @extend %column;
     @extend %column-10;
+    .tribe-events-single-event-title {
+      padding-bottom: calc(1rem * 2.75);
+      @include font-size(42px);
+      line-height: 1.25;
+    }
 
     .tribe-events-notices {
         background: none;
@@ -271,6 +277,8 @@
 
     .tribe-events-event-image {
         margin-bottom: 1rem;
+        float: none;
+        margin: 0;
     }
 
     .tribe-events-schedule {
@@ -306,6 +314,10 @@
             .tribe-events-gmap {
                 display: block;
             }
+        }
+        .tribe-events-event-cost {
+          float: none;
+          margin-left: 0;
         }
     }
 
@@ -575,5 +587,3 @@
 		color: #666;
     }
 }
-
-

@@ -33,7 +33,9 @@
 
     <section class="section trigger-offset">
         <article class="article">
+          <div class="event-details-container">
             <?php the_content(); ?>
+          </div>
         </article>
     </section>
 
