@@ -352,6 +352,7 @@
 .header-logo {
    	display: inline-flex;
    	max-width: 3rem;
+   		max-height: 3rem;
     padding: 0;
     font-size: 1.85rem;
     font-weight: bold;
@@ -376,23 +377,28 @@
     &.stuck,
 	.non-hero & {
 		max-width: 3rem;
+			max-height: 3rem;
 	}
 
 	.modal & {
 		max-width: 4rem;
+			max-height: 4rem;
 		margin-bottom: 2rem;
     }
 
     @include break-point(tablet) {
 		max-width: 4rem;
+			max-height: 4rem;
 
 		.modal & {
 			max-width: 6rem;
+				max-height: 6rem;
 	    }
     }
 
     @include break-point(laptop) {
 		max-width: 14rem;
+			max-height: 64px;
 
 		svg {
 	    	&.logo-mark-text {
@@ -407,11 +413,13 @@
 	    &.stuck,
 		.non-hero & {
 			max-width: 14.5rem;
+				max-height: 64px;
 		}
     }
 
     @include break-point(largelaptop) {
 		max-width: 18rem;
+			max-height: 84px;
     }
 }
 
