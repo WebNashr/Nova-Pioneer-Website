@@ -55,13 +55,13 @@ get_header();?>
                 ),
                 "posts_per_page" => -1,
             )); ?>
-
+s
             <?php if( $careers->have_posts() ): ?>
             <section class="section section-inner">
                 <div class="article-container">
                     <aside class="article-aside">
                         <div class="article-meta">
-                            <h2><?php echo $cc_title; ?></h2>
+                            <h2 id="<?php echo  $cc_slug ?>"><?php echo $cc_title; ?></h2>
                         </div>
                     </aside>
 
