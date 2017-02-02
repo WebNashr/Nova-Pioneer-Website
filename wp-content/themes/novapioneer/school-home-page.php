@@ -16,7 +16,7 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1>Learners are inspired become adaptive, independent thinkers</h1>
-                    <a href="<?php echo site_url('/learning'); ?>" class="button button-default button-primary">Learn More</a>
+                    <!-- <a href="<?php echo site_url('/learning'); ?>" class="button button-default button-primary">Learn More</a> -->
                 </div>
             </div>
         </section>
@@ -125,8 +125,8 @@ get_header();?>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
-                    <?php 
-                        $leadership_team_description = get_field('leadership_team_description'); 
+                    <?php
+                        $leadership_team_description = get_field('leadership_team_description');
                         // Get the paragraphs in $leadership_team_description for implementing the read-more functionality
                         preg_match_all('|<p>(.+?)</p>|', $leadership_team_description, $matches);
                         $leadership_team_description_paragraphs = $matches[1];
