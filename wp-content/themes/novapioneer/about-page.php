@@ -70,7 +70,7 @@ get_header();?>
                   <h2 class="number"><?php echo $number; ?></h2>
                   <h3><?php echo $principle->title; ?></h3>
                   <div class="small-divider"></div>
-                  <p class="description"><?php echo $principle->description; ?></p>
+                  <?php echo $principle->description; ?>
               </div>
               <?php $number++; endforeach; ?>
           </div>
@@ -94,7 +94,7 @@ get_header();?>
                 </div>
             </article>
         </section> -->
-        
+
 
     <?php endwhile; ?>
 
