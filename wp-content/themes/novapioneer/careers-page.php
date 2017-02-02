@@ -55,7 +55,6 @@ get_header();?>
                 ),
                 "posts_per_page" => -1,
             )); ?>
-s
             <?php if( $careers->have_posts() ): ?>
             <section class="section section-inner">
                 <div class="article-container">
