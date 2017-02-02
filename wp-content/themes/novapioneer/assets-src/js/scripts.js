@@ -96,13 +96,25 @@ $(document).ready(function() {
 
 
     // 09. what's this? somebody add a comment please...
+    /*
+         somebody added this comment
+         ================================
+        to effectively scroll to top we have to account for our static
+        header height.
+        so our "top" is actually RealTop - StaticHeaderHeight
+         the + 20 is just  for padding
+     */
     $('.anchor-link a[href^="#"]').on('click', function(event) {
         console.log('scroll');
         var target = $(this.getAttribute('href'));
+        var headerHeight = $("#header-container").height() + 20
+        console.log(headerHeight)
+        var scrollToPosition = $(target).offset().top - headerHeight;
+        console.log(scrollToPosition);
         if( target.length ) {
             event.preventDefault();
             $('html, body').stop().animate({
-                scrollTop: target.offset().top
+                scrollTop: scrollToPosition
             }, 1000);
         }
     });

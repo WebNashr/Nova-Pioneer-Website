@@ -165,8 +165,8 @@ get_header();?>
 
         <section class="section">
             <div class="fees-container">
-                <div class="schedule-content" id="payment">
-                    <header class="table-header">How to make payment</header>
+                <div class="schedule-content">
+                    <header class="table-header" id="payment">How to make payment</header>
 
                     <table class="fees-table">
                         <thead>
@@ -206,8 +206,8 @@ get_header();?>
         </section>
 
         <section class="section">
-            <article class="article article-inner article-inner-alt" id="faqs">
-                <h2>Frequently Asked Questions</h2>
+            <article class="article article-inner article-inner-alt" >
+                <h2 id="faqs">Frequently Asked Questions</h2>
 
                 <ul class="toggle-list">
                     <?php $n = 0; ?>
