@@ -165,11 +165,12 @@
 
 .footer-box-menu-item {
 	@include copy(regular);
-	display: inline-table;
+	// display: inline-table;
+	display: block;
 	letter-spacing: 0.5px;
 	text-transform: capitalize;
 	color: $sky;
-		color: $blue-dk;
+	color: $blue-dk;
 
 	&:hover {
 		color: $green-dk;
