@@ -601,7 +601,8 @@ function isEven($num){
 /**
  * @param $i
  * takes a counter as param and calculates
- * the page number page on page being viewed
+ * the page number based on page being viewed
+ * @return PageNumber
  */
 function paginateSearchResults($i){
     $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -620,3 +621,10 @@ function paginateSearchResults($i){
        return $i;
     }
 }
+
+function remove_menu_items_from_admin() {
+
+        remove_menu_page( 'edit.php?post_type=articles' );
+
+}
+add_action( 'admin_menu', 'remove_menu_items_from_admin' );
