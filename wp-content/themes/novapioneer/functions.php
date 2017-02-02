@@ -652,15 +652,22 @@ function remove_menu_items_from_admin()
 
 add_action('admin_menu', 'remove_menu_items_from_admin');
 
-function get_nova_events()
+/**
+ * @param bool $taxonomies
+ * @return string
+ *
+ * returns events by country or by school
+ */
+
+function get_nova_events($taxonomies = false)
 {
     $html = '';
-
     if (uri_segment(1) == 'kenya') {
-        $term = 'kenyan-events';
+        $term[] = 'kenyan-events';
     } else {
-        $term = 'south-african-events';
+        $term[] = 'south-african-events';
     }
+
 
     $args = array(
         'post_type' => 'tribe_events',
@@ -673,8 +680,32 @@ function get_nova_events()
                 'field' => 'slug',
                 'terms' => $term,
             )
-        ),
+        )
     );
+
+    if (is_array($taxonomies)) {
+        $args = array(
+            'post_type' => 'tribe_events',
+            'posts_per_page' => '2',
+            'order' => 'DESC',
+            'orderby' => 'ID',
+            'tax_query' => array(
+                'relation' => 'AND',
+                array(
+                    'taxonomy' => 'tribe_events_cat',
+                    'field' => 'slug',
+                    'terms' => $term,
+                ),
+                array(
+                    'taxonomy' => 'school',
+                    'field' => 'slug',
+                    'terms' => $taxonomies,
+                ),
+            ));
+
+
+    }
+
     $query = new WP_Query($args);
 
     if ($query->have_posts()) {
@@ -684,7 +715,7 @@ function get_nova_events()
 
             $html .= '<div class="small-notice" id="rsvp-node">';
             $html .= '  <h1>' . get_the_title() . '</h1>';
-             $html .= '    <h2>'.tribe_get_start_date().'</h2>';
+            $html .= '    <h2>' . tribe_get_start_date() . '</h2>';
             $html .= '      <p>' . tribe_get_address(get_the_ID()) . ',' . tribe_get_country(get_the_ID()) . '</p>';
             $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary" title="">Send an RSVP</a>;';
             $html .= ' </div>';
