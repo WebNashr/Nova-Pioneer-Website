@@ -60,6 +60,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="tel"],
 textarea,
 select {
 	@include font-size(16px);
@@ -564,14 +565,33 @@ img.ajax-loader {
 }
 // apply online  form
 .student-application {
+	h2 {
+		padding: calc(1rem * 2) 0 calc(1rem * 1) 0;
+		&:first-of-type {
+			padding: calc(1rem * 2) 0 calc(1rem * 2) 0;
+		}
+	}
+	h3 {
+		@include font-size(18px);
+		color: $blue-dk;
+	}
 	.page-title {
 		padding-bottom: calc(1rem * 2.75);
     font-size: 42px;
     font-size: 2.625rem;
     line-height: 1.25;
 	}
+
 	form {
 		margin-left: 1rem;
+		h2 {
+			padding-top: calc(1rem * 1.5);
+			padding-bottom: 0;
+			@include font-size(26px);
+			&:first-of-type {
+				padding-bottom: 0;
+			}
+		}
 	}
 	.gform_page_fields {
 		margin-left: 2rem;
@@ -580,7 +600,7 @@ img.ajax-loader {
 		margin-top: 0;
 		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
 			margin-top: 0;
-			width: 180%;
+			// width: 180%;
 			@media only screen and (max-width: 360px) {
 				width: 100%;
 			}
@@ -588,12 +608,16 @@ img.ajax-loader {
 				max-width:100%;
 			}
 		}
-		input[type="text"] {
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"]
+		 {
 			// width: 25% !important;
 			// @extend %column-4;
 			width: 100%;
 			padding: 0.75rem 1rem !important;
 		}
+
 		select {
 			// @extend %column-4;
 			// width: 20% !important;
@@ -610,11 +634,51 @@ img.ajax-loader {
 		.ginput_complex.ginput_container, {
 			margin-left: 2rem;
 		}
-
+		.gf_page_steps {
+			padding-bottom: 1rem;
+			border-bottom: 1px solid $grey-lt;
+			.gf_step_label {
+				@include copy(semi);
+				@include font-size(18px);
+			}
+			.gf_step_active {
+				span.gf_step_number {
+					background: $green-lt;
+					border-radius: 50%;
+					width: 30px;
+					line-height: 30px;
+					padding-left: 10px;
+					color: $white;
+				}
+			}
+		}
+		.gf_step span.gf_step_number {
+			background: none;
+			border-radius: 50%;
+			width: 30px;
+			line-height: 30px;
+			padding-left: 10px;
+			color: $dark-grey;
+			// &:before {
+			// 	width: 44px;
+			//  height: auto;
+			//  @include font-size(20px);
+			//  @include copy(bold);
+			//  margin: 0 0 8px;
+			//  padding: 0;
+			//  text-align: center;
+			//  vertical-align: middle;
+			//  line-height: 44px;
+			//  color: lighten($dark-grey, 20%);
+			//  background: $green-lt;
+			//  border-radius: 50%;
+			//  border: 0 none;
+			// }
+		}
 
 
 		.medium {
-			width: 180%;
+			// width: 180%;
 			@media only screen and (max-width: 360px) {
 				width: 100%;
 			}
@@ -652,6 +716,11 @@ img.ajax-loader {
 		.gform_footer {
 			margin-top: 0;
 			margin-left: 2rem;
+
+		}
+		.gform_page_footer {
+			margin-top: 2rem;
+			border-top: 1px solid $grey-lt;
 		}
 			// @media only screen and (max-width: 360px) {
 			// 	padding-left: 1.75rem;;
