@@ -42,7 +42,12 @@ $(document).ready(function() {
     $(".select-country").click(function(){
         $(".select-countries").toggleClass("show");
         console.log("04. select-country");
-        return false;
+    });
+
+    // dropdown
+    $(".dropdown").click(function(){
+        $(".dropdown-drop").toggleClass("show");
+
     });
 
 

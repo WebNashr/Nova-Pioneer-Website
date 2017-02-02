@@ -512,14 +512,37 @@
                     <div class="school-name"><?php if( is_page_template('school-home-page.php') ): echo get_the_title($post->ID); endif; ?></div>
 
                     <nav role="navigation" class="menu menu-aux">
-                        <a href="#" class="menu-item menu-item-aux" title="">Our Team</a>
-                        <a href="#" class="menu-item menu-item-aux" title="">Admissions</a>
-                        <a href="#" class="menu-item menu-item-aux" title="">Events</a>
-                        <a href="#" class="menu-item menu-item-aux" title="">Extracurriculars</a>
-                        <a href="#" class="menu-item menu-item-aux" title="">Gallery</a>
-                        <a href="#" class="menu-item menu-item-aux" title="">Meet the students</a>
-                        <a href="#" class="menu-item menu-item-aux" title="">News</a>
-                        <a href="#" class="menu-item menu-item-aux" title="">Contact us</a>
+                        <a href="<?php if( is_page_template('school-home-page.php') ): echo get_permalink().'our-team'; else: echo site_url('/our-leadership-team'); endif; ?>" class="menu-item menu-item-aux" >Our Team</a>
+                        <a href="<?php echo site_url('/admission-process'); ?>" class="menu-item menu-item-aux" >Admissions</a>
+                        <a href="<?php echo site_url('/calendar'); ?>" class="menu-item menu-item-aux" >Events</a>
+                        <?php if( is_page_template('school-home-page.php') ): ?>
+                            <a href="#gallery" class="menu-item menu-item-aux" >Gallery</a>
+                        <?php else: ?>
+                            <a href="<?php echo site_url('/gallery'); ?>" class="menu-item menu-item-aux" >Gallery</a>
+                        <?php endif; ?>
+
+                        <?php if( is_page_template('country-home-page.php') ):  global $post;?>
+                            <?php if( $post->post_name == 'kenya'): ?>
+                                <a href="<?php echo site_url('/kenya/contacts'); ?>" class="menu-item menu-item-aux" >Contact us</a>
+                            <?php endif; ?>
+                            <?php if( $post->post_name == 'sa'): ?>
+                                <a href="<?php echo site_url('/sa/contacts'); ?>" class="menu-item menu-item-aux" >Contact us</a>
+                            <?php endif; ?>
+                        <?php elseif( is_page_template('school-home-page.php') ): ?>
+                            <a href="#contacts" class="menu-item menu-item-aux" >Contact us</a>
+                        <?php else: ?>
+                            <div class="dropdown">
+                                <div class="dropdown-header">Contact Us</div>
+
+                                <div class="dropdown-drop">
+                                    <a class="dropdown-item" href="<?php echo site_url('/kenya/contacts'); ?>" > Kenya
+                                    </a>
+
+                                    <a class="dropdown-item" href="<?php echo site_url('/sa/contacts'); ?>" > South Africa
+                                    </a>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </nav>
 
                     <div class="select-country">

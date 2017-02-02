@@ -40,7 +40,7 @@ get_header();?>
         </section>
 
         <section class="section">
-
+            <a name="contacts"></a>
             <div class="general-notices-container school-notices">
             <div class="large-notice-container" style="background-image: url(<?php echo get_field('admission_photo'); ?>);">
                 <div class="large-notice">
