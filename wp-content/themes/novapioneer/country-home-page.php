@@ -38,7 +38,7 @@ get_header(); ?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
-                <a href="#"  title="">Meet the Students</a>
+                <a href="<?php echo site_url('/meet-the-students'); ?>"  >Meet the Students</a>
             </div>
 
             <div class="section-content even-section">
@@ -109,7 +109,7 @@ get_header(); ?>
             <figure class="full-width-image parallax">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p>We are developing generations of innovators and leaders who will shape the African Century.<a href="<?php echo site_url('/learning/'); ?>" class="" title="">Learn More</a> </p>
+                        <p>We are developing generations of innovators and leaders who will shape the African Century.<a href="<?php echo site_url('/learning/'); ?>" class="" >Learn More</a> </p>
                     </figcaption>
                 </div>
             </figure>
@@ -148,7 +148,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Leadership Team</h2>
-                <a href="<?php echo site_url('/leadership-team'); ?>">View the team</a>
+                <a href="<?php echo site_url('/our-leadership-team'); ?>">View the team</a>
             </div>
 
             <div class="section-content">
@@ -169,7 +169,7 @@ get_header(); ?>
                     <div class="large-notice">
                         <div class="notice-content">
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process')?>" class="button button-tiny button-secondary" title="">Apply Now</a></p>
+                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process')?>" class="button button-tiny button-secondary" >Apply Now</a></p>
                         </div>
                     </div>
                 </div>

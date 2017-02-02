@@ -34,6 +34,9 @@
 
     &.leadership-team{
         background-image: url('../../img/large-hero-leadership.jpg');
+        background-position: center top;
+        min-height: 63vh;
+        // max-height: 80vh;
     }
 
     &.working-at-np{

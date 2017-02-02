@@ -16,7 +16,7 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1>Learners are inspired become adaptive, independent thinkers</h1>
-                    <a href="<?php echo site_url('/learning'); ?>" class="button button-default button-primary">Learn More</a>
+                    <!-- <a href="<?php echo site_url('/learning'); ?>" class="button button-default button-primary">Learn More</a> -->
                 </div>
             </div>
         </section>
@@ -40,7 +40,7 @@ get_header();?>
         </section>
 
         <section class="section">
-
+            <a name="contacts"></a>
             <div class="general-notices-container school-notices">
             <div class="large-notice-container" style="background-image: url(<?php echo get_field('admission_photo'); ?>);">
                 <div class="large-notice">
@@ -58,7 +58,7 @@ get_header();?>
                     <div class="notice-content">
                         <h1>Learn About Our Admission Process</h1>
                         <?php echo get_field('admission_call_to_action'); ?>
-                        <p class="call-to-action"><a href="#" class="button button-tiny button-secondary" title="">Apply Now</a></p>
+                        <p class="call-to-action"><a href="#" class="button button-tiny button-secondary" >Apply Now</a></p>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@ get_header();?>
 
                 <div class="small-notice">
                     <h1>Download Our Fees Structure</h1>
-                    <a download href="<?php echo get_field('fees_structure'); ?>" class="button button-tiny button-secondary" title="">Download</a>
+                    <a download href="<?php echo get_field('fees_structure'); ?>" class="button button-tiny button-secondary" >Download</a>
                 </div>
             </div>
 
@@ -78,7 +78,7 @@ get_header();?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
-                <a href="#" title="">Meet the Students</a>
+                <a href="<?php echo site_url('/meet-the-students'); ?>" >Meet the Students</a>
             </div>
 
             <div class="section-content">
@@ -115,13 +115,13 @@ get_header();?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Leadership Team</h2>
-                <a href="<?php echo get_permalink(); ?>our-team"  title="">Our team</a>
+                <a href="<?php echo get_permalink(); ?>our-team"  >Our team</a>
             </div>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
-                    <?php 
-                        $leadership_team_description = get_field('leadership_team_description'); 
+                    <?php
+                        $leadership_team_description = get_field('leadership_team_description');
                         // Get the paragraphs in $leadership_team_description for implementing the read-more functionality
                         preg_match_all('|<p>(.+?)</p>|', $leadership_team_description, $matches);
                         $leadership_team_description_paragraphs = $matches[1];
