@@ -509,60 +509,58 @@
                 </section>
                 
                 <?php if( !is_front_page() ): ?>
-                    <section class="header-section header-section-aux">
-                        <div class="school-name">Ormonde</div>
+                <section class="header-section header-section-aux">
+                    <div class="school-name"><?php if( is_page_template('school-home-page.php') ): echo get_the_title($post->ID); endif; ?></div>
 
-                        <nav role="navigation" class="menu menu-aux">
-                            <a href="#" class="menu-item menu-item-aux" title="">Our Team</a>
-                            <a href="#" class="menu-item menu-item-aux" title="">Admissions</a>
-                            <a href="#" class="menu-item menu-item-aux" title="">Events</a>
-                            <a href="#" class="menu-item menu-item-aux" title="">Extracurriculars</a>
-                            <a href="#" class="menu-item menu-item-aux" title="">Gallery</a>
-                            <a href="#" class="menu-item menu-item-aux" title="">Meet the students</a>
-                            <a href="#" class="menu-item menu-item-aux" title="">News</a>
-                            <a href="#" class="menu-item menu-item-aux" title="">Contact us</a>
-                        </nav>
+                    <nav role="navigation" class="menu menu-aux">
+                        <a href="#" class="menu-item menu-item-aux" title="">Our Team</a>
+                        <a href="#" class="menu-item menu-item-aux" title="">Admissions</a>
+                        <a href="#" class="menu-item menu-item-aux" title="">Events</a>
+                        <a href="#" class="menu-item menu-item-aux" title="">Extracurriculars</a>
+                        <a href="#" class="menu-item menu-item-aux" title="">Gallery</a>
+                        <a href="#" class="menu-item menu-item-aux" title="">Meet the students</a>
+                        <a href="#" class="menu-item menu-item-aux" title="">News</a>
+                        <a href="#" class="menu-item menu-item-aux" title="">Contact us</a>
+                    </nav>
 
-                        <div class="select-country">
-                            <div class="country country-select-toggle">Select country</div>
+                    <div class="select-country">
+                        <div class="country country-select-toggle">Select country</div>
 
-                            <div class="select-countries">
-                                <a href="" title="" class="country">
-                                    <!-- <span class="flag-icon flag-icon-ke"></span> -->
-                                    <span class="text">Kenya</span>
-                                </a>
+                        <div class="select-countries">
+                            <a href="<?php echo site_url('/kenya'); ?>"  class="country">
+                                <span class="text">Kenya</span>
+                            </a>
 
-                                <a href="" title="" class="country">
-                                    <!-- <span class="flag-icon flag-icon-za"></span> -->
-                                    <span class="text">South Africa</span>
-                                </a>
-                            </div>
+                            <a href="<?php echo site_url('/sa'); ?>"  class="country">
+                                <span class="text">South Africa</span>
+                            </a>
                         </div>
+                    </div>
 
-                        <form action="<?php echo esc_url( home_url('/') ); ?>" class="header-search">
-                            <fieldset>
-                                <input type="text" name="s"/>
-                                <input type="submit" name="submit" />
-                                <button class="search-icon">
-                                    <!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                    width="18px" height="18px" viewBox="3.5 0.5 18 18" enable-background="new 3.5 0.5 18 18" xml:space="preserve">
-                                        <circle fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" cx="10.5" cy="7.5" r="6"/>
-                                        <line fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" x1="20.531" y1="17.531" x2="14.5" y2="11.5"/>
-                                    </svg> -->
-                                    <span class="search-toggle-icon magnify">⚲</span>
-                                </button>
-                                <button class="search-toggle">
-                                    <span class="search-toggle-icon magnify open">⚲</span>
-                                    <span class="search-toggle-icon cross">×</span>
-                                </button>
-                                <button class="search-toggle search-toggle-menu">
-                                    <span class="search-toggle-icon magnify open">⚲</span>
-                                    <span class="search-toggle-icon cross">×</span>
-                                </button>
-                            </fieldset>
-                        </form>
-                    </section>
-                <?php endif; ?>
+                    <form action="<?php echo esc_url( home_url('/') ); ?>" class="header-search">
+                        <fieldset>
+                            <input type="text" name="s"/>
+                            <input type="submit" name="submit" />
+                            <button class="search-icon">
+                                <!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                width="18px" height="18px" viewBox="3.5 0.5 18 18" enable-background="new 3.5 0.5 18 18" xml:space="preserve">
+                                    <circle fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" cx="10.5" cy="7.5" r="6"/>
+                                    <line fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" x1="20.531" y1="17.531" x2="14.5" y2="11.5"/>
+                                </svg> -->
+                                <span class="search-toggle-icon magnify">⚲</span>
+                            </button>
+                            <button class="search-toggle">
+                                <span class="search-toggle-icon magnify open">⚲</span>
+                                <span class="search-toggle-icon cross">×</span>
+                            </button>
+                            <button class="search-toggle search-toggle-menu">
+                                <span class="search-toggle-icon magnify open">⚲</span>
+                                <span class="search-toggle-icon cross">×</span>
+                            </button>
+                        </fieldset>
+                    </form>
+                </section>
+            <?php endif; ?>
             </header>
 
         <!-- end page-header -->
