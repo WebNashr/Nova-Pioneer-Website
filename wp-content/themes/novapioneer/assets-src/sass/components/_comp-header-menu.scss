@@ -462,6 +462,65 @@
 			display: block;
 			margin-left: 0;
 	    }
+
+		.dropdown{
+			position: relative;
+			display: inline-block;
+			color: $white;
+			background: transparent;
+			cursor: pointer;
+			margin-top: 0;
+			margin-left: 1.125rem;
+
+
+			.modal & {
+				@include flex-order(2);
+				margin: 0 auto calc(#{$space-tiny} * 0.5);
+			}
+
+			.dropdown-header{
+				@include copy(regular);
+				@include font-size(11px);
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+				color: $white;
+
+				&:hover {
+					color: $blue-lt;
+
+					.dropdown-drop & {
+						color: $white;
+					}
+				}
+
+			}	
+
+			.dropdown-drop{
+				display: none;
+				position: absolute;
+				top: 32px;
+				width: 150px;
+				padding: calc(#{$space-tiny} * 0.25) 0 calc(#{$space-tiny} * 0.5);
+				transition: $ease;
+				background: $blue;
+
+				.dropdown-item{
+					display: block;
+					color: $white;
+					padding: calc(#{$space-tiny} * 0.25) calc(#{$space-tiny} * 0.75);
+
+					&:hover{
+						color: $blue;
+					}
+				}
+
+				&.show {
+					display: block;
+					background: $blue-lt;
+				}
+			}
+
+		}
 	}
 
 	&.menu-main {
