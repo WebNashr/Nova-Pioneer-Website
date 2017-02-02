@@ -11,12 +11,12 @@ get_header();?>
 
         <section class="section trigger-offset">
             <article class="article article-body general-content student-application">
-                <h1 class="page-title">Nova Pioneer Application</h1>
+                <!-- <h1 class="page-title">Nova Pioneer Application</h1> -->
                 <?php the_content(); ?>
 
-                <p>
+                <!-- <p>
                     <a href="<?php echo site_url('/admission-process/'); ?>" class="button button-small button-primary">See our Admissions Process</a>
-                </p>
+                </p> -->
             </article>
         </section>
 
