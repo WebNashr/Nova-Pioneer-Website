@@ -4,16 +4,14 @@
 
     <div class="modal-container">
         <header class="modal-header">
-            <img class="modal-logo" src="<?php echo get_template_directory_uri(); ?>/img/nova-logo-2-white.svg" alt="">
+            <img class="modal-logo" src="<?php echo get_template_directory_uri(); ?>/img/nova-logo-2-white.svg">
             <div class="modal-title">
-                <h2>Ormonde School</h2>
-                <h1>Open Day</h1>
-                <time datetime="2017-10-15 09:00+02:00">15th October, 2017</time>
-                <address>49 Dorado Avenue, Ormonde, Johannesburg, South Africa</address>
+                <h2 id="event-organiser"></h2>
+                <h1 id="event-title"></h1>
+                <time datetime="" id="event-date"></time>
+                <address id="event-location"></address>
             </div>
         </header>
-
-        <!-- <p>We hope you will able to make it for our 2017 Open Day. Please confirm your attendance by completing the form below.</p> -->
 
         <form action="" class="rsvp">
             <fieldset>
@@ -48,8 +46,8 @@
             </fieldset>
 
             <fieldset>
-                <!-- <label for="email">Email</label> -->
-                <input type="submit" id="submit" value="Send">
+                <input type="hidden" name="event-id" value="" />
+                <input type="submit" id="submit" value="Send" />
             </fieldset>
         </form>
     </div>

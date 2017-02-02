@@ -681,12 +681,14 @@ function get_nova_events()
         // The Loop
         while ($query->have_posts()) {
             $query->the_post();
+            $event_address = tribe_get_address(get_the_ID()) . ',' . tribe_get_country(get_the_ID());
+            $organizers = tribe_get_organizer_ids(get_the_ID());
 
             $html .= '<div class="small-notice" id="rsvp-node">';
             $html .= '  <h1>' . get_the_title() . '</h1>';
-             $html .= '    <h2>'.tribe_get_start_date().'</h2>';
-            $html .= '      <p>' . tribe_get_address(get_the_ID()) . ',' . tribe_get_country(get_the_ID()) . '</p>';
-            $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary" title="">Send an RSVP</a>;';
+            $html .= '    <h2>'.tribe_get_start_date().'</h2>';
+            $html .= '      <p>' . $event_address . '</p>';
+            $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary button-send-rsvp" data-event-name="'. get_the_title() .'" data-event-organisers="'.implode(', ', $organizers).'" data-event-date="'.tribe_get_start_date().'" data-event-location="'.$event_address.'" data-event-id="'. get_the_ID() .'">Send an RSVP</a>';
             $html .= ' </div>';
         }
         wp_reset_postdata();
