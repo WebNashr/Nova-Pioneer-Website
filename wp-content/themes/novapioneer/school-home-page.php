@@ -120,7 +120,7 @@ get_header();?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Leadership Team</h2>
-                <a href="#"  title="">Our team</a>
+                <a href="<?php echo get_permalink(); ?>our-team"  title="">Our team</a>
             </div>
 
             <div class="section-content">
@@ -247,7 +247,6 @@ get_header();?>
         <section class="section section-pair section-school-blog even-section">
             <div class="section-navigation">
                 <h2>Student Blog</h2>
-                <a href="#"  title="">View All Blog Posts</a>
             </div>
 
             <div class="section-content">
