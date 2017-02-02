@@ -64,12 +64,7 @@ get_header();?>
             </div>
 
             <div class="small-notice-container">
-                <div class="small-notice" id="rsvp-node">
-                    <h1>Nova Pioneer Ormonde Open Day</h1>
-                    <h2>15th October, 2016</h2>
-                    <p>49 Dorado Avenue, Ormonde</p>
-                    <a href="#" class="modal-toggle button button-tiny button-secondary" >Send an RSVP</a>
-                </div>
+               <?php echo get_nova_events();?>
 
                 <div class="small-notice">
                     <h1>Download Our Fees Structure</h1>
