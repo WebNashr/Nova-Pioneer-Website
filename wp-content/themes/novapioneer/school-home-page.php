@@ -58,7 +58,7 @@ get_header();?>
                     <div class="notice-content">
                         <h1>Learn About Our Admission Process</h1>
                         <?php echo get_field('admission_call_to_action'); ?>
-                        <p class="call-to-action"><a href="#" class="button button-tiny button-secondary" title="">Apply Now</a></p>
+                        <p class="call-to-action"><a href="#" class="button button-tiny button-secondary" >Apply Now</a></p>
                     </div>
                 </div>
             </div>
@@ -68,12 +68,12 @@ get_header();?>
                     <h1>Nova Pioneer Ormonde Open Day</h1>
                     <h2>15th October, 2016</h2>
                     <p>49 Dorado Avenue, Ormonde</p>
-                    <a href="#" class="modal-toggle button button-tiny button-secondary" title="">Send an RSVP</a>
+                    <a href="#" class="modal-toggle button button-tiny button-secondary" >Send an RSVP</a>
                 </div>
 
                 <div class="small-notice">
                     <h1>Download Our Fees Structure</h1>
-                    <a download href="<?php echo get_field('fees_structure'); ?>" class="button button-tiny button-secondary" title="">Download</a>
+                    <a download href="<?php echo get_field('fees_structure'); ?>" class="button button-tiny button-secondary" >Download</a>
                 </div>
             </div>
 
@@ -83,7 +83,7 @@ get_header();?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
-                <a href="#" title="">Meet the Students</a>
+                <a href="<?php echo site_url('/meet-the-students'); ?>" >Meet the Students</a>
             </div>
 
             <div class="section-content">
@@ -120,7 +120,7 @@ get_header();?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Leadership Team</h2>
-                <a href="<?php echo get_permalink(); ?>our-team"  title="">Our team</a>
+                <a href="<?php echo get_permalink(); ?>our-team"  >Our team</a>
             </div>
 
             <div class="section-content">
