@@ -75,7 +75,8 @@ get_header();?>
                     $schools = get_field('schools');
                     $selected_school = $_GET['school'];
                     $selected_grade  = $_GET['grade'];
-                    $selected_year   = $_GET['year'];
+                    $selected_year   = $_GET['school_year'];
+
                 ?>
 
                     <article class="article article-inner article-inner-alt">
@@ -99,7 +100,7 @@ get_header();?>
                               </select>
                           </div>
                           <div class="selector">
-                              <select name="year" class="dropdown">
+                              <select name="school_year" class="dropdown">
                                       <option value="Please Select Your Area of Interest">Select a Year</option>
                                     <?php if(!empty($selected_grade) && is_object($selected_grade)): ?>
                                         <?php foreach( $selected_grade->fees_by_year as $year): $year = (object)$year; ?>
@@ -112,7 +113,7 @@ get_header();?>
                       </form>
                       <?php if( !empty($selected_school) && !empty($selected_grade) && !empty($selected_year) &&  ($_GET["view"] === "true") ): ?>
                         <div class="fees-container" id="fees-table">
-                            <h2><?php echo $selected_school->post_title; ?> Fee Structure for <?php echo $selected_grade->grade; ?> <?php echo $selected_year->year; ?></h2>
+                            <h2><?php echo $selected_school->post_title; ?> Fee Structure for  Grade <?php echo $selected_grade->grade; ?> <?php echo $selected_year->year; ?></h2>
                             <div class="schedule-content">
                                 <header class="table-header"></header>
                                 <table class="fees-table">
