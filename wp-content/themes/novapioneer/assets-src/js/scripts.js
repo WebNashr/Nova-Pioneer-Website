@@ -102,12 +102,12 @@ $(document).ready(function() {
         to effectively scroll to top we have to account for our static
         header height.
         so our "top" is actually RealTop - StaticHeaderHeight
-         the + 20 is just  for padding
+
      */
     $('.anchor-link a[href^="#"]').on('click', function(event) {
         console.log('scroll');
         var target = $(this.getAttribute('href'));
-        var headerHeight = $("#header-container").height() + 20
+        var headerHeight = $("#header-container").height()
         console.log(headerHeight)
         var scrollToPosition = $(target).offset().top - headerHeight;
         console.log(scrollToPosition);

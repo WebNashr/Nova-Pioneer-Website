@@ -82,10 +82,10 @@ get_header();?>
             </figure>
 
             <section class="education-stage even-section">
-                <div class="section-title anchor-link" id="<?php echo strtolower($stage->title); ?>">
+                <div class="section-title anchor-link">
             <section class="section">
                 <article class="article article-inner article-inner-alt">
-                    <h2><?php echo $stage->title; ?></h2>
+                    <h2 id="<?php echo strtolower($stage->title); ?>"><?php echo $stage->title; ?></h2>
                     <?php echo $stage->description; ?>
                     <?php
                         $vid_caption = get_field('video_caption', $stage->video->ID);
@@ -132,7 +132,7 @@ get_header();?>
 <?php get_footer(); ?>
 
 
-<!-- smooth scroll -->
+<!-- smooth scroll
 <script>
    $('a[href^="#"]').on('click', function(event) {
        var target = $(this.getAttribute('href'));
@@ -143,7 +143,7 @@ get_header();?>
            }, 1000);
        }
    });
-</script>
+</script>-->
 <!-- caption animation-->
 <script>
 

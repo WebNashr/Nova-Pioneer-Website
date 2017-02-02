@@ -87,12 +87,12 @@ get_header(); ?>
             </section>
 
 
-            <span class="anchor-link" id="senior"></span>
+            <span class="anchor-link"></span>
 
 
             <section class="section section-pair even-section">
                 <div class="section-navigation">
-                    <h2>Senior Students</h2>
+                    <h2 id="senior">Senior Students</h2>
                 </div>
 
                 <div class="section-content">
