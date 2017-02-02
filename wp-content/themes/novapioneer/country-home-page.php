@@ -175,16 +175,7 @@ get_header(); ?>
                 </div>
 
                 <div class="small-notice-container">
-                    <?php $events = get_field('events'); ?>
-                    <?php foreach($events as $event): ?>
-                    <div class="small-notice">
-                        <h1><?php echo $event->post_title; ?></h1>
-                        <h2><?php echo get_field('date', $event->ID); ?></h2>
-                        <p><?php echo get_field('venue', $event->ID); ?></p>
-                        <button class="modal-toggle button button-tiny button-secondary">Send an RSVP</button>
-                    </div>
-                    <!-- <div class="divider"></div> -->
-                    <?php endforeach; ?>
+                    <?php echo get_nova_events();?>
                 </div>
 
                 </div>

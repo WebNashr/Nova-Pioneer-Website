@@ -55,7 +55,7 @@ function novap_setup()
     /**
      * Gravity Forms Enable Hiding Labels on a field by field basis
      */
-    add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+    add_filter('gform_enable_field_label_visibility_settings', '__return_true');
 
 
 } // novap_setup
@@ -92,7 +92,7 @@ function novap_menu_css_classes($classes, $item, $args, $depth)
     if ('novap-footer-menu' === $args->theme_location) {
         $classes[] = 'footer-box-item';
 
-        if($depth == 0):
+        if ($depth == 0):
             $classes[] = 'footer-box-main-item';
         else:
             $classes[] = 'footer-box-menu-item';
@@ -347,11 +347,11 @@ function novap_body_class($classes)
     }
 
     // Remove search-results class from body classes in search page
-    if( is_search() ) {
+    if (is_search()) {
 
         $blacklist = array('search-results');
 
-        $classes = array_diff( $classes, $blacklist );
+        $classes = array_diff($classes, $blacklist);
     }
 
     return array_merge($classes, $additional_classes);
@@ -495,7 +495,7 @@ function novap_render_google_map(array $locations)
 {
     $map_view = new View("map.html");
 
-    if ( !empty($locations) ):
+    if (!empty($locations)):
 
         $map_view->render(array(
             "locations" => json_encode($locations)
@@ -590,8 +590,9 @@ function set_post_new_bg()
 
 }
 
-function isEven($num){
-    if( $num % 2 === 0 ) {
+function isEven($num)
+{
+    if ($num % 2 === 0) {
         return true;
     } else {
         return false;
@@ -604,27 +605,92 @@ function isEven($num){
  * the page number based on page being viewed
  * @return PageNumber
  */
-function paginateSearchResults($i){
+function paginateSearchResults($i)
+{
     $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $uri_segments = explode('/', $uri_path);
     if ($uri_segments[2] && $uri_segments[2] > 1) {
         if ($uri_segments[2] > 2) {
             if ($uri_segments[2] < 4) {
-                return $i + $uri_segments[2] +  1;
+                return $i + $uri_segments[2] + 1;
             } else {
-                return $i + $uri_segments[2] + $uri_segments[2] -  2;
+                return $i + $uri_segments[2] + $uri_segments[2] - 2;
             }
         } else {
-           return $i + $uri_segments[2];
+            return $i + $uri_segments[2];
         }
     } else {
-       return $i;
+        return $i;
     }
 }
 
-function remove_menu_items_from_admin() {
+/**
+ * @param $segment
+ * @return string
+ *  use method to walk through uri segments
+ */
+function uri_segment($segment)
+{
 
-        remove_menu_page( 'edit.php?post_type=articles' );
+    $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $uri_segments = explode('/', $uri_path);
+    if ($uri_segments[$segment]) {
+        return $uri_segments[$segment];
+    }
+
+    return 'error 421 : unknown uri segment ';
+
 
 }
-add_action( 'admin_menu', 'remove_menu_items_from_admin' );
+
+function remove_menu_items_from_admin()
+{
+
+    remove_menu_page('edit.php?post_type=articles');
+
+}
+
+add_action('admin_menu', 'remove_menu_items_from_admin');
+
+function get_nova_events()
+{
+    $html = '';
+
+    if (uri_segment(1) == 'kenya') {
+        $term = 'kenyan-events';
+    } else {
+        $term = 'south-african-events';
+    }
+
+    $args = array(
+        'post_type' => 'tribe_events',
+        'posts_per_page' => '2',
+        'order' => 'DESC',
+        'orderby' => 'ID',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'tribe_events_cat',
+                'field' => 'slug',
+                'terms' => $term,
+            )
+        ),
+    );
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        // The Loop
+        while ($query->have_posts()) {
+            $query->the_post();
+
+            $html .= '<div class="small-notice" id="rsvp-node">';
+            $html .= '  <h1>' . get_the_title() . '</h1>';
+             $html .= '    <h2>'.tribe_get_start_date().'</h2>';
+            $html .= '      <p>' . tribe_get_address(get_the_ID()) . ',' . tribe_get_country(get_the_ID()) . '</p>';
+            $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary" title="">Send an RSVP</a>;';
+            $html .= ' </div>';
+        }
+        wp_reset_postdata();
+    }
+
+    return $html;
+}
