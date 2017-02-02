@@ -436,7 +436,17 @@
 	}
 }
 
+.general-content {
+	max-width: 768px;
+	margin: 0rem auto;
+}
+// width: 60%;
 
+	// &:first-of-type,
+	// &-first {
+	// 	margin-top: calc(#{$space-tiny} * 6);
+	// 	padding-top: calc(#{$space-tiny} * 6);
+	// }
 
 
 	.sign-up {
