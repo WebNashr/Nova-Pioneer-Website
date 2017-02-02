@@ -25,7 +25,7 @@
     </head>
     <body <?php body_class(); ?>>
         <!-- page-header -->
-            <header class="page-header <?php if( is_front_page() ): echo 'page-header-home'; endif; ?>" <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>  id="header-container">>
+            <header class="page-header <?php if( is_front_page() ): echo 'page-header-home'; endif; ?>" <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>  id="header-container">
                 <section class="header-section <?php if( is_front_page() ): echo 'header-section-home'; else: echo 'header-section-main'; endif; ?>">
                     <a href="<?php echo home_url(); ?>" class="logo header-logo">  
                         <?php if( is_front_page() ): ?>
