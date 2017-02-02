@@ -2,6 +2,7 @@
   </main> <!-- end content -->
   
 <!-- start footer -->
+<?php if( !is_front_page() ): ?>
   <footer class="page-footer">
       <nav role="navigation" class="footer-menu">
           <a href="<?php echo site_url(); ?>" class="footer-logo">
@@ -20,8 +21,8 @@
           </div>
       </nav>
   </footer>
-
-  <footer class="page-footer page-footer-aux">
+<?php endif; ?>
+  <footer class="page-footer <?php if( is_front_page() ): echo 'page-footer-home'; else: echo 'page-footer-aux'; endif; ?>">
 
     <!-- start navigation -->
         <?php wp_nav_menu( array(
