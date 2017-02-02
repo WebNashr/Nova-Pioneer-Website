@@ -26,7 +26,7 @@
     <body <?php body_class(); ?>>
         
             <!-- page-header -->
-        <header class="page-header" <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>>
+        <header class="page-header" <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?> id="header-container">
             <section class="header-section header-section-main">
                 <a href="<?php echo home_url(); ?>" class="logo header-logo">
                     <!-- <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-horizontal-coloured-blue.svg" alt=""> -->
