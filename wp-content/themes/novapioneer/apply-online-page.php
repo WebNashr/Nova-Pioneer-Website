@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * Template Name: Apply Online
 */
@@ -10,7 +10,7 @@ get_header();?>
     <?php while( have_posts() ): the_post(); ?>
 
         <section class="section trigger-offset">
-            <article class="article article-body general-content">
+            <article class="article article-body general-content student-application">
                 <h1 class="page-title">Nova Pioneer Application</h1>
                 <?php the_content(); ?>
 
