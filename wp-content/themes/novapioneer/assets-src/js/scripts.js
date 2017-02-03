@@ -56,8 +56,11 @@ $(document).ready(function() {
 
         if ($(this).hasClass('button-send-rsvp')) {
 
-            $('#event-organiser').html( $(this.data().eventOrganizers) );
-            $('#event-title').html($(this).data().eventName);
+            $('#event-organiser').html( $(this).data().eventOrganizers );
+            $('#event-title').html( $(this).data().eventName );
+            $('#event-date').html( $(this).data().eventDate );
+            $('#event-location').html( $(this).data().eventLocation );
+            $('#event-id').val( $(this).data().eventId );
         }
         
         $(".modal").toggleClass("modal-show");
