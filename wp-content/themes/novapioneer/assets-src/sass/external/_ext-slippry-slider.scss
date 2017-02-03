@@ -12,7 +12,8 @@ $pager_size: 1.2em !default;       // size of the pager bubbles
 $trans_ease: ease !default;        // easing for the transitions
 $mobile_break: 600px !default;     // breakpoint to use some special mobile styling
 $spinner_url: 'images/sy-loader.gif' !default;
-$arrows_url: 'images/arrows.svg' !default;
+$arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !default;
+
 
 @mixin animation ($animation) {
   animation-name: $animation;
@@ -125,7 +126,7 @@ $arrows_url: 'images/arrows.svg' !default;
     padding: 0;
     display: block;
     width: 100%;
-    // height:100%;
+    height:100%;
     border: 0;
   }
   > a { // styling for link on whole slide
@@ -157,7 +158,7 @@ $arrows_url: 'images/arrows.svg' !default;
     width: 10%;
     min-width: $controls_size * 1.5;
     height: 100%;
-    z-index: 33;
+    z-index: 3;
     &.sy-prev {
       left: 0;
       top: 0;
@@ -197,10 +198,10 @@ $arrows_url: 'images/arrows.svg' !default;
         text-align: center;
         text-indent: 0;
         line-height: $controls_size;
-        color: #111;
+        color: $white;
         font-weight: 800;
         position: absolute;
-        background-color: #fff;
+        background-color: $blue-dk;
         width: $controls_size;
         height: $controls_size;
         left: 50%;
@@ -226,20 +227,25 @@ $arrows_url: 'images/arrows.svg' !default;
       }
     }
   }
+  @include break-point(tablet) {
+    height: 60%;
+  }
 }
 /* captions, styled fo the overlay variant */
 .sy-caption-wrap {
   position: absolute;
   bottom: 2em;
-  z-index: 12;
-  left: 50%;
+  z-index: 3;
+  // left: 50%;
   .sy-caption {
     position: relative;
-    top: -10rem;
-    left: -50%;
+    top: -3rem;
+    left: 50%;
     background-color: rgba(0,0,0,0.54);
     color: #fff;
-    padding: 0.4em 1em;
+    @include font-size(18px);
+    // padding: 0.4em 1em;
+    padding: calc(1rem * 1);
     a {
       &:link, &:visited {
         color: $color_high;
@@ -250,17 +256,28 @@ $arrows_url: 'images/arrows.svg' !default;
         text-decoration: underline;
       }
     }
+    @include break-point(tablet) {
+			top: -11rem;
+      left: 45%;
+		}
+    @include break-point(laptop) {
+			top: -3rem;
+      left: 45%;
+		}
+    @include break-point(desktop) {
+			top: -6rem;
+		}
   }
-  @media only screen and (max-device-width : $mobile_break), screen and (max-width : $mobile_break) {
-    left: 0;
-    bottom: 0.4em;
-    .sy-caption {
-      left: 0;
-      padding: 0.2em 0.4em;
-      font-size: 0.92em;
-      border-radius: 0;
-    }
-  }
+  // @media only screen and (max-device-width : $mobile_break), screen and (max-width : $mobile_break) {
+  //   left: 0;
+  //   bottom: 0.4em;
+  //   .sy-caption {
+  //     left: 0;
+  //     padding: 0.2em 0.4em;
+  //     // font-size: 0.92em;
+  //     border-radius: 0;
+  //   }
+  // }
 }
 /* pager bubbles */
 .sy-pager {

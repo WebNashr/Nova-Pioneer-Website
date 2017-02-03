@@ -26,7 +26,7 @@ get_header(); ?>
                 </div>
 
 
-                <div class="section-content-item-full">
+                <div class="section-content-item-full overflow-crop">
                   <div class="media gallery">
                     <ul id="slippry">
                       <li>

@@ -167,7 +167,9 @@
 // 		}
 //     }
 // }
-
+.overflow-crop {
+	overflow: hidden;
+}
 .slider-container {
 	clear: both;
   // padding-top: calc(1rem * 4);
@@ -175,7 +177,7 @@
 	margin-bottom: 4rem;
 	@extend %columns;
 	@extend %column-12;
-	max-height: 600px;
+	max-height: 628px;
 	@include break-point(tablet) {
 		// margin-bottom: -5rem;
 	}
@@ -188,11 +190,17 @@
 		// height: 88.85%;
 		// height: 80.75%;
 		// max-height: 90%;
+		height: 100%;
 		min-width: 20%;
-		@include break-point(largelaptop) {
-			// height: 80.75%;
+		@include break-point(laptop) {
+			height: 89%;
 		}
-
+		@include break-point(desktop) {
+			height: 100%;
+		}
+		@media only (min-width: 1440px) and (max-width: 1440px) { //1440px
+				height: 91.7%;
+		}
 		.gallery-nav{
 			@include font-size(16px);
 			padding-bottom: calc(1rem * 2);
