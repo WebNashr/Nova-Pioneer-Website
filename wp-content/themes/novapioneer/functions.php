@@ -390,7 +390,7 @@ function novap_notify_on_rsvp(array $rsvp, $post)
         "rsvp_attendance" => $rsvp->attendance,
         "event_name" => $post->post_title,
         "event_date" => $event_date
-    ], false), ["schambach@circle.co.ke" => "Schambach", "maria@circle.co.ke" => "Maria"]);
+    ], false), ["schambach@circle.co.ke" => "Schambach", "maria@circle.co.ke" => "Maria", "joyce@circle.co.ke" => "Joyce"]);
 
 }
 
