@@ -60,8 +60,8 @@
 
   <?php endif; ?>
   <!-- slippry -->
-  <!-- <script src="http://novapioneer.dev/wp-content/themes/novapioneer/assets/slippry/slippry.min.js"></script> -->
-  <script src="/wp-content/themes/novapioneer/assets/slippry/slippry.min.js"></script>
+
+  <script src="<?php echo get_template_directory_uri(); ?>/assets/slippry/slippry.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
       jQuery(document).ready(function(){
