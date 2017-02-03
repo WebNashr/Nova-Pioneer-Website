@@ -28,6 +28,12 @@ li {
 		content: "\2022";
 		color: $orange-lt;
 	}
+	.sy-list {
+	
+		&:before {
+			content: none !important;
+		}
+	}
 }
 
 
@@ -111,5 +117,3 @@ li {
 
 	}
 }
-
-
