@@ -52,11 +52,20 @@ $(document).ready(function() {
 
 
     // 05. modal toggle
-    $(".modal-toggle").click(function(){
+    $(".modal-toggle").click(function () {
+
+        if ($(this).hasClass('button-send-rsvp')) {
+
+            $('#event-organiser').html( $(this).data().eventOrganizers );
+            $('#event-title').html( $(this).data().eventName );
+            $('#event-date').html( $(this).data().eventDate );
+            $('#event-location').html( $(this).data().eventLocation );
+            $('#event-id').val( $(this).data().eventId );
+        }
+        
         $(".modal").toggleClass("modal-show");
         $("body").toggleClass("modal-show");
-        console.log("05. modal toggle");
-        return false;
+
     });
 
 

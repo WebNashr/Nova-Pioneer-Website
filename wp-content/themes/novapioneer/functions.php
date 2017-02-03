@@ -395,19 +395,20 @@ function novap_notify_on_rsvp(array $rsvp, $post)
 }
 
 
-function novap_add_event_rsvp($data)
+function novap_add_event_rsvp()
 {
-    global $post;
-    $data = (object)$data;
+    $data = (object)$_REQUEST;
 
-    if (isset($data->rsvp_name) && isset($data->rsvp_email) && isset($data->rsvp_attendance)) {
+    if ( isset($data->rsvp_name) && isset($data->rsvp_email) && isset($data->rsvp_attendance) && isset($data->rsvp_guests) && isset($data->event_id) ) {
+
         $rsvp = array(
             'name' => sanitize_text_field($data->rsvp_name),
             'email' => sanitize_email($data->rsvp_email),
+            'guests' => sanitize_text_field($data->rsvp_guests),
             'attendance' => sanitize_text_field($data->rsvp_attendance)
         );
 
-        $_event_rsvp = add_post_meta($post->ID, '_event_rsvp', $rsvp);
+        $_event_rsvp = add_post_meta(intval($data->event_id), '_novap_event_rsvp', $rsvp);
 
         if ($_event_rsvp):
             // notify rsvp of receipt by email and notify novapioneer admins of rsvp via email
@@ -415,14 +416,24 @@ function novap_add_event_rsvp($data)
         endif;
     }
 
-    return false;
+    if( wp_get_referer() )
+    {
+        wp_safe_redirect( wp_get_referer() );
+    }
+    else
+    {
+        wp_safe_redirect( get_home_uri() );
+    }
 
 }
+add_action('admin_post_event-rsvp', 'novap_add_event_rsvp'); // If the user is logged in
+add_action('admin_post_nopriv_event-rsvp', 'novap_add_event_rsvp'); // If the user in not logged in
+
 
 function novap_render_rsvp_metabox($post)
 {
 
-    $rsvps = get_post_meta($post->ID, '_event_rsvp');
+    $rsvps = get_post_meta($post->ID, '_novap_event_rsvp');
 
 
     $rsvps_to_render = array();
@@ -450,7 +461,7 @@ function novap_render_rsvp_metabox($post)
 
 function novap_add_meta_boxes()
 {
-    add_meta_box('novap-events-rsvps', 'RSVP\'s', 'novap_render_rsvp_metabox', 'events', 'normal', 'high');
+    add_meta_box('novap-events-rsvps', 'RSVP\'s', 'novap_render_rsvp_metabox', 'tribe_events', 'normal', 'high');
 }
 
 add_action('add_meta_boxes', 'novap_add_meta_boxes');
@@ -460,7 +471,7 @@ function novap_delete_rsvp_from_event()
 {
     if (is_admin()):
 
-        if (get_current_screen()->id === "events"):
+        if (get_current_screen()->id === "tribe_events"):
 
 
             if (isset($_REQUEST['post']) && isset($_REQUEST['rsvp']) && isset($_REQUEST['_wpnonce'])):
@@ -477,7 +488,7 @@ function novap_delete_rsvp_from_event()
 
                 if (wp_verify_nonce($nonce, 'novap_delete_rsvp')):
                     // delete the rsvp
-                    delete_post_meta($post_id, '_event_rsvp', $rsvp);
+                    delete_post_meta($post_id, '_novap_event_rsvp', $rsvp);
                 endif;
 
             endif;
@@ -681,12 +692,14 @@ function get_nova_events()
         // The Loop
         while ($query->have_posts()) {
             $query->the_post();
+            $event_address = tribe_get_address(get_the_ID()) . ',' . tribe_get_country(get_the_ID());
+            $organizers = tribe_get_organizer_ids(get_the_ID());
 
             $html .= '<div class="small-notice" id="rsvp-node">';
             $html .= '  <h1>' . get_the_title() . '</h1>';
-             $html .= '    <h2>'.tribe_get_start_date().'</h2>';
-            $html .= '      <p>' . tribe_get_address(get_the_ID()) . ',' . tribe_get_country(get_the_ID()) . '</p>';
-            $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary" title="">Send an RSVP</a>;';
+            $html .= '    <h2>'.tribe_get_start_date().'</h2>';
+            $html .= '      <p>' . $event_address . '</p>';
+            $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary button-send-rsvp" data-event-name="'. get_the_title() .'" data-event-organisers="'.implode(', ', $organizers).'" data-event-date="'.tribe_get_start_date().'" data-event-location="'.$event_address.'" data-event-id="'. get_the_ID() .'">Send an RSVP</a>';
             $html .= ' </div>';
         }
         wp_reset_postdata();
