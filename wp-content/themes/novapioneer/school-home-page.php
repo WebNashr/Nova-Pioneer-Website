@@ -1,14 +1,13 @@
 <?php
 /**
-* Template Name: School Homepage
-*/
+ * Template Name: School Homepage
+ */
 
-get_header();?>
+get_header(); ?>
 
-<?php if( have_posts() ): ?>
+<?php if (have_posts()): ?>
 
-    <?php while( have_posts() ): the_post(); ?>
-
+    <?php while (have_posts()): the_post(); ?>
 
 
         <section class="section section-hero school-home">
@@ -30,10 +29,14 @@ get_header();?>
 
             <div class="section-content">
                 <div class="section-content-item school-features">
-                  <div class="feature-item"><span class="feature-icon boys-school-icon"></span><p>Boys School</p></div>
-                  <div class="feature-item"><span class="feature-icon curriculum-icon"></span><p>8-4-4 Curriculum</p></div>
-                  <div class="feature-item"><span class="feature-icon boarding-icon"></span><p>Boarding School</p></div>
-                  <div class="feature-item"><span class="feature-icon grade-icon"></span><p>Form 1 - 4</p></div>
+                    <div class="feature-item"><span class="feature-icon boys-school-icon"></span>
+                        <p>Boys School</p></div>
+                    <div class="feature-item"><span class="feature-icon curriculum-icon"></span>
+                        <p>8-4-4 Curriculum</p></div>
+                    <div class="feature-item"><span class="feature-icon boarding-icon"></span>
+                        <p>Boarding School</p></div>
+                    <div class="feature-item"><span class="feature-icon grade-icon"></span>
+                        <p>Form 1 - 4</p></div>
                     <!-- <?php echo get_field('summary_intro'); ?> -->
                 </div>
             </div>
@@ -42,35 +45,50 @@ get_header();?>
         <section class="section">
             <a name="contacts"></a>
             <div class="general-notices-container school-notices">
-            <div class="large-notice-container" style="background-image: url(<?php echo get_field('admission_photo'); ?>);">
-                <div class="large-notice">
-                    <div class="bar-notice">
-                        <div class="contact">
-                            <p>General Enquiries Call: <a href="tel:<?php echo get_field('general_enquiries_number'); ?>"><?php echo get_field('general_enquiries_number'); ?> </a></p>
+                <div class="large-notice-container"
+                     style="background-image: url(<?php echo get_field('admission_photo'); ?>);">
+                    <div class="large-notice">
+                        <div class="bar-notice">
+                            <div class="contact">
+                                <p>General Enquiries Call: <a
+                                        href="tel:<?php echo get_field('general_enquiries_number'); ?>"><?php echo get_field('general_enquiries_number'); ?> </a>
+                                </p>
+                            </div>
+                            <div class="contact">
+                                <p>Admission Enquiries Call: <a
+                                        href="tel:<?php echo get_field('admission_enquiries_number'); ?>"><?php echo get_field('admission_enquiries_number'); ?> </a>
+                                </p>
+                            </div>
+                            <div class="contact">
+                                <p>Email Us: <a
+                                        href="mailto:<?php echo get_field('school_email'); ?>"><?php echo get_field('school_email'); ?></a>
+                                </p>
+                            </div>
                         </div>
-                        <div class="contact">
-                            <p>Admission Enquiries Call: <a href="tel:<?php echo get_field('admission_enquiries_number'); ?>"><?php echo get_field('admission_enquiries_number'); ?> </a></p>
-                        </div>
-                        <div class="contact">
-                            <p>Email Us: <a href="mailto:<?php echo get_field('school_email'); ?>"><?php echo get_field('school_email'); ?></a></p>
+                        <div class="notice-content">
+                            <h1>Learn About Our Admission Process</h1>
+                            <?php echo get_field('admission_call_to_action'); ?>
+                            <p class="call-to-action"><a href="#" class="button button-tiny button-secondary">Apply
+                                    Now</a></p>
                         </div>
                     </div>
-                    <div class="notice-content">
-                        <h1>Learn About Our Admission Process</h1>
-                        <?php echo get_field('admission_call_to_action'); ?>
-                        <p class="call-to-action"><a href="#" class="button button-tiny button-secondary" >Apply Now</a></p>
+                </div>
+
+                <div class="small-notice-container"><?php
+                    $taxonomies = wp_get_post_terms(get_the_ID(), 'school', array("fields" => "all"));
+                    foreach ($taxonomies as $tax) {
+                        $taxies[] = $tax->slug;
+                    }
+                    ?>
+
+                    <?php echo get_nova_events($taxies); ?>
+
+                    <div class="small-notice">
+                        <h1>Download Our Fees Structure</h1>
+                        <a download href="<?php echo get_field('fees_structure'); ?>"
+                           class="button button-tiny button-secondary">Download</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="small-notice-container">
-               <?php echo get_nova_events();?>
-
-                <div class="small-notice">
-                    <h1>Download Our Fees Structure</h1>
-                    <a download href="<?php echo get_field('fees_structure'); ?>" class="button button-tiny button-secondary" >Download</a>
-                </div>
-            </div>
 
             </div>
         </section>
@@ -78,28 +96,29 @@ get_header();?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
-                <a href="<?php echo site_url('/meet-the-students'); ?>" >Meet the Students</a>
+                <a href="<?php echo site_url('/meet-the-students'); ?>">Meet the Students</a>
             </div>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
-                        <div class="testimonial pull-quote">
+                    <div class="testimonial pull-quote">
 
-                            <?php
-                                $our_students_video  = get_field('our_students_video');
-                                $vid_caption = get_field('video_caption', $our_students_video->ID);
-                                $student_name = get_field('student_name', $our_students_video->ID);
-                                $video = get_field('video', $our_students_video->ID);
-                            ?>
-                            <blockquote>
-                                <svg aria-hidden="true">
-                                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                                </svg>
-                                <p><?php echo $vid_caption; ?></p>
-                                <cite><span><?php echo $student_name; ?>,</span> Nova Pioneer Student</cite>
-                            </blockquote>
+                        <?php
+                        $our_students_video = get_field('our_students_video');
+                        $vid_caption = get_field('video_caption', $our_students_video->ID);
+                        $student_name = get_field('student_name', $our_students_video->ID);
+                        $video = get_field('video', $our_students_video->ID);
+                        ?>
+                        <blockquote>
+                            <svg aria-hidden="true">
+                                <use
+                                    xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                            </svg>
+                            <p><?php echo $vid_caption; ?></p>
+                            <cite><span><?php echo $student_name; ?>,</span> Nova Pioneer Student</cite>
+                        </blockquote>
 
-                        </div>
+                    </div>
 
                 </div>
                 <div class="section-content-item section-content-item-half">
@@ -115,37 +134,43 @@ get_header();?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Leadership Team</h2>
-                <a href="<?php echo get_permalink(); ?>our-team"  >Our team</a>
+                <a href="<?php echo get_permalink(); ?>our-team">Our team</a>
             </div>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
                     <?php
-                        $leadership_team_description = get_field('leadership_team_description');
-                        // Get the paragraphs in $leadership_team_description for implementing the read-more functionality
-                        preg_match_all('|<p>(.+?)</p>|', $leadership_team_description, $matches);
-                        $leadership_team_description_paragraphs = $matches[1];
+                    $leadership_team_description = get_field('leadership_team_description');
+                    // Get the paragraphs in $leadership_team_description for implementing the read-more functionality
+                    preg_match_all('|<p>(.+?)</p>|', $leadership_team_description, $matches);
+                    $leadership_team_description_paragraphs = $matches[1];
                     ?>
 
-                    <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
+                    <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/>
                     <div class="read-more-wrap">
                         <p><?php echo array_shift($leadership_team_description_paragraphs); ?></p>
                         <span class="read-more-target">
-                            <?php foreach($leadership_team_description_paragraphs as $paragraph): ?>
+                            <?php foreach ($leadership_team_description_paragraphs as $paragraph): ?>
                                 <p><?php echo $paragraph; ?></p>
                             <?php endforeach; ?>
                         </span>
                     </div>
-                  <br>
-                  <label for="post-<?php echo get_the_ID(); ?>" class="read-more-trigger button button-tiny button-primary"></label>
+                    <br>
+                    <label for="post-<?php echo get_the_ID(); ?>"
+                           class="read-more-trigger button button-tiny button-primary"></label>
 
                 </div>
 
-                <?php $leadership_team_members = get_field('leadership_team_members'); $x = 0;?>
-                <?php foreach($leadership_team_members as $member): if($x >= 2): break; endif; ?>
+                <?php $leadership_team_members = get_field('leadership_team_members');
+                $x = 0; ?>
+                <?php foreach ($leadership_team_members as $member): if ($x >= 2): break; endif; ?>
                     <div class="section-content-item section-content-item-quarter profile">
-                        <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0];  ?>" alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>" class="profile-img">
-                        <a href="<?php echo get_permalink($member->ID); ?>" class="profile-name" title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
+                        <img
+                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
+                            alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
+                            class="profile-img">
+                        <a href="<?php echo get_permalink($member->ID); ?>" class="profile-name"
+                           title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
                         <span class="profile-role"><?php echo get_field('title', $member->ID); ?></span>
                     </div>
                     <? $x++; ?>
@@ -160,8 +185,8 @@ get_header();?>
 
                 <div class="section-navigation">
                     <?php
-                        $current_gallery = $_GET['current_gallery'];
-                        $images = novap_get_gallery_images($current_gallery);
+                    $current_gallery = $_GET['current_gallery'];
+                    $images = novap_get_gallery_images($current_gallery);
                     ?>
                     <h2>Gallery</h2>
                     <nav class="gallery-nav">
@@ -187,7 +212,7 @@ get_header();?>
                                     checked="<?php if ($im == 1): echo "checked"; endif; ?>"
                                     name="cc-slider"
                                     id="slide<?php echo $im; ?>"
-                                    type="radio" />
+                                    type="radio"/>
                                 <?php $im++; ?>
                             <?php endforeach; ?>
 
@@ -200,7 +225,7 @@ get_header();?>
                                                     <h3><?php echo $image->caption; ?></h3>
                                                 </div>
                                                 <img
-                                                    src="<?php echo $image->url; ?>" />
+                                                    src="<?php echo $image->url; ?>"/>
                                             </article>
                                         <?php endforeach; ?>
                                     </div>
@@ -224,19 +249,20 @@ get_header();?>
                 <?php $testimonial = get_field('testimonial'); ?>
                 <div class="spacing-to-center"></div>
                 <figure class="full-width-figure">
-                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID,'thumbnail'); ?>" />
+                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'thumbnail'); ?>"/>
                 </figure>
                 <blockquote>
                     <svg aria-hidden="true">
-                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                        <use
+                            xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                     </svg>
                     <p><?php echo $testimonial->post_content; ?></p>
-                    <cite><span><?php echo get_field('reviewer_name', $testimonial->ID)?>,</span> <?php echo get_field('reviewer_title', $testimonial->ID)?></cite>
+                    <cite><span><?php echo get_field('reviewer_name', $testimonial->ID) ?>
+                            ,</span> <?php echo get_field('reviewer_title', $testimonial->ID) ?></cite>
                 </blockquote>
                 <div class="spacing-to-center"></div>
             </div>
         </aside>
-
 
 
         <section class="section section-pair section-school-blog even-section">
@@ -245,12 +271,14 @@ get_header();?>
             </div>
 
             <div class="section-content">
-                <?php foreach( get_field('blog_posts') as $blog_post ): $blog_post = (object)$blog_post; ?>
+                <?php foreach (get_field('blog_posts') as $blog_post): $blog_post = (object)$blog_post; ?>
 
                     <div class="section-content-item section-content-item-third blog-article">
-                        <img src="<?php echo get_the_post_thumbnail_url($blog_post->ID,'thumbnail'); ?>" alt="<?php echo $blog_post->post_title; ?>">
-                        <a href="<?php echo get_permalink($blog_post->ID); ?>" class="blog-article-title" title="<?php echo $blog_post->post_title; ?>"><?php echo $blog_post->post_title; ?></a>
-                        <p class="article-author"><?php echo get_the_author_meta('display_name', get_post_field('post_author', $blog_post->ID) ); ?></p>
+                        <img src="<?php echo get_the_post_thumbnail_url($blog_post->ID, 'thumbnail'); ?>"
+                             alt="<?php echo $blog_post->post_title; ?>">
+                        <a href="<?php echo get_permalink($blog_post->ID); ?>" class="blog-article-title"
+                           title="<?php echo $blog_post->post_title; ?>"><?php echo $blog_post->post_title; ?></a>
+                        <p class="article-author"><?php echo get_the_author_meta('display_name', get_post_field('post_author', $blog_post->ID)); ?></p>
                     </div>
 
                 <?php endforeach; ?>
@@ -272,9 +300,12 @@ get_header();?>
 
                 <div class="section-content-item section-content-item-half">
                     <div class="contact-info">
-                        <span class="phone-contact-one">Call us: <a href="tel:<?php echo get_field('main_phone_number'); ?> "><?php echo get_field('main_phone_number'); ?> </a></span>
-                        <span class="phone-contact-two">Admission Enquiries:  <a href="tel:<?php echo get_field('admission_enquiries_number'); ?> "><?php echo get_field('admission_enquiries_number'); ?> </a></span>
-                        <span class="email-contact">Email us: <a href="mailto:<?php echo get_field('email_address'); ?>"><?php echo get_field('email_address'); ?></a></span>
+                        <span class="phone-contact-one">Call us: <a
+                                href="tel:<?php echo get_field('main_phone_number'); ?> "><?php echo get_field('main_phone_number'); ?> </a></span>
+                        <span class="phone-contact-two">Admission Enquiries:  <a
+                                href="tel:<?php echo get_field('admission_enquiries_number'); ?> "><?php echo get_field('admission_enquiries_number'); ?> </a></span>
+                        <span class="email-contact">Email us: <a
+                                href="mailto:<?php echo get_field('email_address'); ?>"><?php echo get_field('email_address'); ?></a></span>
                     </div>
 
                     <div class="contact-info">
@@ -294,19 +325,19 @@ get_header();?>
 <!-- caption animation-->
 <script>
 
-   $(document).ready(function(){
+    $(document).ready(function () {
 
-     var captionWaypoint = $('.caption').waypoint(function(direction) {
+        var captionWaypoint = $('.caption').waypoint(function (direction) {
 
-         if(direction == 'down') {
+            if (direction == 'down') {
 
-             $(this.element).addClass('slideInLeft');
+                $(this.element).addClass('slideInLeft');
 
-             this.destroy();
-         }
-     }, {
-         offset: '95%'
-     });
- });
+                this.destroy();
+            }
+        }, {
+            offset: '95%'
+        });
+    });
 
 </script>
