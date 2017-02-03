@@ -686,7 +686,7 @@ function get_nova_events($taxonomies = false)
     if (is_array($taxonomies)) {
         $args = array(
             'post_type' => 'tribe_events',
-            'posts_per_page' => '2',
+            'posts_per_page' => '1',
             'order' => 'DESC',
             'orderby' => 'ID',
             'tax_query' => array(
