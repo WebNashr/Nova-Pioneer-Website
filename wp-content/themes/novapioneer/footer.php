@@ -1,6 +1,6 @@
 
   </main> <!-- end content -->
-  
+
 <!-- start footer -->
 <?php if( !is_front_page() ): ?>
   <footer class="page-footer">
@@ -59,6 +59,15 @@
         </script>
 
   <?php endif; ?>
-  
+  <!-- slippry -->
+  <!-- <script src="http://novapioneer.dev/wp-content/themes/novapioneer/assets/slippry/slippry.min.js"></script> -->
+  <script src="/wp-content/themes/novapioneer/assets/slippry/slippry.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      jQuery(document).ready(function(){
+        jQuery('#slippry').slippry()
+      });
+    });
+  </script>
   </body>
 </html>
