@@ -60,8 +60,6 @@
 
   <?php endif; ?>
   <!-- slippry -->
-
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/slippry/slippry.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
       jQuery(document).ready(function(){
