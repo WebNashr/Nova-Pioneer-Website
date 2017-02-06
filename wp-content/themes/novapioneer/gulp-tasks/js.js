@@ -10,6 +10,7 @@ var plumber = require('gulp-plumber');
 var es = require('event-stream');
 var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
+var debug = require('gulp-debug');
 
 // task: js
 gulp.task('js', function () {
@@ -18,9 +19,11 @@ gulp.task('js', function () {
         'bower_components/bowser/src/bowser.js',
         'bower_components/flexibility/flexibility.js',
         'bower_components/waypoints/lib/jquery.waypoints.min.js',
+        'assets-src/js/slippry/slippry.min.js',
         'assets-src/js/bowser.js',
         'assets-src/js/scripts.js'
     ])
+    .pipe(debug({title:'js-debug:'}))    
     .pipe(plumber())
     .pipe(concat('main.js'))
     .pipe(rename({suffix: '.min'}))

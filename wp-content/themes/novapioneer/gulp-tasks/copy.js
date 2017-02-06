@@ -1,22 +1,26 @@
 
 'use strict';
 
-var gulp = require('gulp');
+var gulp        = require('gulp');
+var plumber     = require('gulp-plumber');
+var notify      = require('gulp-notify');
+var livereload  = require('gulp-livereload');
+var debug       = require('gulp-debug');
+var es          = require('event-stream');
 
-var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
-var livereload = require('gulp-livereload');
-var gulpCopy = require('gulp-copy');
-var sourceFiles = [
-    './assets-src/slippry/images/arrows.svg',
-    './assets-src/slippry/images/sy-loader.gif'
-];
-var destination = 'assets/js/images';
-
-// task: copy-slippry-images
+// task: copy
 gulp.task('copy', function () {
-    return gulp.src(sourceFiles)
-    .pipe(plumber())
-    .pipe(gulpCopy('.'))
-    .pipe(gulp.dest(destination));
+
+    let sy_loader = gulp.src('./assets-src/js/slippry/images/sy-loader.gif')
+        .pipe(debug({ title: 'copy-debug-sy_loader:' }))
+        .pipe(gulp.dest('./assets/css/images'));
+    
+    let arrows = gulp.src('./assets-src/js/slippry/images/arrows.svg')
+        .pipe(debug({ title: 'copy-debug-arrows:' }))
+        .pipe(gulp.dest('./assets/slippry/images'));
+    
+    return es.concat(sy_loader, arrows.pipe(livereload())
+        .pipe(notify({ message: '   ### COPY TASK COMPLETE ###' })));
+    
+
 });
