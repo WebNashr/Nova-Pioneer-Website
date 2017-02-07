@@ -35,9 +35,10 @@ get_header(); ?>
                 <div class="section-content-item-full overflow-crop">
                   <div class="media gallery">
                     <ul id="slippry">
-                      <?php foreach ($images as $image): $image = (object)$image; ?>
+                      <?php $image_count = 0; ?>
+                      <?php foreach ($images as $image): $image = (object)$image; $image_count++; ?>
                         <li>
-                          <a href="#slide1">
+                          <a href="#slide<?php echo $image_count; ?>">
                             <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>">
                           </a>
                         </li>

@@ -183,12 +183,23 @@ get_header(); ?>
         <section class="section-pair section-gallery">
             <div class="slider-container">
                 <div class="section-navigation">
+                    <?php
+                    $current_gallery = $_GET['current_gallery'];
+                    if(empty($current_gallery)): $current_gallery = "classrooms"; endif; 
+                    $images = novap_get_gallery_images($current_gallery);
+                    ?>
                     <h2>Gallery</h2>
                     <nav class="gallery-nav">
-                      <a href="" class="gallery-select" title="">School grounds</a>
-                      <a href="" class="gallery-select gallery-selected" title="">Classrooms</a>
-                      <a href="" class="gallery-select" title="">Library</a>
-                      <a href="" class="gallery-select" title="">Play Area</a>
+                        <a href="<?php get_permalink(); ?>?current_gallery=school_grounds#gallery"
+                           class="gallery-select <?php if ($current_gallery === 'school_grounds'): echo 'gallery-selected'; endif; ?>">School
+                            grounds</a>
+                        <a href="<?php get_permalink(); ?>?current_gallery=classrooms#gallery"
+                           class="gallery-select <?php if ($current_gallery === 'classrooms'): echo 'gallery-selected'; endif; ?>">Classrooms</a>
+                        <a href="<?php get_permalink(); ?>?current_gallery=library#gallery"
+                           class="gallery-select <?php if ($current_gallery === 'library'): echo 'gallery-selected'; endif; ?>">Library</a>
+                        <a href="<?php get_permalink(); ?>?current_gallery=play_area#gallery"
+                           class="gallery-select <?php if ($current_gallery === 'play_area'): echo 'gallery-selected'; endif; ?>">Play
+                            Area</a>
                     </nav>
                 </div>
 
@@ -196,15 +207,16 @@ get_header(); ?>
                 <div class="section-content-item-full overflow-crop">
                   <div class="media gallery">
                     <ul id="slippry">
-                      <li>
-                        <a href="#slide1"><img src="/wp-content/uploads/2016/12/slide-1.jpg" alt="this is a caption"></a>
-                      </li>
-                      <li>
-                        <a href="#slide2"><img src="/wp-content/uploads/2016/12/slide-2.jpg"  alt="another caption"></a>
-                      </li>
-                      <li>
-                        <a href="#slide3"><img src="/wp-content/uploads/2016/12/slide-3.jpg" alt="one more caption"></a>
-                      </li>
+                        <?php $image_count = 0; ?>
+                        <?php foreach ($images as $image): $image = (object)$image; $image_count++; ?>
+
+                            <li>
+                                <a href="#slide<?php echo $image_count; ?>">
+                                    <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>" />
+                                </a>
+                            </li>
+
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
