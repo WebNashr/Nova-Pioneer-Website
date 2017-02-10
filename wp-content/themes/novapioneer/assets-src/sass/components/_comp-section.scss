@@ -193,7 +193,10 @@
 	    }
 		p {
 			&:first-of-type {
-				margin-top: -0.25rem;
+				margin-top: 0.5rem;
+				@include break-point(laptop) {
+					margin-top: -0.25rem;
+			    }
 			}
 		}
 	}
