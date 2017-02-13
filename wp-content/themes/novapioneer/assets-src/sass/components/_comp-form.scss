@@ -345,9 +345,12 @@ img.ajax-loader {
 
 		}
 		.ginput_container_email {
-			width: 300px;
+			width: 600px;
 			input[type="text"]{
 				width:100%;
+				@include break-point(tablet) {
+						width: 600px;
+				}
 				@include break-point(laptop) {
 						width: 600px;
 				}
