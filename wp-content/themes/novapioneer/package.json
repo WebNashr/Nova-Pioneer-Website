@@ -33,5 +33,7 @@
     "url": "git+https://kumbimadzinga@bitbucket.org/circledevteam/nova-pioneer.git"
   },
   "homepage": "https://bitbucket.org/circledevteam/nova-pioneer#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "gulp-debug": "^3.0.0"
+  }
 }

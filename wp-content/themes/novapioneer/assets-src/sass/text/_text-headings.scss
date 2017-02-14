@@ -58,27 +58,7 @@ h1 {
 		text-shadow: unset;
 	}
 
-	&.full-width-heading {
-		// @include copy(medium);
-	 	// @include font-size(30px);
-	 	margin-top: 2rem;
-		text-align: left;
 
-		@include break-point(tablet) {
-			margin-top: 2rem;
-			text-align: left;
-		}
-
-		@include break-point(laptop) {
-			margin-top: 0;
-			text-align: left;
-		}
-
-		@include break-point(desktop) {
-			margin-top: 0;
-			text-align: center;
-		}
-	}
 
 	.section-school-list-select & {
 		margin-top: -0.5rem;
@@ -136,8 +116,12 @@ h2 {
 	.section-navigation & {
 	 	// @include copy(medium);
 	 	// @include font-size(30px);
-		margin-top: -0.25rem;
-		margin-bottom: 0.25rem;
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+		@include break-point(laptop) {
+			margin-top: -0.25rem;
+			margin-bottom: 0.25rem;
+			}
 		// line-height: 1.15;
 
 		&.current {
@@ -152,6 +136,27 @@ h2 {
 
 		@include break-point(laptop) {
 			margin-bottom: calc(#{$space-tiny} * 1);
+		}
+	}
+	&.full-width-heading  {
+		// @include copy(medium);
+	 	// @include font-size(30px);
+	 	margin-top: 1.250rem ;
+		text-align: left;
+
+		@include break-point(tablet) {
+			margin-top: 2rem;
+			text-align: left;
+		}
+
+		@include break-point(laptop) {
+			margin-top: 0;
+			text-align: left;
+		}
+
+		@include break-point(desktop) {
+			margin-top: 0;
+			text-align: center;
 		}
 	}
 }

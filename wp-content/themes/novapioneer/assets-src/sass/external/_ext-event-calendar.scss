@@ -231,7 +231,19 @@
     }
 }
 
+#legend_box {
+    ul {
+        list-style-type: none;
 
+        li {
+            text-indent: 0;
+
+            &::before {
+                content: none;
+            }
+        }
+    }
+}
 
 
 

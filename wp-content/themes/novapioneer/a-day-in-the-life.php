@@ -10,9 +10,10 @@ get_header(); ?>
     <?php while (have_posts()): the_post(); ?>
 
             <section class="section trigger-offset">
-                <article class="article article-container">
+              <!-- <article class="article article-container"> -->
+                <article class="article">
                     <div class="article-body timeline-container">
-                        <header class="article-header">
+                        <header class="article-header timeline-header">
                             <h1><?php the_title() ?></h1>
                         </header>
 
@@ -67,8 +68,8 @@ get_header(); ?>
             </section>
 
 
-    <?php endwhile; ?> 
-    
+    <?php endwhile; ?>
+
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 <?php endif; ?>
 
