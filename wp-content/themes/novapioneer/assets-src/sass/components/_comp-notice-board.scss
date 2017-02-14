@@ -117,7 +117,7 @@
     	p {
     		@include font-size(14px);
 	    	@include copy(semi);
-        padding-bottom: calc(#{$space-tiny} * 1);
+        // padding-bottom: calc(#{$space-tiny} * 1);
         margin-top: 0;
 	    	// line-height: 1;
 	    	text-align: center;
@@ -125,7 +125,7 @@
       	a{
     	    @include font-size(16px);
           text-align: center;
-    	    //margin-top: 1.25rem;
+    	    margin-top: 0.75rem;
     	}
 
       	@include break-point(laptop) {

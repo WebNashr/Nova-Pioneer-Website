@@ -168,9 +168,9 @@ img.ajax-loader {
 .table-filter {
 	@extend %column;
 	justify-content: space-between;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	flex-direction: row;
-	align-content: stretch;
+	align-items: center;
 	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 0.5) 0;
 	.selector {
 		position: relative;
@@ -232,13 +232,17 @@ img.ajax-loader {
 			color: lighten($dark-grey, 10%);
 			//display: inline-block;
 			width: 100%;
-			padding-right: calc(#{$space-tiny} * 3);
+			padding: calc(#{$space-tiny} * 0.7);
+			padding-right: calc(#{$space-tiny} * 2);
+
+			// padding-right: calc(#{$space-tiny} * 3);
 			@include break-point(mobile) {
 				display: block;
 				width: 100%;
 			}
 			@include break-point(desktop) {
 				width: 100%;
+				max-width: 185px;
 			}
 
 			option{
@@ -362,7 +366,7 @@ img.ajax-loader {
 				}
 			}
 			@include break-point(laptop) {
-					width: 370px;
+					width: 330px;
 			}
 
 		}
@@ -373,7 +377,7 @@ img.ajax-loader {
 
 			}
 			@include break-point(laptop) {
-					width: 370px;
+					width: 330px;
 			}
 
 			.gfield_select {

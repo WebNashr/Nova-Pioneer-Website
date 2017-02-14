@@ -26,6 +26,7 @@
 	@include font-size(14px);
 	@include line-height(1.5);
 	color: $green-blue;
+	padding: 0 !important;
 	// border-left: 4px solid transparent;
 
 	&:not(:first-of-type) {
@@ -91,6 +92,3 @@
 	text-align: center;
 	border-left: 1px solid $grey;
 }
-
-
-

@@ -6,6 +6,10 @@
 .article-header {
 	// border-bottom: 1px solid lighten($light-grey, 32%);
 }
+.timeline-header {
+	border-bottom: 1px solid lighten($light-grey, 32%);
+	margin-bottom: 3rem;
+}
 
 .article-header h1 {
 	// @include font-size(46px);
@@ -37,10 +41,10 @@
 	max-width: 100%;
 	padding: calc(#{$space-tiny} * 1) 0;
 	border-bottom: 1px solid lighten($light-grey, 32%);
-	
+
 	.downloads {
 		// padding-right: calc(#{$space-tiny} * 1.5);
-		
+
 		h4 {
 			// @include font-size(18px);
 			// line-height: 1.25;
@@ -247,5 +251,3 @@
 .article-inner li + li {
 	margin-top: calc(#{$space-tiny} * 0.75);
 }
-
-
