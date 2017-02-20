@@ -26,13 +26,14 @@ a {
 	}
 
 	.section-navigation & {
-		@include font-size(16px);
-		@include copy(semi);
-		padding: calc(#{$space-tiny} * 1) 0;
+		// text-transform: none;
+		// @include font-size(16px);
+		// @include copy(semi);
+		// padding: calc(#{$space-tiny} * 1) 0;
 
 	 	&:hover {
-	 		text-decoration: none;
-	 		cursor: pointer;
+			// 	text-decoration: none;
+			// 	cursor: pointer;
 	 	}
 	}
 

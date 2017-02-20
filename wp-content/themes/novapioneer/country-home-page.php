@@ -38,7 +38,7 @@ get_header(); ?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
-                <a href="<?php echo site_url('/meet-the-students'); ?>"  >Meet the Students</a>
+                <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary" title="">Meet the Students</a>
             </div>
 
             <div class="section-content even-section">
@@ -148,7 +148,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Global Leadership Team</h2>
-                <a href="<?php echo site_url('/global-leadership-team'); ?>">View the team</a>
+                <a href="<?php echo site_url('/global-leadership-team'); ?>" class="button button-small button-primary" title="">Meet the team</a>
             </div>
 
             <div class="section-content">

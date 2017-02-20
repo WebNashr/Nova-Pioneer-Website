@@ -96,7 +96,7 @@ get_header(); ?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
-                <a href="<?php echo site_url('/meet-the-students'); ?>">Meet the Students</a>
+                <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary" title="">Meet the Students</a>
             </div>
 
             <div class="section-content">
@@ -134,7 +134,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Leadership Team</h2>
-                <a href="<?php echo get_permalink(); ?>our-team">Our team</a>
+                <a href="<?php echo get_permalink(); ?>our-team" class="button button-small button-primary" title="">Meet the team</a>
             </div>
 
             <div class="section-content">
@@ -185,7 +185,7 @@ get_header(); ?>
                 <div class="section-navigation">
                     <?php
                     $current_gallery = $_GET['current_gallery'];
-                    if(empty($current_gallery)): $current_gallery = "classrooms"; endif; 
+                    if(empty($current_gallery)): $current_gallery = "classrooms"; endif;
                     $images = novap_get_gallery_images($current_gallery);
                     ?>
                     <h2>Gallery</h2>

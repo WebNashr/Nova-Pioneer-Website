@@ -1567,7 +1567,7 @@
 	 	}
 	 @include break-point(monitor) {
 		justify-content: center;
- 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 6);
+ 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 6) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3);
 
 	}
 }
