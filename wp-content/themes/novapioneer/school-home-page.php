@@ -134,7 +134,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Leadership Team</h2>
-                <a href="<?php echo get_permalink(); ?>our-team" class="button button-small button-primary" title="">Meet the team</a>
+                <a href="<?php echo get_permalink(); ?>our-team" class="button button-small button-primary" title="">View the team</a>
             </div>
 
             <div class="section-content">
