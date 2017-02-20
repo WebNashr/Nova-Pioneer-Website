@@ -123,6 +123,8 @@
     h1 {
       max-width: auto;
       width: 100%;
+      @include font-size(44px); 
+      text-transform: uppercase;
     }
     .country-selection {
       @extend %columns;

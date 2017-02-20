@@ -55,7 +55,7 @@ get_header();?>
 
         <section class="section">
             <article class="article article-inner article-inner-alt">
-                <h2 class="centered-title">School &amp; Company Culture</h2>
+                <h2 class="centered-title">School &amp; organisation Culture</h2>
 
                 <?php echo $our_culture; ?>
 

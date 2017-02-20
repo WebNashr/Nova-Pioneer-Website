@@ -147,8 +147,8 @@ get_header(); ?>
 
         <section class="section section-pair">
             <div class="section-navigation">
-                <h2>Leadership Team</h2>
-                <a href="<?php echo site_url('/our-leadership-team'); ?>">View the team</a>
+                <h2>Global Leadership Team</h2>
+                <a href="<?php echo site_url('/global-leadership-team'); ?>">View the team</a>
             </div>
 
             <div class="section-content">
