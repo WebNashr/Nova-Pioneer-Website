@@ -1,6 +1,6 @@
 <?php
 
-/** 
+/**
  * Template Name: Admission Process
  */
 get_header(); ?>
@@ -34,12 +34,20 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="section" style="padding-top: 0; padding-bottom: 0;">
+        <!-- <section class="section" style="padding-top: 0; padding-bottom: 0;">
             <article class="article">
-                <div class="cta-container-XXX"> <!-- $$$ ### ^^^ remove the -XXX class if design/layout is approved -->
+                <div class="cta-container">
                     <a href="<?php echo site_url('/apply-online'); ?>" class="button button-large button-primary" title="">Apply Online</a>
                 </div>
-            </article> 
+            </article>
+        </section> -->
+        <section class="section call-to-action">
+            <article class="article">
+                <div class="cta-wrapper">
+                  <p>Start your journey with Nova Pioneer today</p>
+                    <div class="button"><a href="<?php echo site_url('/apply-online'); ?>" class="button button-large button-primary" title="">Apply Online</a></div>
+                </div>
+            </article>
         </section>
 
         <!--<section class="section">
@@ -50,7 +58,7 @@ get_header(); ?>
                 <?php foreach( get_field('faqs') as $faq ): $faq = (object)$faq; ?>
                     <li class="show">
                         <h3 class="toggle-list-title"><?php echo $faq->question; ?></h3>
-                        
+
                         <div class="toggle-list-content">
                             <?php echo $faq->response; ?>
                         </div>
@@ -70,7 +78,7 @@ get_header(); ?>
                             <?php if( $contact->contact_type == 'number' ): ?>
                                 <?php echo $contact->label; ?>: <a href="tel:<?php echo $contact->contact_number; ?>"><?php echo $contact->contact_number; ?></a> <br/>
                             <?php elseif( $contact->contact_type = 'email' ): ?>
-                                <?php echo $contact->label; ?>: <a href="mailto:<?php echo $contact->contact_email; ?>"><?php echo $contact->contact_email; ?></a> <br/> 
+                                <?php echo $contact->label; ?>: <a href="mailto:<?php echo $contact->contact_email; ?>"><?php echo $contact->contact_email; ?></a> <br/>
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </p>
