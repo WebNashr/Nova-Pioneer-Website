@@ -35,11 +35,11 @@ get_header(); ?>
                         <div class="links-inner-wrap"
                         <div class="section-content-item">
                             <div class="anchor-link">
-                                <a href="#junior" class="" title="">Junior Students</a>
+                                <a href="#primary" class="" title="">Primary Students</a>
                             </div>
                             <div class="link-separator">&nbsp;</div>
                             <div class="anchor-link">
-                                <a href="#senior" class="" title="">Senior Students</a>
+                                <a href="#secondary" class="" title="">Secondary Students</a>
                             </div>
                         </div>
                     </div>
@@ -48,12 +48,12 @@ get_header(); ?>
             </section>
 
 
-            <span class="anchor-link" id="junior"></span>
+            <span class="anchor-link" id="primary"></span>
 
 
             <section class="section section-pair">
                 <div class="section-navigation">
-                    <h2>Junior Students</h2>
+                    <h2>Primary Students</h2>
                 </div>
 
                 <div class="section-content">
@@ -92,7 +92,7 @@ get_header(); ?>
 
             <section class="section section-pair even-section">
                 <div class="section-navigation">
-                    <h2 id="senior">Senior Students</h2>
+                    <h2 id="secondary">Secondary Students</h2>
                 </div>
 
                 <div class="section-content">
