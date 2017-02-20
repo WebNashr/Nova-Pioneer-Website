@@ -18,6 +18,9 @@
 	&.even-section {
 		background: lighten($background-grey, 5%);
 	}
+	&.call-to-action {
+		padding: 0 calc(#{$space-tiny} * 2);
+	}
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);
@@ -1517,5 +1520,54 @@
 .button-container {
 	margin: 0 0 4rem 0;
 }
-
 //---Working at Nova Pioneer end--
+ .cta-wrapper {
+	 @extend %columns;
+	 background-color: lighten($blue-dk, 50%);
+	 padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
+	 align-items: center;
+	 justify-content: center;
+	 p {
+		 color: $blue-dk;
+		 @include copy(bold);
+		 @include font-size(30px);
+		 display: inline;
+		 padding-bottom: calc(#{$space-tiny} * 2.5);
+		 @include break-point(tablet) {
+			 @include font-size(32px);
+			 padding-bottom: calc(#{$space-tiny} * 2.5)
+		 }
+		 @include break-point(laptop) {
+			 @include font-size(28px);
+			 padding-bottom: calc(#{$space-tiny} * 1);
+		 }
+		 @include break-point(desktop) {
+			 @include font-size(30px);
+			 padding-bottom: calc(#{$space-tiny} * 1);
+			 padding-right: calc(#{$space-tiny} * 4);
+		 }
+		 @include break-point(monitor) {
+			 @include font-size(40px);
+		 }
+	 }
+	 .button {
+		 display: inline;
+		 margin-bottom: 1rem;
+		 margin-left: 0;
+		//  @include break-point(desktop) {
+		// 	 margin-left: 2rem;
+		//  }
+	 }
+	 @include break-point(laptop) {
+		 justify-content: space-between;
+		 padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
+	 }
+	 @include break-point(desktop) {
+		 padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
+	 	}
+	 @include break-point(monitor) {
+		justify-content: center;
+ 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 6);
+
+	}
+}
