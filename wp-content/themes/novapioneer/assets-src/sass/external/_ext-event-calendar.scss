@@ -228,6 +228,10 @@
         @include copy(regular);
         font-size: 1rem !important;
         line-height: 1.25;
+
+        a {
+          color: $grey-mdk !important;
+        }
     }
 }
 
@@ -262,10 +266,46 @@
         @include copy(regular);
         @include font-size(13px);
     }
+    // &.tribe-events-tooltip {
+    //   display: inline !important;
+    //   h4 {
+    //     @include font-size(13px);
+    //     text-transform:  uppercase;
+    //   }
+    // }
 }
+#tribe-events-content {
+  .tribe-events-tooltip {
+    h4 {
+      @include font-size(14px);
+      text-transform:  uppercase;
+      padding-top: 4px;
+      color: $grey-mdk !important;
+    }
+    .tribe-event-description {
+      p {
+        @include font-size(14px);
+        padding: 8px 0;
+        color: $grey-mdk;
+      }
+    }
+
+  }
+  .tribe-events-event-thumb {
+    display: none;
+  }
+  .tribe-events-event-body {
+    .tribe-event-duration {
+      // @include font-size(11px);
+      color: $grey-mdk !important;
+      padding: 2px 0;
+      border-bottom: 1px solid lighten($grey-mdk, 50%);
+      text-transform: uppercase;
+    }
+  }
 
 
-
+}
 
 
 //Event details
