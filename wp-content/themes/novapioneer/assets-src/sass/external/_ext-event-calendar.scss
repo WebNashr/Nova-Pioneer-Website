@@ -280,7 +280,7 @@
       @include font-size(14px);
       text-transform:  uppercase;
       padding-top: 4px;
-      color: $grey-mdk !important;
+      color: $white !important;
     }
     .tribe-event-description {
       p {
@@ -294,14 +294,14 @@
   .tribe-events-event-thumb {
     display: none;
   }
+  .tribe-event-duration {
+    color: lighten($grey-mdk, 15%) !important;
+    padding: 2px 0;
+    margin-right: 5px;
+    text-transform: uppercase;
+  }
   .tribe-events-event-body {
-    .tribe-event-duration {
-      // @include font-size(11px);
-      color: $grey-mdk !important;
-      padding: 2px 0;
-      border-bottom: 1px solid lighten($grey-mdk, 50%);
-      text-transform: uppercase;
-    }
+
   }
 
 
