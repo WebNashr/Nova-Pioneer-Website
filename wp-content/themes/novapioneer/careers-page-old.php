@@ -13,53 +13,10 @@ get_header();?>
                 <h1 class="nav-bar-below">Careers</h1>
             </header>
 
-            <section class="section section-pair country-filter-container">
-
-
-                <div class="filter-wrap">
-                  <div class="navigation-wrap">
-                    <div class="section-heading"><h3>Country</h3></div>
-                      <div class="links-inner-wrap">
-                              <div class="anchor-link">
-                                <a href="" class="" title="">Kenya</a>
-                              </div>
-                              <div class="link-separator">&nbsp;</div>
-                              <div class="anchor-link">
-                                  <a href="" class="" title="">South Africa</a>
-                              </div>
-
-                        </div>
-                      </div>
-                  </div>
-
-
-              <div class="section-content-plain">
-                <div class="page-navigation-container">
-                  <div class="navigation-wrap careers">
-                    <div class="section-heading"><h3>Departments</h3></div>
-                      <div class="links-inner-wrap">
-                              <div class="anchor-link">
-                                <a href="#operations" class="" title="">Operations</a>
-                              </div>
-                              <div class="link-separator">&nbsp;</div>
-                              <div class="anchor-link">
-                                  <a href="#learning" class="" title="">Learning</a>
-                              </div>
-                              <div class="link-separator">&nbsp;</div>
-                              <div class="anchor-link">
-                                   <a href="#talent-and-partnerships" class="" title="">Talent &amp; Partnerships</a>
-                              </div>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-
-            </section>
-
-            <!-- <div class="page-navigation-container">
+            <div class="page-navigation-container">
               <div class="navigation-wrap">
                 <div class="section-title"><h3>Departments</h3></div>
-                  <div class="links-inner-wrap">
+                  <div class="links-inner-wrap" <div="">
                           <div class="anchor-link">
                             <a href="#operations" class="" title="">Operations</a>
                           </div>
@@ -73,7 +30,7 @@ get_header();?>
                           </div>
                     </div>
                   </div>
-              </div> -->
+              </div>
 
             <?php
                 $career_categories =  array(
