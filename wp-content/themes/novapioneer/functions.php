@@ -62,6 +62,15 @@ function novap_setup()
 add_action('after_setup_theme', 'novap_setup');
 
 
+function novap_setup_widgets()
+{
+    register_sidebar(array(
+        'name' => 'Main Footer',
+        'id'   => 'main-footer'
+    ));
+}
+add_action('widgets_init', 'novap_setup_widgets');
+
 function novap_menus()
 {
     // Header Menu
