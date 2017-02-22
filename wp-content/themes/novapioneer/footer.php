@@ -2,24 +2,38 @@
   </main> <!-- end content -->
 
 <!-- start footer -->
+
+<?php wp_footer(); ?>
+
 <?php if( !is_front_page() ): ?>
   <footer class="page-footer">
-      <nav role="navigation" class="footer-menu">
-          <a href="<?php echo site_url(); ?>" class="footer-logo">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-vertical-coloured-blue.svg" alt="Nova Pioneer">
-          </a>
+    <nav role="navigation" class="footer-menu">
+        <a href="<?php echo site_url(); ?>" class="footer-logo">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-vertical-coloured-blue.svg" alt="Nova Pioneer">
+        </a>
 
-          <div class="footer-boxes">
+        <div class="footer-boxes">
 
-                <?php wp_nav_menu( array(
-                    'walker' => new NovaPioneer\NovapMenuWalker,
-                    'items_wrap' => '%3$s',
-                    'theme_location' => 'novap-footer-menu',
-                    'container' => ''
-                ) ); ?>
+            <?php wp_nav_menu( array(
+                'walker' => new NovaPioneer\NovapMenuWalker,
+                'items_wrap' => '%3$s',
+                'theme_location' => 'novap-footer-menu',
+                'container' => ''
+            ) ); ?>
 
-          </div>
-      </nav>
+        </div>
+    </nav>
+
+    <?php if( is_active_sidebar('main-footer') && !is_page_template('leadership-team-page.php') ): ?>
+        <div class="main-footer-widget-area">
+            <?php dynamic_sidebar('main-footer'); ?>
+        </div>
+        <script>
+            'use strict';
+            $('#text-2').hide(); //Hides the title of the chat widget so that only the happyfox generated stuff apppears.
+        </script>
+    <?php endif; ?>
+
   </footer>
 <?php endif; ?>
   <footer class="page-footer <?php if( is_front_page() ): echo 'page-footer-home'; else: echo 'page-footer-aux'; endif; ?>">
@@ -35,8 +49,6 @@
     <!-- end navigation -->
   </footer>
   <!-- end footer -->
-
-  <?php wp_footer(); ?>
 
   <?php if( is_page_template('apply-online-page.php') ): ?>
 
