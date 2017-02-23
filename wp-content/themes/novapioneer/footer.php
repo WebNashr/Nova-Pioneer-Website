@@ -79,5 +79,11 @@
       });
     });
   </script>
+
+    <script>
+        // change placeholders of inputs on calendar search
+        $('#tribe-bar-date').attr('placeholder', 'Month');
+        $('#tribe-bar-search').attr('placeholder', 'e.g. PTA Meeting');
+    </script>
   </body>
 </html>
