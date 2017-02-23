@@ -22,6 +22,7 @@ get_header();?>
 
         <div class="trigger"></div>
         <section class="section section-pair team-profile-container">
+          <h2 class="centered-title">Nova Pioneer Leadership</h2>
             <div class="section-content section-content-plain global-leaders-profiles">
                 <div class="section-content-item section-content-item-third profile">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
@@ -86,7 +87,9 @@ get_header();?>
             </div>
         </section>
 
+
         <section class="section section-pair team-profile-container">
+          <h2 class="centered-title">Nova Pioneer Management</h2>
             <div class="section-content section-content-plain management-profiles ">
                 <div class="section-content-item section-content-item-quarter profile">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
