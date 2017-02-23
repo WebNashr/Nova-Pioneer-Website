@@ -26,32 +26,6 @@ get_header();?>
         </section>
 
         <div class="trigger"></div>
-        <section class="section">
-            <article class="article article-inner article-inner-alt">
-                <h2 class="centered-title">Our Vision</h2>
-                <?php echo $our_vision; ?>
-
-                <h2 class="centered-title">Our Mission</h2>
-                <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
-                <div class="read-more-wrap">
-                    <p><?php echo array_shift($our_mission_paragraphs); ?></p>
-                    <span class="read-more-target">
-                        <?php foreach($our_mission_paragraphs as $paragraph): ?>
-                            <p><?php echo $paragraph; ?></p>
-                        <?php endforeach; ?>
-                    </span>
-                </div>
-                <label for="post-<?php echo get_the_ID(); ?>" class="read-more-trigger button button-tiny button-primary"></label>
-            </article>
-        </section>
-
-        <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);">
-            <div class="section-content full-image-caption animated caption slideInLeft">
-                <figcaption>
-                    <p> <?php echo get_field('our_culture_banner_image_caption'); ?></p>
-                </figcaption>
-            </div>
-        </figure>
 
         <section class="section">
             <article class="article article-inner article-inner-alt">
@@ -75,6 +49,41 @@ get_header();?>
               <?php $number++; endforeach; ?>
           </div>
         </section>
+
+        <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);">
+            <div class="section-content full-image-caption animated caption slideInLeft">
+                <figcaption>
+                    <p> <?php echo get_field('our_culture_banner_image_caption'); ?></p>
+                </figcaption>
+            </div>
+        </figure>
+
+
+        <section class="section">
+            <article class="article article-inner article-inner-alt mission-vision">
+
+              <h2 class="centered-title">Our Mission</h2>
+              <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
+              <div class="read-more-wrap">
+                  <p><?php echo array_shift($our_mission_paragraphs); ?></p>
+                  <span class="read-more-target">
+                      <?php foreach($our_mission_paragraphs as $paragraph): ?>
+                          <p><?php echo $paragraph; ?></p>
+                      <?php endforeach; ?>
+                  </span>
+              </div>
+              <label for="post-<?php echo get_the_ID(); ?>" class="read-more-trigger button button-tiny button-primary"></label>
+
+                <h2 class="centered-title">Our Vision</h2>
+                <?php echo $our_vision; ?>
+
+
+            </article>
+        </section>
+
+
+
+
 
         <!-- <section class="section">
             <article class="article article-inner article-inner-alt">

@@ -36,6 +36,19 @@
     // margin: 0;
     margin-bottom: 0.75rem;
   }
+  .mission-vision & {
+    margin-top: 1rem;
+    margin-left: 0;
+    width: 25%;
+    line-height: 1.25;
+    @include break-point(tablet) {
+      width: 17%;
+    }
+    @include break-point(laptop) {
+      margin-left: 43%;
+      width: auto;
+    }
+  }
 
   &:hover{
     // color: $blue;
