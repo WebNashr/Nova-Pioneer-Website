@@ -186,12 +186,7 @@ h3 {
 		// @include font-size(20px);
 	}
 
-	.learning-approach & {
-		// @include copy(semi);
-		// @include font-size(21px);
-		margin-bottom: calc(#{$space-tiny} * 1);
-		text-align: center;
-	}
+
 
 	.article-aside & {
 		margin-top: 0;
@@ -215,7 +210,6 @@ h4 {
 		font-size: 1.25rem;
 		// color: $blue;
 	}
-
 	.recent-reports & {
 		//color: $dark;
 	}
@@ -241,6 +235,11 @@ h5 {
 
 	.person & {
 		margin-bottom: 0.25rem;
+	}
+	.learning-approach & {
+		color: lighten($blue, 10%);
+		// margin-bottom: calc(#{$space-tiny} * 1);
+		text-align: center;
 	}
 }
 

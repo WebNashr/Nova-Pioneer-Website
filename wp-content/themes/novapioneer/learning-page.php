@@ -63,7 +63,7 @@ get_header();?>
                         <figure>
                             <img src="<?php echo $card->image; ?>" />
                         </figure>
-                        <h3><?php echo $card->title; ?></h3>
+                        <h5><?php echo $card->title; ?></h5>
                         <?php echo $card->body; ?>
                     </div>
                 <?php endforeach; ?>
@@ -163,4 +163,3 @@ get_header();?>
  });
 
 </script>
-
