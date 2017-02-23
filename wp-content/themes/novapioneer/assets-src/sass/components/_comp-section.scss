@@ -1415,26 +1415,78 @@
 
 //---About Nova Pioneer Start--
 .principles-container{
-	margin: -6rem 0 4rem 0;
+	margin: -6rem 0 2rem 0;
 	padding:  0 calc(#{$space-tiny} * 1);
 	.principle-card {
-		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 2) ;
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) ;
 		// border: 1px solid lighten($light-grey, 30%);
 		border-radius: 3px;
 		margin-top: 2rem;
-		min-height: 200px;
-		background-color: lighten($background-grey, 5%);
+		// min-height: 200px;
+		background: $black;
+		// background-color: lighten($background-grey, 5%);
+		&.card-1 {
+			background-color: $orange-lt;
+			opacity: 1;
+			&:hover {
+				background-color: darken($orange-lt, 5%);
+				transition: background-color 0.15s;
+			}
+			// width: 90%;
+			// height: 90%;
+		}
+		&.card-2 {
+			background-color: $green-lt;
+			&:hover {
+				background-color: darken($green-lt, 6%);
+				transition: background-color 0.15s;
+			}
+		}
+		&.card-3 {
+			background-color: $blue-lt;
+			&:hover {
+				background-color: darken($blue-lt, 10%);
+				transition: background-color 0.15s;
+			}
+		}
+		&.card-4 {
+			background-color: $orange-dk;
+			&:hover {
+				background-color: darken($orange-dk, 10%);
+				transition: background-color 0.15s;
+			}
+		}
+		&.card-5 {
+			background-color: $green-dk;
+			&:hover {
+				background-color: darken($green-dk, 10%);
+				transition: background-color 0.15s;
+			}
+		}
+		&.card-6 {
+			background-color: $blue-dk;
+			&:hover {
+				background-color: darken($blue-dk, 10%);
+				transition: background-color 0.15s;
+			}
+		}
 
 		h3 {
 			text-align: center;
-			@include font-size(24px);
+			@include font-size(21px);
 			text-transform: uppercase;
 			margin-top: 0;
+			color: $white;
 		}
+		p {
+			color: $white !important;
+			@include font-size(17px);
+		}
+
 		.number {
 			@include copy(black);
 			@include font-size(26px);
-			color: $sky;
+			color: $white;
 			text-align: center;
 			width: 50px;
 			height: 50px;
@@ -1442,16 +1494,17 @@
 			// border-radius: 50%;
 			// background: $white;
 			margin: 0 auto;
-			padding-top: 0.35rem;
+			// padding-top: 0.35rem;
 			&:before,
 			&:after {
 				content: ' - ';
 				@include copy(regular);
-				color: lighten($light-grey, 20%);
+				// color: lighten($light-grey, 20%);
+				color: $white;
 			}
 		}
 		.description {
-			@include font-size(16px);
+			// @include font-size(16px);
 			padding: calc(1rem * 0.5) 0;
 		}
 
@@ -1463,7 +1516,7 @@
 				content: ' ';
 			    display: block;
 			    width: 100%;
-					border-top: 1px solid lighten($light-grey, 20%);
+					border-top: 1px solid $white;;
 			}
 		}
 
@@ -1473,7 +1526,20 @@
 		.enter-right{
 	  	-webkit-animation-delay: 0.5s;
 		}
-
+		&:hover {
+			h3 {
+				@include font-size(26px);
+				transition: font-size 0.35s;
+			}
+			p {
+				@include font-size(18px);
+				transition: font-size 0.1s;
+			}
+			.number {
+				@include font-size(27px);
+				transition: font-size 0.35s;
+			}
+		}
 	}
 	@include break-point(laptop) {
 		padding:  0 calc(#{$space-tiny} * 5);
