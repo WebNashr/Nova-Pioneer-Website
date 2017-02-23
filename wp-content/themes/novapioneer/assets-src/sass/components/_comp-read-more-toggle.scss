@@ -49,6 +49,20 @@
       width: auto;
     }
   }
+  .global-leaders-profiles & {
+    margin-top: 0.5rem;
+    width: 60%;
+    line-height: 1.25;
+    @include break-point(mobile) {
+      width: 60%;
+    }
+    @include break-point(tablet) {
+      // width: 35%;
+    }
+    @include break-point(laptop) {
+      width: auto;
+    }
+  }
 
   &:hover{
     // color: $blue;
