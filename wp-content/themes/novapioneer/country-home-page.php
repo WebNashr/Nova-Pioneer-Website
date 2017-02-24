@@ -136,6 +136,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Learning at Nova Pioneer</h2>
+                <a href="<?php echo site_url('/learning'); ?>" class="button button-small button-primary" title="">Learn More</a>
             </div>
 
             <div class="section-content">
@@ -175,7 +176,7 @@ get_header(); ?>
             </figure>
         </aside>
 
-        <div class="full-width-container">
+        <div class="full-width-container" style="margin-bottom:0;">
             <section class="section section-pair">
                 <?php
                     $video_from_influencer          = get_field('video_from_influencer');
@@ -208,7 +209,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Global Leadership Team</h2>
-                <a href="<?php echo site_url('/global-leadership-team'); ?>" class="button button-small button-primary" title="">View the team</a>
+                <a href="<?php echo site_url('/global-leadership-team'); ?>" class="button button-small button-primary" title="">Meet the team</a>
             </div>
 
             <div class="section-content">
@@ -216,8 +217,10 @@ get_header(); ?>
                 <?php foreach($leadership_team_members as $member): ?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0];  ?>" alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>" class="profile-img">
-                        <a href="<?php echo get_permalink($member->ID); ?>" class="profile-name" title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
-                        <span class="profile-role"><?php echo get_field('title', $member->ID); ?></span>
+                        <h3 class="profile-name" title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></h3>
+                        <h6 class="profile-role"><?php echo get_field('title', $member->ID); ?></h6>
+                        <!-- <a href="<?php echo get_permalink($member->ID); ?>" class="profile-name" title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
+                        <span class="profile-role"><?php echo get_field('title', $member->ID); ?></span> -->
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -271,7 +274,6 @@ get_header(); ?>
 <?php get_footer(); ?>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-
    $(document).ready(function(){
 
      var captionWaypoint = $('.caption').waypoint(function(direction) {
@@ -286,5 +288,4 @@ get_header(); ?>
          offset: '95%'
      });
  });
-
 </script>
