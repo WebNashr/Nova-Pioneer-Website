@@ -30,9 +30,9 @@ get_header();?>
                     <h6 class="profile-role">CEO</h6>
                     <div class="profile-description">
                       <input type="checkbox" class="read-more-state" id="post-1" />
-                      <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label>
-                      <p class="read-more-wrap">Chinezi previously served as Head of McKinsey &amp; Company’s African Education Practice, where he worked for 8 years<span class="read-more-target"> gaining experience with over 25 countries’ school systems across the world. Chinezi started his career as a secondary school mathematics teacher, and has founded youth leadership programmes in South Africa and Nigeria. Chinezi holds an MBA and a Masters in Education from Stanford University, Bachelors in Psychology and an Honours Certificate in African Studies from Harvard University.</span></p>
 
+                      <p class="read-more-wrap">Chinezi previously served as Head of McKinsey &amp; Company’s African Education Practice, where he worked for 8 years<span class="read-more-target"> gaining experience with over 25 countries’ school systems across the world. Chinezi started his career as a secondary school mathematics teacher, and has founded youth leadership programmes in South Africa and Nigeria. Chinezi holds an MBA and a Masters in Education from Stanford University, Bachelors in Psychology and an Honours Certificate in African Studies from Harvard University.</span></p>
+                      <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label>
                     </div>
                 </div>
 
@@ -42,8 +42,9 @@ get_header();?>
                     <h6 class="profile-role">COO</h6>
                     <div class="profile-description">
                       <input type="checkbox" class="read-more-state" id="post-2" />
-                      <label for="post-2" class="read-more-trigger button button-tiny button-primary"></label>
+
                       <p class="read-more-wrap">Damany was previously a founding team member of Bain &amp; Company’s Africa practice. Damany started his career with<span class="read-more-target"> Morgan Stanley and has worked across New York, London and South Africa. Damany holds an MBA from Harvard Business School, a Masters in Economic &amp; Social History from Oxford University where he was a Rhodes Scholar and a Bachelors in Operations Research &amp; Industrial Engineering from Cornell University.</span></p>
+                      <label for="post-2" class="read-more-trigger button button-tiny button-primary"></label>
                     </div>
 
                 </div>
@@ -54,9 +55,9 @@ get_header();?>
                     <h6 class="profile-role">Managing Director</h6>
                     <div class="profile-description">
                       <input type="checkbox" class="read-more-state" id="post-3" />
-                      <label for="post-3" class="read-more-trigger button button-tiny button-primary"></label>
-                      <p class="read-more-wrap">Oliver was previously Managing Director at Spire, where he used his experience building and running highly effective<span class="read-more-target"> learning and employability programs for top companies. He previously served as the Executive VP for Global Programs at the Clinton Health Access Initiative and is co-founder and board member of Kepler, an innovative new university model in East Africa.</span></p>
 
+                      <p class="read-more-wrap">Oliver was previously Managing Director at Spire, where he used his experience building and running highly effective<span class="read-more-target"> learning and employability programs for top companies. He previously served as the Executive VP for Global Programs at the Clinton Health Access Initiative and is co-founder and board member of Kepler, an innovative new university model in East Africa.</span></p>
+                      <label for="post-3" class="read-more-trigger button button-tiny button-primary"></label>
                     </div>
                 </div>
 
@@ -66,9 +67,9 @@ get_header();?>
                     <h6 class="profile-role">Managing Director</h6>
                     <div class="profile-description">
                       <input type="checkbox" class="read-more-state" id="post-4" />
-                      <label for="post-4" class="read-more-trigger button button-tiny button-primary"></label>
-                      <p class="read-more-wrap">Dai Ellis served as CEO of Excel Academy Charter Schools, one of the highest-performing school networks in the United <span class="read-more-target">States. He is also a co-founder and board member of Kepler. Previously, Dai led the Clinton Foundation`s work on healthcare products in the developing world. Dai is a graduate of Yale Law School and earned his bachelor`s degree at Harvard University.</span></p>
 
+                      <p class="read-more-wrap">Dai Ellis served as CEO of Excel Academy Charter Schools, one of the highest-performing school networks in the United <span class="read-more-target">States. He is also a co-founder and board member of Kepler. Previously, Dai led the Clinton Foundation`s work on healthcare products in the developing world. Dai is a graduate of Yale Law School and earned his bachelor`s degree at Harvard University.</span></p>
+                      <label for="post-4" class="read-more-trigger button button-tiny button-primary"></label>
                     </div>
                 </div>
 
@@ -78,9 +79,9 @@ get_header();?>
                     <h6 class="profile-role">Director</h6>
                     <div class="profile-description">
                       <input type="checkbox" class="read-more-state" id="post-6" />
-                      <label for="post-6" class="read-more-trigger button button-tiny button-primary"></label>
-                      <p class="read-more-wrap">Mr. Khaemba is the former headmaster of Alliance High School and founding Dean of the African Leadership Academy in South <span class="read-more-target">Africa. He is widely regarded as one of Africa’s leading educators and currently serves Nairobi County as the executive for education, youth affairs, children, culture and social services.</span></p>
 
+                      <p class="read-more-wrap">Mr. Khaemba is the former headmaster of Alliance High School and founding Dean of the African Leadership Academy in South <span class="read-more-target">Africa. He is widely regarded as one of Africa’s leading educators and currently serves Nairobi County as the executive for education, youth affairs, children, culture and social services.</span></p>
+                      <label for="post-6" class="read-more-trigger button button-tiny button-primary"></label>
                     </div>
                 </div>
 
@@ -241,7 +242,7 @@ get_header();?>
                         <h6 class="profile-role">Head of School, South Africa</h6>
                     </div>
                   </li>
-                  
+
               </ul>
 
         </div>
