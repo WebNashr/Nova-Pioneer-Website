@@ -241,20 +241,23 @@
 .section-school-list {
 	@extend %columns;
 	// background: $background-grey;
+	justify-content: center;
 	width: 100%;
-	padding: calc(#{$space-tiny} * 1);
+	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1);
     @include break-point(tablet) {
-        @include flex-direction(row);
-        @include flex-wrap(wrap);
-				padding: calc(#{$space-tiny} * 2);
+      // @include flex-direction(row);
+      // @include flex-wrap(wrap);
+			padding-top: calc(#{$space-tiny} * 2);
+			padding-right: 0;
+			padding-left: 0;
+			// padding: calc(#{$space-tiny} * 2);
     }
 		@include break-point(laptop) {
-			padding: calc(#{$space-tiny} * 3);
+			// padding: calc(#{$space-tiny} * 3);
 		}
 		@include break-point(desktop) {
-			padding: calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
+			// padding: calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
 		}
-
 }
 
 .section-school-list-select {
@@ -265,23 +268,25 @@
 	position: relative;
 
 	h3{
-		text-align: center;
+		text-align: left;
 		margin-top: 0.5rem;
-		color: lighten($blue, 10%);
+		margin-bottom: 0.5rem;
+		color: $orange-lt;
 
 	}
 
 	img {
+		max-width: 400px;
 		// max-width: 175px;
-		width: 195px;
-		height: 195px;
-		transition: width 0.1s, height 0.1s;
+		// width: 195px;
+		// height: 195px;
+		// transition: width 0.1s, height 0.1s;
 		// border-radius: 50%;
 		// border: 4px solid darken($grey, 5%);
 	}
 
 	p {
-		@include copy(semi);
+		@include copy(bold);
 		padding: calc(#{$space-tiny} * 1);
 		&.school-photo {
 			text-align: center;
@@ -294,8 +299,8 @@
 			// border: 1px solid blue;
 
 			img {
-				width: 200px;
-				height: 200px;
+				// width: 200px;
+				// height: 200px;
 			}
 			h3 {
 				color: $blue;
@@ -312,6 +317,7 @@
 	}
 	.school-summary {
 		margin-bottom: 2rem;
+		border-top: 1px $grey-md solid;
 		p + p {
 				margin: 0;
 		}
@@ -320,18 +326,25 @@
 			// text-align: center;
 			display: block;
 			// padding-top: 0;
+			padding-left: 0;
 			padding-bottom: calc(#{$space-tiny} * 0.65);
 			@include font-size(14px);
-			color: $grey-mdk;
+			color: lighten($grey-mdk, 10%);
 			&:not(:first-of-type) {
 				padding-top: 0;
 			}
 		}
 		strong {
-			@include copy(regular);
-			color: $green-dk;
+			@include copy(bold);
+			color: $green-lt;
 		}
-
+		.button {
+			margin-top: 0.75rem;
+			background: $green-lt;
+			&:hover {
+				background: $blue-lt;
+			}
+		}
 	}
 
 	.school-link {

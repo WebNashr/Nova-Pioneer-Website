@@ -20,8 +20,68 @@ get_header(); ?>
         </section>
 
         <div class="trigger"></div>
+        <section class="section" style="padding:auto 0;">
+          <section><h2 style="text-align: center;">Select a School</h2></section>
+        <div class="section-school-list">
 
-        <section class="section section-school-list">
+              <div class="section-school-list-select">
+                  <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
+                  <h3>Jackal Creek</h3>
+                  <div class="school-summary">
+                    <p><strong>Day</strong> School</p>
+                    <p>Ages <strong>3-14</strong></p>
+                    <p>Co-ed <strong>Pre-Primary and Primary</strong></p>
+                    <p>Grades <strong>000, 00, R &amp; 1</strong></p>
+                    <a href="#" class="button button-tiny button-primary"> Read More</a>
+                  </div>
+              </div>
+
+              <div class="section-school-list-select">
+
+                  <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
+                  <h3>Midrand</h3>
+                  <div class="school-summary">
+                    <p><strong>Day</strong> School</p>
+                    <p>Ages <strong>3-14</strong></p>
+                    <p>Co-ed <strong>Pre-Primary and Primary</strong></p>
+                    <p>Grades <strong>000, 00, R &amp; 1</strong></p>
+                    <a href="#" class="button button-tiny button-primary"> Read More</a>
+                  </div>
+
+              </div>
+
+              <div class="section-school-list-select">
+
+                  <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
+                  <h3>Ormonde</h3>
+                  <!-- <h1><a href="#" class="school-link" title="">Ormonde</a></h1> -->
+                  <div class="school-summary">
+                    <p><strong>Day</strong> School</p>
+                    <p>Ages <strong>3-14</strong></p>
+                    <p>Co-ed <strong>Pre-Primary and Primary</strong></p>
+                    <p>Grades <strong>000, 00, R &amp; 1</strong></p>
+                    <a href="#" class="button button-tiny button-primary"> Read More</a>
+                  </div>
+
+              </div>
+
+              <!-- <div class="section-school-list-select">
+
+                  <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
+                  <h3>New School</h3>
+                  <div class="school-summary">
+                    <p><strong>Day</strong> School</p>
+                    <p>Ages <strong>3-14</strong></p>
+                    <p>Co-ed <strong>Pre-Primary and Primary</strong></p>
+                    <p>Grades <strong>000, 00, R &amp; 1</strong></p>
+                    <a href="#" class="button button-tiny button-primary"> Read More</a>
+                  </div>
+
+              </div> -->
+        </section>
+      </section>
+
+        <!-- <section class="section section-school-list">
             <?php $schools = get_field('schools'); ?>
             <?php foreach($schools as $school): ?>
                 <div class="section-school-list-select">
@@ -32,7 +92,7 @@ get_header(); ?>
                     </a>
                 </div>
             <?php endforeach; ?>
-        </section>
+        </section> -->
 
 
         <section class="section section-pair even-section">
@@ -209,3 +269,22 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+   $(document).ready(function(){
+
+     var captionWaypoint = $('.caption').waypoint(function(direction) {
+
+         if(direction == 'down') {
+
+             $(this.element).addClass('slideInLeft');
+
+             this.destroy();
+         }
+     }, {
+         offset: '95%'
+     });
+ });
+
+</script>
