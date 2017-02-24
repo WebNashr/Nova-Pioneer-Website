@@ -9,11 +9,11 @@ get_header(); ?>
 
     <?php while(have_posts()): the_post(); ?>
 
-        <section class="section section-hero country-home">
+        <section class="section section-hero country-home" data-type="background" data-speed="4">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1>Preparing Youth in Africa for Global Success</h1>
+                    <h1 class="animated-title">Preparing Youth in Africa for Global Success</h1>
                     <!-- <a href="/<?php echo site_url('/learning/'); ?>" class="button button-default button-primary">Learn More</a> -->
                 </div>
             </div>
@@ -166,8 +166,9 @@ get_header(); ?>
             </div>
         </section>
 
-        <aside>
-            <figure class="full-width-image parallax">
+        <aside >
+            <!-- <figure class="full-width-image parallax"> -->
+              <figure class="full-width-image parallax" data-type="background" data-speed="7">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p>We are developing generations of innovators and leaders who will shape the African Century.<a href="<?php echo site_url('/learning/'); ?>" class="" >Learn More</a> </p>
@@ -272,20 +273,31 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+
 <script>
-   $(document).ready(function(){
+$(document).ready(function () {
 
-     var captionWaypoint = $('.caption').waypoint(function(direction) {
+    var captionWaypoint = $('.caption').waypoint(function (direction) {
 
-         if(direction == 'down') {
+        if (direction == 'down') {
 
-             $(this.element).addClass('slideInLeft');
+            $(this.element).addClass('slideInLeft');
 
-             this.destroy();
-         }
-     }, {
-         offset: '95%'
-     });
- });
+            this.destroy();
+        }
+    }, {
+        offset: '95%'
+    });
+
+    var inview = new Waypoint.Inview({
+      element: $('.animated-title')[0],
+
+      entered: function(direction) {
+        $(this.element).addClass('slideInLeft');
+
+        this.destroy();
+      }
+
+      });
+});
 </script>

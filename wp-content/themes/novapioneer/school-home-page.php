@@ -10,7 +10,7 @@ get_header(); ?>
     <?php while (have_posts()): the_post(); ?>
 
 
-        <section class="section section-hero school-home">
+        <section class="section section-hero school-home"  data-type="background" data-speed="4">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -318,16 +318,16 @@ get_header(); ?>
             offset: '95%'
         });
 
-          var inview = new Waypoint.Inview({
-            element: $('.animated-title')[0],
+        var inview = new Waypoint.Inview({
+          element: $('.animated-title')[0],
 
-            entered: function(direction) {
-              $(this.element).addClass('slideInLeft');
+          entered: function(direction) {
+            $(this.element).addClass('slideInLeft');
 
-              this.destroy();
-            }
+            this.destroy();
+          }
 
-            });
+          });
     });
 
 

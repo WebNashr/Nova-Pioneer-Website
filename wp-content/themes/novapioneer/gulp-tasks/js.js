@@ -23,7 +23,8 @@ gulp.task('js', function () {
         'assets-src/js/bowser.js',
         'assets-src/js/scripts.js',
         'assets-src/js/lightslider/lightslider.js',
-        'assets-src/js/inview.js'
+        'assets-src/js/inview.js',
+        'assets-src/js/parallax-effect.js'
     ])
     .pipe(debug({title:'js-debug:'}))
     .pipe(plumber())
