@@ -16,11 +16,11 @@ get_header(); ?>
 
     <?php while (have_posts()): the_post(); ?>
 
-            <section class="section section-hero corporate-hero">
+            <section class="section section-hero corporate-hero" data-type="background" data-speed="4">
                 <div class="container hero-container">
                     <div class="main-callout-box">
                         <hr>
-                        <h1><?php  the_title()?></h1>
+                        <h1 class="animated-title"><?php  the_title()?></h1>
                         <p><?php the_content()?></p>
                     </div>
                 </div>

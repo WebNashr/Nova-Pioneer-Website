@@ -300,36 +300,3 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
-
-<!-- caption and heading animation-->
-<script>
-
-    $(document).ready(function () {
-
-        var captionWaypoint = $('.caption').waypoint(function (direction) {
-
-            if (direction == 'down') {
-
-                $(this.element).addClass('slideInLeft');
-
-                this.destroy();
-            }
-        }, {
-            offset: '95%'
-        });
-
-        var inview = new Waypoint.Inview({
-          element: $('.animated-title')[0],
-
-          entered: function(direction) {
-            $(this.element).addClass('slideInLeft');
-
-            this.destroy();
-          }
-
-          });
-    });
-
-
-
-</script>

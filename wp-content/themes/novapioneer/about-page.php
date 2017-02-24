@@ -16,11 +16,11 @@ get_header();?>
         preg_match_all('|<p>(.+?)</p>|', $our_mission, $matches);
         $our_mission_paragraphs = $matches[1];
     ?>
-        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?>>
+        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-type="background" data-speed="4">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1><?php the_title(); ?></h1>
+                    <h1 class="animated-title"><?php the_title(); ?></h1>
                 </div>
             </div>
         </section>
@@ -93,7 +93,7 @@ get_header();?>
           </div>
         </section> -->
 
-        <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);">
+        <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);" data-type="background" data-speed="7">
             <div class="section-content full-image-caption animated caption slideInLeft">
                 <figcaption>
                     <p> <?php echo get_field('our_culture_banner_image_caption'); ?></p>

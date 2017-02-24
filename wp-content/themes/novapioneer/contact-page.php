@@ -9,11 +9,11 @@ get_header(); ?>
 
     <?php while (have_posts()): the_post(); ?>
 
-            <section class="section section-hero contacts-hero">
+            <section class="section section-hero contacts-hero" data-type="background" data-speed="4">
                 <div class="container hero-container">
                     <div class="main-callout-box">
                         <hr>
-                        <h1>Contact Us</h1>
+                        <h1 class="animated-title">Contact Us</h1>
                         <p>Developing innovators &amp; leaders who will shape the future</p>
                     </div>
                 </div>
@@ -41,7 +41,7 @@ get_header(); ?>
                                     <address>
                                         <div class="contact-info">
                                             <?php foreach($school_branch->contacts_ as $contact ): $contact = (object)$contact; ?>
-                                                <span class="phone-contact-one">   <?php echo $contact->label; ?> 
+                                                <span class="phone-contact-one">   <?php echo $contact->label; ?>
                                                 <a href="tel:<?php echo $contact->contact; ?>"> <?php echo $contact->contact; ?> </a></span>
                                             <?php endforeach; ?>
                                         </div>
@@ -49,7 +49,7 @@ get_header(); ?>
                                 </div>
                             </div>
 
-                            <?php 
+                            <?php
                                 array_push($locations, array(
                                     "latitude"  => $school_branch->latitude,
                                     "longitude" => $school_branch->longitude,
@@ -58,8 +58,8 @@ get_header(); ?>
                             ?>
 
                         <?php endforeach; ?>
-                        <?php 
-                            novap_render_google_map($locations); 
+                        <?php
+                            novap_render_google_map($locations);
                         ?>
 
                     </div>

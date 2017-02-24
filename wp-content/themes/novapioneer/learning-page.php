@@ -16,11 +16,11 @@ get_header();?>
 
     ?>
 
-        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?>>
+        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-type="background" data-speed="4">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1><?php the_title(); ?></h1>
+                    <h1 class="animated-title"><?php the_title(); ?></h1>
             </div>
         </section>
 
@@ -73,7 +73,7 @@ get_header();?>
 
         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
             <!-- <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span> -->
-            <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);">
+            <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-type="background" data-speed="7">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo $stage->banner_image_caption; ?></p>
@@ -197,22 +197,3 @@ get_header();?>
        }
    });
 </script>-->
-<!-- caption animation-->
-<script>
-
-   $(document).ready(function(){
-
-     var captionWaypoint = $('.caption').waypoint(function(direction) {
-
-         if(direction == 'down') {
-
-             $(this.element).addClass('slideInLeft');
-
-             this.destroy();
-         }
-     }, {
-         offset: '95%'
-     });
- });
-
-</script>

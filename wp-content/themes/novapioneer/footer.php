@@ -85,5 +85,32 @@
         $('#tribe-bar-date').attr('placeholder', 'Month');
         $('#tribe-bar-search').attr('placeholder', 'e.g. PTA Meeting');
     </script>
+    <script>
+        $(document).ready(function () {
+
+            var captionWaypoint = $('.caption').waypoint(function (direction) {
+
+                if (direction == 'down') {
+
+                    $(this.element).addClass('slideInLeft');
+
+                    this.destroy();
+                }
+            }, {
+                offset: '95%'
+            });
+
+            var inview = new Waypoint.Inview({
+              element: $('.animated-title')[0],
+
+              entered: function(direction) {
+                $(this.element).addClass('slideInLeft');
+
+                this.destroy();
+              }
+
+              });
+        });
+    </script>
   </body>
 </html>

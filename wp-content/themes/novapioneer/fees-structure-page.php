@@ -56,7 +56,7 @@ get_header();?>
               </div>
 
             </div> -->
-            <div class="article cta-container"><a href="#" class="button button-default button-primary" title="">Download The 2017 Fees Structure</a></div>
+            <div class="section cta-container" style="padding-bottom:0;"><a href="#" class="button button-default button-primary" title="">Download The 2017 Fees Structure</a></div>
 
 
         </section>
