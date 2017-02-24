@@ -10,7 +10,7 @@ $(document).ready(function() {
         return false;
     });
 
-    
+
     // 02. search toggle
 	$(".search-toggle").click(function(){
         $(".header-search fieldset").toggleClass("open");
@@ -62,7 +62,7 @@ $(document).ready(function() {
             $('#event-location').html( $(this).data().eventLocation );
             $('#event-id').val( $(this).data().eventId );
         }
-        
+
         $(".modal").toggleClass("modal-show");
         $("body").toggleClass("modal-show");
 
@@ -144,13 +144,10 @@ $(document).ready(function() {
 // start document.resize
 $(window).resize(function(){
 
-    // 1. 
+    // 1.
     $(function() {
 
     });
 
 });
 // end document.resize
-
-
-
