@@ -272,7 +272,7 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 <script>
    $(document).ready(function(){
 
