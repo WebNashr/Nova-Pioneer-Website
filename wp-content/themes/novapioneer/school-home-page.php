@@ -22,9 +22,9 @@ get_header(); ?>
 
         <div class="trigger"></div>
 
-        <section class="section section-pair even-section">
+        <section class="section section-pair school-features-container">
             <div class="section-navigation">
-                <h1><?php the_title(); ?></h1>
+                <h2><?php the_title(); ?></h2>
             </div>
 
             <div class="section-content">

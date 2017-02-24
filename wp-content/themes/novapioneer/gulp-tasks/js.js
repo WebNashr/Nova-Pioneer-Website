@@ -21,9 +21,10 @@ gulp.task('js', function () {
         'bower_components/waypoints/lib/jquery.waypoints.min.js',
         'assets-src/js/slippry/slippry.min.js',
         'assets-src/js/bowser.js',
-        'assets-src/js/scripts.js'
+        'assets-src/js/scripts.js',
+        'assets-src/js/lightslider/lightslider.js'
     ])
-    .pipe(debug({title:'js-debug:'}))    
+    .pipe(debug({title:'js-debug:'}))
     .pipe(plumber())
     .pipe(concat('main.js'))
     .pipe(rename({suffix: '.min'}))
