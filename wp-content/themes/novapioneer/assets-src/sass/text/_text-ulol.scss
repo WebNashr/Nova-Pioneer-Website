@@ -29,7 +29,12 @@ li {
 		color: $orange-lt;
 	}
 	.sy-list {
-	
+
+		&:before {
+			content: none !important;
+		}
+	}
+	.content-slider-container & {
 		&:before {
 			content: none !important;
 		}

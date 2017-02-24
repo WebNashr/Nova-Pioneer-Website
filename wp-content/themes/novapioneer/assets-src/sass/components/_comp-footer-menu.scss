@@ -4,6 +4,7 @@
 
 
 .page-footer {
+	border-top: 1px solid $background-grey;
 	padding: calc(#{$space-tiny} * 2);
 	color: $white;
 	// background: $dark-blue;
@@ -19,6 +20,7 @@
 }
 
 .page-footer-aux {
+	border: none;
 	padding: calc(#{$space-tiny} * 2);
 	background: darken($dark-blue, 2.5%);
 		background: $white;

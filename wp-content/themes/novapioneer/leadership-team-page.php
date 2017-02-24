@@ -23,7 +23,7 @@ get_header();?>
         <div class="trigger"></div>
         <section class="section section-pair team-profile-container">
           <h2 class="centered-title">Nova Pioneer Leadership</h2>
-            <div class="section-content section-content-plain global-leaders-profiles">
+            <div class="section-content section-content-plain np-global-leaders-profiles">
                 <div class="section-content-item section-content-item-third profile">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
                     <h3 class="profile-name">Chinezi Chijioke</h3>
@@ -88,9 +88,9 @@ get_header();?>
         </section>
 
 
-        <section class="section section-pair team-profile-container">
+        <section class="section section-pair team-profile-container even-section">
           <h2 class="centered-title">Nova Pioneer Management</h2>
-            <div class="section-content section-content-plain management-profiles ">
+            <div class="section-content section-content-plain np-management-profiles ">
                 <div class="section-content-item section-content-item-quarter profile">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
                     <h3 class="profile-name">Moses Wachira</h3>
@@ -201,6 +201,52 @@ get_header();?>
             </div>
         </section>
 
+        <section class="section team-profile-container np-team-profiles">
+          <h2 class="centered-title">Nova Pioneer Team</h2>
+          <div class="content-slider-container">
+
+              <ul id="content-slider" class="content-slider">
+                  <li>
+                    <div class="profile">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+                        <h3 class="profile-name">Nnenna Nwachuku</h3>
+                        <h6 class="profile-role">Head of School, South Africa</h6>
+                    </div>
+                  </li>
+                  <li>
+                    <div class=" profile">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+                        <h3 class="profile-name">Nnenna Nwachuku</h3>
+                        <h6 class="profile-role">Head of School, South Africa</h6>
+                    </div>
+                  </li>
+                  <li>
+                    <div class=" profile">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+                        <h3 class="profile-name">Nnenna Nwachuku</h3>
+                        <h6 class="profile-role">Head of School, South Africa</h6>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="profile">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+                        <h3 class="profile-name">Nnenna Nwachuku</h3>
+                        <h6 class="profile-role">Head of School, South Africa</h6>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="profile">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+                        <h3 class="profile-name">Nnenna Nwachuku</h3>
+                        <h6 class="profile-role">Head of School, South Africa</h6>
+                    </div>
+                  </li>
+                  
+              </ul>
+
+        </div>
+        </section>
+
 
 
 
@@ -258,3 +304,26 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="<?php echo get_template_directory_uri(); ?>/assets-src/js/lightslider/lightslider.js"></script>
+<script>
+    	 $(document).ready(function() {
+			$("#content-slider").lightSlider({
+                loop:true,
+                keyPress:true
+            });
+            $('#image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                thumbItem:9,
+                slideMargin: 0,
+                speed:500,
+                auto:true,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+		});
+    </script>
