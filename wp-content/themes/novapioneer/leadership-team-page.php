@@ -21,6 +21,30 @@ get_header();?>
         </section>
 
         <div class="trigger"></div>
+        <section class="section" style="padding-bottom:2rem;">
+          <div class="page-navigation-container">
+            <div class="navigation-wrap">
+              <div class="section-title"><h3>Our Team</h3></div>
+                <div class="links-inner-wrap"
+                  <div class="section-content-item">
+                        <div class="anchor-link">
+                          <a href="#leadership" class="" title="">Leadership</a>
+                        </div>
+                        <div class="link-separator">&nbsp;</div>
+                        <div class="anchor-link">
+                            <a href="#management" class="" title="">Managment</a>
+                        </div>
+                        <div class="link-separator">&nbsp;</div>
+                        <div class="anchor-link">
+                             <a href="#team" class="" title="">Team</a>
+                        </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+
+        <span class="anchor-link" id="leadership"></span>
         <section class="section section-pair team-profile-container">
           <h2 class="centered-title">Nova Pioneer Leadership</h2>
             <div class="section-content section-content-plain np-global-leaders-profiles">
@@ -88,7 +112,7 @@ get_header();?>
             </div>
         </section>
 
-
+          <span class="anchor-link" id="management"></span>
         <section class="section section-pair team-profile-container even-section">
           <h2 class="centered-title">Nova Pioneer Management</h2>
             <div class="section-content section-content-plain np-management-profiles ">
@@ -202,6 +226,7 @@ get_header();?>
             </div>
         </section>
 
+        <span class="anchor-link" id="team"></span>
         <section class="section team-profile-container np-team-profiles">
           <h2 class="centered-title">Nova Pioneer Team</h2>
           <div class="content-slider-container">
@@ -327,4 +352,16 @@ get_header();?>
                 }
             });
 		});
+    </script>
+    <!-- smooth scroll-->
+    <script>
+       $('a[href^="#"]').on('click', function(event) {
+           var target = $(this.getAttribute('href'));
+           if( target.length ) {
+               event.preventDefault();
+               $('html, body').stop().animate({
+                   scrollTop: target.offset().top
+               }, 1000);
+           }
+       });
     </script>
