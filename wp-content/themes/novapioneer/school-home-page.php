@@ -14,7 +14,7 @@ get_header(); ?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1>Learners are inspired become adaptive, independent thinkers</h1>
+                    <h1 class="animated-title">Learners are inspired become adaptive, independent thinkers</h1>
                     <!-- <a href="<?php echo site_url('/learning'); ?>" class="button button-default button-primary">Learn More</a> -->
                 </div>
             </div>
@@ -301,7 +301,7 @@ get_header(); ?>
 
 <?php get_footer(); ?>
 
-<!-- caption animation-->
+<!-- caption and heading animation-->
 <script>
 
     $(document).ready(function () {
@@ -317,6 +317,19 @@ get_header(); ?>
         }, {
             offset: '95%'
         });
+
+          var inview = new Waypoint.Inview({
+            element: $('.animated-title')[0],
+
+            entered: function(direction) {
+              $(this.element).addClass('slideInLeft');
+
+              this.destroy();
+            }
+
+            });
     });
+
+
 
 </script>

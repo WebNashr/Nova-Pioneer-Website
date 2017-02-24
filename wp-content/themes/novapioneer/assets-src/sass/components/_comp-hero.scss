@@ -12,7 +12,7 @@
     background-color: $blue;
     // background-image: url('../../img/large-hero-home.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center top;
     background-repeat: no-repeat;
     justify-content: center;
     &.homepage {
@@ -123,7 +123,7 @@
     h1 {
       max-width: auto;
       width: 100%;
-      @include font-size(49px); 
+      @include font-size(49px);
     }
     .country-selection {
       @extend %columns;
@@ -200,6 +200,19 @@
         @extend .button-primary;
         margin: calc(#{$space-tiny} * 1.5) 0 0;
     }
+
+    .animated-title {
+			opacity: 0;
+       transform: translateX(-100%);
+      &.slideInLeft {
+        opacity: 1;
+        transform: translateX(0);
+        transition: transform 0.5s ease-in-out;
+
+
+      }
+    }
+
 
     @include break-point(tablet) {
 

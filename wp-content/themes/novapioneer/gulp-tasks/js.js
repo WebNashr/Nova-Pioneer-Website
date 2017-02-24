@@ -22,7 +22,8 @@ gulp.task('js', function () {
         'assets-src/js/slippry/slippry.min.js',
         'assets-src/js/bowser.js',
         'assets-src/js/scripts.js',
-        'assets-src/js/lightslider/lightslider.js'
+        'assets-src/js/lightslider/lightslider.js',
+        'assets-src/js/inview.js'
     ])
     .pipe(debug({title:'js-debug:'}))
     .pipe(plumber())
