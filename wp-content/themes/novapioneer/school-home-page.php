@@ -146,18 +146,18 @@ get_header(); ?>
                     $leadership_team_description_paragraphs = $matches[1];
                     ?>
 
-                    <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/>
-                    <div class="read-more-wrap">
+                    <!-- <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/> -->
+                    <!-- <div class="read-more-wrap"> -->
                         <p><?php echo array_shift($leadership_team_description_paragraphs); ?></p>
                         <span class="read-more-target">
                             <?php foreach ($leadership_team_description_paragraphs as $paragraph): ?>
                                 <p><?php echo $paragraph; ?></p>
                             <?php endforeach; ?>
                         </span>
-                    </div>
-                    <br>
-                    <label for="post-<?php echo get_the_ID(); ?>"
-                           class="read-more-trigger button button-tiny button-primary"></label>
+                    <!-- </div> -->
+                    <!-- <br> -->
+                    <!-- <label for="post-<?php echo get_the_ID(); ?>"
+                           class="read-more-trigger button button-tiny button-primary"></label> -->
 
                 </div>
 
