@@ -34,6 +34,7 @@
     }
 }
 .page-footer-home{
+	border: none;
 	padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2);
 	background-color: transparent;
 	color: $white;

@@ -36,8 +36,9 @@
 
   </footer>
 <?php endif; ?>
-  <footer class="page-footer <?php if( is_front_page() ): echo 'page-footer-home'; else: echo 'page-footer-aux'; endif; ?>">
 
+  <?php if( is_front_page() ): ?>
+  <footer class="page-footer <?php if( is_front_page() ): echo 'page-footer-home'; else: echo 'page-footer-aux'; endif; ?>">
     <!-- start navigation -->
         <?php wp_nav_menu( array(
             'menu_class' => 'footer-menu-aux',
@@ -48,6 +49,7 @@
         ) ); ?>
     <!-- end navigation -->
   </footer>
+  <?php endif; ?>
   <!-- end footer -->
 
   <?php if( is_page_template('apply-online-page.php') ): ?>
