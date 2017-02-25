@@ -86,11 +86,21 @@ get_header(); ?>
                 </div>
             </section>
 
+            <figure class="full-width-image secondary-bgd-image parallax" data-type="background" data-speed="7">
+                <div class="section-content full-image-caption animated caption">
+                    <figcaption>
+                        <p>Writing, painting, singing, sculpting and many more are all languages through which children can express themselves.</p>
+                    </figcaption>
+                </div>
+                <span class="anchor-link" id="preprimary"></span>
+            </figure>
+
+
 
             <span class="anchor-link"></span>
 
 
-            <section class="section section-pair even-section">
+            <section class="section section-pair">
                 <div class="section-navigation">
                     <h2 id="secondary">Secondary Students</h2>
                 </div>
@@ -127,7 +137,7 @@ get_header(); ?>
             </section>
 
 
-            <section class="section section-pair contact-student">
+            <section class="section section-pair contact-student even-section">
                 <div class="section-navigation">
                     <h2>Contact a Student</h2>
                 </div>

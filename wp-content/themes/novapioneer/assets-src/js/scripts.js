@@ -135,6 +135,36 @@ $(document).ready(function() {
 
 
 });
+
+// 10. Full width caption animation
+$(function() {
+  var captionWaypoint = $('.caption').waypoint(function (direction) {
+
+      if (direction == 'down') {
+
+          $(this.element).addClass('slideInLeft');
+
+          this.destroy();
+      }
+  }, {
+      offset: '95%'
+  });
+  console.log("10. Full width caption animation");
+});
+// 11. Animated Hero title
+$(function() {
+  var inview = new Waypoint.Inview({
+    element: $('.animated-title')[0],
+
+    entered: function(direction) {
+      $(this.element).addClass('slideInLeft');
+      console.log("11. Animated Hero title");
+      this.destroy();
+    }
+
+    });
+});
+
 // end document.ready
 
 
