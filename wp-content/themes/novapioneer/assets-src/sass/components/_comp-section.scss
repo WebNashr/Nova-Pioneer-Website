@@ -18,23 +18,8 @@
 	&.even-section {
 		background: lighten($background-grey, 5%);
 	}
-
 	&.call-to-action {
 		padding: 0 calc(#{$space-tiny} * 2);
-	}
-	&.school-features-container {
-		padding-top: calc(#{$space-tiny} * 1);
-		padding-bottom: calc(#{$space-tiny} * 1);
-		background: lighten($orange-lt, 20%);
-		background: $orange-lt;
-		h2{
-			margin: 0;
-			margin-top: 1rem;
-			text-align: center;
-			@include break-point(laptop) {
-				text-align: right;
-			}
-		}
 	}
 
 	@include break-point(tablet) {
@@ -187,10 +172,6 @@
 			padding-left: unset;
 			border-left: unset;
 		}
-		.school-features-container & {
-			border-left: 1px solid lighten($grey-md, 10%);
-		}
-
 		&.even-section {
 			border-left: 1px solid darken($grey, 20%);
 		}
@@ -418,8 +399,7 @@
 	@extend %columns;
 	width: 100%;
 	align-items: center;
-	padding-top: calc(#{$space-tiny} * 1) !important;
-	padding-bottom: calc(#{$space-tiny} * 1) !important;
+	padding-top: calc(#{$space-tiny} * 1);
 	.feature-item{
 		// @extend %column-3;
 		flex:1;
@@ -427,7 +407,7 @@
 
 		// align-self: center;
 		p {
-			@include copy(bold);
+			@include copy(semi);
 			@include font-size(16px);
 			display: inline;
 			position: relative;
@@ -1194,6 +1174,7 @@
 	a {
 		display: inline-block;
 		padding-bottom: calc(#{$space-tiny} * 0.75);
+		
 
 		&:hover {
 			.facebook-icon,

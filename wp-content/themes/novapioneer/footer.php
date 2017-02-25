@@ -8,10 +8,18 @@
 <?php if( !is_front_page() ): ?>
   <footer class="page-footer">
     <nav role="navigation" class="footer-menu">
-        <a href="<?php echo site_url(); ?>" class="footer-logo">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-vertical-coloured-blue.svg" alt="Nova Pioneer">
-        </a>
-
+      <div class="footer-logo">
+        <div class="logo">
+          <a href="<?php echo site_url(); ?>">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-vertical-coloured-blue.svg" alt="Nova Pioneer">
+          </a>
+        </div>
+        <div class="social-media-links">
+          <a href=" <?php echo get_field('facebook'); ?>" target="_blank"><span class="social-icon facebook-icon"></span>Facebook</a><br/>
+          <a href=" <?php echo get_field('twitter'); ?>" target="_blank"><span class="social-icon twitter-icon"></span>Twitter</a><br/>
+          <a href=" <?php echo get_field('linkedin'); ?>" target="_blank"><span class="social-icon linkedin-icon"></span>LinkedIn</a><br/>
+        </div>
+      </div>
         <div class="footer-boxes">
 
             <?php wp_nav_menu( array(

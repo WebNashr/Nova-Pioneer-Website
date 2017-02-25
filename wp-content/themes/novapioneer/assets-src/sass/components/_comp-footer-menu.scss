@@ -84,8 +84,19 @@
 }
 
 .footer-logo {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+	@include flex-direction(column);
+	justify-content: space-between;
 	width: 10rem;
 	margin: 0 0 2rem;
+	.logo {
+		margin-bottom: 2rem;
+	}
+	.social-media-links {
+
+
+	}
 
 	@include break-point(laptop) {
 		width: 20%;
