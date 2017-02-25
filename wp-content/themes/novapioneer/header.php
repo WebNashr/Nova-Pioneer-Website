@@ -500,6 +500,7 @@
 
                     <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
 
+                    <?php if( !is_front_page() ): ?>
                     <form action="<?php echo esc_url( home_url('/') ); ?>" class="header-search">
                         <fieldset>
                             <input type="text" name="s" placeholder="Search"/>
@@ -521,7 +522,8 @@
                                 <span class="search-toggle-icon cross">×</span>
                             </button>
                         </fieldset>
-                    </form>
+                    </form> 
+                    <?php endif; ?>
 
                     <?php if( !is_front_page() ): ?>
                         <label for="modal-check" class="modal-check-label">
