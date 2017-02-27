@@ -12,8 +12,8 @@
 	padding: calc(#{$space-tiny} * 3);
 
 	&.full-width-quote {
-		// background: lighten($green-blue, 30%);
-		background: lighten($blue-lt, 30%);
+		background: lighten($blue-lt, 40%);
+		// background: lighten($orange-lt,30%);
 		min-height: 300px;
 		margin: -1.5rem 0 0 0;
 
