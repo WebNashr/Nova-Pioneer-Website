@@ -547,6 +547,7 @@
                         ) ); ?> -->
                         <!-- end navigation -->
                     <?php endif; ?>
+                    <?php if( !is_front_page() ): ?>
                     <div class="select-country">
                       <span class="country show">
                           <span class="flag-icon flag-icon-za"></span>
@@ -557,6 +558,7 @@
                           <span class="text">Kenya</span>
                       </span>
                   </div>
+                  <?php endif; ?>
 
 
 

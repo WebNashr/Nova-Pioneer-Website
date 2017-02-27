@@ -50,6 +50,7 @@
 
   <?php if( is_front_page() ): ?>
   <footer class="page-footer <?php if( is_front_page() ): echo 'page-footer-home'; else: echo 'page-footer-aux'; endif; ?>">
+    <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; 2017. All right reserved.</span>
     <!-- start navigation -->
         <?php wp_nav_menu( array(
             'menu_class' => 'footer-menu-aux',
