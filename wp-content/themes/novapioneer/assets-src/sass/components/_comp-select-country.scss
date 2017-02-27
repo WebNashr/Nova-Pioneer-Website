@@ -8,7 +8,7 @@
 	@include line-height(1);
 	@include flexbox();
 	// @include flex-wrap(nowrap);
-    @include flex-direction(column);
+    @include flex-direction(row);
     align-self: center;
 
     position: relative;
@@ -43,7 +43,7 @@
 .country {
 	display: block;
 	padding: calc(#{$space-tiny} * 0.25) calc(#{$space-tiny} * 0.75);
-	color: $white;
+	color: $grey-mdk;
 
 	&.country-select-toggle {
 		padding-top: calc(#{$space-tiny} * 0.5);
@@ -53,9 +53,7 @@
 		color: $blue-lt;
 
 		.select-countries & {
-			color: $white;
+			color: $grey;
 		}
 	}
 }
-
-

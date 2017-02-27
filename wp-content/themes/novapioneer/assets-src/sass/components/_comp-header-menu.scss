@@ -151,7 +151,7 @@
 	width: 2.75rem;
 	height: 2.75rem;
 	// margin-left: auto;
-	margin-left: calc(#{$space-tiny} * 2);
+	margin-left: calc(#{$space-tiny} * 0.25);
 	align-self: center;
 	background: transparent;
 
@@ -406,7 +406,8 @@
     }
 
     @include break-point(laptop) {
-		max-width: 14rem;
+			// max-width: 14rem;
+			max-width: 12.5rem;
 			max-height: 64px;
 
 		svg {
@@ -438,6 +439,7 @@
     align-self: center;
     padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
     background: $green-lt;
+
 
 	.stuck &,
 	.non-hero & {
@@ -555,11 +557,13 @@
     @include break-point(largelaptop) {
 		&.menu-main {
 			width: auto;
-			margin-left: 3.75rem;
+			// margin-left: 3.75rem;
+			margin-left: 2rem;
 		}
     }
 
     @include break-point(desktop) {
+			margin-left: 3.75rem;
 
     }
 }
@@ -634,7 +638,7 @@
 			&:after {
 				border-top: 6px solid $blue-lt !important;
 			}
-		
+
 	}
 
 	.modal & {
@@ -658,7 +662,7 @@
     }
 
     @include break-point(largelaptop) {
-		@include font-size(17px);
+		@include font-size(16px);
 
 		&:not(:first-of-type) {
 			// margin-left: 1.5rem;
@@ -739,7 +743,7 @@
 	@include flexbox();
 	@include flex-wrap(nowrap);
   @include flex-direction(row);
-	padding: calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 0.75) calc(#{$space-tiny} * 1.75) 0;
+	padding: calc(#{$space-tiny} * 1.75) 0;
 	// $width-nav: 50%;
 	// $width-nav-item: ( $width-nav / 2 );
 	$width-border: 2px;
@@ -755,6 +759,7 @@
 		height: $height-nav-item;
 		// float:left;
 		margin:0;
+		margin-left: 1rem;
 		padding:0;
 		a {
 			// width: $width-nav-item - ( 2 * $width-border );
@@ -763,7 +768,7 @@
 
 		> li {
 			 text-indent: 0 !important;
- 				margin-right: 3rem;
+ 				margin-right: 2.5rem;
  				margin-left: 0;
        float: left;
        width: auto;

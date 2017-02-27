@@ -547,6 +547,16 @@
                         ) ); ?> -->
                         <!-- end navigation -->
                     <?php endif; ?>
+                    <div class="select-country">
+                      <span class="country show">
+                          <span class="flag-icon flag-icon-za"></span>
+                          <span class="text">South Africa</span>
+                      </span>
+                      <span class="country hide">
+                          <span class="flag-icon flag-icon-ke"></span>
+                          <span class="text">Kenya</span>
+                      </span>
+                  </div>
 
 
 
@@ -624,7 +634,7 @@
                         <?php endif; ?>
                     </nav>
 
-                    <div class="select-country">
+                    <!-- <div class="select-country">
                         <div class="country country-select-toggle">Select country</div>
 
                         <div class="select-countries">
@@ -636,7 +646,7 @@
                                 <span class="text">South Africa</span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- <form action="<?php echo esc_url( home_url('/') ); ?>" class="header-search">
                         <fieldset>
