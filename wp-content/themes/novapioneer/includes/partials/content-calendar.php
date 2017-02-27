@@ -1,8 +1,8 @@
-<section class="section section-hero admission-process-hero">
+<section class="section section-hero admission-process-hero" data-type="background" data-speed="4">
     <div class="container hero-container">
         <div class="main-callout-box">
             <hr>
-            <h1>Calendar</h1>
+            <h1 class="animated-title">Calendar</h1>
         </div>
     </div>
 </section>

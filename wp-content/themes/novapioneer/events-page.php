@@ -13,11 +13,11 @@ get_header();?>
     'posts_per_page' => -1
 )); ?>
 
-<section class="section section-hero events-hero">
+<section class="section section-hero events-hero" data-type="background" data-speed="4">
     <div class="container hero-container">
         <div class="main-callout-box">
             <hr>
-            <h1>Events</h1>
+            <h1 class="animated-title">Events</h1>
             <p>Upcoming Nova Pioneer School Events</p>
         </div>
     </div>
