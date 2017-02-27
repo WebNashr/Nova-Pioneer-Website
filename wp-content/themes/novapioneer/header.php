@@ -485,14 +485,66 @@
                     </a>
 
                     <?php if( !is_front_page() ): ?>
+                      <div id="main-menu">
+                        <nav role="navigation" class="menu menu-main">
+                          <ul id="main-dropdown">
+                            <li><a href="#" class="menu-item menu-item-main" title="">About</a>
+                              <ul>
+                                <li><a href="#" class="" title="">Who We Are</a></li>
+                                <li><a href="#" class="" title="">Global Leadership</a></li>
+                                <li><a href="#" class="" title="">Nova Pioneer Education Group</a></li>
+                                <li><a href="#" class="" title="">Education Blog</a></li>
+                                <li><a href="#" class="" title="">Contacts</a></li>
+                                <li><a href="#" class="" title="">Press</a></li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#" class="menu-item  menu-item-main menu-item-current" title="">Schools</a>
+                              <ul>
+                                <li><a href="#" class="" title="">Nova Pioneer Girls</a></li>
+                                <li><a href="#" class="" title="">Nova Pioneer Boys</a></li>
+                                <li><a href="#" class="" title="">Nova Pioneer Primary</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="#" class="menu-item menu-item-main" title="">Learning</a>
+                              <ul>
+                                <li><a href="#" class="" title="">Our Learning Approach</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="#" class="menu-item menu-item-main" title="">Admissions</a>
+                              <ul>
+                                <li><a href="#" class="" title="">Admission Process</a></li>
+                                <li><a href="#" class="" title="">Fee-structure</a></li>
+                                <li><a href="#" class="" title="">Apply Online</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="#" class="menu-item menu-item-main" title="">Meet the students</a>
+                              <ul>
+                                <li><a href="#" class="" title="">Pre-Primary Students</a></li>
+                                <li><a href="#" class="" title="">Primary Students</a></li>
+                                <li><a href="#" class="" title="">Secondary Students</a></li>
+                                <li><a href="#" class="" title="">Student Blog</a></li>
+                              </ul>
+
+                            </li>
+                            <li>
+                              <a href="#" class="menu-item menu-item-main" title="">Careers</a>
+                              <ul>
+                                <li><a href="#" class="" title="">Working at Nova Pioneer</a></li>
+                                <li><a href="#" class="" title="">Open Positions</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
                         <!-- start navigation -->
-                        <?php wp_nav_menu( array(
-                            'menu_class' => 'menu menu-main',
-                            'walker' => new NovaPioneer\NovapMenuWalker,
-                            'items_wrap' => '<nav role="navigation" id="%1$s" class="%2$s">%3$s</nav>',
-                            'theme_location' => 'novap-header-menu',
-                            'container' => ''
-                        ) ); ?>
+                        <!-- <?php wp_nav_menu( array(
+                            //'menu_class' => 'menu menu-main',
+                            //'walker' => new NovaPioneer\NovapMenuWalker,
+                            //'items_wrap' => '<nav role="navigation" id="%1$s" class="%2$s">%3$s</nav>',
+                            //'theme_location' => 'novap-header-menu',
+                            //'container' => ''
+                        ) ); ?> -->
                         <!-- end navigation -->
                     <?php endif; ?>
 
@@ -522,7 +574,7 @@
                                 <span class="search-toggle-icon cross">×</span>
                             </button>
                         </fieldset>
-                    </form> 
+                    </form>
                     <?php endif; ?>
 
                     <?php if( !is_front_page() ): ?>

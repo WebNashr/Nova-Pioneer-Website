@@ -568,7 +568,23 @@
 	padding: 0;
 
 	&:hover {
-		color: $orange-lt;
+		color: $blue-lt !important;
+		&:after {
+			border-top: 6px solid $blue-lt !important;
+		}
+	}
+	&:after {
+		width: 0;
+    height: 0;
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: -20px;
+    border-top: 6px solid $grey-mdk;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+		border-radius: 3px;
+
 	}
 
 	@include break-point(laptop) {
@@ -610,6 +626,8 @@
 
 	&.menu-item-current {
 		color: $blue-lt;
+		padding-bottom: calc(#{$space-tiny} * 0.5);
+		border-bottom: 3px solid $blue-lt;
 	}
 
 	.modal & {
@@ -709,4 +727,91 @@
 		    margin-top: -4px;
 		}
     }
+}
+#main-menu {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+  @include flex-direction(row);
+	padding: calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 0.75);
+	// $width-nav: 50%;
+	// $width-nav-item: ( $width-nav / 2 );
+	$width-border: 2px;
+	$height-nav-item: 34px;
+	$height-inner-list-items: ( $height-nav-item + 0 );
+
+
+	#main-dropdown {
+		list-style:none;
+		position:relative;
+		@include flexbox();
+		width: auto;
+		height: $height-nav-item;
+		// float:left;
+		margin:0;
+		padding:0;
+		a {
+			// width: $width-nav-item - ( 2 * $width-border );
+
+      line-height: $height-nav-item;
+		}
+
+		> li {
+			 text-indent: 0 !important;
+ 				margin-right: 3rem;
+ 				margin-left: 0;
+       float: left;
+       width: auto;
+       position: relative;
+
+			 &:before {
+ 				content: none !important;
+ 			}
+       &:hover {
+
+          ul {
+             visibility: visible;
+          }
+       }
+
+       ul {
+          visibility: hidden;
+          position: absolute;
+					background: $blue-dk;
+          // top: 1rem;
+					border-left: 3px $blue-lt solid;
+          left: 0;
+					width: 255px;
+					z-index: 5;
+
+					li {
+						&:before {
+						 content: none !important;
+						 text-indent: 0 !important;
+						 margin-left: 3.5rem;
+						 text-indent: 0;
+						 padding: 0 calc(#{$space-tiny} * 1);
+
+					 }
+					 a {
+						 width: 255px;
+						 padding-left: 2.5rem;
+						//  padding: calc(#{$space-tiny} * 1) 0;
+						color: $grey;
+						&:hover {
+							background: darken($blue-dk, 5%);
+							color: $orange-lt;
+						}
+					 }
+					}
+
+          a {
+						display: inline-block;
+             line-height: ( $height-inner-list-items );
+             height: ( $height-inner-list-items );
+          }
+       }
+    }
+
+	}
+
 }
