@@ -19,6 +19,9 @@
           <a href=" <?php echo get_field('twitter'); ?>" target="_blank"><span class="social-icon twitter-icon"></span>Twitter</a><br/>
           <a href=" <?php echo get_field('linkedin'); ?>" target="_blank"><span class="social-icon linkedin-icon"></span>LinkedIn</a><br/>
         </div>
+        <div>
+          <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; 2016. All right reserved.</span>
+        </div>
       </div>
         <div class="footer-boxes">
 

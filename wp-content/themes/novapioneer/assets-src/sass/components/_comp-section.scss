@@ -394,7 +394,20 @@
 		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
 	}
 }
+.school-features-container {
+	background: $orange-lt;
+	padding-top: calc(#{$space-tiny} * 1);
+	padding-bottom: calc(#{$space-tiny} * 1);
+	h2 {
+		margin-top: 0;
+		margin-bottom: 0;
+		text-align: center;
+		@include break-point(laptop) {
+				text-align: right;
+		}
+	}
 
+}
 .school-features{
 	@extend %columns;
 	width: 100%;
@@ -1174,7 +1187,7 @@
 	a {
 		display: inline-block;
 		padding-bottom: calc(#{$space-tiny} * 0.75);
-		
+
 
 		&:hover {
 			.facebook-icon,

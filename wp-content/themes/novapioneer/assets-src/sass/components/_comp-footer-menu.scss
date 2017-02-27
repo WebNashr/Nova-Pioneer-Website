@@ -91,11 +91,10 @@
 	width: 10rem;
 	margin: 0 0 2rem;
 	.logo {
-		margin-bottom: 2rem;
+		margin-bottom: 1.15rem;
 	}
 	.social-media-links {
-
-
+		margin-bottom: 0;
 	}
 
 	@include break-point(laptop) {
@@ -244,7 +243,8 @@
 
 .footer-menu-aux-item-copyright {
     margin-top: $space-tiny * 2;
-
+		@include font-size(12px);
+		letter-spacing: normal !important;
     @include break-point(tablet) {
 
     }
