@@ -132,6 +132,7 @@
 	align-self: center;
 	color: $white;
 	transition: $ease;
+	margin-right: 2rem;
 
 	&.stuck,
 	.non-hero & {
@@ -462,7 +463,7 @@
     display: none;
 
 	&.menu-aux {
-		margin-left: 2rem;
+		margin-left: 0;
 
 		.modal & {
 			@include flex-order(4);
@@ -532,7 +533,8 @@
 	}
 
 	&.menu-main {
-		margin-left: 3rem;
+		// margin-left: 3rem;
+		margin-left: 2rem;
 
 		.modal & {
 			@include flex-direction(column);
@@ -628,6 +630,11 @@
 		color: $blue-lt;
 		padding-bottom: calc(#{$space-tiny} * 0.5);
 		border-bottom: 3px solid $blue-lt;
+
+			&:after {
+				border-top: 6px solid $blue-lt !important;
+			}
+		
 	}
 
 	.modal & {
@@ -651,10 +658,10 @@
     }
 
     @include break-point(largelaptop) {
-		@include font-size(18px);
+		@include font-size(17px);
 
 		&:not(:first-of-type) {
-			margin-left: 1.5rem;
+			// margin-left: 1.5rem;
 		}
     }
 }
@@ -732,7 +739,7 @@
 	@include flexbox();
 	@include flex-wrap(nowrap);
   @include flex-direction(row);
-	padding: calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 0.75);
+	padding: calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 0.75) calc(#{$space-tiny} * 1.75) 0;
 	// $width-nav: 50%;
 	// $width-nav-item: ( $width-nav / 2 );
 	$width-border: 2px;
@@ -751,7 +758,6 @@
 		padding:0;
 		a {
 			// width: $width-nav-item - ( 2 * $width-border );
-
       line-height: $height-nav-item;
 		}
 
@@ -780,7 +786,7 @@
           // top: 1rem;
 					border-left: 3px $blue-lt solid;
           left: 0;
-					width: 255px;
+					width: 237px;
 					z-index: 5;
 
 					li {
@@ -793,8 +799,9 @@
 
 					 }
 					 a {
-						 width: 255px;
+						 width: 234px;
 						 padding-left: 2.5rem;
+						 @include font-size(15px);
 						//  padding: calc(#{$space-tiny} * 1) 0;
 						color: $grey;
 						&:hover {
