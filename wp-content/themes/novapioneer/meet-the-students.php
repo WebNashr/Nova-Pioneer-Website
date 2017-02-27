@@ -25,6 +25,7 @@ get_header(); ?>
                     </div>
                 </div>
             </section>
+            <div class="trigger"></div>
 
             <section class="section">
                 <div class="page-navigation-container meet-students-nav">
