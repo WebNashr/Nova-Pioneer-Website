@@ -560,11 +560,11 @@
                     <div class="select-country">
                       <span class="country show">
                           <span class="flag-icon flag-icon-za"></span>
-                          <span class="text">South Africa</span>
+                          <a href="<?php echo site_url('/sa'); ?>"> <span class="text">South Africa</span> </a>
                       </span>
                       <span class="country hide">
                           <span class="flag-icon flag-icon-ke"></span>
-                          <span class="text">Kenya</span>
+                          <a href="<?php echo site_url('/kenya'); ?>"> <span class="text">Kenya</span> </a>
                       </span>
                   </div>
                   <?php endif; ?>
