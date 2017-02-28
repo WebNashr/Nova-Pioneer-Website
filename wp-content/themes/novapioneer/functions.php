@@ -746,3 +746,84 @@ function get_nova_events($taxonomies = false)
 
     return $html;
 }
+
+
+function is_kenyan_np_page()
+{
+    global $post;
+
+    if( is_front_page() ){
+        return false;
+    }
+
+    if( is_page_template('country-home-page.php') )
+    {
+        if( $post->post_name == 'kenya')
+        {
+            return true;
+        }
+    }
+
+    if( is_page_template('school-home-page.php') && has_term('kenya', 'country') )
+    {
+        return true;
+    }
+
+    if( is_singular() && has_term('kenya', 'country'))
+    {
+        return true;
+    }
+
+    if( is_page() && $post->post_parent )
+    {
+        $parent = get_post($post->post_parent);
+        $slug = $parent->post_name;
+
+        if( $slug == 'kenya' )
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function is_sa_np_page()
+{
+    global $post;
+
+    if( is_front_page() ){
+        return false;
+    }
+
+    if( is_page_template('country-home-page.php') )
+    {
+        if( $post->post_name == 'sa')
+        {
+            return true;
+        }
+    }
+
+    if( is_page_template('school-home-page.php') && has_term('south-africa', 'country') )
+    {
+        return true;
+    }
+
+    if( is_singular() && has_term('south-africa', 'country'))
+    {
+        return true;
+    }
+
+    if( is_page() && $post->post_parent )
+    {
+        $parent = get_post($post->post_parent);
+        $slug = $parent->post_name;
+
+        if( $slug == 'sa' )
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
