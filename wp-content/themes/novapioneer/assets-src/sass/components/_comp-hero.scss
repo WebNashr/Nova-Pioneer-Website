@@ -6,7 +6,8 @@
 .section-hero {
     @include flexbox();
     @include flex-direction(row);
-    min-height: 80vh;
+    // min-height: 80vh;
+    min-height: 100vh;
     // $$$ ### ^^^ margin-bottom: calc(#{$space-tiny} * 4);
     padding: 0;
     background-color: $blue;
@@ -27,6 +28,7 @@
 
     &.school-home{
         background-image: url('../../img/large-hero-school.jpg');
+        min-height: 89vh;
     }
 
     &.learning-home{
@@ -36,7 +38,7 @@
     &.leadership-team{
         background-image: url('../../img/large-hero-leadership.jpg');
         background-position: center top;
-        min-height: 63vh;
+        min-height: 80vh;
         // max-height: 80vh;
     }
 
