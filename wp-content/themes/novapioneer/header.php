@@ -488,50 +488,59 @@
                       <div id="main-menu">
                         <nav role="navigation" class="menu menu-main">
                           <ul id="main-dropdown">
-                            <li><a href="#" class="menu-item menu-item-main" title="">About</a>
+                            <li><a href="<?php echo site_url('/'); ?>" class="menu-item menu-item-main" title="">About</a>
                               <ul>
-                                <li><a href="#" class="" title="">Who We Are</a></li>
-                                <li><a href="#" class="" title="">Global Leadership</a></li>
-                                <li><a href="#" class="" title="">Nova Pioneer Education Group</a></li>
-                                <li><a href="#" class="" title="">Education Blog</a></li>
-                                <li><a href="#" class="" title="">Contacts</a></li>
-                                <li><a href="#" class="" title="">Press</a></li>
+                                <li><a href="<?php echo site_url('/about'); ?>" class="" title="">Who We Are</a></li>
+                                <li><a href="<?php echo site_url('/global-leadership-team'); ?>" class="" title="">Global Leadership</a></li>
+                                <li><a href="<?php echo site_url('/nova-pioneer-corporate'); ?>" class="" title="">Nova Pioneer Education Group</a></li>
+                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Education Blog</a></li>
+                                <?php if( is_kenyan_np_page() ): ?>
+                                    <li><a href="<?php echo site_url('/kenya/contacts'); ?>" class="" title="">Contacts</a></li><!-- should depend on which country you're in -->
+                                <?php else: ?>
+                                    <li><a href="<?php echo site_url('/sa/contacts'); ?>" class="" title="">Contacts</a></li><!-- should depend on which country you're in -->
+                                <?php endif; ?>
+                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Press</a></li>
                               </ul>
                             </li>
                             <li>
-                              <a href="#" class="menu-item  menu-item-main menu-item-current" title="">Schools</a>
+                              <a href="<?php echo site_url('/'); ?>" class="menu-item  menu-item-main menu-item-current" title="">Schools</a>
                               <ul>
-                                <li><a href="#" class="" title="">Nova Pioneer Girls</a></li>
-                                <li><a href="#" class="" title="">Nova Pioneer Boys</a></li>
-                                <li><a href="#" class="" title="">Nova Pioneer Primary</a></li>
+                                <?php if( is_kenyan_np_page() ): ?>
+                                <li><a href="<?php echo site_url('/kenya/ondiri'); ?>" class="" title="">Nova Pioneer Ondiri</a></li>
+                                <li><a href="<?php echo site_url('/kenya/tatu-city'); ?>" class="" title="">Nova Pioneer Tatu City</a></li>
+                                <?php elseif( is_sa_np_page() ): ?>
+                                <li><a href="<?php echo site_url('/sa/midrand'); ?>" class="" title="">Nova Pioneer Midrand</a></li>
+                                <li><a href="<?php echo site_url('/sa/jackal-creek'); ?>" class="" title="">Nova Pioneer Jackal Creek</a></li>
+                                <li><a href="<?php echo site_url('/sa/ormonde'); ?>" class="" title="">Nova Pioneer Ormonde</a></li>
+                                <?php endif; ?>
                               </ul>
                             </li>
-                            <li><a href="#" class="menu-item menu-item-main" title="">Learning</a>
+                            <li><a href="<?php echo site_url('/'); ?>" class="menu-item menu-item-main" title="">Learning</a>
                               <ul>
-                                <li><a href="#" class="" title="">Our Learning Approach</a></li>
+                                <li><a href="<?php echo site_url('/learning'); ?>" class="" title="">Our Learning Approach</a></li>
                               </ul>
                             </li>
-                            <li><a href="#" class="menu-item menu-item-main" title="">Admissions</a>
+                            <li><a href="<?php echo site_url('/'); ?>" class="menu-item menu-item-main" title="">Admissions</a>
                               <ul>
-                                <li><a href="#" class="" title="">Admission Process</a></li>
-                                <li><a href="#" class="" title="">Fee-structure</a></li>
-                                <li><a href="#" class="" title="">Apply Online</a></li>
+                                <li><a href="<?php echo site_url('/admission-process'); ?>" class="" title="">Admission Process</a></li>
+                                <li><a href="<?php echo site_url('/fees-structure'); ?>" class="" title="">Fee-structure</a></li>
+                                <li><a href="<?php echo site_url('/apply-online'); ?>" class="" title="">Apply Online</a></li>
                               </ul>
                             </li>
-                            <li><a href="#" class="menu-item menu-item-main" title="">Meet the students</a>
+                            <li><a href="<?php echo site_url('/'); ?>" class="menu-item menu-item-main" title="">Meet the students</a>
                               <ul>
-                                <li><a href="#" class="" title="">Pre-Primary Students</a></li>
-                                <li><a href="#" class="" title="">Primary Students</a></li>
-                                <li><a href="#" class="" title="">Secondary Students</a></li>
-                                <li><a href="#" class="" title="">Student Blog</a></li>
+                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Pre-Primary Students</a></li>
+                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Primary Students</a></li>
+                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Secondary Students</a></li>
+                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Student Blog</a></li>
                               </ul>
 
                             </li>
                             <li>
-                              <a href="#" class="menu-item menu-item-main" title="">Careers</a>
+                              <a href="<?php echo site_url('/'); ?>" class="menu-item menu-item-main" title="">Careers</a>
                               <ul>
-                                <li><a href="#" class="" title="">Working at Nova Pioneer</a></li>
-                                <li><a href="#" class="" title="">Open Positions</a></li>
+                                <li><a href="<?php echo site_url('/working-at-nova-pioneer'); ?>" class="" title="">Working at Nova Pioneer</a></li>
+                                <li><a href="<?php echo site_url('/jobs'); ?>" class="" title="">Open Positions</a></li>
                               </ul>
                             </li>
                           </ul>
