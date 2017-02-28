@@ -244,6 +244,45 @@ get_header(); ?>
 
                 </div>
         </section>
+        <!-- testimonial slider to come here -->
+        <!-- <aside>
+              <div class=" testimonial full-width-quote bottom-quote">
+                <div class=" section content-slider-container">
+                <ul id="testimonial-slider" class="content-slider">
+                  <li class="single-testimonial">
+                  <div class="spacing-to-center"></div>
+                    <figure class="full-width-figure">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
+                    </figure>
+                    <blockquote>
+                      <svg aria-hidden="true">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                      </svg>
+                        <p>I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
+                        <cite><span>Bridget,</span> Nova Pioneer Parent</cite></p>
+                    </blockquote>
+                    <div class="spacing-to-center"></div>
+                  </li>
+                  <li>
+                  <div class="spacing-to-center"></div>
+                    <figure class="full-width-figure">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
+                    </figure>
+                    <blockquote>
+
+                      <svg aria-hidden="true">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                      </svg>
+                        I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
+                        <cite><span>Bridget,</span> Nova Pioneer Parent</cite>
+                    </blockquote>
+                    <div class="spacing-to-center"></div>
+                  </li>
+                </ul>
+            </div>
+            </div>
+        </aside> -->
+
 
         <aside>
             <div class="testimonial full-width-quote bottom-quote">
@@ -273,3 +312,39 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#testimonial-slider").lightSlider({
+        item: 1,
+        autoWidth: true,
+        slideMove: 1, // slidemove will be 1 if loop is true
+        slideMargin: 10,
+
+        addClass: '',
+        mode: "slide",
+        useCSS: true,
+        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+        easing: 'linear', //'for jquery animation',////
+
+        speed: 400, //ms'
+        auto: false,
+        loop: true,
+        slideEndAnimation: true,
+        pause: 2000,
+
+        keyPress: false,
+        controls: true,
+        prevHtml: '',
+        nextHtml: '',
+
+        currentPagerPosition: 'middle',
+
+        enableTouch:true,
+        enableDrag:true,
+        freeMove:true,
+        swipeThreshold: 40,
+
+    });
+});
+</script>
