@@ -30,13 +30,13 @@ get_header(); ?>
             <div class="section-content">
                 <div class="section-content-item school-features">
                     <div class="feature-item"><span class="feature-icon boys-school-icon"></span>
-                        <p>Boys School</p></div>
+                        <p><?php echo get_field('school_gender'); ?></p></div>
                     <div class="feature-item"><span class="feature-icon curriculum-icon"></span>
-                        <p>8-4-4 Curriculum</p></div>
+                        <p><?php echo get_field('school_curriculumn'); ?></p></div>
                     <div class="feature-item"><span class="feature-icon boarding-icon"></span>
-                        <p>Boarding School</p></div>
+                        <p><?php echo get_field('booarding_or_day_school'); ?></p></div>
                     <div class="feature-item"><span class="feature-icon grade-icon"></span>
-                        <p>Form 1 - 4</p></div>
+                        <p><?php echo get_field('school_grades'); ?></p></div>
                     <!-- <?php echo get_field('summary_intro'); ?> -->
                 </div>
             </div>

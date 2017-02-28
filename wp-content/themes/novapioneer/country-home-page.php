@@ -23,76 +23,22 @@ get_header(); ?>
         <section class="section" style="padding:auto 0;">
           <section><h2 style="text-align: center;">Select a School</h2></section>
         <div class="section-school-list">
-
-              <div class="section-school-list-select">
-                  <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
-                  <h3>Jackal Creek</h3>
-                  <div class="school-summary">
-                    <p><strong>Day</strong> School</p>
-                    <p>Ages <strong>3-14</strong></p>
-                    <p>Co-ed <strong>Pre-Primary and Primary</strong></p>
-                    <p>Grades <strong>000, 00, R &amp; 1</strong></p>
-                    <a href="#" class="button button-tiny button-primary"> Read More</a>
-                  </div>
-              </div>
-
-              <div class="section-school-list-select">
-
-                  <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
-                  <h3>Midrand</h3>
-                  <div class="school-summary">
-                    <p><strong>Day</strong> School</p>
-                    <p>Ages <strong>3-14</strong></p>
-                    <p>Co-ed <strong>Pre-Primary and Primary</strong></p>
-                    <p>Grades <strong>000, 00, R &amp; 1</strong></p>
-                    <a href="#" class="button button-tiny button-primary"> Read More</a>
-                  </div>
-
-              </div>
-
-              <div class="section-school-list-select">
-
-                  <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
-                  <h3>Ormonde</h3>
-                  <!-- <h1><a href="#" class="school-link" title="">Ormonde</a></h1> -->
-                  <div class="school-summary">
-                    <p><strong>Day</strong> School</p>
-                    <p>Ages <strong>3-14</strong></p>
-                    <p>Co-ed <strong>Pre-Primary and Primary</strong></p>
-                    <p>Grades <strong>000, 00, R &amp; 1</strong></p>
-                    <a href="#" class="button button-tiny button-primary"> Read More</a>
-                  </div>
-
-              </div>
-
-              <!-- <div class="section-school-list-select">
-
-                  <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
-                  <h3>New School</h3>
-                  <div class="school-summary">
-                    <p><strong>Day</strong> School</p>
-                    <p>Ages <strong>3-14</strong></p>
-                    <p>Co-ed <strong>Pre-Primary and Primary</strong></p>
-                    <p>Grades <strong>000, 00, R &amp; 1</strong></p>
-                    <a href="#" class="button button-tiny button-primary"> Read More</a>
-                  </div>
-
-              </div> -->
-        </section>
-      </section>
-
-        <!-- <section class="section section-school-list">
             <?php $schools = get_field('schools'); ?>
-            <?php foreach($schools as $school): ?>
+            <?php foreach($schools as $school): $school = (object)$school; ?>
                 <div class="section-school-list-select">
-                    <a href="<?php echo get_permalink($school->ID); ?>">
-                        <p class="school-photo"><img src="<?php echo get_the_post_thumbnail_url($school->ID,'thumbnail'); ?>" alt=""></p>
-                        <h3><?php echo $school->post_title; ?></h3>
-                        <div class="school-summary"><?php echo get_field('summary_intro', $school->ID); ?></div>
-                    </a>
+                    <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
+                    <h3><?php echo $school->post_title; ?></h3>
+                    <div class="school-summary">
+                    <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
+                    <p><?php echo get_field('school_grades'); ?></p>
+                    <p>Co-ed <strong>Pre-Primary and Primary</strong></p>
+                    <p>Grades <strong>000, 00, R &amp; 1</strong></p>
+                    <a href="<?php echo get_permalink($school->ID); ?>" class="button button-tiny button-primary" target="_blank"> Read More</a>
+                    </div>
                 </div>
             <?php endforeach; ?>
-        </section> -->
+        </section>
+      </section>
 
 
         <section class="section section-pair even-section">
