@@ -79,6 +79,16 @@
 		@include break-point(desktop) {
 			padding: calc(#{$space-tiny} * 5) 0;
 		}
+		.single-testimonial {
+			@extend %columns;
+			@extend %column;
+			figure {
+				@extend %column-3;
+			}
+		blockquote {
+			@extend %column-6;
+		}
+		}
 	}
 
 	&.pull-quote {

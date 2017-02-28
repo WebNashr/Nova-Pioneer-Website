@@ -428,7 +428,8 @@
     }
 
     @include break-point(largelaptop) {
-		max-width: 18rem;
+			// max-width: 18rem;
+			max-width: 14rem;
 			max-height: 84px;
     }
 }

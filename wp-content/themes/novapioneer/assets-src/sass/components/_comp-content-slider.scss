@@ -11,6 +11,16 @@
       max-width:295px !important;
     }
   }
+  #testimonial-slider {
+    padding: 0 calc(#{$space-tiny} * 3);
+    li {
+        // max-width: 600px !important;
+
+        &:before {
+      		content: none !important;
+      	}
+    }
+  }
   ul{
     list-style-type: none !important;
   		list-style: none outside none;
@@ -105,6 +115,9 @@
     cursor: pointer;
     display: inline-block;
     padding: 0 5px;
+    &:before {
+      content: none !important;
+    }
 }
 .lSSlideOuter .lSPager.lSpg > li a {
     background-color: $blue-dk;
