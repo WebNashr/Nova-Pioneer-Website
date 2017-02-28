@@ -529,10 +529,10 @@
                             </li>
                             <li><a href="<?php echo site_url('/'); ?>" class="menu-item menu-item-main" title="">Meet the students</a>
                               <ul>
-                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Pre-Primary Students</a></li>
-                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Primary Students</a></li>
-                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Secondary Students</a></li>
-                                <li><a href="<?php echo site_url('/'); ?>" class="" title="">Student Blog</a></li>
+                                <li><a href="<?php echo site_url('/meet-the-students'); ?>" class="" title="">Pre-Primary Students</a></li>
+                                <li><a href="<?php echo site_url('/meet-the-students'); ?>" class="" title="">Primary Students</a></li>
+                                <li><a href="<?php echo site_url('/meet-the-students'); ?>" class="" title="">Secondary Students</a></li>
+                                <li><a href="<?php echo site_url('/meet-the-students'); ?>" class="" title="">Student Blog</a></li>
                               </ul>
 
                             </li>
