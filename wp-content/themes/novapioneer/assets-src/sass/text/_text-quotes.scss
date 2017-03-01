@@ -9,23 +9,23 @@
 	@extend %column-12;
 	justify-content: center;
 	background: lighten($background-grey, 5%);
-	padding: calc(#{$space-tiny} * 3);
+	padding: calc(#{$space-tiny} * 3) 0 !important;
 
 	&.full-width-quote {
-		background: lighten($blue-lt, 40%);
+		background: $blue-lt;
 		// background: lighten($orange-lt,30%);
-		min-height: 300px;
-		margin: -1.5rem 0 0 0;
+		// min-height: 300px;
+		margin: 0 0 0 0;
 
 		cite {
 			padding-left: 0;
 		}
 		@include break-point(tablet) {
-			margin: -4rem 0 0 0;
+			// margin: -4rem 0 0 0;
 		}
 
 		@include break-point(desktop) {
-			margin: -5rem 0 0 0;
+			// margin: -5rem 0 0 0;
 		}
 
 		padding: calc(#{$space-tiny} * 3) 0;
@@ -34,8 +34,8 @@
 		&.bottom-quote {
 			margin-top: 0;
 			margin-bottom: 0;
-			padding-top: calc(#{$space-tiny} * 4);
-			padding-bottom: calc(#{$space-tiny} * 4);
+			// padding-top: calc(#{$space-tiny} * 4);
+			// padding-bottom: calc(#{$space-tiny} * 4);
 			blockquote{
 				padding-right: calc(#{$space-tiny} * 3);
 				p {
@@ -79,17 +79,58 @@
 		@include break-point(desktop) {
 			padding: calc(#{$space-tiny} * 5) 0;
 		}
-		.single-testimonial {
-			@extend %columns;
-			@extend %column;
-			figure {
-				@extend %column-3;
+
+		  #testimonial-slider {
+				@extend %column;
+				@extend %column-12;
+
+			.single-testimonial {
+				@extend %columns;
+				width:800px;
+				// justify-content: center;
+				// @extend %column;
+
+			blockquote {
+				@extend %column;
+				max-width: 800px;
+				padding: 0 calc(#{$space-tiny} * 3) 0 calc(#{$space-tiny} * 2) ;
+				margin: 0 auto;
+				text-indent: 0.25rem;
+				svg {
+					color: $white;
+					fill: $orange-dk;
+				}
+				p {
+					color: lighten($grey-md, 10%);
+				}
+				cite{
+					color: lighten($grey-md, 10%);
+				}
+
 			}
-		blockquote {
-			@extend %column-6;
-		}
+			figure {
+				align-self: flex-start;
+				@extend %column-3;
+				max-width: 175px;
+				// display: none;
+
+				img {
+					width: 175px;
+					height: 175px;
+					border-radius: 50%;
+				}
+
+				@extend %columns;
+				@extend %column-3;
+
+				&.full-width-figure {
+					// @extend %column-2;
+					align-self: flex-start;
+				}
+			}
 		}
 	}
+}
 
 	&.pull-quote {
 		background: none;
