@@ -219,7 +219,22 @@ get_header(); ?>
                       <svg aria-hidden="true">
                         <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                       </svg>
-                        <p>Second testimonial:I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
+                        <p>Second testimonial: I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
+                        <cite><span>Bridget,</span> Nova Pioneer Parent</cite></p>
+                    </blockquote>
+                    <!-- <div class="spacing-to-center"></div> -->
+                  </li>
+                  <li class=" single-testimonial">
+                  <!-- <div class="spacing-to-center"></div> -->
+                    <figure class="full-width-figure">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
+                    </figure>
+                    <blockquote>
+
+                      <svg aria-hidden="true">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                      </svg>
+                        <p>Third testimonial: I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
                         <cite><span>Bridget,</span> Nova Pioneer Parent</cite></p>
                     </blockquote>
                     <!-- <div class="spacing-to-center"></div> -->
@@ -265,7 +280,7 @@ $(document).ready(function() {
         item: 1,
         autoWidth: true,
         slideMove: 1, // slidemove will be 1 if loop is true
-        slideMargin: 10,
+        slideMargin: 500,
 
         addClass: '',
         mode: "slide",

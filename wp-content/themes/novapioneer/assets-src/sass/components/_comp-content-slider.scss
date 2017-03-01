@@ -18,6 +18,8 @@
 
     li {
       // max-width: 600px !important;
+      // @extend %column;
+    	// @extend %column-12;
 
         &:before {
       		content: none !important;

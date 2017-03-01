@@ -86,14 +86,32 @@
 
 			.single-testimonial {
 				@extend %columns;
-				width:800px;
+				width: inherit;
+				// width:800px;
 				// justify-content: center;
 				// @extend %column;
+				@include break-point(tablet) {
+					width: 600px;
+				}
+				@include break-point(monitor) {
+					// margin-left: 2.5em;
+				}
+				@include break-point(desktop) {
+					width: 1150px;
+					margin-left: 1rem;
+				}
+				@media only screen
+				  and (min-device-width: 1500px)
+				  and (max-device-width: 2560px)
+				  {
+						margin-left: 2.5em;
+					}
+
 
 			blockquote {
 				@extend %column;
-				max-width: 800px;
-				padding: 0 calc(#{$space-tiny} * 3) 0 calc(#{$space-tiny} * 2) ;
+				// max-width: 800px;
+				padding: 0 0 0 calc(#{$space-tiny} * 2) ;
 				margin: 0 auto;
 				text-indent: 0.25rem;
 				svg {
@@ -125,8 +143,12 @@
 
 				&.full-width-figure {
 					// @extend %column-2;
-					align-self: flex-start;
+					align-self: center;
+					@include break-point(laptop) {
+						align-self: flex-start;;
+					}
 				}
+
 			}
 		}
 	}
