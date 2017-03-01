@@ -28,8 +28,36 @@ get_header();?>
         <div class="trigger"></div>
 
         <section class="section">
+            <article class="article article-inner article-inner-alt mission-vision">
+
+              <h2 class="centered-title">Our Mission</h2>
+              <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
+              <div class="read-more-wrap">
+                  <p><?php echo array_shift($our_mission_paragraphs); ?></p>
+                  <span class="read-more-target">
+                      <?php foreach($our_mission_paragraphs as $paragraph): ?>
+                          <p><?php echo $paragraph; ?></p>
+                      <?php endforeach; ?>
+                  </span>
+              </div>
+              <label for="post-<?php echo get_the_ID(); ?>" class="read-more-trigger button button-tiny button-primary"></label>
+
+                <h2 class="centered-title">Our Vision</h2>
+                <?php echo $our_vision; ?>
+            </article>
+        </section>
+
+        <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);" data-type="background" data-speed="7">
+            <div class="section-content full-image-caption animated caption slideInLeft">
+                <figcaption>
+                    <p> <?php echo get_field('our_culture_banner_image_caption'); ?></p>
+                </figcaption>
+            </div>
+        </figure>
+
+        <section class="section">
             <article class="article article-inner article-inner-alt">
-                <h2 class="centered-title">School &amp; Organisation Culture</h2>
+                <h2 class="centered-title">Our Culture</h2>
 
                 <?php echo $our_culture; ?>
 
@@ -53,16 +81,10 @@ get_header();?>
           </div>
         </section>
 
-        <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);" data-type="background" data-speed="7">
-            <div class="section-content full-image-caption animated caption slideInLeft">
-                <figcaption>
-                    <p> <?php echo get_field('our_culture_banner_image_caption'); ?></p>
-                </figcaption>
-            </div>
-        </figure>
 
 
-        <section class="section">
+
+        <!-- <section class="section">
             <article class="article article-inner article-inner-alt mission-vision">
 
               <h2 class="centered-title">Our Mission</h2>
@@ -80,7 +102,7 @@ get_header();?>
                 <h2 class="centered-title">Our Vision</h2>
                 <?php echo $our_vision; ?>
             </article>
-        </section>
+        </section> -->
 
 
     <?php endwhile; ?>
