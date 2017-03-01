@@ -41,11 +41,11 @@ get_header(); ?>
                 </div>
             </article>
         </section> -->
-        <section class="section call-to-action">
+        <section class="call-to-action">
             <article class="article">
                 <div class="cta-wrapper">
                   <p>Start your journey with Nova Pioneer today</p>
-                    <div class="button"><a href="<?php echo site_url('/apply-online'); ?>" class="button button-large button-primary" title="">Apply Online</a></div>
+                    <div class=""><a href="<?php echo site_url('/apply-online'); ?>" class="button button-large button-primary-alt" title="">Apply Online</a></div>
                 </div>
             </article>
         </section>
@@ -86,8 +86,6 @@ get_header(); ?>
             </article>
         </section>
     <?php endwhile; ?>
-
-    <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 
 <?php endif; ?>
 

@@ -1625,12 +1625,12 @@
 //---Working at Nova Pioneer end--
  .cta-wrapper {
 	 @extend %columns;
-	 background-color: lighten($blue-dk, 50%);
+	 background-color: $blue-lt;
 	 padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
 	 align-items: center;
 	 justify-content: center;
 	 p {
-		 color: $blue-dk;
+		 color: $white;
 		 @include copy(bold);
 		 @include font-size(30px);
 		 display: inline;
