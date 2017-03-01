@@ -68,8 +68,8 @@ get_header(); ?>
             </article>
         </section>-->
 
-        <section class="section">
-            <article class="article article-body general-content-XXX"> <!-- $$$ ### ^^^ remove the -XXX class if design/layout is approved -->
+        <!-- <section class="section">
+            <article class="article article-body general-content-XXX">
                 <h3>Admissions Contacts</h3>
 
                 <address class="contact-info">
@@ -84,7 +84,7 @@ get_header(); ?>
                     </p>
                 </address>
             </article>
-        </section>
+        </section> -->
     <?php endwhile; ?>
 
 <?php endif; ?>
