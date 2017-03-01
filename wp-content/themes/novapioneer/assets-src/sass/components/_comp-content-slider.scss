@@ -5,21 +5,30 @@
 
 .content-slider-container {
   width: inherit;
+  padding: 0 calc(#{$space-tiny} * 3) !important;
   #content-slider {
     li {
       list-style-type: none !important;
       max-width:295px !important;
     }
   }
+
   #testimonial-slider {
     padding: 0 calc(#{$space-tiny} * 3);
+
     li {
-        // max-width: 600px !important;
+      // max-width: 600px !important;
+      // @extend %column;
+    	// @extend %column-12;
 
         &:before {
       		content: none !important;
       	}
     }
+
+  }
+  .testimonials {
+
   }
   ul{
     list-style-type: none !important;
@@ -134,6 +143,10 @@
 }
 .lSSlideOuter .lSPager.lSpg > li:hover a, .lSSlideOuter .lSPager.lSpg > li.active a {
     background-color: #428bca;
+    .testimonials &{
+      background-color: $grey-md;
+    }
+
 }
 .lSSlideOuter .media {
     opacity: 0.8;
