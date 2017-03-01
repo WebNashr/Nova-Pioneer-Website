@@ -32,7 +32,7 @@ get_header();?>
             <div class="page-navigation-container">
                 <div class="navigation-wrap">
                     <div class="section-title">
-                        <h3>Our Education Stages</h3>
+                        <h3>Our Learning Approach</h3>
                     </div>
                     <div class="links-inner-wrap">
                         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
@@ -46,14 +46,13 @@ get_header();?>
                 </div>
             </div>
 
-
-            <article class="article article-container">
+            <!-- <article class="article article-container">
 
                 <div class="article-body learning-content intro-paragraph">
                     <?php echo $introduction; ?>
                 </div>
 
-            </article>
+            </article> -->
         </section>
 
         <section class="section">
@@ -83,7 +82,7 @@ get_header();?>
 
             <section class="education-stage">
                 <div class="section-title anchor-link">
-            <section class="section">
+            <section class="section last-stage">
                 <article class="article article-inner article-inner-alt">
                     <h2 id="<?php echo strtolower($stage->title); ?>"><?php echo $stage->title; ?></h2>
                     <?php echo $stage->description; ?>
@@ -123,16 +122,16 @@ get_header();?>
         </section>
         <?php endforeach; ?>
 
-        <section class="section even-section">
+        <!-- <section class="section even-section">
             <article class="article article-inner article-inner-alt">
                 <h2 class="centered-title">School &amp; Organisation Culture</h2>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
             </article>
-        </section>
+        </section> -->
 
-        <section class="section even-section">
+        <!-- <section class="section even-section">
           <div class="section-content section-content-plain principles-container">
 
               <div class="section-content-item section-content-item-third principle-card card-1">
@@ -173,7 +172,7 @@ get_header();?>
               </div>
 
           </div>
-        </section>
+        </section> -->
 
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>

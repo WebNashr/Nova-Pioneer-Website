@@ -774,6 +774,7 @@
 
 .section-learning-content {
 	margin: 0 auto;
+	padding-bottom: 0;
 	//@extend %column;
 	//@extend %columns;
 	//@extend %column-7;
@@ -835,6 +836,9 @@
 
 .education-stage {
 	margin: 0 auto;
+	.last-stage {
+		margin-bottom: 4rem;
+	}
 
 	// h1 {
 	// 	margin-top: 0;
