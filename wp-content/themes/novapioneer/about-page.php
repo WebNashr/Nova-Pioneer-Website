@@ -83,28 +83,6 @@ get_header();?>
 
 
 
-
-        <!-- <section class="section">
-            <article class="article article-inner article-inner-alt mission-vision">
-
-              <h2 class="centered-title">Our Mission</h2>
-              <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
-              <div class="read-more-wrap">
-                  <p><?php echo array_shift($our_mission_paragraphs); ?></p>
-                  <span class="read-more-target">
-                      <?php foreach($our_mission_paragraphs as $paragraph): ?>
-                          <p><?php echo $paragraph; ?></p>
-                      <?php endforeach; ?>
-                  </span>
-              </div>
-              <label for="post-<?php echo get_the_ID(); ?>" class="read-more-trigger button button-tiny button-primary"></label>
-
-                <h2 class="centered-title">Our Vision</h2>
-                <?php echo $our_vision; ?>
-            </article>
-        </section> -->
-
-
     <?php endwhile; ?>
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
