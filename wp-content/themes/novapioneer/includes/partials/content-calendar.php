@@ -27,11 +27,6 @@
 <section class="section section-pair">
     <div class="section-navigation">
         <h2>Upcoming Events</h2>
-        <div class="country-colour-codes">
-
-          <p class="kenya">Kenyan Events</p>
-          <p class="south-africa">South African Events</p>
-        </div>
     </div>
     <div class="section-content">
       <!-- <div class="section-content-item section-content-item-half">
