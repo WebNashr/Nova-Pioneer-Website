@@ -42,12 +42,9 @@ h1 {
 		@include font-size(42px);
 		max-width: 1024px;
 		padding-bottom: calc(#{$space-tiny} * 2.75);
-<<<<<<< HEAD
-		&.nav-bar-below{
-=======
 
 		&.nav-bar-below {
->>>>>>> front-kumbi
+
 			padding-bottom: calc(#{$space-tiny} * 1);
 		}
 	}
@@ -57,11 +54,6 @@ h1 {
 		text-shadow: unset;
 	}
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> front-kumbi
 	.section-school-list-select & {
 		margin-top: -0.5rem;
 		margin-bottom: 0;
@@ -115,20 +107,8 @@ h2 {
 	}
 
 	.section-navigation & {
-<<<<<<< HEAD
-	 	// @include copy(medium);
-	 	// @include font-size(30px);
 		margin-top: 0;
 		margin-bottom: 0.5rem;
-		@include break-point(laptop) {
-			margin-top: -0.25rem;
-			margin-bottom: 0.25rem;
-			}
-		// line-height: 1.15;
-=======
-		margin-top: 0;
-		margin-bottom: 0.5rem;
->>>>>>> front-kumbi
 
 		@include break-point(laptop) {
 			margin-top: -0.25rem;
@@ -147,14 +127,10 @@ h2 {
 			margin-bottom: calc(#{$space-tiny} * 1);
 		}
 	}
-<<<<<<< HEAD
-	&.full-width-heading  {
-		// @include copy(medium);
-	 	// @include font-size(30px);
-=======
+
 
 	&.full-width-heading  {
->>>>>>> front-kumbi
+
 	 	margin-top: 1.250rem ;
 		text-align: left;
 
@@ -190,12 +166,7 @@ h3 {
 	}
 
 	.toggle-list & {
-
-<<<<<<< HEAD
-
-=======
 	}
->>>>>>> front-kumbi
 
 	.article-aside & {
 		margin-top: 0;
@@ -241,16 +212,12 @@ h5 {
 	.person & {
 		margin-bottom: 0.25rem;
 	}
-<<<<<<< HEAD
 	.learning-approach & {
 		color: lighten($blue, 10%);
 		// margin-bottom: calc(#{$space-tiny} * 1);
-=======
 
 	.learning-approach & {
 		color: lighten($blue, 10%);
->>>>>>> front-kumbi
-		text-align: center;
 	}
 }
 
@@ -263,5 +230,4 @@ h6 {
 		margin-bottom: 0;
 	}
 }
-
-
+}
