@@ -3,6 +3,48 @@
 /* ==================================================== */
 
 
+$font-url: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900';
+
+@if variable-exists(font-url) {
+  @import url($font-url);
+}
+
+
+/* Title font */
+@mixin title($title) {
+	font-family: 'Montserrat', 'Arial', sans-serif;
+
+	/* Black */
+	@if $title == 'black' {
+		font-weight: bolder;
+		font-weight: 900;
+	}
+
+	/* Bold */
+	@if $title == 'bold' {
+		font-weight: bold;
+		font-weight: 700;
+	}
+
+	/* Regular */
+	@else if $title == 'regular' {
+		font-weight: normal;
+		font-weight: 400;
+	}
+
+	/* Light */
+	@else if $title == 'light' {
+		font-weight: lighter;
+		font-weight: 300;
+	}
+}
+
+
+// Usage:
+// div { @include title(regular); }
+
+
+
 /* Copy font */
 @mixin copy($copy) {
 	font-family: 'Arial', sans-serif;
@@ -35,3 +77,5 @@
 
 // Usage:
 // div { @include copy(regular); }
+
+
