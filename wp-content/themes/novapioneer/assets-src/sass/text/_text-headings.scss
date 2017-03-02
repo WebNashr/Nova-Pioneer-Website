@@ -9,7 +9,6 @@ h3,
 h4,
 h5,
 h6 {
-	// @include line-height(1);
 	@include line-height(1.25);
 	clear: both;
 	display: block;
@@ -17,21 +16,20 @@ h6 {
 
 
 h1 {
-	@include copy(bold);
+	@include title(bold);
 }
 
 
 h2,
 h3 {
-	@include copy(medium);
+	@include title(medium);
 }
 
 
-// h3,
 h4,
 h5,
 h6 {
-	@include copy(bold);
+	@include title(bold);
 }
 
 
@@ -39,16 +37,17 @@ h1 {
 	@include font-size(48px);
 	color: $blue-dk;
 
-	// .page-article & {
-	// 	max-width: 90%;
-	// }
-
 	.header-404 &,
 	.article-header & {
 		@include font-size(42px);
 		max-width: 1024px;
 		padding-bottom: calc(#{$space-tiny} * 2.75);
+<<<<<<< HEAD
 		&.nav-bar-below{
+=======
+
+		&.nav-bar-below {
+>>>>>>> front-kumbi
 			padding-bottom: calc(#{$space-tiny} * 1);
 		}
 	}
@@ -58,8 +57,11 @@ h1 {
 		text-shadow: unset;
 	}
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> front-kumbi
 	.section-school-list-select & {
 		margin-top: -0.5rem;
 		margin-bottom: 0;
@@ -91,19 +93,18 @@ h1 {
 
 h2 {
 	@include font-size(32px);
-	// color: $blue;
 	color: lighten($blue, 10%);
 
 	.search-results & {
-		// @include copy(bold);
-		// @include font-size(32px);
-	}
-	.article & {
 
+	}
+
+	.article & {
 		&.centered-title {
 			text-align: center;
 		}
 	}
+
 	.article-aside & {
 		margin-top: 0;
 		margin-bottom: calc(#{$space-tiny} * 1);
@@ -114,6 +115,7 @@ h2 {
 	}
 
 	.section-navigation & {
+<<<<<<< HEAD
 	 	// @include copy(medium);
 	 	// @include font-size(30px);
 		margin-top: 0;
@@ -123,12 +125,19 @@ h2 {
 			margin-bottom: 0.25rem;
 			}
 		// line-height: 1.15;
+=======
+		margin-top: 0;
+		margin-bottom: 0.5rem;
+>>>>>>> front-kumbi
 
-		&.current {
-			// color: $dark-grey;
-			// color: lighten($dark-grey, 10%);
+		@include break-point(laptop) {
+			margin-top: -0.25rem;
+			margin-bottom: 0.25rem;
 		}
 
+		&.current {
+
+		}
 
 		// @include break-point(tablet) {
 		// 	margin-bottom: 1rem;
@@ -138,9 +147,14 @@ h2 {
 			margin-bottom: calc(#{$space-tiny} * 1);
 		}
 	}
+<<<<<<< HEAD
 	&.full-width-heading  {
 		// @include copy(medium);
 	 	// @include font-size(30px);
+=======
+
+	&.full-width-heading  {
+>>>>>>> front-kumbi
 	 	margin-top: 1.250rem ;
 		text-align: left;
 
@@ -164,29 +178,24 @@ h2 {
 
 h3 {
 	@include font-size(24px);
-	// color: $blue;
 	color: lighten($blue, 10%);
 
 	.content-box & {
 		max-width: 728px;
-		// font-size: 2.5rem;
-		// line-height: 1.125;
-		// color: $white;
 	}
 
 	.section-history & {
 		max-width: 728px;
 		margin: 0.5rem 0px 1.25rem;
-		// font-size: 2.5rem;
-		// line-height: 1.125;
 	}
 
 	.toggle-list & {
-		// @include copy(regular);
-		// @include font-size(20px);
+
+<<<<<<< HEAD
+
+=======
 	}
-
-
+>>>>>>> front-kumbi
 
 	.article-aside & {
 		margin-top: 0;
@@ -203,19 +212,16 @@ h4 {
 
 	.content-box & {
 		max-width: 598px;
-		// color: $white;
 	}
 
 	.section-history & {
 		font-size: 1.25rem;
-		// color: $blue;
 	}
 	.recent-reports & {
-		//color: $dark;
+
 	}
 
 	.person & {
-		//color: $blue;
 		margin-bottom: calc(#{$space-tiny} * 1);
 	}
 
@@ -230,15 +236,20 @@ h5 {
 
 	.recent-reports & {
 		margin-bottom: 1rem;
-		// color: $dark-grey;
 	}
 
 	.person & {
 		margin-bottom: 0.25rem;
 	}
+<<<<<<< HEAD
 	.learning-approach & {
 		color: lighten($blue, 10%);
 		// margin-bottom: calc(#{$space-tiny} * 1);
+=======
+
+	.learning-approach & {
+		color: lighten($blue, 10%);
+>>>>>>> front-kumbi
 		text-align: center;
 	}
 }
@@ -252,3 +263,5 @@ h6 {
 		margin-bottom: 0;
 	}
 }
+
+
