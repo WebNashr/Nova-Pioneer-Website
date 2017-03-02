@@ -395,15 +395,20 @@
 	}
 }
 .school-features-container {
-	background: $orange-lt;
+	background: lighten($background-grey, 5%);
 	padding-top: calc(#{$space-tiny} * 1);
 	padding-bottom: calc(#{$space-tiny} * 1);
-	h2 {
-		margin-top: 0;
-		margin-bottom: 0;
+	h5 {
+		margin-top: 0.5rem;
+		padding-bottom: calc(#{$space-tiny} * 1);
 		text-align: center;
+		color: $blue-dk;
+		border-bottom: 1px solid $grey-md;
+
 		@include break-point(laptop) {
 				text-align: right;
+				padding-bottom: 0;
+				border: none;
 		}
 	}
 

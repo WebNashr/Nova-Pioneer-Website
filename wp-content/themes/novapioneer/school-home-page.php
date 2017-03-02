@@ -24,7 +24,7 @@ get_header(); ?>
 
         <section class="section section-pair school-features-container">
             <div class="section-navigation">
-                <h2><?php the_title(); ?></h2>
+                <h5><?php the_title(); ?></h5>
             </div>
 
             <div class="section-content">
@@ -178,7 +178,29 @@ get_header(); ?>
             </div>
         </section>
 
-        <a name="gallery"></a>
+        <section>
+          <div class="slider-container">
+            <div class="section-content-item-full overflow-crop">
+              <div class="media gallery">
+                   <ul id="slippry">
+                     <li>
+                        <a href="#slide1"><img src="/wp-content/uploads/2016/12/slide-1.jpg" alt="this is a caption"></a>
+                    </li>
+                     <li>
+                       <a href="#slide2"><img src="/wp-content/uploads/2016/12/slide-2.jpg"  alt="another caption"></a>
+                     </li>
+                     <li>
+                        <a href="#slide3"><img src="/wp-content/uploads/2016/12/slide-3.jpg" alt="one more caption"></a>
+                      </li>
+                  </ul>
+                 </div>
+            </div>
+            
+          </div>
+
+        </section>
+
+        <!-- <a name="gallery"></a>
 
         <section class="section-pair section-gallery">
             <div class="slider-container">
@@ -221,7 +243,7 @@ get_header(); ?>
                 </div>
             </div>
 
-        </section>
+        </section> -->
         <aside>
               <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">

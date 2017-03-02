@@ -174,12 +174,23 @@
 	clear: both;
   // padding-top: calc(1rem * 4);
 	// padding-bottom: 0;
-	margin-bottom: 4rem;
+	// margin-bottom: 4rem;
 	@extend %columns;
 	@extend %column-12;
-	max-height: 628px;
-	@include break-point(tablet) {
-		// margin-bottom: -5rem;
+	max-height: 488px;
+	// @include break-point(tablet) {
+	// 	max-height: 488px;
+	// }
+	@include break-point(laptop) {
+		max-height: 788px;
+	}
+	@media only (min-width: 1366px) and (max-width: 1440px) { //1440px
+			max-height: 720px;
+	}
+	@media screen
+		and (min-device-width: 1920px)
+		and (max-device-width: 2560px) {
+			max-height: 1200px;
 	}
 
 	.section-navigation {
@@ -194,6 +205,7 @@
 		min-width: 20%;
 		@include break-point(laptop) {
 			height: 89%;
+
 		}
 		@include break-point(desktop) {
 			height: 100%;

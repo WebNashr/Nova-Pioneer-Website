@@ -257,16 +257,21 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
       }
     }
     @include break-point(tablet) {
-			top: -11rem;
+			top: -5rem;
       left: 45%;
 		}
     @include break-point(laptop) {
-			top: -3rem;
+			top: -6rem;
       left: 45%;
 		}
     @include break-point(desktop) {
-			top: -6rem;
+			top: -12rem;
 		}
+    @media screen
+      and (min-device-width: 1920px)
+      and (max-device-width: 2560px) {
+        top: -20rem;
+    }
   }
   // @media only screen and (max-device-width : $mobile_break), screen and (max-width : $mobile_break) {
   //   left: 0;
