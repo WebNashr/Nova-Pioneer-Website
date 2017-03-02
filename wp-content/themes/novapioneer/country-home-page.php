@@ -33,7 +33,7 @@ get_header(); ?>
                     <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
                     <p><?php echo get_field('school_grades', $school->ID); ?></p>
                     <p><?php echo get_field('school_type', $school->ID); ?></p>
-                    <p><?php echo get_field('school_curriculumn', $school->ID); ?>></p>
+                    <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
                     <a href="<?php echo get_permalink($school->ID); ?>" class="button button-tiny button-primary" target="_blank"> Read More</a>
                     </div>
                 </div>
@@ -191,7 +191,7 @@ get_header(); ?>
 
                 </div>
         </section>
-        <!-- testimonial slider to come here -->
+
         <aside>
               <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">

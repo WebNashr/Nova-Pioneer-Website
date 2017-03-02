@@ -222,8 +222,56 @@ get_header(); ?>
             </div>
 
         </section>
-
         <aside>
+              <div class=" testimonial full-width-quote ">
+                <div class=" section content-slider-container testimonials">
+                <ul id="testimonial-slider" class="content-slider">
+                  <li class="single-testimonial">
+                    <figure class="full-width-figure">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
+                    </figure>
+                    <blockquote>
+                      <svg aria-hidden="true">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                      </svg>
+                        <p>I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
+                        <cite><span>Bridget,</span> Nova Pioneer Parent</cite></p>
+                    </blockquote>
+                  </li>
+
+                  <li class=" single-testimonial">
+                    <figure class="full-width-figure">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
+                    </figure>
+                    <blockquote>
+
+                      <svg aria-hidden="true">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                      </svg>
+                        <p>Second testimonial: I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
+                        <cite><span>Bridget,</span> Nova Pioneer Parent</cite></p>
+                    </blockquote>
+                  </li>
+
+                  <li class=" single-testimonial">
+                    <figure class="full-width-figure">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
+                    </figure>
+                    <blockquote>
+
+                      <svg aria-hidden="true">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                      </svg>
+                        <p>Third testimonial: I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
+                        <cite><span>Bridget,</span> Nova Pioneer Parent</cite></p>
+                    </blockquote>
+                  </li>
+                </ul>
+            </div>
+            </div>
+        </aside>
+
+        <!-- <aside>
             <div class="testimonial full-width-quote">
                 <?php $testimonial = get_field('testimonial'); ?>
                 <div class="spacing-to-center"></div>
@@ -241,10 +289,10 @@ get_header(); ?>
                 </blockquote>
                 <div class="spacing-to-center"></div>
             </div>
-        </aside>
+        </aside> -->
 
 
-        <section class="section section-pair section-school-blog even-section">
+        <!-- <section class="section section-pair section-school-blog even-section">
             <div class="section-navigation">
                 <h2>Student Blog</h2>
             </div>
@@ -262,7 +310,7 @@ get_header(); ?>
 
                 <?php endforeach; ?>
             </div>
-        </section>
+        </section> -->
 
 
         <section class="section section-pair section-school-location">
@@ -300,3 +348,38 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#testimonial-slider").lightSlider({
+        item: 1,
+        autoWidth: true,
+        slideMove: 1, // slidemove will be 1 if loop is true
+        slideMargin: 500,
+
+        addClass: '',
+        mode: "slide",
+        useCSS: true,
+        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+        easing: 'linear', //'for jquery animation',////
+
+        speed: 400, //ms'
+        auto: false,
+        loop: true,
+        slideEndAnimation: true,
+        pause: 2000,
+
+        keyPress: false,
+        controls: true,
+        prevHtml: '',
+        nextHtml: '',
+
+        currentPagerPosition: 'middle',
+
+        enableTouch:true,
+        enableDrag:true,
+        freeMove:true,
+        swipeThreshold: 40,
+
+    });
+});
+</script>

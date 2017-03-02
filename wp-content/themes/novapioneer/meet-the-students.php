@@ -42,6 +42,10 @@ get_header(); ?>
                             <div class="anchor-link">
                                 <a href="#secondary" class="" title="">Secondary Students</a>
                             </div>
+                            <div class="link-separator">&nbsp;</div>
+                            <div class="anchor-link">
+                                <a href="#blog" class="" title="">Student Blog</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,9 +140,47 @@ get_header(); ?>
 
                 </div>
             </section>
+            <section class="section section-pair section-school-blog even-section">
+                <div class="section-navigation">
+                    <h2>Student Blog</h2>
+                </div>
+                <div class="section-content">
+                  <div class="section-content-item section-content-item-third blog-article">
+                      <img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-1.jpg" alt="">
+                      <a href="#" class="blog-article-title" title="">Are We Good Enough?</a>
+                      <p class="article-author">Article Author</p>
+                  </div>
 
+                  <div class="section-content-item section-content-item-third blog-article">
+                      <img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2.jpg" alt="">
+                      <a href="#" class="blog-article-title" title="">Visual. Audio. Reading. Writing.</a>
+                      <p class="article-author">Article Author</p>
+                  </div>
 
-            <section class="section section-pair contact-student even-section">
+                  <div class="section-content-item section-content-item-third blog-article">
+                      <img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-3.jpg" alt="">
+                      <a href="#" class="blog-article-title" title="">We Are Always Growing In Everything We Do</a>
+                      <p class="article-author">Article Author</p>
+                  </div>
+              </div>
+
+                <!-- <div class="section-content">
+                    <?php foreach (get_field('blog_posts') as $blog_post): $blog_post = (object)$blog_post; ?>
+
+                        <div class="section-content-item section-content-item-third blog-article">
+                            <img src="<?php echo get_the_post_thumbnail_url($blog_post->ID, 'thumbnail'); ?>"
+                                 alt="<?php echo $blog_post->post_title; ?>">
+                            <a href="<?php echo get_permalink($blog_post->ID); ?>" class="blog-article-title"
+                               title="<?php echo $blog_post->post_title; ?>"><?php echo $blog_post->post_title; ?></a>
+                            <p class="article-author"><?php echo get_the_author_meta('display_name', get_post_field('post_author', $blog_post->ID)); ?></p>
+                        </div>
+
+                    <?php endforeach; ?>
+                </div> -->
+            </section>
+
+            <span class="anchor-link" id="blog"></span>
+            <section class="section section-pair contact-student ">
                 <div class="section-navigation">
                     <h2>Contact a Student</h2>
                 </div>
