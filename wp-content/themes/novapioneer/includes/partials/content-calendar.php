@@ -24,11 +24,11 @@
     'posts_per_page' => 5
 )); ?>
 
-<section class="section section-pair">
-    <div class="section-navigation">
+<section class="section">
+    <!-- <div class="section-navigation">
         <h2>Upcoming Events</h2>
     </div>
-    <div class="section-content">
+    <div class="section-content"> -->
       <!-- <div class="section-content-item section-content-item-half">
         <div class="even-list-container">
             <?php while( $admission_events_query->have_posts() ): $admission_events_query->the_post(); ?>
