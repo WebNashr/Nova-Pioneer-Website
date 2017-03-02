@@ -43,6 +43,26 @@
 		margin-left: auto;
 
 	}
+	.image-flip {
+		img {
+			&:first-child {
+				display: inline;
+			}
+			&:last-child {
+				display: none;
+			}
+		}
+		&:hover {
+			img {
+				&:first-child {
+					display: none;
+				}
+				&:last-child {
+					display: inline;
+				}
+			}
+		}
+	}
 	&:first-of-type{
 		// margin-top: 2rem;
 
@@ -92,7 +112,18 @@
 		}
 	}
 }
+
 .np-global-leaders-profiles {
+	.image-flip {
+		img {
+			&:first-child {
+				opacity: 1;
+			}
+			&:last-child {
+				opacity: 0;
+			}
+		}
+	}
 
 }
 .np-management-profiles {

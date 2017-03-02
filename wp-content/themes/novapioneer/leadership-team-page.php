@@ -49,17 +49,24 @@ get_header();?>
         <section class="section section-pair team-profile-container">
           <div class="section-content section-content-plain global-leaders-profiles">
             <div class="section-content-item section-content-item-third profile">
+                <div class="image-flip">
                   <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2-flip.jpg" alt="">
+                </div>
                   <h3 class="profile-name">Chinezi Chijioke</h3>
                   <h5 class="profile-role">CEO</h5>
                   <div class="profile-description">
+
 
                   <p>Chinezi previously served as Head of McKinsey &amp; Company’s African Education Practice, where he worked for 8 years gaining experience with over 25 countries’ school systems across the world. Chinezi started his career as a secondary school mathematics teacher, and has founded youth leadership programmes in South Africa and Nigeria. Chinezi holds an MBA and a Masters in Education from Stanford University, Bachelors in Psychology and an Honours Certificate in African Studies from Harvard University.</p>
                  </div>
             </div>
 
            <div class="section-content-item section-content-item-third profile">
-             <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+             <div class="image-flip">
+               <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+               <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2-flip.jpg" alt="">
+             </div>
              <h3 class="profile-name">Damany Gibbs</h3>
              <h5 class="profile-role">COO</h5>
              <div class="profile-description">
@@ -70,7 +77,10 @@ get_header();?>
           </div>
 
          <div class="section-content-item section-content-item-third profile">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+           <div class="image-flip">
+             <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+             <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2-flip.jpg" alt="">
+           </div>
             <h3 class="profile-name">Oliver Sabot</h3>
             <h5 class="profile-role">Managing Director</h5>
             <div class="profile-description">
@@ -81,7 +91,10 @@ get_header();?>
           </div>
 
           <div class="section-content-item section-content-item-third profile">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+            <div class="image-flip">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2-flip.jpg" alt="">
+            </div>
             <h3 class="profile-name">Dai Ellis</h3>
             <h5 class="profile-role">Managing Director</h5>
             <div class="profile-description">
@@ -92,7 +105,10 @@ get_header();?>
          </div>
 
         <div class="section-content-item section-content-item-third profile">
-         <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+          <div class="image-flip">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2.jpg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/profile-photos/chinezi-profile-pic-2-flip.jpg" alt="">
+          </div>
           <h3 class="profile-name">Chris Khaemba</h3>
           <h5 class="profile-role">Director</h5>
            <div class="profile-description">
