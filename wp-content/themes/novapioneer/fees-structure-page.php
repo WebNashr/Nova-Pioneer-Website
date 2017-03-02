@@ -109,7 +109,7 @@ get_header();?>
                                     <?php endif; ?>
                               </select>
                           </div>
-                          <input name="view" value="View Fees" class="button button-default button-primary" style="" type="submit" />
+                          <input name="view" value="View Fees" class="button button-small button-primary" style="" type="submit" />
                       </form>
                       <?php if( !empty($selected_school) && !empty($selected_grade) && !empty($selected_year) &&  ($_GET["view"] === "true") ): ?>
                         <div class="fees-container" id="fees-table">
