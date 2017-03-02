@@ -43,6 +43,26 @@
 		margin-left: auto;
 
 	}
+	.image-flip {
+		img {
+			&:first-child {
+				display: inline;
+			}
+			&:last-child {
+				display: none;
+			}
+		}
+		&:hover {
+			img {
+				&:first-child {
+					display: none;
+				}
+				&:last-child {
+					display: inline;
+				}
+			}
+		}
+	}
 	&:first-of-type{
 		// margin-top: 2rem;
 
@@ -92,12 +112,23 @@
 		}
 	}
 }
+
 .np-global-leaders-profiles {
+	.image-flip {
+		img {
+			&:first-child {
+				opacity: 1;
+			}
+			&:last-child {
+				opacity: 0;
+			}
+		}
+	}
 
 }
 .np-management-profiles {
+	justify-content: flex-start;
 	.profile {
-
 		@include break-point(tablet) {
 			&:nth-child(2n+3) {
 	      margin-left: 0;
@@ -127,26 +158,26 @@
 }
 
 .np-team-profiles {
-	.profile {
-		&:first-of-type {
-			margin-left: 0;
-		}
-		@include break-point(tablet) {
-			&:first-of-type {
-				margin-left: 0;
-			}
-		}
-		@include break-point(laptop) {
-			&:first-of-type {
-				margin-left:3rem;
-			}
-		}
-		@include break-point(monitor) {
-			&:first-of-type {
-				margin-left:3rem;
-			}
-		}
-	}
+	// .profile {
+	// 	&:first-of-type {
+	// 		margin-left: 0;
+	// 	}
+	// 	@include break-point(tablet) {
+	// 		&:first-of-type {
+	// 			margin-left: 0;
+	// 		}
+	// 	}
+	// 	@include break-point(laptop) {
+	// 		&:first-of-type {
+	// 			margin-left:3rem;
+	// 		}
+	// 	}
+	// 	@include break-point(monitor) {
+	// 		&:first-of-type {
+	// 			margin-left:3rem;
+	// 		}
+	// 	}
+	// }
 }
 
 .profile-school {
