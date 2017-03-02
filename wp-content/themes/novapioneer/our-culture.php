@@ -25,18 +25,21 @@ get_header(); ?>
             </article>
         </section>
 
-        <section class="section even-section">
-            <div class="section-content section-content-plain principles-container">
-                <?php $number = 1; ?>
-                <?php foreach( get_field('culture_principles') as $principle ): $principle = (object)$principle; ?>
-                <div class="section-content-item section-content-item-third principle-card">
+        <section class="section">
+          <div class="section-content section-content-plain principles-container">
+
+              <?php $number = 1; ?>
+              <?php foreach( get_field('culture_principles') as $principle ): $principle = (object)$principle; ?>
+                <div class="section-content-item section-content-item-third principle-card card-<?php echo $number; ?>">
                     <h2 class="number"><?php echo $number; ?></h2>
                     <h3><?php echo $principle->title; ?></h3>
                     <div class="small-divider"></div>
-                    <p class="description"><?php echo $principle->description; ?></p>
+                    <?php echo $principle->description; ?>
                 </div>
-                <?php endforeach; ?>
-            </div>   
+                <?php $number++; ?>
+              <?php endforeach; ?>
+
+          </div>
         </section>
     <?php endwhile; ?>
 
