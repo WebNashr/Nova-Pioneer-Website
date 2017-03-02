@@ -221,8 +221,10 @@
 		padding: 0 0 calc(#{$space-tiny} * 0.75) 0;
 		max-width: 600px;
 		margin: 0 auto;
+		text-align: left;
+		line-height: 1.5;
 		@include break-point(laptop) {
-			padding: 0 calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0.75) calc(#{$space-tiny} * 1);
+			padding: 0 calc(#{$space-tiny} * 1.25) calc(#{$space-tiny} * 0.75) calc(#{$space-tiny} * 1.25);
 		}
 	}
 
