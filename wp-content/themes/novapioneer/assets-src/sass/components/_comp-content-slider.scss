@@ -9,7 +9,22 @@
   #content-slider {
     li {
       list-style-type: none !important;
-      max-width:295px !important;
+      // max-width:295px !important;
+      max-width:273px !important;
+      margin-right: 50px !important;
+      @include break-point(laptop) {
+        margin-right: 0 !important;
+      }
+      @media screen
+        and (min-device-width: 900px)
+        and (max-device-width: 1024px) {
+          margin-right: 50px !important;
+      }
+      @media screen
+        and (min-device-width: 1500px)
+        and (max-device-width: 1920px) {
+          margin-right: 50px !important;
+      }
     }
   }
 

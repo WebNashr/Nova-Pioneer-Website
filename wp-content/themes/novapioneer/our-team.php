@@ -74,7 +74,7 @@ get_header();?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <img src="/wp-content/uploads/2016/12/female-profile-v2.png" alt="">
                         <h3 class="profile-name">Ms. Seshoka</h3>
-                        <h6 class="profile-role">Lead Teacher</h6>
+                        <h5 class="profile-role">Lead Teacher</h5>
                         <div class="profile-description">
 
                           <p>Ms. Seshoka is the Lead Teacher for Leadership &amp; Personal Mastery at Nova Pioneer Academy Ormonde. Ms. Seshoka joins Pioneer from the Oprah Winfrey Leadership Academy for Girls, where she was a Senior Teacher and Head of Department for Life Orientation until 2013. Admired by students and colleagues alike for her skills working with students on their personal and leadership development, Ms. Seshoka has been a teacher of English and Life Orientation since 1990.</p>
@@ -85,7 +85,7 @@ get_header();?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <img src="/wp-content/uploads/2016/12/male-profile-v2.png" alt="">
                         <h3 class="profile-name">Ms. Seshoka</h3>
-                        <h6 class="profile-role">Lead Teacher</h6>
+                        <h5 class="profile-role">Lead Teacher</h5>
                         <div class="profile-description">
 
                           <p>Ms. Seshoka is the Lead Teacher for Leadership &amp; Personal Mastery at Nova Pioneer Academy Ormonde. Ms. Seshoka joins Pioneer from the Oprah Winfrey Leadership Academy for Girls, where she was a Senior Teacher and Head of Department for Life Orientation until 2013. Admired by students and colleagues alike for her skills working with students on their personal and leadership development, Ms. Seshoka has been a teacher of English and Life Orientation since 1990.</p>
@@ -96,14 +96,14 @@ get_header();?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <img src="/wp-content/uploads/2016/12/female-profile-v2.png" alt="">
                         <h3 class="profile-name">Ms. Seshoka</h3>
-                        <h6 class="profile-role">Lead Teacher</h6>
+                        <h5 class="profile-role">Lead Teacher</h5>
 
                     </div>
 
                     <div class="section-content-item section-content-item-quarter profile">
                         <img src="/wp-content/uploads/2016/12/male-profile-v2.png" alt="">
                         <h3 class="profile-name">Ms. Seshoka</h3>
-                        <h6 class="profile-role">Lead Teacher</h6>
+                        <h5 class="profile-role">Lead Teacher</h5>
                         <div class="profile-description">
 
                         </div>

@@ -96,8 +96,8 @@
 
 }
 .np-management-profiles {
+	justify-content: flex-start;
 	.profile {
-
 		@include break-point(tablet) {
 			&:nth-child(2n+3) {
 	      margin-left: 0;
@@ -127,26 +127,26 @@
 }
 
 .np-team-profiles {
-	.profile {
-		&:first-of-type {
-			margin-left: 0;
-		}
-		@include break-point(tablet) {
-			&:first-of-type {
-				margin-left: 0;
-			}
-		}
-		@include break-point(laptop) {
-			&:first-of-type {
-				margin-left:3rem;
-			}
-		}
-		@include break-point(monitor) {
-			&:first-of-type {
-				margin-left:3rem;
-			}
-		}
-	}
+	// .profile {
+	// 	&:first-of-type {
+	// 		margin-left: 0;
+	// 	}
+	// 	@include break-point(tablet) {
+	// 		&:first-of-type {
+	// 			margin-left: 0;
+	// 		}
+	// 	}
+	// 	@include break-point(laptop) {
+	// 		&:first-of-type {
+	// 			margin-left:3rem;
+	// 		}
+	// 	}
+	// 	@include break-point(monitor) {
+	// 		&:first-of-type {
+	// 			margin-left:3rem;
+	// 		}
+	// 	}
+	// }
 }
 
 .profile-school {
