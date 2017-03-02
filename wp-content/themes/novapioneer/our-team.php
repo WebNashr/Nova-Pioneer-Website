@@ -39,7 +39,7 @@ get_header();?>
                         <br>
 
                         <input type="checkbox" class="read-more-state" id="post-123" />
-                        <label for="post-123" class="read-more-trigger button button-tiny button-primary"></label>
+
                         <span class="read-more-wrap">
 
                             <p>It is with great pleasure that I welcome you to Nova Academies. I take this opportunity to tell you something brief about myself, and to introduce you to our school. I have spent my entire career as an educator in Kenya. In the course of my professional engagement, and I have taught, coordinated and served in Management at notable institutions, including Mt. Kenya Academy Senior School (MKASS) where I recently served as School Principal, The Aga Khan Academy Nairobi (AKA,N) and Strathmore University, as a member of the faculty.</p>
@@ -63,12 +63,57 @@ get_header();?>
                               <p>Mr. Gavin Esterhuizen</p>
                           </span>
                       </span>
-
+                      <label for="post-123" class="read-more-trigger button button-tiny button-primary"></label>
                 </div>
             </div>
         </section>
 
         <section class="section section-pair team-profile-container">
+
+                <div class="section-content section-content-plain">
+                    <div class="section-content-item section-content-item-quarter profile">
+                        <img src="/wp-content/uploads/2016/12/female-profile-v2.png" alt="">
+                        <h3 class="profile-name">Ms. Seshoka</h3>
+                        <h6 class="profile-role">Lead Teacher</h6>
+                        <div class="profile-description">
+
+                          <p>Ms. Seshoka is the Lead Teacher for Leadership &amp; Personal Mastery at Nova Pioneer Academy Ormonde. Ms. Seshoka joins Pioneer from the Oprah Winfrey Leadership Academy for Girls, where she was a Senior Teacher and Head of Department for Life Orientation until 2013. Admired by students and colleagues alike for her skills working with students on their personal and leadership development, Ms. Seshoka has been a teacher of English and Life Orientation since 1990.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="section-content-item section-content-item-quarter profile">
+                        <img src="/wp-content/uploads/2016/12/male-profile-v2.png" alt="">
+                        <h3 class="profile-name">Ms. Seshoka</h3>
+                        <h6 class="profile-role">Lead Teacher</h6>
+                        <div class="profile-description">
+
+                          <p>Ms. Seshoka is the Lead Teacher for Leadership &amp; Personal Mastery at Nova Pioneer Academy Ormonde. Ms. Seshoka joins Pioneer from the Oprah Winfrey Leadership Academy for Girls, where she was a Senior Teacher and Head of Department for Life Orientation until 2013. Admired by students and colleagues alike for her skills working with students on their personal and leadership development, Ms. Seshoka has been a teacher of English and Life Orientation since 1990.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="section-content-item section-content-item-quarter profile">
+                        <img src="/wp-content/uploads/2016/12/female-profile-v2.png" alt="">
+                        <h3 class="profile-name">Ms. Seshoka</h3>
+                        <h6 class="profile-role">Lead Teacher</h6>
+
+                    </div>
+
+                    <div class="section-content-item section-content-item-quarter profile">
+                        <img src="/wp-content/uploads/2016/12/male-profile-v2.png" alt="">
+                        <h3 class="profile-name">Ms. Seshoka</h3>
+                        <h6 class="profile-role">Lead Teacher</h6>
+                        <div class="profile-description">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- end content -->
+
+        <!-- <section class="section section-pair team-profile-container">
 
             <div class="section-content section-content-plain">
 
@@ -100,7 +145,7 @@ get_header();?>
                 <?php $i++ ; endforeach; ?>
 
             </div>
-        </section>
+        </section> -->
 
 
     <?php endwhile; ?>
