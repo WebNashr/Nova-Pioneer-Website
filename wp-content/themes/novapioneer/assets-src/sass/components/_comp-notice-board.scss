@@ -14,7 +14,7 @@
 	.large-notice-container  {
 		@extend %column;
 		@extend %columns;
-	  	@extend %column-10;
+	  	@extend %column-9;
 	  	background-image: url('/wp-content/themes/novapioneer/img/school-notice-image.jpg');
 	    background-size: cover;
 	    background-position: center center;
@@ -69,7 +69,7 @@
 		}
 	}
 	.large-notice {
-    width: 100%;
+    // width: 100%;
 		margin: 0 auto;
 		margin-bottom: 0;
 		background: rgba(19,59,85,.7);
@@ -89,34 +89,46 @@
 
 	}
 	.small-notice-container {
-		@extend %column;
-		@extend %columns;
-		@extend %column-2;
+		// @extend %column;
+		// @extend %columns;
+    @include flexbox();
+  	@include flex-direction(row);
+  	@include flex-wrap(wrap);
+    // width: 100%;
+		// @extend %column-3;
 		margin-top: 2rem;
+    justify-content: space-between;
 
 		&:not(:first-of-type) {
 	        margin-left: 0;
 	    }
+      h4 {
+        margin-bottom: 0.5rem;
+        color: $blue-dk;
+      }
+      .button {
+        line-height: 1.25;
 
-    	h1 {
-    		@include font-size(18px);
-    		text-align: center;
-	    	margin: auto;
-	    	line-height: 1.25;
-
-    	}
-    	h2 {
-    		@include font-size(14px);
-    		color: $dark-grey;
-    		text-align: center;
-    		@include copy(regular);
-	    	margin: auto;
-	    	padding: calc(#{$space-tiny} * 0.5);
-
-    	}
+      }
+    	// h1 {
+    	// 	@include font-size(18px);
+    	// 	text-align: center;
+	    // 	margin: auto;
+	    // 	line-height: 1.25;
+      //
+    	// }
+    	// h2 {
+    	// 	@include font-size(14px);
+    	// 	color: $dark-grey;
+    	// 	text-align: center;
+    	// 	@include copy(regular);
+	    // 	margin: auto;
+	    // 	padding: calc(#{$space-tiny} * 0.5);
+      //
+    	// }
     	p {
-    		@include font-size(14px);
-	    	@include copy(semi);
+    		@include font-size(16px);
+	    	@include copy(bold);
         // padding-bottom: calc(#{$space-tiny} * 1);
         margin-top: 0;
 	    	// line-height: 1;
@@ -136,8 +148,10 @@
 			}
 		}
 
-    @include break-point(desktop) {
+      @include break-point(desktop) {
 			margin-top: 0;
+      @include flex-direction(column);
+      // width: inherit;
 		}
 
 
@@ -164,20 +178,27 @@
 	.small-notice {
     @extend %column;
     text-align: center;
+    padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 1.5);
+    background-color: $grey;
+    width: 45%;
     &:first-of-type {
-      margin-bottom: 1.5rem;
-      padding-bottom: calc(#{$space-tiny} * 2);
-      border-bottom: 1px solid darken($grey, 10%);
+      // margin-bottom: 1.5rem;
+      // padding-bottom: calc(#{$space-tiny} * 2);
+      // border-bottom: 1px solid darken($grey, 10%);
+
     }
 
     &:not(:first-of-type) {
       margin-left: 0;
+
     }
 		&:last-child {
 			margin-bottom: 0;
       margin-left: 0;
 		}
-
+    @include break-point(laptop) {
+      width: 100%;
+    }
 	}
 	.bar-notice {
     @extend %column;

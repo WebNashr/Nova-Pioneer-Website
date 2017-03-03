@@ -21,7 +21,11 @@
 	&.call-to-action {
 		padding: 0 calc(#{$space-tiny} * 2);
 	}
+	&.gallery-section {
+		padding: calc(#{$space-tiny} * 2) 0 0 0;
+		background: lighten($background-grey, 5%);
 
+	}
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);
     }
@@ -395,15 +399,20 @@
 	}
 }
 .school-features-container {
-	background: $orange-lt;
+	background: lighten($background-grey, 5%);
 	padding-top: calc(#{$space-tiny} * 1);
 	padding-bottom: calc(#{$space-tiny} * 1);
-	h2 {
-		margin-top: 0;
-		margin-bottom: 0;
+	h5 {
+		margin-top: 0.5rem;
+		padding-bottom: calc(#{$space-tiny} * 1);
 		text-align: center;
+		color: $blue-dk;
+		border-bottom: 1px solid $grey-md;
+
 		@include break-point(laptop) {
 				text-align: right;
+				padding-bottom: 0;
+				border: none;
 		}
 	}
 
@@ -724,7 +733,18 @@
   	}
 }
 
+.section-day-in-the-life {
+	.button {
+		margin-top: 1rem;
+		margin-bottom: 0;
+	}
+	figure {
+		img {
+			width: 100%;
 
+		}
+	}
+}
 
 .section-gallery {}
 

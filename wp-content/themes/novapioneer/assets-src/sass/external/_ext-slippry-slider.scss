@@ -126,7 +126,7 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
     padding: 0;
     display: block;
     width: 100%;
-    height:100%;
+    height:50%;
     border: 0;
   }
   > a { // styling for link on whole slide
@@ -187,7 +187,7 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
         opacity: 0.4;
       }
       &:hover, &:focus {
-        opacity: 0.8;
+        opacity: 0.9;
         outline: none;
       }
       &:after {
@@ -228,7 +228,10 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
     }
   }
   @include break-point(tablet) {
-    height: 60%;
+    height: 50%;
+  }
+  @include break-point(laptop) {
+    height: 40%;
   }
 }
 /* captions, styled fo the overlay variant */
@@ -239,7 +242,7 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
   // left: 50%;
   .sy-caption {
     position: relative;
-    top: -3rem;
+    top: -25em;
     left: 50%;
     background-color: rgba(0,0,0,0.54);
     color: #fff;
@@ -257,16 +260,24 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
       }
     }
     @include break-point(tablet) {
-			top: -11rem;
+			top: -15em;
       left: 45%;
 		}
     @include break-point(laptop) {
-			top: -3rem;
+			top: -25em;
       left: 45%;
 		}
+    @media only (min-width: 1366px) and (max-width: 1440px) {
+  			top: -23em;
+  	}
     @include break-point(desktop) {
-			top: -6rem;
+			// top: -26em;
 		}
+    @media screen
+      and (min-device-width: 1920px)
+      and (max-device-width: 2560px) {
+        // top: -20rem;
+    }
   }
   // @media only screen and (max-device-width : $mobile_break), screen and (max-width : $mobile_break) {
   //   left: 0;

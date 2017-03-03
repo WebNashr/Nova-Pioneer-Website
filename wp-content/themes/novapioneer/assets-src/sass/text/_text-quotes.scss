@@ -266,7 +266,7 @@
 		font-style: normal;
 		display: block;
 		padding-top: calc(#{$space-tiny} * 1);
-		padding-left: calc(#{$space-tiny} * 3);
+		padding-left: calc(#{$space-tiny} * 1.5);
 		span {
 			@include copy(bold);
 		}
