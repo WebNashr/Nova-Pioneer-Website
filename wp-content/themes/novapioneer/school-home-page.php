@@ -253,73 +253,27 @@ get_header(); ?>
 
         </section> -->
         <aside>
-              <div class=" testimonial full-width-quote ">
+            <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">
-                <ul id="testimonial-slider" class="content-slider">
-                  <li class="single-testimonial">
-                    <figure class="full-width-figure">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
-                    </figure>
-                    <blockquote>
-                      <svg aria-hidden="true">
-                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                      </svg>
-                        <p>I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
-                        <cite><span>Bridget,</span> Nova Pioneer Parent</cite></p>
-                    </blockquote>
-                  </li>
-
-                  <li class=" single-testimonial">
-                    <figure class="full-width-figure">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
-                    </figure>
-                    <blockquote>
-
-                      <svg aria-hidden="true">
-                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                      </svg>
-                        <p>Second testimonial: I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
-                        <cite><span>Bridget,</span> Nova Pioneer Parent</cite></p>
-                    </blockquote>
-                  </li>
-
-                  <li class=" single-testimonial">
-                    <figure class="full-width-figure">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/parent-profile-pic.jpg" alt="" class="">
-                    </figure>
-                    <blockquote>
-
-                      <svg aria-hidden="true">
-                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                      </svg>
-                        <p>Third testimonial: I wanted to tell you that my son is deliriously happy. He loves going to Pioneer! I can’t tell you just how profound this experience is for this boy. I am just so happy for him. I really like their teaching philosophy of not spoon feeding the kids but giving them problems that they can come up with solutions to.
-                        <cite><span>Bridget,</span> Nova Pioneer Parent</cite></p>
-                    </blockquote>
-                  </li>
-                </ul>
-            </div>
+                    <ul id="testimonial-slider" class="content-slider">
+                        <?php foreach( get_field('testimonials') as $testimonial ): $testimonial = (object)$testimonial; ?>
+                            <li class="single-testimonial">
+                                <figure class="full-width-figure">
+                                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID,'thumbnail'); ?>">
+                                </figure>
+                                <blockquote>
+                                    <svg aria-hidden="true">
+                                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                    </svg>
+                                    <?php echo $testimonial->post_content; ?>
+                                    <p><cite><span><?php echo get_field('reviewer_name', $testimonial->ID); ?>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?></cite></p>
+                                </blockquote>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>
         </aside>
-
-        <!-- <aside>
-            <div class="testimonial full-width-quote">
-                <?php $testimonial = get_field('testimonial'); ?>
-                <div class="spacing-to-center"></div>
-                <figure class="full-width-figure">
-                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'thumbnail'); ?>"/>
-                </figure>
-                <blockquote>
-                    <svg aria-hidden="true">
-                        <use
-                            xlink:href="<?php echo get_template_directory_uri(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                    </svg>
-                    <p><?php echo $testimonial->post_content; ?></p>
-                    <cite><span><?php echo get_field('reviewer_name', $testimonial->ID) ?>
-                            ,</span> <?php echo get_field('reviewer_title', $testimonial->ID) ?></cite>
-                </blockquote>
-                <div class="spacing-to-center"></div>
-            </div>
-        </aside> -->
 
 
         <!-- <section class="section section-pair section-school-blog even-section">
