@@ -34,7 +34,7 @@ get_header();?>
             <div class="section-content">
                 <div class="letter-from-principal">
                     <h1>A Note from Our Head of School</h1>
-                    
+
                     <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
 
                     <?php
@@ -60,7 +60,7 @@ get_header();?>
 
         <section class="section section-pair team-profile-container">
 
-                <div class="section-content section-content-plain">
+                <div class="section-content section-content-plain np-management-profiles">
                     <?php $i=1; foreach( get_field('team_members') as $member): $member = (object)$member; ?>
                         <div class="section-content-item section-content-item-quarter profile">
                             <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $member->post_title; ?>">
