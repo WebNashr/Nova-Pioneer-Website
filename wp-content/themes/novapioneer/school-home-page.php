@@ -68,7 +68,7 @@ get_header(); ?>
                         <div class="notice-content">
                             <h1>Learn About Our Admission Process</h1>
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="#" class="button button-tiny button-secondary">Apply
+                            <p class="call-to-action"><a href="#" class="button button-small button-secondary">Apply
                                     Now</a></p>
                         </div>
                     </div>
@@ -84,10 +84,16 @@ get_header(); ?>
                     <?php echo get_nova_events($taxies); ?>
 
                     <div class="small-notice">
-                        <h1>Download Our Fees Structure</h1>
+                        <h4>Download Our Fees Structure</h4>
+                        <p>PDF document</p>
                         <a download href="<?php echo get_field('fees_structure'); ?>"
-                           class="button button-tiny button-secondary">Download</a>
+                           class="button button-small button-secondary">Download</a>
                     </div>
+                    <div class="small-notice">
+                      <h4>School Name Calendar</h4>
+                      <p>2017 School Events</p>
+                      <a href="#" class="button button-small button-secondary" title="">View Our Calendar</a>
+                  </div>
                 </div>
 
             </div>
