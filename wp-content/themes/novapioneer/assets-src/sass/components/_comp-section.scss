@@ -24,7 +24,7 @@
 	&.gallery-section {
 		padding: calc(#{$space-tiny} * 2) 0 0 0;
 		background: lighten($background-grey, 5%);
-		
+
 	}
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);
@@ -733,7 +733,18 @@
   	}
 }
 
+.section-day-in-the-life {
+	.button {
+		margin-top: 1rem;
+		margin-bottom: 0;
+	}
+	figure {
+		img {
+			width: 100%;
 
+		}
+	}
+}
 
 .section-gallery {}
 

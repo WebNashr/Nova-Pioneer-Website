@@ -341,7 +341,25 @@ get_header(); ?>
                 <?php endforeach; ?>
             </div>
         </section> -->
+        <section class="section section-pair even-section">
+              <div class="section-navigation">
+                  <h2>A Day in the Life</h2>
+              </div>
 
+              <div class="section-content section-day-in-the-life">
+                <div class="section-content-item section-content-item-half">
+                    <p>Lorem ipsum dolor sit amet, suas alienum ne ius. Eum commune mandamus appellantur ex. Cu ornatus appareat sed, iriure voluptua qui an. In nam ubique delenit appetere, accumsan laboramus ut est, per sumo everti laoreet ad. Ad verear integre delectus pri, te pericula consetetur voluptatum eum.</p>
+                    <p>Te pro vero erat docendi. Mea an ipsum efficiantur, eam facer appareat eu. In exerci tamquam vim, solum dicta scripserit sed te. Sit ad nobis deserunt, ea sed justo homero patrioque, ex eum vituperata philosophia. </p>
+                    <a href="#" class="button button-small button-primary" title="">Learn More</a>
+
+                </div>
+                <div class="section-content-item section-content-item-half">
+                  <figure><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-1-ke.jpg" alt="" class=""></figure>
+                </div>
+
+
+              </div>
+          </section>
 
         <section class="section section-pair section-school-location">
             <div class="section-navigation">
