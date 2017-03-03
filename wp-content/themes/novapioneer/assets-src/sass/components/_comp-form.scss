@@ -311,6 +311,18 @@ img.ajax-loader {
 			// max-width: 100% !important;
 			width:75%;
 			margin-bottom: 1rem;
+
+			ul li.field_description_below div.ginput_container_radio {
+				margin-top: -0.5rem;
+				margin-left: 1rem;
+			}
+			ul.gform_fields li.gfield {
+				margin-bottom: 1rem;
+			}
+		}
+		input[type="text"] {
+
+			text-transform:capitalize;
 		}
 		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
 			padding: 0.75rem 1rem !important;
@@ -359,6 +371,7 @@ img.ajax-loader {
 			width: 600px;
 			input[type="text"]{
 				width:100%;
+
 				@include break-point(tablet) {
 						width: 600px;
 				}
@@ -378,18 +391,19 @@ img.ajax-loader {
 
 		}
 		.ginput_container_select {
-			width: 600px;
+			// width: 600px;
+			width: 100%;
 			@media only screen and (max-width: 360px) {
-				width: 300px;
+				// width: 300px;
 
 			}
 			@include break-point(laptop) {
-					width: 330px;
+					// width: 330px;
 			}
 
 			.gfield_select {
-				width: 50%;
-				margin-top: 0.75rem !important;
+				// width: 50%;
+				// margin-top: 0.75rem !important;
 				position: relative;
 				padding: 0.575rem 1rem !important;
 				background: $white url(/wp-content/themes/novapioneer/img/icons/drop-down-arrow.svg) no-repeat;
@@ -419,8 +433,8 @@ img.ajax-loader {
 			input[type=submit] {
 			//  float:right;
 			//  position: relative;
-			 margin-top: 0.85rem;
-			 margin-left: 0.35rem;
+			//  margin-top: 0.85rem;
+			//  margin-left: 0.35rem;
 			//  margin-right: 23%;
 			}
 		}
@@ -454,12 +468,31 @@ img.ajax-loader {
 				background: $orange-lt;
 			}
 		}
-		//
+		.ginput_container_email {
+			width: 100%;
+		}
+		.ginput_container_textarea {
+			width: 50%;
+
+		}
+		.large .gfield_select {
+			margin-top: 0;
+		}
+		.top_label .gfield_label {
+			color: $blue-dk;
+			line-height: 1;
+			@include font-size(18px);
+		}
+		.field_sublabel_below .ginput_complex.ginput_container label{
+			margin-top: 10px;
+			@include font-size(16px);
+
+		}
 		ul.gform_fields {
 
 			li{
-
-				margin-left: 2rem !important;
+				text-indent: 0;
+				// margin-left: 2rem !important;
 				.gfield {
 
 
@@ -583,6 +616,7 @@ img.ajax-loader {
 			}
 
 	}
+
 }
 // apply online  form
 .student-application {
@@ -661,9 +695,10 @@ img.ajax-loader {
 		}
 		.ginput_container_select {
 
+
 			.gfield_select {
 				// width: 50%;
-				margin-top: 0.75rem !important;
+				// margin-top: 0.75rem !important;
 				position: relative;
 				padding: 0.575rem 1rem !important;
 				background: $white url(/wp-content/themes/novapioneer/img/icons/drop-down-arrow.svg) no-repeat;
@@ -775,6 +810,12 @@ img.ajax-loader {
 			@include font-size(21px);
 			line-height: 1.25;
 			color: $blue-lt;
+
+		}
+		.ginput_container_radio {
+			.gfield_radio {
+				margin-top:-0.5rem;
+			}
 
 		}
 			// @media only screen and (max-width: 360px) {
