@@ -24,7 +24,7 @@ get_header(); ?>
 
         <section class="section section-pair school-features-container">
             <div class="section-navigation">
-                <h2><?php the_title(); ?></h2>
+                <h5><?php the_title(); ?></h5>
             </div>
 
             <div class="section-content">
@@ -68,7 +68,7 @@ get_header(); ?>
                         <div class="notice-content">
                             <h1>Learn About Our Admission Process</h1>
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="#" class="button button-tiny button-secondary">Apply
+                            <p class="call-to-action"><a href="#" class="button button-small button-secondary">Apply
                                     Now</a></p>
                         </div>
                     </div>
@@ -84,10 +84,16 @@ get_header(); ?>
                     <?php echo get_nova_events($taxies); ?>
 
                     <div class="small-notice">
-                        <h1>Download Our Fees Structure</h1>
+                        <h4>Download Our Fees Structure</h4>
+                        <p>PDF document</p>
                         <a download href="<?php echo get_field('fees_structure'); ?>"
-                           class="button button-tiny button-secondary">Download</a>
+                           class="button button-small button-secondary">Download</a>
                     </div>
+                    <div class="small-notice">
+                      <h4>School Name Calendar</h4>
+                      <p>2017 School Events</p>
+                      <a href="#" class="button button-small button-secondary" title="">View Our Calendar</a>
+                  </div>
                 </div>
 
             </div>
@@ -178,7 +184,31 @@ get_header(); ?>
             </div>
         </section>
 
-        <a name="gallery"></a>
+        <section class="section gallery-section">
+          <div class="article"><h2 class=" gallery-title">School Gallery</h2></div>
+
+          <div class="slider-container">
+            <div class="section-content-item-full">
+              <div class="media gallery">
+                   <ul id="slippry">
+                     <li>
+                        <a href="#slide1"><img src="<?php echo get_template_directory_uri(); ?>/img/slides/slider-1-1583x454.jpg" alt="this is a caption"></a>
+                    </li>
+                     <li>
+                       <a href="#slide2"><img src="<?php echo get_template_directory_uri(); ?>/img/slides/slider-2-1583x454.jpg"  alt="another caption"></a>
+                     </li>
+                     <li>
+                        <a href="#slide3"><img src="<?php echo get_template_directory_uri(); ?>/img/slides/slider-3-1583x454.jpg" alt="one more caption"></a>
+                      </li>
+                  </ul>
+                 </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- <a name="gallery"></a>
 
         <section class="section-pair section-gallery">
             <div class="slider-container">
@@ -221,7 +251,7 @@ get_header(); ?>
                 </div>
             </div>
 
-        </section>
+        </section> -->
         <aside>
               <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">
@@ -311,7 +341,25 @@ get_header(); ?>
                 <?php endforeach; ?>
             </div>
         </section> -->
+        <section class="section section-pair even-section">
+              <div class="section-navigation">
+                  <h2>A Day in the Life</h2>
+              </div>
 
+              <div class="section-content section-day-in-the-life">
+                <div class="section-content-item section-content-item-half">
+                    <p>Lorem ipsum dolor sit amet, suas alienum ne ius. Eum commune mandamus appellantur ex. Cu ornatus appareat sed, iriure voluptua qui an. In nam ubique delenit appetere, accumsan laboramus ut est, per sumo everti laoreet ad. Ad verear integre delectus pri, te pericula consetetur voluptatum eum.</p>
+                    <p>Te pro vero erat docendi. Mea an ipsum efficiantur, eam facer appareat eu. In exerci tamquam vim, solum dicta scripserit sed te. Sit ad nobis deserunt, ea sed justo homero patrioque, ex eum vituperata philosophia. </p>
+                    <a href="#" class="button button-small button-primary" title="">Learn More</a>
+
+                </div>
+                <div class="section-content-item section-content-item-half">
+                  <figure><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-1-ke.jpg" alt="" class=""></figure>
+                </div>
+
+
+              </div>
+          </section>
 
         <section class="section section-pair section-school-location">
             <div class="section-navigation">
