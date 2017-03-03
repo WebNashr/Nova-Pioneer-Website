@@ -178,24 +178,26 @@ get_header(); ?>
             </div>
         </section>
 
-        <section>
+        <section class="section gallery-section">
+          <div class="article"><h2 class=" gallery-title">School Gallery</h2></div>
+
           <div class="slider-container">
-            <div class="section-content-item-full overflow-crop">
+            <div class="section-content-item-full">
               <div class="media gallery">
                    <ul id="slippry">
                      <li>
-                        <a href="#slide1"><img src="/wp-content/uploads/2016/12/slide-1.jpg" alt="this is a caption"></a>
+                        <a href="#slide1"><img src="<?php echo get_template_directory_uri(); ?>/img/slides/slider-1-1583x454.jpg" alt="this is a caption"></a>
                     </li>
                      <li>
-                       <a href="#slide2"><img src="/wp-content/uploads/2016/12/slide-2.jpg"  alt="another caption"></a>
+                       <a href="#slide2"><img src="<?php echo get_template_directory_uri(); ?>/img/slides/slider-2-1583x454.jpg"  alt="another caption"></a>
                      </li>
                      <li>
-                        <a href="#slide3"><img src="/wp-content/uploads/2016/12/slide-3.jpg" alt="one more caption"></a>
+                        <a href="#slide3"><img src="<?php echo get_template_directory_uri(); ?>/img/slides/slider-3-1583x454.jpg" alt="one more caption"></a>
                       </li>
                   </ul>
                  </div>
             </div>
-            
+
           </div>
 
         </section>

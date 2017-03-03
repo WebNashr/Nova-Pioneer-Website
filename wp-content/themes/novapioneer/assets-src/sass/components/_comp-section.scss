@@ -21,7 +21,11 @@
 	&.call-to-action {
 		padding: 0 calc(#{$space-tiny} * 2);
 	}
-
+	&.gallery-section {
+		padding: calc(#{$space-tiny} * 2) 0 0 0;
+		background: lighten($background-grey, 5%);
+		
+	}
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);
     }
