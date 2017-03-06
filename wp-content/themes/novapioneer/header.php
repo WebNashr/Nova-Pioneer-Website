@@ -485,7 +485,7 @@
                     </a>
 
                     <?php if( !is_front_page() ): ?>
-                      <div id="main-menu">
+                      <!--<div id="main-menu">
                         <nav role="navigation" class="menu menu-main">
                           <ul id="main-dropdown">
                             <li><a href="<?php echo site_url('/'); ?>" class="menu-item menu-item-main" title="">About</a>
@@ -545,15 +545,15 @@
                             </li>
                           </ul>
                         </nav>
-                      </div>
+                      </div>-->
                         <!-- start navigation -->
-                        <!-- <?php wp_nav_menu( array(
-                            //'menu_class' => 'menu menu-main',
-                            //'walker' => new NovaPioneer\NovapMenuWalker,
-                            //'items_wrap' => '<nav role="navigation" id="%1$s" class="%2$s">%3$s</nav>',
-                            //'theme_location' => 'novap-header-menu',
-                            //'container' => ''
-                        ) ); ?> -->
+                         <?php wp_nav_menu( array(
+                            'menu_class' => 'menu menu-main',
+                            'walker' => new NovaPioneer\NovapMenuWalker,
+                            'items_wrap' => '<nav role="navigation" id="%1$s" class="%2$s">%3$s</nav>',
+                            'theme_location' => 'novap-header-menu',
+                            'container' => ''
+                        ) ); ?> 
                         <!-- end navigation -->
                     <?php endif; ?>
                     <?php if( !is_front_page() ): ?>
