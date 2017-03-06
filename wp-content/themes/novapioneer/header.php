@@ -557,17 +557,17 @@
                         <!-- end navigation -->
                     <?php endif; ?>
                     <?php if( !is_front_page() ): ?>
-                    <div class="select-country">
-                      <span class="country show">
-                          <span class="flag-icon flag-icon-za"></span>
-                          <a href="<?php echo site_url('/sa'); ?>"> <span class="text">South Africa</span> </a>
-                      </span>
-                      <span class="country hide">
-                          <span class="flag-icon flag-icon-ke"></span>
-                          <a href="<?php echo site_url('/kenya'); ?>"> <span class="text">Kenya</span> </a>
-                      </span>
-                  </div>
-                  <?php endif; ?>
+                        <div class="select-country">
+                            <span class="country show">
+                                <span class="flag-icon flag-icon-za"></span>
+                                <a href="<?php echo site_url('/sa'); ?>"> <span class="text">South Africa</span> </a>
+                            </span>
+                            <span class="country hide">
+                                <span class="flag-icon flag-icon-ke"></span>
+                                <a href="<?php echo site_url('/kenya'); ?>"> <span class="text">Kenya</span> </a>
+                            </span>
+                        </div>
+                    <?php endif; ?>
 
 
 
@@ -606,83 +606,6 @@
                         </label>
                     <?php endif; ?>
                 </section>
-
-                <?php if( !is_front_page() ): ?>
-                <section class="header-section header-section-aux">
-                    <div class="school-name"><?php if( is_page_template('school-home-page.php') ): echo get_the_title($post->ID); endif; ?></div>
-
-                    <nav role="navigation" class="menu menu-aux">
-                        <a href="<?php if( is_page_template('school-home-page.php') ): echo get_permalink().'our-team'; else: echo site_url('/our-leadership-team'); endif; ?>" class="menu-item menu-item-aux" >Our Team</a>
-                        <a href="<?php echo site_url('/admission-process'); ?>" class="menu-item menu-item-aux" >Admissions</a>
-                        <a href="<?php echo site_url('/calendar'); ?>" class="menu-item menu-item-aux" >Events</a>
-                        <?php if( is_page_template('school-home-page.php') ): ?>
-                            <a href="#gallery" class="menu-item menu-item-aux" >Gallery</a>
-                        <?php else: ?>
-                            <a href="<?php echo site_url('/gallery'); ?>" class="menu-item menu-item-aux" >Gallery</a>
-                        <?php endif; ?>
-
-                        <?php if( is_page_template('country-home-page.php') ):  global $post;?>
-                            <?php if( $post->post_name == 'kenya'): ?>
-                                <a href="<?php echo site_url('/kenya/contacts'); ?>" class="menu-item menu-item-aux" >Contact us</a>
-                            <?php endif; ?>
-                            <?php if( $post->post_name == 'sa'): ?>
-                                <a href="<?php echo site_url('/sa/contacts'); ?>" class="menu-item menu-item-aux" >Contact us</a>
-                            <?php endif; ?>
-                        <?php elseif( is_page_template('school-home-page.php') ): ?>
-                            <a href="#contacts" class="menu-item menu-item-aux" >Contact us</a>
-                        <?php else: ?>
-                            <div class="dropdown">
-                                <div class="dropdown-header">Contact Us</div>
-
-                                <div class="dropdown-drop">
-                                    <a class="dropdown-item" href="<?php echo site_url('/kenya/contacts'); ?>" > Kenya
-                                    </a>
-
-                                    <a class="dropdown-item" href="<?php echo site_url('/sa/contacts'); ?>" > South Africa
-                                    </a>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                    </nav>
-
-                    <!-- <div class="select-country">
-                        <div class="country country-select-toggle">Select country</div>
-
-                        <div class="select-countries">
-                            <a href="<?php echo site_url('/kenya'); ?>"  class="country">
-                                <span class="text">Kenya</span>
-                            </a>
-
-                            <a href="<?php echo site_url('/sa'); ?>"  class="country">
-                                <span class="text">South Africa</span>
-                            </a>
-                        </div>
-                    </div> -->
-
-                    <!-- <form action="<?php echo esc_url( home_url('/') ); ?>" class="header-search">
-                        <fieldset>
-                            <input type="text" name="s"/>
-                            <input type="submit" name="submit" />
-                            <button class="search-icon">
-                                <!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                width="18px" height="18px" viewBox="3.5 0.5 18 18" enable-background="new 3.5 0.5 18 18" xml:space="preserve">
-                                    <circle fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" cx="10.5" cy="7.5" r="6"/>
-                                    <line fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" x1="20.531" y1="17.531" x2="14.5" y2="11.5"/>
-                                </svg> -->
-                                <!-- <span class="search-toggle-icon magnify">⚲</span>
-                            </button>
-                            <button class="search-toggle">
-                                <span class="search-toggle-icon magnify open">⚲</span>
-                                <span class="search-toggle-icon cross">×</span>
-                            </button>
-                            <button class="search-toggle search-toggle-menu">
-                                <span class="search-toggle-icon magnify open">⚲</span>
-                                <span class="search-toggle-icon cross">×</span>
-                            </button>
-                        </fieldset>
-                    </form> -->
-                </section>
-            <?php endif; ?>
             </header>
 
         <!-- end page-header -->
