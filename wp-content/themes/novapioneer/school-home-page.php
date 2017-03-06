@@ -89,10 +89,11 @@ get_header(); ?>
                         <a download href="<?php echo get_field('fees_structure'); ?>"
                            class="button button-small button-secondary">Download</a>
                     </div>
+                    <div class="divider"></div>
                     <div class="small-notice">
                       <h4>School Name Calendar</h4>
                       <p>2017 School Events</p>
-                      <a href="#" class="button button-small button-secondary" title="">View Our Calendar</a>
+                      <a href="#" class="button button-small button-secondary" title="">Calendar</a>
                   </div>
                 </div>
 

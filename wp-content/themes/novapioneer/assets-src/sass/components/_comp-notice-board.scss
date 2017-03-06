@@ -14,7 +14,7 @@
 	.large-notice-container  {
 		@extend %column;
 		@extend %columns;
-	  	@extend %column-9;
+	  	@extend %column-10;
 	  	background-image: url('/wp-content/themes/novapioneer/img/school-notice-image.jpg');
 	    background-size: cover;
 	    background-position: center center;
@@ -95,7 +95,7 @@
   	@include flex-direction(row);
   	@include flex-wrap(wrap);
     // width: 100%;
-		// @extend %column-3;
+		@extend %column-2;
 		margin-top: 2rem;
     justify-content: space-between;
 
@@ -156,8 +156,10 @@
 
 
       .divider {
-      	width: 100%;
+      	width: 80%;
+        margin: 0 auto;
       	padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) ;
+        display: none;
 
       	&:after {
       		content: ' ';
@@ -170,6 +172,7 @@
       	}
       	@include break-point(laptop) {
       		padding: calc(#{$space-tiny} * 2) 0;
+          display: block;
       	}
       }
 	}
@@ -178,14 +181,13 @@
 	.small-notice {
     @extend %column;
     text-align: center;
-    padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 1.5);
-    background-color: $grey;
-    width: 45%;
+    padding:  0 calc(#{$space-tiny} * 0.5);
+    // background-color: $grey;
+    // width: 45%;
     &:first-of-type {
       // margin-bottom: 1.5rem;
-      // padding-bottom: calc(#{$space-tiny} * 2);
+      // padding-bottom: calc(#{$space-tiny} * 3);
       // border-bottom: 1px solid darken($grey, 10%);
-
     }
 
     &:not(:first-of-type) {
