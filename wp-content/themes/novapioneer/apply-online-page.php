@@ -5,12 +5,12 @@
 
 get_header();?>
 
-<style type="text/css" media="all"> 
+<!--<style type="text/css" media="all"> 
     /* Temporary fix for gravity forms not displaying */
     .gf_browser_chrome, .gform_wrapper{
         display:block !important;
     }
-</style>
+</style>-->
 <?php if( have_posts() ): ?>
 
     <?php while( have_posts() ): the_post(); ?>

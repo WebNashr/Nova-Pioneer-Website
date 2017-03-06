@@ -317,14 +317,6 @@ function novap_base_pagination(WP_Query $query = null)
 }
 
 
-function novap_setup_assets()
-{
-
-}
-
-add_action('wp_enqueue_scripts', 'novap_setup_assets');
-
-
 function novap_body_class($classes)
 {
     $additional_classes = [];
@@ -537,6 +529,11 @@ function novap_download_file($fullpath)
 
 function novap_enqueue_assets()
 {
+
+    if( !is_admin() ){
+        // We have our own jquery so no need of using the default jquery unless we're in the admin dashboard
+        wp_deregister_script('jquery');
+    }
     /** STYLES **/
     wp_register_style('novapioneer_styles', get_template_directory_uri() . '/assets/css/main.min.css', '1.0.0', 'all');
     wp_enqueue_style('novapioneer_styles');
