@@ -853,6 +853,11 @@ img.ajax-loader {
 .spu-content {
 	.gform_wrapper {
 		.gform_body {
+			p {
+				@include font-size(14px);
+				padding: calc(#{$space-tiny} * 1) 0 0 0;
+				color: $grey-mdk;
+			}
 			ul.gform_fields {
 				li{
 					text-indent: 0;
