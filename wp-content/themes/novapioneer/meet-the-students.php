@@ -145,11 +145,6 @@ get_header(); ?>
                     <h2>Student Blog</h2>
                 </div>
                 <div class="section-content">
-                    <div class="section-content-item section-content-item-third blog-article">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-1.jpg" alt="">
-                        <a href="#" class="blog-article-title" title="">Are We Good Enough?</a>
-                        <p class="article-author">Article Author</p>
-                    </div>
 
                     <div class="section-content">
                         <?php foreach (get_field('student_blogs') as $blog_post): $blog_post = (object)$blog_post; ?>
