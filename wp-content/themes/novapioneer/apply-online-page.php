@@ -5,6 +5,11 @@
 
 get_header();?>
 
+<style> <!-- Temporary fix for gravity forms not displaying -->
+    .gf_browser_chrome gform_wrapper{
+        display:block !important;
+    }
+</style>
 <?php if( have_posts() ): ?>
 
     <?php while( have_posts() ): the_post(); ?>
@@ -19,7 +24,7 @@ get_header();?>
                 </p> -->
             </article>
         </section>
-
+        
     <?php endwhile; ?>
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
