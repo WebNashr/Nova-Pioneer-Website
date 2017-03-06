@@ -7,7 +7,7 @@ get_header();?>
 
 <style type="text/css" media="all"> 
     /* Temporary fix for gravity forms not displaying */
-    .gf_browser_chrome gform_wrapper{
+    .gf_browser_chrome, .gform_wrapper{
         display:block !important;
     }
 </style>
