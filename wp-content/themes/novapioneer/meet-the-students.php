@@ -144,7 +144,6 @@ get_header(); ?>
                 <div class="section-navigation">
                     <h2>Student Blog</h2>
                 </div>
-                <div class="section-content">
 
                     <div class="section-content">
                         <?php foreach (get_field('student_blogs') as $blog_post): $blog_post = (object)$blog_post; ?>
@@ -159,7 +158,6 @@ get_header(); ?>
 
                         <?php endforeach; ?>
                     </div>
-                </div>
 
             </section>
 
