@@ -533,6 +533,8 @@ function novap_enqueue_assets()
     if( !is_admin() ){
         // We have our own jquery so no need of using the default jquery unless we're in the admin dashboard
         wp_deregister_script('jquery');
+        wp_register_script('jquery', get_template_directory_uri() . '/bower_components/jquery/dist/jquery.min.js', array(), '1.0.0', false);
+        wp_enqueue_script('jquery'); 
     }
     /** STYLES **/
     wp_register_style('novapioneer_styles', get_template_directory_uri() . '/assets/css/main.min.css', '1.0.0', 'all');

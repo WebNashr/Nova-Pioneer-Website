@@ -15,7 +15,7 @@ var debug = require('gulp-debug');
 // task: js
 gulp.task('js', function () {
     return gulp.src([
-        'bower_components/jquery/dist/jquery.min.js',
+        /* 'bower_components/jquery/dist/jquery.min.js', */ /* Will register jquery separately on functions.php and include in header instead of footer. */
         'bower_components/bowser/src/bowser.js',
         'bower_components/flexibility/flexibility.js',
         'bower_components/waypoints/lib/jquery.waypoints.min.js',
