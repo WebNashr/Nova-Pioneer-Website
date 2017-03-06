@@ -296,7 +296,28 @@ img.ajax-loader {
 			 max-width: 86%;
 		}
 	}
+	.subscribe-form-container {
+		width: 100%;
+		@include break-point(laptop) {
+			 width: 83%;
+		}
 
+		.gfield_checkbox {
+			margin-top: 0;
+			li {
+				display: inline-block;
+				label {
+					margin-right: 16px;
+				}
+				input[type=checkbox] {
+					margin-top: 0 !important;
+				}
+			}
+		}
+	}
+	.ginput_container_checkbox {
+		margin-top: 6px !important;
+	}
 	.gform_wrapper {
 		// @extend %columns;
 		// display: flex;

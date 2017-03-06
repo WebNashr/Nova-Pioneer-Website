@@ -8,8 +8,9 @@
             <header>
                 <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
             </header>
-
+            <div class="subscribe-form-container">
             <?php echo do_shortcode('[gravityform id="5" title="false" description="false" tabindex="50"]'); ?>
+          </div>
         </div>
     </div>
 </section>
