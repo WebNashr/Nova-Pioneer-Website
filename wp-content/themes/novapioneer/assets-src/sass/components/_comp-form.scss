@@ -857,6 +857,7 @@ img.ajax-loader {
 				@include font-size(14px);
 				padding: calc(#{$space-tiny} * 1) 0 0 0;
 				color: $grey-mdk;
+				line-height: 1.5;
 			}
 			ul.gform_fields {
 				li{
@@ -869,6 +870,13 @@ img.ajax-loader {
 			.ginput_container_radio {
 				margin-top: 0;
 			}
+		}
+		.gform_footer {
+			// padding: 0;
+		}
+		.ginput_complex.ginput_container label{
+			// margin: 8px 0 9px 1px;
+			margin-top: 8px;
 		}
 	}
 	.button  {
