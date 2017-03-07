@@ -6,7 +6,10 @@
 .modal {
     @include flexbox();
     position: fixed;
+    top: 50vh;
+    left: 50vw;
     width: 100vw;
+    width: 0vw;
     height: 0vh;
     padding: 0;
     background: transparent;
@@ -18,7 +21,9 @@
     }
 
     &.show {
-        // width: 100vw;
+        top: 0;
+        left: 0;
+        width: 100vw;
         height: 100vh;
         padding: calc(#{$space-tiny} * 4);
         background: $blue-dk;
@@ -32,33 +37,40 @@
 }
 
 .modal-control {
-    display: none;
-    width: 0;
+    width: 32px;
     cursor: pointer;
     z-index: 9;
 
     &.open {
-        bottom: calc(#{$space-tiny} * 5);
-        left: calc(#{$space-tiny} * 1);
+        align-self: center;
+        margin-top: 0.25rem;
+        margin-left: 2rem;
 
         path {
-            fill: $white;
+            fill: $grey-md;
+        }
+
+        &:hover {
+            path {
+                fill: $orange-dk;
+            }
         }
     }
 
     &.close {
+        position: fixed;
         top: calc(#{$space-tiny} * 1.5);
         right: calc(#{$space-tiny} * 1.5);
 
         path {
-            fill: $white;
+            fill: $grey-md;
         }
-    }
 
-    &.show {
-        position: fixed;
-        display: block;
-        width: calc(#{$space-tiny} * 2);
+        &:hover {
+            path {
+                fill: $orange-lt;
+            }
+        }
     }
 }
 

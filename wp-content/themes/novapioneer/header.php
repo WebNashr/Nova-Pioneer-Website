@@ -25,6 +25,28 @@
     </head>
 
     <body <?php body_class(); ?>>
+        <!-- page-modal -->
+        <div class="modal">
+            <!-- clear -->
+            <svg class="modal-control close" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                <path d="M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z"/>
+            </svg>
+
+            <form action="<?php echo esc_url( home_url('/') ); ?>" class="header-search">
+                <fieldset>
+                    <input type="text" name="s" placeholder="Search"/>
+
+                    <input type="submit" name="submit" class="search-button" />
+
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                        <path d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
+                    </svg>
+                </fieldset>
+            </form>
+        </div>
+        <!-- end page-modal -->
+
+
         <!-- page-header -->
         <header class="page-header <?php if( is_front_page() ): echo 'page-header-home'; endif; ?>" <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>  id="header-container">
             <section class="header-section <?php if( is_front_page() ): echo 'header-section-home'; else: echo 'header-section-main'; endif; ?>">
@@ -503,7 +525,7 @@
 
                 
                 <?php if( !is_front_page() ): ?>
-                <!-- <div class="select-country">
+                <div class="select-country">
                     <span class="country show">
                         <span class="flag-icon flag-icon-za"></span>
                         <a href="<?php echo site_url('/sa'); ?>"> <span class="text">South Africa</span> </a>
@@ -513,54 +535,14 @@
                         <span class="flag-icon flag-icon-ke"></span>
                         <a href="<?php echo site_url('/kenya'); ?>"> <span class="text">Kenya</span> </a>
                     </span>
-                </div> -->
+                </div>
                 <?php endif; ?>
 
 
                 <?php if( !is_front_page() ): ?>
-                <!-- <form action="<?php echo esc_url( home_url('/') ); ?>" class="header-search">
-                    <fieldset>
-                        <input type="text" name="s" placeholder="Search"/>
-
-                        <input type="submit" name="submit" />
-
-                        <button class="search-icon">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            width="18px" height="18px" viewBox="3.5 0.5 18 18" enable-background="new 3.5 0.5 18 18" xml:space="preserve">
-                                <circle fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" cx="10.5" cy="7.5" r="6"/>
-                                <line fill="none" stroke="#FFFAE1" stroke-width="2" stroke-miterlimit="10" x1="20.531" y1="17.531" x2="14.5" y2="11.5"/>
-                            </svg>
-                            <span class="search-toggle-icon magnify">⚲</span>
-                        </button>
-
-                        <button class="search-toggle">
-                            <span class="search-toggle-icon magnify open">⚲</span>
-                            <span class="search-toggle-icon cross">×</span>
-                        </button>
-
-                        <button class="search-toggle search-toggle-menu">
-                            <span class="search-toggle-icon magnify open">⚲</span>
-                            <span class="search-toggle-icon cross">×</span>
-                        </button>
-                    </fieldset>
-                </form> -->
-
-                <!-- page-modal -->
-                <div class="modal">
-                    <!-- clear -->
-                    <svg class="modal-control close" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                        <path d="M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z"/>
-                        <!-- <path d="M0 0h48v48h-48z" fill="none"/> -->
-                    </svg>
-
-                    <?php get_search_form(); ?>
-                </div>
-                <!-- end page-modal -->
-
-                <!-- open -->
+                <!-- open search form -->
                 <svg class="modal-control open" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                     <path d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
-                    <!-- <path d="M0 0h48v48h-48z" fill="none"/> -->
                 </svg>
                 <?php endif; ?>
 

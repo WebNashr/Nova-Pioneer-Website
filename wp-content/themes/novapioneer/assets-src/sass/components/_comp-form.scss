@@ -10,6 +10,13 @@ form {
 	width: 100%;
 	display: block;
 	background: transparent;
+
+	.modal & {
+		align-self: center;
+	    margin: auto;
+    	width: 75%;
+	    max-width: 768px;
+	}
 }
 
 
@@ -23,6 +30,10 @@ fieldset {
 	background: transparent;
 	border: 0 none;
 	@extend %clearfix;
+
+	.modal & {
+		position: relative;
+	}
 
 	&:not(:first-of-type) {
 		margin-top: calc(#{$space-tiny} * 1.75);
@@ -93,6 +104,17 @@ select {
 	}
 }
 
+input[type="text"] {
+	.modal & {
+		@include copy(light);
+		@include font-size(28px);
+		width: calc(100% - 56px);
+		padding: 1.25rem 1.5rem;
+		border: 0 none;
+		outline: 0 none;
+	}
+}
+
 
 textarea {
 	height: 10rem;
@@ -158,7 +180,44 @@ input[type="submit"] {
 
 	&:active {
 	}
+
+	.modal & {
+		position: absolute;
+	    top: calc(#{$space-tiny} * 0);
+	    right: 0;
+	    width: 40px;
+	    height: 72px;
+	    opacity: 0;
+	    z-index: 9;
+	}
 }
+
+
+.search-icon {
+	.modal & {
+		position: absolute;
+		top: calc(#{$space-tiny} * 1);
+		right: 0;
+		align-self: center;
+		width: 40px;
+		text-align: center;
+		background: transparent;
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		z-index: 8;
+
+		svg {
+			width: 32px;
+			margin: auto;
+		}
+
+		path {
+	        fill: $white;
+	    }
+	}
+}
+
 
 img.ajax-loader {
 	max-height: 16px;

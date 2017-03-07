@@ -40,8 +40,14 @@ html {
 body {
 	@include flexbox();
 	@include flex-direction(column);
+	position: relative;
 	background: $white;
+
+	&.modal-open {
+		overflow: hidden;
+	}
 }
+
 .body-home {
 	background-image: url('../../img/large-hero-home.jpg');
 	background-size: cover;

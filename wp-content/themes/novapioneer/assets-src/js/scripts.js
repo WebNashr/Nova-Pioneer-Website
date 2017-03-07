@@ -39,10 +39,10 @@ $(document).ready(function() {
 
 
     // 04. select-country
-    $(".select-country").click(function(){
-        $(".select-countries").toggleClass("show");
-        console.log("04. select-country");
-    });
+    // $(".select-country").click(function(){
+    //     $(".select-countries").toggleClass("show");
+    //     console.log("04. select-country");
+    // });
 
     // dropdown
     $(".dropdown").click(function(){
@@ -70,7 +70,7 @@ $(document).ready(function() {
     $(function() {
         $(".modal-control").click(function(){
             $(".modal").toggleClass("show");
-            $(".modal-control").toggleClass("show");
+            // $(".modal-control").toggleClass("show");
             $("body").toggleClass("modal-open");
             console.log("a modal box was just opened!");
             return false;
