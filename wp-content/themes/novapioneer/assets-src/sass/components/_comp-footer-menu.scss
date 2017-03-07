@@ -242,6 +242,8 @@
 }
 
 .footer-menu-aux-item-copyright {
+	display: block;
+	text-align: center;
     margin-top: $space-tiny * 2;
 		@include font-size(12px);
 		letter-spacing: normal !important;
@@ -252,7 +254,7 @@
     @include break-point(laptop) {
 		margin-top: 0;
 		margin-left: auto;
-		text-align: right;
+		text-align: center;
     }
 
     &:hover {

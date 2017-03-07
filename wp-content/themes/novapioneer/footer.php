@@ -8,21 +8,14 @@
 <?php if( !is_front_page() ): ?>
   <footer class="page-footer">
     <nav role="navigation" class="footer-menu">
-      <div class="footer-logo">
-        <div class="logo">
-          <a href="<?php echo site_url(); ?>">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-vertical-coloured-blue.svg" alt="Nova Pioneer">
-          </a>
+        <div class="footer-logo">
+            <div class="logo">
+                <a href="<?php echo site_url(); ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo/logo-vertical-coloured-blue.svg" alt="Nova Pioneer">
+                </a>
+            </div>
         </div>
-        <div class="social-media-links">
-          <a href=" <?php echo get_field('facebook'); ?>" target="_blank"><span class="social-icon facebook-icon"></span>Facebook</a><br/>
-          <a href=" <?php echo get_field('twitter'); ?>" target="_blank"><span class="social-icon twitter-icon"></span>Twitter</a><br/>
-          <a href=" <?php echo get_field('linkedin'); ?>" target="_blank"><span class="social-icon linkedin-icon"></span>LinkedIn</a><br/>
-        </div>
-        <div>
-          <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; 2016. All right reserved.</span>
-        </div>
-      </div>
+
         <div class="footer-boxes">
 
             <?php wp_nav_menu( array(
@@ -48,18 +41,9 @@
   </footer>
 <?php endif; ?>
 
-  <?php if( is_front_page() ): ?>
-  <footer class="page-footer <?php if( is_front_page() ): echo 'page-footer-home'; else: echo 'page-footer-aux'; endif; ?>">
-    <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; 2017. All right reserved.</span>
-    <!-- start navigation -->
-        <?php wp_nav_menu( array(
-            'menu_class' => 'footer-menu-aux',
-            'walker' => new NovaPioneer\NovapMenuWalker,
-            'items_wrap' => '<nav role="navigation" id="%1$s" class="%2$s">%3$s <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; ' . date('Y') . '. All right reserved.</span></nav>',
-            'theme_location' => 'novap-footer-aux-menu',
-            'container' => ''
-        ) ); ?>
-    <!-- end navigation -->
+  <?php if( !is_front_page() ): ?>
+  <footer class="page-footer page-footer-aux">
+    <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; <?php echo date('Y'); ?>. All right reserved.</span>
   </footer>
   <?php endif; ?>
   <!-- end footer -->
