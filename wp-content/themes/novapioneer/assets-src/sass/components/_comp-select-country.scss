@@ -10,19 +10,18 @@
 	// @include flex-wrap(nowrap);
     @include flex-direction(row);
     align-self: center;
-
     position: relative;
     min-width: 100px;
-	margin-left: auto;
+	// margin-left: auto;
+	margin-left: 2rem;
 	color: $white;
 	background: transparent;
 	cursor: pointer;
 
-	.modal & {
-	    @include flex-order(2);
-	    margin: 0 auto calc(#{$space-tiny} * 0.5);
-	}
-
+	// .modal & {
+	//     @include flex-order(2);
+	//     margin: 0 auto calc(#{$space-tiny} * 0.5);
+	// }
 }
 
 .select-countries {
@@ -42,11 +41,15 @@
 
 .country {
 	display: block;
-	padding: calc(#{$space-tiny} * 0.25) calc(#{$space-tiny} * 0.75);
+	padding: 0;
 	color: $grey-mdk;
 
-	&.country-select-toggle {
-		padding-top: calc(#{$space-tiny} * 0.5);
+	// &.country-select-toggle {
+	// 	padding-top: calc(#{$space-tiny} * 0.5);
+	// }
+
+	&:not(:first-of-type) {
+		margin-left: 1.25rem;
 	}
 
 	&:hover {

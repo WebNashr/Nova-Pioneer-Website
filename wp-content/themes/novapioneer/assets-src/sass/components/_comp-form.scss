@@ -10,6 +10,13 @@ form {
 	width: 100%;
 	display: block;
 	background: transparent;
+
+	.modal & {
+		align-self: center;
+	    margin: auto;
+    	width: 75%;
+	    max-width: 768px;
+	}
 }
 
 
@@ -23,6 +30,10 @@ fieldset {
 	background: transparent;
 	border: 0 none;
 	@extend %clearfix;
+
+	.modal & {
+		position: relative;
+	}
 
 	&:not(:first-of-type) {
 		margin-top: calc(#{$space-tiny} * 1.75);
@@ -93,6 +104,17 @@ select {
 	}
 }
 
+input[type="text"] {
+	.modal & {
+		@include copy(light);
+		@include font-size(28px);
+		width: calc(100% - 56px);
+		padding: 1.25rem 1.5rem;
+		border: 0 none;
+		outline: 0 none;
+	}
+}
+
 
 textarea {
 	height: 10rem;
@@ -133,16 +155,16 @@ fieldset.radio ul li:last-child {
 
 
 p.form-help {
+	@include font-size(15px);
 	display: inline-block;
 	margin: 0.125rem 0 0.25rem;
-	@include font-size(15px);
 	color: #999;
 }
 
 p.form-data {
+	@include font-size(18px);
 	display: inline-block;
 	margin: 0.125rem 0 0.75rem;
-	@include font-size(18px);
 }
 
 
@@ -158,12 +180,55 @@ input[type="submit"] {
 
 	&:active {
 	}
+
+	.modal & {
+		position: absolute;
+	    top: calc(#{$space-tiny} * 0);
+	    right: 0;
+	    width: 40px;
+	    height: 72px;
+	    opacity: 0;
+	    z-index: 9;
+	}
 }
+
+
+.search-icon {
+	.modal & {
+		position: absolute;
+		top: calc(#{$space-tiny} * 1);
+		right: 0;
+		align-self: center;
+		width: 40px;
+		text-align: center;
+		background: transparent;
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		z-index: 8;
+
+		svg {
+			width: 32px;
+			margin: auto;
+		}
+
+		path {
+	        fill: $white;
+	    }
+	}
+}
+
+
 img.ajax-loader {
 	max-height: 16px;
 	max-width: 16px;
 	display: none;
 }
+
+
+
+
+
 //table filter
 .table-filter {
 	@include flexbox();
@@ -172,8 +237,8 @@ img.ajax-loader {
 	justify-content: space-between;
 	width: 100%;
 	align-items: baseline;
-
 	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 0.5) 0;
+
 	.selector {
 		position: relative;
 		width: 100%;
@@ -181,17 +246,21 @@ img.ajax-loader {
 		margin-right: 1.125rem;
 		// flex: 2;
 		// margin-bottom: 1rem;
+
 		@include break-point(mobile) {
 			width: 100%;
 		}
+
 		@include break-point(largelaptop) {
 			display: inline-block;
 			width: auto;
 		}
+
 		@include break-point(desktop) {
 			width: auto;
 		}
-	 &:after {
+
+	 	&:after {
 			top: 45%;
 			left: 85%;
 			border: solid transparent;
@@ -230,8 +299,7 @@ img.ajax-loader {
 			// }
 		}
 
-
-	 .dropdown {
+		.dropdown {
 			// @extend %column-5;
 			// @extend %column-5;
 
@@ -246,6 +314,7 @@ img.ajax-loader {
 				display: block;
 				width: 100%;
 			}
+
 			@include break-point(desktop) {
 				width: 100%;
 				max-width: 185px;
@@ -254,28 +323,36 @@ img.ajax-loader {
 			option{
 				padding-right: calc(#{$space-tiny} * 3);
 				color: $sky;
+
 				&:first-child {
 					padding-left: calc(#{$space-tiny} * 1);
 				}
+
 				&:not(:checked) {
 					// color: lighten($dark-grey, 10%);
 				}
 			}
+
 			&:focus {
 				outline: none;
 			}
+		}
+
 	}
 
-}
-.button {
-	margin-top: 0;
-	flex: 1;
-	@include break-point(tablet) {
-		margin-top: 1rem;
+	.button {
+		margin-top: 0;
+		flex: 1;
+
+		@include break-point(tablet) {
+			margin-top: 1rem;
+		}
 	}
 }
 
-}
+
+
+
 //---Gravity form overrides----
 // .gform_body {
 //
@@ -537,6 +614,8 @@ img.ajax-loader {
 			}
 		}
 }
+
+
 //meet the students form
 .contact-student{
 	.section-content-item-half {
@@ -639,6 +718,8 @@ img.ajax-loader {
 	}
 
 }
+
+
 // apply online  form
 .student-application {
 	h2 {
@@ -849,6 +930,8 @@ img.ajax-loader {
 
 	}
 }
+
+
 //subscriber pop-up form
 .spu-content {
 	.gform_wrapper {
@@ -907,3 +990,5 @@ img.ajax-loader {
 		}
 	}
 }
+
+
