@@ -513,7 +513,7 @@
                 <?php wp_nav_menu( array(
                     'menu_class' => 'menu',
                     'walker' => new NovaPioneer\NovapMenuWalker,
-                    'items_wrap' => '<nav role="navigation" id="%1$s" class="%2$s">%3$s</nav>',
+                    'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
                     'theme_location' => 'novap-header-menu',
                     'container' => ''
                 )); ?> 
@@ -526,15 +526,15 @@
                 
                 <?php if( !is_front_page() ): ?>
                 <div class="select-country">
-                    <span class="country show">
+                    <a href="<?php echo site_url('/sa'); ?>" class="country show">
                         <span class="flag-icon flag-icon-za"></span>
-                        <a href="<?php echo site_url('/sa'); ?>"> <span class="text">South Africa</span> </a>
-                    </span>
+                        <span class="text">South Africa</span>
+                    </a>
 
-                    <span class="country hide">
+                    <a href="<?php echo site_url('/kenya'); ?>" class="country hide">
                         <span class="flag-icon flag-icon-ke"></span>
-                        <a href="<?php echo site_url('/kenya'); ?>"> <span class="text">Kenya</span> </a>
-                    </span>
+                        <span class="text">Kenya</span>
+                    </a>
                 </div>
                 <?php endif; ?>
 

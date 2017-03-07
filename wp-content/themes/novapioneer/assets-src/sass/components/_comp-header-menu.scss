@@ -28,7 +28,6 @@
 }
 
 
-
 .header-section {
 	@include flexbox();
 	@include flex-wrap(nowrap);
@@ -52,7 +51,6 @@
 		}
     }
 }
-
 
 
 .header-section-home {
@@ -79,7 +77,6 @@
 	}
 
 }
-
 
 
 .header-logo {
@@ -159,7 +156,6 @@
 }
 
 
-
 .header-apply {
     margin-left: auto;
     align-self: center;
@@ -182,7 +178,6 @@
 }
 
 
-
 .menu {
 	@include flexbox();
 	@include flex-wrap(nowrap);
@@ -190,72 +185,91 @@
     align-self: center;
     display: none;
 	margin-left: 2rem;
+	list-style-type: none;
 
 	@include break-point(laptop) {
 		@include flex-direction(row);
-		display: block;
+		display: flex;
 		width: calc(100% - 25rem);
     }
 
     @include break-point(largelaptop) {
 		width: auto;
-		margin-left: 2rem;
+		margin-left: 2.5rem;
     }
 
     @include break-point(desktop) {
-		margin-left: 3.75rem;
+		margin-left: 5rem;
     }
 }
 
 
-
 .sub-menu {
-	display: none;
+	@include flex-direction(column);
+    @include flex-wrap(nowrap);
+    display: none;
+	position: absolute;
+    background: $white;
+    	background: $blue-lt;
+    width: 16vw;
+    border: 1px solid $background-grey;
+    	border: 1px solid $blue-lt;
+    padding: 1.25rem;
+    top: 48px;
+    left: -12px;
+    z-index: 9;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    	box-shadow: 0px 8px 24px rgba(23, 141, 190, 0.35);
+    opacity: 0;
+    transition: $ease;
+
+	.menu > .menu-item:hover & {
+		@include flexbox();
+		opacity: 1;
+	}
+
+	&:hover ~ a {
+		background: red;
+	}
 }
-
-// .submenu + .menu-item {
-// 	display: block;
-// 	background: red;
-// }
-
-// .menu-item + .submenu {
-// 	display: block;
-// 	background: yellow;
-// }
-
-// .submenu ~ .menu-item {
-// 	display: block;
-// 	background: cyan;
-// }
-
-// .menu-item ~ .submenu {
-// 	display: block;
-// 	background: green;
-// }
-
 
 
 .menu-item {
 	@include copy(regular);
 	@include font-size(16px);
 	@include line-height(1);
+	position: relative;
 	text-transform: capitalize;
-	transition: $ease;
-	color: $grey-dk;
-	color: $blue-dk;
-	color: $grey-mdk;
+	// color: $grey-dk;
+	// color: $blue-dk;
+	// color: $grey-mdk;
+	// color: $grey-lt;
 	text-align: center;
-	padding: 0;
+	padding: 14px 0px 16px;
+	margin-left: unset;
+    text-indent: unset;
+    // background: red;
+    transition: $ease;
 
 	&:not(:first-of-type) {
 		margin-top: 1.125rem;
 	}
 
+	a {
+		// color: $grey-mdk;
+		color: lighten($grey-mdk, 15%);
+
+		&:hover {
+			color: $blue-lt;
+		}
+	}
+
 	&:hover {
-		color: $blue-lt !important;
+		// color: $blue-lt;
+		// font-weight: bold;
 
 		&:after {
-			border-top: 6px solid $blue-lt !important;
+			// border-top: 6px solid $blue-lt !important;
 		}
 	}
 
@@ -270,17 +284,60 @@
 	    border-left: 6px solid transparent;
 	    border-right: 6px solid transparent;
 		border-radius: 3px;
+	    content: unset;
+	}
+
+	&:before {
+	    font-size: unset;
+	    font-size: unset;
+	    margin-right: unset;
+	    vertical-align: unset;
+	    content: unset;
+	    color: unset;
+	}
+
+	.sub-menu & {
+		@include font-size(16px);
+		padding: 0;
+
+		&:not(:first-of-type) {
+			margin-top: 1.25rem;
+			margin-left: 0;
+		}
+
+		a {
+		    display: block;
+		    // color: $grey-md;
+			color: $white;
+
+			&:hover {
+				color: $blue-lt;
+					color: $white;
+					color: $orange-lt;
+			}
+		}
 	}
 
 	&.menu-item-current {
-		color: $blue-lt;
-		padding-bottom: calc(#{$space-tiny} * 0.5);
-		border-bottom: 3px solid $blue-lt;
-
 		&:after {
-			border-top: 6px solid $blue-lt !important;
+			width: 0;
+		    height: 0;
+		    content: "";
+		    position: absolute;
+		    top: 15px;
+		    right: -20px;
+		    border-top: 6px solid $grey-mdk;
+		    border-left: 6px solid transparent;
+		    border-right: 6px solid transparent;
+			border-radius: 3px;
+		    content: unset;
 		}
 
+		& > a {
+			font-weight: bold;
+			color: $blue-lt;
+				color: $blue-lt;
+		}
 	}
 
 	@include break-point(laptop) {
@@ -288,15 +345,16 @@
 
 		&:not(:first-of-type) {
 			margin-top: 0;
-			margin-left: 1.25rem;
+			margin-left: 1.875rem;
 		}
     }
 
     @include break-point(largelaptop) {
-		@include font-size(16px);
+		@include font-size(18px);
 
 		&:not(:first-of-type) {
 
 		}
     }
 }
+
