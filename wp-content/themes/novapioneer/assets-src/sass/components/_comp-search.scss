@@ -7,6 +7,7 @@
 	padding-top: calc(#{$space-tiny} * 1);
 	padding-bottom: calc(#{$space-tiny} * 1);
 }
+
 .result-body {
 	margin: 0 auto;
 	width: 60%;
@@ -30,12 +31,10 @@
     @include flex-direction(row);
     @include flex-wrap(wrap);
     justify-content: space-around;
-    // background: $background-grey;
     width: 100%;
-     padding: calc(#{$space-tiny} * 6) calc(#{$space-tiny} * 2) 0; 
+    padding: calc(#{$space-tiny} * 6) calc(#{$space-tiny} * 2) 0; 
    	
 	.content-navigation-container {
-		//padding: calc(#{$space-tiny} * 4);
 		@include flexbox();
 	    @include flex-direction(row);
 	    @include flex-wrap(wrap);
@@ -46,7 +45,6 @@
 		@include flexbox();
 		@include flex-wrap(nowrap);
 	    @include flex-direction(row);
-		//align-self: flex-end;
 		background: transparent;
 		background: transparent;
 		margin: auto;
@@ -57,9 +55,6 @@
 		width: 60%;
 	}
 }
-
-                        
-
 
 .page-search fieldset {
 	@include flexbox();
@@ -93,7 +88,6 @@
 	height: 2.5rem;
 	opacity: 0;
 	z-index: 9;
-	// background: red;
 }
 
 .page-search svg {
@@ -101,7 +95,6 @@
 	height: 2.5rem;
 	margin-top: 4px;
 	margin-left: 4px;
-	// background: red;
 }
 
 .page-search svg circle,
@@ -118,3 +111,4 @@
 .page-search input[type="text"]:focus ~ svg line {
 	stroke: lighten($blue, 15%);
 }
+

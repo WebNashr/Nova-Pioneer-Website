@@ -3,12 +3,12 @@
 $(document).ready(function() {
 
     // 01. menu toggle
-    $(".modal-check-label").click(function(){
-        $(".page-header").toggleClass("modal modal-show");
-        $("body").toggleClass("modal-show");
-        console.log("01. menu toggle");
-        return false;
-    });
+    // $(".modal-check-label").click(function(){
+    //     $(".page-header").toggleClass("modal modal-show");
+    //     $("body").toggleClass("modal-show");
+    //     console.log("01. menu toggle");
+    //     return false;
+    // });
 
 
     // 02. search toggle
@@ -52,20 +52,29 @@ $(document).ready(function() {
 
 
     // 05. modal toggle
-    $(".modal-toggle").click(function () {
+    // $(".modal-toggle").click(function () {
+    //     if ($(this).hasClass('button-send-rsvp')) {
+    //         $('#event-organiser').html( $(this).data().eventOrganizers );
+    //         $('#event-title').html( $(this).data().eventName );
+    //         $('#event-date').html( $(this).data().eventDate );
+    //         $('#event-location').html( $(this).data().eventLocation );
+    //         $('#event-id').val( $(this).data().eventId );
+    //     }
 
-        if ($(this).hasClass('button-send-rsvp')) {
+    //     $(".modal").toggleClass("modal-show");
+    //     $("body").toggleClass("modal-show");
+    // });
 
-            $('#event-organiser').html( $(this).data().eventOrganizers );
-            $('#event-title').html( $(this).data().eventName );
-            $('#event-date').html( $(this).data().eventDate );
-            $('#event-location').html( $(this).data().eventLocation );
-            $('#event-id').val( $(this).data().eventId );
-        }
 
-        $(".modal").toggleClass("modal-show");
-        $("body").toggleClass("modal-show");
-
+    // 03. modal box control
+    $(function() {
+        $(".modal-control").click(function(){
+            $(".modal").toggleClass("show");
+            $(".modal-control").toggleClass("show");
+            $("body").toggleClass("modal-open");
+            console.log("a modal box was just opened!");
+            return false;
+        });
     });
 
 
