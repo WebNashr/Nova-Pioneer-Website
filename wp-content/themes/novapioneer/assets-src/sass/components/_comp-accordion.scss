@@ -46,7 +46,7 @@ ul.toggle-list li {
     &.show {
         &:before {
             content: "▼";
-            color: $blue;
+            color: $blue-lt;
         }
     }
 }
@@ -57,7 +57,7 @@ ul.toggle-list li {
     width: calc(100% - 1.5rem);
 
     li:hover & {
-        color: $green-blue;
+        color: $blue-lt;
     }
 
     li.faq:hover & {
@@ -65,7 +65,7 @@ ul.toggle-list li {
     }
 
     .show & {
-        color: $green-blue;
+        color: $blue-lt;
     }
 }
 
