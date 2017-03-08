@@ -521,44 +521,35 @@
                 <?php endif; ?>
 
 
-                <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
-
-                
                 <?php if( !is_front_page() ): ?>
-                <!-- <div class="select-country">
-                    <a href="<?php echo site_url('/sa'); ?>" class="country show">
-                        <span class="flag-icon flag-icon-za"></span>
-                        <span class="text">South Africa</span>
-                    </a>
+                <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
+                <?php endif; ?>
 
-                    <a href="<?php echo site_url('/kenya'); ?>" class="country hide">
-                        <span class="flag-icon flag-icon-ke"></span>
-                        <span class="text">Kenya</span>
-                    </a>
-                </div> -->
-
-                <!-- we'll probably need to find a way to pick which country is selected -->
-                <div class="country-list">
-                    <div class="country-list-container">
-                        <a href="<?php echo site_url('/sa'); ?>" class="country-list-item country-list-selected">
-                            <span class="flag-icon flag-icon-za"></span>
-                            <span class="text">South Africa</span>
-                        </a>
-
-                        <a href="<?php echo site_url('/kenya'); ?>" class="country-list-item country-list-option">
-                            <span class="flag-icon flag-icon-ke"></span>
-                            <span class="text">Kenya</span>
-                        </a>
-                    </div>
-                </div>
-
-
-                <!-- <div class="drop-list">
+                <?php if( is_front_page() ): ?>
+                <div class="drop-list">
                     <div class="drop-list-container">
                         <div class="drop-list-item drop-list-selected">thing 1</div>
                         <div class="drop-list-item drop-list-option">thing 2</div>
                     </div>
-                </div> -->
+                </div>
+                <?php endif; ?>
+
+                
+                <?php if( !is_front_page() ): ?>
+                <!-- we'll probably need to find a way to pick which country is selected -->
+                <div class="country-list">
+                    <div class="country-list-container">
+                        <a href="<?php echo site_url('/sa'); ?>" class="button button-primary country-list-item country-list-selected">
+                            <span class="flag-icon flag-icon-za"></span>
+                            <span class="text">SA</span>
+                        </a>
+
+                        <a href="<?php echo site_url('/kenya'); ?>" class="button button-primary country-list-item country-list-option">
+                            <span class="flag-icon flag-icon-ke"></span>
+                            <span class="text">KE</span>
+                        </a>
+                    </div>
+                </div>
                 <?php endif; ?>
 
 
