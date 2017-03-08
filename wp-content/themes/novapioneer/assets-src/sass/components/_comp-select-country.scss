@@ -3,60 +3,53 @@
 /* ==================================================== */
 
 
-.select-country {
+.country-list {
+    align-self: center;
+	position: relative;
+    min-width: 100px;
+    height: 24px;
+    margin-left: calc(#{$space-tiny} * 2);
+}
+
+.country-list-container {
 	@include font-size(13px);
 	@include line-height(1);
 	@include flexbox();
-	// @include flex-wrap(nowrap);
-    @include flex-direction(row);
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
     align-self: center;
-    position: relative;
-    min-width: 100px;
-	// margin-left: auto;
-	margin-left: 2rem;
-	color: $white;
-	background: transparent;
+    position: absolute;
+	top: 0;
+	width: 100%;
+	height: 24px;
+	overflow: hidden;
+}
+
+.country-list-item {
+	height: 24px;
+	padding: 6px 0 0;
+	// color: $grey-dk;
+	color: $blue-dk;
 	cursor: pointer;
 
-	// .modal & {
-	//     @include flex-order(2);
-	//     margin: 0 auto calc(#{$space-tiny} * 0.5);
-	// }
-}
-
-.select-countries {
-	display: none;
-	position: absolute;
-	top: 35px;
-	width: 100%;
-	padding: calc(#{$space-tiny} * 0.25) 0 calc(#{$space-tiny} * 0.5);
-	transition: $ease;
-	background: $blue;
-
-	&.show {
-		display: block;
-		background: $blue-lt;
-	}
-}
-
-.country {
-	display: block;
-	padding: 0;
-	color: $grey-mdk;
-
-	// &.country-select-toggle {
-	// 	padding-top: calc(#{$space-tiny} * 0.5);
-	// }
-
-	&:not(:first-of-type) {
-		margin-left: 1.25rem;
-	}
-
 	&:hover {
-		color: $blue-lt;
-
-		.select-countries & {
-			color: $grey;
-		}
+		color: $green-lt;
 	}
+}
+
+.country-list-selected {
+	display: block;
+}
+
+.country-list-option {
+	display: none;
+}
+
+.country-list-container:hover {
+	height: 48px;
+	overflow: unset;
+}
+
+.country-list-container:hover .country-list-option {
+	display: block;
 }
