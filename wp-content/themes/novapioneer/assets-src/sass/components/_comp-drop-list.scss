@@ -5,11 +5,8 @@
 
 .drop-list {
     align-self: center;
-	position: relative;
-    min-width: 100px;
-    min-height: 36px;
-    margin-left: 2rem;
-    background: red;
+    min-width: 148px;
+    margin-left: auto;
 }
 
 .drop-list-container {
@@ -20,52 +17,38 @@
     @include flex-wrap(nowrap);
     align-self: center;
     position: absolute;
-	top: 0px;
-	width: 95%;
-	background: lighten(cyan, 10%);
-	border: 1px solid $grey-mdk;
+	width: 100%;
+	max-width: 148px;
 }
 
 .drop-list-item {
-	// display: none;
-	min-height: 36px;
-	margin-left: 3px;
-	padding: 0;
-	color: $grey-dk;
-	background: lighten(purple, 60%);
-	border: 1px solid purple;
-	cursor: pointer;
-
-	&.show {
-		display: block;
-		// background: $blue-lt;
-	}
-
 	&:not(:first-of-type) {
-		// margin-left: 1.25rem;
+		 margin-top: 12px;
 	}
 
 	&:hover {
-		// color: $blue-lt;
-
-		// .select-countries & {
-		// 	color: $grey;
-		// }
+		color: $grey-dk;
+		@include box-shadow(0, 0, 12px, 8px, rgba(0, 0, 0, 0.25));
 	}
 }
 
 .drop-list-selected {
-	// display: none;
+	display: block;
 }
 
 .drop-list-option {
-	background: wheat;
+	display: none;
 }
 
-.drop-list-selected:hover ~ .drop-list-option {
+.drop-list-container:hover {
+
+}
+
+.drop-list-container:hover .drop-list-option {
 	display: block;
-	background: wheat;
 }
 
-
-
+.drop-list-container:hover .drop-list-selected {
+	color: $white;
+	background: $green-lt;
+}
