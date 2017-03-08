@@ -45,10 +45,26 @@ $(document).ready(function() {
     // });
 
     // dropdown
-    $(".dropdown").click(function(){
-        $(".dropdown-drop").toggleClass("show");
+    // $(".dropdown").click(function(){
+    //     $(".dropdown-drop").toggleClass("show");
 
+    // });
+
+
+    // 04. kill level 1 menu links
+    $(".menu > .menu-item > a").attr('href', '#');
+    $(".menu > .menu-item > a").attr('onClick', 'return false');
+    console.log("level 1 menu links killed");
+
+
+
+    // 05. keep the level 1 menu link style while hovering on its sub-menu
+    $(".sub-menu").hover(function(){
+        $(this).prev("a").toggleClass("sub-menu-hovered");
+        console.log("a modal box was just opened!");
+        return false;
     });
+
 
 
     // 05. modal toggle
@@ -147,34 +163,45 @@ $(document).ready(function() {
 
 // 10. Full width caption animation
 $(function() {
-  var captionWaypoint = $('.caption').waypoint(function (direction) {
-
-      if (direction == 'down') {
-
-          $(this.element).addClass('slideInLeft');
-
-          this.destroy();
-      }
-  }, {
-      offset: '95%'
-  });
-  console.log("10. Full width caption animation");
+    var captionWaypoint = $('.caption').waypoint(function (direction) {
+        if (direction == 'down') {
+            $(this.element).addClass('slideInLeft');
+            this.destroy();
+        }
+    },
+    {
+        offset: '95%'
+    });
+    console.log("10. Full width caption animation");
 });
+
+
+
 // 11. Animated Hero title
 $(function() {
-  var inview = new Waypoint.Inview({
-    element: $('.animated-title')[0],
+    var inview = new Waypoint.Inview({
+        element: $('.animated-title')[0],
 
-    entered: function(direction) {
-      $(this.element).addClass('slideInLeft');
-      console.log("11. Animated Hero title");
-      this.destroy();
-    }
-
+        entered: function(direction) {
+            $(this.element).addClass('slideInLeft');
+            console.log("11. Animated Hero title");
+            this.destroy();
+        }
     });
 });
 
 // end document.ready
+
+
+
+// 12. escape modal with ESC
+$(document).keydown(function(e) {
+    if (e.keyCode == 27) {
+        $(".modal").toggleClass("show");
+        // $(".modal-control").toggleClass("show");
+        $("body").toggleClass("modal-open");
+    }
+});
 
 
 
