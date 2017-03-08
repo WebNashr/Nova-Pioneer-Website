@@ -213,12 +213,15 @@ h5 {
 		margin-bottom: 0.25rem;
 	}
 	.learning-approach & {
-		color: lighten($blue, 10%);
-		// margin-bottom: calc(#{$space-tiny} * 1);
-
-	.learning-approach & {
-		color: lighten($blue, 10%);
+		color: $blue-dk;
+		text-align: center;
+		margin-bottom: calc(#{$space-tiny} * 0.5);
 	}
+	// .learning-approach & {
+	// 	color: lighten($blue, 10%);
+	// 	text-align: center;
+	// 	// margin-bottom: calc(#{$space-tiny} * 1);
+	// }
 }
 
 
@@ -229,5 +232,4 @@ h6 {
 		margin-top: calc(#{$space-tiny} * 0.35);
 		margin-bottom: 0;
 	}
-}
 }

@@ -706,11 +706,11 @@
 	 	@include copy(bold);
 	 	@include font-size(20px);
 	 	// align-self: center;
-	 	color: $blue;
+	 	color: $blue-dk;
 	 	line-height: 1.35;
 
 	 	&:hover {
-	 		color: $dark-blue;
+	 		color: $blue-lt;
 	 	}
 	 }
 
@@ -1277,7 +1277,7 @@
 		content:"";
 		width: 3px;
 		height: 100%;
-		background: lighten($blue, 20%);
+		background: $blue-dk;
 		left: 24px;
 		top: 0;
 		position: absolute;
@@ -1308,7 +1308,7 @@
 		}
 
 		.timeline-icon {
-			background: lighten($blue, 20%);
+			background: $blue-dk;
 			width: 48px;
 			height: 48px;
 			position: absolute;
@@ -1335,7 +1335,7 @@
 			h2 {
 				@include font-size(22px);
 				padding: 15px;
-				background: lighten($blue, 10%);
+				background: $blue-dk;
 				color: #fff;
 				margin: -27px -20px 0 -20px;
 				border-radius: 5px 5px 0 0;
@@ -1356,7 +1356,7 @@
 				height: 0;
 				border-top: 10px solid transparent;
 				border-bottom: 10px solid transparent;
-				border-right: 10px solid lighten($blue, 10%);
+				border-right: 10px solid $blue-dk;
 			}
 
 			@include break-point(laptop) {
@@ -1387,7 +1387,7 @@
 				&:before {
 					left: 45%;
 					border-right: unset;
-					border-left: 10px solid lighten($blue, 10%);
+					border-left: 10px solid $blue-dk;
 				}
 
 				&.right {
@@ -1398,7 +1398,7 @@
 						right: 45%;
 						left: inherit;
 						border-left: 0;
-						border-right: 10px solid lighten($blue, 10%);
+						border-right: 10px solid $blue-dk;
 					}
 				}
 			}
