@@ -211,7 +211,8 @@
 	top: 34px; // find FF fix
     left: -12px;
     width: 16vw;
-    padding: 1rem 1.25rem;
+    // padding: 1rem 1.25rem;
+    padding: 0;
     // background: $white;
     	background: $blue-lt;
     // border: 1px solid $background-grey;
@@ -227,10 +228,10 @@
 		opacity: 1;
 	}
 
-	&:hover ~ a {
-		color: $blue-lt;
-		// background: red;
-	}
+	// &:hover ~ a {
+	// 	color: $blue-lt;
+	// 	// background: red;
+	// }
 }
 
 
@@ -245,75 +246,21 @@
 	text-align: center;
 	text-transform: capitalize;
 	letter-spacing: 0.5px;
-	// color: $grey-dk;
-	// color: $blue-dk;
-	// color: $grey-mdk;
-	// color: $grey-lt;
     transition: $ease;
-
-	&:before {
-		@include font-size(20px);
-		content: "\2022";
-		margin-right: 1rem;
-		vertical-align: middle;
-		color: $orange-lt;
-	}
-
-	&:not(:first-of-type) {
-		margin-top: 1.125rem;
-		// background: wheat;
-
-		// &:before {
-		// 	@include font-size(20px);
-		// 	content: "\2022";
-		// 	margin-right: 1rem;
-		// 	vertical-align: middle;
-		// 	color: $orange-lt;
-		// }
-	}
-
-	&:first-of-type {
-		// background: red;
-
-		&:before {
-			font-size: unset;
-		    font-size: unset;
-		    margin-right: unset;
-		    vertical-align: unset;
-		    content: unset;
-		    color: unset;
-		}
-	}
 
 	a {
 		padding: 14px 0px 16px;
 		// color: $grey-mdk;
 		color: lighten($grey-mdk, 15%);
 
+		&.sub-menu-hovered {
+			color: $blue-lt;
+		}
+
 		&:hover {
 			color: $blue-lt;
 		}
 	}
-
-	&:hover {
-
-	}
-
-	// &:after {
-	// 	width: 0;
-	//     height: 0;
-	//     content: "";
-	//     position: absolute;
-	//     top: 15px;
-	//     right: -20px;
-	//     border-top: 6px solid $grey-mdk;
-	//     border-left: 6px solid transparent;
-	//     border-right: 6px solid transparent;
-	// 	border-radius: 3px;
-	//     content: unset;
-	// }
-
-	
 
 	.sub-menu & {
 		@include font-size(16px);
@@ -322,6 +269,7 @@
 		&:not(:first-of-type) {
 			margin-top: 0;
 			margin-left: 0;
+			border-top: 1px solid lighten($blue-lt, 2%);
 		}
 
 		&:before {
@@ -336,7 +284,7 @@
 		a {
 		    @include line-height(1.25);
 		    display: block;
-		    padding: 6px 0;
+		    padding: 9px 16px;
 			color: $white;
 
 			&:hover {
@@ -345,42 +293,49 @@
 		}
 	}
 
-	// &.menu-item-current {
-	// 	// &:after {
-	// 	// 	width: 0;
-	// 	//     height: 0;
-	// 	//     content: "";
-	// 	//     position: absolute;
-	// 	//     top: 15px;
-	// 	//     right: -20px;
-	// 	//     border-top: 6px solid $grey-mdk;
-	// 	//     border-left: 6px solid transparent;
-	// 	//     border-right: 6px solid transparent;
-	// 	// 	border-radius: 3px;
-	// 	//     content: unset;
-	// 	// }
+	&.current-page-ancestor > a,
+	&.current-menu-ancestor > a,
+	&.current-menu-parent > a,
+	&.current-page-parent > a {
+		color: $blue-lt;
+	}
 
-	// 	&:before {
-	// 	    font-size: unset;
-	// 	    font-size: unset;
-	// 	    margin-right: unset;
-	// 	    vertical-align: unset;
-	// 	    content: unset;
-	// 	    color: unset;
-	// 	}
+	&:before {
+		@include font-size(20px);
+		content: "\2022";
+		margin-right: 1rem;
+		vertical-align: middle;
+		color: $orange-lt;
+	}
 
-	// 	// & > a {
-	// 	// 	// @include copy(bold);
-	// 	// 	// color: $blue-lt;
-	// 	// 	color: $green-lt;
-	// 	// 	// color: $grey-dk;
-	// 	// 	// color: darken($grey-mdk, 10%);
+	&:not(:first-of-type) {
+		margin-top: 1.125rem;
+	}
 
-	// 	// 	&:hover {
-	// 	// 		color: $blue-lt;
-	// 	// 	}
-	// 	// }
-	// }
+	&:first-of-type {
+		&:before {
+			font-size: unset;
+		    font-size: unset;
+		    margin-right: unset;
+		    vertical-align: unset;
+		    content: unset;
+		    color: unset;
+		}
+	}
+
+	&:first-child a {
+	    padding-top: 12px;
+	}
+
+	&:last-child a {
+	    padding-bottom: 12px;
+	}
+
+	&:hover {
+
+	}
+
+	
 
 	@include break-point(laptop) {
 		text-align: left;
@@ -400,16 +355,8 @@
     }
 }
 
-.menu-item-current {
-	&:before {
-	    // font-size: unset;
-	    // font-size: unset;
-	    // margin-right: unset;
-	    // vertical-align: unset;
-	    // content: unset;
-	    // color: unset;
-	}
 
+.menu-item-current {
 	a {
 		color: $green-lt;
 
