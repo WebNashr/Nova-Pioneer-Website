@@ -208,17 +208,13 @@
     @include flex-wrap(nowrap);
     display: none;
 	position: absolute;
-	top: 34px; // find FF fix
+	top: 34px; // looks like a Webkit magic number find FF fix
     left: -12px;
     width: 16vw;
-    // padding: 1rem 1.25rem;
     padding: 0;
-    // background: $white;
-    	background: $blue-lt;
-    // border: 1px solid $background-grey;
-    	border: 1px solid $blue-lt;
-    // box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
-    	box-shadow: 0px 8px 24px rgba(23, 141, 190, 0.35);
+	background: $blue-lt;
+	border: 1px solid $blue-lt;
+	box-shadow: 0px 8px 24px rgba(23, 141, 190, 0.35);
     opacity: 0;
     transition: $ease;
     z-index: 9;
@@ -227,11 +223,6 @@
 		@include flexbox();
 		opacity: 1;
 	}
-
-	// &:hover ~ a {
-	// 	color: $blue-lt;
-	// 	// background: red;
-	// }
 }
 
 
@@ -250,7 +241,6 @@
 
 	a {
 		padding: 14px 0px 16px;
-		// color: $grey-mdk;
 		color: lighten($grey-mdk, 15%);
 
 		&.sub-menu-hovered {
@@ -334,8 +324,6 @@
 	&:hover {
 
 	}
-
-	
 
 	@include break-point(laptop) {
 		text-align: left;

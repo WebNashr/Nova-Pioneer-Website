@@ -51,6 +51,15 @@ $(document).ready(function() {
     // });
 
 
+
+    // 04. cutom drop list
+    // $(".drop-list-item").click(function(){
+    //     $(this).siblings().removeClass("drop-list-selected").addClass(".drop-list-option");
+    //     $(this).removeClass(".drop-list-option").addClass("drop-list-selected").prependTo(".drop-list-container");
+    //     console.log("04. a country was just selected! just now!");
+    // });
+
+
     // 04. kill level 1 menu links
     $(".menu > .menu-item > a").attr('href', '#');
     $(".menu > .menu-item > a").attr('onClick', 'return false');
