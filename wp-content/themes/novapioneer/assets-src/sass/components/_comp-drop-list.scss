@@ -3,86 +3,10 @@
 /* ==================================================== */
 
 
-// <div class="drop-list">
-//     <div class="drop-list-container">
-//         <div class="drop-list-item drop-list-selected">thing 1</div>
-//         <div class="drop-list-item drop-list-option">thing 2</div>
-//     </div>
-// </div>
-
-// .drop-list {
-//     align-self: center;
-// 	position: relative;
-//     min-width: 100px;
-//     min-height: 36px;
-//     margin-left: auto;
-//     background: red;
-// }
-
-// .drop-list-container {
-// 	@include font-size(13px);
-// 	@include line-height(1);
-// 	@include flexbox();
-//     @include flex-direction(column);
-//     @include flex-wrap(nowrap);
-//     align-self: center;
-//     position: absolute;
-// 	top: 0px;
-// 	width: 95%;
-// 	background: lighten(cyan, 10%);
-// 	border: 1px solid $grey-mdk;
-// }
-
-// .drop-list-item {
-// 	// display: none;
-// 	min-height: 36px;
-// 	margin-left: 3px;
-// 	padding: 0;
-// 	color: $grey-dk;
-// 	background: lighten(purple, 60%);
-// 	border: 1px solid purple;
-// 	cursor: pointer;
-
-// 	&.show {
-// 		display: block;
-// 		// background: $blue-lt;
-// 	}
-
-// 	&:not(:first-of-type) {
-// 		// margin-left: 1.25rem;
-// 	}
-
-// 	&:hover {
-// 		// color: $blue-lt;
-
-// 		// .select-countries & {
-// 		// 	color: $grey;
-// 		// }
-// 	}
-// }
-
-// .drop-list-selected {
-// 	// display: none;
-// }
-
-// .drop-list-option {
-// 	background: wheat;
-// }
-
-// .drop-list-selected:hover ~ .drop-list-option {
-// 	display: block;
-// 	background: wheat;
-// }
-
-
-
-
 .drop-list {
     align-self: center;
-	position: relative;
-    min-width: 60px;
-    height: 32px;
-    margin-left: calc(#{$space-tiny} * 2);
+    min-width: 148px;
+    margin-left: auto;
 }
 
 .drop-list-container {
@@ -93,29 +17,18 @@
     @include flex-wrap(nowrap);
     align-self: center;
     position: absolute;
-	top: 0;
 	width: 100%;
-	height: 32px;
-	overflow: hidden;
+	max-width: 148px;
 }
 
 .drop-list-item {
-	padding: 8px;
-	text-align: unset;
-	color: $grey-dk;
-	background: $grey-lt;
-	background: lighten($grey-lt, 3.5%);
-	border: 1px solid $grey-lt;
-
-	.text {
-		background: transparent;
+	&:not(:first-of-type) {
+		 margin-top: 12px;
 	}
 
 	&:hover {
 		color: $grey-dk;
-		background: $grey-lt;
-		@include box-shadow(0, 0, 4px, 0, rgba(0, 0, 0, 0.125));
-		border: 1px solid lighten($grey-lt, 2.5%);
+		@include box-shadow(0, 0, 12px, 8px, rgba(0, 0, 0, 0.25));
 	}
 }
 
@@ -128,12 +41,14 @@
 }
 
 .drop-list-container:hover {
-	height: 48px;
-	overflow: unset;
+
 }
 
 .drop-list-container:hover .drop-list-option {
 	display: block;
 }
 
-
+.drop-list-container:hover .drop-list-selected {
+	color: $white;
+	background: $green-lt;
+}

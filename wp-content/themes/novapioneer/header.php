@@ -528,8 +528,9 @@
                 <?php if( is_front_page() ): ?>
                 <div class="drop-list">
                     <div class="drop-list-container">
-                        <div class="drop-list-item drop-list-selected">thing 1</div>
-                        <div class="drop-list-item drop-list-option">thing 2</div>
+                        <a href="" class="button button-small button-primary drop-list-item drop-list-selected">Apply now</a>
+                        <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary drop-list-item drop-list-option">South Africa</a>
+                        <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary drop-list-item drop-list-option">Kenya</a>
                     </div>
                 </div>
                 <?php endif; ?>

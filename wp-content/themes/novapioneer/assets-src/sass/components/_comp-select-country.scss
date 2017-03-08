@@ -39,7 +39,7 @@
 
 	&:hover {
 		color: $grey-dk;
-		background: $grey-lt;
+		background: lighten($grey-lt, 2.75%);
 		@include box-shadow(0, 0, 4px, 0, rgba(0, 0, 0, 0.125));
 		border: 1px solid lighten($grey-lt, 2.5%);
 	}
