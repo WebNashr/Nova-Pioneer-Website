@@ -559,31 +559,6 @@ function novap_ga_tracking_id()
     return get_option('novap_ga_id');
 }
 
-function novap_get_gallery_images($current_gallery)
-{
-    switch ($current_gallery):
-
-        case 'school_grounds':
-            $images = get_field('school_grounds_pictures');
-            break;
-        case 'classrooms':
-            $images = get_field('classroom_pictures');
-            break;
-        case 'library':
-            $images = get_field('library_pictures');
-            break;
-        case 'play_area':
-            $images = get_field('play_area_pictures');
-            break;
-        default:
-            $images = get_field('school_grounds_pictures');
-            break;
-
-    endswitch;
-
-    return $images;
-}
-
 add_filter('wp_get_nav_menu_items', 'nav_items', 11, 3);
 
 function nav_items($items, $menu, $args)

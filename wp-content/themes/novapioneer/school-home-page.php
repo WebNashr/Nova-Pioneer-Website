@@ -9,13 +9,11 @@ get_header(); ?>
 
     <?php while (have_posts()): the_post(); ?>
 
-
         <section class="section section-hero school-home"  data-type="background" data-speed="4">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title">Learners are inspired become adaptive, independent thinkers</h1>
-                    <!-- <a href="<?php echo site_url('/learning'); ?>" class="button button-default button-primary">Learn More</a> -->
                 </div>
             </div>
         </section>
@@ -91,9 +89,9 @@ get_header(); ?>
                     </div>
                     <div class="divider"></div>
                     <div class="small-notice">
-                      <h4>School Name Calendar</h4>
-                      <p>2017 School Events</p>
-                      <a href="#" class="button button-small button-secondary" title="">Calendar</a>
+                      <h4>Our Calendar</h4>
+                      <p><?php echo date('F Y'); ?> School Events</p>
+                      <a href="<?php echo site_url('/calendar'); ?>" class="button button-small button-secondary" target="_blank">Calendar</a>
                   </div>
                 </div>
 
@@ -136,8 +134,6 @@ get_header(); ?>
             </div>
         </section>
 
-        <!-- <div class="divider"></div> -->
-
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Leadership Team</h2>
@@ -152,19 +148,12 @@ get_header(); ?>
                     preg_match_all('|<p>(.+?)</p>|', $leadership_team_description, $matches);
                     $leadership_team_description_paragraphs = $matches[1];
                     ?>
-
-                    <!-- <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/> -->
-                    <!-- <div class="read-more-wrap"> -->
                         <p><?php echo array_shift($leadership_team_description_paragraphs); ?></p>
                         <span class="read-more-target">
                             <?php foreach ($leadership_team_description_paragraphs as $paragraph): ?>
                                 <p><?php echo $paragraph; ?></p>
                             <?php endforeach; ?>
                         </span>
-                    <!-- </div> -->
-                    <!-- <br> -->
-                    <!-- <label for="post-<?php echo get_the_ID(); ?>"
-                           class="read-more-trigger button button-tiny button-primary"></label> -->
 
                 </div>
 
@@ -185,74 +174,29 @@ get_header(); ?>
             </div>
         </section>
 
+        <a name="gallery"></a>
         <section class="section gallery-section">
-          <div class="article"><h2 class=" gallery-title">School Gallery</h2></div>
+            <div class="article"><h2 class=" gallery-title">School Gallery</h2></div>
 
-          <div class="slider-container">
-            <div class="section-content-item-full">
-              <div class="media gallery">
-                   <ul id="slippry">
-                     <li>
-                        <a href="#slide1"><img src="<?php echo get_template_directory_uri(); ?>/img/slides/slider-1-1583x454.jpg" alt="this is a caption"></a>
-                    </li>
-                     <li>
-                       <a href="#slide2"><img src="<?php echo get_template_directory_uri(); ?>/img/slides/slider-2-1583x454.jpg"  alt="another caption"></a>
-                     </li>
-                     <li>
-                        <a href="#slide3"><img src="<?php echo get_template_directory_uri(); ?>/img/slides/slider-3-1583x454.jpg" alt="one more caption"></a>
-                      </li>
-                  </ul>
-                 </div>
+            <div class="slider-container">
+                <div class="section-content-item-full">
+                    <div class="media gallery">
+                        <ul id="slippry">
+                            <?php $image_count = 0; ?>
+                            <?php foreach( get_field('gallery') as $image): $image = (object)$image; $image_count++; ?>
+                                <li>
+                                    <a href="#slide<?php echo $image_count; ?>">
+                                        <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>"/>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-          </div>
 
         </section>
 
-        <!-- <a name="gallery"></a>
-
-        <section class="section-pair section-gallery">
-            <div class="slider-container">
-                <div class="section-navigation">
-                    <?php
-                    $current_gallery = $_GET['current_gallery'];
-                    if(empty($current_gallery)): $current_gallery = "classrooms"; endif;
-                    $images = novap_get_gallery_images($current_gallery);
-                    ?>
-                    <h2>Gallery</h2>
-                    <nav class="gallery-nav">
-                        <a href="<?php get_permalink(); ?>?current_gallery=school_grounds#gallery"
-                           class="gallery-select <?php if ($current_gallery === 'school_grounds'): echo 'gallery-selected'; endif; ?>">School
-                            grounds</a>
-                        <a href="<?php get_permalink(); ?>?current_gallery=classrooms#gallery"
-                           class="gallery-select <?php if ($current_gallery === 'classrooms'): echo 'gallery-selected'; endif; ?>">Classrooms</a>
-                        <a href="<?php get_permalink(); ?>?current_gallery=library#gallery"
-                           class="gallery-select <?php if ($current_gallery === 'library'): echo 'gallery-selected'; endif; ?>">Library</a>
-                        <a href="<?php get_permalink(); ?>?current_gallery=play_area#gallery"
-                           class="gallery-select <?php if ($current_gallery === 'play_area'): echo 'gallery-selected'; endif; ?>">Play
-                            Area</a>
-                    </nav>
-                </div>
-
-
-                <div class="section-content-item-full overflow-crop">
-                  <div class="media gallery">
-                    <ul id="slippry">
-                        <?php $image_count = 0; ?>
-                        <?php foreach ($images as $image): $image = (object)$image; $image_count++; ?>
-
-                            <li>
-                                <a href="#slide<?php echo $image_count; ?>">
-                                    <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>" />
-                                </a>
-                            </li>
-
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-
-        </section> -->
         <aside>
             <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">
@@ -276,26 +220,6 @@ get_header(); ?>
             </div>
         </aside>
 
-
-        <!-- <section class="section section-pair section-school-blog even-section">
-            <div class="section-navigation">
-                <h2>Student Blog</h2>
-            </div>
-
-            <div class="section-content">
-                <?php foreach (get_field('blog_posts') as $blog_post): $blog_post = (object)$blog_post; ?>
-
-                    <div class="section-content-item section-content-item-third blog-article">
-                        <img src="<?php echo get_the_post_thumbnail_url($blog_post->ID, 'thumbnail'); ?>"
-                             alt="<?php echo $blog_post->post_title; ?>">
-                        <a href="<?php echo get_permalink($blog_post->ID); ?>" class="blog-article-title"
-                           title="<?php echo $blog_post->post_title; ?>"><?php echo $blog_post->post_title; ?></a>
-                        <p class="article-author"><?php echo get_the_author_meta('display_name', get_post_field('post_author', $blog_post->ID)); ?></p>
-                    </div>
-
-                <?php endforeach; ?>
-            </div>
-        </section> -->
         <section class="section section-pair even-section">
               <div class="section-navigation">
                   <h2>A Day in the Life</h2>
@@ -303,13 +227,12 @@ get_header(); ?>
 
               <div class="section-content section-day-in-the-life">
                 <div class="section-content-item section-content-item-half">
-                    <p>Lorem ipsum dolor sit amet, suas alienum ne ius. Eum commune mandamus appellantur ex. Cu ornatus appareat sed, iriure voluptua qui an. In nam ubique delenit appetere, accumsan laboramus ut est, per sumo everti laoreet ad. Ad verear integre delectus pri, te pericula consetetur voluptatum eum.</p>
-                    <p>Te pro vero erat docendi. Mea an ipsum efficiantur, eam facer appareat eu. In exerci tamquam vim, solum dicta scripserit sed te. Sit ad nobis deserunt, ea sed justo homero patrioque, ex eum vituperata philosophia. </p>
-                    <a href="#" class="button button-small button-primary" title="">Learn More</a>
+                    <?php echo get_field('day_in_the_life_description'); ?>
+                    <a href="<?php echo get_field('day_in_the_life_link'); ?>" class="button button-small button-primary">Learn More</a>
 
                 </div>
                 <div class="section-content-item section-content-item-half">
-                  <figure><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-1-ke.jpg" alt="" class=""></figure>
+                  <figure><img src="<?php echo get_field('day_in_the_life_picture'); ?>" /></figure>
                 </div>
 
 
@@ -334,6 +257,7 @@ get_header(); ?>
                                 href="tel:<?php echo get_field('main_phone_number'); ?> "><?php echo get_field('main_phone_number'); ?> </a></span>
                         <span class="phone-contact-two">Admission Enquiries:  <a
                                 href="tel:<?php echo get_field('admission_enquiries_number'); ?> "><?php echo get_field('admission_enquiries_number'); ?> </a></span>
+                        <span class="phone-contact-three">Current Parents Enquiries: <a href="tel:<?php echo get_field('current_parents_contact__number'); ?>"> <?php echo get_field('current_parents_contact__number'); ?> </a> </span>
                         <span class="email-contact">Email us: <a
                                 href="mailto:<?php echo get_field('email_address'); ?>"><?php echo get_field('email_address'); ?></a></span>
                     </div>
@@ -347,7 +271,6 @@ get_header(); ?>
 
     <?php endwhile; ?>
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
-    <?php get_template_part('includes/partials/content', 'rsvp-modal'); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
