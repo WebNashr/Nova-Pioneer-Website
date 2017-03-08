@@ -4,7 +4,7 @@ namespace NovaPioneer;
 
 use Walker_Nav_Menu;
 
-class NovapMenuWalker extends Walker_Nav_Menu
+class NovapHeaderMenuWalker extends Walker_Nav_Menu
 {
 	/**
 	 * What the class handles.
@@ -210,4 +210,4 @@ class NovapMenuWalker extends Walker_Nav_Menu
 		$output .= "</li>\n";
 	}
 
-} // NovapMenuWalker
+} // NovapHeaderMenuWalker

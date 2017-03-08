@@ -19,7 +19,7 @@
         <div class="footer-boxes">
 
             <?php wp_nav_menu( array(
-                'walker' => new NovaPioneer\NovapMenuWalker,
+                'walker' => new NovaPioneer\NovapFooterMenuWalker,
                 'items_wrap' => '%3$s',
                 'theme_location' => 'novap-footer-menu',
                 'container' => ''

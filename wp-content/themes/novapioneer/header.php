@@ -512,7 +512,7 @@
                 <!-- start navigation -->
                 <?php wp_nav_menu( array(
                     'menu_class' => 'menu',
-                    'walker' => new NovaPioneer\NovapMenuWalker,
+                    'walker' => new NovaPioneer\NovapHeaderMenuWalker,
                     'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
                     'theme_location' => 'novap-header-menu',
                     'container' => ''
