@@ -177,7 +177,6 @@
 .slider-container {
 	clear: both;
 	overflow: hidden;
-	position: relative;
   // padding-top: calc(1rem * 4);
 	// padding-bottom: 0;
 	// margin-bottom: 4rem;
@@ -187,20 +186,18 @@
 	// @include break-point(tablet) {
 	// 	max-height: 488px;
 	// }
-	margin-bottom: -13rem;
+	// margin-bottom: -13rem;
 	@include break-point(laptop) {
 		// max-height: 788px;
 		margin-bottom: -2.5rem;
 		max-height: 453px;
 	}
-	@include break-point(laptop) {
-		// max-height: 788px;
-		max-height: 453px;
-	}
+
 	@media only (min-width: 1366px) and (max-width: 1440px) {
 			// max-height: 720px;
 			// max-height: 454px;
-			margin-bottom: -2.65rem;
+			// margin-bottom: -2.65rem;
+			margin-bottom: 0;
 	}
 	@media screen
 		and (min-device-width: 1600px)
