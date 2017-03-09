@@ -79,7 +79,13 @@
 
     }
 }
+.country-hero {
+  @include flexbox();
+  @include flex-direction(row);
+  height: 95vh;
+  padding: 0;
 
+}
 .hero-container {
     width: 100%;
     position: relative;
@@ -155,6 +161,9 @@
         display: flex;
     	}
     }
+  }
+  &.country-hero {
+  
   }
 
 	hr {

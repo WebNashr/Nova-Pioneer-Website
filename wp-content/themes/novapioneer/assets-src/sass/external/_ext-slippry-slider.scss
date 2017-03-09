@@ -96,17 +96,19 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
 }
 /* single slide */
 .country-hero {
-    @include flexbox();
-    @include flex-direction(row);
-    height: 95vh;
-    padding: 0;
-    // overflow: hidden;
+
   .sy-slides-wrap {
     height: 100vh;
     // z-index: -1;
     .sy-controls {
       height: 100%;
+      // position: relative;
+      // z-index: 1;
       // z-index: 2;
+    }
+    .sy-caption a:link,
+    .sy-caption a:visited {
+      color: $blue-lt;
     }
   }
 
@@ -130,7 +132,61 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
     top: -2rem !important;
     left: 3rem;
   }
+
   #hero-slider {
+    height: 100vh;
+    .callout-box {
+      position: absolute;
+      z-index: 10;
+    	top: unset;
+    	// left: calc(#{$space-tiny} * 2);
+    	bottom: 35vh;
+    	// right: calc(#{$space-tiny} * 2);
+    	max-width: 100%;
+      height: 50vh;
+    	margin-top: 0;
+    	text-align: left;
+    	background: unset;
+    	box-shadow: unset;
+    	border: unset;
+    	background: rgba(7, 33, 52, 0.785);
+    	left: 0;
+    	right: 0;
+    	padding: calc(#{$space-tiny} * 4);
+    	background-color: transparent;
+      background-image: linear-gradient(
+    		to top,
+    		rgba(0, 0, 0, 0.75) 20%,
+    		rgba(0, 0, 0, 0.65) 30%,
+    		rgba(0, 0, 0, 0.6) 40%,
+    		rgba(0, 0, 0, 0.5) 50%,
+    		rgba(0, 0, 0, 0.45) 65%,
+    		rgba(0, 0, 0, 0.35) 70%,
+    		rgba(0, 0, 0, 0.30) 75%,
+    		rgba(0, 0, 0, 0.25) 90%,
+    		transparent 100%
+    	);
+    	// background-image: linear-gradient(
+    	// 	to top,
+    	// 	rgba(0, 0, 0, 0.75),
+    	// 	rgba(0, 0, 0, 0.65) 10%,
+    	// 	rgba(0, 0, 0, 0.6) 15%,
+    	// 	rgba(0, 0, 0, 0.5) 20%,
+    	// 	rgba(0, 0, 0, 0.45) 25%,
+    	// 	rgba(0, 0, 0, 0.35) 50%,
+    	// 	rgba(0, 0, 0, 0.30) 65%,
+    	// 	rgba(0, 0, 0, 0.25) 75%,
+    	// 	transparent 100%
+    	// );
+      h1 {
+        position: relative;
+        margin-top: 4rem;
+        max-width: 680px;
+        color: $white;
+
+      }
+    }
+
   	.sy-slide {
       > a { // styling for link on whole slide
         margin: 0;
@@ -156,6 +212,7 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
           left: 0;
           right: 0;
           bottom: 0;
+
         }
       }
     }

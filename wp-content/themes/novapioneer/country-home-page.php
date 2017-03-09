@@ -10,11 +10,17 @@ get_header(); ?>
     <?php while(have_posts()): the_post(); ?>
 
         <section class="section country-hero">
+
             <div class="container hero-container">
               <ul id="hero-slider">
                 <li>
+
                   <a href="#slide1">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-country.jpg" alt="This is caption 1 <a href='#link'>link sample</a>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-country.jpg" >
+                    <div class="callout-box">
+                      <h1 class="animated-title">Preparing Youth in Africa for Global Success</h1>
+                    </div>
+                    <!-- <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-country.jpg" alt="This is caption 1 <a href='#link'>link sample</a>">-->
                   </a>
                 </li>
                 <li>
@@ -281,10 +287,13 @@ $(document).ready(function() {
         enableTouch:true,
         enableDrag:true,
         freeMove:true,
-        swipeThreshold: 40,
+        swipeThreshold: 40
 
     });
-    $('#hero-slider').slippry();
+    $('#hero-slider').slippry({
+        auto: false,
+        speed: 600
+    });
 
 });
 </script>
