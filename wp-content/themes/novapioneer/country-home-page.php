@@ -18,19 +18,30 @@ get_header(); ?>
                   <a href="#slide1">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-country.jpg" >
                     <div class="callout-box">
-                      <h1 class="animated-title">Preparing Youth in Africa for Global Success</h1>
+                      <div class="animated-headings">
+                        <h1 class="hero-title">Offering Kenyan Youth</h1>
+                        <h1 class="hero-subtitle">the best <strong>8-4-4 education</strong></h1>
+                      </div>
                     </div>
                     <!-- <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-country.jpg" alt="This is caption 1 <a href='#link'>link sample</a>">-->
                   </a>
                 </li>
                 <li>
                   <a href="#slide2">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-corporate.jpg" alt="This is caption 2">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-corporate.jpg">
+                    <div class="callout-box">
+                      <h1 class="hero-title">Offering Kenyan Youth</h1>
+                      <h1 class="hero-subtitle">the best 8-4-4 education</h1>
+                    </div>
                   </a>
                 </li>
                 <li>
                   <a href="#slide3">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-events.jpg" alt="And this is some very long caption for slide 3. Yes, really long.">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-events.jpg">
+                    <div class="callout-box">
+                      <h1 class="hero-title">Offering Kenyan Youth</h1>
+                      <h1 class="hero-subtitle">the best 8-4-4 education</h1>
+                    </div>
                   </a>
                 </li>
 
@@ -293,6 +304,28 @@ $(document).ready(function() {
     $('#hero-slider').slippry({
         auto: false,
         speed: 600
+    });
+
+
+
+    $(function() {
+        var inview = new Waypoint.Inview({
+            element: $('.hero-title')[0],
+
+            entered: function() {
+                $(this.element).addClass('animated bounceInLeft');
+                // this.destroy();
+            }
+        });
+        var inview = new Waypoint.Inview({
+            element: $('.hero-subtitle')[0],
+
+            entered: function() {
+                $(this.element).addClass('animated bounceInRight');
+                // this.destroy();
+            }
+        });
+        console.log("12. Animated Country Hero titles");
     });
 
 });
