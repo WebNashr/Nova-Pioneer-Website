@@ -43,6 +43,16 @@
                     </svg>
                 </fieldset>
             </form>
+
+            <!-- start navigation -->
+            <?php wp_nav_menu( array(
+                'menu_class' => 'menu',
+                'walker' => new NovaPioneer\NovapHeaderMenuWalker,
+                'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
+                'theme_location' => 'novap-header-menu',
+                'container' => ''
+            )); ?> 
+            <!-- end navigation -->
         </div>
         <!-- end page-modal -->
 
@@ -509,65 +519,63 @@
 
 
                 <?php if( !is_front_page() ): ?>
-                <!-- start navigation -->
-                <?php wp_nav_menu( array(
-                    'menu_class' => 'menu',
-                    'walker' => new NovaPioneer\NovapHeaderMenuWalker,
-                    'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
-                    'theme_location' => 'novap-header-menu',
-                    'container' => ''
-                )); ?> 
-                <!-- end navigation -->
+                    <!-- start navigation -->
+                    <?php wp_nav_menu( array(
+                        'menu_class' => 'menu',
+                        'walker' => new NovaPioneer\NovapHeaderMenuWalker,
+                        'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
+                        'theme_location' => 'novap-header-menu',
+                        'container' => ''
+                    )); ?> 
+                    <!-- end navigation -->
                 <?php endif; ?>
 
 
                 <?php if( !is_front_page() ): ?>
-                <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
+                    <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
                 <?php endif; ?>
 
                 <?php if( is_front_page() ): ?>
-                <div class="drop-list">
-                    <div class="drop-list-container">
-                        <a href="" class="button button-small button-primary drop-list-item drop-list-selected">Apply now</a>
-                        <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary drop-list-item drop-list-option">South Africa</a>
-                        <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary drop-list-item drop-list-option">Kenya</a>
+                    <div class="drop-list">
+                        <div class="drop-list-container">
+                            <a href="" class="button button-small button-primary drop-list-item drop-list-selected">Apply now</a>
+                            <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary drop-list-item drop-list-option">South Africa</a>
+                            <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary drop-list-item drop-list-option">Kenya</a>
+                        </div>
                     </div>
-                </div>
                 <?php endif; ?>
 
                 
                 <?php if( !is_front_page() ): ?>
-                <!-- we'll probably need to find a way to pick which country is selected -->
-                <div class="country-list">
-                    <div class="country-list-container">
-                        <a href="<?php echo site_url('/sa'); ?>" class="button button-primary country-list-item country-list-selected">
-                            <span class="flag-icon flag-icon-za"></span>
-                            <span class="text">SA</span>
-                        </a>
+                    <!-- we'll probably need to find a way to pick which country is selected -->
+                    <div class="country-list">
+                        <div class="country-list-container">
+                            <a href="<?php echo site_url('/sa'); ?>" class="button button-primary country-list-item country-list-selected">
+                                <span class="flag-icon flag-icon-za"></span>
+                                <span class="text">SA</span>
+                            </a>
 
-                        <a href="<?php echo site_url('/kenya'); ?>" class="button button-primary country-list-item country-list-option">
-                            <span class="flag-icon flag-icon-ke"></span>
-                            <span class="text">KE</span>
-                        </a>
+                            <a href="<?php echo site_url('/kenya'); ?>" class="button button-primary country-list-item country-list-option">
+                                <span class="flag-icon flag-icon-ke"></span>
+                                <span class="text">KE</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 <?php endif; ?>
 
 
                 <?php if( !is_front_page() ): ?>
-                <!-- open search form -->
-                <svg class="modal-control open" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                    <path d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
-                </svg>
+                    <!-- open search form -->
+                    <svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                        <path d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
+                    </svg>
                 <?php endif; ?>
 
 
                 <?php if( !is_front_page() ): ?>
-                    <!-- <label for="modal-check" class="modal-check-label">
-                        <span class="modal-dot"></span>
-                        <span class="modal-dot"></span>
-                        <span class="modal-dot"></span>
-                    </label> -->
+                    <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                        <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
+                    </svg>
                 <?php endif; ?>
             </section>
         </header>
@@ -575,3 +583,6 @@
 
         <!-- start content -->
         <main role="main">
+
+
+

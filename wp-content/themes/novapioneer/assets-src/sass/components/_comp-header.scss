@@ -42,9 +42,13 @@ header {
 	background: $white;
 	transition: $ease;
 
-	.non-hero .modal & {
-	    @include flex-order(1);
-	    padding: calc(#{$space-tiny} * 2);
+	// .non-hero .modal & {
+	//     @include flex-order(1);
+	//     padding: calc(#{$space-tiny} * 2);
+	// }
+
+	&.modal {
+		@include flex-direction(column);
 	}
 
 	@include break-point(tablet) {

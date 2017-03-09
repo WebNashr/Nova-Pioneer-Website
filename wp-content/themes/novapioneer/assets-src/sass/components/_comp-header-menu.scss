@@ -12,6 +12,12 @@
 	margin-left: 2rem;
 	list-style-type: none;
 
+	.modal.modal-menu & {
+		@include flexbox();
+		align-self: unset;
+		margin-left: 0;
+	}
+
 	@include break-point(laptop) {
 		@include flex-direction(row);
 		display: flex;
@@ -38,6 +44,7 @@
 		opacity: 1;
 	}
 }
+
 
 .page-header .sub-menu {
 	display: none;
@@ -74,6 +81,10 @@
 
 		&.sub-menu-hovered {
 			color: $blue-lt;
+		}
+
+		.modal.modal-menu & {
+			color: $white;
 		}
 
 		&:hover {
@@ -138,6 +149,15 @@
 		margin-right: 1rem;
 		vertical-align: middle;
 		color: $orange-lt;
+
+		.modal.modal-menu & {
+			font-size: unset;
+		    font-size: unset;
+		    margin-right: unset;
+		    vertical-align: unset;
+		    content: unset;
+		    color: unset;
+		}
 	}
 
 	&:not(:first-of-type) {
@@ -195,5 +215,4 @@
 		}
 	}
 }
-
 

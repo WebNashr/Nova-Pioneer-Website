@@ -2,102 +2,72 @@
 // start document.ready
 $(document).ready(function() {
 
-    // 01. menu toggle
-    // $(".modal-check-label").click(function(){
-    //     $(".page-header").toggleClass("modal modal-show");
-    //     $("body").toggleClass("modal-show");
-    //     console.log("01. menu toggle");
-    //     return false;
-    // });
-
-
-    // 02. search toggle
-	// $(".search-toggle").click(function(){
- //        $(".header-search fieldset").toggleClass("open");
- //        $(".header-search input[type='text']").toggleClass("open");
- //        $(".header-search input[type='submit']").toggleClass("open");
- //        $(".header-search .search-icon").toggleClass("open");
- //        $(".header-search .search-toggle-icon").toggleClass("open");
- //        console.log("02. search toggle");
- //        return false;
- //    });
-
-
-    // 03. search toggle on small screens
-    // $(".search-toggle.search-toggle-menu").click(function(){
-    //     $(".page-header").toggleClass("modal modal-show");
-    //     $("body").toggleClass("modal-show");
-    //     // make sure large screen toggle functionality doesn't interfere with the small screens
-    //     $(".header-search fieldset").toggleClass("open");
-    //     $(".header-search input[type='text']").toggleClass("open");
-    //     $(".header-search input[type='submit']").toggleClass("open");
-    //     $(".header-search .search-icon").toggleClass("open");
-    //     $(".header-search .search-toggle-icon").toggleClass("open");
-    //     console.log("03. search toggle on small screens");
-    //     return false;
-    // });
-
-
-    // 04. select-country
-    // $(".select-country").click(function(){
-    //     $(".select-countries").toggleClass("show");
-    //     console.log("04. select-country");
-    // });
-
-    // dropdown
-    // $(".dropdown").click(function(){
-    //     $(".dropdown-drop").toggleClass("show");
-
-    // });
+    // 01. 
 
 
 
-    // 04. cutom drop list
-    // $(".drop-list-item").click(function(){
-    //     $(this).siblings().removeClass("drop-list-selected").addClass(".drop-list-option");
-    //     $(this).removeClass(".drop-list-option").addClass("drop-list-selected").prependTo(".drop-list-container");
-    //     console.log("04. a country was just selected! just now!");
-    // });
+    // 02. 
+
+
+
+    // 03. 
+
+
+
+    // 04. 
+
+
+
+    // 05. 
+
 
 
     // 04. kill level 1 menu links
     $(".menu > .menu-item > a").attr('href', '#');
     $(".menu > .menu-item > a").attr('onClick', 'return false');
-    console.log("level 1 menu links killed");
+    console.log("01. level 1 menu links killed. them and some well-deserving kittens!");
 
 
 
     // 05. keep the level 1 menu link style while hovering on its sub-menu
     $(".sub-menu").hover(function(){
         $(this).prev("a").toggleClass("sub-menu-hovered");
-        console.log("a modal box was just opened!");
+        console.log("02. a sub-menu was just opened!");
         return false;
     });
 
 
 
-    // 05. modal toggle
-    // $(".modal-toggle").click(function () {
-    //     if ($(this).hasClass('button-send-rsvp')) {
-    //         $('#event-organiser').html( $(this).data().eventOrganizers );
-    //         $('#event-title').html( $(this).data().eventName );
-    //         $('#event-date').html( $(this).data().eventDate );
-    //         $('#event-location').html( $(this).data().eventLocation );
-    //         $('#event-id').val( $(this).data().eventId );
-    //     }
-
-    //     $(".modal").toggleClass("modal-show");
-    //     $("body").toggleClass("modal-show");
-    // });
-
-
-    // 03. modal box control
+    // 03. search modal box control
     $(function() {
-        $(".modal-control").click(function(){
-            $(".modal").toggleClass("show");
-            // $(".modal-control").toggleClass("show");
+        $(".open-search").click(function(){
+            $(".modal").toggleClass("modal-search show");
             $("body").toggleClass("modal-open");
-            console.log("a modal box was just opened!");
+            console.log("03. a search modal box was just opened!");
+            return false;
+        });
+    });
+
+
+
+    // 03. menu "modal" box control
+    $(function() {
+        $(".open-menu").click(function(){
+            $(".modal").toggleClass("modal-menu show");
+            $("body").toggleClass("modal-open");
+            console.log("04. small screen menu was just opened!");
+            return false;
+        });
+    });
+
+
+
+    // 03. close "modal" box
+    $(function() {
+        $(".modal-control.close").click(function(){
+            $(".modal").removeClass("modal-menu modal-search show");
+            $("body").toggleClass("modal-open");
+            console.log("04. a modal box was just closed!");
             return false;
         });
     });
