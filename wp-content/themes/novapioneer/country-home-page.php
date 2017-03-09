@@ -26,8 +26,9 @@ get_header(); ?>
             <?php $schools = get_field('schools'); ?>
             <?php foreach($schools as $school): $school = (object)$school; ?>
                 <div class="section-school-list-select">
-                    <p class="school-photo"><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
-                    <h3><?php echo $school->post_title; ?></h3>
+                
+                    <p class="school-photo"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
+                    <h3><a href=""><?php echo $school->post_title; ?></a></h3>
                     <div class="school-summary">
                     <p><?php echo get_field('school_gender', $school->ID); ?></p>
                     <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
