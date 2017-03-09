@@ -184,7 +184,8 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
     	// );
       .animated-headings {
         margin: auto;
-        margin-top: 4rem;
+        margin-top: 10%;
+        padding-left: calc(#{$space-tiny} * 1.25)
 
       }
       h1 {

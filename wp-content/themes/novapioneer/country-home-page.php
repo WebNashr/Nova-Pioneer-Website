@@ -28,10 +28,12 @@ get_header(); ?>
                 </li>
                 <li>
                   <a href="#slide2">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-corporate.jpg">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-corporate.jpg" >
                     <div class="callout-box">
-                      <h1 class="hero-title">Offering Kenyan Youth</h1>
-                      <h1 class="hero-subtitle">the best 8-4-4 education</h1>
+                      <div class="animated-headings">
+                        <h1 class="hero-title">Offering Kenyan Youth</h1>
+                        <h1 class="hero-subtitle">the best <strong>8-4-4 education</strong></h1>
+                      </div>
                     </div>
                   </a>
                 </li>
@@ -39,8 +41,10 @@ get_header(); ?>
                   <a href="#slide3">
                     <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-events.jpg">
                     <div class="callout-box">
-                      <h1 class="hero-title">Offering Kenyan Youth</h1>
-                      <h1 class="hero-subtitle">the best 8-4-4 education</h1>
+                      <div class="animated-headings">
+                        <h1 class="hero-title">Offering Kenyan Youth</h1>
+                        <h1 class="hero-subtitle">the best <strong>8-4-4 education</strong></h1>
+                      </div>
                     </div>
                   </a>
                 </li>
@@ -307,18 +311,18 @@ $(document).ready(function() {
     });
 
 
-
     $(function() {
-        var inview = new Waypoint.Inview({
-            element: $('.hero-title')[0],
 
+        var inview = new Waypoint.Inview({
+            element: $('.hero-title'),
             entered: function() {
                 $(this.element).addClass('animated bounceInLeft');
                 // this.destroy();
             }
         });
+
         var inview = new Waypoint.Inview({
-            element: $('.hero-subtitle')[0],
+            element: $('.hero-subtitle'),
 
             entered: function() {
                 $(this.element).addClass('animated bounceInRight');
@@ -327,6 +331,15 @@ $(document).ready(function() {
         });
         console.log("12. Animated Country Hero titles");
     });
+
+    // $(function() {
+    //   heading1: $('.hero-title')[0],
+    //   $("#prev").click(function(){
+    //     $(this.heading1).addClass('animated bounceInLeft');
+    //   });
+    //
+    //
+    // });
 
 });
 </script>
