@@ -668,17 +668,17 @@
     }
     .tickets_name {
       width: 17%;
-      padding-top: 1rem;
+      // padding-top: 1rem;
       @include copy(bold);
       color: $blue-dk;
     }
     .tickets_description {
       width: 68%;
-      padding-top: 2rem;
+      // padding-top: 2rem;
     }
   }
   .tribe-ticket-quantity {
-
+      margin-bottom: 0.5rem;
     	@include font-size(14px);
     	@include letter-spacing(tiny);
     	position: relative;
@@ -711,7 +711,10 @@
   }
   .tribe-tickets-remaining {
     @include font-size(12px);
+    display: inline-block;
+    line-height: 16px;
     letter-spacing: 0.35px;
+    margin-top: 5px !important;
   }
   .add-to-cart {
     padding-left: 0;
