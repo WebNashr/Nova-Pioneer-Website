@@ -9,15 +9,43 @@ get_header(); ?>
 
     <?php while(have_posts()): the_post(); ?>
 
-        <section class="section section-hero country-home" data-type="background" data-speed="4">
+        <section class="section country-hero">
+            <div class="container hero-container">
+              <ul id="hero-slider">
+                <li>
+                  <a href="#slide1">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-country.jpg" alt="This is caption 1 <a href='#link'>link sample</a>">
+                  </a>
+                </li>
+                <li>
+                  <a href="#slide2">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-corporate.jpg" alt="This is caption 2">
+                  </a>
+                </li>
+                <li>
+                  <a href="#slide3">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-events.jpg" alt="And this is some very long caption for slide 3. Yes, really long.">
+                  </a>
+                </li>
+
+            </ul>
+
+                <!-- <div class="main-callout-box">
+                    <hr>
+                    <h1 class="animated-title">Preparing Youth in Africa for Global Success</h1>
+                </div> -->
+            </div>
+        </section>
+        <!-- <section class="section section-hero country-home" data-type="background" data-speed="4">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title">Preparing Youth in Africa for Global Success</h1>
-                    <!-- <a href="/<?php echo site_url('/learning/'); ?>" class="button button-default button-primary">Learn More</a> -->
+                    <a href="/<?php echo site_url('/learning/'); ?>" class="button button-default button-primary">Learn More</a>
                 </div>
             </div>
-        </section>
+        </section> -->
+
 
         <div class="trigger"></div>
         <section class="section" style="padding:auto 0;">
@@ -26,7 +54,7 @@ get_header(); ?>
             <?php $schools = get_field('schools'); ?>
             <?php foreach($schools as $school): $school = (object)$school; ?>
                 <div class="section-school-list-select">
-                
+
                     <p class="school-photo"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
                     <h3><a href=""><?php echo $school->post_title; ?></a></h3>
                     <div class="school-summary">
@@ -256,5 +284,7 @@ $(document).ready(function() {
         swipeThreshold: 40,
 
     });
+    $('#hero-slider').slippry();
+
 });
 </script>

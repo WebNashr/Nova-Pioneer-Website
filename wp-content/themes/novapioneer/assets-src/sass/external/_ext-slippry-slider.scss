@@ -95,6 +95,72 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
   }
 }
 /* single slide */
+.country-hero {
+    @include flexbox();
+    @include flex-direction(row);
+    height: 95vh;
+    padding: 0;
+    // overflow: hidden;
+  .sy-slides-wrap {
+    height: 100vh;
+    // z-index: -1;
+    .sy-controls {
+      height: 100%;
+      // z-index: 2;
+    }
+  }
+
+  .sy-pager {
+    z-index: 3 !important;
+    position: relative;
+    margin-top: -3rem;
+    li {
+      width: 0.75em;
+      height: 0.75em;
+      a {
+        // border-radius: 25%;
+      }
+    }
+  }
+  .sy-pager li.sy-active a {
+    background-color: $blue-lt;
+  }
+  .sy-caption-wrap .sy-caption {
+    position: relative;
+    top: -2rem !important;
+    left: 3rem;
+  }
+  #hero-slider {
+  	.sy-slide {
+      > a { // styling for link on whole slide
+        margin: 0;
+        padding: 0;
+        display: block;
+        width: 100%;
+        > img { // with one image as content -> full size
+          // margin: 0;
+          // padding: 0;
+          // height:90vh;
+          // height: 100%;
+          display: block;
+          // opacity: 0.4;
+          // overflow: auto;
+          z-index: -10;
+          overflow: hidden;
+          width: 100%;
+          border: 0;
+          position: relative;
+          margin-right: auto;
+          margin-left: auto;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}
 .sy-slide {
   position: absolute;
   width: 100%;
