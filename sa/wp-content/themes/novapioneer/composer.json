@@ -1,0 +1,17 @@
+{
+
+    "name": "novapioneer",
+
+    "description": "The novapioneer Wordpress theme.",
+
+    "autoload":{
+        "psr-4": {
+            "NovaPioneer\\": "includes/classes"
+        }
+    },
+
+    "require": {
+        "twig/twig": "^1.27",
+        "phpmailer/phpmailer": "^5.2"
+    }
+}
