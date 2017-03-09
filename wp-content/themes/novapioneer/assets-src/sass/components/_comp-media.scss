@@ -172,11 +172,11 @@
 //     }
 // }
 .overflow-crop {
-	overflow: visible;
+	// overflow: visible;
 }
 .slider-container {
 	clear: both;
-	// overflow: hidden;
+	overflow: hidden;
   // padding-top: calc(1rem * 4);
 	// padding-bottom: 0;
 	// margin-bottom: 4rem;
@@ -196,7 +196,7 @@
 		// max-height: 788px;
 		max-height: 453px;
 	}
-	@media only (min-width: 1366px) and (max-width: 1440px) { 
+	@media only (min-width: 1366px) and (max-width: 1440px) {
 			// max-height: 720px;
 			// max-height: 454px;
 			margin-bottom: -2.65rem;
