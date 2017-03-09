@@ -9,15 +9,64 @@ get_header(); ?>
 
     <?php while(have_posts()): the_post(); ?>
 
-        <section class="section section-hero country-home" data-type="background" data-speed="4">
+        <section class="section country-hero">
+
+            <div class="container hero-container">
+              <ul id="hero-slider">
+                <li>
+
+                  <a href="#slide1">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-country.jpg" >
+                    <div class="callout-box">
+                      <div class="animated-headings">
+                        <h1 class="hero-title">Offering Kenyan Youth</h1>
+                        <h1 class="hero-subtitle">the best <strong>8-4-4 education</strong></h1>
+                      </div>
+                    </div>
+                    <!-- <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-country.jpg" alt="This is caption 1 <a href='#link'>link sample</a>">-->
+                  </a>
+                </li>
+                <li>
+                  <a href="#slide2">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-corporate.jpg" >
+                    <div class="callout-box">
+                      <div class="animated-headings">
+                        <h1 class="hero-title">Offering Kenyan Youth</h1>
+                        <h1 class="hero-subtitle">the best <strong>8-4-4 education</strong></h1>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#slide3">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/large-hero-events.jpg">
+                    <div class="callout-box">
+                      <div class="animated-headings">
+                        <h1 class="hero-title">Offering Kenyan Youth</h1>
+                        <h1 class="hero-subtitle">the best <strong>8-4-4 education</strong></h1>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+
+            </ul>
+
+                <!-- <div class="main-callout-box">
+                    <hr>
+                    <h1 class="animated-title">Preparing Youth in Africa for Global Success</h1>
+                </div> -->
+            </div>
+        </section>
+        <!-- <section class="section section-hero country-home" data-type="background" data-speed="4">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title">Preparing Youth in Africa for Global Success</h1>
-                    <!-- <a href="/<?php echo site_url('/learning/'); ?>" class="button button-default button-primary">Learn More</a> -->
+                    <a href="/<?php echo site_url('/learning/'); ?>" class="button button-default button-primary">Learn More</a>
                 </div>
             </div>
-        </section>
+        </section> -->
+
 
         <div class="trigger"></div>
         <section class="section" style="padding:auto 0;">
@@ -26,7 +75,7 @@ get_header(); ?>
             <?php $schools = get_field('schools'); ?>
             <?php foreach($schools as $school): $school = (object)$school; ?>
                 <div class="section-school-list-select">
-                
+
                     <p class="school-photo"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
                     <h3><a href=""><?php echo $school->post_title; ?></a></h3>
                     <div class="school-summary">
@@ -255,8 +304,44 @@ $(document).ready(function() {
         enableTouch:true,
         enableDrag:true,
         freeMove:true,
-        swipeThreshold: 40,
+        swipeThreshold: 40
 
     });
+    $('#hero-slider').slippry({
+        auto: false,
+        speed: 600
+    });
+
+
+    $(function() {
+
+        var inview = new Waypoint.Inview({
+            element: $('.hero-title'),
+            entered: function() {
+                $(this.element).addClass('animated bounceInLeft');
+                // this.destroy();
+            }
+        });
+
+        var inview = new Waypoint.Inview({
+            element: $('.hero-subtitle'),
+
+            entered: function() {
+                $(this.element).addClass('animated bounceInRight');
+                // this.destroy();
+            }
+        });
+        console.log("12. Animated Country Hero titles");
+    });
+
+    // $(function() {
+    //   heading1: $('.hero-title')[0],
+    //   $("#prev").click(function(){
+    //     $(this.heading1).addClass('animated bounceInLeft');
+    //   });
+    //
+    //
+    // });
+
 });
 </script>
