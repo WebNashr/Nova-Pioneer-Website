@@ -8,3 +8,179 @@ header {
 }
 
 
+.page-header {
+	position: relative;
+	width: 100%;
+	display: block;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	transition: $ease;
+	z-index: index($indices, z6);
+
+	&.stuck,
+	.non-hero & {
+		@include box-shadow(0, 0, 12px, 4px, rgba(30, 63, 117, 0.325));
+	}
+
+	&.page-header-home {
+		// position: relative;
+	}
+
+	@include break-point(laptop) {
+		position: fixed;
+    }
+}
+
+
+.header-section {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(row);
+    padding: calc(#{$space-tiny} * 0.75) calc(#{$space-tiny} * 1);
+	color: $white;
+	background: $white;
+	transition: $ease;
+
+	// .non-hero .modal & {
+	//     @include flex-order(1);
+	//     padding: calc(#{$space-tiny} * 2);
+	// }
+
+	&.modal {
+		@include flex-direction(column);
+	}
+
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+
+	    &.stuck,
+		.non-hero & {
+			padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4);
+		}
+    }
+}
+
+
+.header-section-home {
+	background-color: transparent;
+	padding: calc(#{$space-tiny} * 1);
+	margin-top: -1rem;
+	background-color: transparent;
+	background-image: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.75),
+		rgba(0, 0, 0, 0.65) 10%,
+		rgba(0, 0, 0, 0.6) 15%,
+		rgba(0, 0, 0, 0.5) 20%,
+		rgba(0, 0, 0, 0.45) 25%,
+		rgba(0, 0, 0, 0.35) 50%,
+		rgba(0, 0, 0, 0.30) 65%,
+		rgba(0, 0, 0, 0.25) 75%,
+		transparent 100%
+	);
+
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
+
+	}
+}
+
+
+.header-logo {
+   	display: inline-flex;
+   	max-width: 3rem;
+   	max-height: 3rem;
+    padding: 0;
+    font-size: 1.85rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    color: $white;
+    align-self: center;
+    transition: $ease;
+
+    svg {
+    	width: auto;
+    	height: auto;
+
+    	&.logo-mark-text {
+			width: 0;
+    	}
+
+    	&.logo-mark-only {
+    	}
+    }
+
+    &.stuck,
+	.non-hero & {
+		max-width: 3rem;
+			max-height: 3rem;
+	}
+
+	.modal & {
+		max-width: 4rem;
+			max-height: 4rem;
+		margin-bottom: 2rem;
+    }
+
+    @include break-point(tablet) {
+		max-width: 4rem;
+			max-height: 4rem;
+
+		.modal & {
+			max-width: 6rem;
+				max-height: 6rem;
+	    }
+    }
+
+    @include break-point(laptop) {
+			// max-width: 14rem;
+			max-width: 12.5rem;
+			max-height: 64px;
+
+		svg {
+	    	&.logo-mark-text {
+				width: auto;
+	    	}
+
+	    	&.logo-mark-only {
+	    		width: 0;
+	    	}
+	    }
+
+	    &.stuck,
+		.non-hero & {
+			max-width: 14.5rem;
+				max-height: 64px;
+		}
+    }
+
+    @include break-point(largelaptop) {
+			// max-width: 18rem;
+			max-width: 14rem;
+			max-height: 84px;
+    }
+}
+
+
+.header-apply {
+    margin-left: auto;
+    align-self: center;
+    padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
+    background: $green-lt;
+
+	.stuck &,
+	.non-hero & {
+		padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
+	}
+
+    .modal & {
+	    margin: calc(#{$space-tiny} * 1.5) 0 0;
+	}
+
+	@include break-point(laptop) {
+		// padding: 13px calc(13px * 1.5);
+		@include button-size(small);
+    }
+}
