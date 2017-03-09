@@ -29,21 +29,21 @@
 
     <div class="article-container">
         <aside class="article-aside">
-            <h2>Event Details cvx</h2>
+            <h2>Event Details</h2>
 
             <div class="article-meta">
                 <a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'the-events-calendar' ), $events_label_plural ); ?></a>
             </div>
         </aside>
 
-        <div class="article-inner">
+        <div class="article-inner single-event-details">
         <?php while ( have_posts() ) :  the_post(); ?>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                 <figure class="event-thumbnail-image">
                     <!-- Event featured image, but exclude link -->
                     <?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
-                </figure> 
+                </figure>
 
                 <!-- Event content -->
                 <?php do_action( 'tribe_events_single_event_before_the_content' ) ?>

@@ -639,3 +639,130 @@
 		color: #666;
     }
 }
+//Event Details
+.single-event-details {
+  padding-top: calc(#{$space-tiny} * 3);
+  .tribe-events-cal-links {
+    margin-top: 0;
+  }
+  .tribe-events-venue-map {
+    float: none !important;
+  }
+  .tribe-events-tickets-title {
+    @include title(medium);
+    @include font-size(24px);
+  	color: lighten($blue, 10%);
+  }
+  #buy-tickets {
+    margin-top: 0;
+  }
+  .cart {
+    margin-top: 0 !important;
+  }
+  .tribe-events-tickets-rsvp {
+    margin-top: -1.5rem !important;
+
+    .quantity {
+      padding-left: 0;
+      width: 15%;
+    }
+    .tickets_name {
+      width: 17%;
+      padding-top: 1rem;
+      @include copy(bold);
+      color: $blue-dk;
+    }
+    .tickets_description {
+      width: 68%;
+      padding-top: 2rem;
+    }
+  }
+  .tribe-ticket-quantity {
+
+    	@include font-size(14px);
+    	@include letter-spacing(tiny);
+    	position: relative;
+    	//display: block;
+    	width: 100%;
+    	padding: 0.5rem;
+    	//color: $grey;
+    	background: $white;
+    	appearance: none;
+    	border: 0 none;
+    	outline: 0 none;
+    	border: 1px solid $sky;
+    	border-radius: 2px;
+
+    	&:hover {
+    		color: $sky;
+    		border: 1px solid $green-dk;
+    	}
+
+    	&:focus {
+    		color: $blue;
+    		border: 1px solid $blue-dk;
+    	}
+
+    	&::placeholder {
+    		color: $dark-grey;
+    		opacity: 1;
+    	}
+
+  }
+  .tribe-tickets-remaining {
+    @include font-size(12px);
+    letter-spacing: 0.35px;
+  }
+  .add-to-cart {
+    padding-left: 0;
+    .button  {
+      // width:10%;
+      @extend %text-align-center;
+      @extend %text-transform-upper;
+      @include copy(regular);
+      @include line-height(1);
+      @include border-radius(3px);
+      @include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+      @include border(0, solid, transparent);
+      @include outline(0, solid, transparent);
+      color: $white;
+      background: $blue-lt;
+      $p: 12px;
+      @include font-size(12px);
+      @include letter-spacing(small);
+      padding: $p calc(#{$p} * 1);
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      appearance: none;
+      cursor: pointer;
+      transition: $ease;
+      &:hover {
+        color: $white;
+        background: $orange-lt;
+      }
+    }
+  }
+  .tribe-tickets-table {
+    margin-top: 1rem !important;
+    width: 45%;
+  }
+  .tribe-tickets-attendees {
+    padding-left: 0;
+  }
+  .tribe-tickets-full-name-row,
+  .tribe-tickets-email-row,
+  .tribe-tickets-order_status-row {
+    td {
+      padding-left: 0;
+    }
+  }
+  .tribe-rsvp-messages {
+    padding-left: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+    .tribe-rsvp-messages {
+      padding-left: 0;
+    }
+  }
+}
