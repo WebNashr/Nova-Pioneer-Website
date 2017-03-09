@@ -12,30 +12,30 @@ $(document).ready(function() {
 
 
     // 02. search toggle
-	$(".search-toggle").click(function(){
-        $(".header-search fieldset").toggleClass("open");
-        $(".header-search input[type='text']").toggleClass("open");
-        $(".header-search input[type='submit']").toggleClass("open");
-        $(".header-search .search-icon").toggleClass("open");
-        $(".header-search .search-toggle-icon").toggleClass("open");
-        console.log("02. search toggle");
-        return false;
-    });
+	// $(".search-toggle").click(function(){
+ //        $(".header-search fieldset").toggleClass("open");
+ //        $(".header-search input[type='text']").toggleClass("open");
+ //        $(".header-search input[type='submit']").toggleClass("open");
+ //        $(".header-search .search-icon").toggleClass("open");
+ //        $(".header-search .search-toggle-icon").toggleClass("open");
+ //        console.log("02. search toggle");
+ //        return false;
+ //    });
 
 
     // 03. search toggle on small screens
-    $(".search-toggle.search-toggle-menu").click(function(){
-        $(".page-header").toggleClass("modal modal-show");
-        $("body").toggleClass("modal-show");
-        // make sure large screen toggle functionality doesn't interfere with the small screens
-        $(".header-search fieldset").toggleClass("open");
-        $(".header-search input[type='text']").toggleClass("open");
-        $(".header-search input[type='submit']").toggleClass("open");
-        $(".header-search .search-icon").toggleClass("open");
-        $(".header-search .search-toggle-icon").toggleClass("open");
-        console.log("03. search toggle on small screens");
-        return false;
-    });
+    // $(".search-toggle.search-toggle-menu").click(function(){
+    //     $(".page-header").toggleClass("modal modal-show");
+    //     $("body").toggleClass("modal-show");
+    //     // make sure large screen toggle functionality doesn't interfere with the small screens
+    //     $(".header-search fieldset").toggleClass("open");
+    //     $(".header-search input[type='text']").toggleClass("open");
+    //     $(".header-search input[type='submit']").toggleClass("open");
+    //     $(".header-search .search-icon").toggleClass("open");
+    //     $(".header-search .search-toggle-icon").toggleClass("open");
+    //     console.log("03. search toggle on small screens");
+    //     return false;
+    // });
 
 
     // 04. select-country

@@ -19,7 +19,7 @@ get_header();
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 
-    <?php get_template_part('includes/partials/content', 'rsvp-modal'); ?>
+    <!-- <?php // get_template_part('includes/partials/content', 'rsvp-modal'); ?> no longer necessary -->
     
 <?php endif; ?>
 
