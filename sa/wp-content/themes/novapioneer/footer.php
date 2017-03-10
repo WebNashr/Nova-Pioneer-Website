@@ -5,8 +5,7 @@
 
 <?php wp_footer(); ?>
 
-<?php if( !is_front_page() ): ?>
-  <footer class="page-footer">
+    <footer class="page-footer">
     <nav role="navigation" class="footer-menu">
         <div class="footer-logo">
             <div class="logo">
@@ -38,14 +37,14 @@
         </script>
     <?php endif; ?>
 
-  </footer>
-<?php endif; ?>
+    </footer>
 
-  <?php if( !is_front_page() ): ?>
-  <footer class="page-footer page-footer-aux">
+
+
+    <footer class="page-footer page-footer-aux">
     <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; <?php echo date('Y'); ?>. All right reserved.</span>
-  </footer>
-  <?php endif; ?>
+    </footer>
+
   <!-- end footer -->
 
   <?php if( is_page_template('apply-online-page.php') ): ?>
