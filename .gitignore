@@ -10,4 +10,3 @@ site-config.php
 assets/
 node_modules/
 bower_components/
-vendor/
