@@ -165,7 +165,7 @@ get_header(); ?>
                 <?php foreach($leadership_team_members as $member): ?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0];  ?>" alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>" class="profile-img">
-                        <h3 class="profile-name" title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></h3>
+                        <h4 class="profile-name" title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></h4>
                         <h6 class="profile-role"><?php echo get_field('title', $member->ID); ?></h6>
                         <!-- <a href="<?php echo get_permalink($member->ID); ?>" class="profile-name" title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
                         <span class="profile-role"><?php echo get_field('title', $member->ID); ?></span> -->

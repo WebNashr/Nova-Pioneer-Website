@@ -57,6 +57,7 @@
 			padding-top: 0;
 			p {
 				margin-top: 0;
+				padding-right: calc(#{$space-tiny} * 3);
 				@include font-size(21px);
 			}
 
@@ -238,7 +239,7 @@
 		color: lighten($dark-grey, 15%);
 		font-style: italic;
 		line-height: 1.5;
-		font-family: 'Gentium Basic', serif;
+		font-family: Georgia, 'Gentium Basic', serif;
 		width: auto;
 		padding-left: calc(#{$space-tiny} * 3);
 		position: relative;
@@ -267,8 +268,9 @@
 		display: block;
 		padding-top: calc(#{$space-tiny} * 1);
 		padding-left: calc(#{$space-tiny} * 1.5);
+
 		span {
-			@include copy(bold);
+			// @include copy(bold);
 		}
 
 		&:before {
