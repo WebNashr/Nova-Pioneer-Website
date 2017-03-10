@@ -398,6 +398,11 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
   @include break-point(laptop) {
     height: 40%;
   }
+  @media screen
+		and (min-device-width: 1920px)
+		and (max-device-width: 2560px) {
+			height: 30%;
+	}
 }
 /* captions, styled fo the overlay variant */
 .sy-caption-wrap {
@@ -441,7 +446,7 @@ $arrows_url: '/wp-content/themes/novapioneer/assets/slippry/images/arrows.svg' !
     @media screen
       and (min-device-width: 1920px)
       and (max-device-width: 2560px) {
-        // top: -20rem;
+        top: -63rem;
     }
   }
   // @media only screen and (max-device-width : $mobile_break), screen and (max-width : $mobile_break) {
