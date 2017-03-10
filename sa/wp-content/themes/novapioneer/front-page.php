@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* Front Page
+* Template Name: Country Home Page
 */
 get_header(); ?>
 
@@ -9,13 +9,24 @@ get_header(); ?>
 
     <?php while(have_posts()): the_post(); ?>
 
-        <section class="section section-hero country-home" data-type="background" data-speed="4">
+        <section class="section country-hero">
+
             <div class="container hero-container">
-                <div class="main-callout-box">
-                    <hr>
-                    <h1 class="animated-title">Preparing Youth in Africa for Global Success</h1>
-                    <!-- <a href="/<?php echo site_url('/learning/'); ?>" class="button button-default button-primary">Learn More</a> -->
-                </div>
+                <ul id="hero-slider">
+                    <?php foreach( get_field('hero_slides') as $hero_slide ): $hero_slide = (object)$hero_slide; ?>
+                        <li>
+                            <a href="#slide1">
+                                <img src="<?php echo $hero_slide->image; ?>" >
+                                <div class="callout-box">
+                                    <div class="animated-headings">
+                                        <h1 class="hero-title"><?php echo $hero_slide->title; ?></h1>
+                                        <h1 class="hero-subtitle"><?php echo $hero_slide->subtitle; ?></h1>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </section>
 
@@ -26,8 +37,9 @@ get_header(); ?>
             <?php $schools = get_field('schools'); ?>
             <?php foreach($schools as $school): $school = (object)$school; ?>
                 <div class="section-school-list-select">
-                    <p class="school-photo"><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
-                    <h3><?php echo $school->post_title; ?></h3>
+
+                    <p class="school-photo"><a href=""><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
+                    <h3><a href=""><?php echo $school->post_title; ?></a></h3>
                     <div class="school-summary">
                     <p><?php echo get_field('school_gender', $school->ID); ?></p>
                     <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
@@ -217,9 +229,12 @@ get_header(); ?>
     <?php endwhile; ?>
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
+    <!-- <?php // get_template_part('includes/partials/content', 'rsvp-modal'); ?> no longer necessary -->
 <?php endif; ?>
 
+
 <?php get_footer(); ?>
+
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -251,8 +266,35 @@ $(document).ready(function() {
         enableTouch:true,
         enableDrag:true,
         freeMove:true,
-        swipeThreshold: 40,
+        swipeThreshold: 40
 
     });
+    $('#hero-slider').slippry({
+        auto: true,
+        speed: 600
+    });
+
+
+    $(function() {
+
+        var inview = new Waypoint.Inview({
+            element: $('.hero-title'),
+            entered: function() {
+                $(this.element).addClass('animated bounceInLeft');
+                // this.destroy();
+            }
+        });
+
+        var inview = new Waypoint.Inview({
+            element: $('.hero-subtitle'),
+
+            entered: function() {
+                $(this.element).addClass('animated bounceInRight');
+                // this.destroy();
+            }
+        });
+        console.log("12. Animated Country Hero titles");
+    });
+
 });
 </script>
