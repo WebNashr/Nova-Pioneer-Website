@@ -29,7 +29,7 @@ get_header(); ?>
                         <div class="social-media-links">
                             <a href=" <?php echo get_field('facebook'); ?>" target="_blank"><span class="social-icon facebook-icon"></span>Facebook</a><br/>
                             <a href=" <?php echo get_field('twitter'); ?>" target="_blank"><span class="social-icon twitter-icon"></span>Twitter</a><br/>
-                            <a href=" <?php echo get_field('linkedin'); ?>" target="_blank"><span class="social-icon linkedin-icon"></span>LinkedIn</a><br/>
+                            <a href=" <?php echo get_field('instagram'); ?>" target="_blank"><span class="social-icon instagram-icon"></span>Instagram</a><br/>
                         </div>
                     </div>
                     <div class="section-content">
