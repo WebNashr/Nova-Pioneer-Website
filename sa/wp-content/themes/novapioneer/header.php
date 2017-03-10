@@ -58,7 +58,7 @@
 
 
         <!-- page-header -->
-        <header class="page-header <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>  id="header-container">
+        <header class="page-header <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>"  id="header-container">
             <section class="header-section header-section-main">
                 <a href="<?php echo home_url(); ?>" class="logo header-logo">
                     <!-- mark and text -->
