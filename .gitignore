@@ -2,14 +2,12 @@
 .DS_Store
 
 # Ignore Config File
-wp-config.php
+site-config.php
 
-
-# Ignore Uploads Folder
-wp-content/uploads
-
-# Other Files
-.htaccess
+# Other Files and folders
 .idea/
-wp-content/debug.log
-wp-content/wflogs
+.vscode/
+assets/
+node_modules/
+bower_components/
+vendor/
