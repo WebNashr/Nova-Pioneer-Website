@@ -18,8 +18,6 @@ get_header();
     <?php endif; ?>
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
-
-    <?php get_template_part('includes/partials/content', 'rsvp-modal'); ?>
     
 <?php endif; ?>
 
