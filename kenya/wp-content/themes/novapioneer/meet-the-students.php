@@ -58,7 +58,7 @@ get_header(); ?>
 
             <section class="section section-pair">
                 <div class="section-navigation">
-                    <h2>Primary Students</h2>
+                    <h2 id="primary">Primary Students</h2>
                 </div>
 
                 <div class="section-content">
@@ -142,7 +142,7 @@ get_header(); ?>
             </section>
             <section class="section section-pair section-school-blog even-section">
                 <div class="section-navigation">
-                    <h2>Student Blog</h2>
+                    <h2 id="blog">Student Blog</h2>
                 </div>
 
                     <div class="section-content">
