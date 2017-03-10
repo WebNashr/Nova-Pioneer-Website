@@ -811,8 +811,8 @@ img.ajax-loader {
 				// width: 50%;
 				// margin-top: 0.75rem !important;
 				position: relative;
-				padding: 0.575rem 1rem !important;
-				background: $white url(/wp-content/themes/novapioneer/img/icons/drop-down-arrow.svg) no-repeat;
+				padding: 0.575rem 2.5rem 0.575rem 1rem !important;
+				background: $white url(../../img/icons/drop-down-arrow.svg) no-repeat;
 				background-size: 20px;
     		background-position: right 10px center;
 				padding-left: 24px;
@@ -933,6 +933,13 @@ img.ajax-loader {
 			}
 
 		}
+		.gform_confirmation_wrapper  {
+			.gform_confirmation_message {
+				@include font-size(21px);
+				@include copy(bold);
+			}
+		}
+
 			// @media only screen and (max-width: 360px) {
 			// 	padding-left: 1.75rem;;
 			// }
