@@ -27,6 +27,7 @@ class Tribe__Tickets__Attendees_Table extends WP_List_Table {
 			'singular' => 'attendee',
 			'plural'   => 'attendees',
 			'ajax'     => true,
+			'screen'   => get_current_screen(),
 		) );
 
 		// Fetch the event Object
@@ -37,6 +38,30 @@ class Tribe__Tickets__Attendees_Table extends WP_List_Table {
 		add_filter( 'event_tickets_attendees_table_row_actions', array( $this, 'add_default_row_actions' ), 10, 2 );
 
 		parent::__construct( apply_filters( 'tribe_events_tickets_attendees_table_args', $args ) );
+	}
+
+	/**
+	 * Get a list of columns. The format is:
+	 * 'internal-name' => 'Title'
+	 *
+	 * @return array
+	 */
+	public static function get_table_columns() {
+		$columns = array(
+			'cb'           => '<input type="checkbox" />',
+			'ticket'       => esc_html_x( 'Ticket', 'attendee table', 'event-tickets' ),
+			'primary_info' => esc_html_x( 'Primary Information', 'attendee table', 'event-tickets' ),
+			'security'     => esc_html_x( 'Security Code', 'attendee table', 'event-tickets' ),
+			'status'       => esc_html_x( 'Status', 'attendee table', 'event-tickets' ),
+			'check_in'     => esc_html_x( 'Check in', 'attendee table', 'event-tickets' ),
+		);
+
+		/**
+		 * Controls the columns rendered within the attendee screen.
+		 *
+		 * @param array $columns
+		 */
+		return apply_filters( 'tribe_tickets_attendee_table_columns', $columns );
 	}
 
 
@@ -74,16 +99,7 @@ class Tribe__Tickets__Attendees_Table extends WP_List_Table {
 	 * @return array
 	 */
 	public function get_columns() {
-		$columns = array(
-			'cb'        => '<input type="checkbox" />',
-			'ticket'    => esc_html_x( 'Ticket', 'attendee table', 'event-tickets' ),
-			'purchaser' => esc_html_x( 'Purchaser', 'attendee table', 'event-tickets' ),
-			'status'    => esc_html_x( 'Status', 'attendee table', 'event-tickets' ),
-			'security'  => esc_html__( 'Security Code', 'event-tickets' ),
-			'check_in'  => esc_html__( 'Check in', 'event-tickets' ),
-		);
-
-		return $columns;
+		return self::get_table_columns();
 	}
 
 	/**
@@ -118,7 +134,7 @@ class Tribe__Tickets__Attendees_Table extends WP_List_Table {
 	 *
 	 * @return string
 	 */
-	public function column_purchaser( array $item ) {
+	public function column_primary_info( array $item ) {
 		$purchaser_name  = empty( $item[ 'purchaser_name' ] ) ? '' : esc_html( $item[ 'purchaser_name' ] );
 		$purchaser_email = empty( $item[ 'purchaser_email' ] ) ? '' : esc_html( $item[ 'purchaser_email' ] );
 
@@ -261,32 +277,32 @@ class Tribe__Tickets__Attendees_Table extends WP_List_Table {
 	 * @return array
 	 */
 	public function add_default_row_actions( array $row_actions, array $item ) {
+		$default_actions = array();
+
+		if ( is_object( $this->event ) && isset(  $this->event->ID ) ) {
+			$default_actions[] = sprintf(
+				'<span class="inline">
+					<a href="#" class="tickets_checkin" data-attendee-id="%1$d" data-event-id="%2$d" data-provider="%3$s">' . esc_html_x( 'Check In', 'row action', 'event-tickets' ) . '</a>
+					<a href="#" class="tickets_uncheckin" data-attendee-id="%1$d" data-event-id="%2$d" data-provider="%3$s">' . esc_html_x( 'Undo Check In', 'row action', 'event-tickets' ) . '</a>
+				</span>',
+				esc_attr( $item['attendee_id'] ),
+				esc_attr( $this->event->ID ),
+				esc_attr( $item['provider'] )
+			);
+		}
+
+		if ( is_admin() ) {
+			$default_actions[] = '<span class="inline move-ticket"> <a href="#">' . esc_html_x( 'Move', 'row action', 'event-tickets' ) . '</a> </span>';
+		}
+
 		$attendee = esc_attr( $item['attendee_id'] . '|' . $item['provider'] );
 		$nonce = wp_create_nonce( 'do_item_action_' . $attendee );
-
-		$check_in_out_url = esc_url( add_query_arg( array(
-			'action'   => $item[ 'check_in' ] ? 'uncheck_in' : 'check_in',
-			'nonce'    => $nonce,
-			'attendee' => $attendee,
-		) ) );
-
-		$check_in_out_text = $item[ 'check_in' ]
-			? esc_html_x( 'Undo Check In', 'row action', 'event-tickets' )
-			: esc_html_x( 'Check In', 'row action', 'event-tickets' );
 
 		$delete_url = esc_url( add_query_arg( array(
 			'action'   => 'delete_attendee',
 			'nonce'    => $nonce,
 			'attendee' => $attendee,
 		) ) );
-
-		$default_actions = array(
-			'<span class="inline"> <a href="' . $check_in_out_url . '">' . $check_in_out_text . '</a> </span>',
-		);
-
-		if ( is_admin() ) {
-			$default_actions[] = '<span class="inline move-ticket"> <a href="#">' . esc_html_x( 'Move', 'row action', 'event-tickets' ) . '</a> </span>';
-		}
 
 		$default_actions[] = '<span class="trash"><a href="' . $delete_url . '">' . esc_html_x( 'Delete', 'row action', 'event-tickets' ) . '</a></span>';
 
@@ -364,13 +380,48 @@ class Tribe__Tickets__Attendees_Table extends WP_List_Table {
 
 			return sprintf( $button_template, $item['order_id_link_src'], __( 'View order', 'event-tickets' ) );
 		}
+
+		$button_classes = ! empty( $item['order_status'] ) && in_array( $item['order_status'], $check_in_stati ) ?
+			'button-primary' : 'button-primary button-disabled';
+
 		if ( empty( $this->event ) ) {
-			$checkin   = sprintf( '<a href="#" data-attendee-id="%d" data-provider="%s" class="button-secondary tickets_checkin">%s</a>', esc_attr( $item['attendee_id'] ), esc_attr( $item['provider'] ), esc_html__( 'Check in', 'event-tickets' ) );
-			$uncheckin = sprintf( '<span class="delete"><a href="#" data-attendee-id="%d" data-provider="%s" class="tickets_uncheckin">%s</a></span>', esc_attr( $item['attendee_id'] ), esc_attr( $item['provider'] ), esc_html__( 'Undo Check in', 'event-tickets' ) );
+			$checkin   = sprintf(
+				'<a href="#" data-attendee-id="%d" data-provider="%s" class="%s tickets_checkin">%s</a>',
+				esc_attr( $item['attendee_id'] ),
+				esc_attr( $item['provider'] ),
+				esc_attr( $button_classes ),
+				esc_html__( 'Check In', 'event-tickets' )
+			);
+			$uncheckin = sprintf(
+				'<span class="delete"><a href="#" data-attendee-id="%d" data-provider="%s" class="tickets_uncheckin">%s</a></span>',
+				esc_attr( $item['attendee_id'] ),
+				esc_attr( $item['provider'] ),
+				sprintf(
+					'<div>%1$s</div><div>%2$s</div>',
+					esc_html__( 'Undo', 'event-tickets' ),
+					esc_html__( 'Check In', 'event-tickets' )
+				)
+			);
 		} else {
 			// add the additional `data-event-id` attribute if this is an event
-			$checkin   = sprintf( '<a href="#" data-attendee-id="%d" data-event-id="%d" data-provider="%s" class="button-secondary tickets_checkin">%s</a>', esc_attr( $item['attendee_id'] ), esc_attr($this->event->ID), esc_attr( $item['provider'] ), esc_html__( 'Check in', 'event-tickets' ) );
-			$uncheckin = sprintf( '<span class="delete"><a href="#" data-attendee-id="%d" data-event-id="%d" data-provider="%s" class="tickets_uncheckin">%s</a></span>', esc_attr( $item['attendee_id'] ), esc_attr($this->event->ID), esc_attr( $item['provider'] ), esc_html__( 'Undo Check in', 'event-tickets' ) );
+			$checkin   = sprintf(
+				'<a href="#" data-attendee-id="%d" data-event-id="%d" data-provider="%s" class="%s tickets_checkin">%s</a>',
+				esc_attr( $item['attendee_id'] ),
+				esc_attr( $this->event->ID ),
+				esc_attr( $item['provider'] ),
+				esc_attr( $button_classes ),
+				esc_html__( 'Check In', 'event-tickets' )
+			);
+			$uncheckin = sprintf(
+				'<span class="delete"><a href="#" data-attendee-id="%d" data-event-id="%d" data-provider="%s" class="tickets_uncheckin">%s</a></span>',
+				esc_attr( $item['attendee_id'] ),
+				esc_attr( $this->event->ID ), esc_attr( $item['provider'] ),
+				sprintf(
+					'<div>%1$s</div><div>%2$s</div>',
+					esc_html__( 'Undo', 'event-tickets' ),
+					esc_html__( 'Check In', 'event-tickets' )
+				)
+			);
 		}
 
 		return $checkin . $uncheckin;
@@ -382,15 +433,14 @@ class Tribe__Tickets__Attendees_Table extends WP_List_Table {
 	 * @param object $item The current item
 	 */
 	public function single_row( $item ) {
-		static $row_class = '';
-		$row_class = ( $row_class == '' ? ' alternate ' : '' );
+
 
 		$checked = '';
 		if ( intval( $item['check_in'] ) === 1 ) {
 			$checked = ' tickets_checked ';
 		}
 
-		echo '<tr class="' . sanitize_html_class( $row_class ) . esc_attr( $checked ) . '">';
+		echo '<tr class="' . esc_attr( $checked . $item['order_status'] ) . '">';
 		$this->single_row_columns( $item );
 		echo '</tr>';
 
@@ -450,8 +500,8 @@ class Tribe__Tickets__Attendees_Table extends WP_List_Table {
 		$nav = apply_filters( 'tribe_events_tickets_attendees_table_nav', $nav, $which );
 
 		?>
-		<div class="alignleft actions"><?php echo implode( $nav['left'] ); ?></div>
-		<div class="alignright"><?php echo implode( $nav['right'] ) ?></div>
+		<div class="alignleft actions attendees-actions"><?php echo implode( $nav['left'] ); ?></div>
+		<div class="alignright attendees-filter"><?php echo implode( $nav['right'] ) ?></div>
 		<?php
 	}
 
@@ -542,7 +592,7 @@ class Tribe__Tickets__Attendees_Table extends WP_List_Table {
 
 		if ( isset( $_POST[ 'attendee' ] ) ) {
 			$action_ids = (array) $_POST[ 'attendee' ];
-		} else if ( isset( $_GET[ 'attendee' ] ) ) {
+		} elseif ( isset( $_GET[ 'attendee' ] ) ) {
 			$action_ids = (array) $_GET[ 'attendee' ];
 		}
 

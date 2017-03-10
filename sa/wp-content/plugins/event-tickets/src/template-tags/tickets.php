@@ -10,6 +10,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( '-1' );
 }
 
+if ( ! function_exists( 'tribe_tickets_parent_post' ) ) {
+	/**
+	 * Returns the current post object that can have tickets attached to it
+	 *
+	 * Optionally the post object or ID of a ticket post can be passed in and, again, the
+	 * parent (event) post object will be returned if possible
+	 *
+	 * @param int|WP_Post $data
+	 * @return null|WP_Post
+	 */
+	function tribe_tickets_parent_post( $data ) {
+		global $post;
+
+		if ( null === $data ) {
+			return $post;
+		}
+
+		if (
+			$data instanceof WP_Post
+			&& tribe_tickets_post_type_enabled( get_post_type( $data ) )
+		) {
+			return $data;
+		}
+
+		if ( is_numeric( $data ) && intval( $data ) === $data ) {
+			$data = get_post( $data );
+
+			if (
+				null !== $data
+				&& tribe_tickets_post_type_enabled( get_post_type( $data ) )
+			) {
+				return $data;
+			}
+		}
+
+		return null;
+	}
+}
 
 if ( ! function_exists( 'tribe_events_has_tickets' ) ) {
 	/**
@@ -21,7 +59,7 @@ if ( ! function_exists( 'tribe_events_has_tickets' ) ) {
 	 * @return bool
 	 */
 	function tribe_events_has_tickets( $event = null ) {
-		if ( null === ( $event = tribe_events_get_event( $event ) ) ) {
+		if ( null === ( $event = tribe_tickets_parent_post( $event ) ) ) {
 			return false;
 		}
 
@@ -64,7 +102,7 @@ if ( ! function_exists( 'tribe_events_partially_soldout' ) ) {
 	 * @return bool
 	 */
 	function tribe_events_partially_soldout( $event = null ) {
-		if ( null === ( $event = tribe_events_get_event( $event ) ) ) {
+		if ( null === ( $event = tribe_tickets_parent_post( $event ) ) ) {
 			return false;
 		}
 
@@ -97,7 +135,7 @@ if ( ! function_exists( 'tribe_events_count_available_tickets' ) ) {
 	function tribe_events_count_available_tickets( $event = null ) {
 		$count = 0;
 
-		if ( null === ( $event = tribe_events_get_event( $event ) ) ) {
+		if ( null === ( $event = tribe_tickets_parent_post( $event ) ) ) {
 			return 0;
 		}
 
@@ -119,7 +157,7 @@ if ( ! function_exists( 'tribe_events_has_unlimited_stock_tickets' ) ) {
 	 * @return bool
 	 */
 	function tribe_events_has_unlimited_stock_tickets( $event = null ) {
-		if ( null === ( $event = tribe_events_get_event( $event ) ) ) {
+		if ( null === ( $event = tribe_tickets_parent_post( $event ) ) ) {
 			return 0;
 		}
 
@@ -177,7 +215,7 @@ if ( ! function_exists( 'tribe_events_ticket_is_on_sale' ) ) {
 		}
 
 		// Timestamps for comparison purposes
-		$now    = time();
+		$now    = current_time( 'timestamp' );
 		$start  = strtotime( $ticket->start_date );
 		$finish = strtotime( $ticket->end_date );
 
@@ -199,6 +237,7 @@ if ( ! function_exists( 'tribe_tickets_get_ticket_stock_message' ) ) {
 	 * @return string
 	 */
 	function tribe_tickets_get_ticket_stock_message( Tribe__Tickets__Ticket_Object $ticket ) {
+
 		$stock        = $ticket->stock();
 		$sold         = $ticket->qty_sold();
 		$cancelled    = $ticket->qty_cancelled();
@@ -221,26 +260,37 @@ if ( ! function_exists( 'tribe_tickets_get_ticket_stock_message' ) ) {
 			$stock = '<i>' . __( 'global inventory', 'event-tickets' ) . '</i>';
 		}
 
+		$sold_label = __( 'Sold', 'event-tickets' );
+		if ( 'Tribe__Tickets__RSVP' === $ticket->provider_class ) {
+			$sold_label = _x( 'RSVP\'d Going', 'separate going and remain RSVPs', 'event-tickets' );
+		}
+
 		// There may not be a fixed inventory - in which case just report the number actually sold so far
 		if ( empty( $stock ) && $stock !== 0 ) {
-			$message = sprintf( esc_html__( 'Sold %d', 'event-tickets' ), esc_html( $sold ) );
-		}
-		// If we do have a fixed stock then we can provide more information
+			$message = sprintf( esc_html__( '%s %d', 'event-tickets' ), esc_html( $sold_label ), esc_html( $sold ) );
+		} // If we do have a fixed stock then we can provide more information
 		else {
-			$cancelled_count = empty( $cancelled ) ? '' : esc_html( sprintf(
-				_x( ' cancelled: %1$d', 'ticket stock message (cancelled stock)', 'event-tickets' ),
-				(int) $cancelled
-			) );
+			$status = '';
 
-			$pending_count = $pending < 1 ? '' : esc_html( sprintf(
-				__( ' pending: %1$d', 'ticket stock message (pending stock)', 'event-tickets' ),
-				(int) $pending
-			) );
+			if ( $is_global && 0 < $stock && $global_stock->is_enabled() ) {
+				$status_counts[] = sprintf( _x( '%1$d Remaining of the global stock', 'ticket global stock message (remaining stock)', 'event-tickets' ), (int) $stock );
+			} else {
+				$status_counts[] = sprintf( _x( '%1$d Remaining', 'ticket stock message (remaining stock)', 'event-tickets' ), (int) $stock );
+			}
 
-			$message = sprintf(
-				esc_html__( 'Sold %1$d (units remaining: %2$s%3$s%4$s)', 'event-tickets' ),
-				esc_html( $sold ), $stock, $cancelled_count, $pending_count
-			);
+			$status_counts[] = $pending < 1 ? false : sprintf( _x( '%1$d Awaiting Review', 'ticket stock message (pending stock)', 'event-tickets' ), (int) $pending );
+
+			$status_counts[] = empty( $cancelled ) ? false : sprintf( _x( '%1$d Cancelled', 'ticket stock message (cancelled stock)', 'event-tickets' ), (int) $cancelled );
+
+			//remove empty values and prepare to display if values
+			$status_counts = array_diff( $status_counts, array( '' ) );
+			if ( array_filter( $status_counts ) ) {
+				$status = sprintf( ' (%1$s)', implode( ', ', $status_counts ) );
+			}
+
+			$message = sprintf( '%1$d %2$s%3$s', absint( $sold ), esc_html( $sold_label ), esc_html( $status ) );
+
+
 		}
 
 		return $message;
@@ -298,7 +348,6 @@ function tribe_tickets_resource_url( $resource, $echo = false, $root_dir = 'src'
 
 	return $url;
 }
-
 
 /**
  * Includes a template part, similar to the WP get template part, but looks
@@ -432,3 +481,17 @@ function tribe_tickets_get_template_part( $slug, $name = null, array $data = nul
 	}
 }
 
+
+if ( ! function_exists( 'tribe_tickets_post_type_enabled' ) ) {
+	/**
+	 * Returns whether or not the provided post type allows tickets to be attached
+	 *
+	 * @param string $post_type
+	 * @return boolean
+	 */
+	function tribe_tickets_post_type_enabled( $post_type ) {
+		$post_types = Tribe__Tickets__Main::instance()->post_types();
+
+		return in_array( $post_type, $post_types );
+	}
+}

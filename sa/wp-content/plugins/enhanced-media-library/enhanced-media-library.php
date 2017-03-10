@@ -3,7 +3,7 @@
 Plugin Name: Enhanced Media Library
 Plugin URI: http://wpUXsolutions.com
 Description: This plugin will be handy for those who need to manage a lot of media files.
-Version: 2.3.4
+Version: 2.4.4
 Author: wpUXsolutions
 Author URI: http://wpUXsolutions.com
 Text Domain: enhanced-media-library
@@ -27,7 +27,7 @@ global $wp_version,
 
 
 
-$wpuxss_eml_version = '2.3.4';
+$wpuxss_eml_version = '2.4.4';
 
 
 
@@ -310,6 +310,7 @@ if ( ! function_exists( 'wpuxss_eml_admin_enqueue_scripts' ) ) {
             $wpuxss_eml_version,
             'all'
         );
+        wp_style_add_data( 'wpuxss-eml-admin-custom-style', 'rtl', 'replace' );
 
         wp_enqueue_style ( 'wp-jquery-ui-dialog' );
 
@@ -346,6 +347,20 @@ if ( ! function_exists( 'wpuxss_eml_admin_enqueue_scripts' ) ) {
                 'wpuxss-eml-media-list-script',
                 'wpuxss_eml_media_list_l10n',
                 $media_list_l10n
+            );
+        }
+
+
+        // scripts for grid view :: /wp-admin/upload.php
+        if ( isset( $current_screen ) && 'upload' === $current_screen->base && 'grid' === $media_library_mode ) {
+
+            wp_dequeue_script( 'media' );
+            wp_enqueue_script(
+                'wpuxss-eml-media-grid-script',
+                $wpuxss_eml_dir . 'js/eml-media-grid.js',
+                array( 'wpuxss-eml-media-models-script', 'wpuxss-eml-media-views-script' ),
+                $wpuxss_eml_version,
+                true
             );
         }
     }
@@ -492,7 +507,7 @@ if ( ! function_exists( 'wpuxss_eml_enqueue_media' ) ) {
             'uncategorized'             => __( 'All Uncategorized', 'enhanced-media-library' ),
             'filter_by'                 => __( 'Filter by', 'enhanced-media-library' ),
             'in'                        => __( 'All', 'enhanced-media-library' ),
-            'not_in'                    => __( 'Not in', 'enhanced-media-library' ),
+            'not_in'                    => __( 'Not in a', 'enhanced-media-library' ),
             'reset_filters'             => __( 'Reset All Filters', 'enhanced-media-library' ),
             'current_screen'            => isset( $current_screen ) ? $current_screen->id : ''
         );
@@ -531,19 +546,6 @@ if ( ! function_exists( 'wpuxss_eml_enqueue_media' ) ) {
                 'wpuxss-eml-enhanced-medialist-script',
                 'wpuxss_eml_enhanced_medialist_l10n',
                 $enhanced_medialist_l10n
-            );
-        }
-
-
-        // scripts for grid view :: /wp-admin/upload.php
-        if ( isset( $current_screen ) && 'upload' === $current_screen->base && 'grid' === $media_library_mode ) {
-
-            wp_enqueue_script(
-                'wpuxss-eml-media-grid-script',
-                $wpuxss_eml_dir . 'js/eml-media-grid.js',
-                array('media'),
-                $wpuxss_eml_version,
-                true
             );
         }
     }
@@ -769,14 +771,12 @@ if ( ! function_exists( 'wpuxss_eml_on_update' ) ) {
                 );
             }
         }
-        else {
 
-            // since 2.3.1
-            if ( ! isset( $wpuxss_eml_lib_options['media_orderby'] ) )
-                $wpuxss_eml_lib_options['media_orderby'] = 'date';
-            if ( ! isset( $wpuxss_eml_lib_options['media_order'] ) )
-                $wpuxss_eml_lib_options['media_order'] = 'DESC';
-        }
+        // since 2.3.1
+        if ( ! isset( $wpuxss_eml_lib_options['media_orderby'] ) )
+            $wpuxss_eml_lib_options['media_orderby'] = 'date';
+        if ( ! isset( $wpuxss_eml_lib_options['media_order'] ) )
+            $wpuxss_eml_lib_options['media_order'] = 'DESC';
 
 
         update_option( 'wpuxss_eml_taxonomies', $wpuxss_eml_taxonomies );

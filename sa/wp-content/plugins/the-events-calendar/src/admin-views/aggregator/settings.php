@@ -52,7 +52,7 @@ $change_authority = array(
 		'options' => array(
 			'overwrite' => __( 'Overwrite my event with any changes from the original source.', 'the-events-calendar' ),
 			'retain' => __( 'Do not re-import events. Changes made locally will be preserved.', 'the-events-calendar' ),
-			'preserve_changes' => __( 'Preserve the most recent change in each event field, whether that change occurred on my site or at the original source.', 'the-events-calendar' ),
+			'preserve_changes' => __( 'Import events but preserve local changes to event fields.', 'the-events-calendar' ),
 		),
 	),
 );
@@ -83,6 +83,21 @@ $csv = array(
 		'can_be_empty' => true,
 		'parent_option' => Tribe__Events__Main::OPTIONNAME,
 		'options' => $origin_categories,
+	),
+);
+
+$ea_disable = array(
+	'tribe_aggregator_disable_header' => array(
+		'type' => 'html',
+		'html' => '<h3 id="tribe-import-ea-disable">' . esc_html__( 'Event Aggregator Control', 'the-events-calendar' ) . '</h3>',
+	),
+	'tribe_aggregator_disable'               => array(
+		'type'            => 'checkbox_bool',
+		'label'           => __( 'Disable Event Aggregator imports', 'the-events-calendar' ),
+		'tooltip'         => __( 'Stop all Event Aggregator imports from running. Existing imported events will not be affected. Imports via CSV file will still be available.', 'the-events-calendar' ),
+		'default'         => false,
+		'parent_option' => Tribe__Events__Main::OPTIONNAME,
+		'validation_type' => 'boolean',
 	),
 );
 
@@ -349,12 +364,13 @@ $internal = array_merge(
 	$ics,
 	$facebook,
 	$gcal,
-	$meetup
+	$meetup,
+    $ea_disable
 );
 
 $internal = apply_filters( 'tribe_aggregator_fields', $internal );
 
-if ( Tribe__Events__Aggregator::instance()->is_service_active() ) {
+if ( tribe( 'events-aggregator.main' )->is_service_active() ) {
 	ob_start();
 	?>
 	<p>

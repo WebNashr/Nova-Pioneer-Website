@@ -1,5 +1,12 @@
 #### [unreleased]
 
+#### 4.6.4 / 2017-02-19
+* move graceful exit to just before plugin initialization
+
+#### 4.6.3 / 2017-02-19
+* added support for tribe shortcodes
+* graceful failure if The Events Calendar is not active
+
 #### 4.6.2 / 2017-01-20
 * added CSS selector to override Customizer month view 
 
