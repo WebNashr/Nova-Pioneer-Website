@@ -4,7 +4,7 @@
     @include flexbox();
     @include flex-direction(row);
     min-height: 50vh;
-    background-image: url('../img/large-hero-home.jpg');
+    background-image: url('../../img/large-hero-home.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -13,43 +13,43 @@
     justify-content: center;
 
     &.country-home{
-        background-image: url('../img/large-hero-country.jpg');
+        background-image: url('../../img/large-hero-country.jpg');
     }
 
     &.school-home{
-        background-image: url('../img/large-hero-school.jpg');
+        background-image: url('../../img/large-hero-school.jpg');
     }
 
     &.learning-home{
-        background-image: url('../img/large-hero-learning.jpg');
+        background-image: url('../../img/large-hero-learning.jpg');
     }
 
     &.leadership-team{
-        background-image: url('../img/large-hero-leadership.jpg');
+        background-image: url('../../img/large-hero-leadership.jpg');
     }
 
     &.working-at-np{
-        background-image: url('../img/large-hero-working-at-np.jpg');
+        background-image: url('../../img/large-hero-working-at-np.jpg');
     }
 
     &.about-np{
-        background-image: url('../img/large-hero-about-np.jpg');
+        background-image: url('../../img/large-hero-about-np.jpg');
     }
 
     &.admission-process-hero{
-        background-image: url('../img/large-hero-admission-process.jpg');
+        background-image: url('../../img/large-hero-admission-process.jpg');
     }
 
     &.contacts-hero{
-        background-image: url('../img/large-hero-contacts.jpg');
+        background-image: url('../../img/large-hero-contacts.jpg');
     }
 
     &.corporate-hero{
-        background-image: url('../img/large-hero-corporate.jpg');
+        background-image: url('../../img/large-hero-corporate.jpg');
     }
 
     &.events-hero{
-        background-image: url('../img/large-hero-events.jpg');
+        background-image: url('../../img/large-hero-events.jpg');
     }
 
 

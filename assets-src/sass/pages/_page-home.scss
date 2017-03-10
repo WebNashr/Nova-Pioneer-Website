@@ -12,10 +12,10 @@
     background-repeat: no-repeat;
 
     &.kenya {
-      background-image: url('../img/country-image-ke-wide.jpg');
+      background-image: url('../../img/country-image-ke-wide.jpg');
     }
     &.south-africa {
-      background-image: url('../img/country-image-sa-wide.jpg');
+      background-image: url('../../img/country-image-sa-wide.jpg');
       margin-top: -6rem;
 
       @include break-point(tablet) {
@@ -206,7 +206,7 @@
     align-items: center;
 
     &:before {
-        content:url('../img/sa-flag-round.png');
+        content:url('../../img/sa-flag-round.png');
         padding-right: 0;
         margin-bottom: 1rem;
         @include break-point(laptop) {
@@ -224,7 +224,7 @@
     align-items: center;
 
     &:before {
-        content:url('../img/kenya-flag-round.png');
+        content:url('../../img/kenya-flag-round.png');
         padding-right: 0;
         margin-bottom: 1rem;
         @include break-point(laptop) {
