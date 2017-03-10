@@ -123,7 +123,7 @@
 #slide3:checked ~ #controls label:nth-child(4),
 #slide4:checked ~ #controls label:nth-child(5),
 #slide5:checked ~ #controls label:nth-child(1) {
-	background: url('/wp-content/themes/novapioneer/img/next.png') no-repeat;
+	background: url('../img/next.png') no-repeat;
 	float: right;
 	margin: 0 10px 0 0;
 	display: inline;
@@ -139,7 +139,7 @@
 #slide3:checked ~ #controls label:nth-child(2),
 #slide4:checked ~ #controls label:nth-child(3),
 #slide5:checked ~ #controls label:nth-child(4) {
-	background: url('/wp-content/themes/novapioneer/img/prev.png') no-repeat;
+	background: url('../img/prev.png') no-repeat;
 	float: left;
 	margin: 0 0 0 17px;
 	display: inline;

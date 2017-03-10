@@ -9,7 +9,7 @@
 	height: 75vh;
 	// margin-top: 1.5rem;
 	//margin: 4rem 0;
-  background-image: url('/wp-content/themes/novapioneer/img/large-bgd-image.jpg');
+  background-image: url('../img/large-bgd-image.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -20,20 +20,20 @@
   align-items: flex-start;
 
     &.secondary-bgd-image {
-	    background-image: url('/wp-content/themes/novapioneer/img/large-bgd-secondary.jpg');
+	    background-image: url('../img/large-bgd-secondary.jpg');
 
     }
     &.primary-bgd-image {
-    	background-image: url('/wp-content/themes/novapioneer/img/large-bgd-primary.jpg');
+    	background-image: url('../img/large-bgd-primary.jpg');
     }
     &.preprimary-bgd-image {
-    	background-image: url('/wp-content/themes/novapioneer/img/large-bgd-preprimary.jpg');
+    	background-image: url('../img/large-bgd-preprimary.jpg');
     }
     &.working-at-np-bgd-image {
-    	background-image: url('/wp-content/themes/novapioneer/img/large-bgd-working-at-np.jpg');
+    	background-image: url('../img/large-bgd-working-at-np.jpg');
     }
     &.about-np-bgd-image {
-    	background-image: url('/wp-content/themes/novapioneer/img/large-bgd-about-np.jpg');
+    	background-image: url('../img/large-bgd-about-np.jpg');
     }
 
 

@@ -115,8 +115,8 @@
 	 	margin-right: 1.5rem;
 	}
 	a{
-		// background-image: url('/wp-content/themes/novapioneer/img/np-social-icons.png');
-    // background-image: url(/wp-content/themes/novapioneer/img/np-social-icons.svg), none;
+		// background-image: url('../img/np-social-icons.png');
+    // background-image: url(../img/np-social-icons.svg), none;
     // background-repeat: no-repeat;
     // display: block;
 		// min-width:25px;
@@ -132,7 +132,7 @@
 	.facebooks{
 	    //background-position: 0 0;
 			&:before {
-				background-image: url('/wp-content/themes/novapioneer/img/icons/facebook-icon.svg');
+				background-image: url('../img/icons/facebook-icon.svg');
 				background-repeat: no-repeat;
 			}
 
