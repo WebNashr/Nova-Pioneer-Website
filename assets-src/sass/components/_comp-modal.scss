@@ -8,7 +8,6 @@
     position: fixed;
     top: 50vh;
     left: 50vw;
-    width: 100vw;
     width: 0vw;
     height: 0vh;
     padding: 0;
@@ -16,6 +15,7 @@
     transition: $ease;
     opacity: 0;
 
+    .modal-menu,
     form {
         display: none;
     }
@@ -29,22 +29,39 @@
         background: $blue-dk;
         opacity: 1;
         z-index: 10;
+    }
+}
 
+
+.modal.modal-menu {
+    &.show {
+        .modal-menu {
+            display: block;
+            overflow-y: scroll;
+        }
+    }
+}
+
+
+.modal.modal-search {
+    &.show {
         form {
             display: block;
         }
     }
 }
 
+
 .modal-control {
-    width: 32px;
+    width: 24px;
     cursor: pointer;
     z-index: 9;
 
-    &.open {
+    &.open,
+    &.menu {
         align-self: center;
         margin-top: 0.25rem;
-        margin-left: 2rem;
+        margin-left: calc(#{$space-tiny} * 1);
 
         path {
             fill: $grey-md;
