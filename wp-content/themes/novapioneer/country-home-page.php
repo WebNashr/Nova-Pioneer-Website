@@ -308,7 +308,7 @@ $(document).ready(function() {
 
     });
     $('#hero-slider').slippry({
-        auto: false,
+        auto: true,
         speed: 600
     });
 
