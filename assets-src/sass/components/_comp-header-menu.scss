@@ -16,6 +16,7 @@
 		@include flexbox();
 		align-self: unset;
 		margin-left: 0;
+		// overflow-y: scroll;
 	}
 
 	@include break-point(laptop) {
@@ -42,6 +43,11 @@
     .page-header .menu > .menu-item:hover & {
 		@include flexbox();
 		opacity: 1;
+	}
+
+	.modal.modal-menu & {
+		@include flexbox();
+	        margin: 0.75rem 0 1rem;
 	}
 }
 
@@ -75,6 +81,10 @@
 	letter-spacing: 0.5px;
     transition: $ease;
 
+    .modal.modal-menu & {
+		@include font-size(20px);
+	}
+
 	a {
 		padding: 14px 0px 16px;
 		color: lighten($grey-mdk, 15%);
@@ -96,6 +106,10 @@
 		@include font-size(16px);
 		padding: 0;
 
+		.modal.modal-menu & {
+			@include font-size(16px);
+		}
+
 		&:before {
 		    font-size: unset;
 		    font-size: unset;
@@ -114,6 +128,10 @@
 		    @include line-height(1.25);
 		    display: block;
 			color: lighten($grey-mdk, 15%);
+
+			.modal.modal-menu & {
+			    padding: 6px 0;
+			}
 		}
 	}
 
