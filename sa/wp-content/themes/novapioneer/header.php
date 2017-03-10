@@ -335,14 +335,15 @@
                 <!-- we'll probably need to find a way to pick which country is selected -->
                 <div class="country-list">
                     <div class="country-list-container">
-                        <a href="<?php echo site_url('/sa'); ?>" class="button button-primary country-list-item country-list-selected">
-                            <span class="flag-icon flag-icon-za"></span>
-                            <span class="text">SA</span>
-                        </a>
 
-                        <a href="<?php echo site_url('/kenya'); ?>" class="button button-primary country-list-item country-list-option">
+                        <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="button button-primary country-list-item country-list-option">
                             <span class="flag-icon flag-icon-ke"></span>
                             <span class="text">KE</span>
+                        </a>
+
+                        <a href="<?php echo novap_get_baseurl(); ?>/sa" class="button button-primary country-list-item country-list-selected">
+                            <span class="flag-icon flag-icon-za"></span>
+                            <span class="text">SA</span>
                         </a>
                     </div>
                 </div>
