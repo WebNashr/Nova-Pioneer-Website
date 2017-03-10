@@ -15,7 +15,7 @@
     transition: $ease;
     opacity: 0;
 
-    .modal-menu,
+    .scroller-outer,
     form {
         display: none;
     }
@@ -25,7 +25,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        padding: calc(#{$space-tiny} * 4);
+        // padding: calc(#{$space-tiny} * 4);
         background: $blue-dk;
         opacity: 1;
         z-index: 10;
@@ -35,16 +35,33 @@
 
 .modal.modal-menu {
     &.show {
-        .modal-menu {
+        .scroller-outer {
             display: block;
-            overflow-y: scroll;
         }
     }
 }
 
 
+.scroller-outer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.scroller-inner {
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    padding: calc(#{$space-tiny} * 4) calc(calc(#{$space-tiny} * 1) + 20px);
+    overflow: auto;
+}
+
+
 .modal.modal-search {
     &.show {
+        // padding: calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 2);
+
         form {
             display: block;
         }
@@ -76,8 +93,13 @@
 
     &.close {
         position: fixed;
-        top: calc(#{$space-tiny} * 1.5);
+        top: calc(#{$space-tiny} * 1);
         right: calc(#{$space-tiny} * 1.5);
+
+        .modal.modal-menu & {
+            // top: calc(#{$space-tiny} * 1);
+            // right: calc(#{$space-tiny} * 1.5);
+        }
 
         path {
             fill: $grey-md;
@@ -89,6 +111,20 @@
             }
         }
     }
+
+    @include break-point(laptop) {
+        &.open-menu {
+            display: none;
+        }
+    }
 }
+
+
+
+.hfc-frame.hide {
+    left: -9999px;
+}
+
+
 
 

@@ -43,6 +43,7 @@ $(document).ready(function() {
         $(".open-search").click(function(){
             $(".modal").toggleClass("modal-search show");
             $("body").toggleClass("modal-open");
+            $("#hfc-frame").toggleClass("hfc-frame hide");
             console.log("03. a search modal box was just opened!");
             return false;
         });
@@ -55,6 +56,7 @@ $(document).ready(function() {
         $(".open-menu").click(function(){
             $(".modal").toggleClass("modal-menu show");
             $("body").toggleClass("modal-open");
+            $("#hfc-frame").toggleClass("hfc-frame hide");
             console.log("04. small screen menu was just opened!");
             return false;
         });
@@ -67,6 +69,7 @@ $(document).ready(function() {
         $(".modal-control.close").click(function(){
             $(".modal").removeClass("modal-menu modal-search show");
             $("body").toggleClass("modal-open");
+            $("#hfc-frame").toggleClass("hfc-frame hide");
             console.log("04. a modal box was just closed!");
             return false;
         });
