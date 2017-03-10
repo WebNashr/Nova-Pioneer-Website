@@ -35,28 +35,7 @@ get_header();?>
                 </div>
             </div>
 
-            <!-- <div class="page-navigation-container">
-              <div class="navigation-wrap">
-                <div class="section-title"><h3>Fees &amp; Tuition </h3></div>
-                  <div class="links-inner-wrap">
-                    <div class="section-content-item">
-                        <div class="anchor-link">
-                          <a href="#fees-table" class="" title="">Fees Per School</a>
-                        </div>
-                        <div class="link-separator">&nbsp;</div>
-                        <div class="anchor-link">
-                            <a href="#payment" class="" title="">How to make payment</a>
-                        </div>
-                        <div class="link-separator">&nbsp;</div>
-                        <div class="anchor-link">
-                             <a href="#faqs" class="" title="">FAQs</a>
-                        </div>
-                  </div>
-                </div>
-              </div>
-
-            </div> -->
-            <div class="section cta-container" style="padding-bottom:0;"><a href="#" class="button button-default button-primary" title="">Download The 2017 Fees Structure</a></div>
+            <div class="section cta-container" style="padding-bottom:0;"><a href="<?php echo get_field('combined_fees_structure'); ?>" class="button button-default button-primary" title="">Download <?php echo get_field('combined_fees_structure_title'); ?></a></div>
 
 
         </section>
