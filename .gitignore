@@ -7,6 +7,6 @@ site-config.php
 # Other Files and folders
 .idea/
 .vscode/
-assets/
-node_modules/
-bower_components/
+/assets/
+/node_modules/
+/bower_components/
