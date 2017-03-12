@@ -3,16 +3,24 @@
 /* ==================================================== */
 .full-width-image-container{
 	width: 100%;
-	height: 75vh;
-	background-color: $blue-dk;
+	height: 60vh;
+	background-color: $white;
 	padding-top: 0;
 	padding-bottom: 0;
+	position: relative;
+	background-position: center;
+	overflow: hidden;
+	figure {
+		position: relative;
+		// margin-bottom: -50%;
+	}
 }
 .full-width-image {
 	@include flexbox();
 	@include flex-wrap(nowrap);
 	width: 100%;
-	height: 75vh;
+	height: 100%;
+
 	// margin-top: 1.5rem;
 	//margin: 4rem 0;
   // background-image: url('../../img/large-bgd-image.jpg');
@@ -96,11 +104,12 @@
 
     }
 		&.parallax {
+			background-attachment: fixed;
 		//height: 75vh;
-    background-attachment: fixed;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-attachment: fixed;
+    // background-position: center top;
+    // background-repeat: no-repeat;
+    // background-size: cover;
 		// z-index: 5;
 		// width: 100%;
 		// height: 100%

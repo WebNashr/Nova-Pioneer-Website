@@ -2,21 +2,21 @@
 /*  Hero */
 /* ==================================================== */
 
-
 .section-hero {
     @include flexbox();
     @include flex-direction(row);
     // min-height: 80vh;
-    min-height: 100vh;
+    height: 100vh;
     // $$$ ### ^^^ margin-bottom: calc(#{$space-tiny} * 4);
     padding: 0;
-    background-color: $blue;
+    background-color: $white;
     // background-image: url('../../img/large-hero-home.jpg');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     justify-content: center;
     background-attachment: fixed;
+    position: relative;
     &.homepage {
       // min-height: 0;
       background-color: transparent;
@@ -163,7 +163,7 @@
     }
   }
   &.country-hero {
-  
+
   }
 
 	hr {
