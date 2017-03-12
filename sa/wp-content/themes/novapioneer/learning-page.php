@@ -125,18 +125,7 @@ get_header();?>
 <?php get_footer(); ?>
 
 <script>
-  (function($){
-      //Plugin activation
-      $(window).enllax();
-
-//            $('#some-id').enllax();
-
-//            $('selector').enllax({
-//                type: 'background', // 'foreground'
-//                ratio: 0.5,
-//                direction: 'vertical' // 'horizontal'
-//            });
-
-  })(jQuery);
-
-  </script>
+jQuery(document).ready(function($){
+  $(window).enllax();
+});
+</script>

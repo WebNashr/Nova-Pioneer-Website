@@ -16,7 +16,7 @@ get_header();?>
 
     ?>
 
-        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-enllax-ratio="0.3">
+        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -123,8 +123,18 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
-
 <script>
+jQuery(document).ready(function($){
+  $(window).enllax();
+});
+</script>
+
+<!-- <script>
+;(function($){
+     $(window).enllax();
+ })(jQuery);
+</script> -->
+<!-- <script>
   (function($){
       //Plugin activation
       $(window).enllax();
@@ -139,4 +149,4 @@ get_header();?>
 
   })(jQuery);
 
-  </script>
+  </script> -->
