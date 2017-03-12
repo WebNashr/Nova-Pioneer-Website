@@ -1,7 +1,13 @@
 
 /*  Aside */
 /* ==================================================== */
-
+.full-width-image-container{
+	width: 100%;
+	height: 75vh;
+	background-color: $blue-dk;
+	padding-top: 0;
+	padding-bottom: 0;
+}
 .full-width-image {
 	@include flexbox();
 	@include flex-wrap(nowrap);
@@ -9,7 +15,7 @@
 	height: 75vh;
 	// margin-top: 1.5rem;
 	//margin: 4rem 0;
-  background-image: url('../../img/large-bgd-image.jpg');
+  // background-image: url('../../img/large-bgd-image.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

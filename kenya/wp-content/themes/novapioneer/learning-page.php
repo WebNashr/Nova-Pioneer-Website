@@ -64,6 +64,7 @@ get_header();?>
 
         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
             <!-- <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span> -->
+            <section class="full-width-image-container">
             <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-type="background" data-speed="7">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
@@ -71,6 +72,7 @@ get_header();?>
                     </figcaption>
                 </div>
             </figure>
+            </section>
 
             <section class="education-stage">
                 <div class="section-title anchor-link">
