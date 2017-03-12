@@ -24,6 +24,7 @@ get_header();?>
             </div>
         </section>
 
+
         <div class="trigger"></div>
 
 
@@ -65,14 +66,14 @@ get_header();?>
         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
             <!-- <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span> -->
             <section class="full-width-image-container" data-enllax-type="foreground">
-            <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-type="background" data-speed="7">
+            <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-enllax-ratio="0.2" >
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo $stage->banner_image_caption; ?></p>
                     </figcaption>
                 </div>
             </figure>
-          </section>
+            </section>
 
             <section class="education-stage">
                 <div class="section-title anchor-link">
@@ -122,6 +123,7 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+
 <script>
   (function($){
       //Plugin activation
