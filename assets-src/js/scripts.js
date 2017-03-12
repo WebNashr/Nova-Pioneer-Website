@@ -2,23 +2,23 @@
 // start document.ready
 $(document).ready(function() {
 
-    // 01. 
+    // 01.
 
 
 
-    // 02. 
+    // 02.
 
 
 
-    // 03. 
+    // 03.
 
 
 
-    // 04. 
+    // 04.
 
 
 
-    // 05. 
+    // 05.
 
 
 
@@ -186,6 +186,10 @@ $(document).keydown(function(e) {
 });
 
 
+// parallax effect
+$(function() {
+    $(window).enllax();
+});
 
 
 

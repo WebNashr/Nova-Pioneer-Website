@@ -123,9 +123,3 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
-
-<script>
-;(function($){
-     $(window).enllax();
- })(jQuery);
-</script>

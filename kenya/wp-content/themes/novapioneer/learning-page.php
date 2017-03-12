@@ -124,11 +124,6 @@ get_header();?>
 
 <?php get_footer(); ?>
 
-<script>
-;(function($){
-     $(window).enllax();
- })(jQuery);
-</script>
 <!-- <script>
   (function($){
       //Plugin activation
