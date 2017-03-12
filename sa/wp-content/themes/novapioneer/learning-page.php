@@ -125,7 +125,7 @@ get_header();?>
 <?php get_footer(); ?>
 
 <script>
-jQuery(document).ready(function($){
-  $(window).enllax();
-});
+;(function($){
+     $(window).enllax();
+ })(jQuery);
 </script>

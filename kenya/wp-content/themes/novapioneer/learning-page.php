@@ -123,17 +123,12 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
-<script>
-jQuery(document).ready(function($){
-  $(window).enllax();
-});
-</script>
 
-<!-- <script>
+<script>
 ;(function($){
      $(window).enllax();
  })(jQuery);
-</script> -->
+</script>
 <!-- <script>
   (function($){
       //Plugin activation
