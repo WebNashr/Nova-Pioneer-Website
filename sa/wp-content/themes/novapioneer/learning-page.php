@@ -16,7 +16,7 @@ get_header();?>
 
     ?>
 
-        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-type="background" data-speed="4">
+        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-enllax-ratio="0.3">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -64,6 +64,7 @@ get_header();?>
 
         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
             <!-- <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span> -->
+            <section class="full-width-image-container" data-enllax-type="foreground">
             <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-type="background" data-speed="7">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
@@ -71,6 +72,7 @@ get_header();?>
                     </figcaption>
                 </div>
             </figure>
+          </section>
 
             <section class="education-stage">
                 <div class="section-title anchor-link">
@@ -120,3 +122,19 @@ get_header();?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+<script>
+  (function($){
+      //Plugin activation
+      $(window).enllax();
+
+//            $('#some-id').enllax();
+
+//            $('selector').enllax({
+//                type: 'background', // 'foreground'
+//                ratio: 0.5,
+//                direction: 'vertical' // 'horizontal'
+//            });
+
+  })(jQuery);
+
+  </script>
