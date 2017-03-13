@@ -39,7 +39,7 @@ get_header(); ?>
                 <div class="section-school-list-select">
 
                     <p class="school-photo"><a href=""><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
-                    <h3><a href=""><?php echo $school->post_title; ?></a></h3>
+                    <h3><a href="<?php echo get_permalink($school->ID); ?>"><?php echo $school->post_title; ?></a></h3>
                     <div class="school-summary">
                     <p><?php echo get_field('school_gender', $school->ID); ?></p>
                     <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
@@ -95,7 +95,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Learning at Nova Pioneer</h2>
-                <a href="<?php echo site_url('/learning'); ?>" class="button button-small button-primary" title="">Learn More</a>
+                <a href="<?php echo site_url('/our-approach'); ?>" class="button button-small button-primary" title="">Learn More</a>
             </div>
 
             <div class="section-content">
@@ -169,7 +169,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Global Leadership Team</h2>
-                <a href="<?php echo site_url('/global-leadership-team'); ?>" class="button button-small button-primary" title="">Meet the team</a>
+                <a href="<?php echo site_url('/global-leadership/'); ?>" class="button button-small button-primary" title="">Meet the team</a>
             </div>
 
             <div class="section-content">
