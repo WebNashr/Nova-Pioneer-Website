@@ -39,7 +39,7 @@ get_header(); ?>
                 <div class="section-school-list-select">
 
                     <p class="school-photo"><a href=""><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
-                    <h3><a href=""><?php echo $school->post_title; ?></a></h3>
+                    <h3><a href="<?php echo get_permalink($school->ID); ?>"><?php echo $school->post_title; ?></a></h3>
                     <div class="school-summary">
                     <p><?php echo get_field('school_gender', $school->ID); ?></p>
                     <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
@@ -95,7 +95,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Learning at Nova Pioneer</h2>
-                <a href="<?php echo site_url('/learning'); ?>" class="button button-small button-primary" title="">Learn More</a>
+                <a href="<?php echo site_url('/our-approach'); ?>" class="button button-small button-primary" title="">Learn More</a>
             </div>
 
             <div class="section-content">
@@ -127,7 +127,7 @@ get_header(); ?>
 
         <aside >
             <!-- <figure class="full-width-image parallax"> -->
-              <figure class="full-width-image parallax" data-type="background" data-speed="7">
+              <figure class="full-width-image parallax" data-type="background" data-speed="7" style="background-image:url('<?php the_field('below_learning_hero_image')?>');">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p>We are developing generations of innovators and leaders who will shape the African Century.<a href="<?php echo site_url('/learning/'); ?>" class="" >Learn More</a> </p>
@@ -169,7 +169,7 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Global Leadership Team</h2>
-                <a href="<?php echo site_url('/global-leadership-team'); ?>" class="button button-small button-primary" title="">Meet the team</a>
+                <a href="<?php echo site_url('/global-leadership/'); ?>" class="button button-small button-primary" title="">Meet the team</a>
             </div>
 
             <div class="section-content">
@@ -191,7 +191,7 @@ get_header(); ?>
               <div class="large-notice-container">
                   <div class="large-notice">
                       <div class="notice-content">
-                        <h1>Learn About Our Admission Process</h1>
+                        <h1><?php echo get_field('admin_process_title'); ?></h1>
                           <?php echo get_field('admission_call_to_action'); ?>
                           <p class="call-to-action"><a href="<?php echo site_url('/apply-online')?>" class="button button-tiny button-secondary" >Apply Now</a></p>
                       </div>
