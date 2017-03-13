@@ -41,11 +41,10 @@ get_header();?>
                         </div>
 
                         <?php foreach( get_field('annual_reports') as $report ): $report = (object)$report; ?>
-                        <!-- client requests we disable this until they are in a position to publish documents -->
-                        <!-- <div class="downloads">
+                       <div class="downloads">
                             <h4><?php echo $report->title; ?></h4>
                             <a download="<?php echo $report->title; ?>" href="<?php echo $report->file; ?>" class="button button-tiny button-secondary">Download PDF</a>
-                        </div> -->
+                        </div>
                         <?php endforeach; ?>
                     </aside>
 
