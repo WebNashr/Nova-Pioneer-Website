@@ -66,7 +66,7 @@ get_header(); ?>
                         <div class="notice-content">
                             <h1>Learn About Our Admission Process</h1>
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="#" class="button button-small button-secondary">Apply
+                            <p class="call-to-action"><a href="<?php echo site_url('/apply-online')?>" class="button button-small button-secondary">Apply
                                     Now</a></p>
                         </div>
                     </div>
