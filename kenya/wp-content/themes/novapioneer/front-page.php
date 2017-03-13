@@ -300,30 +300,49 @@ $(document).ready(function() {
     });
     $('#hero-slider').slippry({
         auto: true,
-        speed: 600
+        speed: 3000,
     });
 
+    function startWayPoint() {
+        $(function () {
 
-    $(function() {
 
-        var inview = new Waypoint.Inview({
-            element: $('.hero-title'),
-            entered: function() {
-                $(this.element).addClass('animated bounceInLeft');
-                // this.destroy();
-            }
+            var inview1 = new Waypoint.Inview({
+                element: $('.hero-title'),
+                entered: function () {
+                    $(this.element).addClass('animated bounceInLeft');
+                    console.log('animated one');
+
+                }
+            });
+
+            var inview2 = new Waypoint.Inview({
+                element: $('.hero-subtitle'),
+                entered: function () {
+                    $(this.element).addClass('animated bounceInRight');
+                    console.log('animated two')
+
+                }
+            });
+            console.log("12. Animated Country Hero titles");
+            inview1.destroy()
+            inview2.destroy()
+            console.log('destroyed all');
+
         });
+    }
 
-        var inview = new Waypoint.Inview({
-            element: $('.hero-subtitle'),
+    $('.sy-controls a').click(function () {
+        if ($('.hero-title').hasClass('animated') || $('.hero-title').hasClass('bounceInLeft')) {
+            $('.hero-title').removeClass('animated bounceInLeft');
+            console.log('class removed 1')
+        }
+        if ($('.hero-subtitle').hasClass('animated') || $('.hero-subtitle').hasClass('bounceInRight')) {
+            $('.hero-subtitle').removeClass('animated bounceInRight');
 
-            entered: function() {
-                $(this.element).addClass('animated bounceInRight');
-                // this.destroy();
-            }
-        });
-        console.log("12. Animated Country Hero titles");
-    });
-
+        }
+        startWayPoint()
+    })
+    startWayPoint()
 });
 </script>
