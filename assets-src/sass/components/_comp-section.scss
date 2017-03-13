@@ -1230,7 +1230,8 @@
 		&:hover {
 			.facebook-icon,
 			.twitter-icon,
-			.linkedin-icon {
+			.linkedin-icon,
+			.instagram-icon {
 				opacity: 1;
 			}
 		}
@@ -1262,6 +1263,10 @@
 		&.linkedin-icon{
 			opacity: 0.9;
 			background-image: url(../../img/icons/linkedin-icon.svg);
+		}
+		&.instagram-icon{
+			opacity: 0.9;
+			background-image: url(../../img/icons/instagram-icon.svg);
 		}
 	}
 }
