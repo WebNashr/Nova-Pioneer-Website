@@ -127,7 +127,7 @@ get_header(); ?>
 
         <aside >
             <!-- <figure class="full-width-image parallax"> -->
-              <figure class="full-width-image parallax" data-type="background" data-speed="7">
+              <figure class="full-width-image parallax" data-type="background" data-speed="7" style="background-image:url('<?php the_field('below_learning_hero_image')?>');">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p>We are developing generations of innovators and leaders who will shape the African Century.<a href="<?php echo site_url('/learning/'); ?>" class="" >Learn More</a> </p>
@@ -191,7 +191,7 @@ get_header(); ?>
                 <div class="large-notice-container">
                     <div class="large-notice">
                         <div class="notice-content">
-                          <h1>Learn About Our Admission Process</h1>
+                          <h1><?php echo get_field('admin_process_title'); ?></h1>
                             <?php echo get_field('admission_call_to_action'); ?>
                             <p class="call-to-action"><a href="<?php echo site_url('/apply-online')?>" class="button button-tiny button-secondary" >Apply Now</a></p>
                         </div>
