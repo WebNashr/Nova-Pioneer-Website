@@ -187,21 +187,43 @@ get_header(); ?>
         </section>
 
         <section class="section even-section">
-                <div class="general-notices-container">
-                <div class="large-notice-container">
-                    <div class="large-notice">
-                        <div class="notice-content">
-                            <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process')?>" class="button button-tiny button-secondary" >Apply Now</a></p>
-                        </div>
-                    </div>
-                </div>
+            <div class="general-notices-container">
+              <div class="large-notice-container">
+                  <div class="large-notice">
+                      <div class="notice-content">
+                        <h1>Learn About Our Admission Process</h1>
+                          <?php echo get_field('admission_call_to_action'); ?>
+                          <p class="call-to-action"><a href="<?php echo site_url('/admission-process')?>" class="button button-tiny button-secondary" >Apply Now</a></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="small-notice-container"><?php
+                  $taxonomies = wp_get_post_terms(get_the_ID(), 'school', array("fields" => "all"));
+                  foreach ($taxonomies as $tax) {
+                      $taxies[] = $tax->slug;
+                  }
+                  ?>
 
-                <div class="small-notice-container">
-                    <?php echo get_nova_events();?>
-                </div>
+                  <?php echo get_nova_events($taxies); ?>
 
+                  <div class="small-notice">
+                      <h4>Download Our Fees Structure</h4>
+                      <p>PDF document</p>
+                      <a download href="<?php echo get_field('fees_structure'); ?>"
+                         class="button button-small button-secondary">Download</a>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="small-notice">
+                    <h4>Our Calendar</h4>
+                    <p><?php echo date('F Y'); ?> School Events</p>
+                    <a href="<?php echo site_url('/calendar'); ?>" class="button button-small button-secondary" target="_blank">Calendar</a>
                 </div>
+              </div>
+            <!-- <div class="small-notice-container">
+                <?php echo get_nova_events();?>
+            </div> -->
+
+          </div>
         </section>
 
         <aside>

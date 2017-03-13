@@ -7,7 +7,7 @@ get_header();?>
 
 <?php if( have_posts() ): ?>
     <?php while( have_posts() ): the_post(); ?>
-        <section class="section section-hero working-at-np" <?php echo set_post_new_bg()?> data-type="background" data-speed="4">
+        <section class="section section-hero working-at-np" <?php echo set_post_new_bg()?> data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -26,14 +26,17 @@ get_header();?>
             </article>
         </section>
 
-        <figure class="full-width-image working-at-np-bgd-image parallax" style="background-image: url(<?php echo get_field('banner_image'); ?>);" data-type="background" data-speed="7">
-            <div class="section-content full-image-caption animated caption">
-                <figcaption>
-                    <?php echo get_field('banner_text'); ?>
-                    <a href="<?php echo site_url('/careers'); ?>" >Learn More</a>
-                </figcaption>
-            </div>
-        </figure>
+
+        <section class="full-width-image-container" data-enllax-type="foreground">
+          <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('banner_image'); ?>);" data-enllax-ratio="0.2">
+              <div class="section-content full-image-caption animated caption">
+                  <figcaption>
+                      <?php echo get_field('banner_text'); ?>
+                      <a href="<?php echo site_url('/careers'); ?>" >Learn More</a>
+                  </figcaption>
+              </div>
+          </figure>
+        </section>
 
         <section class="section">
             <article class="article article-inner article-inner-alt">
