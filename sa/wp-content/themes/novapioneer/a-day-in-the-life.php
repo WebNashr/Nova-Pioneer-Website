@@ -48,7 +48,7 @@ get_header(); ?>
 
                                         </div>
                                         <div class="timeline-content right">
-                                            <h2><?php the_title() ?></h2>
+                                            <h2><?php the_field('activity_title')?></h2>
                                             <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
                                             <p>
                                                 <?php the_content(); ?>
