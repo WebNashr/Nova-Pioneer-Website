@@ -22,8 +22,11 @@ get_header(); ?>
                         <div id="timeline">
                             <?php $i = 0;
                             $query = new WP_Query(array('post_type' => 'a_day_in_the_life',
-                            'order' => 'ASC',
-                                'posts_per_page' => -1));
+                                'order' => 'ASC',
+                                'orderby' => 'ID',
+                                'posts_per_page' => -1,
+                                'meta_key' => 'school',
+                                'meta_value' => get_field('school')));
                             if ($query->have_posts()) :
                                 while ($query->have_posts()) : $query->the_post();
                                     if (isEven($i)):?>
