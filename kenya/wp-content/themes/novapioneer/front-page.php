@@ -38,7 +38,7 @@ get_header(); ?>
             <?php foreach($schools as $school): $school = (object)$school; ?>
                 <div class="section-school-list-select">
 
-                    <p class="school-photo"><a href=""><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
+                    <p class="school-photo"><a href="<?php echo get_permalink($school->ID); ?>"><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
                     <h3><a href="<?php echo get_permalink($school->ID); ?>"><?php echo $school->post_title; ?></a></h3>
                     <div class="school-summary">
                     <p><?php echo get_field('school_gender', $school->ID); ?></p>
