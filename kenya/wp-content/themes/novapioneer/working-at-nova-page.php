@@ -63,7 +63,7 @@ get_header();?>
                     <?php endforeach; ?> -->
 
                     <div class="button-container">
-                        <a href="<?php echo site_url('/careers/'); ?>" class="button button-default button-primary" title="">View Open Positions</a>
+                        <a href="<?php echo site_url('/open-positions/'); ?>" class="button button-default button-primary" title="">View Open Positions</a>
                     </div>
                 </div>
             </article>
