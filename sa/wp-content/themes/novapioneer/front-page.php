@@ -125,16 +125,27 @@ get_header(); ?>
             </div>
         </section>
 
-        <aside >
+        <!-- <section class="full-width-image-container" data-enllax-type="foreground">
+        <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-enllax-ratio="0.2" >
+            <div class="section-content full-image-caption animated caption">
+                <figcaption>
+                    <p><?php echo $stage->banner_image_caption; ?></p>
+                </figcaption>
+            </div>
+        </figure>
+        </section> -->
+
+
+        <section class="full-width-image-container" data-enllax-type="foreground">
             <!-- <figure class="full-width-image parallax"> -->
-              <figure class="full-width-image parallax" data-type="background" data-speed="7" style="background-image:url('<?php the_field('below_learning_hero_image')?>');">
+              <figure class="full-width-image parallax" style="background-image:url('<?php the_field('below_learning_hero_image')?>');" data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p>We are developing generations of innovators and leaders who will shape the African Century.<a href="<?php echo site_url('/learning/'); ?>" class="" >Learn More</a> </p>
                     </figcaption>
                 </div>
             </figure>
-        </aside>
+        </section>
 
         <div class="full-width-container" style="margin-bottom:0;">
             <section class="section section-pair">
