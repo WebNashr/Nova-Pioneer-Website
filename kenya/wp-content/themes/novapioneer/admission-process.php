@@ -10,7 +10,7 @@ get_header(); ?>
 
     <?php while( have_posts() ): the_post(); ?>
 
-        <section class="section section-hero admission-process-hero" <?php echo set_post_new_bg()?> data-type="background" data-speed="4">
+        <section class="section section-hero admission-process-hero" <?php echo set_post_new_bg()?> data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>

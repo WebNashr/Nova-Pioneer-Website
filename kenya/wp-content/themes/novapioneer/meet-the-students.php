@@ -16,7 +16,7 @@ get_header(); ?>
 
     <?php while (have_posts()): the_post(); ?>
 
-            <section class="section section-hero corporate-hero" data-type="background" data-speed="4">
+            <section class="section section-hero corporate-hero" data-enllax-ratio="0.1">
                 <div class="container hero-container">
                     <div class="main-callout-box">
                         <hr>
@@ -91,7 +91,10 @@ get_header(); ?>
                 </div>
             </section>
 
-            <figure class="full-width-image secondary-bgd-image parallax" data-type="background" data-speed="7">
+            
+
+            <section class="full-width-image-container" data-enllax-type="foreground">
+            <figure class="full-width-image secondary-bgd-image parallax" data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p>Writing, painting, singing, sculpting and many more are all languages through which children can express themselves.</p>
@@ -99,7 +102,7 @@ get_header(); ?>
                 </div>
                 <span class="anchor-link" id="preprimary"></span>
             </figure>
-
+            </section>
 
 
             <span class="anchor-link"></span>
