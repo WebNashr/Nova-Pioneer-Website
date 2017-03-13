@@ -313,8 +313,8 @@ get_header(); ?>
 
         });
         $('#hero-slider').slippry({
-            auto: true,
-            speed: 600
+            auto: false,
+            speed: 600,
         });
 
         function startWayPoint() {
