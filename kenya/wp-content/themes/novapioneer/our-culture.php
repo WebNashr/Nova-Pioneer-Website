@@ -18,7 +18,7 @@ get_header(); ?>
 
         <div class="trigger"></div>
 
-        <section class="section even-section">
+        <section class="section">
             <article class="article article-inner article-inner-alt">
                 <h2 class="centered-title">School &amp; Organisation Culture</h2>
                 <?php echo get_field('our_culture'); ?>
