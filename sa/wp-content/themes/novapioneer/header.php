@@ -63,6 +63,21 @@
 
         <!-- page-header -->
         <header class="page-header <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>"  id="header-container">
+            <section class="header-section header-section-countries">
+                <!-- we'll probably need to find a way to pick which country is selected -->
+                <!--<span class="country country-choose">Choose country</span>-->
+
+                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country">
+                    <span class="flag-icon flag-icon-ke"></span>
+                    <span class="text">Kenya</span>
+                </a>
+
+                <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-chosen">
+                    <span class="flag-icon flag-icon-za"></span>
+                    <span class="text">South Africa</span>
+                </a>
+            </section>
+            
             <section class="header-section header-section-main">
                 <a href="<?php echo home_url(); ?>" class="logo header-logo">
                     <!-- mark and text -->
@@ -332,7 +347,7 @@
                 
 
                 <!-- we'll probably need to find a way to pick which country is selected -->
-                <div class="country-list">
+                <!--<div class="country-list">
                     <div class="country-list-container">
 
                         <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="button button-primary country-list-item country-list-option">
@@ -345,7 +360,7 @@
                             <span class="text">SA</span>
                         </a>
                     </div>
-                </div>
+                </div>-->
 
 
                 <!-- open search form -->

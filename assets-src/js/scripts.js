@@ -2,34 +2,14 @@
 // start document.ready
 $(document).ready(function() {
 
-    // 01.
-
-
-
-    // 02.
-
-
-
-    // 03.
-
-
-
-    // 04.
-
-
-
-    // 05.
-
-
-
-    // 04. kill level 1 menu links
+    // 01. kill level 1 menu links
     $(".menu > .menu-item > a").attr('href', '#');
     $(".menu > .menu-item > a").attr('onClick', 'return false');
     console.log("01. level 1 menu links killed. them and some well-deserving kittens!");
 
 
 
-    // 05. keep the level 1 menu link style while hovering on its sub-menu
+    // 02. keep the level 1 menu link style while hovering on its sub-menu
     $(".sub-menu").hover(function(){
         $(this).prev("a").toggleClass("sub-menu-hovered");
         console.log("02. a sub-menu was just opened!");
@@ -51,7 +31,7 @@ $(document).ready(function() {
 
 
 
-    // 03. menu "modal" box control
+    // 04. menu "modal" box control
     $(function() {
         $(".open-menu").click(function(){
             $(".modal").toggleClass("modal-menu show");
@@ -64,13 +44,13 @@ $(document).ready(function() {
 
 
 
-    // 03. close "modal" box
+    // 05. close "modal" box
     $(function() {
         $(".modal-control.close").click(function(){
             $(".modal").removeClass("modal-menu modal-search show");
             $("body").toggleClass("modal-open");
             $("#hfc-frame").toggleClass("hfc-frame hide");
-            console.log("04. a modal box was just closed!");
+            console.log("05. a modal box was just closed!");
             return false;
         });
     });
@@ -79,7 +59,7 @@ $(document).ready(function() {
     // 06. faqs
     $(".toggle-list li").click(function(){
         $(this).toggleClass("show");
-        console.log("06. faqs");
+        console.log("06. an faqs item was just opened... or closed ;)");
         return false;
     });
 
@@ -88,7 +68,7 @@ $(document).ready(function() {
     $(function() {
         var headerHeight = $('.page-header').outerHeight();
         $('.trigger-offset').css("margin-top", parseInt(headerHeight) + "px");
-        console.log("07. trigger offset");
+        console.log("07. trigger offset for Waypoints");
     });
 
 
@@ -98,7 +78,6 @@ $(document).ready(function() {
             $('.header-section-main').addClass('stuck');
             $('.menu-item-main').addClass('stuck');
             $('.header-logo').addClass('stuck');
-            // $('.school-name').addClass('stuck');
             $('.page-header').addClass('stuck');
             console.log("08. sticky header - unstuck");
         }
@@ -106,7 +85,6 @@ $(document).ready(function() {
             $('.header-section-main').removeClass('stuck');
             $('.menu-item-main').removeClass('stuck');
             $('.header-logo').removeClass('stuck');
-            // $('.school-name').removeClass('stuck');
             $('.page-header').removeClass('stuck');
             console.log("08. sticky header - stuck");
         }
@@ -180,8 +158,8 @@ $(function() {
 $(document).keydown(function(e) {
     if (e.keyCode == 27) {
         $(".modal").toggleClass("show");
-        // $(".modal-control").toggleClass("show");
         $("body").toggleClass("modal-open");
+        console.log("128. you pressed ESC to close whatever modal you had open");
     }
 });
 
