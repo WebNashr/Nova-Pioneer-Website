@@ -511,3 +511,78 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     transition: padding 600ms ease;
   }
 }
+.school-gallery {
+  height: 100%;
+  .sy-caption-wrap {
+    position: relative;
+    // bottom: 2em;
+    // bottom: 50%;
+    z-index: 3;
+    .sy-caption {
+      // position: absolute;
+      // top: -25em;
+      width: 16%;
+      height: auto;
+      top: 2rem;
+      left: 3.5rem;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.54);
+      // background: rgba(30, 63, 117, 0.9);
+      color: #fff;
+      @extend %column;
+	  	// @extend %column-3;
+
+			// opacity: 0.54;
+		 	text-align: left;
+		 	padding: calc(#{$space-tiny} * 1);
+      @include font-size(16px);
+      // @include copy(bold);
+      // padding: 0.4em 1em;
+      // padding: calc(1rem * 1);
+      padding: 2rem;
+      a {
+        &:link, &:visited {
+          color: $color_high;
+          font-weight: 600;
+          text-decoration: none;
+        }
+        &:hover, &:focus {
+          text-decoration: underline;
+        }
+      }
+      @include break-point(tablet) {
+  			// top: -15em;
+        // left: 45%;
+  		}
+      @include break-point(laptop) {
+  			// top: -25em;
+        // left: 45%;
+  		}
+      @media only (min-width: 1366px) and (max-width: 1440px) {
+    			// top: -23em;
+    	}
+      @include break-point(desktop) {
+  			// top: -26em;
+  		}
+      @media screen
+        and (min-device-width: 1920px)
+        and (max-device-width: 2560px) {
+          // top: -63rem;
+      }
+
+    }
+  }
+  .sy-controls {
+    @include break-point(tablet) {
+      height: 90%;
+    }
+    @include break-point(laptop) {
+      height: 60%;
+    }
+    // @media screen
+  	// 	and (min-device-width: 1920px)
+  	// 	and (max-device-width: 2560px) {
+  	// 		height: 30%;
+  	// }
+  }
+}

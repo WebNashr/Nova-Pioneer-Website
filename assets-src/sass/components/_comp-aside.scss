@@ -57,8 +57,10 @@
 	  	//flex-basis: 21%;
 	  	@extend %column;
 	  	@extend %column-3;
-	  	background: $dark-blue;
-			opacity: 0.9;
+	  	// background: $dark-blue;
+			// background: $blue-dk;
+			background: rgba(30, 63, 117, 0.9);
+			// opacity: 0.9;
 		 	text-align: left;
 		 	padding: calc(#{$space-tiny} * 1);
 			// 	padding-top: calc(#{$space-tiny} * 1.5);
