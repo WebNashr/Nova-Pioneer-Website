@@ -11,6 +11,7 @@
         <meta name="viewport" content="; initial-scale=1.0; maximum-scale=1.0;">
         <meta name="description" content="Nova Pioneer Academies">
         <meta http-equiv="cleartype" content="on">
+        <title>NovaPioneer Academies</title>
 
         <!-- site css -->
         <link rel="stylesheet" media="all" type="text/css" href="/assets/css/main.min.css" />
