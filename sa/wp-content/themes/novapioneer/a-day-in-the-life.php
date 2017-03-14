@@ -26,7 +26,7 @@ get_header(); ?>
                             'orderby' => 'ID',
                             'posts_per_page' => -1,
                             'meta_key' => 'school',
-                            'meta_value' => get_field('school')));
+                            'meta_value' => get_the_ID()));
                         if ($query->have_posts()) :
                             while ($query->have_posts()) : $query->the_post();
                                 if (isEven($i)):?>
@@ -34,7 +34,7 @@ get_header(); ?>
                                         <div class="timeline-icon">
                                         </div>
                                         <div class="timeline-content">
-                                            <h2><?php the_field('activity_title')?></h2>
+                                            <h2><?php the_field('activity_title') ?></h2>
                                             <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
                                             <p>
                                                 <?php the_content(); ?>
@@ -48,7 +48,7 @@ get_header(); ?>
 
                                         </div>
                                         <div class="timeline-content right">
-                                            <h2><?php the_field('activity_title')?></h2>
+                                            <h2><?php the_field('activity_title') ?></h2>
                                             <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
                                             <p>
                                                 <?php the_content(); ?>

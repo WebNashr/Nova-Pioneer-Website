@@ -26,7 +26,7 @@ get_header(); ?>
                                 'orderby' => 'ID',
                                 'posts_per_page' => -1,
                                 'meta_key' => 'school',
-                                'meta_value' => get_field('school')));
+                                'meta_value' => get_the_ID()));
                             if ($query->have_posts()) :
                                 while ($query->have_posts()) : $query->the_post();
                                     if (isEven($i)):?>
