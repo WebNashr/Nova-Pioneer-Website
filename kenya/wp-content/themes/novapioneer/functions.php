@@ -12,9 +12,9 @@ function novap_get_baseurl()
 {
     if (defined('NOVAP_BASE_URL')) {
         return NOVAP_BASE_URL;
-    }else {
+    } else {
         throw new Exception('NOVAP_BASE_URL must be defined!');
-    }  
+    }
 }
 
 function novap_setup()
@@ -65,9 +65,10 @@ function novap_setup_widgets()
 {
     register_sidebar(array(
         'name' => 'Main Footer',
-        'id'   => 'main-footer'
+        'id' => 'main-footer'
     ));
 }
+
 add_action('widgets_init', 'novap_setup_widgets');
 
 function novap_menus()
@@ -231,7 +232,7 @@ function novap_add_event_rsvp()
 {
     $data = (object)$_REQUEST;
 
-    if ( isset($data->rsvp_name) && isset($data->rsvp_email) && isset($data->rsvp_attendance) && isset($data->rsvp_guests) && isset($data->event_id) ) {
+    if (isset($data->rsvp_name) && isset($data->rsvp_email) && isset($data->rsvp_attendance) && isset($data->rsvp_guests) && isset($data->event_id)) {
 
         $rsvp = array(
             'name' => sanitize_text_field($data->rsvp_name),
@@ -248,16 +249,14 @@ function novap_add_event_rsvp()
         endif;
     }
 
-    if( wp_get_referer() )
-    {
-        wp_safe_redirect( wp_get_referer() );
-    }
-    else
-    {
-        wp_safe_redirect( get_home_uri() );
+    if (wp_get_referer()) {
+        wp_safe_redirect(wp_get_referer());
+    } else {
+        wp_safe_redirect(get_home_uri());
     }
 
 }
+
 add_action('admin_post_event-rsvp', 'novap_add_event_rsvp'); // If the user is logged in
 add_action('admin_post_nopriv_event-rsvp', 'novap_add_event_rsvp'); // If the user in not logged in
 
@@ -361,11 +360,11 @@ function novap_download_file($fullpath)
 function novap_enqueue_assets()
 {
 
-    if( !is_admin() ){
+    if (!is_admin()) {
         // We have our own jquery so no need of using the default jquery unless we're in the admin dashboard
         wp_deregister_script('jquery');
         wp_register_script('jquery', novap_get_baseurl() . '/bower_components/jquery/dist/jquery.min.js', array(), '1.0.0', false);
-        wp_enqueue_script('jquery'); 
+        wp_enqueue_script('jquery');
     }
     /** STYLES **/
     wp_register_style('novapioneer_styles', novap_get_baseurl() . '/assets/css/main.min.css', '1.0.0', 'all');
@@ -534,13 +533,24 @@ function get_nova_events($taxonomies = false)
             $organizers = tribe_get_organizer_ids(get_the_ID());
             $html .= '<div class="small-notice" id="rsvp-node">';
             $html .= '  <h1>' . get_the_title() . '</h1>';
-            $html .= '    <h2>'.tribe_get_start_date().'</h2>';
+            $html .= '    <h2>' . tribe_get_start_date() . '</h2>';
             $html .= '      <p>' . $event_address . '</p>';
-            $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary button-send-rsvp" data-event-name="'. get_the_title() .'" data-event-organisers="'.implode(', ', $organizers).'" data-event-date="'.tribe_get_start_date().'" data-event-location="'.$event_address.'" data-event-id="'. get_the_ID() .'">Send an RSVP</a>';
+            $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary button-send-rsvp" data-event-name="' . get_the_title() . '" data-event-organisers="' . implode(', ', $organizers) . '" data-event-date="' . tribe_get_start_date() . '" data-event-location="' . $event_address . '" data-event-id="' . get_the_ID() . '">Send an RSVP</a>';
             $html .= ' </div>';
         }
         wp_reset_postdata();
     }
 
     return $html;
+}
+
+function isSegmentScrollable()
+{
+    $segments = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
+
+    if (array_key_exists(3, $segments)) {
+        return true;
+    }
+    return false;
+
 }
