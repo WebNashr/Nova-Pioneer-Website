@@ -167,7 +167,7 @@ get_header(); ?>
                                 <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                             </svg>
                             <?php echo $vid_caption; ?>
-                            <p><cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?></cite></p>
+                          <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?></cite>
                         </blockquote>
                     </div>
                 </div>
