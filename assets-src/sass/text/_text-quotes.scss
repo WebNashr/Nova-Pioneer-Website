@@ -201,9 +201,18 @@
 			}
 		}
 
+
 		blockquote:before {
 			@include font-size(70px);
 			top: -30px;
+		}
+		&.article-quote {
+			margin-top: 0;
+			padding-top: calc(#{$space-tiny} * 2) !important;
+			padding-bottom: calc(#{$space-tiny} * 1) !important;
+			cite {
+				margin-top: 0;
+			}
 		}
 	}
 
@@ -267,10 +276,16 @@
 		font-style: normal;
 		display: block;
 		padding-top: calc(#{$space-tiny} * 1);
-		padding-left: calc(#{$space-tiny} * 1.5);
+		padding-left: calc(#{$space-tiny} * 3);
 
 		span {
 			// @include copy(bold);
+			strong {
+				@include copy(bold);
+			}
+		}
+		&.school-page-quote {
+			padding-left: calc(#{$space-tiny} * 1.5);
 		}
 
 		&:before {

@@ -99,14 +99,16 @@ get_header();?>
                         }
                     ?>
 
-                    <blockquote>
-                        <!-- <svg aria-hidden="true">
-                            <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                        </svg> -->
-                        <?php echo $vid_caption; ?>
-                        <!-- <hr> -->
-                        <span><?php echo $speaker; ?>, <?php echo $speaker_title; ?></span>
-                    </blockquote>
+                    <div class="testimonial pull-quote article-quote">
+                      <blockquote>
+                          <svg aria-hidden="true">
+                              <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                          </svg>
+                          <?php echo $vid_caption; ?>
+                          <!-- <hr> -->
+                          <cite><span><strong><?php echo $speaker; ?></strong>, <?php echo $speaker_title; ?></span></cite>
+                      </blockquote>
+                    </div>
 
                     <div class="media youtube-video">
                         <?php echo $video; ?>
