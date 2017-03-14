@@ -20,6 +20,26 @@ get_header();
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
     
 <?php endif; ?>
+<script>
+    $(document).ready(function () {
+        var isScrollable =<?php echo isSegmentScrollable()?> ;
+        $('#legend').find('a').each(function () {
+            var newHref = $(this).attr('href') + '#tribe-events-content-wrapper';
+            $(this).attr('href', newHref)
+            console.log($(this).attr('href'));
+            if (isScrollable) {
+                $('html, body').animate({
+                    scrollTop: $('#tribe-events-content-wrapper').offset().top
+                }, 2000);
+                return false;
+            }
 
+        });
+
+    });
+
+</script>
 
 <?php get_footer(); ?>
+
+

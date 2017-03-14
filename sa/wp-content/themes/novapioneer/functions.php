@@ -544,3 +544,13 @@ function get_nova_events($taxonomies = false)
 
     return $html;
 }
+
+function isSegmentScrollable(){
+    $segments = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
+
+    if(array_key_exists(3, $segments)){
+        return true;
+    }
+     return false;
+
+}
