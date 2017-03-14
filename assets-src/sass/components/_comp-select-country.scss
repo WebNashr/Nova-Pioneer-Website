@@ -3,92 +3,6 @@
 /* ==================================================== */
 
 
-// .country-list {
-//     align-self: center;
-// 	position: relative;
-//     min-width: 60px;
-//     height: 32px;
-//     margin-left: calc(#{$space-tiny} * 1);
-// }
-
-// .country-list-container {
-// 	@include font-size(13px);
-// 	@include line-height(1);
-// 	@include flexbox();
-//     @include flex-direction(column);
-//     @include flex-wrap(nowrap);
-//     align-self: center;
-//     position: absolute;
-// 	top: 0;
-// 	width: 100%;
-// 	height: 32px;
-// 	overflow: hidden;
-// }
-
-// .country-list-item {
-// 	padding: 8px;
-// 	text-align: unset;
-// 	color: $grey-dk;
-// 	background: $grey-lt;
-// 	background: lighten($grey-lt, 3.5%);
-// 	border: 1px solid $grey-lt;
-
-// 	.text {
-// 		background: transparent;
-// 	}
-
-// 	&:hover {
-// 		color: $grey-dk;
-// 		background: lighten($grey-lt, 2.75%);
-// 		@include box-shadow(0, 0, 4px, 0, rgba(0, 0, 0, 0.125));
-// 		border: 1px solid lighten($grey-lt, 2.5%);
-// 	}
-// }
-
-// .country-list-selected {
-// 	display: block;
-// }
-
-// .country-list-option {
-// 	display: none;
-// }
-
-// .country-list-container:hover {
-// 	height: 48px;
-// 	overflow: unset;
-// }
-
-// .country-list-container:hover .country-list-option {
-// 	display: block;
-// }
-
-
-
-
-
-
-// .country-list {
-//     align-self: center;
-// 	position: relative;
-//     min-width: 60px;
-//     height: 32px;
-//     margin-left: calc(#{$space-tiny} * 1);
-// }
-
-// .country-list-container {
-// 	@include font-size(13px);
-// 	@include line-height(1);
-// 	@include flexbox();
-//     @include flex-direction(column);
-//     @include flex-wrap(nowrap);
-//     align-self: center;
-//     position: absolute;
-// 	top: 0;
-// 	width: 100%;
-// 	height: 32px;
-// 	overflow: hidden;
-// }
-
 .country {
 	@include font-size(12px);
 	@include line-height(1);
@@ -120,16 +34,25 @@
 	}
 }
 
-.country-chosen {
+%country-chosen {
 	padding: 6px;
 	color: $blue-lt;
 	background: #f5f5f5;
 	background: lighten($grey-lt, 2.75%);
-	border: 1px solid lighten($grey-lt, 1.875%);
+	border: 1px solid lighten($grey-lt, 1.5%);
 	pointer-events: none;
+}
 
-	&:hover {
-		color: $blue-lt;
+.country-ke {
+	.body-ke & {
+		@extend %country-chosen;
 	}
 }
+
+.country-sa {
+	.body-sa & {
+		@extend %country-chosen;
+	}
+}
+
 

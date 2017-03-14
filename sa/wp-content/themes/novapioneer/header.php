@@ -67,15 +67,19 @@
                 <!-- we'll probably need to find a way to pick which country is selected -->
                 <!--<span class="country country-choose">Choose country</span>-->
 
-                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country">
+                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke">
                     <span class="flag-icon flag-icon-ke"></span>
                     <span class="text">Kenya</span>
                 </a>
 
-                <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-chosen">
+                <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa country-chosen">
                     <span class="flag-icon flag-icon-za"></span>
                     <span class="text">South Africa</span>
                 </a>
+
+                <script>
+                    $('body').addClass('body-sa');
+                </script>
             </section>
             
             <section class="header-section header-section-main">
@@ -358,6 +362,5 @@
 
         <!-- start content -->
         <main role="main">
-
 
 

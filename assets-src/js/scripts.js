@@ -79,14 +79,14 @@ $(document).ready(function() {
             $('.menu-item-main').addClass('stuck');
             $('.header-logo').addClass('stuck');
             $('.page-header').addClass('stuck');
-            console.log("08. sticky header - unstuck");
+            console.log("08. sticky header was made unstuck");
         }
         if(direction == 'up') {
             $('.header-section-main').removeClass('stuck');
             $('.menu-item-main').removeClass('stuck');
             $('.header-logo').removeClass('stuck');
             $('.page-header').removeClass('stuck');
-            console.log("08. sticky header - stuck");
+            console.log("08. sticky header got, er... stuck");
         }
     },
     {
