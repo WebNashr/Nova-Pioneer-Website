@@ -213,9 +213,13 @@ h5 {
 		margin-bottom: 0.25rem;
 	}
 	.learning-approach & {
+		@include font-size(17px);
 		color: $blue-dk;
 		text-align: center;
 		margin-bottom: calc(#{$space-tiny} * 0.5);
+		@include break-point(monitor) {
+			@include font-size(18px);
+		}
 	}
 	// .learning-approach & {
 	// 	color: lighten($blue, 10%);

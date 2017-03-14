@@ -94,19 +94,32 @@
 				@include break-point(tablet) {
 					width: 600px;
 				}
-				@include break-point(monitor) {
-					// margin-left: 2.5em;
-				}
 				@include break-point(desktop) {
 					width: 1150px;
-					margin-left: 1rem;
+					margin-left: 0.75rem;
+				}
+				@include break-point(monitor) {
+					// width: 1150px;
+					margin-left: 2.5rem;
 				}
 				@media only screen
-				  and (min-device-width: 1500px)
-				  and (max-device-width: 2560px)
+				 	and (min-device-width: 1440px)
+				  and (max-device-width: 1440px)
 				  {
-						margin-left: 2.5em;
+						margin-left: 1.5em;
 					}
+				// @media only screen
+				//  	and (min-device-width: 1366px)
+				//   and (max-device-width: 1440px)
+				//   {
+				// 		margin-left: 1.5em;
+				// 	}
+				// @media only screen
+				//  	and (min-device-width: 1600px)
+				//   and (max-device-width: 2560px)
+				//   {
+				// 		margin-left: 2.5em;
+				// 	}
 
 
 			blockquote {

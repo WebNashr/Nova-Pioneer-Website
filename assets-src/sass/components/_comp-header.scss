@@ -52,11 +52,13 @@ header {
 	}
 
 	@include break-point(tablet) {
-		padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+		// padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+		padding: 0 calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 1.5);
 
 	    &.stuck,
 		.non-hero & {
-			padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4);
+			// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4) ;
+			padding: 0 calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 1) ;
 		}
     }
 }
@@ -82,7 +84,17 @@ header {
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
+	}
+}
 
+
+.header-section-countries {
+	justify-content: flex-end;
+	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
+	// background: $grey-lt;
+
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 0);
 	}
 }
 
