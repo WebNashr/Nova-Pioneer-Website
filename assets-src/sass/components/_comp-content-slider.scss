@@ -4,7 +4,8 @@
 /** /!!! core css Should not edit !!!/**/
 
 .content-slider-container {
-  width: inherit;
+  width: 100%;
+
   padding: 0 calc(#{$space-tiny} * 3) !important;
   #content-slider {
     li {
@@ -30,7 +31,7 @@
 
   #testimonial-slider {
     padding: 0 calc(#{$space-tiny} * 3);
-
+    width: 100%;
     li {
       // max-width: 600px !important;
       // @extend %column;
