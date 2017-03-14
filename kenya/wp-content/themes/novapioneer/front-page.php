@@ -76,7 +76,7 @@ get_header(); ?>
                                     <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                 </svg>
                                 <?php echo $vid_caption; ?>
-                                <cite><span><?php echo $student_name; ?>,</span> Nova Pioneer Student</cite>
+                                <cite><span><strong><?php echo $student_name; ?></strong>,</span> Nova Pioneer Student</cite>
                             </blockquote>
                         </div>
 
@@ -113,7 +113,7 @@ get_header(); ?>
                                 <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                             </svg>
                             <?php echo $vid_caption; ?>
-                            <cite><span><?php echo $caption_speaker; ?>,</span> <?php echo $caption_speaker_title; ?></cite>
+                            <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?></cite>
                         </blockquote>
                     </div>
                 </div>
@@ -167,7 +167,7 @@ get_header(); ?>
                                 <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                             </svg>
                             <?php echo $vid_caption; ?>
-                            <cite><span><?php echo $caption_speaker; ?>,</span> <?php echo $caption_speaker_title; ?></cite>
+                            <p><cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?></cite></p>
                         </blockquote>
                     </div>
                 </div>
@@ -247,7 +247,7 @@ get_header(); ?>
                                     <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
                                     <?php echo $testimonial->post_content; ?>
-                                    <p><cite><span><?php echo get_field('reviewer_name', $testimonial->ID); ?>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?></cite></p>
+                                    <p><cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?></cite></p>
                                 </blockquote>
                             </li>
                         <?php endforeach; ?>

@@ -208,45 +208,45 @@
 }
 
 // .article-inner blockquote,
-.article-inner blockquote {
-	@include copy(regular);
-	@include font-size(24px);
-	// width: 90%;
-	max-width: 728px;
-	margin: calc(#{$space-tiny} * 3) 0 calc(#{$space-tiny} * 3) auto;
-	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 2);
-	line-height: 1.5;
-	text-align: right;
-	font-style: italic;
-	color: $grey-mdk;
-	// background: #bedddc;
-	border-right: 0.5rem solid $orange-lt;
-}
-
-.article-inner blockquote p {
-	@include copy(regular);
-	@include font-size(24px);
-	// width: 90%;
-	// max-width: 728px;
-	// margin: calc(#{$space-tiny} * 3) 0 calc(#{$space-tiny} * 3) auto;
-	// padding: 0 calc(#{$space-tiny} * 2) 0 0;
-	// line-height: 1.5;
-	// text-align: right;
-	// font-style: italic;
-	color: $grey-mdk;
-}
-
-.article-inner blockquote span {
-	@include font-size(15px);
-	// width: 90%;
-	// max-width: 728px;
-	margin-top: calc(#{$space-tiny} * 1);
-	// padding: 0 calc(#{$space-tiny} * 2) 0 0;
-	// line-height: 1.5;
-	// text-align: right;
-	// font-style: italic;
-	color: $grey-mdk;
-}
+// .article-inner blockquote {
+// 	@include copy(regular);
+// 	@include font-size(24px);
+// 	// width: 90%;
+// 	max-width: 728px;
+// 	margin: calc(#{$space-tiny} * 3) 0 calc(#{$space-tiny} * 3) auto;
+// 	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 2);
+// 	line-height: 1.5;
+// 	text-align: right;
+// 	font-style: italic;
+// 	color: $grey-mdk;
+// 	// background: #bedddc;
+// 	border-right: 0.5rem solid $orange-lt;
+// }
+//
+// .article-inner blockquote p {
+// 	@include copy(regular);
+// 	@include font-size(24px);
+// 	// width: 90%;
+// 	// max-width: 728px;
+// 	// margin: calc(#{$space-tiny} * 3) 0 calc(#{$space-tiny} * 3) auto;
+// 	// padding: 0 calc(#{$space-tiny} * 2) 0 0;
+// 	// line-height: 1.5;
+// 	// text-align: right;
+// 	// font-style: italic;
+// 	color: $grey-mdk;
+// }
+//
+// .article-inner blockquote span {
+// 	@include font-size(15px);
+// 	// width: 90%;
+// 	// max-width: 728px;
+// 	margin-top: calc(#{$space-tiny} * 1);
+// 	// padding: 0 calc(#{$space-tiny} * 2) 0 0;
+// 	// line-height: 1.5;
+// 	// text-align: right;
+// 	// font-style: italic;
+// 	color: $grey-mdk;
+// }
 
 .article-inner li + li {
 	margin-top: calc(#{$space-tiny} * 0.75);

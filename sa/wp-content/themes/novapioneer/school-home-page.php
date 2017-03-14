@@ -120,7 +120,7 @@ get_header(); ?>
                                     xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                             </svg>
                             <p><?php echo $vid_caption; ?></p>
-                            <cite><span><?php echo $student_name; ?>,</span> Nova Pioneer Student</cite>
+                            <cite class="school-page-quote"><span><strong><?php echo $student_name; ?>,</strong></span> Nova Pioneer Student</cite>
                         </blockquote>
 
                     </div>
@@ -211,7 +211,7 @@ get_header(); ?>
                                     <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
                                     <?php echo $testimonial->post_content; ?>
-                                    <p><cite><span><?php echo get_field('reviewer_name', $testimonial->ID); ?>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?></cite></p>
+                                    <cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?></cite>
                                 </blockquote>
                             </li>
                         <?php endforeach; ?>
@@ -223,12 +223,13 @@ get_header(); ?>
         <section class="section section-pair even-section">
               <div class="section-navigation">
                   <h2>A Day in the Life</h2>
+                  <a href="<?php echo get_field('day_in_the_life_link'); ?>" class="button button-small button-primary">Learn More</a>
               </div>
 
               <div class="section-content section-day-in-the-life">
                 <div class="section-content-item section-content-item-half">
                     <?php echo get_field('day_in_the_life_description'); ?>
-                    <a href="<?php echo get_field('day_in_the_life_link'); ?>" class="button button-small button-primary">Learn More</a>
+
 
                 </div>
                 <div class="section-content-item section-content-item-half">
