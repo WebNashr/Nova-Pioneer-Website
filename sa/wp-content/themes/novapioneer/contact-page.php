@@ -41,8 +41,14 @@ get_header(); ?>
                                     <address>
                                         <div class="contact-info">
                                             <?php foreach($school_branch->contacts_ as $contact ): $contact = (object)$contact; ?>
-                                                <span class="phone-contact-one">   <?php echo $contact->label; ?>
-                                                <a href="tel:<?php echo $contact->contact; ?>"> <?php echo $contact->contact; ?> </a></span>
+                                                <?php if( strtolower($contact->label) =='email' || strpos(strtolower($contact->label), 'email') !== false):?>
+                                                    <span class="phone-contact-one">   <?php echo $contact->label; ?>
+                                                        <a href="mailto:<?php echo $contact->contact; ?>"> <?php echo $contact->contact; ?> </a></span>
+                                                    <?php else:?>
+                                                    <span class="phone-contact-one">   <?php echo $contact->label; ?>
+                                                        <a href="tel:<?php echo $contact->contact; ?>"> <?php echo $contact->contact; ?> </a></span>
+                                                <?php endif?>
+
                                             <?php endforeach; ?>
                                         </div>
                                     </address>
