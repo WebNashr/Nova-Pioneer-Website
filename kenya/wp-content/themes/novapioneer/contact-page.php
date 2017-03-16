@@ -58,9 +58,11 @@ get_header(); ?>
                             ?>
 
                         <?php endforeach; ?>
+                        <div class="school-maps-container">
                         <?php
                             novap_render_google_map($locations);
                         ?>
+                        </div>
 
                     </div>
             </section>

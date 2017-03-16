@@ -1190,7 +1190,12 @@
 		}
 	}
 }
-
+.school-maps-container {
+	@extend %column;
+	width: 100%;
+	// @extend %column-10;
+	// @extend %columns;
+}
 .location-map {
 	display: block;
 	height: 60vh;
