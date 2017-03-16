@@ -105,6 +105,11 @@
 	padding-bottom: calc(#{$space-tiny} * 2);
 	&.meet-students-nav {
 		padding-bottom: 0;
+			@include break-point(laptop) {
+			.navigation-wrap {
+				max-width: 800px;
+			}
+		}
 	}
 
 

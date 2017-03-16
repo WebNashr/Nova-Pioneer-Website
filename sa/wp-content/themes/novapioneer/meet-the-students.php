@@ -42,10 +42,10 @@ get_header(); ?>
                             <div class="anchor-link">
                                 <a href="#secondary-sa" class="" title="">Secondary Students</a>
                             </div>
-                            <!-- <div class="link-separator">&nbsp;</div>
+                            <div class="link-separator">&nbsp;</div>
                              <div class="anchor-link">
-                                 <a href="#blog-sa" class="" title="">Student Blog</a>
-                             </div>-->
+                                 <a href="#contact-student" class="" title="">Contact a Student</a>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ get_header(); ?>
                 </div>
             </section>
 
-                        
+
             <section class="full-width-image-container" data-enllax-type="foreground">
               <figure class="full-width-image secondary-bgd-image parallax" data-enllax-ratio="0.2">
                   <div class="section-content full-image-caption animated caption">
@@ -143,6 +143,16 @@ get_header(); ?>
 
                 </div>
             </section>
+            <section class="full-width-image-container" data-enllax-type="foreground">
+            <figure class="full-width-image secondary-bgd-image parallax" data-enllax-ratio="0.2">
+                <div class="section-content full-image-caption animated caption">
+                    <figcaption>
+                        <p>Writing, painting, singing, sculpting and many more are all languages through which children can express themselves.</p>
+                    </figcaption>
+                </div>
+                <span class="anchor-link" id="preprimary"></span>
+            </figure>
+            </section>
            <!-- <section class="section section-pair section-school-blog even-section">
                 <div class="section-navigation">
                     <h2 id="blog-sa">Student Blog</h2>
@@ -164,7 +174,7 @@ get_header(); ?>
 
             </section>-->
 
-            <span class="anchor-link" id="blog"></span>
+            <span class="anchor-link" id="contact-student"></span>
             <section class="section section-pair contact-student ">
                 <div class="section-navigation">
                     <h2>Contact a Student</h2>

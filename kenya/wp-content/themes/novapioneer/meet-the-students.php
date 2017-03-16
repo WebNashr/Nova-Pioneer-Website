@@ -91,7 +91,7 @@ get_header(); ?>
                 </div>
             </section>
 
-            
+
 
             <section class="full-width-image-container" data-enllax-type="foreground">
             <figure class="full-width-image secondary-bgd-image parallax" data-enllax-ratio="0.2">
@@ -152,11 +152,13 @@ get_header(); ?>
                         <?php foreach (get_field('student_blogs') as $blog_post): $blog_post = (object)$blog_post; ?>
 
                             <div class="section-content-item section-content-item-third blog-article">
-                                <div class="blog-article-image" style="background-image: url(<?php echo $blog_post->picture; ?>);"
-                                        title="<?php echo $blog_post->title; ?>"></div>
+                                <a href=""><div class="blog-article-image" style="background-image: url(<?php echo $blog_post->picture; ?>);"
+                                        title="<?php echo $blog_post->title; ?>"></div></a>
+                                <div class="blog-summary-container">
                                 <a href="<?php echo $blog_post->url; ?>" class="blog-article-title"
                                     title="<?php echo $blog_post->title; ?>"><?php echo $blog_post->title; ?></a>
                                 <p class="article-author"><?php echo $blog_post->author; ?></p>
+                                </div>
                             </div>
 
                         <?php endforeach; ?>
