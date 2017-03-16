@@ -233,6 +233,9 @@
           color: $grey-mdk !important;
         }
     }
+    #tribe-events-content .tribe-events-calendar td {
+      height: 80px;
+    }
 }
 
 #legend_box {
