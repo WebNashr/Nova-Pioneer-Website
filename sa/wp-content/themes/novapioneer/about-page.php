@@ -29,6 +29,14 @@ get_header();?>
 
         <section class="section">
             <article class="article article-inner article-inner-alt mission-vision">
+              <h2 class="centered-title">Our Story</h2>
+
+              <input type="checkbox" class="read-more-state" id="post-1" />
+                <p class="read-more-wrap">Lorem ipsum dolor sit amet, est natum oratio delenit ad, porro legere duo ut, cu eius debet equidem pri. Cu nibh aeque his. No mei offendit referrentur, brute luptatum at mea, sumo lorem tantas id est. Et offendit phaedrum inimicus ius, atqui harum recteque vim et.<span class="read-more-target"> Legere partiendo iracundia at eos, an quo error interesset. Inani dolorem qui et, nonumes voluptua duo ex. Te enim decore quodsi vim, elit bonorum ei mei. Ad nam sint maiestatis scripserit. Aliquam mentitum at eos, eu nec summo iudicabit. Pri ea quot percipit delicatissimi, ne labores ocurreret pro.</span></p>
+                <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label>
+
+                <h2 class="centered-title">Our Vision</h2>
+                <?php echo $our_vision; ?>
 
               <h2 class="centered-title">Our Mission</h2>
               <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>" />
@@ -42,8 +50,7 @@ get_header();?>
               </div>
               <label for="post-<?php echo get_the_ID(); ?>" class="read-more-trigger button button-tiny button-primary"></label>
 
-                <h2 class="centered-title">Our Vision</h2>
-                <?php echo $our_vision; ?>
+
             </article>
         </section>
 
