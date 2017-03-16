@@ -46,6 +46,10 @@ get_header(); ?>
                             <div class="anchor-link">
                                 <a href="#blog" class="" title="">Student Blog</a>
                             </div>
+                            <div class="link-separator">&nbsp;</div>
+                             <div class="anchor-link">
+                                 <a href="#contact-student" class="" title="">Contact a Student</a>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -166,13 +170,14 @@ get_header(); ?>
 
             </section>
 
-            <span class="anchor-link" id="blog"></span>
+            
             <section class="section section-pair contact-student ">
                 <div class="section-navigation">
                     <h2>Contact a Student</h2>
                 </div>
 
                 <div class="section-content">
+                  <span class="anchor-link" id="contact-student"></span>
                     <div class="section-content-item section-content-item-half">
                         <p><?php the_field('contact_text')?></p>
                     </div>

@@ -174,13 +174,14 @@ get_header(); ?>
 
             </section>-->
 
-            <span class="anchor-link" id="contact-student"></span>
+
             <section class="section section-pair contact-student ">
                 <div class="section-navigation">
                     <h2>Contact a Student</h2>
                 </div>
 
                 <div class="section-content">
+                  <span class="anchor-link" id="contact-student"></span>
                     <div class="section-content-item section-content-item-half">
                         <p><?php the_field('contact_text')?></p>
                     </div>

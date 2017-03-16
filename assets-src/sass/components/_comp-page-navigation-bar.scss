@@ -107,7 +107,7 @@
 		padding-bottom: 0;
 			@include break-point(laptop) {
 			.navigation-wrap {
-				max-width: 800px;
+				max-width: inherit;
 			}
 		}
 	}
