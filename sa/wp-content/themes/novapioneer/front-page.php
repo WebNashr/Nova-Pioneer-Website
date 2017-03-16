@@ -290,6 +290,49 @@ get_header(); ?>
 
 <script type="text/javascript">
     $(document).ready(function () {
+        function startWayPoint() {
+            $(function () {
+                removeAnimateClasses();
+
+                var inview1 = new Waypoint.Inview({
+                    element: $('.hero-title'),
+                    entered: function () {
+                        $(this.element).addClass('animated bounceInLeft');
+                        console.log('animated one');
+
+                    }
+                });
+
+                var inview2 = new Waypoint.Inview({
+                    element: $('.hero-subtitle'),
+                    entered: function () {
+                        $(this.element).addClass('animated bounceInRight');
+                        console.log('animated two')
+
+                    }
+                });
+                console.log("12. Animated Country Hero titles");
+                inview1.destroy()
+                inview2.destroy()
+                console.log('destroyed all');
+
+            });
+
+            return true;
+        }
+
+        function removeAnimateClasses() {
+            if ($('.hero-title').hasClass('animated') || $('.hero-title').hasClass('bounceInLeft')) {
+                $('.hero-title').removeClass('animated bounceInLeft');
+                console.log('class removed 1')
+            }
+            if ($('.hero-subtitle').hasClass('animated') || $('.hero-subtitle').hasClass('bounceInRight')) {
+                $('.hero-subtitle').removeClass('animated bounceInRight');
+
+            }
+        }
+
+
         $("#testimonial-slider").lightSlider({
             item: 1,
             autoWidth: true,
@@ -323,47 +366,19 @@ get_header(); ?>
         });
         $('#hero-slider').slippry({
             auto: true,
-            speed: 3000,
+            speed: 800,
+            pause : 8000,
+            onSlideBefore: function () {
+                removeAnimateClasses();
+            },
+            onSlideAfter: function () {
+
+                return startWayPoint();
+            },
         });
 
-        function startWayPoint() {
-            $(function () {
-
-
-                var inview1 = new Waypoint.Inview({
-                    element: $('.hero-title'),
-                    entered: function () {
-                        $(this.element).addClass('animated bounceInLeft');
-                        console.log('animated one');
-
-                    }
-                });
-
-                var inview2 = new Waypoint.Inview({
-                    element: $('.hero-subtitle'),
-                    entered: function () {
-                        $(this.element).addClass('animated bounceInRight');
-                        console.log('animated two')
-
-                    }
-                });
-                console.log("12. Animated Country Hero titles");
-                inview1.destroy()
-                inview2.destroy()
-                console.log('destroyed all');
-
-            });
-        }
 
         $('.sy-controls a').click(function () {
-            if ($('.hero-title').hasClass('animated') || $('.hero-title').hasClass('bounceInLeft')) {
-                $('.hero-title').removeClass('animated bounceInLeft');
-                console.log('class removed 1')
-            }
-            if ($('.hero-subtitle').hasClass('animated') || $('.hero-subtitle').hasClass('bounceInRight')) {
-                $('.hero-subtitle').removeClass('animated bounceInRight');
-
-            }
             startWayPoint()
         })
         startWayPoint()
