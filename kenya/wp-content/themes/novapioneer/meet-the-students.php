@@ -91,7 +91,7 @@ get_header(); ?>
                 </div>
             </section>
 
-            
+
 
             <section class="full-width-image-container" data-enllax-type="foreground">
             <figure class="full-width-image secondary-bgd-image parallax" data-enllax-ratio="0.2">
