@@ -710,14 +710,14 @@
 			margin-right: auto;
 			margin-left: auto;
 			margin-bottom: 1rem;
-			width: 98%;
+			width: 100%;
 			height: 12rem;
 			background-position: center;
 			background-size: cover;
-			&:hover {
-				width: 100%;
-				transition: width 0.35s ease-in-out;
-			}
+			// &:hover {
+			// 	width: 100%;
+			// 	transition: width 0.35s ease-in-out;
+			// }
 	    }
     }
 
