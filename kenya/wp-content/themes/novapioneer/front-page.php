@@ -20,7 +20,7 @@ get_header(); ?>
                                 <div class="callout-box">
                                     <div class="animated-headings">
                                         <h1 class="hero-title"><?php echo $hero_slide->title; ?></h1>
-                                        <h1 class="hero-subtitle"><?php echo $hero_slide->subtitle; ?></h1>
+                                        <h3 class="hero-subtitle"><?php echo $hero_slide->subtitle; ?></h3>
                                     </div>
                                 </div>
                             </a>

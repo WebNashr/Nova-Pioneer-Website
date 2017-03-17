@@ -203,15 +203,20 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
               opacity: 1;
             }
         }
-        &.hero-subtitle {
-          -webkit-animation-delay: 2s;
-    	    -webkit-animation-duration: 3s;
-          opacity: 0;
-          &.bounceInRight {
-            opacity: 1;
-          }
-        }
 
+
+        }
+        h3 {
+          max-width: 680px;
+          color: $white;
+          &.hero-subtitle {
+            -webkit-animation-delay: 2s;
+            -webkit-animation-duration: 3s;
+            opacity: 0;
+            &.bounceInRight {
+              opacity: 1;
+            }
+          }
         }
         strong {
           color: $orange-lt;
