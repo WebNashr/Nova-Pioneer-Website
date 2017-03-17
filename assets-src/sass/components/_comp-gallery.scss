@@ -2,6 +2,80 @@
 /*  Gallery */
 /* ==================================================== */
 
+.section-gallery {
+	background-color: $blue-dk;
+	padding-top: calc(1rem * 3);
+	padding-bottom: calc(1rem * 3);
+	// padding-bottom: 0;
+	// margin-bottom: -4rem;
+	@extend %columns;
+	@extend %column-12;
+	@include break-point(tablet) {
+		// margin-bottom: -5rem;
+	}
+	@media only (min-width: 1024px) and (max-width: 1024px) { //1024px
+			// margin-bottom: 0;
+	}
+	@media only (min-width: 1440px) and (max-width: 1440px) { //1024px
+			// margin-bottom: 0;
+	}
+	.section-navigation {
+		@extend %column-2;
+		background: $blue-dk;
+		padding-top: calc(1rem * 3);
+		padding-left: calc(1rem * 4);
+		// height: 88.85%;
+		height: 80.75%;
+		min-width: 20%;
+		@include break-point(largelaptop) {
+			height: 80.75%;
+		}
+		@media only (min-width: 1024px) and (max-width: 1024px) { //1024px
+				height: 88.85%;
+		}
+		@media only (min-width: 1440px) and (max-width: 1440px) { //1024px
+				height: 88.85%;
+		}
+
+		.gallery-nav{
+			@include font-size(16px);
+			padding-bottom: calc(1rem * 2);
+		}
+	}
+}
+
+.gallery-nav {
+	@include flexbox();
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	margin-top: 1.5rem;
+	padding-right: calc(1rem * 3);
+}
+
+.gallery-select {
+	// padding-left: calc(#{$space-tiny} * 0.5);
+	@include font-size(16px);
+	@include line-height(1.5);
+	color: $dark-grey;
+	// border-left: 4px solid transparent;
+
+	&:not(:first-of-type) {
+		margin-top: calc(1rem * 0.675);
+	}
+
+	&.gallery-selected {
+		color: $green-blue;
+		border-color: $blue;
+	}
+}
+
+
+
+
+
+
+
+
 
 .section-gallery {
 	.section-content {

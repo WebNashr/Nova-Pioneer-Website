@@ -853,32 +853,7 @@
 	}
 }
 
-.section-gallery {}
 
-.gallery-nav {
-	@include flexbox();
-	@include flex-direction(column);
-	@include flex-wrap(nowrap);
-	margin-top: 1.5rem;
-	padding-right: calc(1rem * 3);
-}
-
-.gallery-select {
-	// padding-left: calc(#{$space-tiny} * 0.5);
-	@include font-size(16px);
-	@include line-height(1.5);
-	color: $dark-grey;
-	// border-left: 4px solid transparent;
-
-	&:not(:first-of-type) {
-		margin-top: calc(1rem * 0.675);
-	}
-
-	&.gallery-selected {
-		color: $green-blue;
-		border-color: $blue;
-	}
-}
 
 
 .section-content-navigation{
