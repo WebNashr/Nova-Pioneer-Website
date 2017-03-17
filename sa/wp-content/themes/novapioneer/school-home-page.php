@@ -46,7 +46,7 @@ get_header(); ?>
                 <div class="large-notice-container"
                      style="background-image: url(<?php echo get_field('admission_photo'); ?>);">
                     <div class="large-notice">
-                        <div class="bar-notice">
+                        <!-- <div class="bar-notice">
                             <div class="contact">
                                 <p>General Enquiries Call: <a
                                         href="tel:<?php echo get_field('general_enquiries_number'); ?>"><?php echo get_field('general_enquiries_number'); ?> </a>
@@ -62,11 +62,11 @@ get_header(); ?>
                                         href="mailto:<?php echo get_field('school_email'); ?>"><?php echo get_field('school_email'); ?></a>
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="notice-content">
                             <h1>Learn About Our Admission Process</h1>
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="<?php echo site_url('/apply-online')?>" class="button button-small button-secondary">Apply
+                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process')?>" class="button button-small button-secondary">Apply
                                     Now</a></p>
                         </div>
                     </div>
