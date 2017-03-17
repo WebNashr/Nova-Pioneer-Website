@@ -289,10 +289,13 @@
 		margin-top: 0.5rem;
 		margin-bottom: 0.5rem;
 		color: $orange-lt;
+		padding-left: calc(#{$space-tiny} * 0.5);
+		padding-right: calc(#{$space-tiny} * 0.5);
 		a {
 			color: $orange-lt;
 			&:hover {
 				color: $blue-lt;
+				transition: color 0.15s ease-in-out;
 			}
 		}
 
@@ -300,10 +303,12 @@
 
 	img {
 		max-width: 400px;
-		opacity: 1;
-		&:hover {
-			opacity: 0.9;
-		}
+		width: 95%;
+
+		// opacity: 1;
+		// &:hover {
+		// 	opacity: 0.9;
+		// }
 		// max-width: 175px;
 		// width: 195px;
 		// height: 195px;
@@ -330,7 +335,7 @@
 				// height: 200px;
 			}
 			h3 {
-				color: $blue;
+				color: $blue-lt;
 			}
 		}
 		.school-link {
@@ -343,8 +348,13 @@
 		}
 	}
 	.school-summary {
+		margin-right: auto;
 		margin-bottom: 2rem;
+		margin-left: auto;
 		border-top: 1px $grey-md solid;
+		// padding-left: calc(#{$space-tiny} * 0.5);
+		// padding-right: calc(#{$space-tiny} * 0.5);
+		width: 94%;
 		p + p {
 				margin: 0;
 		}
@@ -381,6 +391,7 @@
 		bottom: 0;
 		margin-top: 0.75rem;
 		background: $green-lt;
+		margin-left: calc(#{$space-tiny} * 0.5);
 		&:hover {
 			background: $blue-lt;
 		}
@@ -399,6 +410,24 @@
 	}
 	&:not(:first-of-type) {
 		margin-left: 0;
+	}
+
+	&:hover {
+		img{
+			width:100%;
+			transition: width 0.15s ease-in-out;
+		}
+		.school-summary {
+			width: 100%;
+			transition: width 0.15s ease-in-out;
+		}
+		h3 {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.button {
+			margin-left: 0;
+		}
 	}
 	@include break-point(tablet) {
 		height: 480px;
