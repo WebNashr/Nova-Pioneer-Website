@@ -38,7 +38,7 @@ get_header(); ?>
 
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>
-                    <div class="section-school-list-select">
+                    <div class="section-school-list-select section-content-item-quarter">
                       <a href="#">
                         <p class="school-photo"><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
                         <h3><?php echo $school->post_title; ?></h3>
@@ -48,9 +48,9 @@ get_header(); ?>
                             <p><?php echo get_field('school_grades', $school->ID); ?></p>
                             <p><?php echo get_field('school_type', $school->ID); ?></p>
                             <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
-                            <a href="<?php echo get_permalink($school->ID); ?>"
-                               class="button button-tiny button-primary" target="_blank"> Read More</a>
+
                         </div>
+                        <a href="<?php echo get_permalink($school->ID); ?>" class="button button-tiny button-primary" target="_blank"> Read More</a>
                     </div>
 
                 <?php endforeach; ?>

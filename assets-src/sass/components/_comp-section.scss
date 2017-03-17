@@ -247,7 +247,8 @@
 .section-school-list {
 	@extend %columns;
 	// background: $background-grey;
-	justify-content: center;
+	// justify-content: center;
+	justify-content: space-around;
 	width: 100%;
 	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1);
     @include break-point(tablet) {
@@ -267,11 +268,21 @@
 }
 
 .section-school-list-select {
-	@extend %column;
-	@extend %column-3;
+	// @extend %column;
+	// @extend %column-3;
+	display: flex;
+	flex-direction: column;
+	height: 480px;
 	// width: 100%;
 	align-self: center;
 	position: relative;
+	margin-top: 0;
+	// &:nth-child(n+3) {
+	// 	margin-top: 0;
+	// }
+	// &:first-child {
+	// 	margin-top: 0;
+	// }
 
 	h3{
 		text-align: left;
@@ -354,12 +365,15 @@
 			@include copy(bold);
 			color: $green-lt;
 		}
-		.button {
-			margin-top: 0.75rem;
-			background: $green-lt;
-			&:hover {
-				background: $blue-lt;
-			}
+
+	}
+	.button {
+		position: absolute;
+		bottom: 0;
+		margin-top: 0.75rem;
+		background: $green-lt;
+		&:hover {
+			background: $blue-lt;
 		}
 	}
 
@@ -377,18 +391,32 @@
 	&:not(:first-of-type) {
 		margin-left: 0;
 	}
+	@include break-point(tablet) {
+		height: 480px;
+		margin-top: 3rem;
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
 	@include break-point(laptop) {
 		// width: auto;
+		height: 420px;
 		align-self: center;
+		margin-top: 0;
+
 		// align-self: flex-start;
 		&:not(:first-of-type) {
 			margin-left: 2rem;
 		}
 	}
-
-	@include break-point(laptop) {
-		align-self: flex-start;
+	@include break-point(desktop) {
+		height: 450px;
 	}
+
+
+	// @include break-point(laptop) {
+	// 	align-self: flex-start;
+	// }
 }
 
 .divider {
