@@ -250,8 +250,7 @@ get_header(); ?>
                         <div class="notice-content">
                             <h1><?php echo get_field('admin_process_title'); ?></h1>
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="<?php echo site_url('/apply-online') ?>"
-                                                         class="button button-tiny button-secondary">Apply Now</a></p>
+                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process') ?>" class="button button-small button-secondary">Admission Process</a></p>
                         </div>
                     </div>
                 </div>
@@ -269,7 +268,7 @@ get_header(); ?>
                         <h4>Kenya 2017 Fee Structure</h4>
                         <!-- <p>View Our Fee Structure</p> -->
                         <a download href="<?php echo get_field('fees_structure'); ?>"
-                           class="button button-small button-secondary">View Our Fee Structure</a>
+                           class="button button-small button-secondary">View Fees</a>
                     </div>
                     <div class="divider"></div>
                     <div class="small-notice">
