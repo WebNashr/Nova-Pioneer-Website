@@ -361,10 +361,19 @@
 				padding-top: 0;
 			}
 		}
-		strong {
-			@include copy(bold);
+		.boy-gender {
+			color: $blue-dk;
+		}
+		.girl-gender {
+			color: $orange-dk;
+		}
+		.mixed-gender {
 			color: $green-lt;
 		}
+		// strong {
+		// 	@include copy(bold);
+		// 	color: $green-lt;
+		// }
 
 	}
 	.button {

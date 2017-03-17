@@ -32,29 +32,33 @@ get_header(); ?>
 
         <div class="trigger"></div>
         <section class="section" style="padding:auto 0;">
-            <section><h2 style="text-align: center;">Select a School</h2></section>
+            <section><h2 style="text-align: center;">Our Kenya Schools</h2></section>
             <div class="section-school-list">
+
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>
-                    <div class="section-school-list-select">
-
-                        <p class="school-photo"><a href="<?php echo get_permalink($school->ID); ?>"><img
-                                    src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
-                        <h3><a href="<?php echo get_permalink($school->ID); ?>"><?php echo $school->post_title; ?></a>
-                        </h3>
+                    <div class="section-school-list-select section-content-item-quarter">
+                      <a href="#">
+                        <p class="school-photo"><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
+                        <h3><?php echo $school->post_title; ?></h3>
                         <div class="school-summary">
-                            <p><?php echo get_field('school_gender', $school->ID); ?></p>
+                            <p class="boy-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
+                            <!-- <p class="girl-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
+                            <p class="mixed-gender"><?php echo get_field('school_gender', $school->ID); ?></p> -->
                             <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
                             <p><?php echo get_field('school_grades', $school->ID); ?></p>
                             <p><?php echo get_field('school_type', $school->ID); ?></p>
                             <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
-                            <a href="<?php echo get_permalink($school->ID); ?>"
-                               class="button button-tiny button-primary" target="_blank"> Read More</a>
+
                         </div>
+                        <a href="<?php echo get_permalink($school->ID); ?>" class="button button-tiny button-primary" target="_blank"> Read More</a>
                     </div>
+
                 <?php endforeach; ?>
+                </a>
+            </div>
         </section>
-        </section>
+
 
 
         <section class="section section-pair even-section">
@@ -233,10 +237,10 @@ get_header(); ?>
                     <?php echo get_nova_events($taxies); ?>
 
                     <div class="small-notice">
-                        <h4>Download Our Fees Structure</h4>
-                        <p>PDF document</p>
+                        <h4>South Africa 2017 Fee Structure</h4>
+
                         <a download href="<?php echo get_field('fees_structure'); ?>"
-                           class="button button-small button-secondary">Download</a>
+                           class="button button-small button-secondary">View Our Fee Structure</a>
                     </div>
                     <div class="divider"></div>
                     <div class="small-notice">
