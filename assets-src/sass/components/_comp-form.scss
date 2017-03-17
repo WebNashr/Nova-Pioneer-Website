@@ -369,15 +369,15 @@ img.ajax-loader {
 		@media only screen and (max-width: 360px) {
 			width: 100%;
 		}
-		@include break-point(tablet) {
-			 max-width: 86%;
-		}
+		// @include break-point(tablet) {
+		// 	 max-width: 86%;
+		// }
 	}
 	.subscribe-form-container {
-		width: 100%;
-		@include break-point(laptop) {
-			 width: 83%;
-		}
+		width: calc(100% + 15px);
+		// @include break-point(laptop) {
+		// 	 width: calc(100% + 15px);
+		// }
 
 		.gfield_checkbox {
 			margin-top: 0;
@@ -391,8 +391,25 @@ img.ajax-loader {
 				}
 			}
 		}
+		.ginput_container_radio {
+			margin-top: 6px !important;
+			margin-left: 0 !important;
+		}
+		.gfield_radio {
+			margin-top: 0;
+			margin-left: 0 !important;
+			li {
+				display: inline-block;
+				label {
+					margin-right: 16px;
+				}
+				input[type=checkbox] {
+					margin-top: 0 !important;
+				}
+			}
+		}
 	}
-	.ginput_container_checkbox {
+	.ginput_container_checkbox{
 		margin-top: 6px !important;
 	}
 	.gform_wrapper {
@@ -569,10 +586,10 @@ img.ajax-loader {
 		.ginput_container_email {
 			width: 100%;
 		}
-		.ginput_container_textarea {
-			width: 50%;
-
-		}
+		// .ginput_container_textarea {
+		// 	width: 50%;
+		//
+		// }
 		.large .gfield_select {
 			margin-top: 0;
 		}
