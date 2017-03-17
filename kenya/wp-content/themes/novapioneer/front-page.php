@@ -31,7 +31,35 @@ get_header(); ?>
         </section>
 
         <div class="trigger"></div>
+
         <section class="section" style="padding:auto 0;">
+            <section><h2 style="text-align: center;">Select a School</h2></section>
+            <div class="section-school-list">
+
+                <?php $schools = get_field('schools'); ?>
+                <?php foreach ($schools as $school): $school = (object)$school; ?>
+                    <div class="section-school-list-select">
+                      <a href="#">
+                        <p class="school-photo"><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
+                        <h3><?php echo $school->post_title; ?></h3>
+                        <div class="school-summary">
+                            <p><?php echo get_field('school_gender', $school->ID); ?></p>
+                            <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
+                            <p><?php echo get_field('school_grades', $school->ID); ?></p>
+                            <p><?php echo get_field('school_type', $school->ID); ?></p>
+                            <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
+                            <a href="<?php echo get_permalink($school->ID); ?>"
+                               class="button button-tiny button-primary" target="_blank"> Read More</a>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
+                </a>
+            </div>
+        </section>
+
+
+        <!-- <section class="section" style="padding:auto 0;">
             <section><h2 style="text-align: center;">Select a School</h2></section>
             <div class="section-school-list">
                 <?php $schools = get_field('schools'); ?>
@@ -53,8 +81,8 @@ get_header(); ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
-        </section>
-        </section>
+        </section> -->
+
 
 
         <section class="section section-pair even-section">
