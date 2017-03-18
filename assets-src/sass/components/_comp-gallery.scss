@@ -1,11 +1,57 @@
 
 /*  Gallery */
 /* ==================================================== */
+.gallery-wrap {
+	padding: 0;
 
+}
 .section-gallery {
 	background-color: $blue-dk;
 	padding-top: calc(1rem * 3);
 	padding-bottom: calc(1rem * 3);
+	height: 600px;
+	// padding-bottom: 56.25%;
+	// padding-top: 30px;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	.sy-box {
+		width: 100%;
+	}
+	.sy-list {
+		li {
+	    border-radius: 50%;
+	    text-indent: 0 !important;
+	    list-style-type: none !important;
+	    margin-left: 0 !important;
+	    &:before{
+	      content: none;
+	    }
+	  }
+	}
+	.sy-pager {
+	  clear: both;
+	  display: block;
+	  width: 100%;
+	  margin: 1em 0 0;
+	  padding: 0;
+	  list-style: none;
+	  text-align: center;
+	  li {
+	    border-radius: 50%;
+	    text-indent: 0 !important;
+	    list-style-type: none !important;
+	    margin-left: 0 !important;
+	    &:before{
+	      content: none;
+	    }
+
+	  }
+	}
+	// width: 100%;
+	// height: 100%;
+	// position: relative;
 	// padding-bottom: 0;
 	// margin-bottom: -4rem;
 	@extend %columns;

@@ -172,8 +172,22 @@ get_header(); ?>
                 <?php endforeach; ?>
             </div>
         </section>
+        <section class="section full-width gallery-wrap">
+          <div class="section-gallery">
+            <ul id="slippry">
+              <?php $image_count = 0; ?>
+              <?php foreach( get_field('gallery') as $image): $image = (object)$image; $image_count++; ?>
+                  <li>
+                      <a href="#slide<?php echo $image_count; ?>">
+                          <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>"/>
+                      </a>
+                  </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        </section>
 
-        <section class="section-pair section-gallery">
+        <!-- <section class="section-pair section-gallery">
             <div class="slider-container">
                 <div class="section-navigation">
                     <h2>Gallery</h2>
@@ -198,7 +212,7 @@ get_header(); ?>
                 </div>
             </div>
 
-        </section>
+        </section> -->
 
         <!-- <section class="section gallery-section">
           <div class="article"><h2 class=" gallery-title">School Gallery</h2></div>
@@ -328,7 +342,7 @@ get_header(); ?>
 <?php get_footer(); ?>
 <!-- slippry -->
 <script type="text/javascript">
-  
+
     jQuery(document).ready(function(){
       jQuery('#slippry').slippry()
     });
