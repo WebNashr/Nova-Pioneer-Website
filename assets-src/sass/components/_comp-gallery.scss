@@ -3,11 +3,11 @@
 /* ==================================================== */
 .gallery-wrap {
 	padding: 0;
-	padding-top: calc(1rem * 3);
+	padding-top: calc(1rem * 2);
 	background-color: $blue-dk;
 	.full-width {
 		padding: 0;
-		padding-top: calc(1rem * 3);
+		padding-top: calc(1rem * 2);
 	}
 	h2{
 		text-align: center;
@@ -32,8 +32,9 @@
 		// display: flex;
 		// flex-direction: column;
 		// align-items: stretch;
-		height: auto;
+		height: 100%;
 		overflow: hidden;
+		margin-left: 4rem;
 		@extend %column-1;
 		.thumb-box {
 			padding-top: 0;
@@ -53,8 +54,7 @@
 		    }
 				img {
 	        &.active {
-	          border-color: $blue-lt;
-
+	          border-color: $orange-lt;
 	        }
 	      }
 				// @include break-point(tablet) {
@@ -68,6 +68,9 @@
 				}
 			}
 		}
+		// @include break-point(laptop) {
+		// 	margin-left: 4rem;
+		// }
 	}
 	// .sy-caption-wrap .sy-caption a:link, .sy-caption-wrap .sy-caption a:visited {
 	// 	color: $orange-lt !important;
@@ -86,7 +89,7 @@
       }
     }
 		.sy-caption {
-			border-radius: 0.3rem !important;
+			border-radius: 0 !important;
 			padding-bottom: calc(1rem * 0.25);
 		}
 	}
@@ -98,7 +101,7 @@
 	@extend %column-12;
 
 	// padding-top: calc(1rem * 3);
-	padding-bottom: calc(1rem * 1);
+	padding-bottom: calc(1rem * 1.5);
 	// height: 600px;
 	// padding-bottom: 56.25%;
 	// padding-top: 30px;
