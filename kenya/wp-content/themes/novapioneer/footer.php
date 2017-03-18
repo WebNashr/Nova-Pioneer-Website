@@ -68,14 +68,7 @@
         </script>
 
   <?php endif; ?>
-  <!-- slippry -->
-  <script type="text/javascript">
-    $(document).ready(function () {
-      jQuery(document).ready(function(){
-        jQuery('#slippry').slippry()
-      });
-    });
-  </script>
+  
 
     <script>
         // change placeholders of inputs on calendar search

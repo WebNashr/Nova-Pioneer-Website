@@ -326,6 +326,21 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>
+<!-- slippry -->
+<script type="text/javascript">
+  
+    jQuery(document).ready(function(){
+      jQuery('#slippry').slippry()
+    });
+
+</script>
+<!-- <script type="text/javascript">
+  $(document).ready(function () {
+    jQuery(document).ready(function(){
+      jQuery('#slippry').slippry()
+    });
+  });
+</script> -->
 <script type="text/javascript">
 $(document).ready(function() {
     $("#testimonial-slider").lightSlider({
