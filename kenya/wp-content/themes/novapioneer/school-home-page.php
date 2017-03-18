@@ -172,19 +172,25 @@ get_header(); ?>
                 <?php endforeach; ?>
             </div>
         </section>
-        <section class="section full-width gallery-wrap">
-          <div class="section-gallery">
-            <ul id="slippry">
-              <?php $image_count = 0; ?>
-              <?php foreach( get_field('gallery') as $image): $image = (object)$image; $image_count++; ?>
-                  <li>
-                      <a href="#slide<?php echo $image_count; ?>">
-                          <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>"/>
-                      </a>
-                  </li>
-              <?php endforeach; ?>
-            </ul>
+        <section class="section section-content-plain gallery-wrap">
+          <h2>Gallery</h2>
+        <div class="section photo-container">
+          <div class="section full-width">
+            <div class="section-gallery">
+
+              <ul id="slippry">
+                <?php $image_count = 0; ?>
+                <?php foreach( get_field('gallery') as $image): $image = (object)$image; $image_count++; ?>
+                    <li>
+                        <a href="#slide<?php echo $image_count; ?>">
+                            <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>"/>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
           </div>
+        </div>
         </section>
 
         <!-- <section class="section-pair section-gallery">

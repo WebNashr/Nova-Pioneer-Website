@@ -6,9 +6,9 @@
  */
 
 $color_high: $orange-lt !default;     // highlight colour
-$color_gray: #ccc !default;        // neutral colour
+$color_gray: $white !default;        // neutral colour
 $controls_size: 2.8em !default;    // size of the next/ prev buttons
-$pager_size: 1.2em !default;       // size of the pager bubbles
+$pager_size: 0.5em !default;       // size of the pager bubbles
 $trans_ease: ease !default;        // easing for the transitions
 $mobile_break: 600px !default;     // breakpoint to use some special mobile styling
 $spinner_url: '../../img/slippry/sy-loader.gif' !default;
@@ -184,7 +184,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
         color: #111;
         font-weight: 800;
         position: absolute;
-        background-color: #fff;
+        background-color: $blue-dk;
         width: $controls_size;
         height: $controls_size;
         left: 50%;
