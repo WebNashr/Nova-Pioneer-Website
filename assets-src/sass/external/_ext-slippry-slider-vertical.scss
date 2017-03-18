@@ -5,7 +5,7 @@
 
  */
 
-$color_high: $orange-lt !default;     // highlight colour
+$color_high: $blue-lt !default;     // highlight colour
 $color_gray: $white !default;        // neutral colour
 $controls_size: 2.8em !default;    // size of the next/ prev buttons
 $pager_size: 0.5em !default;       // size of the pager bubbles
@@ -49,6 +49,11 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     background-size: 32px;
     min-height: 40px;
   }
+  li {
+    &:before{
+      content: none !important;
+    }
+  }
 }
 /* element that wraps the slides */
 .sy-slides-wrap {
@@ -82,6 +87,15 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
   margin: 0;
   padding: 0;
   position: absolute;
+  text-indent: 0 !important;
+  list-style-type: none !important;
+  li {
+    margin-left: 0 !important;
+
+    &:before{
+      content: none;
+    }
+  }
 }
 /* single slide */
 .sy-slide {
@@ -142,6 +156,9 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     min-width: $controls_size * 1.5;
     height: 100%;
     z-index: 33;
+    text-indent: 0 !important;
+    list-style-type: none !important;
+    margin-left: 0 !important;
     &.sy-prev {
       left: 0;
       top: 0;
@@ -261,6 +278,13 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     height: $pager_size;
     margin: 0 1em 0 0;
     border-radius: 50%;
+    text-indent: 0 !important;
+    list-style-type: none !important;
+    margin-left: 0 !important;
+
+      &:before{
+        content: none;
+      }
     &.sy-active {
       a {
         background-color: $color_high;
@@ -452,4 +476,37 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
       }
     }
 
+}
+.thumb-box {
+  padding: 1.4em 0 1em;
+  margin-left: -1%;
+  width: 102%;
+  .thumbs {
+    // @include clearfix;
+    clear: both;
+    li {
+      float: left;
+      width: 25%;
+      text-align: center;
+      padding: 0 1%;
+      img {
+        width: 100%;
+        opacity: .8;
+        // @include transition(opacity .32s);
+        transition: opacity 0.32s;
+        border-bottom: 4px solid transparent;
+        &.active {
+          border-color: $blue;
+          opacity: 1;
+        }
+      }
+      &:hover {
+        img {
+          opacity: 1;
+          // @include transition(opacity .2s);
+          transition: opacity 0.2s;
+        }
+      }
+    }
+  }
 }

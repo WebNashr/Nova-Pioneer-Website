@@ -174,22 +174,58 @@ get_header(); ?>
         </section>
         <section class="section section-content-plain gallery-wrap">
           <h2>Gallery</h2>
-        <div class="section photo-container">
+
           <div class="section full-width">
             <div class="section-gallery">
-
-              <ul id="slippry">
-                <?php $image_count = 0; ?>
-                <?php foreach( get_field('gallery') as $image): $image = (object)$image; $image_count++; ?>
-                    <li>
-                        <a href="#slide<?php echo $image_count; ?>">
-                            <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>"/>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-              </ul>
+              <div class="thumbnail-container">
+                <div class="thumb-box">
+                  <ul class="thumbs">
+                    <li><a href="#1" data-slide="1"><img src="../../img/slide-1.jpg"> </a></li>
+                    <li><a href="#2" data-slide="2"><img src="../../img/slide-2.jpg"> </a></li>
+                    <li><a href="#3" data-slide="3"><img src="../../img/slide-3.jpg"></a></li>
+                    <li><a href="#4" data-slide="4"><img src="../../img/slide-1.jpg"></a></li>
+                    <li><a href="#5" data-slide="5"><img src="../../img/slide-2.jpg"></a></li>
+                    <li><a href="#6" data-slide="6"><img src="../../img/slide-3.jpg"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="photo-container">
+                <ul id="slippry">
+                  <li>
+                    <a href="#slide1">
+                      <img src="../../img/slide-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#slide2">
+                      <img src="../../img/slide-2.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#slide3">
+                      <img src="../../img/slide-3.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#slide4">
+                      <img src="../../img/slide-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#slide5">
+                      <img src="../../img/slide-2.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#slide6">
+                      <img src="../../img/slide-3.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
+
         </div>
         </section>
 
@@ -348,12 +384,34 @@ get_header(); ?>
 <?php get_footer(); ?>
 <!-- slippry -->
 <script type="text/javascript">
+jQuery(document).ready(function(){
+  // jQuery('#slippry').slippry();
+    var thumbs = jQuery('#slippry').slippry({
+    // general elements & wrapper
+    slippryWrapper: '<div class="section-gallery"" />',
+    // options
+    transition: 'horizontal',
+    pager: true,
+    auto: false,
+    onSlideBefore: function (el, index_old, index_new) {
+    jQuery('.thumbs a img').removeClass('active');
+    jQuery('img', jQuery('.thumbs a')[index_new]).addClass('active');
+    }
+    });
+
+    jQuery('.thumbs a').click(function () {
+    thumbs.goToSlide($(this).data('slide'));
+    return false;
+    });
+});
+</script>
+<!-- <script type="text/javascript">
 
     jQuery(document).ready(function(){
       jQuery('#slippry').slippry()
     });
 
-</script>
+</script> -->
 <!-- <script type="text/javascript">
   $(document).ready(function () {
     jQuery(document).ready(function(){
