@@ -82,8 +82,11 @@
 .country-hero {
   @include flexbox();
   @include flex-direction(row);
-  height: 95vh;
+  height: auto;
   padding: 0;
+  @include break-point(tablet) {
+    // height: 95vh;
+  }
 
 }
 .hero-container {
@@ -155,6 +158,7 @@
         padding-right: calc(#{$space-tiny} * 1.65);
         display: flex;
         flex-flow: row;
+        
     	}
       @include break-point(laptop) {
         padding-right: calc(#{$space-tiny} * 1.65);

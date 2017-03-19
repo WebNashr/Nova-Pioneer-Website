@@ -318,7 +318,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
 .country-hero {
 
   .sy-slides-wrap {
-    height: 100vh;
+    // height: 100vh;
     // z-index: -1;
     .sy-controls {
       height: 100%;
@@ -366,7 +366,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     	bottom: 0px;
     	// right: calc(#{$space-tiny} * 2);
     	max-width: 100%;
-      height: 75%;
+      height: 55%;
     	margin-top: 0;
       // margin-bottom: 25%;
     	text-align: left;
@@ -404,13 +404,23 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     	// );
       .animated-headings {
         margin: auto;
-        margin-top: 10%;
-        padding-left: calc(#{$space-tiny} * 1.25)
+        margin-top: -5%;
+        padding-left: calc(#{$space-tiny} * 1.25);
+        @include break-point(mobile) {
+          margin-top: -15%;
+        }
+        @include break-point(tablet) {
+          margin-top: -15%;
+        }
+        @include break-point(laptop) {
+          margin-top: -5%;
+        }
 
       }
       h1 {
         // position: relative;
-        max-width: 680px;
+        @include font-size(24px);
+        max-width: 100%;
         color: $white;
 
         &.hero-title {
@@ -422,11 +432,16 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
               opacity: 1;
             }
         }
+        @include break-point(tablet) {
+            @include font-size(48px);
+            max-width: 75%;
+        }
 
 
         }
         h3 {
-          max-width: 680px;
+          @include font-size(18px);
+          max-width: 100%;
           color: $white;
           &.hero-subtitle {
             -webkit-animation-delay: 2s;
@@ -436,11 +451,26 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
               opacity: 1;
             }
           }
+          @include break-point(tablet) {
+              @include font-size(24px);
+              max-width: 75%;
+          }
         }
         strong {
           color: $orange-lt;
         }
-
+        @include break-point(mobile) {
+            height:50%;
+        }
+        @include break-point(tablet) {
+            height:60%;
+        }
+        @include break-point(laptop) {
+            height:45%;
+        }
+        @include break-point(desktop) {
+            height:25%;
+        }
       }
     }
 
@@ -477,6 +507,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     }
 
 }
+
 .thumb-box {
   padding: 1.4em 0 1em;
   margin-left: -1%;
