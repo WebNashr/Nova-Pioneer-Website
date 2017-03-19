@@ -250,7 +250,8 @@
 	// justify-content: center;
 	justify-content: space-around;
 	width: 100%;
-	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1);
+	padding-top: calc(#{$space-tiny} * 2);
+	// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1);
     @include break-point(tablet) {
       // @include flex-direction(row);
       // @include flex-wrap(wrap);
@@ -272,18 +273,21 @@
 	// @extend %column-3;
 	display: flex;
 	flex-direction: column;
-	height: 480px;
+	height: 452px;
 	// width: 100%;
 	align-self: center;
 	position: relative;
 	margin-top: 0;
+	margin-bottom: 2rem;
 	// &:nth-child(n+3) {
 	// 	margin-top: 0;
 	// }
 	// &:first-child {
 	// 	margin-top: 0;
 	// }
-
+	&:last-of-type {
+		margin-bottom: 0;
+	}
 	h3{
 		text-align: left;
 		margin-top: 0.5rem;
@@ -349,7 +353,7 @@
 	}
 	.school-summary {
 		margin-right: auto;
-		margin-bottom: 2rem;
+		// margin-bottom: 2rem;
 		margin-left: auto;
 		border-top: 1px $grey-md solid;
 		// padding-left: calc(#{$space-tiny} * 0.5);
@@ -429,16 +433,23 @@
 			margin-left: 0;
 		}
 	}
+	@include break-point(mobile) {
+		height: 430px;
+	}
 	@include break-point(tablet) {
-		height: 480px;
-		margin-top: 3rem;
+		height: 432px;
+		// margin-top: 3rem;
+		margin-bottom: 2rem;
 		&:first-of-type {
+			margin-top: 0;
+		}
+		&:nth-child(n+3) {
 			margin-top: 0;
 		}
 	}
 	@include break-point(laptop) {
 		// width: auto;
-		height: 420px;
+		height: 423px;
 		align-self: center;
 		margin-top: 0;
 
@@ -446,10 +457,31 @@
 		&:not(:first-of-type) {
 			margin-left: 2rem;
 		}
+		&:last-of-type {
+			margin-bottom: 2rem;
+		}
 	}
 	@include break-point(desktop) {
-		height: 450px;
+		height: 422px ;
 	}
+	@media screen
+  and (min-device-width: 1600px)
+  and (max-device-width: 2560px) {
+		height: 585px;
+		h3 {
+			padding-left: calc(#{$space-tiny} * 1);
+			padding-right: calc(#{$space-tiny} * 1);
+		}
+		img {
+			max-width: 600px;
+		}
+		.button {
+			margin-left: 1rem;
+		}
+	}
+	// @include break-point(monitor) {
+	// 	height: 485px;
+	// }
 
 
 	// @include break-point(laptop) {
