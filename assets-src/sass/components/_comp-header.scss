@@ -53,13 +53,13 @@ header {
 	}
 
 	@include break-point(tablet) {
-		// padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
-		padding: 0 calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 1.5);
+		padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 4);
+		// padding: 0 calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 1.5);
 
 	    &.stuck,
 		.non-hero & {
-			// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4) ;
-			padding: 0 calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 1) ;
+			padding: calc(#{$space-tiny} * 0.35) calc(#{$space-tiny} * 4) ;
+			// padding: 0 calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 1) ;
 		}
     }
 }
@@ -165,14 +165,15 @@ header {
 	    &.stuck,
 		.non-hero & {
 			max-width: 14.5rem;
-				max-height: 64px;
+			max-width: 12rem;
+			max-height: 64px;
 		}
     }
 
     @include break-point(largelaptop) {
 			// max-width: 18rem;
 			max-width: 14rem;
-			max-height: 84px;
+			max-height: 64px;
     }
 }
 

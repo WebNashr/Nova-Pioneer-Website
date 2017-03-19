@@ -366,7 +366,7 @@
                       <span class="text">Kenya</span>
                   </a>
 
-                  <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa country-chosen drop-list-item drop-list-option">
+                  <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa drop-list-item drop-list-option">
                       <span class="flag-icon flag-icon-za"></span>
                       <span class="text">South Africa</span>
                   </a>
@@ -376,13 +376,6 @@
               <script>
                   $('body').addClass('body-ke');
               </script>
-              <!-- <div class="drop-list">
-                  <div class="drop-list-container">
-                      <a href="#" class="button button-small button-primary drop-list-item drop-list-selected">Apply now</a>
-                      <a href="/sa/apply-online/" class="button button-small button-primary drop-list-item drop-list-option">South Africa</a>
-                      <a href="/kenya/apply-online/" class="button button-small button-primary drop-list-item drop-list-option">Kenya</a>
-                  </div>
-              </div> -->
             </section>
 
         </header>

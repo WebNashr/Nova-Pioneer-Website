@@ -101,7 +101,7 @@
     background-position: right 8px center;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    max-width: 105px;
+    max-width: 120px;
 
     &:hover {
       background: $blue-dk url(../../img/icons/drop-down-arrow-green.svg) no-repeat;
@@ -110,8 +110,8 @@
       border-bottom-right-radius: 3px;
       border-bottom-left-radius: 3px;
       %country-chosen {
-        border-bottom-right-radius: 0;
-    		border-bottom-left-radius: 0;
+        // border-bottom-right-radius: 0;
+    		// border-bottom-left-radius: 0;
       }
     }
   }
@@ -127,7 +127,9 @@
       border-bottom-left-radius: 3px;
     }
   }
-
+  .country {
+    padding-left: 0.35rem;
+  }
   .country:not(:first-child) {
     margin-left: 0;
     padding-left: 0.35rem;
@@ -135,12 +137,19 @@
   .drop-list-item {
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
+    .drop-list-selected {
+      background: $blue-dk;
+    }
     &:hover {
       .drop-list-option {
         background: $green-lt;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
       }
       .drop-list-selected {
         background: $blue-dk;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
       }
     }
   }
@@ -149,10 +158,10 @@
   }
 
   @include break-point(tablet) {
-		padding-right: 4rem !important;
+		padding-right: 9rem !important;
 	}
   @include break-point(laptop) {
-		padding-right: 4rem !important;
+		padding-right: 6.5rem !important;
 	}
 
 }

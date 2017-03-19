@@ -54,7 +54,7 @@
                         'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
                         'theme_location' => 'novap-header-menu',
                         'container' => ''
-                    )); ?> 
+                    )); ?>
                 </div>
             </div>
             <!-- end navigation -->
@@ -64,11 +64,11 @@
 
         <!-- page-header -->
         <header class="page-header <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>"  id="header-container">
-            <section class="header-section header-section-countries">
+            <!-- <section class="header-section header-section-countries"> -->
                 <!-- we'll probably need to find a way to pick which country is selected -->
                 <!--<span class="country country-choose">Choose country</span>-->
 
-                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke">
+                <!-- <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke">
                     <span class="flag-icon flag-icon-ke"></span>
                     <span class="text">Kenya</span>
                 </a>
@@ -81,8 +81,8 @@
                 <script>
                     $('body').addClass('body-sa');
                 </script>
-            </section>
-            
+            </section> -->
+
             <section class="header-section header-section-main">
                 <a href="<?php echo home_url(); ?>" class="logo header-logo">
                     <!-- mark and text -->
@@ -343,11 +343,11 @@
                     'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
                     'theme_location' => 'novap-header-menu',
                     'container' => ''
-                )); ?> 
+                )); ?>
                 <!-- end navigation -->
 
                 <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
-                
+
                 <!-- open search form -->
                 <svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                     <path d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
@@ -358,10 +358,35 @@
                     <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
                 </svg>
             </section>
+            <section class="header-section country-switch-container">
+              <!-- <div class="drop-list-container">
+                <a href="<?php echo novap_get_baseurl(); ?>sa" class="country country-sa drop-list-item drop-list-selected">
+                    <span class="flag-icon flag-icon-za"></span>
+                    <span class="text">South Africa</span>
+                </a>
+
+                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke country-chosen drop-list-item drop-list-option">
+                    <span class="flag-icon flag-icon-ke"></span>
+                    <span class="text">Kenya</span>
+                </a>
+            </div> -->
+            <div class="drop-list-container">
+              <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa drop-list-item drop-list-selected">
+                  <span class="flag-icon flag-icon-za"></span>
+                  <span class="text">South Africa</span>
+              </a>
+
+              <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke drop-list-item drop-list-option">
+                  <span class="flag-icon flag-icon-ke"></span>
+                  <span class="text">Kenya</span>
+              </a>
+          </div>
+              <script>
+                  $('body').addClass('body-ke');
+              </script>
+            </section>
         </header>
         <!-- end page-header -->
 
         <!-- start content -->
         <main role="main">
-
-
