@@ -54,7 +54,7 @@
                         'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
                         'theme_location' => 'novap-header-menu',
                         'container' => ''
-                    )); ?> 
+                    )); ?>
                 </div>
             </div>
             <!-- end navigation -->
@@ -64,11 +64,11 @@
 
         <!-- page-header -->
         <header class="page-header <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>" id="header-container">
-            <section class="header-section header-section-countries">
+            <!-- <section class="header-section header-section-countries"> -->
                 <!-- we'll probably need to find a way to pick which country is selected -->
                 <!--<span class="country country-choose">Choose country</span>-->
 
-                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke">
+                <!-- <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke">
                     <span class="flag-icon flag-icon-ke"></span>
                     <span class="text">Kenya</span>
                 </a>
@@ -80,9 +80,9 @@
 
                 <script>
                     $('body').addClass('body-ke');
-                </script>
-            </section>
-            
+                </script> -->
+            <!-- </section> -->
+
             <section class="header-section header-section-main">
                 <a href="<?php echo home_url(); ?>" class="logo header-logo">
                     <!-- mark and text -->
@@ -343,7 +343,7 @@
                     'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
                     'theme_location' => 'novap-header-menu',
                     'container' => ''
-                )); ?> 
+                )); ?>
                 <!-- end navigation -->
 
                 <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
@@ -358,10 +358,35 @@
                     <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
                 </svg>
             </section>
+            <section class="header-section country-select-container">
+
+                <div class="drop-list-container">
+                  <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke drop-list-item drop-list-selected">
+                      <span class="flag-icon flag-icon-ke"></span>
+                      <span class="text">Kenya</span>
+                  </a>
+
+                  <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa country-chosen drop-list-item drop-list-option">
+                      <span class="flag-icon flag-icon-za"></span>
+                      <span class="text">South Africa</span>
+                  </a>
+              </div>
+
+
+              <script>
+                  $('body').addClass('body-ke');
+              </script>
+              <!-- <div class="drop-list">
+                  <div class="drop-list-container">
+                      <a href="#" class="button button-small button-primary drop-list-item drop-list-selected">Apply now</a>
+                      <a href="/sa/apply-online/" class="button button-small button-primary drop-list-item drop-list-option">South Africa</a>
+                      <a href="/kenya/apply-online/" class="button button-small button-primary drop-list-item drop-list-option">Kenya</a>
+                  </div>
+              </div> -->
+            </section>
+
         </header>
         <!-- end page-header -->
 
         <!-- start content -->
         <main role="main">
-
-

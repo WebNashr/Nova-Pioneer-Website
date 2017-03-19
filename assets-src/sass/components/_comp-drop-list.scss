@@ -52,3 +52,30 @@
 	color: $white;
 	background: $green-lt;
 }
+.country-select-container {
+  @include flex-direction(row);
+  @include flex-wrap(nowrap);
+  align-self: center;
+  position: absolute;
+  width: 100%;
+  max-width: 150px;
+  max-height: 148px;
+  border: none !important;
+  background: none;
+
+  justify-content: flex-end;
+	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
+  .drop-list-container {
+    position: relative;
+    background-color: $blue-dk;
+
+  }
+  .country:not(:first-child) {
+    margin-left: 0.5rem;
+  }
+
+  @include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 0);
+	}
+
+}

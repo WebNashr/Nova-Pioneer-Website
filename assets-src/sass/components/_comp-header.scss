@@ -4,7 +4,7 @@
 
 
 header {
-	
+
 }
 
 
@@ -16,7 +16,8 @@ header {
 	padding: 0;
 	background: transparent;
 	transition: $ease;
-	z-index: index($indices, z6);
+	// z-index: index($indices, z6);
+	z-index: 99;
 
 	&.stuck,
 	.non-hero & {

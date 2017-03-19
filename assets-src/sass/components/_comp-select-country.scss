@@ -15,7 +15,7 @@
 		margin-left: 1.5rem;
 		text-transform: capitalize;
 	}
-	
+
 	.text {
 		background: transparent;
 	}
@@ -38,8 +38,9 @@
 	padding: 6px;
 	color: $blue-lt;
 	background: #f5f5f5;
-	background: lighten($grey-lt, 2.75%);
-	border: 1px solid lighten($grey-lt, 1.5%);
+	// background: lighten($grey-lt, 2.75%);
+	// border: 1px solid lighten($grey-lt, 1.5%);
+	background: $blue-dk;
 	pointer-events: none;
 }
 
@@ -54,5 +55,3 @@
 		@extend %country-chosen;
 	}
 }
-
-
