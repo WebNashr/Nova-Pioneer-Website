@@ -358,7 +358,7 @@
                     <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
                 </svg>
             </section>
-            <section class="header-section country-select-container">
+            <section class="header-section country-switch-container">
 
                 <div class="drop-list-container">
                   <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke drop-list-item drop-list-selected">

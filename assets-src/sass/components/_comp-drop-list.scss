@@ -58,22 +58,26 @@
 // }
 .drop-list-container:hover {
 	color: $white;
-	background: $green-lt;
+	// background: $green-lt;
 }
-.country-select-container {
+.country-switch-container {
+  @include flexbox();
   @include flex-direction(row);
   @include flex-wrap(nowrap);
-  align-self: center;
+  // align-self: center;
   position: absolute;
   width: 100%;
-  max-width: 128px;
-  max-height: 148px;
+  // max-width: 128px;
+  // max-height: 148px;
   border: none !important;
   background: none;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   justify-content: flex-end;
-	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
+  margin-right: 3rem;
+	// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
+  padding: 0 !important;
+  padding-right: 1rem !important;
   a {
     color: $white !important;
   }
@@ -145,7 +149,10 @@
   }
 
   @include break-point(tablet) {
-		padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 0);
+		padding-right: 4rem !important;
+	}
+  @include break-point(laptop) {
+		padding-right: 4rem !important;
 	}
 
 }
