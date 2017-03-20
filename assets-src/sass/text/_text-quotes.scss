@@ -9,7 +9,7 @@
 	@extend %column-12;
 	justify-content: center;
 	background: lighten($background-grey, 5%);
-	padding: calc(#{$space-tiny} * 3) 0 !important;
+	padding: calc(#{$space-tiny} * 1.5) 0;
 
 	&.full-width-quote {
 		background: $blue-lt;
@@ -310,12 +310,18 @@
 			padding-top: calc(#{$space-tiny} * 0.5);
 		}
 	}
-
+	@include break-point(tablet) {
+		// margin: -4rem 0 0 0;
+	}
 	@include break-point(laptop) {
+		padding: calc(#{$space-tiny} * 2) 0;
 		&.pull-quote {
 			background: none;
 			padding: calc(#{$space-tiny} * 2) 0;
 			margin-left: 0;
 		}
+	}
+	@include break-point(monitor) {
+		padding: calc(#{$space-tiny} * 3) 0 ;
 	}
 }
