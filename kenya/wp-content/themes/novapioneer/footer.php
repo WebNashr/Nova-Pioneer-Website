@@ -69,6 +69,7 @@
         });
     </script>
 
+
 <?php endif; ?>
 <!-- slippry -->
 <script type="text/javascript">
@@ -87,6 +88,15 @@
 </script>
 <!-- <script>
     $(document).ready(function () {
+  
+
+    <script>
+        // change placeholders of inputs on calendar search
+        $('#tribe-bar-date').attr('placeholder', 'Month');
+        $('#tribe-bar-search').attr('placeholder', 'e.g. PTA Meeting');
+    </script>
+    <!-- <script>
+        $(document).ready(function () {
 
         var captionWaypoint = $('.caption').waypoint(function (direction) {
 

@@ -5,7 +5,7 @@
 
  */
 
-$color_high: #e24b70 !default;     // highlight colour
+$color_high: $orange-lt !default;     // highlight colour
 $color_gray: #ccc !default;        // neutral colour
 $controls_size: 2.8em !default;    // size of the next/ prev buttons
 $pager_size: 1.2em !default;       // size of the pager bubbles
@@ -99,7 +99,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
 .country-hero {
 
   .sy-slides-wrap {
-    height: 100vh;
+    // height: 100vh;
     // z-index: -1;
     .sy-controls {
       height: 100%;
@@ -402,24 +402,25 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     height: 50%;
   }
   @include break-point(laptop) {
-    height: 40%;
+    // height: 40%;
   }
   @media screen
 		and (min-device-width: 1920px)
 		and (max-device-width: 2560px) {
-			height: 30%;
+			// height: 30%;
 	}
 }
 /* captions, styled fo the overlay variant */
 .sy-caption-wrap {
-  position: absolute;
-  bottom: 2em;
+  position: relative;
+  // bottom: 2em;
   z-index: 3;
   // left: 50%;
   .sy-caption {
-    position: relative;
-    top: -25em;
-    left: 50%;
+    position: absolute;
+    left: 0%;
+    // top: -25em;
+    // left: 50%;
     background-color: rgba(0,0,0,0.54);
     color: #fff;
     @include font-size(18px);
@@ -436,15 +437,15 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
       }
     }
     @include break-point(tablet) {
-			top: -15em;
-      left: 45%;
+			// top: -15em;
+      // left: 45%;
 		}
     @include break-point(laptop) {
-			top: -25em;
-      left: 45%;
+			// top: -25em;
+      // left: 45%;
 		}
     @media only (min-width: 1366px) and (max-width: 1440px) {
-  			top: -23em;
+  			// top: -23em;
   	}
     @include break-point(desktop) {
 			// top: -26em;
@@ -452,7 +453,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     @media screen
       and (min-device-width: 1920px)
       and (max-device-width: 2560px) {
-        top: -63rem;
+        // top: -63rem;
     }
   }
   // @media only screen and (max-device-width : $mobile_break), screen and (max-width : $mobile_break) {
@@ -589,5 +590,40 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
   	// 	and (max-device-width: 2560px) {
   	// 		height: 30%;
   	// }
+  }
+}
+
+
+.thumb-box {
+  padding: 1.4em 0 1em;
+  margin-left: -1%;
+  width: 102%;
+  .thumbs {
+    // @include clearfix;
+    clear: both;
+    li {
+      float: left;
+      width: 25%;
+      text-align: center;
+      padding: 0 1%;
+      img {
+        width: 100%;
+        opacity: .8;
+        // @include transition(opacity .32s);
+        transition: opacity 0.32s;
+        border-bottom: 4px solid transparent;
+        &.active {
+          border-color: $blue;
+          opacity: 1;
+        }
+      }
+      &:hover {
+        img {
+          opacity: 1;
+          // @include transition(opacity .2s);
+          transition: opacity 0.2s;
+        }
+      }
+    }
   }
 }

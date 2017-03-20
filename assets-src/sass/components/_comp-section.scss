@@ -250,7 +250,8 @@
 	// justify-content: center;
 	justify-content: space-around;
 	width: 100%;
-	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1);
+	padding-top: calc(#{$space-tiny} * 2);
+	// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1);
     @include break-point(tablet) {
       // @include flex-direction(row);
       // @include flex-wrap(wrap);
@@ -272,18 +273,21 @@
 	// @extend %column-3;
 	display: flex;
 	flex-direction: column;
-	height: 480px;
+	height: 432px;
 	// width: 100%;
 	align-self: center;
 	position: relative;
 	margin-top: 0;
+	margin-bottom: 2rem;
 	// &:nth-child(n+3) {
 	// 	margin-top: 0;
 	// }
 	// &:first-child {
 	// 	margin-top: 0;
 	// }
-
+	&:last-of-type {
+		margin-bottom: 0;
+	}
 	h3{
 		text-align: left;
 		margin-top: 0.5rem;
@@ -349,7 +353,7 @@
 	}
 	.school-summary {
 		margin-right: auto;
-		margin-bottom: 2rem;
+		// margin-bottom: 2rem;
 		margin-left: auto;
 		border-top: 1px $grey-md solid;
 		// padding-left: calc(#{$space-tiny} * 0.5);
@@ -429,16 +433,39 @@
 			margin-left: 0;
 		}
 	}
+	@media screen
+  and (min-device-width: 320px)
+  and (max-device-width: 375px) {
+		height: 415px;
+		&:last-of-type {
+			height: 430px;
+		}
+
+	}
+	@media screen
+  and (min-device-width: 425px)
+  and (max-device-width: 550px) {
+		height: 452px;
+
+	}
 	@include break-point(tablet) {
-		height: 480px;
-		margin-top: 3rem;
+		// height: 432px;
+		// margin-top: 3rem;
+		margin-bottom: 2rem;
 		&:first-of-type {
 			margin-top: 0;
+		}
+		&:nth-child(n+3) {
+			height: 450px;
+			margin-top: 0;
+		}
+		&:last-of-type {
+			height: 430px;
 		}
 	}
 	@include break-point(laptop) {
 		// width: auto;
-		height: 420px;
+		height: 430px;
 		align-self: center;
 		margin-top: 0;
 
@@ -446,10 +473,64 @@
 		&:not(:first-of-type) {
 			margin-left: 2rem;
 		}
+		&:nth-child(n+3) {
+			height: 430px;
+			margin-top: 0;
+		}
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 430px;
+		}
 	}
 	@include break-point(desktop) {
-		height: 450px;
+		height: 440px;
+		&:nth-child(n+3) {
+			height: 440px;
+			margin-top: 0;
+		}
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 440px;
+		}
 	}
+	@include break-point(monitor) {
+		height: 440px;
+		&:nth-child(n+3) {
+			height: 440px;
+			margin-top: 0;
+		}
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 440px;
+		}
+	}
+	@media screen
+  and (min-device-width: 1680px)
+  and (max-device-width: 1920px) {
+		height: 485px;
+
+	}
+	@media screen
+  and (min-device-width: 2000px)
+  and (max-device-width: 2560px) {
+		height: 585px;
+		h3 {
+			padding-left: calc(#{$space-tiny} * 1);
+			padding-right: calc(#{$space-tiny} * 1);
+		}
+		img {
+			max-width: 600px;
+		}
+		.button {
+			margin-left: 1rem;
+		}
+	}
+	// @include break-point(monitor) {
+	// 	height: 485px;
+	// }
 
 
 	// @include break-point(laptop) {
@@ -853,32 +934,7 @@
 	}
 }
 
-.section-gallery {}
 
-.gallery-nav {
-	@include flexbox();
-	@include flex-direction(column);
-	@include flex-wrap(nowrap);
-	margin-top: 1.5rem;
-	padding-right: calc(1rem * 3);
-}
-
-.gallery-select {
-	// padding-left: calc(#{$space-tiny} * 0.5);
-	@include font-size(16px);
-	@include line-height(1.5);
-	color: $dark-grey;
-	// border-left: 4px solid transparent;
-
-	&:not(:first-of-type) {
-		margin-top: calc(1rem * 0.675);
-	}
-
-	&.gallery-selected {
-		color: $green-blue;
-		border-color: $blue;
-	}
-}
 
 
 .section-content-navigation{

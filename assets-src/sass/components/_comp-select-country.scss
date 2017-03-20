@@ -15,7 +15,7 @@
 		margin-left: 1.5rem;
 		text-transform: capitalize;
 	}
-	
+
 	.text {
 		background: transparent;
 	}
@@ -37,10 +37,14 @@
 %country-chosen {
 	padding: 6px;
 	color: $blue-lt;
-	background: #f5f5f5;
-	background: lighten($grey-lt, 2.75%);
-	border: 1px solid lighten($grey-lt, 1.5%);
-	pointer-events: none;
+	// background: #f5f5f5;
+	// background: lighten($grey-lt, 2.75%);
+	// border: 1px solid lighten($grey-lt, 1.5%);
+	// background: $grey-lt;
+	// pointer-events: none;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+
 }
 
 .country-ke {
@@ -54,5 +58,3 @@
 		@extend %country-chosen;
 	}
 }
-
-

@@ -1,6 +1,310 @@
 
 /*  Gallery */
 /* ==================================================== */
+.gallery-wrap {
+	padding: 0;
+	padding-top: calc(1rem * 2);
+	background-color: $blue-dk;
+	.full-width {
+		padding: 0;
+		padding-top: calc(1rem * 2);
+	}
+	h2{
+		text-align: center;
+		color: $white;
+	}
+	.photo-container {
+		@extend %column;
+		@extend %column-11;
+		padding: 0;
+		margin-left: 0 !important;
+		@include break-point(laptop) {
+			// float: left;
+			margin-left: 3rem !important;
+		}
+		@include break-point(desktop) {
+			// float: left;
+			margin-left: 3rem !important;
+		}
+	}
+	.thumbnail-container {
+		// @extend %column;
+		// display: flex;
+		// flex-direction: column;
+		// align-items: stretch;
+		height: 100%;
+		overflow: hidden;
+		margin-left: 4rem;
+		@extend %column-1;
+		.thumb-box {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		.thumbs {
+			li {
+		    // display: inline-block;
+		    text-indent: 0 !important;
+		    list-style-type: none !important;
+		    margin-left: 0 !important;
+				width: 15%;
+				float: left;
+				display: inline;
+		    &:before{
+		      content: none;
+		    }
+				img {
+	        &.active {
+	          border-color: $orange-lt;
+	        }
+	      }
+				// @include break-point(tablet) {
+				// 	// float: left;
+				// 	width: 15%;
+				// }
+				@include break-point(laptop) {
+					float: none;
+					width: 100%;
+					display: block;
+				}
+			}
+		}
+		// @include break-point(laptop) {
+		// 	margin-left: 4rem;
+		// }
+	}
+	// .sy-caption-wrap .sy-caption a:link, .sy-caption-wrap .sy-caption a:visited {
+	// 	color: $orange-lt !important;
+	// 	text-decoration: none;
+	//
+	// }
+	.sy-caption-wrap {
+		a {
+      &:link, &:visited {
+        color: $blue-lt;
+
+      }
+      &:hover {
+        text-decoration: none !important;
+				color: $orange-lt !important;
+      }
+    }
+		.sy-caption {
+			border-radius: 0 !important;
+			padding-bottom: calc(1rem * 0.25);
+		}
+	}
+
+}
+.section-gallery {
+ // 	@extend %columns;
+	@extend %column;
+	@extend %column-12;
+
+	// padding-top: calc(1rem * 3);
+	padding-bottom: calc(1rem * 1.5);
+	padding-right: calc(1rem * 2);
+	// height: 600px;
+	// padding-bottom: 56.25%;
+	// padding-top: 30px;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	.sy-box {
+		width: 100%;
+	}
+	.sy-list {
+		li {
+	    border-radius: 50%;
+	    text-indent: 0 !important;
+	    list-style-type: none !important;
+	    margin-left: 0 !important;
+	    &:before{
+	      content: none;
+	    }
+	  }
+	}
+	.sy-pager {
+	  clear: both;
+	  display: block;
+	  width: 100%;
+	  margin: 1em 0 0;
+	  padding: 0;
+	  list-style: none;
+	  text-align: center;
+	  li {
+	    border-radius: 50%;
+	    text-indent: 0 !important;
+	    list-style-type: none !important;
+	    margin-left: 0 !important;
+	    &:before{
+	      content: none;
+	    }
+
+	  }
+	}
+	.sy-controls {
+		list-style: none;
+		li {
+	    border-radius: 50%;
+	    text-indent: 0 !important;
+	    list-style-type: none !important;
+	    margin-left: 0 !important;
+	    &:before{
+	      content: none;
+	    }
+		}
+	}
+	// width: 100%;
+	// height: 100%;
+	// position: relative;
+	// padding-bottom: 0;
+	// margin-bottom: -4rem;
+	@extend %columns;
+	@extend %column-12;
+	@include break-point(tablet) {
+		// margin-bottom: -5rem;
+	}
+	@media only (min-width: 1024px) and (max-width: 1024px) { //1024px
+			// margin-bottom: 0;
+	}
+	@media only (min-width: 1440px) and (max-width: 1440px) { //1024px
+			// margin-bottom: 0;
+	}
+	.section-navigation {
+		@extend %column-2;
+		// background: $blue-dk;
+		// padding-top: calc(1rem * 3);
+		padding-left: calc(1rem * 4);
+		// height: 88.85%;
+		// height: 80.75%;
+		min-width: 20%;
+		@include break-point(largelaptop) {
+			// height: 80.75%;
+		}
+		@media only (min-width: 1024px) and (max-width: 1024px) { //1024px
+				// height: 88.85%;
+		}
+		@media only (min-width: 1440px) and (max-width: 1440px) { //1024px
+				// height: 88.85%;
+		}
+
+		.gallery-nav{
+			@include font-size(16px);
+			padding-bottom: calc(1rem * 2);
+		}
+		h2 {
+			color: $white;
+		}
+	}
+}
+
+.gallery-nav {
+	@include flexbox();
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	margin-top: 1.5rem;
+	padding-right: calc(1rem * 3);
+}
+
+.gallery-select {
+	// padding-left: calc(#{$space-tiny} * 0.5);
+	@include font-size(16px);
+	@include line-height(1.5);
+	color: $dark-grey;
+	// border-left: 4px solid transparent;
+
+	&:not(:first-of-type) {
+		margin-top: calc(1rem * 0.675);
+	}
+
+	&.gallery-selected {
+		color: $green-blue;
+		border-color: $blue;
+	}
+}
+
+
+
+
+.overflow-crop {
+	// overflow: visible;
+}
+.slider-container {
+	clear: both;
+	overflow: hidden;
+  // padding-top: calc(1rem * 4);
+	// padding-bottom: 0;
+	// margin-bottom: 4rem;
+	@extend %columns;
+	@extend %column-12;
+	max-height: 488px;
+	// @include break-point(tablet) {
+	// 	max-height: 488px;
+	// }
+	// margin-bottom: -13rem;
+	@include break-point(laptop) {
+		// max-height: 788px;
+		margin-bottom: -2.5rem;
+		max-height: 453px;
+	}
+
+	@media only (min-width: 1366px) and (max-width: 1440px) {
+			// max-height: 720px;
+			// max-height: 454px;
+			// margin-bottom: -2.65rem;
+			margin-bottom: 0;
+	}
+	@media screen
+		and (min-device-width: 1600px)
+		and (max-device-width: 2560px) {
+			margin-bottom: 0;
+			// max-height: 1200px;
+			// max-height: 454px;
+	}
+	@media screen
+		and (min-device-width: 1920px)
+		and (max-device-width: 2560px) {
+			margin-bottom: 0;
+			// max-height: 1200px;
+			// max-height: 454px;
+	}
+
+	.section-navigation {
+		@extend %column-2;
+		// background: darken($blue-dk, 15%);
+		// padding-top: calc(1rem * 3);
+		padding-left: calc(1rem * 4);
+		// height: 88.85%;
+		// height: 80.75%;
+		// max-height: 90%;
+		height: 100%;
+		min-width: 20%;
+		@include break-point(laptop) {
+			height: 89%;
+
+		}
+		@include break-point(desktop) {
+			height: 100%;
+		}
+		@media only (min-width: 1440px) and (max-width: 1440px) { //1440px
+				height: 91.7%;
+		}
+		.gallery-nav{
+			@include font-size(16px);
+			padding-bottom: calc(1rem * 2);
+		}
+	}
+
+
+}
+
+
+
+
+
+
+
 
 
 .section-gallery {

@@ -178,7 +178,7 @@ get_header(); ?>
             <div class="article"><h2 class=" gallery-title">School Gallery</h2></div>
 
             <div class="slider-container school-gallery">
-                <div class="section-content-item-full">
+                <div class="section-content section-content-item-full">
                     <div class="media gallery">
                         <ul id="slippry">
                             <?php $image_count = 0; ?>
