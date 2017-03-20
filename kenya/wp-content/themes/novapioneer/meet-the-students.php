@@ -156,10 +156,10 @@ get_header(); ?>
                         <?php foreach (get_field('student_blogs') as $blog_post): $blog_post = (object)$blog_post; ?>
 
                             <div class="section-content-item section-content-item-third blog-article">
-                                <a href=""><div class="blog-article-image" style="background-image: url(<?php echo $blog_post->picture; ?>);"
+                                <a href="<?php echo $blog_post->url; ?>" target="_blank"><div class="blog-article-image" style="background-image: url(<?php echo $blog_post->picture; ?>);"
                                         title="<?php echo $blog_post->title; ?>"></div></a>
                                 <div class="blog-summary-container">
-                                <a href="<?php echo $blog_post->url; ?>" class="blog-article-title"
+                                <a href="<?php echo $blog_post->url; ?>" target="_blank" class="blog-article-title"
                                     title="<?php echo $blog_post->title; ?>"><?php echo $blog_post->title; ?></a>
                                 <p class="article-author"><?php echo $blog_post->author; ?></p>
                                 </div>
