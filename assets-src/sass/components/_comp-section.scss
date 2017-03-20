@@ -435,8 +435,8 @@
 	}
 	@media screen
   and (min-device-width: 320px)
-  and (max-device-width: 360px) {
-		height: 403px;
+  and (max-device-width: 375px) {
+		height: 415px;
 		&:last-of-type {
 			height: 430px;
 		}
@@ -456,12 +456,16 @@
 			margin-top: 0;
 		}
 		&:nth-child(n+3) {
+			height: 450px;
 			margin-top: 0;
+		}
+		&:last-of-type {
+			height: 430px;
 		}
 	}
 	@include break-point(laptop) {
 		// width: auto;
-		height: 423px;
+		height: 430px;
 		align-self: center;
 		margin-top: 0;
 
@@ -469,12 +473,39 @@
 		&:not(:first-of-type) {
 			margin-left: 2rem;
 		}
+		&:nth-child(n+3) {
+			height: 430px;
+			margin-top: 0;
+		}
 		&:last-of-type {
+			margin-top: 0;
 			margin-bottom: 2rem;
+			height: 430px;
 		}
 	}
 	@include break-point(desktop) {
-		height: 423px ;
+		height: 440px;
+		&:nth-child(n+3) {
+			height: 440px;
+			margin-top: 0;
+		}
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 440px;
+		}
+	}
+	@include break-point(monitor) {
+		height: 440px;
+		&:nth-child(n+3) {
+			height: 440px;
+			margin-top: 0;
+		}
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 440px;
+		}
 	}
 	@media screen
   and (min-device-width: 1680px)
