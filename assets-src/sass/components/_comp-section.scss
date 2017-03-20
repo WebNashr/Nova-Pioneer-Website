@@ -110,6 +110,7 @@
 	}
 	.button {
 		@include font-size(11px);
+		margin-bottom: 0.5rem;
 	}
 	@include break-point(laptop) {
 
