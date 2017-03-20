@@ -20,6 +20,20 @@
     &.homepage {
       // min-height: 0;
       background-color: transparent;
+      // background: rgba(7, 33, 52, 0.785);
+    	background-image: linear-gradient(
+    		to top,
+    		rgba(0, 0, 0, 0.75),
+    		rgba(0, 0, 0, 0.65) 10%,
+    		rgba(0, 0, 0, 0.6) 15%,
+    		rgba(0, 0, 0, 0.5) 20%,
+    		rgba(0, 0, 0, 0.35) 25%,
+    		rgba(0, 0, 0, 0.25) 50%,
+    		rgba(0, 0, 0, 0.025) 65%,
+    		rgba(0, 0, 0, 0.0) 75%,
+    		transparent 100%
+    	);
+
     }
 
     &.country-home{
@@ -99,7 +113,7 @@
 	position: absolute;
 	top: unset;
 	// left: calc(#{$space-tiny} * 2);
-	bottom: 0;
+	bottom: 5rem;
 	// right: calc(#{$space-tiny} * 2);
 	max-width: 100%;
 	margin: 0;
@@ -108,24 +122,24 @@
 	background: unset;
 	box-shadow: unset;
 	border: unset;
-	background: rgba(7, 33, 52, 0.785);
+	// background: rgba(7, 33, 52, 0.785);
 	// ===
 	left: 0;
 	right: 0;
-	padding: calc(#{$space-tiny} * 4);
-	background-color: transparent;
-	background-image: linear-gradient(
-		to top,
-		rgba(0, 0, 0, 0.75),
-		rgba(0, 0, 0, 0.65) 10%,
-		rgba(0, 0, 0, 0.6) 15%,
-		rgba(0, 0, 0, 0.5) 20%,
-		rgba(0, 0, 0, 0.45) 25%,
-		rgba(0, 0, 0, 0.35) 50%,
-		rgba(0, 0, 0, 0.30) 65%,
-		rgba(0, 0, 0, 0.25) 75%,
-		transparent 100%
-	);
+	padding: calc(#{$space-tiny} * 1);
+	// background-color: transparent;
+	// background-image: linear-gradient(
+	// 	to top,
+	// 	rgba(0, 0, 0, 0.75),
+	// 	rgba(0, 0, 0, 0.65) 10%,
+	// 	rgba(0, 0, 0, 0.6) 15%,
+	// 	rgba(0, 0, 0, 0.5) 20%,
+	// 	rgba(0, 0, 0, 0.45) 25%,
+	// 	rgba(0, 0, 0, 0.35) 50%,
+	// 	rgba(0, 0, 0, 0.30) 65%,
+	// 	rgba(0, 0, 0, 0.25) 75%,
+	// 	transparent 100%
+	// );
   &.home-page-callout {
     background-image: none;
     @extend %column;
@@ -135,14 +149,14 @@
     h1 {
       max-width: auto;
       width: 100%;
-      @include font-size(49px);
+      @include font-size(28px);
     }
     .country-selection {
       @extend %columns;
       justify-content: space-between;
 
       a {
-        width: 45%;
+        width: 100%;
       }
       .button {
         background-color: transparent;
@@ -158,12 +172,28 @@
         padding-right: calc(#{$space-tiny} * 1.65);
         display: flex;
         flex-flow: row;
-        
+        a {
+          width: 45%;
+        }
     	}
       @include break-point(laptop) {
         padding-right: calc(#{$space-tiny} * 1.65);
         display: flex;
     	}
+    }
+    @include break-point(tablet) {
+      h1 {
+        max-width: auto;
+        width: 100%;
+        @include font-size(30px);
+      }
+    }
+    @include break-point(laptop) {
+      h1 {
+        max-width: auto;
+        width: 100%;
+        @include font-size(49px);
+      }
     }
   }
   &.country-hero {
@@ -215,6 +245,9 @@
         @extend .button-default;
         @extend .button-primary;
         margin: calc(#{$space-tiny} * 1.5) 0 0;
+        &:first-of-type {
+          margin: calc(#{$space-tiny} * 0.5) 0 0;
+        }
     }
 
     .animated-title {
@@ -231,10 +264,20 @@
 
 
     @include break-point(tablet) {
-
+      padding: calc(#{$space-tiny} * 4);
+      bottom: 5rem;
+      a.button {
+        margin: calc(#{$space-tiny} * 1.5) 0 0;
+        &:first-of-type {
+          margin: calc(#{$space-tiny} * 1.5) 0 0;
+        }
+      }
     }
 
     @include break-point(laptop) {
-
+      bottom: 2rem;
+    }
+    @include break-point(desktop) {
+      bottom: 2rem;
     }
 }

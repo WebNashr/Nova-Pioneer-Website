@@ -6,7 +6,11 @@
 .drop-list {
     align-self: center;
     min-width: 148px;
+    margin-top: -2rem;
     margin-left: auto;
+    @include break-point(tablet) {
+      margin-top: 0;
+    }
 }
 
 .drop-list-container {
@@ -78,6 +82,9 @@
 	// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
   padding: 0 !important;
   padding-right: 1rem !important;
+  .drop-list {
+    margin-top: 0;
+  }
   a {
     color: $white !important;
   }
