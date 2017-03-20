@@ -32,7 +32,7 @@ get_header();?>
               <div class="section-content full-image-caption animated caption">
                   <figcaption>
                       <?php echo get_field('banner_text'); ?>
-                      <!--<a href="<?php echo site_url('/careers'); ?>" >Learn More</a>-->s
+                      <!--<a href="<?php echo site_url('/careers'); ?>" >Learn More</a>-->
                   </figcaption>
               </div>
           </figure>
