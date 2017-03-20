@@ -34,7 +34,7 @@ get_header();?>
             <article class="article article-inner article-inner-alt mission-vision">
               <h2 class="centered-title">Our Story</h2>
 
-              <input type="checkbox" class="read-more-state" id="post-1" />
+              <input type="checkbox" class="read-more-state" id="post-121" />
                 <div class="read-more-wrap">
                     <?php echo array_shift($our_story_paragraphs); ?>
                     <span class="read-more-target">
@@ -42,7 +42,7 @@ get_header();?>
                                <p><?php echo $s_paragraph; ?></p>
                            <?php endforeach; ?>
                 </span></div>
-                <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label>
+                <label for="post-121" class="read-more-trigger button button-tiny button-primary"></label>
               <h2 class="centered-title">Our Vision</h2>
               <?php echo $our_vision; ?>
 
