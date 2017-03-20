@@ -73,12 +73,13 @@
 <?php endif; ?>
 <!-- slippry -->
 <script type="text/javascript">
+
     $(document).ready(function () {
-        jQuery(document).ready(function () {
-            jQuery('#slippry').slippry()
-            jQuery(".menu-item-1315").attr("href", 'http://novaacademies.applytojob.com/');
-        });
+        $('#slippry').slippry()
+        console.log('ready changes')
+       
     });
+
 </script>
 
 <script>

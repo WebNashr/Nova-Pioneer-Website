@@ -74,7 +74,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         jQuery('#slippry').slippry()
-        $(".menu-item-1315").attr("href", 'http://novaacademies.applytojob.com/');
+       
     });
 </script>
 
