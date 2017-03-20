@@ -11,10 +11,13 @@ get_header();?>
         $our_vision = get_field('our_vision');
         $our_mission = get_field('our_mission');
         $our_culture = get_field('our_culture');
+        $our_story = get_field('our_story');
 
         // Get the paragraphs in $our_mission for implementing the read-more functionality
         preg_match_all('|<p>(.+?)</p>|', $our_mission, $matches);
         $our_mission_paragraphs = $matches[1];
+        preg_match_all('|<p>(.+?)</p>|', $our_story, $s_matches);
+        $our_story_paragraphs = $s_matches[1];
     ?>
         <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
             <div class="container hero-container">
@@ -32,7 +35,13 @@ get_header();?>
               <h2 class="centered-title">Our Story</h2>
 
               <input type="checkbox" class="read-more-state" id="post-1" />
-                <p class="read-more-wrap">Lorem ipsum dolor sit amet, est natum oratio delenit ad, porro legere duo ut, cu eius debet equidem pri. Cu nibh aeque his. No mei offendit referrentur, brute luptatum at mea, sumo lorem tantas id est. Et offendit phaedrum inimicus ius, atqui harum recteque vim et.<span class="read-more-target"> Legere partiendo iracundia at eos, an quo error interesset. Inani dolorem qui et, nonumes voluptua duo ex. Te enim decore quodsi vim, elit bonorum ei mei. Ad nam sint maiestatis scripserit. Aliquam mentitum at eos, eu nec summo iudicabit. Pri ea quot percipit delicatissimi, ne labores ocurreret pro.</span></p>
+                <div class="read-more-wrap">
+                    <?php echo array_shift($our_story_paragraphs); ?>
+                    <span class="read-more-target">
+                           <?php foreach ($our_story_paragraphs as $s_paragraph): ?>
+                               <p><?php echo $s_paragraph; ?></p>
+                           <?php endforeach; ?>
+                </span></div>
                 <label for="post-1" class="read-more-trigger button button-tiny button-primary"></label>
               <h2 class="centered-title">Our Vision</h2>
               <?php echo $our_vision; ?>
