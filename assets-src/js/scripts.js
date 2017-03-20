@@ -174,6 +174,11 @@ $(window).resize(function () {
 });
 // end document.resize
 $(document).ready(function () {
+     // add blank and new href
+    $(".menu-item-1315 a").attr({
+        target : '_blank',
+        href: 'http://novaacademies.applytojob.com/'
+    });
     // capitalize words on G form
     $('.capitalize input').keyup(function () {
         console.log('yaay')
