@@ -341,9 +341,11 @@ jQuery(document).ready(function(){
     // options
     transition: 'horizontal',
     pager: true,
-    auto: false,
+    auto: true,
     responsive: true,
     loop: true,
+    adaptiveHeight: false,
+    speed: 800,
     onSlideBefore: function (el, index_old, index_new) {
     jQuery('.thumbs a img').removeClass('active');
     jQuery('img', jQuery('.thumbs a')[index_new]).addClass('active');
