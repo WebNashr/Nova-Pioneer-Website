@@ -180,12 +180,12 @@ get_header(); ?>
               <div class="thumbnail-container">
                 <div class="thumb-box">
                   <ul class="thumbs">
-                    <li><a href="#1" data-slide="1"><img src="../../img/slide-1.jpg"> </a></li>
-                    <li><a href="#2" data-slide="2"><img src="../../img/slide-2.jpg"> </a></li>
-                    <li><a href="#3" data-slide="3"><img src="../../img/slide-3.jpg"></a></li>
-                    <li><a href="#4" data-slide="4"><img src="../../img/slide-1.jpg"></a></li>
-                    <li><a href="#5" data-slide="5"><img src="../../img/slide-2.jpg"></a></li>
-                    <li><a href="#6" data-slide="6"><img src="../../img/slide-3.jpg"></a></li>
+                    <li><a href="#slide1" data-slide="1"><img src="../../img/slide-1.jpg"> </a></li>
+                    <li><a href="#slide2" data-slide="2"><img src="../../img/slide-2.jpg"> </a></li>
+                    <li><a href="#slide3" data-slide="3"><img src="../../img/slide-3.jpg"></a></li>
+                    <li><a href="#slide4" data-slide="4"><img src="../../img/slide-1.jpg"></a></li>
+                    <li><a href="#slide5" data-slide="5"><img src="../../img/slide-2.jpg"></a></li>
+                    <li><a href="#slide6" data-slide="6"><img src="../../img/slide-3.jpg"></a></li>
                   </ul>
                 </div>
               </div>
@@ -193,32 +193,32 @@ get_header(); ?>
                 <ul id="slippry">
                   <li>
                     <a href="#slide1">
-                      <img src="../../img/slide-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                      <img src="../../img/slide-1.jpg" alt="This is caption 1">
                     </a>
                   </li>
                   <li>
                     <a href="#slide2">
-                      <img src="../../img/slide-2.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                      <img src="../../img/slide-2.jpg" alt="This is caption 2">
                     </a>
                   </li>
                   <li>
                     <a href="#slide3">
-                      <img src="../../img/slide-3.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                      <img src="../../img/slide-3.jpg" alt="This is caption 3">
                     </a>
                   </li>
                   <li>
                     <a href="#slide4">
-                      <img src="../../img/slide-1.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                      <img src="../../img/slide-1.jpg" alt="This is caption 4">
                     </a>
                   </li>
                   <li>
                     <a href="#slide5">
-                      <img src="../../img/slide-2.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                      <img src="../../img/slide-2.jpg" alt="This is caption 5">
                     </a>
                   </li>
                   <li>
                     <a href="#slide6">
-                      <img src="../../img/slide-3.jpg" alt="This is caption 1 <a href='#link'>Even with links!</a>">
+                      <img src="../../img/slide-3.jpg" alt="This is caption 6">
                     </a>
                   </li>
                 </ul>
@@ -228,57 +228,6 @@ get_header(); ?>
 
         </div>
         </section>
-
-        <!-- <section class="section-pair section-gallery">
-            <div class="slider-container">
-                <div class="section-navigation">
-                    <h2>Gallery</h2>
-                    <nav class="gallery-nav">
-                      <p>thumbnnails</p>
-                    </nav>
-                </div>
-
-
-                <div class="section-content-item-full overflow-crop">
-                  <div class="media gallery">
-                    <ul id="slippry">
-                      <?php $image_count = 0; ?>
-                      <?php foreach( get_field('gallery') as $image): $image = (object)$image; $image_count++; ?>
-                          <li>
-                              <a href="#slide<?php echo $image_count; ?>">
-                                  <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>"/>
-                              </a>
-                          </li>
-                      <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-
-        </section> -->
-
-        <!-- <section class="section gallery-section">
-          <div class="article"><h2 class=" gallery-title">School Gallery</h2></div>
-          <div class="section section-pair">
-            <div class="section-navigation">
-                <p>thumbnails here</p>
-            </div>
-            <div class="section-content-item-full">
-              <div class="media gallery">
-                  <ul id="slippry">
-                    <?php $image_count = 0; ?>
-                    <?php foreach( get_field('gallery') as $image): $image = (object)$image; $image_count++; ?>
-                        <li>
-                            <a href="#slide<?php echo $image_count; ?>">
-                                <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>"/>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-          </div>
-        </div>
-    </section> -->
-
 
 
         <!-- <a name="gallery"></a>
@@ -388,7 +337,7 @@ jQuery(document).ready(function(){
   // jQuery('#slippry').slippry();
     var thumbs = jQuery('#slippry').slippry({
     // general elements & wrapper
-    slippryWrapper: '<div class="section-gallery"" />',
+    slippryWrapper: '<div class="section-gallery" />',
     // options
     transition: 'horizontal',
     pager: true,
