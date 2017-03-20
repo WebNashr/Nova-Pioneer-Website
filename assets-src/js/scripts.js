@@ -1,6 +1,7 @@
 // start document.ready
 (function ($) {
     $(document).ready(function () {
+        console.log('one ready')
 
         // 01. kill level 1 menu links
         $(".menu > .menu-item > a").attr('href', '#');
@@ -119,6 +120,7 @@
 })(jQuery);
 (function ($) {
 // 10. Full width caption animation
+    console.log(' two ready')
     $(function () {
         var captionWaypoint = $('.caption').waypoint(function (direction) {
                 if (direction == 'down') {
