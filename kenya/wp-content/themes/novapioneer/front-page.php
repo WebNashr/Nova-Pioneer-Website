@@ -39,20 +39,22 @@ get_header(); ?>
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>
                     <div class="section-school-list-select section-content-item section-content-item-quarter">
-                      <a href="<?php echo get_permalink($school->ID); ?>">
-                        <p class="school-photo"><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
-                        <h3><?php echo $school->post_title; ?></h3>
-                        <div class="school-summary">
-                            <p class="boy-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
-                            <!-- <p class="girl-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
+                        <a href="<?php echo get_permalink($school->ID); ?>">
+                            <p class="school-photo"><img
+                                    src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
+                            <h3><?php echo $school->post_title; ?></h3>
+                            <div class="school-summary">
+                                <p class="boy-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
+                                <!-- <p class="girl-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
                             <p class="mixed-gender"><?php echo get_field('school_gender', $school->ID); ?></p> -->
-                            <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
-                            <p><?php echo get_field('school_grades', $school->ID); ?></p>
-                            <p><?php echo get_field('school_type', $school->ID); ?></p>
-                            <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
+                                <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
+                                <p><?php echo get_field('school_grades', $school->ID); ?></p>
+                                <p><?php echo get_field('school_type', $school->ID); ?></p>
+                                <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
 
-                        </div>
-                        <a href="<?php echo get_permalink($school->ID); ?>" class="button button-tiny button-primary" target="_blank"> Read More</a>
+                            </div>
+                            <a href="<?php echo get_permalink($school->ID); ?>"
+                               class="button button-tiny button-primary" target="_blank"> Read More</a>
                     </div>
 
                 <?php endforeach; ?>
@@ -84,7 +86,6 @@ get_header(); ?>
                     </div>
                 <?php endforeach; ?>
         </section> -->
-
 
 
         <section class="section section-pair even-section">
@@ -176,7 +177,7 @@ get_header(); ?>
         <section class="full-width-image-container" data-enllax-type="foreground">
             <figure class="full-width-image parallax"
                     style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
-                    data-enllax-ratio="0.2">
+                    data-enllax-ratio="0.1">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p>We are developing generations of innovators and leaders who will shape the African Century.<a
@@ -250,7 +251,9 @@ get_header(); ?>
                         <div class="notice-content">
                             <h1><?php echo get_field('admin_process_title'); ?></h1>
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process') ?>" class="button button-small button-secondary">Admission Process</a></p>
+                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process') ?>"
+                                                         class="button button-small button-secondary">Admission
+                                    Process</a></p>
                         </div>
                     </div>
                 </div>
@@ -318,113 +321,115 @@ get_header(); ?>
 
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        function startWayPoint() {
-            $(function () {
-                removeAnimateClasses();
+    (function ($) {
+        $(document).ready(function () {
+            function startWayPoint() {
+                $(function () {
+                    removeAnimateClasses();
 
-                var inview1 = new Waypoint.Inview({
-                    element: $('.hero-title'),
-                    entered: function () {
-                        $(this.element).addClass('animated bounceInLeft');
-                        console.log('animated one');
+                    var inview1 = new Waypoint.Inview({
+                        element: $('.hero-title'),
+                        entered: function () {
+                            $(this.element).addClass('animated bounceInLeft');
+                            console.log('animated one');
 
-                    }
+                        }
+                    });
+
+                    var inview2 = new Waypoint.Inview({
+                        element: $('.hero-subtitle'),
+                        entered: function () {
+                            $(this.element).addClass('animated bounceInRight');
+                            console.log('animated two')
+
+                        }
+                    });
+                    console.log("12. Animated Country Hero titles");
+                    inview1.destroy()
+                    inview2.destroy()
+                    console.log('destroyed all');
+
                 });
 
-                var inview2 = new Waypoint.Inview({
-                    element: $('.hero-subtitle'),
-                    entered: function () {
-                        $(this.element).addClass('animated bounceInRight');
-                        console.log('animated two')
+                return true;
+            }
 
+            function removeAnimateClasses() {
+                if ($('.hero-title').hasClass('animated') || $('.hero-title').hasClass('bounceInLeft')) {
+                    $('.hero-title').removeClass('animated bounceInLeft');
+                    console.log('class removed 1')
+                }
+                if ($('.hero-subtitle').hasClass('animated') || $('.hero-subtitle').hasClass('bounceInRight')) {
+                    $('.hero-subtitle').removeClass('animated bounceInRight');
+
+                }
+            }
+
+
+            $("#testimonial-slider").lightSlider({
+                item: 1,
+                autoWidth: true,
+                slideMove: 1, // slidemove will be 1 if loop is true
+                slideMargin: 600, //500
+
+                addClass: '',
+                mode: "slide",
+                useCSS: true,
+                cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+                easing: 'linear', //'for jquery animation',////
+
+                speed: 400, //ms'
+                auto: false,
+                loop: true,
+                // slideEndAnimation: true,
+                pause: 2000,
+
+                keyPress: false,
+                controls: true,
+                prevHtml: '',
+                nextHtml: '',
+
+                // currentPagerPosition: 'middle',
+
+                enableTouch: true,
+                enableDrag: true,
+                freeMove: true,
+                swipeThreshold: 40,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slideMargin: 500,
+                        }
+                    },
+
+                    {
+                        breakpoint: 320,
+                        settings: {
+                            slideMargin: 200,
+                        }
                     }
-                });
-                console.log("12. Animated Country Hero titles");
-                inview1.destroy()
-                inview2.destroy()
-                console.log('destroyed all');
+                ]
 
             });
+            $('#hero-slider').slippry({
+                auto: true,
+                speed: 800,
+                pause: 8000,
+                onSlideBefore: function () {
+                    removeAnimateClasses();
+                },
+                onSlideAfter: function () {
 
-            return true;
-        }
-
-        function removeAnimateClasses() {
-            if ($('.hero-title').hasClass('animated') || $('.hero-title').hasClass('bounceInLeft')) {
-                $('.hero-title').removeClass('animated bounceInLeft');
-                console.log('class removed 1')
-            }
-            if ($('.hero-subtitle').hasClass('animated') || $('.hero-subtitle').hasClass('bounceInRight')) {
-                $('.hero-subtitle').removeClass('animated bounceInRight');
-
-            }
-        }
+                    return startWayPoint();
+                },
+            });
 
 
-        $("#testimonial-slider").lightSlider({
-            item: 1,
-            autoWidth: true,
-            slideMove: 1, // slidemove will be 1 if loop is true
-            slideMargin: 600, //500
-
-            addClass: '',
-            mode: "slide",
-            useCSS: true,
-            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-            easing: 'linear', //'for jquery animation',////
-
-            speed: 400, //ms'
-            auto: false,
-            loop: true,
-            // slideEndAnimation: true,
-            pause: 2000,
-
-            keyPress: false,
-            controls: true,
-            prevHtml: '',
-            nextHtml: '',
-
-            // currentPagerPosition: 'middle',
-
-            enableTouch: true,
-            enableDrag: true,
-            freeMove: true,
-            swipeThreshold: 40,
-            responsive : [
-              {
-                  breakpoint:1024,
-                  settings: {
-                      slideMargin:500,
-                    }
-              },
-
-              {
-                  breakpoint:320,
-                  settings: {
-                      slideMargin: 200,
-                    }
-              }
-          ]
-
-        });
-        $('#hero-slider').slippry({
-            auto: true,
-            speed: 800,
-            pause : 8000,
-            onSlideBefore: function () {
-                removeAnimateClasses();
-            },
-            onSlideAfter: function () {
-
-                return startWayPoint();
-            },
-        });
-
-
-        $('.sy-controls a').click(function () {
+            $('.sy-controls a').click(function () {
+                startWayPoint()
+            })
             startWayPoint()
-        })
-        startWayPoint()
-    });
+        });
+    })(jQuery);
 </script>
