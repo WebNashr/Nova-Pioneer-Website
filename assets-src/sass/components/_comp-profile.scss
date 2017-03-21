@@ -112,7 +112,28 @@
 		}
 	}
 }
+.global-leaders-profiles {
+	.profile {
+		margin-left: 0;
+		@include break-point(tablet) {
+			&:nth-child(2n+3){
+				margin-left: 3rem;
+			}
+			&:nth-child(n+3){
+				margin-top: 0;
+			}
+		}
+		@include break-point(laptop) {
+			&:nth-child(2n+3){
+				margin-left: 0;
+			}
+			&:nth-child(n+3){
+				margin-top: 0;
+			}
+		}
+	}
 
+}
 .np-global-leaders-profiles {
 	.image-flip {
 		img {
