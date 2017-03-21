@@ -112,20 +112,4 @@ get_header(); ?>
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 
 <?php endif; ?>
-
-<script>
-    var counter = 1;
-    $('.read-more-trigger').click(function () {
-        counter++
-        var offset = 75; //Offset of 20px
-        if (counter % 2 === 0) {//  a whole load of nothing here
-        }
-        else {
-            $('html, body').animate({
-                scrollTop: $('#readmoreScroll').offset().top - offset
-            }, 2000);
-        }
-    })
-</script>
-
 <?php get_footer(); ?>

@@ -34,7 +34,7 @@ get_header();?>
                 </figure>
             </div>
 
-            <div class="section-content">
+            <div class="section-content" id="readmoreScroll">
                 <div class="letter-from-principal">
                     <h1>A Note from Our Head of School</h1>
 
