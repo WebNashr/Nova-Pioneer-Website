@@ -177,7 +177,7 @@ get_header(); ?>
         <section class="full-width-image-container" data-enllax-type="foreground">
             <figure class="full-width-image parallax"
                     style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
-                    data-enllax-ratio="0.1">
+                    data-enllax-ratio="0">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p>We are developing generations of innovators and leaders who will shape the African Century.<a
