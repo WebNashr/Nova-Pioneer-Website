@@ -139,7 +139,7 @@ get_header();?>
                 // item: 1,
                 // autoWidth: true,
                 // slideMove: 1, // slidemove will be 1 if loop is true
-                // slideMargin: 100,
+                slideMargin: 50,
                 //
                 // addClass: '',
                 // mode: "slide",
@@ -164,6 +164,22 @@ get_header();?>
                 // enableDrag:true,
                 // freeMove:true,
                 // swipeThreshold: 40,
+                responsive : [
+                  // {
+                  //     breakpoint:1024,
+                  //     settings: {
+                  //         slideMargin:50,
+                  //       }
+                  // },
+
+                  {
+                      breakpoint:425,
+                      settings: {
+                          slideMargin: 10,
+                          item: 1
+                        }
+                  }
+              ]
 
             });
             // $('#image-gallery').lightSlider({
