@@ -6,15 +6,15 @@
 .content-slider-container {
   width: 100%;
 
-  padding: 0 calc(#{$space-tiny} * 1) !important;
+  // padding: 0 calc(#{$space-tiny} * 1) !important;
   @include break-point(tablet) {
-      padding: 0 calc(#{$space-tiny} * 3) !important;
+      // padding: 0 calc(#{$space-tiny} * 3) !important;
   }
   #content-slider {
     li {
       list-style-type: none !important;
       // max-width:295px !important;
-      max-width:273px !important;
+      // max-width:273px;
       // margin-right: 50px !important;
       margin-bottom: 2rem;
       @media only screen
@@ -27,7 +27,7 @@
       and (min-device-width: 365px)
       and (max-device-width: 375px)
       {
-        margin-left: 15px;
+        margin-left: 20px;
       }
       @media only screen
       and (min-device-width: 380px)
@@ -39,15 +39,15 @@
         and (min-device-width: 410px)
         and (max-device-width: 425px)
         {
-          margin-left: 50px;
-          min-height: 360px;
-          width: 300px !important;
+          // margin-left: 50px;
+          // min-height: 360px;
+          // width: 300px !important;
 
         }
       @include break-point(tablet) {
-
-        margin-bottom: 4rem;
-        margin-left: 50px;
+        // min-width: 175px;
+        // margin-bottom: 4rem;
+        // margin-left: 47px;
         // margin-left: -50px;
       }
       @include break-point(laptop) {
@@ -58,7 +58,7 @@
       @media screen
         and (min-device-width: 800px)
         and (max-device-width: 1024px) {
-          margin-left: 63px;
+          margin-bottom: 0;
       }
       @media screen
         and (min-device-width: 1280px)
@@ -68,18 +68,18 @@
       @media screen
         and (min-device-width: 1440px)
         and (max-device-width: 1500px) {
-          margin-left: 8px;
+          // margin-left: 20px;
 
       }
       @media screen
         and (min-device-width: 1600px)
         and (max-device-width: 1920px) {
-            margin-left: 30px;
+            // margin-left: -30px;
       }
       @media screen
         and (min-device-width: 2000px)
         and (max-device-width: 2560px) {
-            margin-left: 20px;
+            // margin-left: 20px;
       }
       // @include break-point(desktop) {
       //

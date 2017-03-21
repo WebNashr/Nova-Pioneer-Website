@@ -97,7 +97,7 @@ get_header();?>
 
         <span class="anchor-link" ></span>
 
-        <section class="section team-profile-container np-team-profiles">
+        <section class="section team-profile-container np-team-profiles slider-profiles">
             <h2 class="centered-title" id="team">Nova Pioneer Team</h2>
             <div class="content-slider-container">
 
@@ -137,7 +137,7 @@ get_header();?>
                 // loop:true,
                 // keyPress:true
                 // item: 1,
-                // autoWidth: true,
+                // autoWidth: false,
                 // slideMove: 1, // slidemove will be 1 if loop is true
                 slideMargin: 50,
                 //
@@ -159,7 +159,7 @@ get_header();?>
                 // nextHtml: '',
                 //
                 // currentPagerPosition: 'middle',
-                //
+                addClass:'content-slider',
                 // enableTouch:true,
                 // enableDrag:true,
                 // freeMove:true,
@@ -175,11 +175,12 @@ get_header();?>
                   {
                       breakpoint:425,
                       settings: {
-                          slideMargin: 10,
-                          item: 1
+                          autoWidth: true,
+                          item: 1,
+                          slideMargin: 160
                         }
                   }
-              ]
+              ],
 
             });
             // $('#image-gallery').lightSlider({
