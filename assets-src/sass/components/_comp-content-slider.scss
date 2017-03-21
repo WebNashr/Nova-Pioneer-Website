@@ -21,24 +21,26 @@
       and (min-device-width: 320px)
       and (max-device-width: 360px)
       {
-        margin-left: 15px;
+        // margin-left: 15px;
       }
       @media only screen
       and (min-device-width: 365px)
       and (max-device-width: 375px)
       {
-        margin-left: 20px;
+        margin-bottom: 0;
+        // margin-left: 20px;
       }
       @media only screen
       and (min-device-width: 380px)
       and (max-device-width: 400px)
       {
-
+        margin-bottom: 0;
       }
       @media only screen
         and (min-device-width: 410px)
         and (max-device-width: 425px)
         {
+          margin-bottom: 0;
           // margin-left: 50px;
           // min-height: 360px;
           // width: 300px !important;

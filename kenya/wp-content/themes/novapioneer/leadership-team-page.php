@@ -165,22 +165,22 @@ get_header();?>
                 // freeMove:true,
                 // swipeThreshold: 40,
                 responsive : [
-                  // {
-                  //     breakpoint:1024,
-                  //     settings: {
-                  //         slideMargin:50,
-                  //       }
-                  // },
+                  {
+                      breakpoint:768,
+                      settings: {
+                          slideMargin:160,
+                        }
+                  },
 
                   {
                       breakpoint:425,
                       settings: {
-                          autoWidth: true,
+                          autoWidth: false,
                           item: 1,
                           slideMargin: 160
                         }
                   }
-              ],
+              ]
 
             });
             // $('#image-gallery').lightSlider({
