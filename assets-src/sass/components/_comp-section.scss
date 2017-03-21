@@ -512,12 +512,21 @@
   and (min-device-width: 1680px)
   and (max-device-width: 1920px) {
 		height: 485px;
+		&:nth-child(n+3) {
+			height: 485px;
+			margin-top: 0;
+		}
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 485px;
+		}
 
 	}
 	@media screen
   and (min-device-width: 2000px)
   and (max-device-width: 2560px) {
-		height: 585px;
+		height: 570px;
 		h3 {
 			padding-left: calc(#{$space-tiny} * 1);
 			padding-right: calc(#{$space-tiny} * 1);
@@ -528,6 +537,16 @@
 		.button {
 			margin-left: 1rem;
 		}
+		&:nth-child(n+3) {
+			height: 570px;
+			margin-top: 0;
+		}
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 570px;
+		}
+
 	}
 	// @include break-point(monitor) {
 	// 	height: 485px;
