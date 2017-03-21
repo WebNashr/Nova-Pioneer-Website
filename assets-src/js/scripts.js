@@ -196,6 +196,7 @@
         var counter = 1;
         $('.read-more-trigger').click(function () {
             counter++
+            console.log('scroll yes scroll')
             var offset = 75; //Offset of 20px
             if (counter % 2 === 0) {//  a whole load of nothing here
             }
