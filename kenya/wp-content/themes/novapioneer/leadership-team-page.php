@@ -23,7 +23,7 @@ get_header();?>
         <div class="trigger"></div>
 
         <section class="section" style="padding-bottom:2rem;">
-          <div class="page-navigation-container">
+          <div class="page-navigation-container leadership-nav">
             <div class="navigation-wrap">
               <div class="section-title"><h3>Our Team</h3></div>
                 <div class="links-inner-wrap"
