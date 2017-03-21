@@ -43,41 +43,77 @@
     &.school-home{
         background-image: url('../../img/large-hero-school.jpg');
         min-height: 89vh;
+        .main-callout-box {
+          position: absolute;
+          bottom: 0;
+        }
     }
 
     &.learning-home{
         background-image: url('../../img/large-hero-learning.jpg');
+        .main-callout-box {
+          position: absolute;
+          bottom: 0;
+        }
     }
 
     &.leadership-team{
         background-image: url('../../img/large-hero-leadership.jpg');
         background-position: center top;
         min-height: 80vh;
+        .main-callout-box {
+          position: absolute;
+          bottom: 0;
+        }
         // max-height: 80vh;
     }
 
     &.working-at-np{
         background-image: url('../../img/large-hero-working-at-np.jpg');
+        .main-callout-box {
+          position: absolute;
+          bottom: 0;
+        }
     }
 
     &.about-np{
         background-image: url('../../img/large-hero-about-np.jpg');
+        .main-callout-box {
+          position: absolute;
+          bottom: 0;
+        }
     }
 
     &.admission-process-hero{
         background-image: url('../../img/large-hero-admission-process.jpg');
+        .main-callout-box {
+          position: absolute;
+          bottom: 0;
+        }
     }
 
     &.contacts-hero{
         background-image: url('../../img/large-hero-contacts.jpg');
+        .main-callout-box {
+          position: absolute;
+          bottom: 0;
+        }
     }
 
     &.corporate-hero{
         background-image: url('../../img/large-hero-corporate.jpg');
+        .main-callout-box {
+          position: absolute;
+          bottom: 0;
+        }
     }
 
     &.events-hero{
         background-image: url('../../img/large-hero-events.jpg');
+        .main-callout-box {
+          position: absolute;
+          bottom: 0;
+        }
     }
 
 
@@ -107,6 +143,20 @@
     width: 100%;
     position: relative;
     padding: 0;
+    background-color: transparent;
+    // background: rgba(7, 33, 52, 0.785);
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.65) 10%,
+      rgba(0, 0, 0, 0.6) 15%,
+      rgba(0, 0, 0, 0.5) 20%,
+      rgba(0, 0, 0, 0.35) 25%,
+      rgba(0, 0, 0, 0.25) 50%,
+      rgba(0, 0, 0, 0.025) 65%,
+      rgba(0, 0, 0, 0.0) 75%,
+      transparent 100%
+    );
 }
 
 .main-callout-box {
@@ -215,6 +265,8 @@
 	    margin: calc(#{$space-tiny} * 1.5) 0 calc(#{$space-tiny} * 1);
 	    letter-spacing: 2px;
 	    color: $white;
+      @include font-size(28px);
+
 	}
 
 	p {
@@ -263,6 +315,7 @@
     }
 
 
+
     @include break-point(tablet) {
       padding: calc(#{$space-tiny} * 4);
       bottom: 5rem;
@@ -274,8 +327,23 @@
       }
     }
 
+    @include break-point(tablet) {
+      bottom: 2rem;
+      h1 {
+        max-width: auto;
+        width: 100%;
+        @include font-size(30px);
+      }
+    }
+
     @include break-point(laptop) {
       bottom: 2rem;
+      h1 {
+        max-width: auto;
+        width: 100%;
+        @include font-size(49px);
+      }
+
     }
     @include break-point(desktop) {
       bottom: 2rem;

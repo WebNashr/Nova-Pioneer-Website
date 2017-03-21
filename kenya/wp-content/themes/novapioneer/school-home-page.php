@@ -122,7 +122,7 @@ get_header(); ?>
                                 <use
                                     xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                             </svg>
-                            <p><?php echo $vid_caption; ?></p>
+                            <?php echo $vid_caption; ?>
                             <cite class="school-page-quote"><span><strong><?php echo $student_name; ?></strong>,</span>
                                 Nova Pioneer Student</cite>
                         </blockquote>

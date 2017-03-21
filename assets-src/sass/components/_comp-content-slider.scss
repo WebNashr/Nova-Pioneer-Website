@@ -6,7 +6,10 @@
 .content-slider-container {
   width: 100%;
 
-  padding: 0 calc(#{$space-tiny} * 3) !important;
+  padding: 0 calc(#{$space-tiny} * 1) !important;
+  @include break-point(tablet) {
+      padding: 0 calc(#{$space-tiny} * 3) !important;
+  }
   #content-slider {
     li {
       list-style-type: none !important;

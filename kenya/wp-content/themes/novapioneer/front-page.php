@@ -366,7 +366,7 @@ get_header(); ?>
             item: 1,
             autoWidth: true,
             slideMove: 1, // slidemove will be 1 if loop is true
-            slideMargin: 500,
+            slideMargin: 600, //500
 
             addClass: '',
             mode: "slide",
@@ -377,7 +377,7 @@ get_header(); ?>
             speed: 400, //ms'
             auto: false,
             loop: true,
-            slideEndAnimation: true,
+            // slideEndAnimation: true,
             pause: 2000,
 
             keyPress: false,
@@ -385,12 +385,27 @@ get_header(); ?>
             prevHtml: '',
             nextHtml: '',
 
-            currentPagerPosition: 'middle',
+            // currentPagerPosition: 'middle',
 
             enableTouch: true,
             enableDrag: true,
             freeMove: true,
-            swipeThreshold: 40
+            swipeThreshold: 40,
+            responsive : [
+              {
+                  breakpoint:1024,
+                  settings: {
+                      slideMargin:500,
+                    }
+              },
+
+              {
+                  breakpoint:320,
+                  settings: {
+                      slideMargin: 200,
+                    }
+              }
+          ]
 
         });
         $('#hero-slider').slippry({

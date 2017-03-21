@@ -425,7 +425,7 @@ img.ajax-loader {
 			// margin-top: -3rem;
 			// max-width: 100% !important;
 			// width:75%;
-			width: 100%;
+			width: 95%;
 			margin-bottom: 1rem;
 
 			ul li.field_description_below div.ginput_container_radio {
@@ -615,7 +615,11 @@ img.ajax-loader {
 				}
 			}
 		}
-
+		@include break-point(laptop) {
+			.gform_body {
+				width: 100%;
+			}
+		}
 	}
 	// @extend %columns;
 	// align-items: center;
