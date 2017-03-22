@@ -1669,9 +1669,10 @@
 //---About Nova Pioneer Start--
 .principles-container{
 	margin: -6rem 0 2rem 0;
-	padding:  0 calc(#{$space-tiny} * 1);
+	padding:  0;
 	.principle-card {
-		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) ;
+		// padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) ;
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
 		// border: 1px solid lighten($light-grey, 30%);
 		border-radius: 3px;
 		margin-top: 2rem;
@@ -1763,7 +1764,16 @@
 
 		.small-divider {
 			width: 100%;
-			padding: calc(#{$space-tiny} * 1.5)  calc(#{$space-tiny} * 8) ;
+			padding: calc(#{$space-tiny} * 0.5)  calc(#{$space-tiny} * 4);
+			@include break-point(tablet) {
+				padding:  calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+			}
+			@include break-point(laptop) {
+				padding:  calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+			}
+			@include break-point(desktop) {
+				padding:  calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 8);
+			}
 
 			&:after {
 				content: ' ';
@@ -1794,8 +1804,13 @@
 			}
 		}
 	}
+	@include break-point(tablet) {
+		// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 1);
+		// padding:  0 calc(#{$space-tiny} * 3);
+		padding: 0;
+	}
 	@include break-point(laptop) {
-		padding:  0 calc(#{$space-tiny} * 5);
+		padding:  0 calc(#{$space-tiny} * 1);
 	}
 }
 //---About Nova Pioneer end--
