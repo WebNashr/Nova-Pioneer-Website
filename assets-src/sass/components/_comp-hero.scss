@@ -194,6 +194,7 @@
     background-image: none;
     @extend %column;
     max-width: 775px;
+    padding-bottom: calc(#{$space-tiny} * 3);
     // @extend %column-6;
     // padding-right: calc(#{$space-tiny} * 1);
     h1 {

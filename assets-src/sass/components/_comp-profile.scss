@@ -19,6 +19,40 @@
 		 padding-bottom: calc(#{$space-tiny} * 2)
 
 	 }
+
+}
+.slider-profiles {
+	@media only screen
+		and (min-device-width: 410px)
+		and (max-device-width: 425px)
+		{
+			padding-left: calc(#{$space-tiny} * 1);
+			padding-right: calc(#{$space-tiny} * 1);
+
+		}
+	@include break-point(tablet) {
+		padding-left: calc(#{$space-tiny} * 3);
+		padding-right: calc(#{$space-tiny} * 3);
+	}
+
+	@media screen
+		and (min-device-width: 800px)
+		and (max-device-width: 1024px) {
+			padding-left: 0;
+			padding-right: 0;
+	}
+	li {
+		text-indent: 0 !important;
+		margin-left: 0;
+	}
+	@media screen
+		and (min-device-width: 1440px)
+		and (max-device-width: 1500px) {
+			padding-right:40px;
+			padding-left: 40px;
+
+	}
+
 }
 
 
@@ -270,7 +304,7 @@
 
 	p {
 		@include font-size(16px);
-		padding: 0 0 calc(#{$space-tiny} * 0.75) 0;
+		padding: calc(#{$space-tiny} * 0.5) 0 calc(#{$space-tiny} * 0.75) 0;
 		max-width: 600px;
 		margin: 0 auto;
 		text-align: left;
