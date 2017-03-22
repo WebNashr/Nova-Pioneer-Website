@@ -35,7 +35,7 @@ get_header();?>
                 </div>
             </div>
 
-            <div class="section cta-container" style="padding-bottom:0;"><a href="<?php echo get_field('combined_fees_structure'); ?>" class="button button-default button-primary" title="">Download <?php echo get_field('combined_fees_structure_title'); ?></a></div>
+           <!-- <div class="section cta-container" style="padding-bottom:0;"><a href="<?php echo get_field('combined_fees_structure'); ?>" class="button button-default button-primary" title="">Download <?php echo get_field('combined_fees_structure_title'); ?></a></div>-->
 
 
         </section>
