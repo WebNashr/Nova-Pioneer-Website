@@ -1,8 +1,8 @@
 .faqs-container {
-    padding: calc(#{$space-tiny} * 3) 0;
-  @include break-point(mobile) {
-    padding: calc(#{$space-tiny} * 3) !important;
-  }
+    padding:0 calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
+    @include break-point(tablet) {
+      padding-top: calc(#{$space-tiny} * 3);
+    }
 }
 
 ul.toggle-list {

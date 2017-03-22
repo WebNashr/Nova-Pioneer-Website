@@ -231,8 +231,14 @@ img.ajax-loader {
 
 //table filter
 .table-container {
-	padding-top: 0;
+	padding-top: 0 ;
 	padding-bottom: 0;
+	@include break-point(tablet) {
+		padding-top: 0;
+	}
+	@include break-point(laptop) {
+		padding-top: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1);
+	}
 
 }
 .payment-container {
@@ -258,10 +264,10 @@ img.ajax-loader {
 	align-items: baseline;
 	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 4) 0;
 	@include break-point(mobile) {
-		// padding: 0;
+		padding-top: 0;
 	}
 	@include break-point(tablet) {
-		padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 2) 0;
+		padding: 0 0 calc(#{$space-tiny} * 2) 0;
 	}
 	@include break-point(desktop) {
 		padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 4) 0;
