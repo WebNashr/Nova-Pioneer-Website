@@ -236,9 +236,9 @@ get_header(); ?>
                     <?php echo get_nova_events($taxies); ?>
 
                     <div class="small-notice">
-                        <h4>South Africa 2017 Fee Structure</h4>
+                        <h4>South Africa  Fee Structure</h4>
 
-                        <a download href="<?php echo get_field('fees_structure'); ?>"
+                        <a href="<?php echo site_url('fees-structure/')?>"
                            class="button button-small button-secondary">View Fees</a>
                     </div>
                     <div class="divider"></div>
