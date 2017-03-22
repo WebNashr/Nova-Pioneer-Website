@@ -55,6 +55,7 @@
     padding: 0 20px;
     padding: calc(#{$space-tiny} * 4) calc(calc(#{$space-tiny} * 1) + 20px);
     overflow: auto;
+    margin-top: 3rem;
 }
 
 
@@ -124,7 +125,3 @@
 .hfc-frame.hide {
     left: -9999px;
 }
-
-
-
-

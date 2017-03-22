@@ -82,6 +82,7 @@
 	// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
   padding: 0 !important;
   padding-right: 1rem !important;
+
   .drop-list {
     margin-top: 0;
   }
@@ -109,6 +110,10 @@
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
     max-width: 120px;
+    border-top: none;
+    border-right: 1px $white solid;
+    border-bottom: 1px $white solid;
+    border-left: 1px $white solid;
 
     &:hover {
       background: $blue-dk url(../../img/icons/drop-down-arrow-green.svg) no-repeat;
