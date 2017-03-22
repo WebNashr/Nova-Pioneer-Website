@@ -980,6 +980,10 @@
 .section-learning-content {
 	margin: 0 auto;
 	padding-bottom: 0;
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 1) ;
+		margin-left: 1.5rem;
+	}
 	//@extend %column;
 	//@extend %columns;
 	//@extend %column-7;
@@ -1008,6 +1012,7 @@
 			text-align: center;
 		}
 	}
+
 }
 
 

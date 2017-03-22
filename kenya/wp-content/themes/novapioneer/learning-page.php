@@ -75,9 +75,10 @@ get_header();?>
             </figure>
             </section>
 
-            <section class="education-stage">
-                <div class="section-title anchor-link">
-            <section class="section last-stage">
+            <section class="section education-stage">
+
+                <div class="anchor-link">
+            <!-- <section class="section"> -->
                 <article class="article article-inner article-inner-alt">
                     <h2 id="<?php echo strtolower($stage->title); ?>"><?php echo $stage->title; ?></h2>
                     <?php echo $stage->description; ?>
@@ -115,8 +116,9 @@ get_header();?>
                         <?php echo $video; ?>
                     </div>
                 </article>
-            </section>
+            <!-- </section> -->
             </div>
+
         </section>
         <?php endforeach; ?>
 
