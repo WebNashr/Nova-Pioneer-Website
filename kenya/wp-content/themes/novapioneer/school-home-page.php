@@ -9,7 +9,9 @@ get_header(); ?>
 
     <?php while (have_posts()): the_post(); ?>
 
-        <section class="section section-hero school-home" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
+        <section
+            class="section section-hero school-home" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
+            data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -294,21 +296,20 @@ get_header(); ?>
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
                     <div class="media">
-                        <?php echo get_field('map_embed_code'); ?><?php
-                        $locations = array();
-                        $cood = explode(",", get_field('map_embed_code'));
-                        var_dump((float)$cood[1]);
-                        array_push($locations, array(
-                            "latitude" => (float)$cood[0],
-                            "longitude" => (float)$cood[1],
-                            "info_text" => "Novapioneer " . get_the_title()
-                        ));
-                        ?>
-                        <?php novap_render_google_map($locations); ?>iv>
-                </div>
+                        <?php $locations = array();
+                        if (get_field('map_embed_code')) {
+                            $cood = explode(",", get_field('map_embed_code'));
+                            array_push($locations, array(
+                                "latitude" => (float)$cood[0],
+                                "longitude" => (float)$cood[1],
+                                "info_text" => "Novapioneer " . get_the_title()
+                            ));
+                            novap_render_google_map($locations);
+                        } ?>
+                    </div>
 
-                <div class="section-content-item section-content-item-half">
-                    <div class="contact-info">
+                    <div class="section-content-item section-content-item-half">
+                        <div class="contact-info">
                         <span class="phone-contact-one">Call us: <a
                                 href="tel:<?php echo get_field('main_phone_number'); ?> "><?php echo get_field('main_phone_number'); ?> </a></span>
                         <span class="phone-contact-two">Admission Enquiries:  <a
@@ -317,13 +318,13 @@ get_header(); ?>
                                 href="tel:<?php echo get_field('current_parents_contact__number'); ?>"> <?php echo get_field('current_parents_contact__number'); ?> </a> </span>
                         <span class="email-contact">Email us: <a
                                 href="mailto:<?php echo get_field('email_address'); ?>"><?php echo get_field('email_address'); ?></a></span>
-                    </div>
+                        </div>
 
-                    <div class="contact-info">
-                        <?php echo get_field('physical_address'); ?>
+                        <div class="contact-info">
+                            <?php echo get_field('physical_address'); ?>
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
 
     <?php endwhile; ?>
