@@ -16,7 +16,7 @@ get_header();?>
 
 
         <section class="section trigger-offset">
-          <div class="page-navigation-container">
+          <div class="page-navigation-container general-nav">
             <div class="navigation-wrap">
               <div class="section-title"><h3>Fees &amp; Tuition </h3></div>
                 <div class="links-inner-wrap" <div="">
@@ -34,6 +34,7 @@ get_header();?>
                   </div>
                 </div>
             </div>
+
 
            <!-- <div class="section cta-container" style="padding-bottom:0;"><a href="<?php echo get_field('combined_fees_structure'); ?>" class="button button-default button-primary" title="">Download <?php echo get_field('combined_fees_structure_title'); ?></a></div>-->
 
@@ -142,67 +143,67 @@ get_header();?>
                 </section>
 
 
-        <section class="section">
-            <div class="fees-container">
-                <div class="schedule-content">
-                    <header class="table-header" id="payment">How to make payment</header>
+                <section class="payment-container">
+                  <article class="article article-inner article-inner-alt fees-container">
+                      <div class="schedule-content">
+                          <header class="table-header" id="payment">How to make payment</header>
 
-                    <table class="fees-table">
-                        <thead>
+                          <table class="fees-table">
+                              <thead>
 
-                            <th class="text"></th>
-                            <th class="text">Payment method</th>
-                            <th class="text">Instructions</th>
-                            <th class="text">Proof of payment</th>
+                                  <th class="text"></th>
+                                  <th class="text">Payment method</th>
+                                  <th class="text">Instructions</th>
+                                  <th class="text">Proof of payment</th>
 
-                        </thead>
+                              </thead>
 
-                        <tbody>
-                            <?php $x = 1; ?>
-                            <?php foreach( get_field('payment_methods') as $method ): $method = (object)$method; ?>
-                                <tr>
-                                    <td class="text row-title row-title-alt" data-title='First'><?php echo $x; ?></td>
-                                    <td class="text" data-title='Term 1'><?php echo $method->method; ?></td>
-                                    <td class="text" data-title='Term 2'>
-                                        <?php echo $method->instructions; ?>
-                                    </td>
-                                    <td class="text" data-title='Term 3'><?php echo $method->proof_of_payment; ?></td>
-                                </tr>
-                                <?php $x++; ?>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                              <tbody>
+                                  <?php $x = 1; ?>
+                                  <?php foreach( get_field('payment_methods') as $method ): $method = (object)$method; ?>
+                                      <tr>
+                                          <td class="text row-title row-title-alt" data-title='First'><?php echo $x; ?></td>
+                                          <td class="text" data-title='Term 1'><?php echo $method->method; ?></td>
+                                          <td class="text" data-title='Term 2'>
+                                              <?php echo $method->instructions; ?>
+                                          </td>
+                                          <td class="text" data-title='Term 3'><?php echo $method->proof_of_payment; ?></td>
+                                      </tr>
+                                      <?php $x++; ?>
+                                  <?php endforeach; ?>
+                              </tbody>
+                          </table>
 
-                    <table class="fees-table">
-                        <tbody>
-                            <tr class="">
-                                <td><?php echo get_field('foot_note'); ?></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <article class="article article-inner article-inner-alt" >
-                <h2 id="faqs">Frequently Asked Questions</h2>
-
-                <ul class="toggle-list">
-                    <?php $n = 0; ?>
-                    <?php foreach( get_field('faqs') as $faq ): $faq = (object)$faq; ?>
-                        <li class="<?php if($n <= 0): echo 'show'; endif; ?>">
-                            <h3 class="toggle-list-title"><?php echo $faq->question; ?></h3>
-
-                            <div class="toggle-list-content">
-                                <?php echo $faq->response; ?>
-                            </div>
-                        </li>
-                        <?php $n++; ?>
-                    <?php endforeach; ?>
-                </ul>
+                          <table class="fees-table">
+                              <tbody>
+                                  <tr class="">
+                                      <td><?php echo get_field('foot_note'); ?></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
             </article>
-        </section>
+            <section>
+
+              <section class="faqs-container">
+                  <article class="article article-inner article-inner-alt " >
+                      <h2 id="faqs">Frequently Asked Questions</h2>
+
+                      <ul class="toggle-list">
+                          <?php $n = 0; ?>
+                          <?php foreach( get_field('faqs') as $faq ): $faq = (object)$faq; ?>
+                              <li class="<?php if($n <= 0): echo 'show'; endif; ?>">
+                                  <h3 class="toggle-list-title"><?php echo $faq->question; ?></h3>
+
+                                  <div class="toggle-list-content">
+                                      <?php echo $faq->response; ?>
+                                  </div>
+                              </li>
+                              <?php $n++; ?>
+                          <?php endforeach; ?>
+                      </ul>
+                  </article>
+              </section>
 
     <?php endwhile; ?>
 
