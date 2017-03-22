@@ -78,7 +78,7 @@
 		}
 
 		@include break-point(desktop) {
-			padding: calc(#{$space-tiny} * 5) 0;
+			// padding: calc(#{$space-tiny} * 5) 0;
 		}
 
 		  #testimonial-slider {
@@ -143,7 +143,7 @@
 				  and (max-device-width: 2560px)
 				  {
 						// margin-left: 1.5em;
-						margin-left: 11rem;
+						margin-left: 13rem;
 					}
 				// @media only screen
 				//  	and (min-device-width: 1366px)
