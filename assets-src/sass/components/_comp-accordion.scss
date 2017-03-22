@@ -1,7 +1,7 @@
 .faqs-container {
-    padding:0 calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
+    padding:0 calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2);
     @include break-point(tablet) {
-      padding-top: calc(#{$space-tiny} * 3);
+      padding:0 calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
     }
 }
 

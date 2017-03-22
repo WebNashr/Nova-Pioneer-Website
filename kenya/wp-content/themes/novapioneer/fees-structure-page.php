@@ -148,7 +148,7 @@ get_header();?>
                 <div class="schedule-content">
                     <header class="table-header" id="payment">How to make payment</header>
 
-                    <table class="fees-table" style="overflow-x:auto;">
+                    <table class="fees-table">
                         <thead>
 
                             <th class="text"></th>
