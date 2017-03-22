@@ -368,9 +368,9 @@ get_header(); ?>
 
             $("#testimonial-slider").lightSlider({
                 item: 1,
-                autoWidth: true,
+                autoWidth: false,
                 slideMove: 1, // slidemove will be 1 if loop is true
-                slideMargin: 600, //500
+                // slideMargin: 300, //500
 
                 addClass: '',
                 mode: "slide",
@@ -388,25 +388,32 @@ get_header(); ?>
                 controls: true,
                 prevHtml: '',
                 nextHtml: '',
+                addClass:'content-slider',
 
                 // currentPagerPosition: 'middle',
 
                 enableTouch: true,
                 enableDrag: true,
                 freeMove: true,
-                swipeThreshold: 40,
+                // swipeThreshold: 40,
                 responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slideMargin: 500,
-                        }
-                    },
+                  // {
+                  //     breakpoint: 1024,
+                  //     settings: {
+                  //         slideMargin: 500,
+                  //     }
+                  // },
+                  //   {
+                  //       breakpoint: 800,
+                  //       settings: {
+                  //           slideMargin: 500,
+                  //       }
+                  //   },
 
                     {
                         breakpoint: 320,
                         settings: {
-                            slideMargin: 200,
+                            slideMargin: 245,
                         }
                     }
                 ]

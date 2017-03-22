@@ -16,19 +16,20 @@
 		// background: lighten($orange-lt,30%);
 		// min-height: 300px;
 		margin: 0 0 0 0;
-
+		padding: 0 0;
 		cite {
 			padding-left: 0;
 		}
 		@include break-point(tablet) {
 			// margin: -4rem 0 0 0;
+			padding: calc(#{$space-tiny} * 3) 0;
 		}
 
 		@include break-point(desktop) {
 			// margin: -5rem 0 0 0;
 		}
 
-		padding: calc(#{$space-tiny} * 3) 0;
+
 
 		&.home-page-quote,
 		&.bottom-quote {
@@ -89,6 +90,7 @@
 				@extend %columns;
 				width: inherit;
 				width: 300px;
+				margin-left: 0;
 				// margin-left: -320px;
 				// width:800px;
 				// justify-content: center;
@@ -97,53 +99,54 @@
 				 	and (min-device-width: 320px)
 				  and (max-device-width: 360px)
 				  {
-						margin-left: -284px;
+						// margin-left: -284px;
 					}
 					@media only screen
 					 	and (min-device-width: 365px)
 					  and (max-device-width: 375px)
 					  {
-							width: 360px;
-							margin-left: -304px;
+							// width: 360px;
+							// margin-left: -304px;
 						}
 						@media only screen
 						 	and (min-device-width: 380px)
 						  and (max-device-width: 400px)
 						  {
-								width: 360px;
-								margin-left: -10px;
+								// width: 360px;
+								// margin-left: -10px;
 							}
 				@media only screen
 				 	and (min-device-width: 410px)
 				  and (max-device-width: 425px)
 				  {
-						width: 360px;
-						margin-left: -223px;
+						// width: 360px;
+						// margin-left: -223px;
 					}
 				@include break-point(tablet) {
-					width: 606px;
-					margin-left: -278px;
+					// width: 606px;
+					// margin-left: -278px;
 
 				}
 				@include break-point(laptop) {
-					width: 795px;
-					margin-left: -336px;
+					// max-width: 795px;
+					margin-left: 10px;
+					padding: 0 calc(#{$space-tiny} * 3);
 
 				}
 				@include break-point(desktop) {
-					width: 1150px;
+					width: 1000px;
 					margin-left: 0.75rem;
 				}
 				@include break-point(monitor) {
 					// width: 1150px;
-					margin-left: 1.5rem;
+					// margin-left: 1.5rem;
 				}
 				@media only screen
 				 	and (min-device-width: 1920px)
 				  and (max-device-width: 2560px)
 				  {
 						// margin-left: 1.5em;
-						margin-left: 13rem;
+						margin-left: 20px;
 					}
 				// @media only screen
 				//  	and (min-device-width: 1366px)

@@ -101,7 +101,7 @@
   }
 
   #testimonial-slider {
-    padding: 0 calc(#{$space-tiny} * 3);
+    // padding: 0 calc(#{$space-tiny} * 3);
     width: 100%;
     li {
       // max-width: 600px !important;
@@ -114,8 +114,14 @@
     }
 
   }
-  .testimonials {
-
+  &.testimonials {
+    padding: calc(#{$space-tiny} * 3) 0;
+    @include break-point(tablet) {
+      padding: 0 calc(#{$space-tiny} * 1);
+    }
+    @include break-point(desktop) {
+      padding: 0 calc(#{$space-tiny} * 3);
+    }
   }
   ul{
     list-style-type: none !important;
