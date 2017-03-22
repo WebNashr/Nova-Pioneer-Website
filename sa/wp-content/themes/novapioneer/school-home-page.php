@@ -9,7 +9,9 @@ get_header(); ?>
 
     <?php while (have_posts()): the_post(); ?>
 
-        <section class="section section-hero school-home" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
+        <section
+            class="section section-hero school-home" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
+            data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -271,7 +273,17 @@ get_header(); ?>
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
                     <div class="media">
-                        <?php echo get_field('map_embed_code'); ?>
+                        <?php
+                        $locations = array();
+                        $cood = explode(",", get_field('map_embed_code'));
+                        var_dump((float)$cood[1]);
+                        array_push($locations, array(
+                            "latitude" => (float)$cood[0],
+                            "longitude" => (float)$cood[1],
+                            "info_text" => "Novapioneer " . get_the_title()
+                        ));
+                        ?>
+                        <?php novap_render_google_map($locations); ?>
                     </div>
                 </div>
 

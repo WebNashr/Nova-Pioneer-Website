@@ -294,8 +294,17 @@ get_header(); ?>
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
                     <div class="media">
-                        <?php echo get_field('map_embed_code'); ?>
-                    </div>
+                        <?php echo get_field('map_embed_code'); ?><?php
+                        $locations = array();
+                        $cood = explode(",", get_field('map_embed_code'));
+                        var_dump((float)$cood[1]);
+                        array_push($locations, array(
+                            "latitude" => (float)$cood[0],
+                            "longitude" => (float)$cood[1],
+                            "info_text" => "Novapioneer " . get_the_title()
+                        ));
+                        ?>
+                        <?php novap_render_google_map($locations); ?>iv>
                 </div>
 
                 <div class="section-content-item section-content-item-half">
