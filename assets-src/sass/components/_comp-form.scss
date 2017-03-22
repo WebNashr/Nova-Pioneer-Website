@@ -230,6 +230,24 @@ img.ajax-loader {
 
 
 //table filter
+.table-container {
+	padding-top: 0;
+	padding-bottom: 0;
+
+}
+.payment-container {
+	padding:  0;
+	@include break-point(mobile) {
+		padding:  0;
+	}
+	table {
+		// max-width: 400px;
+		border-collapse: collapse;
+    border-spacing: 0;
+		width: 100%;
+		overflow-x: auto;
+	}
+}
 .table-filter {
 	@include flexbox();
 	@include flex-direction(row);
@@ -238,8 +256,16 @@ img.ajax-loader {
 	// width: 100%;
 	@extend %column-12;
 	align-items: baseline;
-	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 0.5) 0;
-
+	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 4) 0;
+	@include break-point(mobile) {
+		// padding: 0;
+	}
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 2) 0;
+	}
+	@include break-point(desktop) {
+		padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 4) 0;
+	}
 	.selector {
 		position: relative;
 		// width: 100%;

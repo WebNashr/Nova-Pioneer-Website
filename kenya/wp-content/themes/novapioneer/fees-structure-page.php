@@ -58,7 +58,7 @@ get_header();?>
 
                 ?>
 
-                    <article class="article article-inner article-inner-alt">
+                    <article class="article article-inner article-inner-alt table-container">
                       <form class="table-filter">
                         <div class="selector">
                             <select name="school" class="dropdown">
@@ -142,12 +142,13 @@ get_header();?>
                 </section>
 
 
-        <section class="section">
-            <div class="fees-container">
+          <section class="payment-container">
+            <article class="article article-inner article-inner-alt fees-container">
+
                 <div class="schedule-content">
                     <header class="table-header" id="payment">How to make payment</header>
 
-                    <table class="fees-table">
+                    <table class="fees-table" style="overflow-x:auto;">
                         <thead>
 
                             <th class="text"></th>
@@ -181,11 +182,13 @@ get_header();?>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </section>
 
-        <section class="section">
-            <article class="article article-inner article-inner-alt" >
+
+      </article>
+      <section>
+
+        <section class="faqs-container">
+            <article class="article article-inner article-inner-alt " >
                 <h2 id="faqs">Frequently Asked Questions</h2>
 
                 <ul class="toggle-list">
