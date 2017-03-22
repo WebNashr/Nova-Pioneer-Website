@@ -96,7 +96,7 @@ get_header();?>
 
         <span class="anchor-link" ></span>
 
-        <section class="section team-profile-container np-team-profiles">
+        <section class="section team-profile-container np-team-profiles slider-profiles">
             <h2 class="centered-title" id="team">Nova Pioneer Team</h2>
             <div class="content-slider-container">
 
