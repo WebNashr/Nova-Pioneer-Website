@@ -31,8 +31,8 @@
 
 		}
 	@include break-point(tablet) {
-		padding-left: calc(#{$space-tiny} * 1);
-		padding-right: calc(#{$space-tiny} * 1);
+		padding-left: calc(#{$space-tiny} * 3);
+		padding-right: calc(#{$space-tiny} * 3);
 	}
 
 	@media screen

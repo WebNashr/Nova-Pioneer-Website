@@ -146,7 +146,6 @@ get_header(); ?>
 
 <script src="<?php echo novap_get_baseurl(); ?>/assets/js/lightslider/lightslider.js"></script>
 <script>
-
 $(document).ready(function() {
 $("#content-slider").lightSlider({
          // loop:true,
