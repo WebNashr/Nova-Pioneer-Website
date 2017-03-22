@@ -1865,15 +1865,17 @@
  .cta-wrapper {
 	 @extend %columns;
 	 background-color: $blue-lt;
-	 padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
+	 padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 1);
 	 align-items: center;
 	 justify-content: center;
+
 	 p {
 		 color: $white;
 		 @include copy(bold);
 		 @include font-size(30px);
 		 display: inline;
-		 padding-bottom: calc(#{$space-tiny} * 2.5);
+		 padding-bottom: calc(#{$space-tiny} * 2);
+		  text-align: center;
 		 @include break-point(tablet) {
 			 @include font-size(32px);
 			 padding-bottom: calc(#{$space-tiny} * 2.5)
@@ -1899,8 +1901,11 @@
 		// 	 margin-left: 2rem;
 		//  }
 	 }
+	 @include break-point(tablet) {
+		 padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 1);
+	 }
 	 @include break-point(laptop) {
-		 justify-content: space-between;
+		 justify-content: space-around;
 		 padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
 	 }
 	 @include break-point(desktop) {
