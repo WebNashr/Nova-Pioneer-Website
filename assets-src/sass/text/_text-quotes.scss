@@ -58,8 +58,11 @@
 			padding-top: 0;
 			p {
 				margin-top: 0;
-				padding-right: calc(#{$space-tiny} * 3);
+				padding: 0 calc(#{$space-tiny} * 2);
 				@include font-size(21px);
+				@include break-point(tablet) {
+					padding-right: calc(#{$space-tiny} * 3);
+				}
 			}
 
 			cite {
@@ -135,7 +138,7 @@
 				}
 				@include break-point(desktop) {
 					width: 1000px;
-					margin-left: 0.75rem;
+					// margin-left: 0.75rem;
 				}
 				@include break-point(monitor) {
 					// width: 1150px;
