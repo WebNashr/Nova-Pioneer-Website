@@ -177,11 +177,10 @@ get_header(); ?>
         <section class="full-width-image-container" data-enllax-type="foreground">
             <figure class="full-width-image parallax"
                     style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
-                    data-enllax-ratio="0">
+                    data-enllax-ratio="0.08">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p>We are developing generations of innovators and leaders who will shape the African Century.<a
-                                href="<?php echo site_url('/learning/'); ?>" class="">Learn More</a></p>
+                        <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
                     </figcaption>
                 </div>
             </figure>
