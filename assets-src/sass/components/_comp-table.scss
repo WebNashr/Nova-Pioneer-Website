@@ -14,7 +14,10 @@
 	// padding: 0 !important;
 	margin: 0 auto;
 	@include break-point(tablet) {
-		padding: 0 calc(#{$space-tiny} * 3);
+		// padding: 0 calc(#{$space-tiny} * 3);
+		padding: 0;
+		margin-top: -2rem;
+		margin-bottom: 2rem;
 	}
 	@include break-point(desktop) {
 			max-width: 768px;
