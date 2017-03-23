@@ -93,10 +93,10 @@ get_header(); ?>
 
 
             <section class="full-width-image-container" data-enllax-type="foreground">
-              <figure class="full-width-image secondary-bgd-image parallax" data-enllax-ratio="0.2">
+              <figure class="full-width-image secondary-bgd-image parallax" <?php if (get_field('parallax_image')): echo 'style="background-image: url(' . get_field('parallax_image') . ');"'; endif; ?> data-enllax-ratio="0.2">
                   <div class="section-content full-image-caption animated caption">
                       <figcaption>
-                          <p>Writing, painting, singing, sculpting and many more are all languages through which children can express themselves.</p>
+                          <p><?php the_field('parallax_text')?></p>
                       </figcaption>
                   </div>
                   <span class="anchor-link" id="preprimary"></span>
@@ -144,10 +144,10 @@ get_header(); ?>
                 </div>
             </section>
             <section class="full-width-image-container" data-enllax-type="foreground">
-            <figure class="full-width-image secondary-bgd-image parallax" data-enllax-ratio="0.2">
+            <figure class="full-width-image secondary-bgd-image parallax" <?php if (get_field('parallax_image_2')): echo 'style="background-image: url(' . get_field('parallax_image') . ');"'; endif; ?> data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p>Writing, painting, singing, sculpting and many more are all languages through which children can express themselves.</p>
+                        <p><?php the_field('parallax_text_2')?></p>
                     </figcaption>
                 </div>
                 <span class="anchor-link" id="preprimary"></span>

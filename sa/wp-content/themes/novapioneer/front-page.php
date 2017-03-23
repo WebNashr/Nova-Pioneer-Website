@@ -217,7 +217,7 @@ get_header(); ?>
 
         <section class="section even-section">
             <div class="general-notices-container">
-                <div class="large-notice-container">
+                <div class="large-notice-container" <?php if (get_field('admission_image')): echo 'style="background-image: url(' .get_field('admission_image') . ');"'; endif; ?>>
                     <div class="large-notice">
                         <div class="notice-content">
                             <h1><?php echo get_field('admin_process_title'); ?></h1>
