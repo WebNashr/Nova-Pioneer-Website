@@ -36,7 +36,7 @@ get_header(); ?>
             <article class="article article-inner article-inner-alt mission-vision">
                 <h2 class="centered-title">Our Story</h2>
 
-                <!--<input type="checkbox" class="read-more-state" id="post-1"/>-->
+                <input type="checkbox" class="read-more-state" id="post-1"/>
                 <div class="read-more-wrap">
                     <p><?php echo array_shift($our_story_paragraphs); ?></p>
                     <span class="read-more-target">
