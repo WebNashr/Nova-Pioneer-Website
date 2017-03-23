@@ -235,6 +235,7 @@ img.ajax-loader {
 	padding-bottom: 0;
 	@include break-point(tablet) {
 		padding-top: 0;
+		margin-top: -2rem;
 	}
 	@include break-point(laptop) {
 		padding-top: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1);
@@ -316,7 +317,7 @@ img.ajax-loader {
 	// width: 100%;
 	@extend %column-12;
 	align-items: baseline;
-	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 4) 0;
+	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2) 0;
 	@include break-point(mobile) {
 		padding-top: 0;
 	}
@@ -324,7 +325,7 @@ img.ajax-loader {
 		padding: 0 0 calc(#{$space-tiny} * 2) 0;
 	}
 	@include break-point(desktop) {
-		padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 4) 0;
+		padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 2) 0;
 	}
 	.selector {
 		position: relative;
@@ -343,7 +344,7 @@ img.ajax-loader {
 			margin-right: 0;
 		}
 		@include break-point(tablet) {
-			// width: 100%;
+			width: 25%;
 			margin-right: 0;
 		}
 
@@ -411,7 +412,7 @@ img.ajax-loader {
 			//display: inline-block;
 			width: 100%;
 			padding: calc(#{$space-tiny} * 0.7);
-			padding-right: calc(#{$space-tiny} * 2);
+			padding-right: calc(#{$space-tiny} * 3);
 
 			// padding-right: calc(#{$space-tiny} * 3);
 			@include break-point(mobile) {
@@ -422,7 +423,7 @@ img.ajax-loader {
 
 			@include break-point(desktop) {
 				width: 100%;
-				max-width: 185px;
+				// max-width: 185px;
 			}
 
 			option{
@@ -765,7 +766,12 @@ img.ajax-loader {
 		}
 		@media only screen and (max-width: 360px) {
 			margin-top: 0;
+			padding-left:0;
+			padding-right:0;
 			// padding-left: calc(#{$space-tiny} * 2);
+		}
+		@include break-point(mobile) {
+			padding:calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
 		}
 		@include break-point(tablet) {
 			padding: calc(#{$space-tiny} * 1) 0;
@@ -841,10 +847,13 @@ img.ajax-loader {
 		}
 		.gform_footer {
 			margin-top: 0;
-			margin-left: -1.75rem;
+			// margin-left: -1.75rem;
+			@include break-point(tablet) {
+				margin-left: -1.75rem;
+			}
 		}
 			@media only screen and (max-width: 360px) {
-				padding-left: 1.75rem;;
+				// padding-left: 1.75rem;;
 			}
 			@include break-point(tablet) {
 				margin-top: 1rem;
