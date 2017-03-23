@@ -756,6 +756,7 @@ img.ajax-loader {
 	}
 	.gform_body {
 		margin-top: -1rem;
+		padding:calc(#{$space-tiny} * 2);
 		.gfield.gfield_html{
 			margin-top: 2rem;
 			&:first-of-type {
@@ -766,15 +767,23 @@ img.ajax-loader {
 			margin-top: 0;
 			// padding-left: calc(#{$space-tiny} * 2);
 		}
+		@include break-point(tablet) {
+			padding: calc(#{$space-tiny} * 1) 0;
+		}
+		@include break-point(laptop) {
+			padding: 0;
+		}
 	}
 	.gform_wrapper {
 		margin-top: 0;
+
 		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
 			margin-top: 0;
-			width: 180%;
+			width: 100%;
 			@media only screen and (max-width: 360px) {
 				width: 100%;
 			}
+
 			@include break-point(laptop) {
 				max-width:100%;
 			}
@@ -793,7 +802,7 @@ img.ajax-loader {
 			padding: 0.5rem 1rem !important;
 		}
 		.medium {
-			width: 180%;
+			width: 100%;
 			@media only screen and (max-width: 360px) {
 				width: 100%;
 			}
