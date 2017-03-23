@@ -32,11 +32,11 @@ get_header(); ?>
 
         <div class="trigger"></div>
 
-        <section class="section">
+        <section class="section" id="readmoreScroll">
             <article class="article article-inner article-inner-alt mission-vision">
                 <h2 class="centered-title">Our Story</h2>
 
-                <input type="checkbox" class="read-more-state" id="post-1"/>
+                <!--<input type="checkbox" class="read-more-state" id="post-1"/>-->
                 <div class="read-more-wrap">
                     <?php echo array_shift($our_story_paragraphs); ?>
                     <span class="read-more-target">
@@ -61,8 +61,6 @@ get_header(); ?>
                 </div>
                 <label for="post-<?php echo get_the_ID(); ?>"
                        class="read-more-trigger button button-tiny button-primary"></label>
-
-
             </article>
         </section>
 
