@@ -8,7 +8,9 @@
 	// add support on IE 8 & 9
 	-js-display: flex;
 	// normal flexbox
+	// display: -webkit-box;
 	display: flex;
+
 }
 
 // div { @include flexbox(); }
