@@ -38,27 +38,28 @@ get_header(); ?>
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>
                     <div class="section-school-list-select section-content-item-quarter">
-                      <a href="<?php echo get_permalink($school->ID); ?>" target="_blank"s>
-                        <p class="school-photo"><img src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
-                        <h3><?php echo $school->post_title; ?></h3>
-                        <div class="school-summary">
-                            <p class="boy-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
-                            <!-- <p class="girl-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
+                        <a href="<?php echo get_permalink($school->ID); ?>" target="_blank" s>
+                            <p class="school-photo"><img
+                                    src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
+                            <h3><?php echo $school->post_title; ?></h3>
+                            <div class="school-summary">
+                                <p class="boy-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
+                                <!-- <p class="girl-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
                             <p class="mixed-gender"><?php echo get_field('school_gender', $school->ID); ?></p> -->
-                            <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
-                            <p><?php echo get_field('school_grades', $school->ID); ?></p>
-                            <p><?php echo get_field('school_type', $school->ID); ?></p>
-                            <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
+                                <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
+                                <p><?php echo get_field('school_grades', $school->ID); ?></p>
+                                <p><?php echo get_field('school_type', $school->ID); ?></p>
+                                <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
 
-                        </div>
-                        <a href="<?php echo get_permalink($school->ID); ?>" class="button button-tiny button-primary" target="_blank"> Read More</a>
+                            </div>
+                            <a href="<?php echo get_permalink($school->ID); ?>"
+                               class="button button-tiny button-primary" target="_blank"> Read More</a>
                     </div>
 
                 <?php endforeach; ?>
                 </a>
             </div>
         </section>
-
 
 
         <section class="section section-pair even-section">
@@ -85,7 +86,8 @@ get_header(); ?>
                                     xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                             </svg>
                             <?php echo $vid_caption; ?>
-                            <cite><span><strong><?php echo $student_name; ?></strong>,</span> Nova Pioneer Student</cite>
+                            <cite><span><strong><?php echo $student_name; ?></strong>,</span> Nova Pioneer
+                                Student</cite>
                         </blockquote>
                     </div>
 
@@ -93,7 +95,11 @@ get_header(); ?>
 
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video">
-                        <?php echo $video; ?>
+                        <?php if (get_field('video_or_image',$our_students_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image',$our_students_video->ID) . '" />';
+                        } else {
+                            echo $video;
+                        } ?>
                     </div>
                 </div>
             </div>
@@ -116,6 +122,7 @@ get_header(); ?>
                         $caption_speaker = get_field('caption_speaker', $learning_at_novapioneer_video->ID);
                         $caption_speaker_title = get_field('caption_speaker_title', $learning_at_novapioneer_video->ID);
                         $video = get_field('video', $learning_at_novapioneer_video->ID);
+
                         ?>
                         <blockquote>
                             <svg aria-hidden="true">
@@ -130,15 +137,22 @@ get_header(); ?>
                 </div>
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video ">
-                        <?php echo $video; ?>
+
+
+                        <?php if (get_field('video_or_image',$learning_at_novapioneer_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image',$learning_at_novapioneer_video->ID) . '" />';
+                        } else {
+                            echo $video;
+                        } ?>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="full-width-image-container" data-enllax-type="foreground">
-              <figure class="full-width-image parallax" style="background-image:url('<?php the_field('below_learning_hero_image')?>');"
-                      data-enllax-ratio="0.008999">
+            <figure class="full-width-image parallax"
+                    style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
+                    data-enllax-ratio="0.008999">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
@@ -218,12 +232,15 @@ get_header(); ?>
 
         <section class="section even-section">
             <div class="general-notices-container">
-                <div class="large-notice-container" <?php if (get_field('admission_image')): echo 'style="background-image: url(' .get_field('admission_image') . ');"'; endif; ?>>
+                <div
+                    class="large-notice-container" <?php if (get_field('admission_image')): echo 'style="background-image: url(' . get_field('admission_image') . ');"'; endif; ?>>
                     <div class="large-notice">
                         <div class="notice-content">
                             <h1><?php echo get_field('admin_process_title'); ?></h1>
                             <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process') ?>" class="button button-small button-secondary">Admission Process</a></p>
+                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process') ?>"
+                                                         class="button button-small button-secondary">Admission
+                                    Process</a></p>
                         </div>
                     </div>
                 </div>
@@ -237,9 +254,9 @@ get_header(); ?>
                     <?php echo get_nova_events($taxies); ?>
 
                     <div class="small-notice">
-                        <h4>South Africa  Fee Structure</h4>
+                        <h4>South Africa Fee Structure</h4>
 
-                        <a href="<?php echo site_url('fees-structure/')?>"
+                        <a href="<?php echo site_url('fees-structure/') ?>"
                            class="button button-small button-secondary">View Fees</a>
                     </div>
                     <div class="divider"></div>
@@ -272,7 +289,8 @@ get_header(); ?>
                                             xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
                                     <?php echo $testimonial->post_content; ?>
-                                    <p><cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>
+                                    <p>
+                                        <cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>
                                                 ,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
                                         </cite></p>
                                 </blockquote>
@@ -359,7 +377,7 @@ get_header(); ?>
             controls: true,
             prevHtml: '',
             nextHtml: '',
-            addClass:'content-slider',
+            addClass: 'content-slider',
 
             // currentPagerPosition: 'middle',
 
@@ -368,18 +386,18 @@ get_header(); ?>
             freeMove: true,
             // swipeThreshold: 40,
             responsive: [
-              // {
-              //     breakpoint: 1024,
-              //     settings: {
-              //         slideMargin: 500,
-              //     }
-              // },
-              //   {
-              //       breakpoint: 800,
-              //       settings: {
-              //           slideMargin: 500,
-              //       }
-              //   },
+                // {
+                //     breakpoint: 1024,
+                //     settings: {
+                //         slideMargin: 500,
+                //     }
+                // },
+                //   {
+                //       breakpoint: 800,
+                //       settings: {
+                //           slideMargin: 500,
+                //       }
+                //   },
 
                 {
                     breakpoint: 320,
@@ -393,7 +411,7 @@ get_header(); ?>
         $('#hero-slider').slippry({
             auto: true,
             speed: 800,
-            pause : 8000,
+            pause: 8000,
             onSlideBefore: function () {
                 removeAnimateClasses();
             },
