@@ -85,6 +85,21 @@
     @include break-point(desktop) {
 		@include flex-direction(row);
     }
+		ul {
+    	margin: 0;
+    	text-indent: 0;
+
+    	li {
+    		list-style-type: none !important;
+        margin-left: 0 !important;
+      	text-indent: 0 !important;
+
+    		&:before {
+
+          content: none !important;
+    		}
+    	}
+    }
 }
 
 .footer-logo {
@@ -117,6 +132,21 @@
     @include flex-direction(row);
     justify-content: space-between;
     align-items: flex-start;
+		ul {
+    	margin: 0;
+    	text-indent: 0;
+
+    	li {
+    		list-style-type: none !important;
+        margin-left: 0 !important;
+      	text-indent: 0 !important;
+
+    		&:before {
+
+          content: none !important;
+    		}
+    	}
+    }
 
     @include break-point(laptop) {
 		@include flex-direction(row);
@@ -132,6 +162,21 @@
     width: 100%;
     height: auto;
 	padding: 0;
+	ul {
+		margin: 0;
+		text-indent: 0;
+
+		li {
+			list-style-type: none !important;
+			margin-left: 0 !important;
+			text-indent: 0 !important;
+
+			&:before {
+
+				content: none !important;
+			}
+		}
+	}
 
 	&:not(:first-of-type) {
 		margin-top: 2rem;
@@ -196,10 +241,15 @@
 	letter-spacing: 1.26667px;
 	text-transform: uppercase;
 	opacity: 0.85;
-
+	text-indent: 0 !important;
+	margin-left: 0;
 	&:hover {
 		color: $green-dk;
 		opacity: 1;
+	}
+	&:before {
+
+		content: none !important;
 	}
 }
 
@@ -211,7 +261,12 @@
 	text-transform: capitalize;
 	color: $sky;
 	color: $blue-dk;
+	text-indent: 0 !important;
+	margin-left: 0;
+	&:before {
 
+		content: none !important;
+	}
 	&:hover {
 		color: $green-dk;
 	}

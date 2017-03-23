@@ -14,6 +14,21 @@
     background: transparent;
     transition: $ease;
     opacity: 0;
+    ul {
+    	margin: 0;
+    	text-indent: 0;
+
+    	li {
+    		list-style-type: none !important;
+        margin-left: 0 !important;
+      	text-indent: 0 !important;
+
+    		&:before {
+
+          content: none !important;
+    		}
+    	}
+    }
 
     .scroller-outer,
     form {
