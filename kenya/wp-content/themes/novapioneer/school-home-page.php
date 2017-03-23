@@ -172,9 +172,9 @@ get_header(); ?>
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
                             alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                             class="profile-img">
-                        <a href="<?php echo get_permalink($member->ID); ?>" class="profile-name"
-                           title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
-                        <span class="profile-role"><?php echo get_field('title', $member->ID); ?></span>
+                        <h3 class="profile-name"><a href="<?php echo get_permalink($member->ID); ?>" class="profile-name"
+                           title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a></h3>
+                        <h5 class="profile-role"><?php echo get_field('title', $member->ID); ?></h5>
                     </div>
                     <? $x++; ?>
                 <?php endforeach; ?>
@@ -375,37 +375,59 @@ get_header(); ?>
 </script> -->
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#testimonial-slider").lightSlider({
-            item: 1,
-            autoWidth: true,
-            slideMove: 1, // slidemove will be 1 if loop is true
-            slideMargin: 500,
+      $("#testimonial-slider").lightSlider({
+          item: 1,
+          autoWidth: false,
+          slideMove: 1, // slidemove will be 1 if loop is true
+          // slideMargin: 300, //500
 
-            addClass: '',
-            mode: "slide",
-            useCSS: true,
-            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-            easing: 'linear', //'for jquery animation',////
+          addClass: '',
+          mode: "slide",
+          useCSS: true,
+          cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+          easing: 'linear', //'for jquery animation',////
 
-            speed: 400, //ms'
-            auto: false,
-            loop: true,
-            slideEndAnimation: true,
-            pause: 2000,
+          speed: 400, //ms'
+          auto: false,
+          loop: true,
+          // slideEndAnimation: true,
+          pause: 2000,
 
-            keyPress: false,
-            controls: true,
-            prevHtml: '',
-            nextHtml: '',
+          keyPress: false,
+          controls: true,
+          prevHtml: '',
+          nextHtml: '',
+          addClass:'content-slider',
 
-            currentPagerPosition: 'middle',
+          // currentPagerPosition: 'middle',
 
-            enableTouch: true,
-            enableDrag: true,
-            freeMove: true,
-            swipeThreshold: 40,
+          enableTouch: true,
+          enableDrag: true,
+          freeMove: true,
+          // swipeThreshold: 40,
+          responsive: [
+            // {
+            //     breakpoint: 1024,
+            //     settings: {
+            //         slideMargin: 500,
+            //     }
+            // },
+            //   {
+            //       breakpoint: 800,
+            //       settings: {
+            //           slideMargin: 500,
+            //       }
+            //   },
 
-        });
+              {
+                  breakpoint: 320,
+                  settings: {
+                      slideMargin: 245,
+                  }
+              }
+          ]
+
+      });
     });
 </script>
 <?php get_footer(); ?>

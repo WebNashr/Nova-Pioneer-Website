@@ -944,6 +944,12 @@
 }
 
 .section-day-in-the-life {
+	p {
+		padding-bottom: calc(#{$space-tiny} * 1);
+		@include break-point(laptop) {
+			padding-bottom:0;
+		}
+	}
 	.button {
 		margin-top: 1rem;
 		margin-bottom: 0;
@@ -951,6 +957,7 @@
 	figure {
 		img {
 			width: 100%;
+			// display: none;
 
 		}
 	}
@@ -980,6 +987,10 @@
 .section-learning-content {
 	margin: 0 auto;
 	padding-bottom: 0;
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 1) ;
+		margin-left: 1.5rem;
+	}
 	//@extend %column;
 	//@extend %columns;
 	//@extend %column-7;
@@ -1008,6 +1019,7 @@
 			text-align: center;
 		}
 	}
+
 }
 
 
@@ -1450,6 +1462,7 @@
 //---Contact Page end--
 
 //---A Day in the Life start--
+
 .timeline-container {
 	height: 100%;
 
@@ -1669,9 +1682,10 @@
 //---About Nova Pioneer Start--
 .principles-container{
 	margin: -6rem 0 2rem 0;
-	padding:  0 calc(#{$space-tiny} * 1);
+	padding:  0;
 	.principle-card {
-		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) ;
+		// padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) ;
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
 		// border: 1px solid lighten($light-grey, 30%);
 		border-radius: 3px;
 		margin-top: 2rem;
@@ -1763,7 +1777,16 @@
 
 		.small-divider {
 			width: 100%;
-			padding: calc(#{$space-tiny} * 1.5)  calc(#{$space-tiny} * 8) ;
+			padding: calc(#{$space-tiny} * 0.5)  calc(#{$space-tiny} * 4);
+			@include break-point(tablet) {
+				padding:  calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+			}
+			@include break-point(laptop) {
+				padding:  calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 4);
+			}
+			@include break-point(desktop) {
+				padding:  calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 8);
+			}
 
 			&:after {
 				content: ' ';
@@ -1794,8 +1817,13 @@
 			}
 		}
 	}
+	@include break-point(tablet) {
+		// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 1);
+		// padding:  0 calc(#{$space-tiny} * 3);
+		padding: 0;
+	}
 	@include break-point(laptop) {
-		padding:  0 calc(#{$space-tiny} * 5);
+		padding:  0 calc(#{$space-tiny} * 1);
 	}
 }
 //---About Nova Pioneer end--
@@ -1845,15 +1873,17 @@
  .cta-wrapper {
 	 @extend %columns;
 	 background-color: $blue-lt;
-	 padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
+	 padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 1);
 	 align-items: center;
 	 justify-content: center;
+
 	 p {
 		 color: $white;
 		 @include copy(bold);
 		 @include font-size(30px);
 		 display: inline;
-		 padding-bottom: calc(#{$space-tiny} * 2.5);
+		 padding-bottom: calc(#{$space-tiny} * 2);
+		  text-align: center;
 		 @include break-point(tablet) {
 			 @include font-size(32px);
 			 padding-bottom: calc(#{$space-tiny} * 2.5)
@@ -1879,8 +1909,11 @@
 		// 	 margin-left: 2rem;
 		//  }
 	 }
+	 @include break-point(tablet) {
+		 padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 1);
+	 }
 	 @include break-point(laptop) {
-		 justify-content: space-between;
+		 justify-content: space-around;
 		 padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
 	 }
 	 @include break-point(desktop) {

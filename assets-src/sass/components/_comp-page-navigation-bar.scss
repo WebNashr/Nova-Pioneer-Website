@@ -114,6 +114,9 @@
 	&.leadership-nav {
 		margin-left: inherit;
 	}
+	&.general-nav {
+		margin-left: inherit;
+	}
 
 	.navigation-wrap {
 		@include flexbox();
@@ -234,6 +237,10 @@
 		&.leadership-nav {
 			margin-left: 6rem;
 		}
+		&.general-nav {
+			// margin-left: 6rem;
+		}
+
     }
 
     @include break-point(laptop) {

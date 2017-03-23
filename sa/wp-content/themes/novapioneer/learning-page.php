@@ -75,9 +75,9 @@ get_header();?>
             </figure>
             </section>
 
-            <section class="education-stage">
-                <div class="section-title anchor-link">
-            <section class="section last-stage">
+            <section class="section education-stage">
+
+                <div class="anchor-link">
                 <article class="article article-inner article-inner-alt">
                     <h2 id="<?php echo strtolower($stage->title); ?>"><?php echo $stage->title; ?></h2>
                     <?php echo $stage->description; ?>
@@ -99,24 +99,26 @@ get_header();?>
                         }
                     ?>
 
-                    <div class="testimonial pull-quote article-quote">
-                      <blockquote>
-                          <svg aria-hidden="true">
-                              <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                          </svg>
-                          <?php echo $vid_caption; ?>
-                          <!-- <hr> -->
-                          <cite><span><strong><?php echo $speaker; ?></strong>, <?php echo $speaker_title; ?></span></cite>
-                      </blockquote>
-                    </div>
+
+                      <div class="testimonial pull-quote article-quote">
+                        <blockquote>
+                            <svg aria-hidden="true">
+                                <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                            </svg>
+                            <?php echo $vid_caption; ?>
+                            <!-- <hr> -->
+                            <cite><span><strong><?php echo $speaker; ?></strong>, <?php echo $speaker_title; ?></span></cite>
+                        </blockquote>
+                      </div>
 
                     <div class="media youtube-video">
                         <?php echo $video; ?>
                     </div>
                 </article>
-            </section>
             </div>
+
         </section>
+
         <?php endforeach; ?>
 
     <?php endwhile; ?>

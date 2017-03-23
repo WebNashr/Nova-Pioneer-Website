@@ -230,34 +230,134 @@ img.ajax-loader {
 
 
 //table filter
+.table-container {
+	padding-top: 0 ;
+	padding-bottom: 0;
+	@include break-point(tablet) {
+		padding-top: 0;
+	}
+	@include break-point(laptop) {
+		padding-top: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1);
+	}
+
+}
+.payment-container {
+	padding:  0;
+	.fees-container {
+		padding: 0 calc(#{$space-tiny} *3);
+		margin-bottom: 3rem;
+		@media only screen
+			and (min-device-width: 320px)
+			and (max-device-width: 360px)
+			{
+				max-width: 310px;
+				overflow-x: auto;
+				padding: 0 calc(#{$space-tiny} *2);
+
+			}
+		@media only screen
+			and (min-device-width: 365px)
+			and (max-device-width: 375px)
+			{
+				max-width: 370px;
+				overflow-x: auto;
+				padding: 0 calc(#{$space-tiny} *2);
+			}
+		@media only screen
+			and (min-device-width: 380px)
+			and (max-device-width: 400px)
+			{
+				max-width: 390px;
+				overflow-x: auto;
+				padding: 0 calc(#{$space-tiny} *2);
+			}
+		@media only screen
+			and (min-device-width: 410px)
+			and (max-device-width: 425px)
+			{
+				max-width: 420px;
+				overflow-x: auto;
+				padding: 0 calc(#{$space-tiny} *2);
+			}
+			@include break-point(tablet) {
+				max-width: 768px;
+				margin-bottom: 2rem;
+			}
+		@include break-point(laptop) {
+			padding:  0;
+			margin-bottom: 3rem;
+
+		}
+
+		table {
+				width: 100%;
+		    border-collapse: collapse;
+		    border-spacing: 0;
+		}
+
+	}
+	@include break-point(mobile) {
+		padding:  0;
+	}
+
+	table {
+		// max-width: 400px;
+		border-collapse: collapse;
+    border-spacing: 0;
+		width: 100%;
+		overflow-x: auto;
+	}
+}
 .table-filter {
 	@include flexbox();
 	@include flex-direction(row);
 	@include flex-wrap(wrap);
 	justify-content: space-between;
-	width: 100%;
+	// width: 100%;
+	@extend %column-12;
 	align-items: baseline;
-	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 0.5) 0;
-
+	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 4) 0;
+	@include break-point(mobile) {
+		padding-top: 0;
+	}
+	@include break-point(tablet) {
+		padding: 0 0 calc(#{$space-tiny} * 2) 0;
+	}
+	@include break-point(desktop) {
+		padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 4) 0;
+	}
 	.selector {
 		position: relative;
-		width: 100%;
-		flex: 2;
-		margin-right: 1.125rem;
+		// width: 100%;
+		// @extend %column-4;
+		display: inline;
+		// flex: 2;
+		// margin-right: 1.125rem;
+		margin-right: 0;
+		margin-left: 0;
 		// flex: 2;
 		// margin-bottom: 1rem;
-
 		@include break-point(mobile) {
 			width: 100%;
+			margin-top: 1rem;
+			margin-right: 0;
+		}
+		@include break-point(tablet) {
+			// width: 100%;
+			margin-right: 0;
 		}
 
-		@include break-point(largelaptop) {
-			display: inline-block;
-			width: auto;
+		@include break-point(laptop) {
+			margin-right: 1.125rem;
+			// display: inline-block;
+			// width: auto;
 		}
 
 		@include break-point(desktop) {
 			width: auto;
+		}
+		&:last-of-type{
+			margin-bottom: 1rem;
 		}
 
 	 	&:after {
@@ -274,6 +374,10 @@ img.ajax-loader {
 			border-width: 0.5rem;
 			// margin-top: -0.2rem;
 			z-index: 2;
+			@include break-point(mobile) {
+				width: auto;
+				left: 90%;
+			}
 
 			// @include break-point(tablet) {
 			// 	width: auto;
@@ -302,7 +406,7 @@ img.ajax-loader {
 		.dropdown {
 			// @extend %column-5;
 			// @extend %column-5;
-
+			// @extend %column-12;
 			color: lighten($dark-grey, 10%);
 			//display: inline-block;
 			width: 100%;
@@ -311,6 +415,7 @@ img.ajax-loader {
 
 			// padding-right: calc(#{$space-tiny} * 3);
 			@include break-point(mobile) {
+				padding-right: calc(#{$space-tiny} * 1);
 				display: block;
 				width: 100%;
 			}
@@ -342,7 +447,7 @@ img.ajax-loader {
 
 	.button {
 		margin-top: 0;
-		flex: 1;
+		// flex: 1;
 
 		@include break-point(tablet) {
 			margin-top: 1rem;
@@ -651,6 +756,7 @@ img.ajax-loader {
 	}
 	.gform_body {
 		margin-top: -1rem;
+		padding:calc(#{$space-tiny} * 2);
 		.gfield.gfield_html{
 			margin-top: 2rem;
 			&:first-of-type {
@@ -661,15 +767,23 @@ img.ajax-loader {
 			margin-top: 0;
 			// padding-left: calc(#{$space-tiny} * 2);
 		}
+		@include break-point(tablet) {
+			padding: calc(#{$space-tiny} * 1) 0;
+		}
+		@include break-point(laptop) {
+			padding: 0;
+		}
 	}
 	.gform_wrapper {
 		margin-top: 0;
+
 		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
 			margin-top: 0;
-			width: 180%;
+			width: 100%;
 			@media only screen and (max-width: 360px) {
 				width: 100%;
 			}
+
 			@include break-point(laptop) {
 				max-width:100%;
 			}
@@ -688,7 +802,7 @@ img.ajax-loader {
 			padding: 0.5rem 1rem !important;
 		}
 		.medium {
-			width: 180%;
+			width: 100%;
 			@media only screen and (max-width: 360px) {
 				width: 100%;
 			}

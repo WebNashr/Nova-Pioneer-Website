@@ -1,4 +1,9 @@
-
+.faqs-container {
+    padding:0 calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2);
+    @include break-point(tablet) {
+      padding:0 calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
+    }
+}
 
 ul.toggle-list {
     .general-content & {
@@ -11,6 +16,8 @@ ul.toggle-list li {
     margin: 0;
     padding: 1.25rem 0;
     cursor: pointer;
+    text-indent: -0.25rem;
+    padding-left: 0.25rem !important;
 
 
     .general-content & {

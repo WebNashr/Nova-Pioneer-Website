@@ -11,11 +11,15 @@
 }
 
 .fees-container {
-	
+	// padding: 0 !important;
 	margin: 0 auto;
+	@include break-point(tablet) {
+		padding: 0 calc(#{$space-tiny} * 3);
+	}
 	@include break-point(desktop) {
 			max-width: 768px;
 		}
+
 
 // 	width: 100%;
 // 	@include copy(regular);
