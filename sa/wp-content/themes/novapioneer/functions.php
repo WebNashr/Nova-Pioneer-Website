@@ -12,9 +12,9 @@ function novap_get_baseurl()
 {
     if (defined('NOVAP_BASE_URL')) {
         return NOVAP_BASE_URL;
-    }else {
+    } else {
         throw new Exception('NOVAP_BASE_URL must be defined!');
-    }  
+    }
 }
 
 function novap_setup()
@@ -65,9 +65,10 @@ function novap_setup_widgets()
 {
     register_sidebar(array(
         'name' => 'Main Footer',
-        'id'   => 'main-footer'
+        'id' => 'main-footer'
     ));
 }
+
 add_action('widgets_init', 'novap_setup_widgets');
 
 function novap_menus()
@@ -231,7 +232,7 @@ function novap_add_event_rsvp()
 {
     $data = (object)$_REQUEST;
 
-    if ( isset($data->rsvp_name) && isset($data->rsvp_email) && isset($data->rsvp_attendance) && isset($data->rsvp_guests) && isset($data->event_id) ) {
+    if (isset($data->rsvp_name) && isset($data->rsvp_email) && isset($data->rsvp_attendance) && isset($data->rsvp_guests) && isset($data->event_id)) {
 
         $rsvp = array(
             'name' => sanitize_text_field($data->rsvp_name),
@@ -248,16 +249,14 @@ function novap_add_event_rsvp()
         endif;
     }
 
-    if( wp_get_referer() )
-    {
-        wp_safe_redirect( wp_get_referer() );
-    }
-    else
-    {
-        wp_safe_redirect( get_home_uri() );
+    if (wp_get_referer()) {
+        wp_safe_redirect(wp_get_referer());
+    } else {
+        wp_safe_redirect(get_home_uri());
     }
 
 }
+
 add_action('admin_post_event-rsvp', 'novap_add_event_rsvp'); // If the user is logged in
 add_action('admin_post_nopriv_event-rsvp', 'novap_add_event_rsvp'); // If the user in not logged in
 
@@ -361,11 +360,11 @@ function novap_download_file($fullpath)
 function novap_enqueue_assets()
 {
 
-    if( !is_admin() ){
+    if (!is_admin()) {
         // We have our own jquery so no need of using the default jquery unless we're in the admin dashboard
         wp_deregister_script('jquery');
         wp_register_script('jquery', novap_get_baseurl() . '/bower_components/jquery/dist/jquery.min.js', array(), '1.0.0', false);
-        wp_enqueue_script('jquery'); 
+        wp_enqueue_script('jquery');
     }
     /** STYLES **/
     wp_register_style('novapioneer_styles', novap_get_baseurl() . '/assets/css/main.min.css', '1.0.0', 'all');
@@ -534,9 +533,9 @@ function get_nova_events($taxonomies = false)
             $organizers = tribe_get_organizer_ids(get_the_ID());
             $html .= '<div class="small-notice" id="rsvp-node">';
             $html .= '  <h1>' . get_the_title() . '</h1>';
-            $html .= '    <h2>'.tribe_get_start_date().'</h2>';
+            $html .= '    <h2>' . tribe_get_start_date() . '</h2>';
             $html .= '      <p>' . $event_address . '</p>';
-            $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary button-send-rsvp" data-event-name="'. get_the_title() .'" data-event-organisers="'.implode(', ', $organizers).'" data-event-date="'.tribe_get_start_date().'" data-event-location="'.$event_address.'" data-event-id="'. get_the_ID() .'">Send an RSVP</a>';
+            $html .= '   <a href="#" class="modal-toggle button button-tiny button-secondary button-send-rsvp" data-event-name="' . get_the_title() . '" data-event-organisers="' . implode(', ', $organizers) . '" data-event-date="' . tribe_get_start_date() . '" data-event-location="' . $event_address . '" data-event-id="' . get_the_ID() . '">Send an RSVP</a>';
             $html .= ' </div>';
         }
         wp_reset_postdata();
@@ -545,12 +544,82 @@ function get_nova_events($taxonomies = false)
     return $html;
 }
 
-function isSegmentScrollable(){
+function isSegmentScrollable()
+{
     $segments = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
 
-    if(array_key_exists(3, $segments)){
+    if (array_key_exists(3, $segments)) {
         return true;
     }
-     return false;
+    return false;
 
+}
+
+
+/*
+ * Meta Box Removal
+ * For Team Members Only
+ */
+function nova_post_tags_meta_box_remove()
+{
+    $id = 'tagsdiv-team_member_category'; // you can find it in a page source code (Ctrl+U)
+    $post_type = 'team'; // remove only from post edit screen
+    $position = 'side';
+    remove_meta_box($id, $post_type, $position);
+}
+
+add_action('admin_menu', 'nova_post_tags_meta_box_remove');
+/*
+ * Add
+ */
+function nova_add_new_tags_metabox()
+{
+    $id = 'novatagsdiv-post_tag'; // it should be unique
+    $heading = 'Team Member  Category'; // meta box heading
+    $callback = 'nova_metabox_content'; // the name of the callback function
+    $post_type = 'team';
+    $position = 'side';
+    $pri = 'default'; // priority, 'default' is good for us
+    add_meta_box($id, $heading, $callback, $post_type, $position, $pri);
+}
+
+add_action('admin_menu', 'nova_add_new_tags_metabox');
+
+/*
+ * Fill
+ */
+function nova_metabox_content($post)
+{
+
+    // get all blog post tags as an array of objects
+    $all_tags = get_terms(array('taxonomy' => 'team_member_category', 'hide_empty' => 0));
+
+    // get all tags assigned to a post
+    $all_tags_of_post = get_the_terms($post->ID, 'team_member_category');
+
+    // create an array of post tags ids
+    $ids = array();
+    if ($all_tags_of_post) {
+        foreach ($all_tags_of_post as $tag) {
+            $ids[] = $tag->term_id;
+        }
+    }
+
+    // HTML
+    echo '<div id="taxonomy-post_tag" class="categorydiv">';
+    echo '<input type="hidden" name="tax_input[post_tag][]" value="0" />';
+    echo '<ul>';
+    foreach ($all_tags as $tag) {
+        // unchecked by default
+        $checked = "";
+        // if an ID of a tag in the loop is in the array of assigned post tags - then check the checkbox
+        if (in_array($tag->term_id, $ids)) {
+            $checked = " checked='checked'";
+        }
+        $id = 'post_tag-' . $tag->term_id;
+        echo "<li id='{$id}'>";
+        echo "<label><input type='checkbox' name='tax_input[post_tag][]' id='in-$id'" . $checked . " value='$tag->slug' /> $tag->name</label><br />";
+        echo "</li>";
+    }
+    echo '</ul></div>'; // end HTML
 }

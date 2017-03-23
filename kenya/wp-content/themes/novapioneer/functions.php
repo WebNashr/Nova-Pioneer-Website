@@ -554,3 +554,72 @@ function isSegmentScrollable()
     return false;
 
 }
+
+
+/*
+ * Meta Box Removal
+ * For Team Members Only
+ */
+function nova_post_tags_meta_box_remove()
+{
+    $id = 'tagsdiv-team_member_category'; // you can find it in a page source code (Ctrl+U)
+    $post_type = 'team'; // remove only from post edit screen
+    $position = 'side';
+    remove_meta_box($id, $post_type, $position);
+}
+
+add_action('admin_menu', 'nova_post_tags_meta_box_remove');
+/*
+ * Add
+ */
+function nova_add_new_tags_metabox()
+{
+    $id = 'novatagsdiv-post_tag'; // it should be unique
+    $heading = 'Team Member  Category'; // meta box heading
+    $callback = 'nova_metabox_content'; // the name of the callback function
+    $post_type = 'team';
+    $position = 'side';
+    $pri = 'default'; // priority, 'default' is good for us
+    add_meta_box($id, $heading, $callback, $post_type, $position, $pri);
+}
+
+add_action('admin_menu', 'nova_add_new_tags_metabox');
+
+/*
+ * Fill
+ */
+function nova_metabox_content($post)
+{
+
+    // get all blog post tags as an array of objects
+    $all_tags = get_terms(array('taxonomy' => 'team_member_category', 'hide_empty' => 0));
+
+    // get all tags assigned to a post
+    $all_tags_of_post = get_the_terms($post->ID, 'team_member_category');
+
+    // create an array of post tags ids
+    $ids = array();
+    if ($all_tags_of_post) {
+        foreach ($all_tags_of_post as $tag) {
+            $ids[] = $tag->term_id;
+        }
+    }
+
+    // HTML
+    echo '<div id="taxonomy-post_tag" class="categorydiv">';
+    echo '<input type="hidden" name="tax_input[post_tag][]" value="0" />';
+    echo '<ul>';
+    foreach ($all_tags as $tag) {
+        // unchecked by default
+        $checked = "";
+        // if an ID of a tag in the loop is in the array of assigned post tags - then check the checkbox
+        if (in_array($tag->term_id, $ids)) {
+            $checked = " checked='checked'";
+        }
+        $id = 'post_tag-' . $tag->term_id;
+        echo "<li id='{$id}'>";
+        echo "<label><input type='checkbox' name='tax_input[post_tag][]' id='in-$id'" . $checked . " value='$tag->slug' /> $tag->name</label><br />";
+        echo "</li>";
+    }
+    echo '</ul></div>'; // end HTML
+}
