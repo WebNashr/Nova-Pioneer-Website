@@ -172,9 +172,9 @@ get_header(); ?>
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
                             alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                             class="profile-img">
-                        <a href="<?php echo get_permalink($member->ID); ?>" class="profile-name"
-                           title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
-                        <span class="profile-role"><?php echo get_field('title', $member->ID); ?></span>
+                            <h3 class="profile-name"><a href="<?php echo get_permalink($member->ID); ?>" class="profile-name"
+                               title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a></h3>
+                            <h5 class="profile-role"><?php echo get_field('title', $member->ID); ?></h5>
                     </div>
                     <? $x++; ?>
                 <?php endforeach; ?>

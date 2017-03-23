@@ -944,6 +944,12 @@
 }
 
 .section-day-in-the-life {
+	p {
+		padding-bottom: calc(#{$space-tiny} * 1);
+		@include break-point(laptop) {
+			padding-bottom:0;
+		}
+	}
 	.button {
 		margin-top: 1rem;
 		margin-bottom: 0;
@@ -951,6 +957,7 @@
 	figure {
 		img {
 			width: 100%;
+			// display: none;
 
 		}
 	}
@@ -1455,6 +1462,7 @@
 //---Contact Page end--
 
 //---A Day in the Life start--
+
 .timeline-container {
 	height: 100%;
 
