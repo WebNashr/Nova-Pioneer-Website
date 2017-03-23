@@ -121,7 +121,11 @@ get_header(); ?>
 
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video">
-                        <?php echo $video; ?>
+                        <?php if (get_field('video_or_image',$our_students_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image',$our_students_video->ID) . '" />';
+                        } else {
+                            echo $video;
+                        } ?>
                     </div>
                 </div>
             </div>
@@ -158,7 +162,11 @@ get_header(); ?>
                 </div>
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video ">
-                        <?php echo $video; ?>
+                        <?php if (get_field('video_or_image',$learning_at_novapioneer_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image',$learning_at_novapioneer_video->ID) . '" />';
+                        } else {
+                            echo $video;
+                        } ?>
                     </div>
                 </div>
             </div>
