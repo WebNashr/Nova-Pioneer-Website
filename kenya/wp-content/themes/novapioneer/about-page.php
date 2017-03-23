@@ -38,7 +38,7 @@ get_header(); ?>
 
                 <input type="checkbox" class="read-more-state" id="post-121"/>
                 <div class="read-more-wrap">
-                    <?php echo array_shift($our_story_paragraphs); ?>
+                    <p><?php echo array_shift($our_story_paragraphs); ?></p>
                     <span class="read-more-target">
                            <?php foreach ($our_story_paragraphs as $s_paragraph): ?>
                                <p><?php echo $s_paragraph; ?></p>
