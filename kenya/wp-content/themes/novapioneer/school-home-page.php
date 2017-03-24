@@ -111,13 +111,15 @@ get_header(); ?>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
+                    <?php $our_students_video = get_field('our_students_video'); ?>
+                    <?php if (get_field('type', $our_students_video->ID) == 'student'): ?>
                     <div class="testimonial pull-quote">
 
                         <?php
-                        $our_students_video = get_field('our_students_video');
                         $vid_caption = get_field('video_caption', $our_students_video->ID);
                         $student_name = get_field('student_name', $our_students_video->ID);
                         $video = get_field('video', $our_students_video->ID);
+
                         ?>
                         <blockquote>
                             <svg aria-hidden="true">
@@ -125,7 +127,7 @@ get_header(); ?>
                                     xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                             </svg>
                             <?php echo $vid_caption; ?>
-                            <cite class="school-page-quote"><span><strong><?php echo $student_name; ?></strong>,</span>
+                            <cite class="school-page-quote"><span><strong> <?php echo $student_name; ?></strong>,</span>
                                 Nova Pioneer Student</cite>
                         </blockquote>
 
@@ -134,13 +136,14 @@ get_header(); ?>
                 </div>
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video">
-                        <?php if (get_field('video_or_image',$our_students_video->ID) == 'image') {
-                            echo '<img src="' . get_field('image',$our_students_video->ID) . '" />';
+                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
                         } else {
                             echo $video;
                         } ?>
                     </div>
                 </div>
+                <?php endif ?>
             </div>
         </section>
 
@@ -176,8 +179,10 @@ get_header(); ?>
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
                             alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                             class="profile-img">
-                        <h3 class="profile-name"><a href="<?php echo get_permalink($member->ID); ?>" class="profile-name"
-                           title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a></h3>
+                        <h3 class="profile-name"><a href="<?php echo get_permalink($member->ID); ?>"
+                                                    class="profile-name"
+                                                    title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
+                        </h3>
                         <h5 class="profile-role"><?php echo get_field('title', $member->ID); ?></h5>
                     </div>
                     <? $x++; ?>
@@ -379,59 +384,59 @@ get_header(); ?>
 </script> -->
 <script type="text/javascript">
     $(document).ready(function () {
-      $("#testimonial-slider").lightSlider({
-          item: 1,
-          autoWidth: false,
-          slideMove: 1, // slidemove will be 1 if loop is true
-          // slideMargin: 300, //500
+        $("#testimonial-slider").lightSlider({
+            item: 1,
+            autoWidth: false,
+            slideMove: 1, // slidemove will be 1 if loop is true
+            // slideMargin: 300, //500
 
-          addClass: '',
-          mode: "slide",
-          useCSS: true,
-          cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-          easing: 'linear', //'for jquery animation',////
+            addClass: '',
+            mode: "slide",
+            useCSS: true,
+            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+            easing: 'linear', //'for jquery animation',////
 
-          speed: 400, //ms'
-          auto: false,
-          loop: true,
-          // slideEndAnimation: true,
-          pause: 2000,
+            speed: 400, //ms'
+            auto: false,
+            loop: true,
+            // slideEndAnimation: true,
+            pause: 2000,
 
-          keyPress: false,
-          controls: true,
-          prevHtml: '',
-          nextHtml: '',
-          addClass:'content-slider',
+            keyPress: false,
+            controls: true,
+            prevHtml: '',
+            nextHtml: '',
+            addClass: 'content-slider',
 
-          // currentPagerPosition: 'middle',
+            // currentPagerPosition: 'middle',
 
-          enableTouch: true,
-          enableDrag: true,
-          freeMove: true,
-          // swipeThreshold: 40,
-          responsive: [
-            // {
-            //     breakpoint: 1024,
-            //     settings: {
-            //         slideMargin: 500,
-            //     }
-            // },
-            //   {
-            //       breakpoint: 800,
-            //       settings: {
-            //           slideMargin: 500,
-            //       }
-            //   },
+            enableTouch: true,
+            enableDrag: true,
+            freeMove: true,
+            // swipeThreshold: 40,
+            responsive: [
+                // {
+                //     breakpoint: 1024,
+                //     settings: {
+                //         slideMargin: 500,
+                //     }
+                // },
+                //   {
+                //       breakpoint: 800,
+                //       settings: {
+                //           slideMargin: 500,
+                //       }
+                //   },
 
-              {
-                  breakpoint: 320,
-                  settings: {
-                      slideMargin: 245,
-                  }
-              }
-          ]
+                {
+                    breakpoint: 320,
+                    settings: {
+                        slideMargin: 245,
+                    }
+                }
+            ]
 
-      });
+        });
     });
 </script>
 <?php get_footer(); ?>
