@@ -36,30 +36,33 @@ get_header(); ?>
             <article class="article article-inner article-inner-alt mission-vision">
                 <h2 class="centered-title">Our Story</h2>
 
-                <input type="checkbox" class="read-more-state" id="post-121"/>
+               <!-- <input type="checkbox" class="read-more-state" id="post-121"/>-->
                 <div class="read-more-wrap">
                     <p><?php echo array_shift($our_story_paragraphs); ?></p>
-                    <span class="read-more-target">
+                    <span class="read-more-target-js"  data-collapse="story">
                            <?php foreach ($our_story_paragraphs as $s_paragraph): ?>
                                <p><?php echo $s_paragraph; ?></p>
                            <?php endforeach; ?>
                 </span></div>
-                <label for="post-121" class="read-more-trigger button button-tiny button-primary"></label>
+                <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="story">
+                    Read More
+                </button>
                 <h2 class="centered-title">Our Vision</h2>
                 <?php echo $our_vision; ?>
 
                 <h2 class="centered-title">Our Mission</h2>
-                <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/>
+               <!-- <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/>-->
                 <div class="read-more-wrap">
                     <p><?php echo array_shift($our_mission_paragraphs); ?></p>
-                  <span class="read-more-target">
+                  <span class="read-more-target-js"  data-collapse="mission">
                       <?php foreach ($our_mission_paragraphs as $paragraph): ?>
                           <p><?php echo $paragraph; ?></p>
                       <?php endforeach; ?>
                   </span>
                 </div>
-                <label for="post-<?php echo get_the_ID(); ?>"
-                       class="read-more-trigger button button-tiny button-primary"> </label>
+                <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="mission">
+                    Read More
+                </button>
 
 
             </article>
