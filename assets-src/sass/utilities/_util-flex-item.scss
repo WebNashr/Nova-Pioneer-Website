@@ -5,6 +5,9 @@
 
 /* Flex Order */
 @mixin flex-order($order) {
+	-webkit-box-ordinal-group: $order;
+	-webkit-order: $order;
+	-ms-flex-order: $order;
 	order: $order;
 }
 
@@ -13,6 +16,9 @@
 
 /* Flex */
 @mixin flex($grow, $shrink, $basis) {
+	-webkit-box-flex: $grow;
+	-webkit-flex: $grow $shrink $basis;
+	-ms-flex: $grow $shrink $basis;
 	flex: $grow $shrink $basis;
 }
 
@@ -20,6 +26,9 @@
 
 
 @mixin flex-grow($grow) {
+	-webkit-box-flex: $grow;
+	-webkit-flex-grow: $grow;
+	-ms-flex-positive: $grow;
 	flex-grow: $grow;
 }
 
@@ -27,6 +36,8 @@
 
 
 @mixin flex-shrink($shrink) {
+	-webkit-flex-shrink: $shrink;
+	-ms-flex-negative: $shrink;
 	flex-shrink: $shrink;
 }
 
@@ -34,6 +45,8 @@
 
 
 @mixin flex-basis($basis) {
+	-webkit-flex-basis: $basis;
+	-ms-flex-preferred-size: $basis;
 	flex-basis: $basis;
 }
 

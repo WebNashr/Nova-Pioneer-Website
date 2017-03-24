@@ -7,10 +7,11 @@
 @mixin flexbox {
 	// add support on IE 8 & 9
 	-js-display: flex;
-	// normal flexbox
-	// display: -webkit-box;
+	// normal prefixing
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-
 }
 
 // div { @include flexbox(); }
@@ -19,10 +20,18 @@
 /* Flex Direction */
 @mixin flex-direction($direction) {
 	@if $direction == column {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
 		flex-direction: column;
 	}
 
 	@else {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: row;
+		-ms-flex-direction: row;
 		flex-direction: row;
 	}
 }
@@ -32,7 +41,11 @@
 
 /* Flexbox */
 @mixin flex-wrap($flow) {
-	flex-wrap: $flow;
+		-webkit-flex-wrap: $flow;
+		-ms-flex-wrap: $flow;
+		flex-wrap: $flow;
 }
 
 // div { @include flex-wrap(wrap); }
+
+
