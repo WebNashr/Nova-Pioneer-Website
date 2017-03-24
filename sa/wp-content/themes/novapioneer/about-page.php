@@ -51,7 +51,7 @@ get_header(); ?>
                 <h2 class="centered-title">Our Vision</h2>
                 <?php echo $our_vision; ?>
 
-                <h2 class="centered-title">Our Mission</h2>
+                <h2 class="centered-title" id="mission-scroll">Our Mission</h2>
                 <!-- <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/>-->
 
                 <div class="read-more-wrap">

@@ -211,7 +211,7 @@
 
 })(jQuery);
 
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
     var readmoreCounter = 1;
     jQuery('.read-more-target-js p').hide();
     jQuery(".read-more-trigger-js").click(function () {
@@ -224,9 +224,16 @@ jQuery(document).ready(function($){
 
         }
         else {
-            jQuery('html, body').animate({
-                scrollTop: $('#readmoreScroll').offset().top - offset
-            }, 2000);
+            if (collapse == 'mission') {
+                jQuery('html, body').animate({
+                    scrollTop: $('#mission-scroll').offset().top - offset
+                }, 2000);
+            } else {
+                jQuery('html, body').animate({
+                    scrollTop: $('#readmoreScroll').offset().top - offset
+                }, 2000);
+            }
+
         }
         $('[data-collapse="' + collapse + '"] p').slideToggle("slow", function () {
 
