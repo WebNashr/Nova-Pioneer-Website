@@ -32,7 +32,7 @@ get_header(); ?>
 
         <div class="trigger"></div>
 
-        <section class="section">
+        <section class="section"  id="readmoreScroll">
             <article class="article article-inner article-inner-alt mission-vision">
                 <h2 class="centered-title">Our Story</h2>
 
