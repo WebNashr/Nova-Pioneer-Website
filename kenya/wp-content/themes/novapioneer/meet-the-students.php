@@ -87,7 +87,7 @@ get_header(); ?>
 
                         <div class="section-content-item section-content-item-half">
                             <div class="media youtube-video">
-                                <?php if (get_the_field('video_or_image') == 'image') : ?>
+                                <?php if (get_sub_field('video_or_image') == 'image') : ?>
 
                                     <img src="<?php the_sub_field('image') ?>"/>
                                 <?php else : ?>
@@ -145,7 +145,7 @@ get_header(); ?>
 
                             <div class="section-content-item section-content-item-half">
                                 <div class="media youtube-video">
-                                    <?php if (get_the_field('video_or_image') == 'image') : ?>
+                                    <?php if (get_sub_field('video_or_image') == 'image') : ?>
 
                                         <img src="<?php the_sub_field('image') ?>"/>
                                     <?php else : ?>
