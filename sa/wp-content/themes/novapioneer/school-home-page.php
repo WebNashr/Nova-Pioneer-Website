@@ -111,10 +111,11 @@ get_header(); ?>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
+                    <?php $our_students_video = get_field('our_students_video'); ?>
+                    <?php if (get_field('type', $our_students_video->ID) == 'student'): ?>
                     <div class="testimonial pull-quote">
 
                         <?php
-                        $our_students_video = get_field('our_students_video');
                         $vid_caption = get_field('video_caption', $our_students_video->ID);
                         $student_name = get_field('student_name', $our_students_video->ID);
                         $video = get_field('video', $our_students_video->ID);
@@ -141,6 +142,7 @@ get_header(); ?>
                         } ?>
                     </div>
                 </div>
+                <?php endif ?>
             </div>
         </section>
 
