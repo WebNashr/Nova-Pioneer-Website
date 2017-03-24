@@ -37,19 +37,19 @@
     // margin: 0;
     margin-bottom: 0.75rem;
   }
-  .mission-vision & {
-    margin-top: 1rem;
-    margin-left: 0;
-    width: 45%;
-    line-height: 1.25;
-    @include break-point(tablet) {
-      width: 17%;
-    }
-    @include break-point(laptop) {
-      margin-left: 43%;
-      width: auto;
-    }
-  }
+  // .mission-vision & {
+  //   margin-top: 1rem;
+  //   margin-left: 0;
+  //   width: 45%;
+  //   line-height: 1.25;
+  //   @include break-point(tablet) {
+  //     width: 17%;
+  //   }
+  //   @include break-point(laptop) {
+  //     margin-left: 43%;
+  //     width: auto;
+  //   }
+  // }
   .global-leaders-profiles & {
     margin-top: 0.5rem;
     width: 60%;
@@ -68,4 +68,26 @@
   &:hover{
     // color: $blue;
   }
+}
+
+.mission-vision {
+	width: 100%;
+	button{
+		margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 33%;
+    @media only screen
+			and (min-device-width: 320px)
+			and (max-device-width: 360px)
+			{
+        margin-left: 25%;
+      }
+
+		@include break-point(tablet) {
+      margin-left: 42%;
+    }
+		@include break-point(laptop) {
+      margin-left: 43%;
+    }
+	}
 }
