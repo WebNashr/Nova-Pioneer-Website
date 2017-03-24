@@ -607,7 +607,7 @@ function nova_metabox_content($post)
 
     // HTML
     echo '<div id="taxonomy-post_tag" class="categorydiv">';
-    echo '<input type="hidden" name="tax_input[post_tag][]" value="0" />';
+    echo '<input type="hidden" name="tax_input[team_member_category][]" value="0" />';
     echo '<ul>';
     foreach ($all_tags as $tag) {
         // unchecked by default
@@ -618,7 +618,7 @@ function nova_metabox_content($post)
         }
         $id = 'post_tag-' . $tag->term_id;
         echo "<li id='{$id}'>";
-        echo "<label><input type='checkbox' name='tax_input[post_tag][]' id='in-$id'" . $checked . " value='$tag->slug' /> $tag->name</label><br />";
+        echo "<label><input type='checkbox' name='tax_input[team_member_category][]' id='in-$id'" . $checked . " value='$tag->slug' /> $tag->name</label><br />";
         echo "</li>";
     }
     echo '</ul></div>'; // end HTML
