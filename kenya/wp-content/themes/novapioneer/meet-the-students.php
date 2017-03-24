@@ -87,7 +87,13 @@ get_header(); ?>
 
                         <div class="section-content-item section-content-item-half">
                             <div class="media youtube-video">
-                                <iframe width="347" height="194" src="<?php  the_sub_field('video_link');?>" frameborder="0" allowfullscreen></iframe>
+                                <?php if (get_the_field('video_or_image') == 'image') : ?>
+
+                                    <img src="<?php the_sub_field('image') ?>"/>
+                                <?php else : ?>
+                                    <iframe width="347" height="194" src="<?php the_sub_field('video_link'); ?>"
+                                            frameborder="0" allowfullscreen></iframe>
+                                <?php endif ?>
                             </div>
                         </div>
                     </div>
@@ -139,7 +145,13 @@ get_header(); ?>
 
                             <div class="section-content-item section-content-item-half">
                                 <div class="media youtube-video">
-                                    <iframe width="347" height="194" src="<?php  the_sub_field('video_link');?>" frameborder="0" allowfullscreen></iframe>
+                                    <?php if (get_the_field('video_or_image') == 'image') : ?>
+
+                                        <img src="<?php the_sub_field('image') ?>"/>
+                                    <?php else : ?>
+                                        <iframe width="347" height="194" src="<?php the_sub_field('video_link'); ?>"
+                                                frameborder="0" allowfullscreen></iframe>
+                                    <?php endif ?>
                                 </div>
                             </div>
                         </div>
