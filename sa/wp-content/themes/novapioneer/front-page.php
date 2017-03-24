@@ -138,7 +138,7 @@ get_header(); ?>
 
         <section class="full-width-image-container" data-enllax-type="foreground">
               <figure class="full-width-image parallax" style="background-image:url('<?php the_field('below_learning_hero_image')?>');"
-                      data-enllax-ratio="0.008999">
+                      data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
@@ -410,3 +410,14 @@ get_header(); ?>
         startWayPoint()
     });
 </script>
+
+
+<!--
+    Re-link the parallax script (in themes/novapioneer/js) to override the conflict
+    brought on by the carousel at the top of the home page.
+    Add this script tag after the carousel options JS block on whichever page 
+    the carousel gets going on being a right pain in the footer!
+-->
+<script type="text/javascript" src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
+
+
