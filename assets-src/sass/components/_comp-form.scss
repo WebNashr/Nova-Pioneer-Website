@@ -531,7 +531,7 @@ img.ajax-loader {
 			// margin-top: -3rem;
 			// max-width: 100% !important;
 			// width:75%;
-			width: 95%;
+			width: 100%;
 			margin-bottom: 1rem;
 
 			ul li.field_description_below div.ginput_container_radio {
@@ -719,6 +719,15 @@ img.ajax-loader {
 
 
 				}
+			}
+		}
+		@include break-point(mobile) {
+			.gform_body {
+				width: 100%;
+
+			}
+			.subscribe-form-container {
+				margin-left: -0.5rem;
 			}
 		}
 		@include break-point(laptop) {
