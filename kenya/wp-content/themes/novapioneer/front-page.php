@@ -326,9 +326,6 @@ get_header(); ?>
 <?php endif; ?>
 
 
-<?php get_footer(); ?>
-
-
 <script type="text/javascript">
     (function ($) {
         $(document).ready(function () {
@@ -406,18 +403,18 @@ get_header(); ?>
                 freeMove: true,
                 // swipeThreshold: 40,
                 responsive: [
-                  // {
-                  //     breakpoint: 1024,
-                  //     settings: {
-                  //         slideMargin: 500,
-                  //     }
-                  // },
-                  //   {
-                  //       breakpoint: 800,
-                  //       settings: {
-                  //           slideMargin: 500,
-                  //       }
-                  //   },
+                    // {
+                    //     breakpoint: 1024,
+                    //     settings: {
+                    //         slideMargin: 500,
+                    //     }
+                    // },
+                    //   {
+                    //       breakpoint: 800,
+                    //       settings: {
+                    //           slideMargin: 500,
+                    //       }
+                    //   },
 
                     {
                         breakpoint: 320,
@@ -454,9 +451,12 @@ get_header(); ?>
 <!--
     Re-link the parallax script (in themes/novapioneer/js) to override the conflict
     brought on by the carousel at the top of the home page.
-    Add this script tag after the carousel options JS block on whichever page 
+    Add this script tag after the carousel options JS block on whichever page
     the carousel gets going on being a right pain in the footer!
 -->
 <script type="text/javascript" src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
+<?php get_footer(); ?>
+
+
 
 
