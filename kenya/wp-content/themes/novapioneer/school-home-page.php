@@ -29,7 +29,7 @@ get_header(); ?>
 
             <div class="section-content">
                 <?php $school_icon = get_field('booarding_or_day_school');
-                if (strpos(strtolower($school_icon), 'day') !== false) {¬
+                if (strpos(strtolower($school_icon), 'day') !== false) {
                     $icon = 'day-icon';
 
                 } else {
