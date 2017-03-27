@@ -28,14 +28,21 @@ get_header(); ?>
             </div>
 
             <div class="section-content">
-                <div class="section-content-item school-features">
+                <?php $school_icon = get_field('booarding_or_day_school');
+                if (strpos(strtolower($school_icon), 'day')) {
+                    $icon = 'day-icon';
+                } else {
+                    $icon = 'boarding-icon';
+                }
+                ?>
+                <div class="slection-content-item school-features">
                     <div class="feature-item"><span class="feature-icon boys-school-icon"></span>
                         <p><?php echo get_field('school_gender'); ?></p></div>
                     <div class="feature-item"><span class="feature-icon curriculum-icon"></span>
                         <p><?php echo get_field('school_curriculumn'); ?></p></div>
-                    <div class="feature-item"><span class="feature-icon boarding-icon"></span>
+                    <div class="feature-item"><span class="feature-icon <?php echo $icon ?>"></span>
                         <p><?php echo get_field('booarding_or_day_school'); ?></p></div>
-                    <div class="feature-item"><span class="feature-icon grade-icon"></span>
+                    <div class=" feature-item"><span class="feature-icon grade-icon"></span>
                         <p><?php echo get_field('school_grades'); ?></p></div>
                     <!-- <?php echo get_field('summary_intro'); ?> -->
                 </div>
@@ -135,8 +142,8 @@ get_header(); ?>
                 </div>
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video">
-                        <?php if (get_field('video_or_image',$our_students_video->ID) == 'image') {
-                            echo '<img src="' . get_field('image',$our_students_video->ID) . '" />';
+                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
                         } else {
                             echo $video;
                         } ?>
@@ -178,9 +185,11 @@ get_header(); ?>
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
                             alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                             class="profile-img">
-                            <h3 class="profile-name"><a href="<?php echo get_permalink($member->ID); ?>" class="profile-name"
-                               title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a></h3>
-                            <h5 class="profile-role"><?php echo get_field('title', $member->ID); ?></h5>
+                        <h3 class="profile-name"><a href="<?php echo get_permalink($member->ID); ?>"
+                                                    class="profile-name"
+                                                    title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
+                        </h3>
+                        <h5 class="profile-role"><?php echo get_field('title', $member->ID); ?></h5>
                     </div>
                     <? $x++; ?>
                 <?php endforeach; ?>
@@ -319,66 +328,66 @@ get_header(); ?>
 <?php endif; ?>
 
 
-    <!-- slippry -->
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            // jQuery('#slippry').slippry();
-            var thumbs = jQuery('#slippry-gallery').slippry({
-                // general elements & wrapper
-                slippryWrapper: '<div class="section-gallery" />',
-                // options
-                transition: 'horizontal',
-                pager: true,
-                auto: true,
-                responsive: true,
-                loop: true,
-                adaptiveHeight: false,
-                speed: 800,
-                onSlideBefore: function (el, index_old, index_new) {
-                    jQuery('.thumbs a img').removeClass('active');
-                    jQuery('img', jQuery('.thumbs a')[index_new]).addClass('active');
-                }
-            });
-
-            jQuery('.thumbs a').click(function () {
-                thumbs.goToSlide($(this).data('slide'));
-                return false;
-            });
+<!-- slippry -->
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        // jQuery('#slippry').slippry();
+        var thumbs = jQuery('#slippry-gallery').slippry({
+            // general elements & wrapper
+            slippryWrapper: '<div class="section-gallery" />',
+            // options
+            transition: 'horizontal',
+            pager: true,
+            auto: true,
+            responsive: true,
+            loop: true,
+            adaptiveHeight: false,
+            speed: 800,
+            onSlideBefore: function (el, index_old, index_new) {
+                jQuery('.thumbs a img').removeClass('active');
+                jQuery('img', jQuery('.thumbs a')[index_new]).addClass('active');
+            }
         });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-          $("#testimonial-slider").lightSlider({
-              item: 1,
-              autoWidth: false,
-              slideMove: 1, // slidemove will be 1 if loop is true
-              // slideMargin: 300, //500
 
-              addClass: '',
-              mode: "slide",
-              useCSS: true,
-              cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-              easing: 'linear', //'for jquery animation',////
+        jQuery('.thumbs a').click(function () {
+            thumbs.goToSlide($(this).data('slide'));
+            return false;
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#testimonial-slider").lightSlider({
+            item: 1,
+            autoWidth: false,
+            slideMove: 1, // slidemove will be 1 if loop is true
+            // slideMargin: 300, //500
 
-              speed: 400, //ms'
-              auto: false,
-              loop: true,
-              // slideEndAnimation: true,
-              pause: 2000,
+            addClass: '',
+            mode: "slide",
+            useCSS: true,
+            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+            easing: 'linear', //'for jquery animation',////
 
-              keyPress: false,
-              controls: true,
-              prevHtml: '',
-              nextHtml: '',
-              addClass:'content-slider',
+            speed: 400, //ms'
+            auto: false,
+            loop: true,
+            // slideEndAnimation: true,
+            pause: 2000,
 
-              // currentPagerPosition: 'middle',
+            keyPress: false,
+            controls: true,
+            prevHtml: '',
+            nextHtml: '',
+            addClass: 'content-slider',
 
-              enableTouch: true,
-              enableDrag: true,
-              freeMove: true,
-              // swipeThreshold: 40,
-              responsive: [
+            // currentPagerPosition: 'middle',
+
+            enableTouch: true,
+            enableDrag: true,
+            freeMove: true,
+            // swipeThreshold: 40,
+            responsive: [
                 // {
                 //     breakpoint: 1024,
                 //     settings: {
@@ -392,15 +401,15 @@ get_header(); ?>
                 //       }
                 //   },
 
-                  {
-                      breakpoint: 320,
-                      settings: {
-                          slideMargin: 245,
-                      }
-                  }
-              ]
+                {
+                    breakpoint: 320,
+                    settings: {
+                        slideMargin: 245,
+                    }
+                }
+            ]
 
-          });
         });
-    </script>
+    });
+</script>
 <?php get_footer(); ?>

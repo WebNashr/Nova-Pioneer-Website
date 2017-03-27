@@ -28,12 +28,20 @@ get_header(); ?>
             </div>
 
             <div class="section-content">
+                <?php $school_icon = get_field('booarding_or_day_school');
+                if (strpos(strtolower($school_icon), 'day') !== false) {¬
+                    $icon = 'day-icon';
+
+                } else {
+                    $icon = 'boarding-icon';
+                }
+                ?>
                 <div class="section-content-item school-features">
                     <div class="feature-item"><span class="feature-icon boys-school-icon"></span>
                         <p><?php echo get_field('school_gender'); ?></p></div>
                     <div class="feature-item"><span class="feature-icon curriculum-icon"></span>
                         <p><?php echo get_field('school_curriculumn'); ?></p></div>
-                    <div class="feature-item"><span class="feature-icon boarding-icon"></span>
+                    <div class="feature-item"><span class="feature-icon <?php echo $icon ?>"></span>
                         <p><?php echo get_field('booarding_or_day_school'); ?></p></div>
                     <div class="feature-item"><span class="feature-icon grade-icon"></span>
                         <p><?php echo get_field('school_grades'); ?></p></div>
