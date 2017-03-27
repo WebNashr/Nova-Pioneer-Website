@@ -1,0 +1,42 @@
+
+/*  iOS hacks */
+/* ==================================================== */
+
+
+// body {
+//     &.ios {
+//         background: wheat;
+
+//         @include break-point(tablet) {
+//             background: cyan;
+//         }
+//     }
+// }
+
+
+.section-hero,
+.full-width-image.parallax {
+	body.ios & {
+		width: 100%;
+        background-size: 100%;
+        background-attachment: initial;
+
+        @include break-point(mobile) {
+            min-height: 232px;
+		    min-height: calc(calc(649 / 1200) * 100vw);
+        }
+
+        @include break-point(tablet) {
+            min-height: 520px;
+            min-height: 50vh;
+        }
+
+        @include break-point(laptop) {
+            height: 100vh;
+            min-height: 100vh;
+            background-size: cover;
+        }
+	}
+}
+
+

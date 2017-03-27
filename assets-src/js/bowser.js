@@ -8,6 +8,11 @@ else if (bowser.safari) {
     document.getElementsByTagName('body')[0].className+=' safari'
 }
 
+// // ios
+// else if (bowser.ios) {
+//     document.getElementsByTagName('body')[0].className+=' ios'
+// }
+
 // firefox
 else if (bowser.firefox) {
     document.getElementsByTagName('body')[0].className+=' firefox'
@@ -27,3 +32,14 @@ else if (bowser.msie) {
 else {
     document.getElementsByTagName('body')[0].className+=' unknown'
 }
+
+
+
+
+
+// var ios = /iphone|ipod|ipad/.test( userAgent );
+
+// if( ios ) {
+//     document.getElementsByTagName('body')[0].className+=' ios'
+// };
+
