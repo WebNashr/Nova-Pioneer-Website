@@ -1,10 +1,8 @@
-
 /*  Aside */
 /* ==================================================== */
 .full-width-image-container{
 	width: 100%;
-	// height: 80vh;
-	height: auto;
+	height: 80vh;
 	// background-color: $white;
 	background-color: transparent;
 	padding-top: 0;
@@ -12,78 +10,65 @@
 	position: relative;
 	background-position: center;
 	overflow: hidden;
-
 	figure {
 		position: relative;
 		// margin-bottom: -50%;
 	}
-
-	@include break-point(tablet) {
-		
-	}
-
-	@include break-point(laptop) {
-		height: 80vh;
-		// min-height: 80vh;
-	}
-
-	@include break-point(desktop) {
-		
-	}
 }
-
 .full-width-image {
 	@include flexbox();
 	@include flex-wrap(nowrap);
 	width: 100%;
 	height: 100%;
+
 	// margin-top: 1.5rem;
 	//margin: 4rem 0;
-	// background-image: url('../../img/large-bgd-image.jpg');
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	padding-top: calc(#{$space-tiny} * 1);
+  // background-image: url('../../img/large-bgd-image.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding-top: calc(#{$space-tiny} * 1);
 	padding-right: calc(#{$space-tiny} * 3);
 	padding-bottom: calc(#{$space-tiny} * 4);
 	padding-left: calc(#{$space-tiny} * 3);
-	align-items: flex-start;
+  align-items: flex-start;
 
     &.secondary-bgd-image {
 	    background-image: url('../../img/large-bgd-secondary.jpg');
-    }
 
+    }
     &.primary-bgd-image {
     	background-image: url('../../img/large-bgd-primary.jpg');
     }
-
     &.preprimary-bgd-image {
     	background-image: url('../../img/large-bgd-preprimary.jpg');
     }
-
     &.working-at-np-bgd-image {
     	background-image: url('../../img/large-bgd-working-at-np.jpg');
     }
-
     &.about-np-bgd-image {
     	background-image: url('../../img/large-bgd-about-np.jpg');
     }
 
+
     figcaption {
+
 	  	position: relative;
 	  	//flex-basis: 21%;
 	  	@extend %column;
-		@extend %column-3;
-		// background: $dark-blue;
-		// background: $blue-dk;
-		background: rgba(30, 63, 117, 0.9);
-		// opacity: 0.9;
-		text-align: left;
-		padding: calc(#{$space-tiny} * 1);
-		// 	padding-top: calc(#{$space-tiny} * 1.5);
-		top: -1rem;
-		left:-1rem;
-		max-width: 200px;
+	  	@extend %column-3;
+	  	// background: $dark-blue;
+			// background: $blue-dk;
+			background: rgba(30, 63, 117, 0.9);
+			// opacity: 0.9;
+		 	text-align: left;
+		 	padding: calc(#{$space-tiny} * 1);
+			// 	padding-top: calc(#{$space-tiny} * 1.5);
+		 	top: -1rem;
+			left:-1rem;
+			max-width: 200px;
+
+
 
 	 	p {
 	 		color: $white;
@@ -104,13 +89,11 @@
 	 		&:hover {
 	 			color: $orange-lt;
 	 		}
-
 			@include break-point(desktop) {
 				padding-top: 0.75rem;
 				@include font-size(16px);
 			}
 	 	}
-
 		@include break-point(laptop) {
 			max-width: 200px;
 			padding: calc(#{$space-tiny} * 1);
@@ -122,51 +105,30 @@
 		}
 
     }
-
-	&.parallax {
-		background-attachment: fixed;
+		&.parallax {
+			background-attachment: fixed;
 		//height: 75vh;
-		// background-attachment: fixed;
-		// background-position: center top;
-		// background-repeat: no-repeat;
-		// background-size: cover;
+    // background-attachment: fixed;
+    // background-position: center top;
+    // background-repeat: no-repeat;
+    // background-size: cover;
 		// z-index: 5;
 		// width: 100%;
 		// height: 100%
 		// height: auto;
 		// width: 100%;
-		// height: 100%;
-    
-		width: 100vw;
-		height: auto;
-		min-height: calc(calc(649 / 1200) * 100vw); // total magic number; based on the aspect ratio of the image
-		background-size: 150vw; // total magic number; quite arbitrary, but does the job
-	}
-
-	// .image {
-	//   background-attachment: fixed;
-	//   background-size: cover;
-	//   //background-repeat: no-repeat;
-	//   width: 100%;
-	//   height: 100%;
-	//   position: absolute;
-	//   z-index: 500;
-	//   opacity: 0.4;
-	// }
-
-	@include break-point(tablet) {
-		
-	}
-
-	@include break-point(laptop) {
-		&.parallax {
-			width: 100%;
-			height: 100%;
-			min-height: unset;
-			background-size: cover;
+    // height: 100%;
 		}
-	}
-	
+		// .image {
+    //   background-attachment: fixed;
+    //   background-size: cover;
+    //   //background-repeat: no-repeat;
+    //   width: 100%;
+    //   height: 100%;
+    //   position: absolute;
+    //   z-index: 500;
+    //   opacity: 0.4;
+    // }
 }
 
 .subscription-form {
