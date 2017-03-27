@@ -15,12 +15,16 @@
     background-position: center top;
     background-repeat: no-repeat;
     justify-content: center;
+    // background-attachment: local;
+    // -webkit-overflow-scrolling: touch;
     background-attachment: fixed;
     position: relative;
     width: 100vw;
 		height: auto;
 		min-height: calc(calc(649 / 1200) * 100vw); // total magic number; based on the aspect ratio of the image
+    // min-height: 50vh;
 		background-size: 150vw; // total magic number; quite arbitrary, but does the job
+    // background-size: cover;
 
     &.homepage {
       // min-height: 0;
