@@ -1,7 +1,17 @@
+var standalone = window.navigator.standalone,
+    userAgent = window.navigator.userAgent.toLowerCase(),
+    safari = /safari/.test( userAgent ),
+    ios = /iphone|ipod|ipad/.test( userAgent );
+if( ios ) {
+    document.getElementsByTagName('body')[0].className+=' ios'
+};
+
+
 // start document.ready
 (function ($) {
     $(document).ready(function () {
         console.log('one ready')
+
 
         // 01. kill level 1 menu links
         $(".menu > .menu-item > a").attr('href', '#');
