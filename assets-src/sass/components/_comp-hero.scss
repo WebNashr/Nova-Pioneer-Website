@@ -113,41 +113,50 @@
         }
     }
 
-
     @include break-point(mobile) {
         height: calc(calc(649/1200) * 100vw); // magic number aspect ratio calc
-        background-position: center top !important;
-        background-size: 100% !important;
-        background-attachment: initial !important;
+        // background-position: center top !important;
+        // background-size: 100% !important;
+        // background-attachment: initial !important;
+        background-position: center top;
+        background-size: 100%;
+        background-attachment: initial;
     }
 
     @include break-point(tablet) {
         height: 55vh;
-        background-position: center top !important;
-        background-size: 100% !important;
-        background-attachment: initial !important;
+        // background-position: center top !important;
+        // background-size: 100% !important;
+        // background-attachment: initial !important;
+        background-position: center top;
+        background-size: 100%;
+        background-attachment: initial;
     }
 
     @include break-point(laptop) {
         height: 100vh;
-        background-size: cover !important;
-        background-attachment: fixed !important;
+        // background-size: cover !important;
+        // background-attachment: fixed !important;
+        background-size: cover;
+        background-attachment: fixed;
     }
 
     @include break-point(desktop) {
 
     }
 }
+
 .country-hero {
   @include flexbox();
   @include flex-direction(row);
   height: auto;
   padding: 0;
+
   @include break-point(tablet) {
     // height: 95vh;
   }
-
 }
+
 .hero-container {
     width: 100%;
     position: relative;
