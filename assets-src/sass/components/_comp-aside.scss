@@ -167,7 +167,8 @@
     }
 
     @include break-point(laptop) {
-        background-size: cover !important;
+        background-position: unset;
+		background-size: cover !important;
 
 		&.parallax {
 			background-attachment: fixed;
