@@ -111,11 +111,13 @@
 				@include font-size(16px);
 			}
 	 	}
+
 		@include break-point(laptop) {
 			max-width: 200px;
 			padding: calc(#{$space-tiny} * 1);
 			left: 0;
 		}
+
 		@include break-point(desktop) {
 			padding: calc(#{$space-tiny} * 1.5);
 			max-width: 270px;
@@ -149,8 +151,10 @@
 	// }
 
 	@include break-point(mobile) {
-        background-position: center top !important;
-        background-size: 100% !important;
+        // background-position: center top !important;
+        // background-size: 100% !important;
+		background-position: center top;
+        background-size: 100%;
 
 		&.parallax {
 			background-attachment: initial;
@@ -158,8 +162,10 @@
     }
 
     @include break-point(tablet) {
-		background-position: center top !important;
-        background-size: 100% !important;
+		// background-position: center top !important;
+        // background-size: 100% !important;
+		background-position: center top;
+        background-size: 100%;
 
 		&.parallax {
 			background-attachment: initial;
@@ -167,8 +173,8 @@
     }
 
     @include break-point(laptop) {
-        background-position: unset;
-		background-size: cover !important;
+        // background-size: cover !important;
+		background-size: cover;
 
 		&.parallax {
 			background-attachment: fixed;
