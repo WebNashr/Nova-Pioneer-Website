@@ -147,7 +147,7 @@ get_header(); ?>
         </section>
 
         <section class="full-width-image-container" data-enllax-type="foreground">
-            <figure class="full-width-image parallax"
+            <figure class="full-width-image parallax no-parallax-mobile"
                     style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
                     data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
