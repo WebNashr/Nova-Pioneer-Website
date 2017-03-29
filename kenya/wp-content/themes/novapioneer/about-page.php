@@ -38,33 +38,40 @@ get_header(); ?>
 
                <!-- <input type="checkbox" class="read-more-state" id="post-121"/>-->
                 <div class="read-more-wrap">
-                    <p><?php echo array_shift($our_story_paragraphs); ?></p>
-                    <span class="read-more-target-js"  data-collapse="story">
-                           <?php foreach ($our_story_paragraphs as $s_paragraph): ?>
+                    <p><?php $counter_s = 0;
+                        echo array_shift($our_story_paragraphs); ?></p>
+                    <span class="read-more-target-js" data-collapse="story">
+                           <?php foreach ($our_story_paragraphs as $s_paragraph): $counter_s++ ?>
                                <p><?php echo $s_paragraph; ?></p>
                            <?php endforeach; ?>
                 </span></div>
-                <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="story">
-                    Read More
-                </button>
+
+                <?php if ($counter_s > 0): ?>
+                    <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="story">
+                        Read More
+                    </button>
+                <?php endif; ?>
+
                 <h2 class="centered-title">Our Vision</h2>
                 <?php echo $our_vision; ?>
 
                 <h2 class="centered-title" id="mission-scroll">Our Mission</h2>
-               <!-- <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/>-->
+                <!-- <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/>-->
+
                 <div class="read-more-wrap">
-                    <p><?php echo array_shift($our_mission_paragraphs); ?></p>
-                  <span class="read-more-target-js"  data-collapse="mission">
-                      <?php foreach ($our_mission_paragraphs as $paragraph): ?>
+                    <p><?php $counter_m = 0;
+                        echo array_shift($our_mission_paragraphs); ?></p>
+                  <span class="read-more-target-js" data-collapse="mission">
+                      <?php foreach ($our_mission_paragraphs as $paragraph): $counter_m++ ?>
                           <p><?php echo $paragraph; ?></p>
                       <?php endforeach; ?>
                   </span>
                 </div>
-                <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="mission">
-                    Read More
-                </button>
-
-
+                <?php if ($counter_m > 0): ?>
+                    <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="mission">
+                        Read More
+                    </button>
+                <?php endif; ?>
             </article>
         </section>
 
@@ -119,16 +126,20 @@ get_header(); ?>
     jQuery(document).ready(function ($) {
         var readmoreCounter = 1;
         jQuery('.read-more-target-js p').hide();
+        var readmorePs = $("div").length;
+
         jQuery(".read-more-trigger-js").click(function () {
             var collapse = $(this).data('collapse')
             readmoreCounter += 1 - 1;
             console.log(readmoreCounter++)
             var offset = 75; //Offset of 75px
             if (readmoreCounter % 2 === 0) {
+                $(this).text('Read Less')
                 //  do some stuff if you want
 
             }
             else {
+                $(this).text('Read More')
                 if (collapse == 'mission') {
                     jQuery('html, body').animate({
                         scrollTop: $('#mission-scroll').offset().top - offset
