@@ -491,6 +491,7 @@ img.ajax-loader {
 				display: inline-block;
 				label {
 					margin-right: 16px;
+
 				}
 				input[type=checkbox] {
 					margin-top: 0 !important;
@@ -508,8 +509,12 @@ img.ajax-loader {
 				display: inline-block;
 				label {
 					margin-right: 16px;
+					display: inline;
 				}
 				input[type=checkbox] {
+					margin-top: 0 !important;
+				}
+				input[type=radio] {
 					margin-top: 0 !important;
 				}
 			}
