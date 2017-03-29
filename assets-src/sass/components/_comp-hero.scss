@@ -181,7 +181,7 @@
 	position: absolute;
 	top: unset;
 	// left: calc(#{$space-tiny} * 2);
-	bottom: 5rem;
+	bottom: 0;//5rem
 	// right: calc(#{$space-tiny} * 2);
 	max-width: 100%;
 	margin: 0;
@@ -284,7 +284,15 @@
 	    margin: calc(#{$space-tiny} * 1.5) 0 calc(#{$space-tiny} * 1);
 	    letter-spacing: 2px;
 	    color: $white;
-      @include font-size(28px);
+      @include font-size(18px);
+      @include break-point(tablet) {
+          @include font-size(28px);
+          max-width: 100%;
+      }
+      @include break-point(desktop) {
+          @include font-size(48px);
+          max-width: 75%;
+      }
 
 	}
 
