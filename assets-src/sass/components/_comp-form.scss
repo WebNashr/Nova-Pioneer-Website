@@ -528,9 +528,12 @@ img.ajax-loader {
 		// display: flex;
 		// flex-direction: row;
 		clear: both;
-		width: 100%;
+		width: 95%;
 		margin-top: -0.5rem;
 		// align-items: center;
+		@include break-point(tablet) {
+				width: 100%;
+		}
 
 		.gform_body {
 			// margin-top: -3rem;
