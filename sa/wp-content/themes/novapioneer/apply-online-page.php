@@ -5,7 +5,7 @@
 
 get_header();?>
 
-<!--<style type="text/css" media="all"> 
+<!--<style type="text/css" media="all">
     /* Temporary fix for gravity forms not displaying */
     .gf_browser_chrome, .gform_wrapper{
         display:block !important;
@@ -25,10 +25,10 @@ get_header();?>
                 </p> -->
             </article>
         </section>
-        
+
     <?php endwhile; ?>
 
-    <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
+    
 <?php endif; ?>
 
 <?php get_footer(); ?>
