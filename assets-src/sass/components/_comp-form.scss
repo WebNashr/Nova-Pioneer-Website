@@ -528,7 +528,7 @@ img.ajax-loader {
 		// display: flex;
 		// flex-direction: row;
 		clear: both;
-		width: 95%;
+		width: 100%;
 		margin-top: -0.5rem;
 		// align-items: center;
 		@include break-point(tablet) {
@@ -885,10 +885,14 @@ img.ajax-loader {
 // apply online  form
 .student-application {
 	h2 {
+		text-align: center;
 		padding: calc(1rem * 2) 0 calc(1rem * 1) 0;
 		&:first-of-type {
 			padding: calc(1rem * 2) 0 calc(1rem * 2) 0;
 		}
+		// @include break-point(laptop) {
+		// 	text-align: left;
+		// }
 	}
 	h3 {
 		@include font-size(18px);

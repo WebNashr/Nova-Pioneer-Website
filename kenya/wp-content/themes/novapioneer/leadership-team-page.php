@@ -25,7 +25,34 @@ get_header(); ?>
         <div class="trigger"></div>
 
         <section class="section" style="padding-bottom:2rem;">
-            <div class="page-navigation-container leadership-nav">
+          <div class="page-navigation-container">
+              <div class="navigation-wrap">
+                  <div class="section-title">
+                      <h3>Our Learning Approach</h3>
+                  </div>
+                  <div class="links-inner-wrap">
+
+                          <div class="section-content-item">
+                              <div class="anchor-link">
+                                <a href="#leadership" class="" title="">Leadership</a>
+                              </div>
+                          </div>
+
+                          <div class="section-content-item">
+                              <div class="anchor-link">
+                                <a href="#management" class="" title="">Managment</a>
+                              </div>
+                          </div>
+                          <div class="section-content-item">
+                              <div class="anchor-link">
+                                <a href="#team" class="" title="">Team</a>
+                              </div>
+                          </div>
+
+                  </div>
+              </div>
+          </div>
+            <!-- <div class="page-navigation-container leadership-nav">
                 <div class="navigation-wrap">
                     <div class="section-title"><h3>Our Team</h3></div>
                     <div class="links-inner-wrap"
@@ -44,7 +71,7 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
-            </div>
+            </div> -->
         </section>
 
 

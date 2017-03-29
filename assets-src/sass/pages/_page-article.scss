@@ -146,6 +146,26 @@
 .article-inner {
 	flex: 10;
 	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
+	&-alt {
+		h1 {
+			text-align: center;
+		}
+		h2 {
+			text-align: center;
+		}
+		.button {
+			margin-left: 10%;
+			width: 78%;
+			@include break-point(tablet) {
+				margin-left: 30%;
+				width: 40%;
+		  }
+			@include break-point(laptop) {
+				margin-left: 0;
+				width: auto;
+		  }
+		}
+	}
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 0);
@@ -157,12 +177,16 @@
 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 0) calc(#{$space-tiny} * 0) calc(#{$space-tiny} * 3);
 		border-left: 1px solid lighten($light-grey, 32%);
 
-		&-alt {
-		    max-width: 768px;
-		    margin: 0 auto;
-		    padding: 0;
-		    border: 0 none;
-		}
+			&-alt {
+			    max-width: 768px;
+			    margin: 0 auto;
+			    padding: 0;
+			    border: 0 none;
+					h1,
+					h2 {
+						text-align: left;
+					}
+			}
     }
 
     @include break-point(largelaptop) {

@@ -104,13 +104,23 @@ h2 {
 
 	.education-stage & {
 		margin-bottom: calc(#{$space-tiny} * 1);
+		text-align: center;
+
+		@include break-point(laptop) {
+			text-align: left;
+		}
 	}
 
 	.section-navigation & {
 		margin-top: 0;
-		margin-bottom: 0.5rem;
+		margin-bottom: 1rem;
+		text-align: center;
+		@include break-point(tablet) {
+			text-align: center;
+		}
 
 		@include break-point(laptop) {
+			text-align: left;
 			margin-top: -0.25rem;
 			margin-bottom: 0.25rem;
 		}
@@ -132,11 +142,11 @@ h2 {
 	&.full-width-heading  {
 
 	 	margin-top: 1.250rem ;
-		text-align: left;
+		text-align: center;
 
 		@include break-point(tablet) {
 			margin-top: 2rem;
-			text-align: left;
+			// text-align: left;
 		}
 
 		@include break-point(laptop) {

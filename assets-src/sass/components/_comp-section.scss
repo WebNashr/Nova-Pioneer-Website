@@ -101,6 +101,7 @@
 .section-navigation {
     @extend %column;
     @extend %column-2;
+		width: 100%;
 
     &-admissions {
 		@extend %column-3;
@@ -111,6 +112,18 @@
 	.button {
 		@include font-size(11px);
 		margin-bottom: 0.5rem;
+		margin-left: 25%;
+		width: 50%;
+		@include break-point(tablet) {
+			// margin-right: 25%;
+			margin-left: 37%;
+			width: 26%;
+	  }
+		@include break-point(laptop) {
+			// margin-right: 25%;
+			margin-left: 0;
+			width: auto;
+	  }
 	}
 	@include break-point(laptop) {
 
