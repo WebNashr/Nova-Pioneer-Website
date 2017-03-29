@@ -295,7 +295,7 @@
 .lSAction > a {
     width: 32px;
     display: block;
-    top: 30%;
+    top: 15%; //30
     height: 32px;
     background-image: url('../../img/lightslider/content-slider-controls.png');
     cursor: pointer;
@@ -305,6 +305,15 @@
     opacity: 0.5;
     -webkit-transition: opacity 0.35s linear 0s;
     transition: opacity 0.35s linear 0s;
+    // @include break-point(mobile) {
+    //   top: 15%;
+    // }
+    @include break-point(tablet) {
+      top: 25%;
+    }
+    @include break-point(laptop) {
+      top: 50%;
+    }
 }
 .lSAction > a:hover {
     opacity: 1;
