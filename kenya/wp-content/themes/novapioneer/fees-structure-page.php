@@ -21,7 +21,7 @@ get_header();?>
               <div class="section-title"><h3>Fees &amp; Tuition </h3></div>
                 <div class="links-inner-wrap" <div="">
                         <div class="anchor-link">
-                          <a href="#fees-table" class="" title="">Fees Per School</a>
+                          <a href="#fees-structure" class="" title="">Fees Per School</a>
                         </div>
                         <div class="link-separator">&nbsp;</div>
                         <div class="anchor-link">
@@ -45,7 +45,7 @@ get_header();?>
                 <section class="section school-fees">
 
                   <article class="article article-inner article-inner-alt">
-                      <h1 class="page-title">Fees Structure</h1>
+                      <h1 class="page-title" id="fee-structure">Fees Structure</h1>
                       <?php the_content(); ?>
                   </article>
 
