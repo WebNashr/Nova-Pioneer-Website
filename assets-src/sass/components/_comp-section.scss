@@ -1347,13 +1347,15 @@
 //---Contact Page start--
 .school-contact {
 	padding-top: calc(#{$space-tiny} * 0.45);
+	margin-bottom: 1.5rem;
 
 	h3 {
 		margin-bottom: calc(#{$space-tiny} * 1);
 	}
 
 	p {
-		padding:calc(#{$space-tiny} * 0.5) 0;
+		// padding:calc(#{$space-tiny} * 0.5) 0;
+		padding: 0;
 		@include font-size(16px);
 		@include copy(bold);
 	}
@@ -1371,8 +1373,21 @@
 
 				a {
 					@include font-size(16px);
+					@include break-point(laptop) {
+						display: block;
+					}
+					@include break-point(desktop) {
+						display: inline;
+					}
 				}
 			}
+		}
+	}
+
+	@include break-point(laptop) {
+		margin-bottom: 0;
+		p {
+			padding:calc(#{$space-tiny} * 0.25) 0;
 		}
 	}
 }
