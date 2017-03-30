@@ -182,7 +182,7 @@ get_header(); ?>
 
             </section>
 
-            
+
             <section class="section section-pair contact-student ">
                 <div class="section-navigation">
                     <h2>Contact a Student</h2>

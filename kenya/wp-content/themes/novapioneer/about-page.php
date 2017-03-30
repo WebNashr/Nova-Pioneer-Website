@@ -75,7 +75,7 @@ get_header(); ?>
                     data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption slideInLeft">
                     <figcaption>
-                        <p> <?php echo get_field('our_culture_banner_image_caption'); ?></p>
+                       <?php echo get_field('our_culture_banner_image_caption'); ?>
                     </figcaption>
                 </div>
             </figure>

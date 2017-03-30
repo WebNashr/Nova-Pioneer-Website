@@ -69,7 +69,7 @@ get_header();?>
             <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-enllax-ratio="0.2" >
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p><?php echo $stage->banner_image_caption; ?></p>
+                        <?php echo $stage->banner_image_caption; ?>
                     </figcaption>
                 </div>
             </figure>
