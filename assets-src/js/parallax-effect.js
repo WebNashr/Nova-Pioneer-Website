@@ -33,8 +33,8 @@
                 transform: "translateX(" + u + "px)"
             })), t(window).on("scroll", function() {
                 var o = t(this).scrollTop();
-                f = Math.round((c - o) * r), u = Math.round((c - a / 2 + l - o) * r), "background" == e ? "vertical" == s ? i.css({
-                    "background-position": "center " + +f + "px"
+                f = Math.round(((c - o) * r) + 150), u = Math.round((c - a / 2 + l - o) * r), "background" == e ? "vertical" == s ? i.css({
+                    "background-position": "center " + -f + "px"
                 }) : "horizontal" == s && i.css({
                     "background-position": -f + "px center"
                 }) : "foreground" == e && n > o && ("vertical" == s ? i.css({
