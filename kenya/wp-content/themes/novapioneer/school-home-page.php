@@ -324,6 +324,7 @@ get_header(); ?>
                             novap_render_google_map($locations);
                         } ?>
                     </div>
+                  </div>
 
                     <div class="section-content-item section-content-item-half">
                         <div class="contact-info">
