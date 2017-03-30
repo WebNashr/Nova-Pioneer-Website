@@ -45,7 +45,7 @@ get_header();?>
                 <section class="section school-fees">
 
                   <article class="article article-inner article-inner-alt">
-                      <h1 class="page-title">Fees Structure</h1>
+                      <h1 class="page-title" id="fees-table">Fees Structure</h1>
                       <?php the_content(); ?>
                   </article>
 
@@ -91,7 +91,7 @@ get_header();?>
                           <input name="view" value="View Fees" class="button button-small button-primary" style="" type="submit" />
                       </form>
                       <?php if( !empty($selected_school) && !empty($selected_grade) && !empty($selected_year) &&  ($_GET["view"] === "true") ): ?>
-                        <div class="fees-container" id="fees-table">
+                        <div class="fees-container">
                             <h2><?php echo $selected_school->post_title; ?> Fee Structure for  Grade <?php echo $selected_grade->grade; ?> <?php echo $selected_year->year; ?></h2>
                             <div class="schedule-content">
                                 <header class="table-header"></header>
