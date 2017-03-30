@@ -2,7 +2,7 @@
 /* ==================================================== */
 .full-width-image-container{
 	width: 100%;
-	// height: 80vh;
+		height: 80vh;
 	// background-color: $white;
 	background-color: transparent;
 	padding-top: 0;
@@ -16,23 +16,25 @@
 		// margin-bottom: -50%;
 	}
 
-	@include break-point(mobile) {
-        height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
-    }
+	// ### rollback ###
+	// @include break-point(mobile) {
+    //     height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
+    // }
 
-    @include break-point(tablet) {
-        // height: 55vh;
-		height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
-    }
+    // @include break-point(tablet) {
+    //     // height: 55vh;
+	// 	height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
+    // }
 
-    @include break-point(laptop) {
-        // height: 80vh;
-		height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
-    }
+    // @include break-point(laptop) {
+    //     // height: 80vh;
+	// 	height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
+    // }
 
-    @include break-point(desktop) {
+    // @include break-point(desktop) {
 
-    }
+    // }
+	// ### rollback ###
 }
 .full-width-image {
 	@include flexbox();
@@ -42,8 +44,8 @@
 	// margin-top: 1.5rem;
 	//margin: 4rem 0;
 	// background-image: url('../../img/large-bgd-image.jpg');
-	// background-size: cover;
-	// background-position: center center;
+		background-size: cover;
+		background-position: center center;
 	background-repeat: no-repeat;
 	padding-top: calc(#{$space-tiny} * 1);
 	padding-right: calc(#{$space-tiny} * 3);
@@ -125,7 +127,7 @@
     }
 
 	&.parallax {
-		// background-attachment: fixed;
+			background-attachment: fixed;
 		//height: 75vh;
 		// background-attachment: fixed;
 		// background-position: center top;
@@ -150,40 +152,42 @@
 	//   opacity: 0.4;
 	// }
 
-	@include break-point(mobile) {
-        // background-position: center top !important;
-        // background-size: 100% !important;
-		background-position: center top;
-        background-size: 100%;
+	// ### rollback ###
+	// @include break-point(mobile) {
+    //     // background-position: center top !important;
+    //     // background-size: 100% !important;
+	// 	background-position: center top;
+    //     background-size: 100%;
 
-		&.parallax {
-			background-attachment: initial;
-		}
-    }
+	// 	&.parallax {
+	// 		background-attachment: initial;
+	// 	}
+    // }
 
-    @include break-point(tablet) {
-		// background-position: center top !important;
-        // background-size: 100% !important;
-		background-position: center top;
-        background-size: 100%;
+    // @include break-point(tablet) {
+	// 	// background-position: center top !important;
+    //     // background-size: 100% !important;
+	// 	background-position: center top;
+    //     background-size: 100%;
 
-		&.parallax {
-			background-attachment: initial;
-		}
-    }
+	// 	&.parallax {
+	// 		background-attachment: initial;
+	// 	}
+    // }
 
-    @include break-point(laptop) {
-        // background-size: cover !important;
-		background-size: cover;
+    // @include break-point(laptop) {
+    //     // background-size: cover !important;
+	// 	background-size: cover;
 
-		&.parallax {
-			background-attachment: fixed;
-		}
-    }
+	// 	&.parallax {
+	// 		background-attachment: fixed;
+	// 	}
+    // }
 
-    @include break-point(desktop) {
+    // @include break-point(desktop) {
 
-    }
+    // }
+	// ### rollback ###
 }
 
 .subscription-form {
@@ -195,26 +199,27 @@
   	margin-bottom: 0;
   	background: $grey;
 
+	.section-nav {
+		@include flex-direction(column);
+		flex-basis:21.5%;
+		height: auto;
 
-.section-nav {
-	@include flex-direction(column);
-	flex-basis:21.5%;
-	height: auto;
-	 h1 {
-	 	@include copy(semi);
-	 	@include font-size(36px);
-	 	color: $green-blue;
-	 	text-shadow: none;
-	 }
-	 a {
-	 	color: $blue;
-	 	&:hover {
-	 		color: $dark-blue;
-	 		text-decoration: underline;
-	 	}
-	 }
+		h1 {
+			@include copy(semi);
+			@include font-size(36px);
+			color: $green-blue;
+			text-shadow: none;
+		}
 
-}
+		a {
+			color: $blue;
+			&:hover {
+				color: $dark-blue;
+				text-decoration: underline;
+			}
+		}
+	}
+
 	.inner-container {
 	 	@include flexbox();
 	 	@include flex-direction(column);
@@ -224,6 +229,7 @@
 		height: 99%;
 		flex-basis: 78%;
 	}
+
 	header {
 		//flex: 0 1 100%;
 		@include flexbox();
@@ -292,3 +298,4 @@
 	}
 
 }
+
