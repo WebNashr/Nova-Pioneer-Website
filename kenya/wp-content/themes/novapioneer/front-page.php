@@ -20,7 +20,7 @@ get_header(); ?>
                                 <div class="callout-box">
                                     <div class="animated-headings">
                                         <h1 class="hero-title"><?php echo $hero_slide->title; ?></h1>
-                                        <h3 class="hero-subtitle"><?php echo $hero_slide->subtitle; ?></h3>
+                                        <h2 class="hero-subtitle"><?php echo $hero_slide->subtitle; ?></h2>
                                     </div>
                                 </div>
                             </a>
@@ -456,7 +456,3 @@ get_header(); ?>
 -->
 <script type="text/javascript" src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
 <?php get_footer(); ?>
-
-
-
-
