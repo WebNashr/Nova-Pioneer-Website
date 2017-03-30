@@ -1,38 +1,21 @@
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBroSr1E-YWhqnSuybyB7Ed6uap7eTO8Bs&callback=initMap"
-    async defer></script>
+<script>
+    console.log('safari map thingies')
+    var map;
+    var locations_data = '{{locations}}';
+    var locations = JSON.parse(locations_data.replace(/&quot;/ig, '"'));
 
-    <style>
-        #map{
-            width: 100%;
-            margin: 0;
-            height: 400px;
-        }
-    </style>
-
-    <div class="section-content-item section-content-item-full">
-        <div class="location-map">
-            <div id="map"></div>
-        </div>
-    </div>
-
-
-    <script>
-      let map;
-      let locations_data = '{{locations}}';
-      let locations = JSON.parse(locations_data.replace(/&quot;/ig, '"'));
-
-      function initMap() {
+    function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng( locations[0].latitude, locations[0].longitude ),
-          zoom: 12,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+            center: new google.maps.LatLng( locations[0].latitude, locations[0].longitude ),
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
-        let markers = [];
+        var markers = [];
 
         locations.forEach(function(location){
 
-            let marker = new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 position: new google.maps.LatLng( location.latitude, location.longitude )
             });
 
@@ -40,20 +23,20 @@
 
             if( (location.info_text !== undefined) && (location.info_text !== null) && (location.info_text !== '') )
             {
-                let infoWindow = new google.maps.InfoWindow({
+                var infoWindow = new google.maps.InfoWindow({
                     content: location.info_text
                 });
 
-                google.maps.event.addListener(marker, 'click', function(e){        
-                    infoWindow.open(map, this);        
+                google.maps.event.addListener(marker, 'click', function(e){
+                    infoWindow.open(map, this);
                 });
             }
- 
+
         });
 
         // Add markers and Autocenter map
-        let bounds = new google.maps.LatLngBounds();
-        
+        var bounds = new google.maps.LatLngBounds();
+
         markers.forEach(function(marker){
             marker.setMap(map);
             bounds.extend(marker.position);
@@ -62,5 +45,25 @@
         map.fitBounds(bounds);
 
 
-      }
-    </script>
+    }
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBroSr1E-YWhqnSuybyB7Ed6uap7eTO8Bs&callback=initMap"
+        async defer></script>
+
+<style>
+    #map{
+        width: 100%;
+        margin: 0;
+        height: 400px;
+    }
+</style>
+
+<div class="section-content-item section-content-item-full">
+    <div class="location-map">
+        <div id="map"></div>
+    </div>
+</div>
+
+
