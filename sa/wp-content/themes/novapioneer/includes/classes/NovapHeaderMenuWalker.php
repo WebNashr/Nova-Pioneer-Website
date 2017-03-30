@@ -207,7 +207,8 @@ class NovapHeaderMenuWalker extends Walker_Nav_Menu
 	 * @param array  $args   An array of wp_nav_menu() arguments.
 	 */
 	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
-		$output .= "</li>\n";
+		// $output .= "</li>\n";
+		$output .= "</li><i class='menu-item-divider'></i>\n";
 	}
 
 } // NovapHeaderMenuWalker

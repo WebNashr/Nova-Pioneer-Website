@@ -152,11 +152,14 @@
 .country-hero {
   @include flexbox();
   @include flex-direction(row);
-  height: auto;
+  // height: auto;
+  margin-top: 0;
   padding: 0;
-
   @include break-point(tablet) {
     // height: 95vh;
+  }
+  @include break-point(laptop) {
+    margin-top: -4rem;
   }
 }
 
