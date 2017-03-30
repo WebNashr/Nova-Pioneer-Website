@@ -484,6 +484,14 @@ img.ajax-loader {
 		// @include break-point(laptop) {
 		// 	 width: calc(100% + 15px);
 		// }
+		li {
+			margin-left:0;
+			text-indent: 0;
+
+			&:before {
+				content: none !important;
+			}
+		}
 
 		.gfield_checkbox {
 			margin-top: 0;
@@ -495,6 +503,9 @@ img.ajax-loader {
 				}
 				input[type=checkbox] {
 					margin-top: 0 !important;
+				}
+				&:before {
+					content: none !important;
 				}
 			}
 		}
