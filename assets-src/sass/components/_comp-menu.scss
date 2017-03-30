@@ -27,13 +27,13 @@
 		margin-left: 5rem;
     }
 
-	.page-header & {
+	// .page-header & {
 
-	}
+	// }
 
-	.page-footer & {
+	// .page-footer & {
 
-	}
+	// }
 }
 
 
@@ -61,9 +61,9 @@
 			opacity: 1;
 		}
 
-	.page-footer & {
+	// .page-footer & {
 
-	}
+	// }
 }
 
 // .page-header .sub-menu {
@@ -196,9 +196,9 @@
 	    padding-bottom: 12px;
 	}
 
-	&:hover {
+	// &:hover {
 
-	}
+	// }
 
 	@include break-point(laptop) {
 		text-align: left;
@@ -212,9 +212,9 @@
     @include break-point(largelaptop) {
 		@include font-size(18px);
 
-		&:not(:first-of-type) {
+		// &:not(:first-of-type) {
 
-		}
+		// }
     }
 }
 
@@ -239,16 +239,16 @@
 	display: none;
 	width: 0;
 	height: 0;
+	opacity: 0;
 }
 
-.page-header .menu-item {
+// .page-header .menu-item {
 
-}
+// }
 
-.page-footer .menu-item {
+// .page-footer .menu-item {
 	
-}
-
+// }
 
 .menu-item-current {
 	a {
