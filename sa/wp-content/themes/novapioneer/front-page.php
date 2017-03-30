@@ -408,6 +408,7 @@ get_header(); ?>
             auto: true,
             speed: 800,
             pause: 8000,
+            autoHover: false,
             onSlideBefore: function () {
                 removeAnimateClasses();
             },
