@@ -58,12 +58,16 @@ get_header();?>
                     <div class="section-content-item section-content-item-third profile">
                         <?php $flip_photo = get_field('flip_photo', $leader->ID); ?>
                         <?php if( !empty($flip_photo) ): ?>
+                          <div class="image-wrap">
                             <div class="image-flip">
                                 <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $leader->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $leader->post_title; ?>">
                                 <img src="<?php echo $flip_photo; ?>" alt="<?php echo $leader->post_title; ?>">
                             </div>
+                          </div>
                         <?php else: ?>
+                          <div class="image-wrap">
                             <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $leader->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $leader->post_title; ?>">
+                          </div>
                         <?php endif; ?>
                         <h3 class="profile-name"><?php echo $leader->post_title; ?></h3>
                         <h5 class="profile-role"><?php echo get_field('title', $leader->ID); ?></h5>
@@ -84,12 +88,16 @@ get_header();?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <?php $flip_photo = get_field('flip_photo', $manager->ID); ?>
                         <?php if( !empty($flip_photo) ): ?>
+                          <div class="image-wrap">
                             <div class="image-flip">
                                 <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $manager->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $manager->post_title; ?>">
                                 <img src="<?php echo $flip_photo; ?>" alt="<?php echo $manager->post_title; ?>">
                             </div>
+                          </div>
                         <?php else: ?>
+                          <div class="image-wrap">
                             <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $manager->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $manager->post_title; ?>">
+                          </div>
                         <?php endif; ?>
                         <h3 class="profile-name"><?php echo $manager->post_title; ?></h3>
                         <h5 class="profile-role"><?php echo get_field('title', $manager->ID); ?></h5>
@@ -111,12 +119,16 @@ get_header();?>
                             <div class="profile">
                                 <?php $flip_photo = get_field('flip_photo', $member->ID); ?>
                                 <?php if( !empty($flip_photo) ): ?>
+                                  <div class="image-wrap">
                                     <div class="image-flip">
                                         <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $member->post_title; ?>">
                                         <img src="<?php echo $flip_photo; ?>" alt="<?php echo $member->post_title; ?>">
                                     </div>
+                                  </div>
                                 <?php else: ?>
+                                  <div class="image-wrap">
                                     <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $member->post_title; ?>">
+                                  </div>
                                 <?php endif; ?>
                                 <h3 class="profile-name"><?php echo $member->post_title; ?></h3>
                                 <h5 class="profile-role"><?php echo get_field('title', $member->ID); ?></h5>

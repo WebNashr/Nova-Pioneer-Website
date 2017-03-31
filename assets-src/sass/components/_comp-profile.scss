@@ -68,7 +68,18 @@
 	&:last-child {
 		margin-right: 0;
 	}
-
+	.image-wrap {
+		max-width: 310px;
+		max-height: 320px;
+		margin: 0 auto;
+		overflow: hidden;
+		margin-bottom: 1rem;
+		@include break-point(laptop) {
+			max-width: 196px;
+			max-height: 203px;
+			margin-bottom: 1rem;
+		}
+	}
 	img {
 		max-width: 360px;
 		margin-top: unset;
