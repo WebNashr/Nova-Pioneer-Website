@@ -1,45 +1,62 @@
 <?php
-    require_once __DIR__.'/site-config.php';
-    require_once __DIR__.'/redirect.php';
+require_once __DIR__ . '/site-config.php';
+require_once __DIR__ . '/redirect.php';
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=yes"> -->
-        <!-- <meta name="viewport" content="; initial-scale=1.0; maximum-scale=1.0;"> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=yes">
-        <meta name="description" content="Nova Pioneer Academies">
-        <meta http-equiv="cleartype" content="on">
-        <title>NovaPioneer Academies</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=yes"> -->
+    <!-- <meta name="viewport" content="; initial-scale=1.0; maximum-scale=1.0;"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Nova Pioneer Academies">
+    <meta http-equiv="cleartype" content="on">
+    <link rel="icon" href="img/cropped-np-favicon-1-32x32.png"
+          sizes="32x32"/>
+    <link rel="icon" href="img/cropped-np-favicon-1-192x192.png"
+          sizes="192x192"/>
+    <link rel="apple-touch-icon-precomposed"
+          href="img/cropped-np-favicon-1-180x180.png"/>
+    <meta name="msapplication-TileImage"
+          content="img/cropped-np-favicon-1-270x270.png"/>
+    <title>NovaPioneer Academies</title>
 
-        <!-- site css -->
-        <link rel="stylesheet" media="all" type="text/css" href="/assets/css/main.min.css" />
+    <!-- site css -->
+    <link rel="stylesheet" media="all" type="text/css" href="/assets/css/main.min.css"/>
 
-        <!-- Google Analytics -->
-        <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create','', 'auto');
+        ga('create', '', 'auto');
         ga('send', 'pageview');
-        </script>
-        <!-- End Google Analytics -->
+    </script>
+    <!-- End Google Analytics -->
 
-    </head>
+</head>
 
-    <body class="front-page body-home" >
+<body class="front-page body-home">
 
-        <!-- page-header -->
-        <header class="page-header page-header-home" id="header-container">
-            <section class="header-section header-section-home">
-                <a href="/" class="logo header-logo">
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        width="714.234px" height="203.368px" viewBox="0 0 714.234 203.368" enable-background="new 0 0 714.234 203.368"
-                        xml:space="preserve" class="logo-mark-text ">
+<!-- page-header -->
+<header class="page-header page-header-home" id="header-container">
+    <section class="header-section header-section-home">
+        <a href="/" class="logo header-logo">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="714.234px" height="203.368px" viewBox="0 0 714.234 203.368"
+                 enable-background="new 0 0 714.234 203.368"
+                 xml:space="preserve" class="logo-mark-text ">
                         <g id="white">
                             <g>
                                 <g>
@@ -176,62 +193,76 @@
                         </g>
                     </svg>
 
-                    <!-- mark only -->
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        width="188.031px" height="203.368px" viewBox="0 0 188.031 203.368" enable-background="new 0 0 188.031 203.368"
-                        xml:space="preserve" class="logo-mark-only">
+            <!-- mark only -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="188.031px" height="203.368px" viewBox="0 0 188.031 203.368"
+                 enable-background="new 0 0 188.031 203.368"
+                 xml:space="preserve" class="logo-mark-only">
                         <g id="coloured_blue">
                             <g>
-                                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="10" y1="65.9565" x2="146.5885" y2="65.9565" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#188EBF"/>
-                                    <stop  offset="0.2459" style="stop-color:#1D7AAA"/>
-                                    <stop  offset="0.7761" style="stop-color:#1C5184"/>
-                                    <stop  offset="1" style="stop-color:#1D3F75"/>
+                                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="10" y1="65.9565"
+                                                x2="146.5885" y2="65.9565"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#188EBF"/>
+                                    <stop offset="0.2459" style="stop-color:#1D7AAA"/>
+                                    <stop offset="0.7761" style="stop-color:#1C5184"/>
+                                    <stop offset="1" style="stop-color:#1D3F75"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_1_)" points="15.169,44.127 4,74.316 72.662,34.613 93.689,47.434 140.766,74.614 140.912,49.504
                                     73.908,10.209       "/>
 
-                                <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643" y1="54.0454" x2="127.9901" y2="-63.9692" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#F68B1F"/>
-                                    <stop  offset="1" style="stop-color:#FFCF01"/>
+                                <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643" y1="54.0454"
+                                                x2="127.9901" y2="-63.9692"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#F68B1F"/>
+                                    <stop offset="1" style="stop-color:#FFCF01"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_2_)" points="163.25,117.336 140.766,128.983 93.689,156.165 115.268,168.629 184.343,130.163
                                     184.343,63.148 163.25,37.922        "/>
 
-                                <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236" y1="-101.4995" x2="25.281" y2="18.4552" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#6CBE45"/>
-                                    <stop  offset="1" style="stop-color:#0D9046"/>
+                                <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236" y1="-101.4995"
+                                                x2="25.281" y2="18.4552"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#6CBE45"/>
+                                    <stop offset="1" style="stop-color:#0D9046"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_3_)" points="25.506,86.729 25.506,166.145 81.765,199.237 113.611,193.866 46.606,154.157
                                     46.606,128.983 46.606,74.614        "/>
 
-                                <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.998" y1="113.897" x2="174.5494" y2="-4.8885" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#F68B1F"/>
-                                    <stop  offset="1" style="stop-color:#FFCF01"/>
+                                <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.998" y1="113.897"
+                                                x2="174.5494" y2="-4.8885"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#F68B1F"/>
+                                    <stop offset="1" style="stop-color:#FFCF01"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_4_)" points="73.908,10.209 140.912,49.504 140.766,74.614 140.766,128.983 163.25,117.336
                                     163.25,37.922 105.75,4      "/>
 
-                                <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5347" y1="-41.5591" x2="72.4756" y2="77.3446" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#6CBE45"/>
-                                    <stop  offset="0.2554" style="stop-color:#67B945"/>
-                                    <stop  offset="0.5116" style="stop-color:#59AE45"/>
-                                    <stop  offset="0.7672" style="stop-color:#40A046"/>
-                                    <stop  offset="1" style="stop-color:#0D9046"/>
+                                <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5347" y1="-41.5591"
+                                                x2="72.4756" y2="77.3446"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#6CBE45"/>
+                                    <stop offset="0.2554" style="stop-color:#67B945"/>
+                                    <stop offset="0.5116" style="stop-color:#59AE45"/>
+                                    <stop offset="0.7672" style="stop-color:#40A046"/>
+                                    <stop offset="1" style="stop-color:#0D9046"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_5_)" points="4,74.316 4,141.745 25.506,166.145 25.506,86.729 46.606,74.614 93.689,47.434
                                     72.666,34.613       "/>
 
-                                <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.6875" y1="-53.647" x2="52.3966" y2="-52.8733" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#188EBF"/>
-                                    <stop  offset="0.2459" style="stop-color:#1D7AAA"/>
-                                    <stop  offset="0.7761" style="stop-color:#1C5184"/>
-                                    <stop  offset="1" style="stop-color:#1D3F75"/>
+                                <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.6875" y1="-53.647"
+                                                x2="52.3966" y2="-52.8733"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#188EBF"/>
+                                    <stop offset="0.2459" style="stop-color:#1D7AAA"/>
+                                    <stop offset="0.7761" style="stop-color:#1C5184"/>
+                                    <stop offset="1" style="stop-color:#1D3F75"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_6_)" points="46.602,154.157 113.616,193.866 172.35,161.176 184.338,130.154 115.268,168.629
@@ -239,39 +270,41 @@
                             </g>
                         </g>
                     </svg>
-                </a>
+        </a>
 
-                <div class="drop-list">
-                    <div class="drop-list-container">
-                        <a href="#" class="button button-small button-primary drop-list-item drop-list-selected">Apply now</a>
-                        <a href="/sa/apply-online/" class="button button-small button-primary drop-list-item drop-list-option">South Africa</a>
-                        <a href="/kenya/apply-online/" class="button button-small button-primary drop-list-item drop-list-option">Kenya</a>
-                    </div>
+        <div class="drop-list">
+            <div class="drop-list-container">
+                <a href="#" class="button button-small button-primary drop-list-item drop-list-selected">Apply now</a>
+                <a href="/sa/apply-online/" class="button button-small button-primary drop-list-item drop-list-option">South
+                    Africa</a>
+                <a href="/kenya/apply-online/"
+                   class="button button-small button-primary drop-list-item drop-list-option">Kenya</a>
+            </div>
+        </div>
+    </section>
+</header>
+<!-- end page-header -->
+
+<!-- start content -->
+<main role="main">
+
+    <section class="section section-hero homepage">
+        <div class="container hero-container">
+            <div class="main-callout-box home-page-callout">
+                <hr>
+                <h1>Developing Innovators &amp; Leaders Who Will Shape The Future</h1>
+                <div class="country-selection">
+                    <a href="/kenya" class="button button-large button-primary" title="">Kenya</a>
+                    <a href="/sa" class="button button-large button-primary" title="">South Africa</a>
                 </div>
-            </section>
-        </header>
-        <!-- end page-header -->
-
-        <!-- start content -->
-        <main role="main">
-
-            <section class="section section-hero homepage">
-                <div class="container hero-container">
-                    <div class="main-callout-box home-page-callout">
-                        <hr>
-                        <h1>Developing Innovators &amp; Leaders Who Will Shape The Future</h1>
-                        <div class="country-selection">
-                        <a href="/kenya" class="button button-large button-primary" title="">Kenya</a>
-                        <a href="/sa" class="button button-large button-primary" title="">South Africa</a>
-                    </div>
-                    </div>
-                </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
 
-        </main>
-        <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="/assets/js/main.min.js"></script>
-    </body>
+</main>
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/main.min.js"></script>
+</body>
 </html>
 
