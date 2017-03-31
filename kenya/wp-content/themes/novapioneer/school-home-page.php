@@ -183,10 +183,12 @@ get_header(); ?>
                 $x = 0; ?>
                 <?php foreach ($leadership_team_members as $member): if ($x >= 2): break; endif; ?>
                     <div class="section-content-item section-content-item-quarter profile">
+                        <div class="image-wrap">
                         <img
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
                             alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                             class="profile-img">
+                        </div>
                         <h3 class="profile-name"><a href="<?php echo get_permalink($member->ID); ?>"
                                                     class="profile-name"
                                                     title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
