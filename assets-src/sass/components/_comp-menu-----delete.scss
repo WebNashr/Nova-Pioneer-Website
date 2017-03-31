@@ -218,28 +218,32 @@
     }
 }
 
-.menu-item-divider {
-    display: inline-block;
-    position: relative;
-	top: 6px;
-	margin-left: 1rem;
-    width: 6px;
-    height: 6px;
-	background: $orange-lt;
-    border-radius: 50%;
+// .roxbury {
+// 	background: darkred;
+// }
 
-	.sub-menu & {
-		display: none;
-		width: 0;
-		height: 0;
-	}
-}
+// .menu-item-divider {
+//     display: inline-block;
+//     position: relative;
+// 	top: 6px;
+// 	margin-left: 1rem;
+//     width: 6px;
+//     height: 6px;
+// 	background: $orange-lt;
+//     border-radius: 50%;
 
-.menu-item:last-of-type ~ i.menu-item-divider {
-	display: none;
-	width: 0;
-	height: 0;
-}
+// 	.sub-menu & {
+// 		display: none;
+// 		width: 0;
+// 		height: 0;
+// 	}
+// }
+
+// .menu-item:last-of-type ~ i.menu-item-divider {
+// 	display: none;
+// 	width: 0;
+// 	height: 0;
+// }
 
 .page-header .menu-item {
 
