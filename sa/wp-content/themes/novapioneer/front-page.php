@@ -158,31 +158,18 @@ get_header(); ?>
             </figure>-->
 
             <?php 
-                // $image = get_field('below_learning_hero_image');
-                // $size = '16-9-large'; // (thumbnail, medium, large, full or custom size)
+                $image = get_field('below_learning_hero_image');
+                $size = '16-9-large'; // thumbnail, medium, large, full or custom size
+                if( get_field('image') ): 
             ?>
-            <figure class="full-width-image parallax"
-                    style="background-image:url('<?php 
-                        $image = get_field('below_learning_hero_image');
-                        $size = '16-9-large';
-                        if($image) {echo wp_get_attachment_image($image, $size);} ?>');"
-                    data-enllax-ratio="0.2">
+            <figure class="full-width-image parallax" style="background-image:url('<?php the_field('image'); ?>');" data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
                     </figcaption>
                 </div>
             </figure>
-
-            <!--<figure class="">
-                <?php 
-                    $image = get_field('about_nmg_photo');
-                    $size = '16-9-mid'; // (thumbnail, medium, large, full or custom size)
-
-                    if($image) {echo wp_get_attachment_image($image, $size);}
-                ?>
-            </figure>-->
-
+            <?php endif; ?>
         </section>
 
         <!-- <aside>
