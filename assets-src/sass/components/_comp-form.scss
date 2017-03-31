@@ -521,12 +521,21 @@ img.ajax-loader {
 				label {
 					margin-right: 16px;
 					display: inline;
+					&:before {
+						content: none !important;
+					}
 				}
 				input[type=checkbox] {
 					margin-top: 0 !important;
+					&:before {
+						content: none !important;
+					}
 				}
 				input[type=radio] {
 					margin-top: 0 !important;
+					&:before {
+						content: none !important;
+					}
 				}
 			}
 		}
@@ -786,6 +795,14 @@ img.ajax-loader {
 	.gform_body {
 		margin-top: -1rem;
 		padding:calc(#{$space-tiny} * 2);
+		li {
+			margin-left:0;
+			text-indent: 0;
+
+			&:before {
+				content: none !important;
+			}
+		}
 		.gfield.gfield_html{
 			margin-top: 2rem;
 			&:first-of-type {
@@ -799,7 +816,7 @@ img.ajax-loader {
 			// padding-left: calc(#{$space-tiny} * 2);
 		}
 		@include break-point(mobile) {
-			padding:calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2);
+			padding:calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2) 0;
 		}
 		@include break-point(tablet) {
 			padding: calc(#{$space-tiny} * 1) 0;
@@ -810,7 +827,11 @@ img.ajax-loader {
 	}
 	.gform_wrapper {
 		margin-top: 0;
-
+		label {
+			&:before {
+					content: none !important;
+				}
+		}
 		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
 			margin-top: 0;
 			width: 100%;
@@ -877,7 +898,7 @@ img.ajax-loader {
 			margin-top: 0;
 			// margin-left: -1.75rem;
 			@include break-point(tablet) {
-				margin-left: -1.75rem;
+				// margin-left: -1.75rem;
 			}
 		}
 			@media only screen and (max-width: 360px) {
@@ -885,7 +906,11 @@ img.ajax-loader {
 			}
 			@include break-point(tablet) {
 				margin-top: 1rem;
-				margin-left: -1rem;
+				margin-left: -3rem;
+			}
+			@include break-point(laptop) {
+				margin-top: 1rem;
+				margin-left: -3rem;
 			}
 
 	}
@@ -935,7 +960,12 @@ img.ajax-loader {
 		}
 		ul {
 			li {
+				margin-left:0;
 				text-indent: 0;
+
+				&:before {
+					content: none !important;
+				}
 			}
 		}
 	}
@@ -976,6 +1006,9 @@ img.ajax-loader {
 			label {
 				margin-top: 0.3rem;
 				margin-left: 0.5rem;
+				&:before {
+					content: none !important;
+				}
 			}
 		}
 		.ginput_complex.ginput_container, {
@@ -1133,6 +1166,7 @@ img.ajax-loader {
 .spu-content {
 	.gform_wrapper {
 		.gform_body {
+
 			p {
 				@include font-size(14px);
 				padding: calc(#{$space-tiny} * 1) 0 0 0;
@@ -1140,9 +1174,15 @@ img.ajax-loader {
 				line-height: 1.5;
 			}
 			ul.gform_fields {
-				li{
+				li {
+					margin-left:0;
 					text-indent: 0;
+
+					&:before {
+						content: none !important;
+					}
 				}
+
 				.gfield_label {
 					color: $blue-dk;
 				}
@@ -1157,6 +1197,9 @@ img.ajax-loader {
 		.ginput_complex.ginput_container label{
 			// margin: 8px 0 9px 1px;
 			margin-top: 8px;
+			&:before {
+				content: none !important;
+			}
 		}
 	}
 	.button  {
