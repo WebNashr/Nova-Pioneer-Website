@@ -617,12 +617,17 @@
 		}
 	}
 
+	.section-content {
+		margin-left: 0;
+	}
+
 }
 .school-features{
 	@extend %columns;
 	width: 100%;
 	align-items: flex-start;
 	padding-top: calc(#{$space-tiny} * 1);
+
 	.feature-item {
 		@extend %columns;
 		// @extend %column-3;
@@ -631,7 +636,7 @@
 		justify-content: center;
 		align-items: center;
 		margin-right: 1.75rem;
-		margin-bottom: 1.5rem;
+		margin-bottom: 1.25rem;
 		&:last-of-type {
 			margin-right: 0;
 		}
@@ -640,10 +645,13 @@
 				// align-items: baseline;
 		}
 		@include break-point(laptop) {
-				margin-right: 3rem;
+				margin-right: 2rem;
+				margin-bottom: 0;
+
 		}
 		@include break-point(desktop) {
 				// align-items: baseline;
+				margin-right: 3rem;
 				margin-bottom: 0;
 		}
 		// flex:1;
@@ -659,9 +667,16 @@
 			@include font-size(16px);
 			display: inline;
 			position: relative;
-			top: 0.5rem;
+			align-self: flex-end;
+			// top: 0.5rem;
+			padding-top: 1.5rem;
+			@include break-point(tablet) {
+					@include font-size(14px);
+					padding-top: 0.5rem;
+			}
 			@include break-point(laptop) {
 					@include font-size(14px);
+					margin-top: 1.15rem;
 			}
 			@include break-point(desktop) {
 					@include font-size(16px);
