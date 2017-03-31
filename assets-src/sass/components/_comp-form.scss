@@ -463,7 +463,7 @@ img.ajax-loader {
 // .gform_body {
 //
 // }
-//sign up/subscription form
+//stay updated/subscription form
 .section-subscribe {
 	padding-top: calc(#{$space-tiny} * 2);
 	padding-bottom: calc(#{$space-tiny} * 2);
@@ -548,7 +548,7 @@ img.ajax-loader {
 		// display: flex;
 		// flex-direction: row;
 		clear: both;
-		width: 100%;
+		width:95%;
 		margin-top: -0.5rem;
 		// align-items: center;
 		@include break-point(tablet) {
@@ -572,10 +572,21 @@ img.ajax-loader {
 		}
 		input[type="text"] {
 
+			// line-height: 1 !important;
 			text-transform:capitalize;
+			@include break-point(tablet) {
+				// line-height: 2 !important;
+			}
 		}
 		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
 			padding: 0.75rem 1rem !important;
+			line-height: 1 !important;
+		}
+		textarea.large {
+			height: 100px !important;;
+			@include break-point(laptop) {
+				height: 150px !important;;
+			}
 		}
 		.gf_simple_horizontal_wrapper.gf_browser_chrome ul.gform_fields li.gfield span.name_first,
 		.gf_simple_horizontal_wrapper.gf_browser_chrome ul.gform_fields li.gfield span.name_middle,
@@ -605,7 +616,12 @@ img.ajax-loader {
 				display: inline-block;
 			}
 		}
-
+		.top_label .gfield_label {
+			line-height: 0 !important;
+			@include break-point(laptop) {
+				line-height: 1 !important;
+			}
+		}
 		.gf_simple_horizontal div.gform_body {
 		  width: auto !important;
 
