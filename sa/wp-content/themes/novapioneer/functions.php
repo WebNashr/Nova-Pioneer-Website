@@ -35,6 +35,22 @@ function novap_setup()
      */
     add_theme_support('post-thumbnails');
 
+    // de-register native image sizes
+    // add_action('init', 'remove_plugin_image_sizes');
+    // function remove_plugin_image_sizes() {
+    //   remove_image_size('large');
+    // }
+
+    // add custom image sizes
+    add_image_size('16-9-large', 1200, 675, true, array('center', 'center')); // hero-type, gallery-type images
+    // add_image_size('16-9-big', 1024, 576, true, array('center', 'center')); // inline full-width images
+    // add_image_size('16-9-mid', 640, 360, true, array('center', 'center')); // article inline and half-width images
+    // add_image_size('16-9-small', 480, 270, true, array('center', 'center')); // card images
+
+    // add_image_size( 'some-size', 270, 140 ); // 270 pixels wide and unlimited height
+    // add_image_size( 'another-size', 440, 180, true ); // cropped
+    // add_image_size( 'another-size-alt', 440, 180, true, array('center', 'center') ); // cropped and centered
+
     /*
      * Switch default core markup for search form, comment form, and comments
      * to output valid HTML5.
