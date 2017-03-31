@@ -5,7 +5,7 @@
     @include flexbox();
     @include flex-direction(row);
               // height: 100vh; // for laptops and up
-    height: 82vh; // for laptops and up
+    height: 50vh; 
     padding: 0;
     background-color: $white;
               background-size: cover; // for laptops and up
@@ -113,7 +113,9 @@
           bottom: 0;
         }
     }
-
+     @include break-point(laptop) {
+       height: 82vh;
+     }
 
     // ### rollback ###
     // @include break-point(mobile) {
