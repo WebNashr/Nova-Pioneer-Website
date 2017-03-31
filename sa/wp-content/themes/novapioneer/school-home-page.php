@@ -24,7 +24,7 @@ get_header(); ?>
 
         <section class="section section-pair school-features-container">
             <div class="section-navigation">
-                <h5><?php the_title(); ?></h5>
+                <h4><?php the_title(); ?></h4>
             </div>
 
             <div class="section-content">
