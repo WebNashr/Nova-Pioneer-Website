@@ -24,7 +24,7 @@ get_header(); ?>
 
         <section class="section section-pair school-features-container">
             <div class="section-navigation">
-                <h5><?php the_title(); ?></h5>
+                <h4><?php the_title(); ?></h4>
             </div>
 
             <div class="section-content">
@@ -157,7 +157,7 @@ get_header(); ?>
 
         <section class="section section-pair">
             <div class="section-navigation">
-                <h2>Leadership Team</h2>
+                <h2>School Leadership</h2>
                 <a href="<?php echo get_permalink(); ?>our-team" class="button button-small button-primary" title="">View
                     the team</a>
             </div>

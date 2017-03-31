@@ -599,8 +599,8 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
 
 .thumb-box {
   padding: 1.4em 0 1em;
-  margin-left: -1%;
-  width: 102%;
+  // margin-left: -1%;
+  width: 100%;
   .thumbs {
     // @include clearfix;
     clear: both;
@@ -610,7 +610,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
       text-align: center;
       padding: 0 1%;
       img {
-        width: 100%;
+        width: 90%;
         opacity: .8;
         // @include transition(opacity .32s);
         transition: opacity 0.32s;
@@ -628,5 +628,13 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
         }
       }
     }
+  }
+}
+.photo-container {
+  .sy-caption-wrap {
+      bottom: 1rem;
+      @include break-point(tablet) {
+        bottom: 5rem;
+      }
   }
 }
