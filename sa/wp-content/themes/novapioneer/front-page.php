@@ -162,7 +162,7 @@ get_header(); ?>
                 $size = '16-9-large'; // thumbnail, medium, large, full or custom size
                 if( get_field('image') ): 
             ?>
-            <figure class="full-width-image parallax" style="background-image:url('<?php the_field('image'); ?>');" data-enllax-ratio="0.2">
+            <figure class="full-width-image parallax" style="background-image:url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $image->ID ), 'single-post-thumbnail' )[0]; ?>');" data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
