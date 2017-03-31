@@ -4,7 +4,8 @@
 .section-hero {
     @include flexbox();
     @include flex-direction(row);
-              height: 100vh; // for laptops and up
+              // height: 100vh; // for laptops and up
+    height: 82vh; // for laptops and up
     padding: 0;
     background-color: $white;
               background-size: cover; // for laptops and up
@@ -159,7 +160,7 @@
     // height: 95vh;
   }
   @include break-point(laptop) {
-    margin-top: -4rem;
+    // margin-top: -4rem;
   }
 }
 
