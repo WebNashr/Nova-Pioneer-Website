@@ -426,7 +426,7 @@ get_header(); ?>
 
             });
             $('#hero-slider').slippry({
-                auto: true,
+                auto: false,
                 speed: 800,
                 pause: 8000,
                 // adaptiveHeight: false,
