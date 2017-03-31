@@ -158,11 +158,14 @@ get_header(); ?>
             </figure>-->
 
             <?php 
-                $image = get_field('below_learning_hero_image');
-                $size = '16-9-large'; // (thumbnail, medium, large, full or custom size)
+                // $image = get_field('below_learning_hero_image');
+                // $size = '16-9-large'; // (thumbnail, medium, large, full or custom size)
             ?>
             <figure class="full-width-image parallax"
-                    style="background-image:url('<?php if($image) {echo wp_get_attachment_image($image, $size);} ?>');"
+                    style="background-image:url('<?php 
+                        $image = get_field('below_learning_hero_image');
+                        $size = '16-9-large';
+                        if($image) {echo wp_get_attachment_image($image, $size);} ?>');"
                     data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
