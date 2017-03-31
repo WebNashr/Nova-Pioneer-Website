@@ -244,9 +244,11 @@
     display: inline-block;
     position: relative;
 	top: 6px;
-	margin-left: 1rem;
     width: 6px;
     height: 6px;
+	align-self: center;
+	margin-left: unset;
+	margin-bottom: calc(#{$space-tiny} * 1);
 	background: $orange-lt;
     border-radius: 50%;
 
@@ -255,6 +257,12 @@
 		width: 0;
 		height: 0;
 	}
+
+	@include break-point(laptop) {
+		align-self: unset;
+		margin-bottom: unset;
+		margin-left: calc(#{$space-tiny} * 1);
+    }
 }
 
 .menu-item:last-of-type ~ i.menu-item-divider {
