@@ -914,7 +914,10 @@
 		color: $dark-grey;
 		margin-top: 0;
 		margin-bottom: 2rem;
-
+		@include break-point(laptop) {
+			margin-top: -0.4rem;
+  		margin-bottom: 0;
+  	}
 		.phone-contact-one,
 		.phone-contact-two,
 		.email-contact {
