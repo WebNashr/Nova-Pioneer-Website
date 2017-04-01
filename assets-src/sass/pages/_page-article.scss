@@ -147,26 +147,26 @@
 	flex: 10;
 	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
 	//center headings on mobile
-	// &-alt {
-	// 	h1 {
-	// 		text-align: center;
-	// 	}
-	// 	h2 {
-	// 		text-align: center;
-	// 	}
-	// 	.button {
-	// 		margin-left: 10%;
-	// 		width: 78%;
-	// 		@include break-point(tablet) {
-	// 			margin-left: 30%;
-	// 			width: 40%;
-	// 	  }
-	// 		@include break-point(laptop) {
-	// 			margin-left: 0;
-	// 			width: auto;
-	// 	  }
-	// 	}
-	// }
+	&-alt {
+		h1 {
+			text-align: center;
+		}
+		h2 {
+			text-align: center;
+		}
+		.button {
+			margin-left: 10%;
+			width: 78%;
+			@include break-point(tablet) {
+				margin-left: 30%;
+				width: 40%;
+		  }
+			@include break-point(laptop) {
+				margin-left: 0;
+				width: auto;
+		  }
+		}
+	}
 
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 0);
@@ -184,10 +184,10 @@
 			    padding: 0;
 			    border: 0 none;
 					//align text on desktop
-					// h1,
-					// h2 {
-					// 	text-align: left;
-					// }
+					h1,
+					h2 {
+						text-align: left;
+					}
 			}
     }
 

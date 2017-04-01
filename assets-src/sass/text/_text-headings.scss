@@ -105,25 +105,25 @@ h2 {
 	.education-stage & {
 		margin-bottom: calc(#{$space-tiny} * 1);
 		//center headings on mobile
-		// text-align: center;
-		//
-		// @include break-point(laptop) {
-		// 	text-align: left;
-		// }
+		text-align: center;
+
+		@include break-point(laptop) {
+			text-align: left;
+		}
 	}
 
 	.section-navigation & {
 		margin-top: 0;
 		margin-bottom: 1rem;
 		//center headings on mobile
-		// text-align: center;
-		// @include break-point(tablet) {
-		// 	text-align: center;
-		// }
+		text-align: center;
+		@include break-point(tablet) {
+			text-align: center;
+		}
 
 		@include break-point(laptop) {
 			//align headings on desktop
-			// text-align: left;
+			text-align: left;
 			margin-top: -0.25rem;
 			margin-bottom: 0.25rem;
 		}
@@ -146,12 +146,12 @@ h2 {
 
 	 	margin-top: 1.250rem ;
 		//center headings on mobile
-		// text-align: center;
+		text-align: center;
 
 		@include break-point(tablet) {
 			margin-top: 2rem;
 			//align headings on desktop
-			// text-align: left;
+			text-align: left;
 		}
 
 		@include break-point(laptop) {
