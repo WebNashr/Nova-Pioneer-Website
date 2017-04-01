@@ -155,16 +155,16 @@
 			text-align: center;
 		}
 		.button {
-			margin-left: 10%;
-			width: 78%;
-			@include break-point(tablet) {
-				margin-left: 30%;
-				width: 40%;
-		  }
-			@include break-point(laptop) {
-				margin-left: 0;
-				width: auto;
-		  }
+			margin-left: 0;//10%;
+			width:auto; //78%;
+			// @include break-point(tablet) {
+			// 	margin-left: 30%;
+			// 	width: 40%;
+		  // }
+			// @include break-point(laptop) {
+			// 	margin-left: 0;
+			// 	width: auto;
+		  // }
 		}
 	}
 

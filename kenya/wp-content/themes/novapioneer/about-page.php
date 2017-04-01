@@ -46,9 +46,11 @@ get_header(); ?>
                            <?php endforeach; ?>
                 </span></div>
                 <?php if ($counter_s > 0): ?>
+                  <div class="button-wrap">
                     <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="story">
                         Read More
                     </button>
+                  </div>
                 <?php endif; ?>
                 <h2 class="centered-title">Our Vision</h2>
                 <?php echo $our_vision; ?>
@@ -65,9 +67,11 @@ get_header(); ?>
                   </span>
                 </div>
                 <?php if ($counter_m > 0): ?>
+                  <div class="button-wrap">
                     <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="mission">
                         Read More
                     </button>
+                  </div>
                 <?php endif ?>
 
 

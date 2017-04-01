@@ -53,6 +53,7 @@ get_header(); ?>
                                 <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
 
                             </div>
+
                             <a href="<?php echo get_permalink($school->ID); ?>"
                                class="button button-tiny button-primary" target="_blank"> Read More</a>
                     </div>
@@ -91,8 +92,10 @@ get_header(); ?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
+                <div class="button-wrap">
                 <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
                    title="">Meet the Students</a>
+                </div>
             </div>
 
             <div class="section-content even-section">
@@ -135,8 +138,10 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Learning at Nova Pioneer</h2>
+                <div class="button-wrap">
                 <a href="<?php echo site_url('/our-approach'); ?>" class="button button-small button-primary" title="">Learn
                     More</a>
+                </div>
             </div>
 
             <div class="section-content">
@@ -231,8 +236,10 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Global Leadership Team</h2>
+                <div class="button-wrap">
                 <a href="<?php echo site_url('/global-leadership/'); ?>" class="button button-small button-primary"
                    title="">Meet the team</a>
+                </div>
             </div>
 
             <div class="section-content">

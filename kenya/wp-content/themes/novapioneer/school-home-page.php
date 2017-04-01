@@ -113,8 +113,10 @@ get_header(); ?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
+                <div class="button-wrap">
                 <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
                    title="">Meet the Students</a>
+                </div>
             </div>
 
             <div class="section-content">
@@ -158,8 +160,10 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>School Leadership</h2>
+                <div class="button-wrap">
                 <a href="<?php echo get_permalink(); ?>our-team" class="button button-small button-primary" title="">View
                     the team</a>
+                </div>
             </div>
 
             <div class="section-content">
@@ -289,8 +293,10 @@ get_header(); ?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>A Day in the Life</h2>
+                <div class="button-wrap">
                 <a href="<?php echo get_field('day_in_the_life_link'); ?>" class="button button-small button-primary">Learn
                     More</a>
+                </div>
             </div>
 
             <div class="section-content section-day-in-the-life">
