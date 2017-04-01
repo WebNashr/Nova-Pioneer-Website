@@ -198,15 +198,6 @@ get_header(); ?>
                 $video = get_field('video', $video_from_influencer->ID);
                 ?>
                 <div class="section-content-item section-content-item-half">
-                    <div class="media youtube-video">
-                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
-                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
-                        } else {
-                            echo $video;
-                        } ?>
-                    </div>
-                </div>
-                <div class="section-content-item section-content-item-half">
                     <h2 class="full-width-heading">Video from Influencer</h2>
                     <div class="testimonial pull-quote">
                         <blockquote>
@@ -220,6 +211,16 @@ get_header(); ?>
                         </blockquote>
                     </div>
                 </div>
+                <div class="section-content-item section-content-item-half">
+                    <div class="media youtube-video">
+                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
+                        } else {
+                            echo $video;
+                        } ?>
+                    </div>
+                </div>
+
             </section>
         </div>
 
@@ -237,10 +238,12 @@ get_header(); ?>
                 <?php $leadership_team_members = get_field('leadership_team_members'); ?>
                 <?php foreach ($leadership_team_members as $member): ?>
                     <div class="section-content-item section-content-item-quarter profile">
+                      <div class="image-wrap">
                         <img
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
                             alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                             class="profile-img">
+                      </div>
                         <h4 class="profile-name"
                             title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></h4>
                         <h6 class="profile-role"><?php echo get_field('title', $member->ID); ?></h6>
