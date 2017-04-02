@@ -105,6 +105,7 @@
 	padding-bottom: calc(#{$space-tiny} * 2);
 	&.meet-students-nav {
 		padding-bottom: 0;
+		margin-bottom: -1rem;
 			@include break-point(laptop) {
 			.navigation-wrap {
 				max-width: inherit;
@@ -113,9 +114,11 @@
 	}
 	&.leadership-nav {
 		margin-left: inherit;
+		margin-bottom: -1rem;
 	}
 	&.general-nav {
 		margin-left: inherit;
+		margin-bottom: -1rem;
 	}
 
 	.navigation-wrap {
