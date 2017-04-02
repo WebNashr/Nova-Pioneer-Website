@@ -230,10 +230,17 @@
 			    }
 			}
 		}
+		.media {
+			margin-top: 1rem;
+			@include break-point(laptop) {
+				margin-top: 0;
+			}
+		}
 	}
 	&-full {
 		@extend %column-12;
 	}
+
 
 	p {
 		// @include font-size(18px);
@@ -262,7 +269,16 @@
         }
 	}
 }
-
+.first-item {
+	// display: none;
+	order: 1;
+	margin-top: 1rem;
+	@include break-point(laptop) {
+		// order: 1;
+		order: 0;
+		margin-top: 0;
+	}
+}
 .section-school-list {
 	@extend %columns;
 	// background: $background-grey;

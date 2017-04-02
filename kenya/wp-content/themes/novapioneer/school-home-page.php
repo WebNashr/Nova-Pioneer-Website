@@ -120,7 +120,7 @@ get_header(); ?>
             </div>
 
             <div class="section-content">
-                <div class="section-content-item section-content-item-half">
+                <div class="section-content-item section-content-item-half first-item">
                     <?php $our_students_video = get_field('our_students_video'); ?>
                     <?php if (get_field('type', $our_students_video->ID) == 'student'): ?>
                     <div class="testimonial pull-quote">
@@ -300,7 +300,7 @@ get_header(); ?>
             </div>
 
             <div class="section-content section-day-in-the-life">
-                <div class="section-content-item section-content-item-half">
+                <div class="section-content-item section-content-item-half first-item">
                     <?php echo get_field('day_in_the_life_description'); ?>
 
 

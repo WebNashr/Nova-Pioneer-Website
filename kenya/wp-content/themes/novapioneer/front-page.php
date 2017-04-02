@@ -99,7 +99,7 @@ get_header(); ?>
             </div>
 
             <div class="section-content even-section">
-                <div class="section-content-item section-content-item-half">
+                <div class="section-content-item section-content-item-half first-item">
                     <?php echo get_field('our_students_description'); ?>
 
                     <div class="testimonial pull-quote">
@@ -145,7 +145,7 @@ get_header(); ?>
             </div>
 
             <div class="section-content">
-                <div class="section-content-item section-content-item-half">
+                <div class="section-content-item section-content-item-half first-item">
                     <div class="testimonial pull-quote">
                         <?php
                         $learning_at_novapioneer_video = get_field('learning_at_novapioneer_video');
@@ -206,7 +206,18 @@ get_header(); ?>
                 $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
                 $video = get_field('video', $video_from_influencer->ID);
                 ?>
-                <div class="section-content-item section-content-item-half">
+
+                <div class="section-content-item section-content-item-half first-item">
+                    <div class="media youtube-video">
+                        <?php if (get_field('video_or_image',$our_students_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image',$our_students_video->ID) . '" />';
+                        } else {
+                            echo $video;
+                        } ?>
+                    </div>
+                </div>
+
+                <div class="section-content-item section-content-item-half ">
                     <h2 class="full-width-heading">Video from Influencer</h2>
                     <div class="testimonial pull-quote">
                         <blockquote>
@@ -218,16 +229,6 @@ get_header(); ?>
                             <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?>
                             </cite>
                         </blockquote>
-                    </div>
-                </div>
-
-                <div class="section-content-item section-content-item-half">
-                    <div class="media youtube-video">
-                        <?php if (get_field('video_or_image',$our_students_video->ID) == 'image') {
-                            echo '<img src="' . get_field('image',$our_students_video->ID) . '" />';
-                        } else {
-                            echo $video;
-                        } ?>
                     </div>
                 </div>
 

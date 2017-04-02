@@ -833,6 +833,7 @@ img.ajax-loader {
 		}
 		@include break-point(mobile) {
 			padding:calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2) 0;
+			width: 99% !important;
 		}
 		@include break-point(tablet) {
 			padding: calc(#{$space-tiny} * 1) 0;
