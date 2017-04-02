@@ -61,6 +61,7 @@
           }
         }
     }
+
 }
 
 
@@ -162,10 +163,32 @@
             display: none;
         }
     }
+
 }
 
 
 
 .hfc-frame.hide {
     left: -9999px;
+}
+.sticky-mobile-container {
+  @include flexbox();
+  @include flex-direction(row);
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+  .modal-control {
+
+    &.open {
+     background: $white;
+     border-radius: 3px;
+     border: 1px solid $grey-lt;
+     margin-top: -7.7rem;
+     margin-left: auto;
+     height: 30px;
+     @include break-point(tablet) {
+       margin-top: -6rem;
+     }
+   }
+  }
 }
