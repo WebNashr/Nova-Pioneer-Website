@@ -111,7 +111,7 @@
     &.menu {
         align-self: center;
         margin-top: 0.25rem;
-        margin-left: calc(#{$space-tiny} * 1);
+        margin-left: 0;
 
         path {
             fill: $grey-md;
@@ -121,6 +121,18 @@
             path {
                 fill: $orange-dk;
             }
+        }
+        &.open {
+          margin-left: calc(#{$space-tiny} * 1);
+        }
+        &.open-search {
+          margin-left: -1rem;
+          @include break-point(laptop) {
+            margin-left: calc(#{$space-tiny} * 1);
+          }
+        }
+        @include break-point(laptop) {
+          margin-left: calc(#{$space-tiny} * 1);
         }
     }
 

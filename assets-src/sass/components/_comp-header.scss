@@ -181,6 +181,7 @@ header {
 
 .header-apply {
     margin-left: auto;
+		margin-right: auto;
     align-self: center;
     padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
     background: $green-lt;
@@ -195,6 +196,7 @@ header {
 	}
 
 	@include break-point(laptop) {
+		margin-right: 0;
 		// padding: 13px calc(13px * 1.5);
 		@include button-size(small);
     }
