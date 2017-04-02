@@ -162,6 +162,12 @@
 	  	// -webkit-animation-iteration-count: infinite;
 			&.slideInLeft {
 				opacity: 1;
+				position: absolute;
+				bottom: -1rem;
+				@include break-point(tablet) {
+					bottom: inherit;
+					top: 1rem;
+				}
 			}
 		}
 	}
