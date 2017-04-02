@@ -16,6 +16,7 @@
 		@include flexbox();
 		align-self: unset;
 		margin-left: 0;
+		margin-bottom: 1rem;
 		// overflow-y: scroll;
 	}
 
@@ -270,5 +271,3 @@
 	width: 0;
 	height: 0;
 }
-
-

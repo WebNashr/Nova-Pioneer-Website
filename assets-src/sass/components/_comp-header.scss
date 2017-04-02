@@ -135,7 +135,7 @@ header {
 	.modal & {
 		max-width: 4rem;
 			max-height: 4rem;
-		margin-bottom: 2rem;
+		// margin-bottom: 2rem;
     }
 
     @include break-point(tablet) {
