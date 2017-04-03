@@ -221,7 +221,7 @@
     background-image: none;
     @extend %column;
     max-width: 775px;
-    padding-bottom: 20vh;
+    padding-bottom: 25vh;
     // @extend %column-6;
     // padding-right: calc(#{$space-tiny} * 1);
     h1 {
@@ -238,8 +238,32 @@
         width: auto;
       }
       .button {
+        $p: 14px;
         background-color: transparent;
         border: 1px solid $white;
+    		// padding: $p calc(#{$p} * 3);
+        @media screen
+        and (min-device-width: 320px)
+        and (max-device-width: 320px) {
+            padding: $p calc(#{$p} * 1.5);
+        }
+        @media screen
+        and (min-device-width: 360px)
+        and (max-device-width: 375px) {
+            padding: $p calc(#{$p} * 2);
+        }
+        // @include break-point(mobile) {
+        //   padding: $p calc(#{$p} * 2);
+        // }
+        @media screen
+        and (min-device-width: 425px)
+        and (max-device-width: 599px) {
+            padding: $p calc(#{$p} * 3);
+        }
+
+        @include break-point(tablet) {
+          padding: $p calc(#{$p} * 1.5);
+        }
         &:hover {
           background-color: $white;
           border: none;
