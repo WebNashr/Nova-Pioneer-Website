@@ -35,7 +35,11 @@ get_header(); ?>
                                         </div>
                                         <div class="timeline-content">
                                             <h2><?php the_field('activity_title') ?></h2>
-                                            <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
+                                            <div class="image-wrap"
+                                            <img class=""
+                                            style="background-image: url(<?php the_post_thumbnail_url(); ?>);"
+                                            alt="">
+                                            </div>
                                             <p>
                                                 <?php the_content(); ?>
                                             </p>
@@ -49,7 +53,11 @@ get_header(); ?>
                                         </div>
                                         <div class="timeline-content right">
                                             <h2><?php the_field('activity_title') ?></h2>
-                                            <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
+                                            <div class="image-wrap"
+                                            <img class=""
+                                            style="background-image: url(<?php the_post_thumbnail_url(); ?>);"
+                                            alt="">
+                                            </div>
                                             <p>
                                                 <?php the_content(); ?>
                                             </p>

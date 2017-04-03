@@ -27,7 +27,12 @@ get_header(); ?>
                     while (have_rows('building_blocks_and_prospectus')) : the_row(); ?>
                         <h2 class="centered-title"> <?php the_sub_field('title') ?></h2>
                         <?php the_sub_field('content') ?>
-                        <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>">
+                        <div class="image-wrap"
+                        <img class=""
+                        style="background-image: url(<?php the_sub_field('image') ?>);"
+                        alt="<?php the_sub_field('title') ?>">
+                        </div>
+                        <!-- <img src="<?php the_sub_field('image') ?>" alt="<?php the_sub_field('title') ?>"> -->
                         <br><br>
                         <?php $i++; endwhile; endif; ?>
 
