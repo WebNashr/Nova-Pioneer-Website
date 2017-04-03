@@ -5,8 +5,10 @@
 
 .menu {
 	@include flexbox();
-	@include flex-wrap(nowrap);
-    @include flex-direction(column);
+	// @include flex-wrap(nowrap);
+    // @include flex-direction(column);
+	@include flex-wrap(wrap);
+	@include flex-direction(row);
     align-self: center;
     display: none;
 	margin-left: 2rem;
@@ -21,8 +23,9 @@
 	}
 
 	@include break-point(laptop) {
-		@include flex-direction(row);
-		display: flex;
+		@include flexbox();
+		// @include flex-direction(row);
+		@include flex-wrap(nowrap);
 		width: calc(100% - 25rem);
     }
 
@@ -48,7 +51,8 @@
 
 	.modal.modal-menu & {
 		@include flexbox();
-	        margin: 0.75rem 0 1rem;
+	        // margin: 0.75rem 0 1rem;
+			margin: 0.25rem 0 0;
 	}
 }
 
@@ -84,6 +88,28 @@
 
     .modal.modal-menu & {
 		@include font-size(20px);
+		width: 55%;
+		padding-right: 20px;
+		text-align: left;
+
+		&:not(:first-of-type) {
+			margin-top: 0;
+		}
+
+		&:nth-of-type(2n+2) {
+			width: 45%;
+			padding-right: 0;
+			// background: red;
+		}
+
+		&:nth-of-type(n+3) {
+			margin-top: 16px;
+			// background: cyan;
+
+			body.ios & {
+				margin-top: 14px;
+			}
+		}
 	}
 
 	a {
@@ -95,7 +121,11 @@
 		}
 
 		.modal.modal-menu & {
+			@include font-size(16px);
+			line-height: 1.25;
+			padding: 0 0px 16px;
 			color: $white;
+			color: $orange-lt;
 		}
 
 		&:hover {
@@ -109,6 +139,25 @@
 
 		.modal.modal-menu & {
 			@include font-size(16px);
+			width: 100%;
+
+			body.ios & {
+				@include font-size(14px);
+			}
+
+			&:nth-of-type(2n+2) {
+				padding-right: 0;
+				background: unset;
+			}
+
+			&:nth-of-type(n+3) {
+				margin-top: unset;
+				background: unset;
+
+				body.ios & {
+					margin-top: unset;
+				}
+			}
 		}
 
 		&:before {
@@ -131,7 +180,15 @@
 			color: lighten($grey-mdk, 15%);
 
 			.modal.modal-menu & {
-			    padding: 6px 0;
+			    @include font-size(14px);
+				line-height: 1.35;
+				// padding: 6px 0;
+				padding: 4px 0;
+				color: $white;
+
+				body.ios & {
+					@include font-size(12px);
+				}
 			}
 		}
 	}
@@ -242,7 +299,7 @@
 }
 
 .menu-item-divider {
-    display: inline-block;
+    display: none;
     position: relative;
 	top: 6px;
     width: 6px;
@@ -260,6 +317,7 @@
 	}
 
 	@include break-point(laptop) {
+		display: inline-block;
 		align-self: unset;
 		margin-bottom: unset;
 		margin-left: calc(#{$space-tiny} * 1);
