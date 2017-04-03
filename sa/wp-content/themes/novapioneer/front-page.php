@@ -151,14 +151,11 @@ get_header(); ?>
             </div>
         </section>
 
+
         <section class="full-width-image-container" data-enllax-type="foreground">
-            <figure class="full-width-image <?php if (!isOnMobile()) {
-                echo "parallax";
-            } ?>"
+            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
                     style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
-                    data-enllax-ratio="<?php if (!isOnMobile()) {
-                        echo "0.2";
-                    } ?>">
+                    data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>

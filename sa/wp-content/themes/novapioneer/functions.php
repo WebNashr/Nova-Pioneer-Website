@@ -643,11 +643,21 @@ function nova_metabox_content($post)
 function isOnMobile()
 {
 
+    $para = array(
+        'parallax' => 'parallax',
+        'ratio' => '0.2'
 
+    );
     if (wpmd_is_android() || wpmd_is_ios() || wpmd_is_blackberry() || wpmd_is_phone() || wpmd_is_tablet()) {
-        return true;
+
+        $para = array(
+            'parallax' => '',
+            'ratio' => 0
+
+        );
+        return (object)$para;
     }
 
-    return false;
+    return (object)$para;
 
 }

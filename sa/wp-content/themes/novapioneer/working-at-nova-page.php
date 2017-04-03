@@ -1,13 +1,15 @@
 <?php
 /**
-* Template Name: Working At Nova Pioneer
-*/
+ * Template Name: Working At Nova Pioneer
+ */
 
-get_header();?>
+get_header(); ?>
 
-<?php if( have_posts() ): ?>
-    <?php while( have_posts() ): the_post(); ?>
-        <section class="section section-hero working-at-np" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
+<?php if (have_posts()): ?>
+    <?php while (have_posts()): the_post(); ?>
+        <section
+            class="section section-hero working-at-np" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
+            data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -28,14 +30,16 @@ get_header();?>
 
 
         <section class="full-width-image-container" data-enllax-type="foreground">
-          <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('banner_image'); ?>);" data-enllax-ratio="0.2">
-              <div class="section-content full-image-caption animated caption">
-                  <figcaption>
-                      <?php echo get_field('banner_text'); ?>
-                      <!--<a href="<?php echo site_url('/careers'); ?>" >Learn More</a>-->
-                  </figcaption>
-              </div>
-          </figure>
+            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
+                    style="background-image: url(<?php echo get_field('banner_image'); ?>);"
+                    data-enllax-ratio="<?php echo isOnMobile()->ratio?>">
+                <div class="section-content full-image-caption animated caption">
+                    <figcaption>
+                        <?php echo get_field('banner_text'); ?>
+                        <!--<a href="<?php echo site_url('/careers'); ?>" >Learn More</a>-->
+                    </figcaption>
+                </div>
+            </figure>
         </section>
 
         <section class="section">
@@ -45,7 +49,7 @@ get_header();?>
                 <?php echo get_field('education_pathways'); ?>
                 <!-- <div class="section-content section-content-plain section-card-container"> -->
                 <div class="xxx-section-content xxx-section-content-plain">
-                    <!-- <?php foreach( get_field('education_pathways_cards') as $pathway): $pathway = (object)$pathway; ?>
+                    <!-- <?php foreach (get_field('education_pathways_cards') as $pathway): $pathway = (object)$pathway; ?>
                     <div class="section-content-item section-content-item-half section-card">
                         <h3> <?php echo $pathway->title; ?> </h3>
                         <div class="small-divider"></div>
@@ -53,7 +57,8 @@ get_header();?>
                     </div>
                     <?php endforeach; ?> -->
                     <div class="button-wrap">
-                        <a href="http://novaacademies.applytojob.com/" target="_blank" class="button button-default button-primary" title="">View Open Positions</a>
+                        <a href="http://novaacademies.applytojob.com/" target="_blank"
+                           class="button button-default button-primary" title="">View Open Positions</a>
                     </div>
                 </div>
             </article>
