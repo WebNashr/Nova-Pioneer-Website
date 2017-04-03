@@ -36,23 +36,23 @@ get_header(); ?>
                         <h3>Our Students</h3>
                     </div>
                     <div class="links-inner-wrap">
-                    <div class="section-content-item">
-                        <div class="anchor-link">
-                            <a href="#primary-sa" class="" title="">Primary Students</a>
+                        <div class="section-content-item">
+                            <div class="anchor-link">
+                                <a href="#primary-sa" class="" title="">Primary Students</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="section-content-item">
-                        <div class="anchor-link">
-                            <a href="#secondary-sa" class="" title="">Secondary Students</a>
+                        <div class="section-content-item">
+                            <div class="anchor-link">
+                                <a href="#secondary-sa" class="" title="">Secondary Students</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="section-content-item">
-                        <div class="anchor-link">
-                            <a href="#contact-student" class="" title="">Contact a Student</a>
+                        <div class="section-content-item">
+                            <div class="anchor-link">
+                                <a href="#contact-student" class="" title="">Contact a Student</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section>
 
@@ -106,8 +106,8 @@ get_header(); ?>
 
         <section class="full-width-image-container" data-enllax-type="foreground">
             <figure
-                class="full-width-image secondary-bgd-image parallax" <?php if (get_field('parallax_image')): echo 'style="background-image: url(' . get_field('parallax_image') . ');"'; endif; ?>
-                data-enllax-ratio="0.2">
+                class="full-width-image secondary-bgd-image <?php echo isOnMobile()->parallax ?>" <?php if (get_field('parallax_image')): echo 'style="background-image: url(' . get_field('parallax_image') . ');"'; endif; ?>
+                data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php the_field('parallax_text') ?></p>
