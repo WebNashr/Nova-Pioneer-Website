@@ -2,15 +2,16 @@
 /* ==================================================== */
 .full-width-image-container{
 	width: 100%;
-	height: 70vh;
+		// height: 70vh;
 		// height: 80vh;
-	// background-color: $white;
+		// background-color: $white;
 	background-color: transparent;
 	padding-top: 0;
 	padding-bottom: 0;
 	position: relative;
 	background-position: center;
 	overflow: hidden;
+	height: calc(calc(9 / 16) * 100vw);
 
 	figure {
 		position: relative;
@@ -18,25 +19,18 @@
 	}
 
 	// ### rollback ###
-	// @include break-point(mobile) {
-    //     height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
-    // }
-
     // @include break-point(tablet) {
     //     // height: 55vh;
 	// 	height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
     // }
-
-    // @include break-point(laptop) {
-    //     // height: 80vh;
-	// 	height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
-    // }
-
-    // @include break-point(desktop) {
-
-    // }
 	// ### rollback ###
+
+    @include break-point(laptop) {
+        height: 70vh;
+    }
 }
+
+
 .full-width-image {
 	@include flexbox();
 	@include flex-wrap(nowrap);
@@ -130,7 +124,8 @@
     }
 
 	&.parallax {
-			background-attachment: fixed;
+		// background-attachment: fixed;
+			background-attachment: initial;
 		//height: 75vh;
 		// background-attachment: fixed;
 		// background-position: center top;
@@ -156,17 +151,6 @@
 	// }
 
 	// ### rollback ###
-	// @include break-point(mobile) {
-    //     // background-position: center top !important;
-    //     // background-size: 100% !important;
-	// 	background-position: center top;
-    //     background-size: 100%;
-
-	// 	&.parallax {
-	// 		background-attachment: initial;
-	// 	}
-    // }
-
     // @include break-point(tablet) {
 	// 	// background-position: center top !important;
     //     // background-size: 100% !important;
@@ -177,20 +161,15 @@
 	// 		background-attachment: initial;
 	// 	}
     // }
-
-    // @include break-point(laptop) {
-    //     // background-size: cover !important;
-	// 	background-size: cover;
-
-	// 	&.parallax {
-	// 		background-attachment: fixed;
-	// 	}
-    // }
-
-    // @include break-point(desktop) {
-
-    // }
 	// ### rollback ###
+
+    @include break-point(laptop) {
+		// background-size: cover;
+
+		&.parallax {
+			background-attachment: fixed;
+		}
+    }
 }
 
 .subscription-form {
