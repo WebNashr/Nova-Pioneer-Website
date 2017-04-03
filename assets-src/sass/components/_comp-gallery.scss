@@ -19,7 +19,9 @@
 		padding: 0;
 		margin-left: 0 !important;
 		padding-left: 0;
+
 		@include break-point(laptop) {
+			@extend %column-2;
 			// float: left;
 			// margin-left: 3rem !important;
 				padding-left: 4rem;
@@ -66,7 +68,8 @@
 				// }
 				@include break-point(laptop) {
 					// float: none;
-					width: 50%;
+					// width: 50%;
+					width: 33%;
 					// display: block;
 				}
 			}
