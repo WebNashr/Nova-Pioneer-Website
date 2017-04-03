@@ -282,7 +282,12 @@ get_header(); ?>
 
                 </div>
                 <div class="section-content-item section-content-item-half">
-                    <figure><img src="<?php echo get_field('day_in_the_life_picture'); ?>"/></figure>
+                  <div class="image-wrap"
+                  <img class=""
+                  style="background-image: url(<?php echo get_field('day_in_the_life_picture'); ?>);"
+                  alt="">
+                  </div>
+                    <!-- <figure><img src="<?php echo get_field('day_in_the_life_picture'); ?>"/></figure> -->
                 </div>
 
 
