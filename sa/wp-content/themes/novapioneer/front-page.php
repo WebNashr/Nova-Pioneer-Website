@@ -66,8 +66,8 @@ get_header(); ?>
             <div class="section-navigation">
                 <h2>Our Students</h2>
                 <div class="button-wrap">
-                <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
-                   title="">Meet the Students</a>
+                    <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
+                       title="">Meet the Students</a>
                 </div>
             </div>
 
@@ -112,8 +112,9 @@ get_header(); ?>
             <div class="section-navigation">
                 <h2>Learning at Nova Pioneer</h2>
                 <div class="button-wrap">
-                <a href="<?php echo site_url('/our-approach'); ?>" class="button button-small button-primary" title="">Learn
-                    More</a>
+                    <a href="<?php echo site_url('/our-approach'); ?>" class="button button-small button-primary"
+                       title="">Learn
+                        More</a>
                 </div>
             </div>
 
@@ -163,18 +164,18 @@ get_header(); ?>
 
 
             <?php
-                $image = get_field('below_learning_hero_image');
-                $size = '16-9-large'; // thumbnail, medium, large, full or custom size
-                if( get_field('image') ):
-            ?>
-            <!--<figure class="full-width-image parallax" style="background-image:url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $image->ID ), 'single-post-thumbnail' )[0]; ?>');" data-enllax-ratio="0.2">
+            $image = get_field('below_learning_hero_image');
+            $size = '16-9-large'; // thumbnail, medium, large, full or custom size
+            if (get_field('image')):
+                ?>
+                <!--<figure class="full-width-image parallax" style="background-image:url('<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($image->ID), 'single-post-thumbnail')[0]; ?>');" data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
                     </figcaption>
                 </div>
             </figure>-->
-            <?php //endif; ?>
+            <?php endif; ?>
         </section>
 
         <!-- <aside>
@@ -232,8 +233,8 @@ get_header(); ?>
             <div class="section-navigation">
                 <h2>Global Leadership Team</h2>
                 <div class="button-wrap">
-                <a href="<?php echo site_url('/global-leadership/'); ?>" class="button button-small button-primary"
-                   title="">Meet the team</a>
+                    <a href="<?php echo site_url('/global-leadership/'); ?>" class="button button-small button-primary"
+                       title="">Meet the team</a>
                 </div>
             </div>
 
@@ -241,12 +242,12 @@ get_header(); ?>
                 <?php $leadership_team_members = get_field('leadership_team_members'); ?>
                 <?php foreach ($leadership_team_members as $member): ?>
                     <div class="section-content-item section-content-item-quarter profile">
-                      <div class="image-wrap">
-                        <img
-                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
-                            alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
-                            class="profile-img">
-                      </div>
+                        <div class="image-wrap">
+                            <img
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
+                                alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
+                                class="profile-img">
+                        </div>
                         <h4 class="profile-name"
                             title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></h4>
                         <h6 class="profile-role"><?php echo get_field('title', $member->ID); ?></h6>
