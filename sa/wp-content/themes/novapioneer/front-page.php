@@ -150,7 +150,7 @@ get_header(); ?>
                 </div>
             </div>
         </section>
-
+    <?php var_dump(isOnMobile())?>
         <section class="full-width-image-container" data-enllax-type="foreground">
             <figure class="full-width-image <?php if (!isOnMobile()) {
                 echo "parallax";
