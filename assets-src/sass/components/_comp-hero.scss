@@ -236,6 +236,21 @@
 
       a {
         width: auto;
+        @media screen
+        and (min-device-width: 360px)
+        and (max-device-width: 420px) {
+            width: 40%;
+        }
+        @media screen
+        and (min-device-width: 360px)
+        and (max-device-width: 420px) {
+            width: 45%;
+        }
+        @media screen
+        and (min-device-width: 425px)
+        and (max-device-width: 599px) {
+            width: 46%;
+        }
       }
       .button {
         $p: 14px;
@@ -250,7 +265,8 @@
         @media screen
         and (min-device-width: 360px)
         and (max-device-width: 420px) {
-            padding: $p calc(#{$p} * 2);
+          $p: 12px;
+            padding: $p calc(#{$p} * 1);
         }
         // @include break-point(mobile) {
         //   padding: $p calc(#{$p} * 2);
@@ -258,7 +274,7 @@
         @media screen
         and (min-device-width: 425px)
         and (max-device-width: 599px) {
-            padding: $p calc(#{$p} * 3);
+            padding: $p calc(#{$p} * 1.5);
         }
 
         @include break-point(tablet) {
