@@ -17,7 +17,6 @@ get_header(); ?>
                         <li>
                             <a href="#slide1">
                                 <img src="<?php echo $hero_slide->image; ?>">
-                                <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
                                 <div class="callout-box">
                                     <div class="animated-headings">
                                         <h1 class="hero-title"><?php echo $hero_slide->title; ?></h1>
@@ -151,61 +150,33 @@ get_header(); ?>
                 </div>
             </div>
         </section>
-        <?php if (isOnMobile()): ?>
-            <section class="full-width-image-container" data-enllax-type="foreground">
-                <figure class="full-width-image "
-                        style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
-                        data-enllax-ratio="0">
-                    <div class="section-content full-image-caption animated caption">
-                        <figcaption>
-                            <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
-                        </figcaption>
-                    </div>
-                </figure>
+
+        <section class="full-width-image-container" data-enllax-type="foreground">
+            <figure class="full-width-image parallax"
+                    style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
+                    data-enllax-ratio="0.2">
+                <div class="section-content full-image-caption animated caption">
+                    <figcaption>
+                        <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
+                    </figcaption>
+                </div>
+            </figure>
 
 
-                <?php
-                $image = get_field('below_learning_hero_image');
-                $size = '16-9-large'; // thumbnail, medium, large, full or custom size
-                if (get_field('image')):
-                    ?>
-                    <!--<figure class="full-width-image parallax" style="background-image:url('<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($image->ID), 'single-post-thumbnail')[0]; ?>');" data-enllax-ratio="0.2">
+            <?php
+            $image = get_field('below_learning_hero_image');
+            $size = '16-9-large'; // thumbnail, medium, large, full or custom size
+            if (get_field('image')):
+                ?>
+                <!--<figure class="full-width-image parallax" style="background-image:url('<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($image->ID), 'single-post-thumbnail')[0]; ?>');" data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
                     </figcaption>
                 </div>
             </figure>-->
-                <?php endif; ?>
-            </section>
-        <?php else: ?>
-            <section class="full-width-image-container" data-enllax-type="foreground">
-                <figure class="full-width-image parallax "
-                        style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
-                        data-enllax-ratio="0.2">
-                    <div class="section-content full-image-caption animated caption">
-                        <figcaption>
-                            <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
-                        </figcaption>
-                    </div>
-                </figure>
-
-
-                <?php
-                $image = get_field('below_learning_hero_image');
-                $size = '16-9-large'; // thumbnail, medium, large, full or custom size
-                if (get_field('image')):
-                    ?>
-                    <!--<figure class="full-width-image parallax" style="background-image:url('<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($image->ID), 'single-post-thumbnail')[0]; ?>');" data-enllax-ratio="0.2">
-                <div class="section-content full-image-caption animated caption">
-                    <figcaption>
-                        <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
-                    </figcaption>
-                </div>
-            </figure>-->
-                <?php endif; ?>
-            </section>
-        <?php endif ?>
+            <?php endif; ?>
+        </section>
 
         <!-- <aside>
             <figure class="full-width-image parallax" data-type="background" data-speed="7"
