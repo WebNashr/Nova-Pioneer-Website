@@ -150,18 +150,12 @@ get_header(); ?>
                 </div>
             </div>
         </section>
-        <?php
-        $parallax = 'parallax';
-        $ratio = 0.2;
-        if (isOnMobile()) {
-            $parallax = '';
-            $ratio = 0;
-            var_dump(isOnMobile());
-        } ?>
+
+
         <section class="full-width-image-container" data-enllax-type="foreground">
-            <figure class="full-width-image <?php echo $parallax ?>"
+            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
                     style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
-                    data-enllax-ratio="<?php echo $ratio ?>">
+                    data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
