@@ -620,18 +620,23 @@
 		text-align: center;
 		color: $blue-dk;
 		border-bottom: 1px solid $grey-md;
+		padding-right: 0;
 
 		@include break-point(laptop) {
 				margin-top: 0;
 				text-align: left;
+				padding-right: 0.5rem;
 				padding-bottom: 0;
 				border: none;
+				align-self: flex-end;
+				margin-bottom: -0.1rem;
 		}
 		@include break-point(desktop) {
 				text-align: left;
 				margin-top: 0.5rem;
 				padding-bottom: 0;
 				border: none;
+				margin-bottom: 0;
 		}
 		@include break-point(monitor) {
 				margin-top: 0.5rem;
@@ -641,6 +646,18 @@
 
 	.section-content {
 		margin-left: 0;
+	}
+
+	.section-navigation {
+		display: inline;
+
+		@include break-point(tablet) {
+			display: inline;
+		}
+		@include break-point(laptop) {
+			@include flexbox();
+			@include flex-direction(row);
+		}
 	}
 
 }
