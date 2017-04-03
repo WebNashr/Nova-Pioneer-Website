@@ -88,7 +88,7 @@
 		// 	padding-top: calc(#{$space-tiny} * 1.5);
 		top: -1rem;
 		left:-1rem;
-		max-width: 200px;
+		max-width: 95%;
 
 	 	p {
 	 		color: $white;
@@ -114,7 +114,9 @@
 				@include font-size(16px);
 			}
 	 	}
-
+		@include break-point(tablet) {
+			max-width: 200px;
+		}
 		@include break-point(laptop) {
 			max-width: 200px;
 			padding: calc(#{$space-tiny} * 1);

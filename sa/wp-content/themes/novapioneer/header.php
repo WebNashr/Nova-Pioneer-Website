@@ -358,6 +358,11 @@
                     <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
                 </svg>
             </section>
+            <div class=" sticky-mobile-container">
+              <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                  <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
+              </svg>
+            </div>
             <section class="header-section country-switch-container">
               <!-- <div class="drop-list-container">
                 <a href="<?php echo novap_get_baseurl(); ?>sa" class="country country-sa drop-list-item drop-list-selected">

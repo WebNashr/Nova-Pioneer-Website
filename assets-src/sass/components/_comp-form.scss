@@ -14,7 +14,7 @@ form {
 	.modal & {
 		align-self: center;
 	    margin: auto;
-    	width: 75%;
+    	width: 85%;//75%;
 	    max-width: 768px;
 	}
 }
@@ -833,6 +833,7 @@ img.ajax-loader {
 		}
 		@include break-point(mobile) {
 			padding:calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2) 0;
+			width: 99% !important;
 		}
 		@include break-point(tablet) {
 			padding: calc(#{$space-tiny} * 1) 0;

@@ -66,4 +66,20 @@
 	}
 }
 
-
+.button-wrap {
+	@include flexbox();
+	margin-top: 0 !important;
+	justify-content: center;
+	// margin: 0 25%;
+	// @extend %column-2;
+	@include break-point(laptop) {
+		margin: 0 auto;
+		justify-content: flex-start;
+  }
+}
+.fees-button {
+	width: 100% !important;
+	@include break-point(tablet) {
+		width: auto !important;
+	}
+}

@@ -70,7 +70,7 @@ get_header(); ?>
                 if (have_rows('juniors')): while (have_rows('juniors')) : the_row(); ?>
                     <div class="the-students">
 
-                        <div class="section-content-item section-content-item-half">
+                        <div class="section-content-item section-content-item-half first-item">
                             <h3><?php the_sub_field('student_name'); ?></h3>
                             <h4 class="grade"><?php the_sub_field('student_grade'); ?></h4>
                             <div class="testimonial pull-quote">
@@ -131,7 +131,7 @@ get_header(); ?>
                 if (have_rows('seniors')): while (have_rows('seniors')) : the_row(); ?>
                     <div class="the-students">
 
-                        <div class="section-content-item section-content-item-half">
+                        <div class="section-content-item section-content-item-half first-item">
                             <h3><?php the_sub_field('student_name'); ?></h3>
                             <h4 class="grade"><?php the_sub_field('student_grade'); ?></h4>
                             <div class="testimonial pull-quote">

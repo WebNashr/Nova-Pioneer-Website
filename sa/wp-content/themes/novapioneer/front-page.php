@@ -65,12 +65,14 @@ get_header(); ?>
         <section class="section section-pair even-section">
             <div class="section-navigation">
                 <h2>Our Students</h2>
+                <div class="button-wrap">
                 <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
                    title="">Meet the Students</a>
+                </div>
             </div>
 
             <div class="section-content even-section">
-                <div class="section-content-item section-content-item-half">
+                <div class="section-content-item section-content-item-half first-item">
                     <?php echo get_field('our_students_description'); ?>
 
                     <div class="testimonial pull-quote">
@@ -109,12 +111,14 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Learning at Nova Pioneer</h2>
+                <div class="button-wrap">
                 <a href="<?php echo site_url('/our-approach'); ?>" class="button button-small button-primary" title="">Learn
                     More</a>
+                </div>
             </div>
 
             <div class="section-content">
-                <div class="section-content-item section-content-item-half">
+                <div class="section-content-item section-content-item-half first-item">
                     <div class="testimonial pull-quote">
                         <?php
                         $learning_at_novapioneer_video = get_field('learning_at_novapioneer_video');
@@ -157,9 +161,11 @@ get_header(); ?>
                 </div>
             </figure>
 
-            <?php 
-                // $image = get_field('below_learning_hero_image');
-                // $size = '16-9-large'; // thumbnail, medium, large, full or custom size 
+
+            <?php
+                $image = get_field('below_learning_hero_image');
+                $size = '16-9-large'; // thumbnail, medium, large, full or custom size
+                if( get_field('image') ):
             ?>
             <!--<figure class="full-width-image parallax" style="background-image:url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $image->ID ), 'single-post-thumbnail' )[0]; ?>');" data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
@@ -192,7 +198,7 @@ get_header(); ?>
                 $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
                 $video = get_field('video', $video_from_influencer->ID);
                 ?>
-                <div class="section-content-item section-content-item-half">
+                <div class="section-content-item section-content-item-half first-item">
                     <div class="media youtube-video">
                         <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
                             echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
@@ -201,6 +207,7 @@ get_header(); ?>
                         } ?>
                     </div>
                 </div>
+
                 <div class="section-content-item section-content-item-half">
                     <h2 class="full-width-heading">Video from Influencer</h2>
                     <div class="testimonial pull-quote">
@@ -215,6 +222,8 @@ get_header(); ?>
                         </blockquote>
                     </div>
                 </div>
+
+
             </section>
         </div>
 
@@ -222,18 +231,22 @@ get_header(); ?>
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2>Global Leadership Team</h2>
+                <div class="button-wrap">
                 <a href="<?php echo site_url('/global-leadership/'); ?>" class="button button-small button-primary"
                    title="">Meet the team</a>
+                </div>
             </div>
 
             <div class="section-content">
                 <?php $leadership_team_members = get_field('leadership_team_members'); ?>
                 <?php foreach ($leadership_team_members as $member): ?>
                     <div class="section-content-item section-content-item-quarter profile">
+                      <div class="image-wrap">
                         <img
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
                             alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                             class="profile-img">
+                      </div>
                         <h4 class="profile-name"
                             title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></h4>
                         <h6 class="profile-role"><?php echo get_field('title', $member->ID); ?></h6>

@@ -162,6 +162,12 @@
 	  	// -webkit-animation-iteration-count: infinite;
 			&.slideInLeft {
 				opacity: 1;
+				position: absolute;
+				bottom: -1rem;
+				@include break-point(tablet) {
+					bottom: inherit;
+					top: 1rem;
+				}
 			}
 		}
 	}
@@ -224,10 +230,17 @@
 			    }
 			}
 		}
+		.media {
+			margin-top: 1rem;
+			@include break-point(laptop) {
+				margin-top: 0;
+			}
+		}
 	}
 	&-full {
 		@extend %column-12;
 	}
+
 
 	p {
 		// @include font-size(18px);
@@ -256,7 +269,16 @@
         }
 	}
 }
-
+.first-item {
+	// display: none;
+	order: 1;
+	margin-top: 1rem;
+	@include break-point(laptop) {
+		// order: 1;
+		order: 0;
+		margin-top: 0;
+	}
+}
 .section-school-list {
 	@extend %columns;
 	// background: $background-grey;
@@ -669,7 +691,7 @@
 			position: relative;
 			align-self: flex-end;
 			// top: 0.5rem;
-			padding-top: 1.5rem;
+			padding-top: 1.55rem;
 			@include break-point(tablet) {
 					@include font-size(14px);
 					padding-top: 0.5rem;
@@ -1110,6 +1132,7 @@
 
 .education-stage {
 	margin: 0 auto;
+
 	.last-stage {
 		margin-bottom: 4rem;
 	}
@@ -1118,10 +1141,19 @@
 	// 	margin-top: 0;
 	// 	margin-bottom: 1rem;
 	// }
+	h2 {
+		order: 1;
+		@include break-point(laptop) {
+			order: 0;
+		}
+	}
 	p {
 		&:first-of-type {
 			padding-top: 0;
-			margin-top: -0.35rem;
+			margin-top: 1rem;
+			@include break-point(laptop) {
+				margin-top: -0.35rem;
+			}
 		}
 	}
 	p + p {
@@ -1145,8 +1177,28 @@
 		content: " ";
 		visibility: hidden;
 	}
+.article-inner-alt {
+	@include flexbox();
+	@include flex-direction(column-reverse);
+	flex-direction: column-reverse;
+	justify-content: center;
+	.media {
+		order: 0;
+		margin-top: 0.5rem;
+		@include break-point(laptop) {
+			// order: 1;
+			order: 0;
+			// margin-top: 0;
+		}
+	}
+	@include break-point(laptop) {
+		flex-direction: column;
+	}
+}
 
-
+@include break-point(laptop) {
+	@include flex-direction(row);
+}
 }
 
 .full-width-container{
@@ -1753,7 +1805,7 @@
 
 //---About Nova Pioneer Start--
 .principles-container{
-	margin: -6rem 0 2rem 0;
+	margin: -4.5rem 0 2rem 0;
 	padding:  0;
 	.principle-card {
 		// padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) ;
@@ -1895,6 +1947,7 @@
 		padding: 0;
 	}
 	@include break-point(laptop) {
+		margin: -6rem 0 2rem 0;
 		padding:  0 calc(#{$space-tiny} * 1);
 	}
 }
