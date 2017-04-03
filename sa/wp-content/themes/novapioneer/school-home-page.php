@@ -184,7 +184,7 @@ get_header(); ?>
                 <?php $leadership_team_members = get_field('leadership_team_members');
                 $x = 0; ?>
                 <?php foreach ($leadership_team_members as $member): if ($x >= 2): break; endif; ?>
-                    <div class="section-content-item section-content-item-quarter profile">
+                    <div class="section-content-item section-content-item-quarter profile school-team">
                         <div class="image-wrap">
                         <img
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
