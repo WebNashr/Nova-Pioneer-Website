@@ -28,7 +28,7 @@ get_header();?>
             </article>
         </section>
 
-        <!-- <section class="full-width-image-container" data-enllax-type="foreground">
+        <!-- <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
         <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-enllax-ratio="0.2" >
             <div class="section-content full-image-caption animated caption">
                 <figcaption>
@@ -38,7 +38,7 @@ get_header();?>
         </figure>
         </section> -->
 
-        <section class="full-width-image-container" data-enllax-type="foreground">
+        <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
         <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image: url(<?php echo get_field('banner_image'); ?>);" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>" >
             <div class="section-content full-image-caption animated caption">
                 <figcaption>

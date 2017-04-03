@@ -152,7 +152,7 @@ get_header(); ?>
         </section>
 
 
-        <section class="full-width-image-container" data-enllax-type="foreground">
+        <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
             <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
                     style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
                     data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">

@@ -22,6 +22,10 @@
 		overflow: initial;
 	}
 
+	&.hide-on-small-screens {
+		display: none;
+	}
+
 	figure {
 		position: relative;
 		// margin-bottom: -50%;
@@ -36,6 +40,10 @@
 
     @include break-point(laptop) {
         height: 70vh;
+
+		&.hide-on-small-screens {
+			display: block;
+		}
 
 		body.ios &,
 		body.chrome & {

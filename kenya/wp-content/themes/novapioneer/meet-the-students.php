@@ -104,7 +104,7 @@ get_header(); ?>
         </section>
 
 
-        <section class="full-width-image-container" data-enllax-type="foreground">
+        <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
             <figure
                 class="full-width-image secondary-bgd-image <?php echo isOnMobile()->parallax ?>" <?php if (get_field('parallax_image')): echo 'style="background-image: url(' . get_field('parallax_image') . ');"'; endif; ?>
                 data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
