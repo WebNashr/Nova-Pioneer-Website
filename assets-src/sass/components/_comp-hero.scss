@@ -218,7 +218,7 @@
     h1 {
       max-width: auto;
       width: 100%;
-      @include font-size(28px);
+      @include font-size(23px);//28px
     }
     .country-selection {
       @extend %columns;
@@ -235,7 +235,7 @@
         @media screen
         and (min-device-width: 360px)
         and (max-device-width: 420px) {
-            width: 45%;
+            width: 46%;
         }
         @media screen
         and (min-device-width: 425px)
