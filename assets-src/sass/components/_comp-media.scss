@@ -28,6 +28,14 @@
 	@extend %media-container;
 	&.youtube-video {
 		padding-top: 0px;
+		img {
+			padding-bottom: 0;
+			height: auto;
+			@include break-point(tablet) {
+				// height: 100%;
+				// align-self: center;
+			}
+		}
 	}
 	&.gallery{
 		padding-top: 0px;
