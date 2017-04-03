@@ -11,7 +11,7 @@
             var r, e, s, i = t(this), c = i.offset().top, l = i.outerHeight(), p = i.data("enllax-ratio"), d = i.data("enllax-type"), x = i.data("enllax-direction");
             r = p ? p : o.ratio, e = d ? d : o.type, s = x ? x : o.direction;
             var f = Math.round(c * r), u = Math.round((c - a / 2 + l) * r);
-            "background" == e ? "vertical" == s ? i.css({"background-position": "center " + -f + "px"}) : "horizontal" == s && i.css({"background-position": -f + "px center"}) : "foreground" == e && ("vertical" == s ? i.css({
+            "background" == e ? "vertical" == s ? i.css({"background-position": "center " + +f + "px"}) : "horizontal" == s && i.css({"background-position": +f + "px center"}) : "foreground" == e && ("vertical" == s ? i.css({
                 "-webkit-transform": "translateY(" + u + "px)",
                 "-moz-transform": "translateY(" + u + "px)",
                 transform: "translateY(" + u + "px)"
@@ -21,7 +21,8 @@
                 transform: "translateX(" + u + "px)"
             })), t(window).on("scroll", function () {
                 var o = t(this).scrollTop();
-                f = Math.round((c - o) * r), u = Math.round((c - a / 2 + l - o) * r), "background" == e ? "vertical" == s ? i.css({"background-position": "center " + -f + "px"}) : "horizontal" == s && i.css({"background-position": -f + "px center"}) : "foreground" == e && n > o && ("vertical" == s ? i.css({
+                f = Math.round((c - o) * r), u = Math.round((c - a / 2 + l - o) * r),
+                    "background" == e ? "vertical" == s ? i.css({"background-position": "center " + +f + "px"}) : "horizontal" == s && i.css({"background-position": +f + "px center"}) : "foreground" == e && n > o && ("vertical" == s ? i.css({
                     "-webkit-transform": "translateY(" + u + "px)",
                     "-moz-transform": "translateY(" + u + "px)",
                     transform: "translateY(" + u + "px)"
@@ -33,4 +34,4 @@
             })
         })
     }
-}(jQuery);
+}(jQuery)

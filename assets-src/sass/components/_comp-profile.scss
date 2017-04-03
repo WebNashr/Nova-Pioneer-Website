@@ -70,7 +70,8 @@
 	}
 	.image-wrap {
 		max-width: 310px;
-		max-height: 320px;
+		// max-height: 320px;
+		height: auto;
 		margin: 0 auto;
 		overflow: hidden;
 		margin-bottom: 1rem;
@@ -79,6 +80,51 @@
 			max-height: 203px;
 			margin-bottom: 1rem;
 		}
+		// @include break-point(laptop) {
+		// 	max-width: 196px;
+		// 	max-height: 203px;
+		// 	margin-bottom: 1rem;
+		// }
+
+	}
+	&.section-content-item-quarter  {
+
+		.image-wrap {
+			height: auto;
+
+			@include break-point(tablet) {
+				max-height: 321px;
+			}
+			@include break-point(laptop) {
+				// max-height: 141px;
+			}
+			@media screen
+			and (min-device-width: 1000px)
+			and (max-device-width: 1024px) {
+				max-height: 141px;
+
+			}
+			@include break-point(desktop) {
+				max-height: 203px;
+			}
+			// @media screen
+			// and (min-device-width: 1600px)
+			// and (max-device-width: 1920px) {
+			// 	margin-top: 15%;
+			//
+			// }
+		}
+	}
+	&.school-team  {
+		margin-left: 0;
+		&:not(:first-of-type) {
+			margin-top: 0;
+			margin-left: 1rem;
+		}
+		@include break-point(laptop) {
+			margin-left: $gut;
+		}
+
 	}
 	img {
 		max-width: 360px;
