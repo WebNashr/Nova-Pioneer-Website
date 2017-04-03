@@ -210,7 +210,7 @@ get_header(); ?>
                 </div>
 
                 <div class="section-content-item section-content-item-half">
-                    <h2 class="full-width-heading">Video from Influencer</h2>
+                    <h2 class="full-width-heading">The Nova Pioneer Way</h2>
                     <div class="testimonial pull-quote">
                         <blockquote>
                             <svg aria-hidden="true">
