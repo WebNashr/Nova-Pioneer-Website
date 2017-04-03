@@ -57,9 +57,9 @@
 	}
 
 	.page-header .menu > .menu-item:hover & {
-			@include flexbox();
-			opacity: 1;
-		}
+		@include flexbox();
+		opacity: 1;
+	}
 
 	// .page-footer & {
 
