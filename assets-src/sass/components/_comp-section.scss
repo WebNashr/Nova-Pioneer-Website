@@ -1023,6 +1023,7 @@
 }
 
 .section-day-in-the-life {
+	// flex-direction: row;
 	p {
 		padding-bottom: calc(#{$space-tiny} * 1);
 		@include break-point(laptop) {
@@ -1039,6 +1040,12 @@
 			// display: none;
 
 		}
+	}
+	@include break-point(tablet) {
+		flex-direction: column;
+	}
+	@include break-point(laptop) {
+		flex-direction: row;
 	}
 }
 
