@@ -39,7 +39,7 @@ get_header();?>
         </section> -->
 
         <section class="full-width-image-container" data-enllax-type="foreground">
-        <figure class="full-width-image parallax" style="background-image: url(<?php echo get_field('banner_image'); ?>);" data-enllax-ratio="0.2" >
+        <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image: url(<?php echo get_field('banner_image'); ?>);" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>" >
             <div class="section-content full-image-caption animated caption">
                 <figcaption>
                     <?php echo get_field('banner_text'); ?>
