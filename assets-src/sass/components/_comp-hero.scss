@@ -5,7 +5,7 @@
     @include flexbox();
     @include flex-direction(row);
               // height: 100vh; // for laptops and up
-    height: 50vh; 
+    height: 50vh;
     padding: 0;
     background-color: $white;
               background-size: cover; // for laptops and up
@@ -221,7 +221,7 @@
     background-image: none;
     @extend %column;
     max-width: 775px;
-    padding-bottom: calc(#{$space-tiny} * 3);
+    padding-bottom: 20vh;
     // @extend %column-6;
     // padding-right: calc(#{$space-tiny} * 1);
     h1 {
@@ -232,9 +232,10 @@
     .country-selection {
       @extend %columns;
       justify-content: space-between;
+      @include flex-direction(row);
 
       a {
-        width: 100%;
+        width: auto;
       }
       .button {
         background-color: transparent;
@@ -249,7 +250,8 @@
       @include break-point(tablet) {
         padding-right: calc(#{$space-tiny} * 1.65);
         display: flex;
-        flex-flow: row;
+        @include flex-direction(row);
+        // flex-flow: row;
         a {
           width: 45%;
         }
@@ -260,6 +262,7 @@
     	}
     }
     @include break-point(tablet) {
+
       h1 {
         max-width: auto;
         width: 100%;
@@ -267,10 +270,11 @@
       }
     }
     @include break-point(laptop) {
+      padding-bottom: calc(#{$space-tiny} * 3);
       h1 {
         max-width: auto;
         width: 100%;
-        @include font-size(49px);
+        @include font-size(50px);
       }
     }
   }
@@ -301,7 +305,7 @@
       }
       @include break-point(desktop) {
           @include font-size(48px);
-          max-width: 75%;
+          // max-width: 75%;
       }
 
 
@@ -334,9 +338,12 @@
         @extend .button;
         @extend .button-default;
         @extend .button-primary;
-        margin: calc(#{$space-tiny} * 1.5) 0 0;
+        margin: calc(#{$space-tiny} * 0.5) 0 0;
         &:first-of-type {
-          margin: calc(#{$space-tiny} * 0.5) 0 0;
+          // margin: calc(#{$space-tiny} * 0.5) 0 0;
+        }
+        @include break-point(tablet) {
+          margin: calc(#{$space-tiny} * 1.5) 0 0;
         }
     }
 
