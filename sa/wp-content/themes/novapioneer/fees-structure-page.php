@@ -50,7 +50,7 @@ the_post(); ?>
 <section class="section school-fees">
 
     <article class="article article-inner article-inner-alt">
-        <h1 class="page-title" id="fees-table">Fees Structure</h1>
+        <h1 class="page-title" id="fees-table">Fee Structure</h1>
         <?php the_content(); ?>
     </article>
 
@@ -63,7 +63,7 @@ the_post(); ?>
 
     ?>
 
-    <article class="article article-inner article-inner-alt">
+    <article class="article article-inner article-inner-alt table-container">
         <form class="table-filter">
             <div class="selector">
                 <select name="school" class="dropdown">
