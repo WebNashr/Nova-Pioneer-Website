@@ -63,7 +63,7 @@ the_post(); ?>
 
     ?>
 
-    <article class="article article-inner article-inner-alt">
+    <article class="article article-inner article-inner-alt table-container">
         <form class="table-filter">
             <div class="selector">
                 <select name="school" class="dropdown">
