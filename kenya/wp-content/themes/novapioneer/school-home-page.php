@@ -224,14 +224,14 @@ get_header(); ?>
                     <div class="photo-container">
                         <ul id="slippry-gallery">
                             <?php $im = 1;
-                            foreach ($images as $image): ?>
+                                foreach ($images as $image): ?>
                                 <li>
                                     <a href="#slide<?php echo $im ?>">
-                                        <img src="<?php echo $image['url'] ?>" alt="<?php echo $image['caption'] ?>">
+                                        <!--<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['caption'] ?>">-->
+                                        <img src="<?php echo $image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">
                                     </a>
                                 </li>
                                 <?php $im++; endforeach; ?>
-
                         </ul>
                     </div>
                 </div>
