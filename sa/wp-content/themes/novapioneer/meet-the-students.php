@@ -167,7 +167,7 @@ get_header(); ?>
         </section>
         <section class="full-width-image-container" data-enllax-type="foreground">
             <figure
-                class="full-width-image secondary-bgd-image parallax" <?php if (get_field('parallax_image_2')): echo 'style="background-image: url(' . get_field('parallax_image') . ');"'; endif; ?>
+                class="full-width-image secondary-bgd-image parallax" <?php if (get_field('parallax_image_2')): echo 'style="background-image: url(' . get_field('parallax_image_2') . ');"'; endif; ?>
                 data-enllax-ratio="0.2">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
