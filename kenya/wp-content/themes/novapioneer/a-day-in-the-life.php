@@ -17,6 +17,9 @@ get_header(); ?>
                             <h1><?php the_title() ?></h1>
                         </header>
 
+                        <div class="blog-article-image"
+                             style="background-image: url(<?php echo $blog_post->picture; ?>);"
+                             title="<?php echo $blog_post->title; ?>"></div>
 
                         <!-- Timeline begin here -->
                         <div id="timeline">
@@ -35,7 +38,11 @@ get_header(); ?>
                                             </div>
                                             <div class="timeline-content">
                                                 <h2><?php the_field('activity_title')?></h2>
-                                                <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
+                                                <div class="image-wrap"
+                                                <img class=""
+                                                style="background-image: url(<?php the_post_thumbnail_url(); ?>);"
+                                                alt="">
+                                                </div>
                                                 <p>
                                                     <?php the_content(); ?>
                                                 </p>
@@ -49,7 +56,11 @@ get_header(); ?>
                                             </div>
                                             <div class="timeline-content right">
                                                 <h2><?php the_field('activity_title')?></h2>
-                                                <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
+                                                <div class="image-wrap"
+                                                <img class=""
+                                                style="background-image: url(<?php the_post_thumbnail_url(); ?>);"
+                                                alt="">
+                                                </div>
                                                 <p>
                                                     <?php the_content(); ?>
                                                 </p>
