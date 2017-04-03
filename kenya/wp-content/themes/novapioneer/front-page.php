@@ -16,9 +16,9 @@ get_header(); ?>
                     <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
                         <li>
                             <a href="#slide1">
-                                <!--<img src="<?php echo $hero_slide->image; ?>">-->
+                                <img src="<?php echo $hero_slide->image; ?>">
                                 <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
-                                <img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">
+                                <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
                                 <div class="callout-box">
                                     <div class="animated-headings">
                                         <h1 class="hero-title"><?php echo $hero_slide->title; ?></h1>
