@@ -224,6 +224,23 @@
 	height: 9rem;
 	background-position: center;
 	background-size: cover;
+	.article-inner-alt & {
+		margin-bottom: 0;
+		height: 12rem;
+		@include break-point(tablet) {
+			height: 20rem;
+		}
+	}
+	.section-content-item-half & {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		height: 12rem;
+		@include break-point(tablet) {
+			margin-top: 0;
+			height: 20rem;
+		}
+
+	}
 	@include break-point(tablet) {
 		// margin-top: 0;
 		height: 18rem;
