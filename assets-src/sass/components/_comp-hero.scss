@@ -4,15 +4,14 @@
 .section-hero {
     @include flexbox();
     @include flex-direction(row);
-              // height: 100vh; // for laptops and up
-    height: 50vh;
+    height: calc(calc(9 / 16) * 100vw);
     padding: 0;
     background-color: $white;
-              background-size: cover; // for laptops and up
+    background-size: contain;
     background-position: center top;
     background-repeat: no-repeat;
     justify-content: center;
-              background-attachment: fixed; // for laptops and up
+    background-attachment: initial;
     position: relative;
 
     &.homepage {
@@ -113,9 +112,6 @@
           bottom: 0;
         }
     }
-     @include break-point(laptop) {
-       height: 82vh;
-     }
 
     // ### rollback ###
     // @include break-point(mobile) {
@@ -137,19 +133,14 @@
     //     background-size: 100%;
     //     background-attachment: initial;
     // }
-
-    // @include break-point(laptop) {
-    //     height: 100vh;
-    //     // background-size: cover !important;
-    //     // background-attachment: fixed !important;
-    //     background-size: cover;
-    //     background-attachment: fixed;
-    // }
-
-    // @include break-point(desktop) {
-
-    // }
     // ### rollback ###
+
+    @include break-point(laptop) {
+        // height: 100vh;
+        height: 82vh;
+        background-size: cover;
+        background-attachment: fixed;
+    }
 }
 
 .country-hero {
