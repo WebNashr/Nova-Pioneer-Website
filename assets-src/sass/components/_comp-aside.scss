@@ -12,10 +12,14 @@
 	background-position: center;
 	overflow: hidden;
 	height: calc(calc(9 / 16) * 100vw);
+	min-height: 250px;
 
-	body.ios & {
+	body.ios &,
+	body.chrome & {
 		height: auto;
 		height: calc(calc(9 / 16) * 100vw);
+		min-height: 250px;
+		overflow: initial;
 	}
 
 	figure {
@@ -32,6 +36,12 @@
 
     @include break-point(laptop) {
         height: 70vh;
+
+		body.ios &,
+		body.chrome & {
+			height: 70vh;
+			overflow: hidden;
+		}
     }
 }
 
@@ -46,12 +56,20 @@
 	// background-image: url('../../img/large-bgd-image.jpg');
 		background-size: cover;
 		background-position: center center;
+		background-attachment: initial;
 	background-repeat: no-repeat;
 	padding-top: calc(#{$space-tiny} * 1);
 	padding-right: calc(#{$space-tiny} * 3);
 	padding-bottom: calc(#{$space-tiny} * 4);
 	padding-left: calc(#{$space-tiny} * 3);
 	align-items: flex-start;
+
+	body.ios &,
+	body.chrome & {
+		// height: auto;
+		// height: calc(calc(9 / 16) * 100vw);
+		// overflow: initial;
+	}
 
     &.secondary-bgd-image {
 	    background-image: url('../../img/large-bgd-secondary.jpg');
