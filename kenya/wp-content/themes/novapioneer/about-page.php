@@ -87,7 +87,7 @@ get_header(); ?>
 
                 <div class="section-content full-image-caption animated caption slideInLeft">
                     <figcaption>
-                        <p>### show on small ###<br><?php echo get_field('our_culture_banner_image_caption'); ?></p>
+                        <p><?php echo get_field('our_culture_banner_image_caption'); ?></p>
                     </figcaption>
                 </div>
             </figure>

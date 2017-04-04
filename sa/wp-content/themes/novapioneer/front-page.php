@@ -160,7 +160,7 @@ get_header(); ?>
 
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p>### show on small ###<br><?php echo get_field('below_learning_hero_image_text'); ?></p>
+                        <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
                     </figcaption>
                 </div>
             </figure>

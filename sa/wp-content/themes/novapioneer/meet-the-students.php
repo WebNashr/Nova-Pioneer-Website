@@ -113,7 +113,7 @@ get_header(); ?>
 
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p>### show on small ###<br><?php echo get_field('parallax_text'); ?></p>
+                        <p><?php echo get_field('parallax_text'); ?></p>
                     </figcaption>
                 </div>
             </figure>
