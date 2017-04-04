@@ -189,11 +189,25 @@ get_header(); ?>
         </figure>
         </section> -->
 
-        <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
+        <section class="full-width-image-container small-screens">
+            <figure class="full-width-image">
+                <?php if(get_field('below_learning_hero_image')): ?>
+                    <img src="<?php the_field('below_learning_hero_image'); ?>" />
+                <?php endif; ?>
+
+                <div class="section-content full-image-caption animated caption">
+                    <figcaption>
+                        <p>### show on small ###<br><?php echo get_field('below_learning_hero_image_text'); ?></p>
+                    </figcaption>
+                </div>
+            </figure>
+        </section>
+
+        <section class="full-width-image-container large-screens" data-enllax-type="foreground">
             <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image:url('<?php the_field('below_learning_hero_image') ?>');" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
+                        <p>### show on large ###<br><?php echo get_field('below_learning_hero_image_text'); ?></p>
                     </figcaption>
                 </div>
             </figure>
@@ -202,11 +216,11 @@ get_header(); ?>
         <div class="full-width-container" style="margin-bottom:0;">
             <section class="section section-pair">
                 <?php
-                $video_from_influencer = get_field('video_from_influencer');
-                $vid_caption = get_field('video_caption', $video_from_influencer->ID);
-                $caption_speaker = get_field('caption_speaker', $video_from_influencer->ID);
-                $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
-                $video = get_field('video', $video_from_influencer->ID);
+                    $video_from_influencer = get_field('video_from_influencer');
+                    $vid_caption = get_field('video_caption', $video_from_influencer->ID);
+                    $caption_speaker = get_field('caption_speaker', $video_from_influencer->ID);
+                    $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
+                    $video = get_field('video', $video_from_influencer->ID);
                 ?>
 
                 <div class="section-content-item section-content-item-half first-item">

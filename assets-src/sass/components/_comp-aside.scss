@@ -1,55 +1,55 @@
 /*  Aside */
 /* ==================================================== */
 .full-width-image-container{
+	position: relative;
 	width: 100%;
 		// height: 70vh;
 		// height: 80vh;
 		// background-color: $white;
-	background-color: transparent;
-	padding-top: 0;
-	padding-bottom: 0;
-	position: relative;
-	background-position: center;
-	overflow: hidden;
 	height: calc(calc(9 / 16) * 100vw);
 	min-height: 250px;
+	padding-top: 0;
+	padding-bottom: 0;
+	background-color: transparent;
+	background-position: center;
+	overflow: hidden;
 
-	body.ios &,
-	body.chrome & {
-		height: auto;
-		height: calc(calc(9 / 16) * 100vw);
-		min-height: 250px;
-		overflow: initial;
+	// body.ios &,
+	// body.chrome & {
+	// 	height: auto;
+	// 	height: calc(calc(9 / 16) * 100vw);
+	// 	min-height: 250px;
+	// 	overflow: initial;
+	// }
+
+	&.small-screens {
+		display: block;
 	}
 
-	&.hide-on-small-screens {
+	&.large-screens {
 		display: none;
 	}
 
 	figure {
 		position: relative;
-		// margin-bottom: -50%;
 	}
-
-	// ### rollback ###
-    // @include break-point(tablet) {
-    //     // height: 55vh;
-	// 	height: calc(calc(649/1200) * 100vw) !important; // magic number aspect ratio calc
-    // }
-	// ### rollback ###
 
     @include break-point(laptop) {
         height: 70vh;
 
-		&.hide-on-small-screens {
+		&.small-screens {
+			display: none;
+		}
+
+		&.large-screens {
 			display: block;
 		}
 
-		body.ios &,
-		body.chrome & {
-			height: 70vh;
-			overflow: hidden;
-		}
+		// body.ios &,
+		// body.chrome & {
+		// 	height: 70vh;
+		// 	overflow: hidden;
+		// }
     }
 }
 
@@ -59,12 +59,9 @@
 	@include flex-wrap(nowrap);
 	width: 100%;
 	height: 100%;
-	// margin-top: 1.5rem;
-	//margin: 4rem 0;
-	// background-image: url('../../img/large-bgd-image.jpg');
-		background-size: cover;
-		background-position: center center;
-		background-attachment: initial;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: initial;
 	background-repeat: no-repeat;
 	padding-top: calc(#{$space-tiny} * 1);
 	padding-right: calc(#{$space-tiny} * 3);
@@ -72,12 +69,12 @@
 	padding-left: calc(#{$space-tiny} * 3);
 	align-items: flex-start;
 
-	body.ios &,
-	body.chrome & {
-		// height: auto;
-		// height: calc(calc(9 / 16) * 100vw);
-		// overflow: initial;
-	}
+	// body.ios &,
+	// body.chrome & {
+	// 	height: auto;
+	// 	height: calc(calc(9 / 16) * 100vw);
+	// 	overflow: initial;
+	// }
 
     &.secondary-bgd-image {
 	    background-image: url('../../img/large-bgd-secondary.jpg');
@@ -100,20 +97,15 @@
     }
 
     figcaption {
-		position: relative;
-		//flex-basis: 21%;
 		@extend %column;
 		@extend %column-3;
-		// background: $dark-blue;
-		// background: $blue-dk;
-		background: rgba(30, 63, 117, 0.9);
-		// opacity: 0.9;
-		text-align: left;
-		padding: calc(#{$space-tiny} * 1);
-		// 	padding-top: calc(#{$space-tiny} * 1.5);
+		position: relative;
 		top: -1rem;
 		left:-1rem;
 		max-width: 95%;
+		padding: calc(#{$space-tiny} * 1);
+		text-align: left;
+		background: rgba(30, 63, 117, 0.9);
 
 	 	p {
 	 		color: $white;
@@ -139,9 +131,11 @@
 				@include font-size(16px);
 			}
 	 	}
+
 		@include break-point(tablet) {
 			max-width: 200px;
 		}
+
 		@include break-point(laptop) {
 			max-width: 200px;
 			padding: calc(#{$space-tiny} * 1);
@@ -155,46 +149,32 @@
     }
 
 	&.parallax {
-		// background-attachment: fixed;
-			background-attachment: initial;
-		//height: 75vh;
-		// background-attachment: fixed;
-		// background-position: center top;
-		// background-repeat: no-repeat;
-		// background-size: cover;
-		// z-index: 5;
-		// width: 100%;
-		// height: 100%
-		// height: auto;
-		// width: 100%;
-		// height: 100%;
+		background-attachment: initial;
 	}
 
-	// .image {
-	//   background-attachment: fixed;
-	//   background-size: cover;
-	//   //background-repeat: no-repeat;
-	//   width: 100%;
-	//   height: 100%;
-	//   position: absolute;
-	//   z-index: 500;
-	//   opacity: 0.4;
-	// }
+	.small-screens & {
+		padding: 0;
 
-	// ### rollback ###
-    // @include break-point(tablet) {
-	// 	// background-position: center top !important;
-    //     // background-size: 100% !important;
-	// 	background-position: center top;
-    //     background-size: 100%;
+		figcaption {
+			align-self: center;
+			max-width: 90%;
+			left: 0;
+			right: 0;
+		}
+	}
 
-	// 	&.parallax {
-	// 		background-attachment: initial;
-	// 	}
-    // }
-	// ### rollback ###
-
-    @include break-point(laptop) {
+    @include break-point(tablet) {
+		.small-screens & {
+			figcaption {
+				align-self: unset;
+				max-width: 13rem;
+				left: 3rem;
+				right: unset;
+			}
+		}
+    }
+	
+	@include break-point(laptop) {
 		// background-size: cover;
 
 		&.parallax {
@@ -226,6 +206,7 @@
 
 		a {
 			color: $blue;
+
 			&:hover {
 				color: $dark-blue;
 				text-decoration: underline;
@@ -249,7 +230,8 @@
 		@include flex-direction(column);
 		padding-bottom: calc(#{$space-tiny} * 2);
 		//flex: 1;
-		p{
+
+		p{ 
 			@include font-size(21px);
 		}
 	}
@@ -260,54 +242,57 @@
 	 	justify-content: space-around;
 	 	align-items: flex-start;
 	 	width: 100%;
+
 	 	fieldset {
 			width: auto;
-	}
+		}
 
-	input {
-		//width: 80%;
-		margin-right: 2%;
-		align-self: flex-start;
-		//flex: 2 1 80%;
-		//flex-grow: 2;
-		@include flex(1, 1, 40%);
-	}
-	select {
-		margin-right: 2%;
-		align-self: flex-end;
-		@include flex(1, 1, 40%);
-		border-radius: 0;
-		appearance: normal;
-		padding: 0.6rem 1rem;
-		//color: $blue;
-		color: lighten($dark-grey, 10%);
+		input {
+			//width: 80%;
+			margin-right: 2%;
+			align-self: flex-start;
+			//flex: 2 1 80%;
+			//flex-grow: 2;
+			@include flex(1, 1, 40%);
+		}
 
-		option {
-			color: $blue;
-			&:checked {
+		select {
+			margin-right: 2%;
+			align-self: flex-end;
+			@include flex(1, 1, 40%);
+			border-radius: 0;
+			appearance: normal;
+			padding: 0.6rem 1rem;
+			//color: $blue;
+			color: lighten($dark-grey, 10%);
+
+			option {
 				color: $blue;
+				
+				&:checked {
+					color: $blue;
+				}
+
+				&:not(:checked) {
+					color: lighten($dark-grey, 10%);
+				}
 			}
-			&:not(:checked) {
-				color: lighten($dark-grey, 10%);
+		}
+
+		.submit-button {
+			@include flex(1, 1, auto);
+			color: $white;
+			background: $blue;
+			//align-self: flex-end;
+			height: auto;
+			padding:0.4rem 1rem;
+			@include copy(light);
+			@include font-size(21px);
+
+			&:hover {
+				background: $dark-blue;
+				border: none;
 			}
 		}
 	}
-
-	.submit-button {
-		@include flex(1, 1, auto);
-		color: $white;
-		background: $blue;
-	    //align-self: flex-end;
-	    height: auto;
-	    padding:0.4rem 1rem;
-	    @include copy(light);
-    	@include font-size(21px);
-	    &:hover {
-        background: $dark-blue;
-        border: none;
-
-	    }
-		}
-	}
-
 }

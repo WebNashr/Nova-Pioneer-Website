@@ -29,10 +29,22 @@ get_header(); ?>
         </section>
 
 
-        <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
-            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
-                    style="background-image: url(<?php echo get_field('banner_image'); ?>);"
-                    data-enllax-ratio="<?php echo isOnMobile()->ratio?>">
+        <section class="full-width-image-container small-screens">
+            <figure class="full-width-image">
+                <?php if(get_field('our_culture_banner_image')): ?>
+                    <img src="<?php the_field('our_culture_banner_image'); ?>" />
+                <?php endif; ?>
+
+                <div class="section-content full-image-caption animated caption">
+                    <figcaption>
+                        <p>### show on small ###<br><?php echo get_field('banner_text'); ?></p>
+                    </figcaption>
+                </div>
+            </figure>
+        </section>
+        
+        <section class="full-width-image-container large-screens" data-enllax-type="foreground">
+            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image: url(<?php echo get_field('banner_image'); ?>);" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>" >
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <?php echo get_field('banner_text'); ?>

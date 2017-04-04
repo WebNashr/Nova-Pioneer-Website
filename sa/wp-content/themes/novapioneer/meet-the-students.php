@@ -105,7 +105,21 @@ get_header(); ?>
         </section>
 
 
-        <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
+        <section class="full-width-image-container small-screens">
+            <figure class="full-width-image">
+                <?php if(get_field('parallax_image')): ?>
+                    <img src="<?php the_field('parallax_image'); ?>" />
+                <?php endif; ?>
+
+                <div class="section-content full-image-caption animated caption">
+                    <figcaption>
+                        <p>### show on small ###<br><?php echo get_field('parallax_text'); ?></p>
+                    </figcaption>
+                </div>
+            </figure>
+        </section>
+        
+        <section class="full-width-image-container large-screens" data-enllax-type="foreground">
             <figure
                 class="full-width-image secondary-bgd-image <?php echo isOnMobile()->parallax ?>" <?php if (get_field('parallax_image')): echo 'style="background-image: url(' . get_field('parallax_image') . ');"'; endif; ?>
                 data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
