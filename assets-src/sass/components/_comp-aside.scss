@@ -141,11 +141,11 @@
 		figcaption {
 			position: absolute;
 			top: unset;
-			right: auto;
+			right: 0;
 			bottom: 0;
-			left: auto;
+			left: 0;
 			align-self: center;
-			max-width: 90%;
+			max-width: 100%;
 		}
 	}
 
@@ -155,7 +155,7 @@
 				left: 3rem;
 				right: unset;
 				align-self: center;
-				max-width: 13rem;
+				max-width: 14rem;
 			}
 		}
     }
