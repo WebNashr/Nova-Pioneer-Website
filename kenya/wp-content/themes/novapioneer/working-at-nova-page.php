@@ -44,7 +44,7 @@ get_header();?>
                     <img src="<?php the_field('our_culture_banner_image'); ?>" />
                 <?php endif; ?>
 
-                <div class="section-content full-image-caption animated caption">
+                <div class="section-content full-image-caption">
                     <figcaption>
                         <p><?php echo get_field('banner_text'); ?></p>
                     </figcaption>

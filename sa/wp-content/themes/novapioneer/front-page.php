@@ -166,7 +166,7 @@ get_header(); ?>
                     <img src="<?php the_field('below_learning_hero_image'); ?>" />
                 <?php endif; ?>
 
-                <div class="section-content full-image-caption animated caption">
+                <div class="section-content full-image-caption">
                     <figcaption>
                         <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
                     </figcaption>
