@@ -64,7 +64,7 @@ get_header();?>
 
 
         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
-            <!-- <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span> -->
+            <!-- <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span>
             <section class="full-width-image-container small-screens">
                 <figure class="full-width-image" style="background-image: url(<?php echo $stage->banner_image; ?>);">
                     <div class="section-content full-image-caption animated caption">
@@ -73,10 +73,26 @@ get_header();?>
                         </figcaption>
                     </div>
                 </figure>
+            </section>-->
+
+            <section class="full-width-image-container small-screens">
+                <figure class="full-width-image">
+                    <?php if ($stage->banner_image): ?>
+                        <img src="<?php echo $stage->banner_image; ?>"/>
+                    <?php endif; ?>
+
+                    <div class="section-content full-image-caption">
+                        <figcaption>
+                            <?php echo $stage->banner_image_caption; ?>
+                        </figcaption>
+                    </div>
+                </figure>
             </section>
 
             <section class="full-width-image-container large-screens" data-enllax-type="foreground">
-                <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>" >
+                <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
+                        style="background-image: url(<?php echo $stage->banner_image; ?>);"
+                        data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                     <div class="section-content full-image-caption animated caption">
                         <figcaption>
                             <?php echo $stage->banner_image_caption; ?>
