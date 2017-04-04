@@ -46,9 +46,17 @@ get_header(); ?>
                                     src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
                             <h3><?php echo $school->post_title; ?></h3>
                             <div class="school-summary">
-                                <p class="boy-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
-                                <!-- <p class="girl-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
-                            <p class="mixed-gender"><?php echo get_field('school_gender', $school->ID); ?></p> -->
+                                <?php $school_gender = get_field('school_gender', $school->ID);
+                                if (strpos(strtolower($school_gender), 'boy') !== false) {
+                                    $gender_style = 'boy-gender';
+                                } elseif (strpos(strtolower($school_gender), 'girl') !== false) {
+                                    $gender_style = 'girl-gender';
+                                } else {
+                                    $gender_style = 'mixed-gender';
+                                } ?>
+                                <p class="<?php echo $gender_style ?>"><?php echo $school_gender; ?></p>
+                                <!-- <p class="girl-gender"><?php echo $school_gender; ?></p>
+                            <p class="mixed-gender"><?php echo $school_gender; ?></p> -->
                                 <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
                                 <p><?php echo get_field('school_grades', $school->ID); ?></p>
                                 <p><?php echo get_field('school_type', $school->ID); ?></p>
@@ -95,8 +103,8 @@ get_header(); ?>
             <div class="section-navigation">
                 <h2>Our Students</h2>
                 <div class="button-wrap">
-                <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
-                   title="">Meet the Students</a>
+                    <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
+                       title="">Meet the Students</a>
                 </div>
             </div>
 
@@ -126,8 +134,8 @@ get_header(); ?>
 
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video">
-                        <?php if (get_field('video_or_image',$our_students_video->ID) == 'image') {
-                            echo '<img src="' . get_field('image',$our_students_video->ID) . '" />';
+                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
                         } else {
                             echo $video;
                         } ?>
@@ -141,8 +149,9 @@ get_header(); ?>
             <div class="section-navigation">
                 <h2>Learning at Nova Pioneer</h2>
                 <div class="button-wrap">
-                <a href="<?php echo site_url('/our-approach'); ?>" class="button button-small button-primary" title="">Learn
-                    More</a>
+                    <a href="<?php echo site_url('/our-approach'); ?>" class="button button-small button-primary"
+                       title="">Learn
+                        More</a>
                 </div>
             </div>
 
@@ -169,8 +178,8 @@ get_header(); ?>
                 </div>
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video ">
-                        <?php if (get_field('video_or_image',$learning_at_novapioneer_video->ID) == 'image') {
-                            echo '<img src="' . get_field('image',$learning_at_novapioneer_video->ID) . '" />';
+                        <?php if (get_field('video_or_image', $learning_at_novapioneer_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $learning_at_novapioneer_video->ID) . '" />';
                         } else {
                             echo $video;
                         } ?>
@@ -191,8 +200,8 @@ get_header(); ?>
 
         <section class="full-width-image-container small-screens">
             <figure class="full-width-image">
-                <?php if(get_field('below_learning_hero_image')): ?>
-                    <img src="<?php the_field('below_learning_hero_image'); ?>" />
+                <?php if (get_field('below_learning_hero_image')): ?>
+                    <img src="<?php the_field('below_learning_hero_image'); ?>"/>
                 <?php endif; ?>
 
                 <div class="section-content full-image-caption animated caption">
@@ -204,7 +213,9 @@ get_header(); ?>
         </section>
 
         <section class="full-width-image-container large-screens" data-enllax-type="foreground">
-            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image:url('<?php the_field('below_learning_hero_image') ?>');" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
+            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
+                    style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
+                    data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
                         <p>### show on large ###<br><?php echo get_field('below_learning_hero_image_text'); ?></p>
@@ -216,22 +227,23 @@ get_header(); ?>
         <div class="full-width-container" style="margin-bottom:0;">
             <section class="section section-pair">
                 <?php
-                    $video_from_influencer = get_field('video_from_influencer');
-                    $vid_caption = get_field('video_caption', $video_from_influencer->ID);
-                    $caption_speaker = get_field('caption_speaker', $video_from_influencer->ID);
-                    $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
-                    $video = get_field('video', $video_from_influencer->ID);
+                $video_from_influencer = get_field('video_from_influencer');
+                $vid_caption = get_field('video_caption', $video_from_influencer->ID);
+                $caption_speaker = get_field('caption_speaker', $video_from_influencer->ID);
+                $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
+                $video = get_field('video', $video_from_influencer->ID);
                 ?>
 
                 <div class="section-content-item section-content-item-half first-item">
                     <div class="media youtube-video">
-                        <?php if (get_field('video_or_image',$video_from_influencer->ID) == 'image') {
-                            echo '<img src="' . get_field('image',$video_from_influencer->ID) . '" />';
+                        <?php if (get_field('video_or_image', $video_from_influencer->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $video_from_influencer->ID) . '" />';
                         } else {
                             echo $video;
                         } ?>
                     </div>
                 </div>
+                gu
 
                 <div class="section-content-item section-content-item-half ">
                     <h2 class="full-width-heading">The Nova Pioneer Way</h2>
@@ -256,8 +268,8 @@ get_header(); ?>
             <div class="section-navigation">
                 <h2>Global Leadership Team</h2>
                 <div class="button-wrap">
-                <a href="<?php echo site_url('/global-leadership/'); ?>" class="button button-small button-primary"
-                   title="">Meet the team</a>
+                    <a href="<?php echo site_url('/global-leadership/'); ?>" class="button button-small button-primary"
+                       title="">Meet the team</a>
                 </div>
             </div>
 
@@ -265,12 +277,12 @@ get_header(); ?>
                 <?php $leadership_team_members = get_field('leadership_team_members'); ?>
                 <?php foreach ($leadership_team_members as $member): ?>
                     <div class="section-content-item section-content-item-quarter profile">
-                      <div class="image-wrap">
-                        <img
-                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
-                            alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
-                            class="profile-img">
-                      </div>
+                        <div class="image-wrap">
+                            <img
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
+                                alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
+                                class="profile-img">
+                        </div>
                         <h4 class="profile-name"
                             title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></h4>
                         <h6 class="profile-role"><?php echo get_field('title', $member->ID); ?></h6>
@@ -283,7 +295,8 @@ get_header(); ?>
 
         <section class="section even-section">
             <div class="general-notices-container">
-                <div class="large-notice-container" <?php if (get_field('admission_image')): echo 'style="background-image: url(' .get_field('admission_image') . ');"'; endif; ?>>
+                <div
+                    class="large-notice-container" <?php if (get_field('admission_image')): echo 'style="background-image: url(' . get_field('admission_image') . ');"'; endif; ?>>
                     <div class="large-notice">
                         <div class="notice-content">
                             <h1><?php echo get_field('admin_process_title'); ?></h1>
@@ -305,9 +318,9 @@ get_header(); ?>
                     <?php echo get_nova_events($taxies); ?>
 
                     <div class="small-notice">
-                        <h4>Kenya  Fee Structure</h4>
+                        <h4>Kenya Fee Structure</h4>
                         <!-- <p>View Our Fee Structure</p> -->
-                        <a  href="<?php echo site_url('fees-structure/')?>"
+                        <a href="<?php echo site_url('fees-structure/') ?>"
                            class="button button-small button-secondary">View Fees</a>
                     </div>
                     <div class="divider"></div>
@@ -422,7 +435,7 @@ get_header(); ?>
                 controls: true,
                 prevHtml: '',
                 nextHtml: '',
-                addClass:'content-slider',
+                addClass: 'content-slider',
 
                 // currentPagerPosition: 'middle',
 
@@ -484,5 +497,6 @@ get_header(); ?>
     Add this script tag after the carousel options JS block on whichever page
     the carousel gets going on being a right pain in the footer!
 -->
-<script type="text/javascript" src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
+<script type="text/javascript"
+        src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
 <?php get_footer(); ?>

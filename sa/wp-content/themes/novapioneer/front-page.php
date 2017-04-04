@@ -43,9 +43,17 @@ get_header(); ?>
                                     src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
                             <h3><?php echo $school->post_title; ?></h3>
                             <div class="school-summary">
-                                <p class="boy-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
-                                <!-- <p class="girl-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
-                            <p class="mixed-gender"><?php echo get_field('school_gender', $school->ID); ?></p> -->
+                                <?php $school_gender = get_field('school_gender', $school->ID);
+                                if (strpos(strtolower($school_gender), 'boy') !== false) {
+                                    $gender_style = 'boy-gender';
+                                } elseif (strpos(strtolower($school_gender), 'girl') !== false) {
+                                    $gender_style = 'girl-gender';
+                                } else {
+                                    $gender_style = 'mixed-gender';
+                                } ?>
+                                <p class="<?php echo $gender_style ?>"><?php echo $school_gender; ?></p>
+                                <!-- <p class="girl-gender"><?php echo $school_gender; ?></p>
+                            <p class="mixed-gender"><?php echo $school_gender; ?></p> -->
                                 <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
                                 <p><?php echo get_field('school_grades', $school->ID); ?></p>
                                 <p><?php echo get_field('school_type', $school->ID); ?></p>
