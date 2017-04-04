@@ -151,11 +151,17 @@
 
     @include break-point(tablet) {
 		.small-screens & {
+			.full-image-caption {
+				position: absolute;
+				bottom: 0;
+			}
+
 			figcaption {
 				left: 3rem;
 				right: unset;
-				align-self: center;
+				align-self: unset;
 				max-width: 14rem;
+				background: rgba(30, 63, 117, 0.9);
 			}
 		}
     }
