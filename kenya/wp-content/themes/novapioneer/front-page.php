@@ -233,7 +233,6 @@ get_header(); ?>
                 $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
                 $video = get_field('video', $video_from_influencer->ID);
                 ?>
-
                 <div class="section-content-item section-content-item-half first-item">
                     <div class="media youtube-video">
                         <?php if (get_field('video_or_image', $video_from_influencer->ID) == 'image') {
@@ -243,9 +242,8 @@ get_header(); ?>
                         } ?>
                     </div>
                 </div>
-                gu
 
-                <div class="section-content-item section-content-item-half ">
+                <div class="section-content-item section-content-item-half">
                     <h2 class="full-width-heading">The Nova Pioneer Way</h2>
                     <div class="testimonial pull-quote">
                         <blockquote>
@@ -259,6 +257,7 @@ get_header(); ?>
                         </blockquote>
                     </div>
                 </div>
+
 
             </section>
         </div>
