@@ -65,14 +65,24 @@ get_header();?>
 
         <?php foreach($education_stages as $stage): $stage = (object)$stage; ?>
             <!-- <span class="anchor-link" id="<?php echo strtolower($stage->title); ?>"></span> -->
-            <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
-            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>" >
-                <div class="section-content full-image-caption animated caption">
-                    <figcaption>
-                        <?php echo $stage->banner_image_caption; ?>
-                    </figcaption>
-                </div>
-            </figure>
+            <section class="full-width-image-container small-screens">
+                <figure class="full-width-image" style="background-image: url(<?php echo $stage->banner_image; ?>);">
+                    <div class="section-content full-image-caption animated caption">
+                        <figcaption>
+                            <?php echo $stage->banner_image_caption; ?>
+                        </figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <section class="full-width-image-container large-screens" data-enllax-type="foreground">
+                <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>" >
+                    <div class="section-content full-image-caption animated caption">
+                        <figcaption>
+                            <?php echo $stage->banner_image_caption; ?>
+                        </figcaption>
+                    </div>
+                </figure>
             </section>
 
             <section class="section education-stage">

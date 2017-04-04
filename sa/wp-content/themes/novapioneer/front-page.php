@@ -152,32 +152,30 @@ get_header(); ?>
         </section>
 
 
-        <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
-            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
-                    style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
-                    data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
+        <section class="full-width-image-container small-screens">
+            <figure class="full-width-image">
+                <?php if(get_field('below_learning_hero_image')): ?>
+                    <img src="<?php the_field('below_learning_hero_image'); ?>" />
+                <?php endif; ?>
+
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
+                        <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
                     </figcaption>
                 </div>
             </figure>
+        </section>
 
-
-            <?php
-            $image = get_field('below_learning_hero_image');
-            $size = '16-9-large'; // thumbnail, medium, large, full or custom size
-            if (get_field('image')):
-                ?>
-                <!--<figure class="full-width-image parallax" style="background-image:url('<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($image->ID), 'single-post-thumbnail')[0]; ?>');" data-enllax-ratio="0.2">
+        <section class="full-width-image-container large-screens" data-enllax-type="foreground">
+            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image:url('<?php the_field('below_learning_hero_image') ?>');" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
+                        <p>### show on large ###<br><?php echo get_field('below_learning_hero_image_text'); ?></p>
                     </figcaption>
                 </div>
-            </figure>-->
-            <?php endif; ?>
+            </figure>
         </section>
+
 
         <!-- <aside>
             <figure class="full-width-image parallax" data-type="background" data-speed="7"
