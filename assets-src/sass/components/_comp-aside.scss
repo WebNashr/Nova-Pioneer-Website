@@ -1,29 +1,22 @@
+
 /*  Aside */
 /* ==================================================== */
+
+
 .full-width-image-container{
 	position: relative;
 	width: 100%;
-		// height: 70vh;
-		// height: 80vh;
-		// background-color: $white;
 	height: calc(calc(9 / 16) * 100vw);
-	min-height: 250px;
 	padding-top: 0;
 	padding-bottom: 0;
 	background-color: transparent;
 	background-position: center;
 	overflow: hidden;
 
-	// body.ios &,
-	// body.chrome & {
-	// 	height: auto;
-	// 	height: calc(calc(9 / 16) * 100vw);
-	// 	min-height: 250px;
-	// 	overflow: initial;
-	// }
-
 	&.small-screens {
 		display: block;
+		height: auto;
+		min-height: unset;
 	}
 
 	&.large-screens {
@@ -44,12 +37,6 @@
 		&.large-screens {
 			display: block;
 		}
-
-		// body.ios &,
-		// body.chrome & {
-		// 	height: 70vh;
-		// 	overflow: hidden;
-		// }
     }
 }
 
@@ -68,13 +55,6 @@
 	padding-bottom: calc(#{$space-tiny} * 4);
 	padding-left: calc(#{$space-tiny} * 3);
 	align-items: flex-start;
-
-	// body.ios &,
-	// body.chrome & {
-	// 	height: auto;
-	// 	height: calc(calc(9 / 16) * 100vw);
-	// 	overflow: initial;
-	// }
 
     &.secondary-bgd-image {
 	    background-image: url('../../img/large-bgd-secondary.jpg');
@@ -175,8 +155,6 @@
     }
 	
 	@include break-point(laptop) {
-		// background-size: cover;
-
 		&.parallax {
 			background-attachment: fixed;
 		}
