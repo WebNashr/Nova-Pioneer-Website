@@ -207,7 +207,7 @@ get_header(); ?>
             <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image:url('<?php the_field('below_learning_hero_image') ?>');" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p>### show on large ###<br><?php echo get_field('below_learning_hero_image_text'); ?></p>
+                        <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
                     </figcaption>
                 </div>
             </figure>

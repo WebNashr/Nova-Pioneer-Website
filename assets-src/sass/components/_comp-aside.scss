@@ -106,6 +106,7 @@
 	 		&:hover {
 	 			color: $orange-lt;
 	 		}
+			 
 			@include break-point(desktop) {
 				padding-top: 0.75rem;
 				@include font-size(16px);
