@@ -269,30 +269,7 @@
         }
 	}
 }
-
-
-body.ios .section-content-item {
-	&-third {
-		@extend %column;
-		width: 100% !important;
-		margin-top: 0 !important;
-		margin-left: 0 !important;
-
-		&:nth-child(2n+3) {
-            margin-left: 0 !important;
-        }
-
-        &:nth-child(n+3) {
-            margin-top: 0 !important;
-        }
-
-        &:not(:first-child) {
-            margin-top: 3rem !important;
-        }
-	}
-}	
 		
-
 .first-item {
 	// display: none;
 	order: 1;
@@ -1553,6 +1530,15 @@ body.ios .section-content-item {
 .school-maps-container {
 	@extend %column;
 	width: 100%;
+
+	@include break-point(tablet) {
+		// flex: 12;
+		margin-left: 0 !important;
+
+		&:not(:first-of-type) {
+			margin-left: 0 !important;
+		}
+	}
 	// @extend %column-10;
 	// @extend %columns;
 }
