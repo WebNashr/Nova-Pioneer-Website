@@ -85,7 +85,7 @@ get_header(); ?>
                           <div class="image-wrap">
                             <div class="image-flip">
                                 <img
-                                    src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($leader->ID), 'single-post-thumbnail')[0]; ?>"
+                                    src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($leader->ID), 'thumbnail')[0]; ?>"
                                     alt="<?php echo $leader->post_title; ?>">
                                 <img src="<?php echo $flip_photo; ?>" alt="<?php echo $leader->post_title; ?>">
                             </div>
@@ -93,7 +93,7 @@ get_header(); ?>
                         <?php else: ?>
                           <div class="image-wrap">
                             <img
-                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($leader->ID), 'single-post-thumbnail')[0]; ?>"
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($leader->ID), 'thumbnail')[0]; ?>"
                                 alt="<?php echo $leader->post_title; ?>">
                           </div>
                         <?php endif; ?>
@@ -120,7 +120,7 @@ get_header(); ?>
                           <div class="image-wrap">
                             <div class="image-flip">
                                 <img
-                                    src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($manager->ID), 'single-post-thumbnail')[0]; ?>"
+                                    src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($manager->ID), 'thumbnail')[0]; ?>"
                                     alt="<?php echo $manager->post_title; ?>">
                                 <img src="<?php echo $flip_photo; ?>" alt="<?php echo $manager->post_title; ?>">
                             </div>
@@ -128,7 +128,7 @@ get_header(); ?>
                         <?php else: ?>
                           <div class="image-wrap">
                             <img
-                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($manager->ID), 'single-post-thumbnail')[0]; ?>"
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($manager->ID), 'thumbnail')[0]; ?>"
                                 alt="<?php echo $manager->post_title; ?>">
                           </div>
                         <?php endif; ?>
@@ -155,7 +155,7 @@ get_header(); ?>
                                   <div class="image-wrap">
                                     <div class="image-flip">
                                         <img
-                                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
+                                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'thumbnail')[0]; ?>"
                                             alt="<?php echo $member->post_title; ?>">
                                         <img src="<?php echo $flip_photo; ?>" alt="<?php echo $member->post_title; ?>">
                                     </div>
@@ -163,7 +163,7 @@ get_header(); ?>
                                 <?php else: ?>
                                   <div class="image-wrap">
                                     <img
-                                        src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
+                                        src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'thumbnail')[0]; ?>"
                                         alt="<?php echo $member->post_title; ?>">
                                   </div>
                                 <?php endif; ?>
