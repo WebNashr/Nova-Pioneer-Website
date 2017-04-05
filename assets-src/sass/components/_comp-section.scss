@@ -269,28 +269,7 @@
         }
 	}
 }
-
-body.ios .section-content-item {
-	&-third {
-		@extend %column;
-		width: 100% !important;
-		margin-top: 0 !important;
-		margin-left: 0 !important;
-
-		&:nth-child(2n+3) {
-            margin-left: 0 !important;
-        }
-
-        &:nth-child(n+3) {
-            margin-top: 0 !important;
-        }
-
-        &:not(:first-child) {
-            margin-top: 3rem !important;
-        }
-	}
-}
-
+		
 .first-item {
 	// display: none;
 	order: 1;
@@ -330,18 +309,21 @@ body.ios .section-content-item {
 	// @extend %column-3;
 	display: flex;
 	flex-direction: column;
-	height: 432px;
+	// height: 432px;
+	height: auto;
 	// width: 100%;
 	align-self: center;
 	position: relative;
 	margin-top: 0;
-	margin-bottom: 2rem;
+	// margin-bottom: 2rem;
+	margin-bottom: 3rem;
 	// &:nth-child(n+3) {
 	// 	margin-top: 0;
 	// }
 	// &:first-child {
 	// 	margin-top: 0;
 	// }
+
 	&:last-of-type {
 		margin-bottom: 0;
 	}
@@ -448,8 +430,10 @@ body.ios .section-content-item {
 
 	}
 	.button {
-		position: absolute;
-		bottom: 0;
+		// position: absolute;
+		// bottom: 0;
+		position: initial;
+		bottom: unset;
 		margin-top: 0.75rem;
 		background: $green-lt;
 		margin-left: calc(#{$space-tiny} * 0.5);
@@ -490,64 +474,38 @@ body.ios .section-content-item {
 			margin-left: 0;
 		}
 	}
-	@media screen
-  and (min-device-width: 320px)
-  and (max-device-width: 355px) {
-		height: 400px;//425px;
-		// &:last-of-type {
-		// 	height: 430px;
-		// }
-		&:last-of-type {
-			height: 425px;
-		}
-		&:nth-child(n+3) {
-			// height: 430px;//450px;
-		}
-		.sa-schools & {
-			height: 450px;
-		}
-	}
-	@media screen
-  and (min-device-width: 360px)
-  and (max-device-width: 375px) {
-		height: 425px;//425px;
-		// &:last-of-type {
-		// 	height: 430px;
-		// }
-		&:last-of-type {
-			height: 425px;
-		}
-		&:nth-child(n+3) {
-			// height: 430px;//450px;
-		}
 
-	}
-	@media screen
-  and (min-device-width: 425px)
-  and (max-device-width: 550px) {
-		height: 452px;
+	// @media screen and (min-device-width: 320px) and (max-device-width: 375px) {
+	// 	height: 425px;
+	// 	&:last-of-type {
+	// 		height: 430px;
+	// 	}
 
-	}
+	// }
+	// @media screen and (min-device-width: 425px) and (max-device-width: 550px) {
+	// 	height: 452px;
+	// }
+
 	@include break-point(tablet) {
 		// height: 432px;
 		// margin-top: 3rem;
-		max-width: 320px;
 		margin-bottom: 2rem;
-		&:first-of-type {
-			margin-top: 0;
-		}
-		&:nth-child(n+3) {
-			// height: 430px;//450px;
-			margin-top: 0;
-		}
+
+		// &:first-of-type {
+		// 	margin-top: 0;
+		// }
+		// &:nth-child(n+3) {
+		// 	height: 450px;
+		// 	margin-top: 0;
+		// }
 		// &:last-of-type {
 		// 	height: 430px;
 		// }
 	}
+
 	@include break-point(laptop) {
 		// width: auto;
-		width: auto;
-		height: 430px;
+		height: 432px;
 		align-self: center;
 		margin-top: 0;
 
@@ -556,37 +514,42 @@ body.ios .section-content-item {
 			margin-left: 2rem;
 		}
 		&:nth-child(n+3) {
-			// height: 430px;
+			height: 430px;
 			margin-top: 0;
 		}
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			// height: 430px;
+			height: 430px;
+		}
+
+		.button {
+			position: absolute;
+			bottom: 0;
 		}
 	}
 	@include break-point(desktop) {
 		height: 440px;
 		&:nth-child(n+3) {
-			// height: 440px;
+			height: 440px;
 			margin-top: 0;
 		}
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			// height: 440px;
+			height: 440px;
 		}
 	}
 	@include break-point(monitor) {
 		height: 440px;
 		&:nth-child(n+3) {
-			// height: 440px;
+			height: 440px;
 			margin-top: 0;
 		}
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			// height: 440px;
+			height: 440px;
 		}
 	}
 	@media screen
@@ -594,13 +557,13 @@ body.ios .section-content-item {
   and (max-device-width: 1920px) {
 		height: 485px;
 		&:nth-child(n+3) {
-			// height: 485px;
+			height: 485px;
 			margin-top: 0;
 		}
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			// height: 485px;
+			height: 485px;
 		}
 
 	}
@@ -625,7 +588,7 @@ body.ios .section-content-item {
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			// height: 570px;
+			height: 570px;
 		}
 
 	}
@@ -2037,7 +2000,7 @@ body.ios .section-content-item {
 				transition: font-size 0.35s;
 			}
 		}
-
+		
 		body.ios & {
 
 		}
