@@ -75,6 +75,10 @@
 		margin: 0 auto;
 		overflow: hidden;
 		margin-bottom: 1rem;
+		@include break-point(tablet) {
+			max-height: 248px;
+
+		}
 		@include break-point(laptop) {
 			max-width: 196px;
 			max-height: 203px;
@@ -114,6 +118,13 @@
 		// 	//
 		// 	// }
 		// }
+	}
+	.slider-profiles & {
+		.image-wrap {
+			@include break-point(tablet) {
+				max-height: 321px;
+			}
+		}
 	}
 	&.school-team  {
 		margin-left: 0;

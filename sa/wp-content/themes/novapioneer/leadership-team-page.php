@@ -189,6 +189,15 @@ $("#content-slider").lightSlider({
            },
 
            {
+               breakpoint:640,
+               settings: {
+                   autoWidth: false,
+                   item: 1,
+                   slideMargin: 160
+                 }
+           },
+
+           {
                breakpoint:425,
                settings: {
                    autoWidth: false,
@@ -197,7 +206,6 @@ $("#content-slider").lightSlider({
                  }
            }
        ]
-
      });
      // $('#image-gallery').lightSlider({
      //     gallery:true,
