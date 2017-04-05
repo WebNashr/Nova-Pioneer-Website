@@ -1166,9 +1166,9 @@
 	// 	margin-bottom: 1rem;
 	// }
 	h2 {
-		order: 1;
+		// order: 1;
 		@include break-point(laptop) {
-			order: 0;
+			// order: 0;
 		}
 	}
 	p {
@@ -1203,15 +1203,16 @@
 	}
 .article-inner-alt {
 	@include flexbox();
-	@include flex-direction(column-reverse);
-	flex-direction: column-reverse;
+	@include flex-direction(column);
+	// @include flex-direction(column-reverse);
+	// flex-direction: column-reverse;
 	justify-content: center;
 	.media {
-		order: 0;
+		// order: 0;
 		margin-top: 0.5rem;
 		@include break-point(laptop) {
 			// order: 1;
-			order: 0;
+			// order: 0;
 			// margin-top: 0;
 		}
 	}
