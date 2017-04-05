@@ -38,14 +38,20 @@ get_header(); ?>
                     <div class="links-inner-wrap">
                         <div class="section-content-item">
                             <div class="anchor-link">
-                                <a href="#primary-sa" class="" title="">Primary Students</a>
+                                <a href="#primary" class="" title="">Primary Students</a>
                             </div>
                         </div>
                         <div class="section-content-item">
                             <div class="anchor-link">
-                                <a href="#secondary-sa" class="" title="">Secondary Students</a>
+                                <a href="#secondary" class="" title="">Secondary Students</a>
                             </div>
                         </div>
+                        <div class="section-content-item">
+                            <div class="anchor-link">
+                                <a href="#blog" class="" title="">Blog</a>
+                            </div>
+                        </div>
+
                         <div class="section-content-item">
                             <div class="anchor-link">
                                 <a href="#contact-student" class="" title="">Contact a Student</a>
