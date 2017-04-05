@@ -130,6 +130,7 @@ get_header(); ?>
 
 
                         <div class="testimonial pull-quote article-quote">
+                            <?php if($vid_caption):?>
                             <blockquote>
                                 <svg aria-hidden="true">
                                     <use
@@ -139,6 +140,7 @@ get_header(); ?>
                                 <!-- <hr> -->
                                 <cite><span><strong><?php echo $speaker; ?></strong>, <?php echo $speaker_title; ?></span></cite>
                             </blockquote>
+                            <?php endif;?>
                         </div>
 
                         <div class="media youtube-video">
