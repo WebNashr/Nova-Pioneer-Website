@@ -713,9 +713,8 @@
 
 			@include break-point(tablet) {
 				@include font-size(14px);
-				padding-top: 0.5rem;
 			}
-			
+
 			@include break-point(laptop) {
 				@include font-size(14px);
 				margin-top: 1.15rem;
