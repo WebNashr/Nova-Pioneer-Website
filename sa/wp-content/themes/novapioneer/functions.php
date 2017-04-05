@@ -43,6 +43,7 @@ function novap_setup()
 
     // add custom image sizes
     add_image_size('16-9-large', 1200, 675, true, array('center', 'center')); // hero-type, gallery-type images
+    add_image_size('profile-square', 250, 250, true, array('center', 'center')); // perosn profile images
     // add_image_size('16-9-big', 1024, 576, true, array('center', 'center')); // inline full-width images
     // add_image_size('16-9-mid', 640, 360, true, array('center', 'center')); // article inline and half-width images
     // add_image_size('16-9-small', 480, 270, true, array('center', 'center')); // card images
