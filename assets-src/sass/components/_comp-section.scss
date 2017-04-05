@@ -708,17 +708,22 @@
 			position: relative;
 			align-self: flex-end;
 			// top: 0.5rem;
-			padding-top: 1.55rem;
+			// padding-top: 1.55rem;
+			padding-top: 0;
+
 			@include break-point(tablet) {
-					@include font-size(14px);
-					padding-top: 0.5rem;
+				@include font-size(14px);
+				padding-top: 0.5rem;
 			}
+			
 			@include break-point(laptop) {
-					@include font-size(14px);
-					margin-top: 1.15rem;
+				@include font-size(14px);
+				margin-top: 1.15rem;
+				padding-top: 1.55rem;
 			}
+
 			@include break-point(desktop) {
-					@include font-size(16px);
+				@include font-size(16px);
 			}
 		}
 		.feature-icon {
