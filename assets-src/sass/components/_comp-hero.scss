@@ -135,7 +135,11 @@
     // }
     // ### rollback ###
 
+    @include break-point(tablet) {
+        margin-top: -1rem;
+    }
     @include break-point(laptop) {
+        margin-top: 0;
         // height: 100vh;
         height: 82vh;
         background-attachment: fixed;
