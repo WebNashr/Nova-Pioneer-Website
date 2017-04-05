@@ -33,7 +33,7 @@ get_header(); ?>
         <div class="trigger"></div>
         <section class="section" style="padding:auto 0;">
             <section><h2 style="text-align: center;">Our South Africa Schools</h2></section>
-            <div class="section-school-list">
+            <div class="section-school-list sa-schools">
 
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>

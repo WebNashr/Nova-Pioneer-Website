@@ -505,7 +505,9 @@ body.ios .section-content-item {
 		&:nth-child(n+3) {
 			// height: 430px;//450px;
 		}
-
+		.sa-schools & {
+			height: 450px;
+		}
 	}
 	@media screen
   and (min-device-width: 360px)
