@@ -171,8 +171,10 @@
 
   @include break-point(tablet) {
 		padding-right: 4rem !important;
+    margin-top: 8px;
 	}
   @include break-point(laptop) {
+    margin-top: 0;
 		padding-right: 6.5rem !important;
 	}
 
