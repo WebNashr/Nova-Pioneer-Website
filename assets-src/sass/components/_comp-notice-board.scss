@@ -196,8 +196,7 @@
     }
 
     &:not(:first-of-type) {
-      // margin-left: 0;
-
+			margin-left: 0;
     }
 		&:last-child {
 			margin-bottom: 0;
@@ -210,6 +209,10 @@
       width: 100%;
 			margin-left: unset;
 			margin: 0 auto;
+
+			&:not(:first-of-type) {
+				margin-left: unset;
+			}
     }
 	}
 	.bar-notice {
