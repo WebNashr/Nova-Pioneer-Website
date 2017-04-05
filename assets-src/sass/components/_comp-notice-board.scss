@@ -185,7 +185,10 @@
     padding:  0 calc(#{$space-tiny} * 0.5);
     // background-color: $grey;
     // width: 45%;
+		width: 100%;
     margin: 0 auto;
+		margin-left: 0;
+
     &:first-of-type {
       margin-bottom: 1.5rem;
       // padding-bottom: calc(#{$space-tiny} * 3);
@@ -205,6 +208,8 @@
 		}
     @include break-point(laptop) {
       width: 100%;
+			margin-left: unset;
+			margin: 0 auto;
     }
 	}
 	.bar-notice {

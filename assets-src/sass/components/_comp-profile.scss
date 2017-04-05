@@ -210,8 +210,12 @@
 	}
 	&:first-of-type{
 		// margin-top: 2rem;
-
 	}
+
+	body.ios & {
+		margin-top: $gut;
+	}
+
 	@include break-point(tablet) {
 		&:not(:first-of-type) {
 			margin-top: 0;
@@ -224,11 +228,15 @@
         &:nth-child(n+3) {
             margin-top: $gut;
         }
-	}
 
-	@include break-point(laptop) {
-		&:first-of-type{
-			margin-top: unset;
+		body.ios & {			
+			&:nth-child(2n+3) {
+				margin-left: $gut;
+			}
+
+			&:nth-of-type(n+3) {
+				// margin-top: 0;
+			}
 		}
 	}
 
@@ -236,9 +244,13 @@
 	@include break-point(laptop) {
 		align-self: auto;
 
+		&:first-of-type{
+			margin-top: unset;
+		}
+
 		&:nth-child(2n+3) {
             margin-left: $gut;
-      }
+      	}
 
         &:nth-of-type(n+3) {
 			margin-top: 0;
