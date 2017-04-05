@@ -128,6 +128,7 @@ get_header();?>
 
 
                       <div class="testimonial pull-quote article-quote">
+                          <?php if($vid_caption):?>
                         <blockquote>
                             <svg aria-hidden="true">
                                 <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
@@ -136,6 +137,7 @@ get_header();?>
                             <!-- <hr> -->
                             <cite><span><strong><?php echo $speaker; ?></strong>, <?php echo $speaker_title; ?></span></cite>
                         </blockquote>
+                          <?php endif;?>
                       </div>
 
                     <div class="media youtube-video">
