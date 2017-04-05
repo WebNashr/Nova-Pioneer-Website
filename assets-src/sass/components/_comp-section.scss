@@ -1006,6 +1006,13 @@
 			// 	width: 100%;
 			// 	transition: width 0.35s ease-in-out;
 			// }
+
+			@include break-point(tablet) {
+				body.ios & {
+					min-height: 12rem;
+					height: 16rem;
+				}
+			}
 	    }
     }
 
