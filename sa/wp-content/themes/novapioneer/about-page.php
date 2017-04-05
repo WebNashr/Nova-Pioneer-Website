@@ -85,7 +85,7 @@ get_header(); ?>
                     <img src="<?php the_field('our_culture_banner_image'); ?>" />
                 <?php endif; ?>
 
-                <div class="section-content full-image-caption animated caption slideInLeft">
+                <div class="section-content full-image-caption">
                     <figcaption>
                         <p><?php echo get_field('our_culture_banner_image_caption'); ?></p>
                     </figcaption>

@@ -106,6 +106,7 @@
 	 		&:hover {
 	 			color: $orange-lt;
 	 		}
+			 
 			@include break-point(desktop) {
 				padding-top: 0.75rem;
 				@include font-size(16px);
@@ -133,23 +134,34 @@
 	}
 
 	.small-screens & {
+		display: block;
 		padding: 0;
 
 		figcaption {
-			align-self: center;
-			max-width: 90%;
-			left: 0;
+			// position: absolute;
+			top: unset;
 			right: 0;
+			bottom: 0;
+			left: 0;
+			align-self: center;
+			max-width: 100%;
+			background: $blue;
 		}
 	}
 
     @include break-point(tablet) {
 		.small-screens & {
+			.full-image-caption {
+				position: absolute;
+				bottom: 0;
+			}
+
 			figcaption {
-				align-self: unset;
-				max-width: 13rem;
 				left: 3rem;
 				right: unset;
+				align-self: unset;
+				max-width: 14rem;
+				background: rgba(30, 63, 117, 0.9);
 			}
 		}
     }
