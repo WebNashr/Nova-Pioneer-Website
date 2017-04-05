@@ -43,9 +43,17 @@ get_header(); ?>
                                     src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
                             <h3><?php echo $school->post_title; ?></h3>
                             <div class="school-summary">
-                                <p class="boy-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
-                                <!-- <p class="girl-gender"><?php echo get_field('school_gender', $school->ID); ?></p>
-                            <p class="mixed-gender"><?php echo get_field('school_gender', $school->ID); ?></p> -->
+                                <?php $school_gender = get_field('school_gender', $school->ID);
+                                if (strpos(strtolower($school_gender), 'boy') !== false) {
+                                    $gender_style = 'boy-gender';
+                                } elseif (strpos(strtolower($school_gender), 'girl') !== false) {
+                                    $gender_style = 'girl-gender';
+                                } else {
+                                    $gender_style = 'mixed-gender';
+                                } ?>
+                                <p class="<?php echo $gender_style ?>"><?php echo $school_gender; ?></p>
+                                <!-- <p class="girl-gender"><?php echo $school_gender; ?></p>
+                            <p class="mixed-gender"><?php echo $school_gender; ?></p> -->
                                 <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
                                 <p><?php echo get_field('school_grades', $school->ID); ?></p>
                                 <p><?php echo get_field('school_type', $school->ID); ?></p>
@@ -152,32 +160,30 @@ get_header(); ?>
         </section>
 
 
-        <section class="full-width-image-container" data-enllax-type="foreground">
-            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
-                    style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
-                    data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
-                <div class="section-content full-image-caption animated caption">
+        <section class="full-width-image-container small-screens">
+            <figure class="full-width-image">
+                <?php if(get_field('below_learning_hero_image')): ?>
+                    <img src="<?php the_field('below_learning_hero_image'); ?>" />
+                <?php endif; ?>
+
+                <div class="section-content full-image-caption">
                     <figcaption>
-                        <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
+                        <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
                     </figcaption>
                 </div>
             </figure>
+        </section>
 
-
-            <?php
-            $image = get_field('below_learning_hero_image');
-            $size = '16-9-large'; // thumbnail, medium, large, full or custom size
-            if (get_field('image')):
-                ?>
-                <!--<figure class="full-width-image parallax" style="background-image:url('<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($image->ID), 'single-post-thumbnail')[0]; ?>');" data-enllax-ratio="0.2">
+        <section class="full-width-image-container large-screens" data-enllax-type="foreground">
+            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>" style="background-image:url('<?php the_field('below_learning_hero_image') ?>');" data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                 <div class="section-content full-image-caption animated caption">
                     <figcaption>
-                        <p><?php echo get_field('below_learning_hero_image_text'); ?> </p>
+                        <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
                     </figcaption>
                 </div>
-            </figure>-->
-            <?php endif; ?>
+            </figure>
         </section>
+
 
         <!-- <aside>
             <figure class="full-width-image parallax" data-type="background" data-speed="7"
@@ -202,8 +208,8 @@ get_header(); ?>
                 ?>
                 <div class="section-content-item section-content-item-half first-item">
                     <div class="media youtube-video">
-                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
-                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
+                        <?php if (get_field('video_or_image', $video_from_influencer->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $video_from_influencer->ID) . '" />';
                         } else {
                             echo $video;
                         } ?>
