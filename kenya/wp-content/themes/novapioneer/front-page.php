@@ -119,15 +119,17 @@ get_header(); ?>
                         $student_name = get_field('student_name', $our_students_video->ID);
                         $video = get_field('video', $our_students_video->ID);
                         ?>
-                        <blockquote>
-                            <svg aria-hidden="true">
-                                <use
-                                    xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                            </svg>
-                            <?php echo $vid_caption; ?>
-                            <cite><span><strong><?php echo $student_name; ?></strong>,</span> Nova Pioneer
-                                Student</cite>
-                        </blockquote>
+                        <?php if ($vid_caption): ?>
+                            <blockquote>
+                                <svg aria-hidden="true">
+                                    <use
+                                        xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                </svg>
+                                <?php echo $vid_caption; ?>
+                                <cite><span><strong><?php echo $student_name; ?></strong>,</span> Nova Pioneer
+                                    Student</cite>
+                            </blockquote>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -165,15 +167,17 @@ get_header(); ?>
                         $caption_speaker_title = get_field('caption_speaker_title', $learning_at_novapioneer_video->ID);
                         $video = get_field('video', $learning_at_novapioneer_video->ID);
                         ?>
-                        <blockquote>
-                            <svg aria-hidden="true">
-                                <use
-                                    xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                            </svg>
-                            <?php echo $vid_caption; ?>
-                            <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?>
-                            </cite>
-                        </blockquote>
+                        <?php if ($vid_caption): ?>
+                            <blockquote>
+                                <svg aria-hidden="true">
+                                    <use
+                                        xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                </svg>
+                                <?php echo $vid_caption; ?>
+                                <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?>
+                                </cite>
+                            </blockquote>
+                        <?php endif ?>
                     </div>
                 </div>
                 <div class="section-content-item section-content-item-half">
@@ -246,15 +250,17 @@ get_header(); ?>
                 <div class="section-content-item section-content-item-half">
                     <h2 class="full-width-heading">The Nova Pioneer Way</h2>
                     <div class="testimonial pull-quote">
-                        <blockquote>
-                            <svg aria-hidden="true">
-                                <use
-                                    xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                            </svg>
-                            <?php echo $vid_caption; ?>
-                            <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?>
-                            </cite>
-                        </blockquote>
+                        <?php if ($vid_caption): ?>
+                            <blockquote>
+                                <svg aria-hidden="true">
+                                    <use
+                                        xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                </svg>
+                                <?php echo $vid_caption; ?>
+                                <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?>
+                                </cite>
+                            </blockquote>
+                        <?php endif ?>
                     </div>
                 </div>
 
