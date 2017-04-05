@@ -189,7 +189,7 @@ get_header(); ?>
                     <div class="section-content-item section-content-item-quarter profile school-team">
                         <div class="image-wrap">
                         <img
-                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'single-post-thumbnail')[0]; ?>"
+                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'thumbnail')[0]; ?>"
                             alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                             class="profile-img">
                         </div>
