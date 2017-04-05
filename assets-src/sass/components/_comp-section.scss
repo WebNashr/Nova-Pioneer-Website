@@ -290,8 +290,8 @@ body.ios .section-content-item {
             margin-top: 3rem !important;
         }
 	}
-}	
-		
+}
+
 
 .first-item {
 	// display: none;
@@ -494,10 +494,31 @@ body.ios .section-content-item {
 	}
 	@media screen
   and (min-device-width: 320px)
-  and (max-device-width: 375px) {
-		height: 425px;
+  and (max-device-width: 355px) {
+		height: 400px;//425px;
+		// &:last-of-type {
+		// 	height: 430px;
+		// }
 		&:last-of-type {
-			height: 430px;
+			height: 425px;
+		}
+		&:nth-child(n+3) {
+			// height: 430px;//450px;
+		}
+
+	}
+	@media screen
+  and (min-device-width: 360px)
+  and (max-device-width: 375px) {
+		height: 425px;//425px;
+		// &:last-of-type {
+		// 	height: 430px;
+		// }
+		&:last-of-type {
+			height: 425px;
+		}
+		&:nth-child(n+3) {
+			// height: 430px;//450px;
 		}
 
 	}
@@ -510,20 +531,22 @@ body.ios .section-content-item {
 	@include break-point(tablet) {
 		// height: 432px;
 		// margin-top: 3rem;
+		max-width: 320px;
 		margin-bottom: 2rem;
 		&:first-of-type {
 			margin-top: 0;
 		}
 		&:nth-child(n+3) {
-			height: 450px;
+			// height: 430px;//450px;
 			margin-top: 0;
 		}
-		&:last-of-type {
-			height: 430px;
-		}
+		// &:last-of-type {
+		// 	height: 430px;
+		// }
 	}
 	@include break-point(laptop) {
 		// width: auto;
+		width: auto;
 		height: 430px;
 		align-self: center;
 		margin-top: 0;
@@ -533,37 +556,37 @@ body.ios .section-content-item {
 			margin-left: 2rem;
 		}
 		&:nth-child(n+3) {
-			height: 430px;
+			// height: 430px;
 			margin-top: 0;
 		}
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			height: 430px;
+			// height: 430px;
 		}
 	}
 	@include break-point(desktop) {
 		height: 440px;
 		&:nth-child(n+3) {
-			height: 440px;
+			// height: 440px;
 			margin-top: 0;
 		}
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			height: 440px;
+			// height: 440px;
 		}
 	}
 	@include break-point(monitor) {
 		height: 440px;
 		&:nth-child(n+3) {
-			height: 440px;
+			// height: 440px;
 			margin-top: 0;
 		}
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			height: 440px;
+			// height: 440px;
 		}
 	}
 	@media screen
@@ -571,13 +594,13 @@ body.ios .section-content-item {
   and (max-device-width: 1920px) {
 		height: 485px;
 		&:nth-child(n+3) {
-			height: 485px;
+			// height: 485px;
 			margin-top: 0;
 		}
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			height: 485px;
+			// height: 485px;
 		}
 
 	}
@@ -602,7 +625,7 @@ body.ios .section-content-item {
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
-			height: 570px;
+			// height: 570px;
 		}
 
 	}
@@ -1998,7 +2021,7 @@ body.ios .section-content-item {
 				transition: font-size 0.35s;
 			}
 		}
-		
+
 		body.ios & {
 
 		}
