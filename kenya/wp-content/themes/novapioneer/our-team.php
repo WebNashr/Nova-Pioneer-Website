@@ -28,7 +28,7 @@ get_header();?>
             <div class="section-navigation">
                 <?php $school_head = get_field('head_of_school'); ?>
                 <figure class="profile">
-                    <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $school_head->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $school_head->post_title; ?>" />
+                    <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $school_head->ID ), 'thumbnail' )[0]; ?>" alt="<?php echo $school_head->post_title; ?>" />
                     <h3 class="profile-name"><?php echo $school_head->post_title; ?></h3>
                     <h6 class="profile-role"><?php the_field('title', $school_head->ID)?></h6>
                 </figure>
@@ -66,7 +66,7 @@ get_header();?>
                 <div class="section-content section-content-plain np-management-profiles">
                     <?php $i=1; foreach( get_field('team_members') as $member): $member = (object)$member; ?>
                         <div class="section-content-item section-content-item-quarter profile">
-                            <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'single-post-thumbnail' )[0]; ?>" alt="<?php echo $member->post_title; ?>">
+                            <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $member->ID ), 'thumbnail' )[0]; ?>" alt="<?php echo $member->post_title; ?>">
                             <h3 class="profile-name"><?php echo $member->post_title; ?></h3>
                             <h5 class="profile-role"><?php echo get_field('title', $member->ID); ?></h5>
                             <div class="profile-description">
