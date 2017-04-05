@@ -233,12 +233,14 @@ img.ajax-loader {
 .table-container {
 	padding-top: 0 ;
 	padding-bottom: 0;
+	// width: 100%;
 	@include break-point(tablet) {
 		padding-top: 0;
 		margin-top: -2rem;
 	}
 	@include break-point(laptop) {
 		padding-top: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1);
+		// width: 768px;
 	}
 
 }
@@ -355,7 +357,7 @@ img.ajax-loader {
 		}
 
 		@include break-point(desktop) {
-			width: auto;
+			// width: auto;
 		}
 		&:last-of-type{
 			margin-bottom: 1rem;
@@ -411,7 +413,7 @@ img.ajax-loader {
 			color: lighten($dark-grey, 10%);
 			//display: inline-block;
 			width: 100%;
-			padding: calc(#{$space-tiny} * 0.7);
+			padding: calc(#{$space-tiny} * 0.6);
 			padding-right: calc(#{$space-tiny} * 3);
 
 			// padding-right: calc(#{$space-tiny} * 3);
