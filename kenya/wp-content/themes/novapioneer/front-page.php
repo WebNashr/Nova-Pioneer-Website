@@ -463,8 +463,15 @@ get_header(); ?>
                     //   },
 
                     {
+                        breakpoint: 800,
+                        settings: {
+                            auto: false,
+                        }
+                    },
+                    {
                         breakpoint: 320,
                         settings: {
+                            auto: false,
                             slideMargin: 245,
                         }
                     }
