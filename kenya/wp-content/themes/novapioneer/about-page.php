@@ -153,7 +153,9 @@ get_header(); ?>
     jQuery(document).ready(function ($) {
         var readmoreCounter = 1;
         jQuery('.read-more-target-js p').hide();
-        jQuery(".read-more-trigger-js").click(function () {
+        jQuery(".read-more-trigger-js").click(function (e) {
+            console.log('default prevented');
+            e.preventDefault();
             var collapse = $(this).data('collapse')
             readmoreCounter += 1 - 1;
             console.log(readmoreCounter++)
