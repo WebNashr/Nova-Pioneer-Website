@@ -129,29 +129,30 @@ header {
     &.stuck,
 	.non-hero & {
 		max-width: 3rem;
-			max-height: 3rem;
+		max-height: 3rem;
 	}
 
 	.modal & {
-		max-width: 4rem;
-			max-height: 4rem;
+		max-width: 3rem;
+		max-height: 3rem;
+		margin-top: 2rem;
 		// margin-bottom: 2rem;
     }
 
     @include break-point(tablet) {
 		max-width: 4rem;
-			max-height: 4rem;
+		max-height: 4rem;
 
-		.modal & {
-			max-width: 6rem;
-				max-height: 6rem;
-	    }
+		// .modal & {
+		// 	max-width: 6rem;
+		// 	max-height: 6rem;
+	    // }
     }
 
     @include break-point(laptop) {
-			// max-width: 14rem;
-			max-width: 12.5rem;
-			max-height: 64px;
+		// max-width: 14rem;
+		max-width: 12.5rem;
+		max-height: 64px;
 
 		svg {
 	    	&.logo-mark-text {
@@ -172,16 +173,16 @@ header {
     }
 
     @include break-point(largelaptop) {
-			// max-width: 18rem;
-			max-width: 14rem;
-			max-height: 64px;
+		// max-width: 18rem;
+		max-width: 14rem;
+		max-height: 64px;
     }
 }
 
 
 .header-apply {
     margin-left: auto;
-		margin-right: auto;
+	margin-right: auto;
     align-self: center;
     padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 0.75);
     background: $green-lt;
