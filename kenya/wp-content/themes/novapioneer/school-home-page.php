@@ -334,7 +334,7 @@ get_header(); ?>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
-                    <div class="media">
+                    <div class="school-maps-container">
                         <?php $locations = array();
                         if (get_field('map_embed_code')) {
                             $cood = explode(",", get_field('map_embed_code'));
