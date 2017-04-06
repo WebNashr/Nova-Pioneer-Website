@@ -1010,6 +1010,10 @@
 		.section-content {
 			@include flex-direction(column);
 			height: 100%;
+			overflow: hidden;
+			// margin-bottom: $gut;
+
+			// height: 100%;
 			// &:first-of-type {
 			// 	@include flex-direction(column);
 			// }
@@ -1019,7 +1023,7 @@
 	@include break-point(laptop) {
 		.section-content {
 			@include flex-direction(row);
-			height: 100%;
+			height: auto;
 			// &:first-of-type {
 			// 	@include flex-direction(column);
 			// }
@@ -1118,6 +1122,12 @@
 		&:not(:first-of-type) {
 			margin-left: 0;
 			margin-right: $gut;
+		}
+		@include break-point(tablet) {
+			&:not(:first-of-type) {
+				margin-left: 0;
+				margin-right: 0;
+			}
 		}
 	}
 	@include break-point(tablet) {
