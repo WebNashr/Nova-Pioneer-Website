@@ -111,14 +111,16 @@ if( ios ) {
 
          */
         $('.anchor-link a[href^="#"]').on('click', function (event) {
+            event.preventDefault();
+            console.log('stop event default action');
             console.log('scroll');
+
             var target = $(this.getAttribute('href'));
             var headerHeight = $("#header-container").height()
             console.log(headerHeight)
             var scrollToPosition = $(target).offset().top - headerHeight;
             console.log(scrollToPosition);
             if (target.length) {
-                event.preventDefault();
                 $('html, body').stop().animate({
                     scrollTop: scrollToPosition
                 }, 1000);

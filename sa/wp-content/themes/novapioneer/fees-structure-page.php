@@ -65,7 +65,7 @@ the_post(); ?>
 
     <article class="article article-inner article-inner-alt table-container">
         <form class="table-filter">
-            <div class="selector">
+            <div class="selector" id="scroll-back-here">
                 <select name="school" class="dropdown">
                     <option value=">Select a School">Select a School</option>
                     <?php foreach ($schools as $school): $school = (object)$school; ?>
@@ -99,7 +99,8 @@ the_post(); ?>
                     <?php endif; ?>
                 </select>
             </div>
-            <input name="view" value="View Fees" class="button button-small button-primary fees-button" style="" type="submit"/>
+            <input name="view" value="View Fees" class="button button-small button-primary fees-button" style=""
+                   type="submit"/>
         </form>
         <?php if (!empty($selected_school) && !empty($selected_grade) && !empty($selected_year) && ($_GET["view"] === "true")): ?>
             <div class="fees-container">
@@ -219,6 +220,17 @@ the_post(); ?>
 
         <?php endwhile; ?>
 
+        <?php if (isset($_REQUEST['school']) && isHandHeld()): ?>
+            <script>
+                $(document).ready(function () {
+                    // Handler for .ready() called.
+                    $('html, body').animate({
+                        scrollTop: $('#scroll-back-here').offset().top
+                    }, 'slow');
+                });
+            </script>
+
+        <?php endif; ?>
         <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 
         <script>
@@ -239,34 +251,12 @@ the_post(); ?>
                 });
             });
         </script>
-        <!-- smooth scroll -->
-        <script>
-            $('a[href^="#"]').on('click', function (event) {
-                var target = $(this.getAttribute('href'));
-                if (target.length) {
-                    event.preventDefault();
-                    $('html, body').stop().animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                }
-            });
-        </script>
+
 
         <?php endif; ?>
 
         <?php get_footer(); ?>
-        <!-- smooth scroll -->
-        <script>
-            $('a[href^="#"]').on('click', function (event) {
-                var target = $(this.getAttribute('href'));
-                if (target.length) {
-                    event.preventDefault();
-                    $('html, body').stop().animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                }
-            });
-        </script>
+
 
         <script>
 
@@ -290,5 +280,6 @@ the_post(); ?>
                 });
 
             })(jQuery);
+
 
         </script>

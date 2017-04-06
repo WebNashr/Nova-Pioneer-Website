@@ -662,3 +662,12 @@ function isOnMobile()
     return (object)$para;
 
 }
+
+function ishandheld()
+{
+    if (wpmd_is_android() || wpmd_is_ios() || wpmd_is_blackberry() || wpmd_is_phone() || wpmd_is_tablet() || wpmd_is_device()) {
+
+        return true;
+    }
+    return false;
+}
