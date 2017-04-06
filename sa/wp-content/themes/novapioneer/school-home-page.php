@@ -20,6 +20,16 @@ get_header(); ?>
             </div>
         </section>
 
+        <section class="section-hero-ios">
+            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
+            <div class="container hero-container">
+                <div class="main-callout-box">
+                    <hr>
+                    <h1>Learners are inspired become adaptive, independent thinkers</h1>
+                </div>
+            </div>
+        </section>
+
         <div class="trigger"></div>
 
         <section class="section section-pair school-features-container">
@@ -301,7 +311,7 @@ get_header(); ?>
 
             <div class="section-content">
                 <div class="section-content-item section-content-item-half">
-                    <div class="media">
+                    <div class="school-maps-container">
                         <?php
                         $locations = array();
                         if (get_field('map_embed_code')) {
@@ -314,6 +324,7 @@ get_header(); ?>
 
                             novap_render_google_map($locations);
                         } ?>
+                       
 
                     </div>
                 </div>

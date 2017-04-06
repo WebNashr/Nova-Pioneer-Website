@@ -19,6 +19,17 @@ get_header(); ?>
                 </div>
             </section>
 
+            <section class="section-hero-ios">
+                <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
+                <div class="container hero-container">
+                    <div class="main-callout-box">
+                        <hr>
+                        <h1>Contact Us</h1>
+                        <p>Developing innovators &amp; leaders who will shape the future</p>
+                    </div>
+                </div>
+            </section>
+
             <?php $locations = array(); // The school locations ?>
 
             <div class="trigger"></div>

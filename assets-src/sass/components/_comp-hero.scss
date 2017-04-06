@@ -113,6 +113,10 @@
         }
     }
 
+    body.ios & {
+      // display: none;
+    }
+
     // ### rollback ###
     // @include break-point(mobile) {
     //     height: calc(calc(649/1200) * 100vw); // magic number aspect ratio calc
@@ -138,6 +142,7 @@
     @include break-point(tablet) {
         margin-top: -1rem;
     }
+
     @include break-point(laptop) {
         margin-top: 0;
         // height: 100vh;
@@ -425,3 +430,32 @@
       bottom: 2rem;
     }
 }
+
+
+.section-hero-ios {
+  display: none;
+  position: relative;
+  margin-top: -6px;
+  bottom: -6px;
+
+  img {
+    margin-top: 0;
+  }
+
+  .container.hero-container {
+    position: absolute;
+    top: -8px;
+    bottom: 6px;
+    height: calc(calc(9/16)*100vw);
+  }
+
+  .main-callout-box {
+    bottom: 0;
+    padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 2);
+  }
+
+  body.ios & {
+    display: block;
+  }
+}
+
