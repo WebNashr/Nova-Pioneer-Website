@@ -229,8 +229,17 @@ $("#content-slider").lightSlider({
          // swipeThreshold: 40,
          responsive : [
            {
+               breakpoint:1024,
+               settings: {
+                   slideMargin:160,
+                 }
+           },
+
+           {
                breakpoint:768,
                settings: {
+                   autoWidth: false,
+                   item: 1,
                    slideMargin:160,
                  }
            },
