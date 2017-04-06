@@ -1627,6 +1627,9 @@
 			margin-left: 0 !important;
 		}
 	}
+	@include break-point(laptop) {
+		margin-top: 2rem;
+	}
 	// @extend %column-10;
 	// @extend %columns;
 }
