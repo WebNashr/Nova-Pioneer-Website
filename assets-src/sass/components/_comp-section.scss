@@ -971,6 +971,19 @@
 		    width: 100%;
 		    height: 100%;
 		}
+
+	}
+	.school-maps-container {
+		// display: none;
+		@include break-point(mobile) {
+			margin-bottom: 2rem;
+		}
+		@include break-point(tablet) {
+			margin-bottom: 2rem;
+		}
+		@include break-point(laptop) {
+			margin-bottom: 0;
+		}
 	}
 	.media {
 		// margin-top: 1rem;
