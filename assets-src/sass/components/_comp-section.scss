@@ -1579,7 +1579,8 @@
 	margin-bottom: 1.5rem;
 
 	h3 {
-		margin-bottom: calc(#{$space-tiny} * 1);
+		margin-bottom: calc(#{$space-tiny} * 0.5);
+		@include font-size(22px);
 	}
 
 	p {
@@ -1594,6 +1595,7 @@
 		color: $dark-grey;
 
 		.contact-info {
+
 			span {
 				display: block;
 				@include copy(regular);
@@ -1609,6 +1611,12 @@
 						display: inline;
 					}
 				}
+			}
+			@include break-point(tablet) {
+				margin-top: calc(#{$space-tiny} * 1);
+			}
+			@include break-point(laptop) {
+				margin-top: calc(#{$space-tiny} * 0.5);
 			}
 		}
 	}
