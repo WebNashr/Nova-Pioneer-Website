@@ -444,6 +444,12 @@ get_header(); ?>
                     }
                 },
                 {
+                    breakpoint: 600,
+                    settings: {
+                        auto: false,
+                    }
+                },
+                {
                     breakpoint: 320,
                     settings: {
                         auto: false,
