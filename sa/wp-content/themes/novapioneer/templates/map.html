@@ -55,6 +55,10 @@
         });
 
         map.fitBounds(bounds);
+        google.maps.event.addDomListener(map, 'resize', function () {
+            google.maps.event.trigger(map, "resize");
+            map.fitBounds(bounds);
+        });
 
 
     }
