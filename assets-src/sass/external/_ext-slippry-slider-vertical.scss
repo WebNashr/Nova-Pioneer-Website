@@ -389,7 +389,6 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     	background: rgba(7, 33, 52, 0.785);
     	padding: calc(#{$space-tiny} * 6) calc(#{$space-tiny} * 4);
     	background-color: transparent;
-
       background-image: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.75),
@@ -534,7 +533,9 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
             }
           }
           @include break-point(tablet) {
-              @include font-size(24px);
+              // @include font-size(24px);
+              @include font-size(18px);
+              margin-top: 4px;
               // max-width: 100%;
           }
           @include break-point(desktop) {
@@ -548,8 +549,10 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
         // @include break-point(mobile) {
         //     height:50%;
         // }
+
         @include break-point(tablet) {
-            height: 60%;
+            // height: 60%;
+            height: 65%;
         }
         @include break-point(laptop) {
             // top: 65vh;
