@@ -59,7 +59,7 @@ get_header(); ?>
                     <div class="button-wrap">
                         <button class="read-more-trigger-js button button-tiny button-primary"
                                 data-collapse="story" <?php if (wpmd_is_device()) {
-                                echo ' style="z-index:115"';} ?>
+                                echo ' style="z-index:115"';} ?>>
                                 Read More
                         </button>
                     </div>
@@ -81,7 +81,7 @@ get_header(); ?>
                 <?php if ($counter_m > 0): ?>
                     <div class="button-wrap">
                         <button class="read-more-trigger-js button button-tiny button-primary"  <?php if (wpmd_is_device()) {
-                            echo ' style="z-index:115"';} ?>s data-collapse="mission">
+                            echo ' style="z-index:115"';} ?> data-collapse="mission">
                             Read More
                         </button>
                     </div>
