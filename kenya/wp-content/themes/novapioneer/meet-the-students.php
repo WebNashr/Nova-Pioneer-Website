@@ -87,10 +87,28 @@ get_header(); ?>
                 <?php
                 if (have_rows('juniors')): while (have_rows('juniors')) : the_row(); ?>
                     <div class="the-students">
+                        <div class="section-content-item section-content-item-half">
+                            <header class="small-screens">
+                                <h3><?php the_sub_field('student_name'); ?></h3>
+                                <h4 class="grade"><?php the_sub_field('student_grade'); ?></h4>
+                            </header>
 
-                        <div class="section-content-item section-content-item-half first-item">
-                            <h3><?php the_sub_field('student_name'); ?></h3>
-                            <h4 class="grade"><?php the_sub_field('student_grade'); ?></h4>
+                            <div class="media youtube-video">
+                                <?php if (get_sub_field('video_or_image') == 'image') : ?>
+                                    <img src="<?php the_sub_field('image') ?>"/>
+                                <?php else : ?>
+                                    <iframe width="347" height="194" src="<?php the_sub_field('video_link'); ?>"
+                                            frameborder="0" allowfullscreen></iframe>
+                                <?php endif ?>
+                            </div>
+                        </div>
+                        
+                        <div class="section-content-item section-content-item-half">
+                            <header class="large-screens">
+                                <h3><?php the_sub_field('student_name'); ?></h3>
+                                <h4 class="grade"><?php the_sub_field('student_grade'); ?></h4>
+                            </header>
+
                             <div class="testimonial pull-quote">
                                 <blockquote>
                                     <svg aria-hidden="true">
@@ -101,19 +119,6 @@ get_header(); ?>
                                     <cite><span><?php the_sub_field('student_name'); ?>,</span> Nova Pioneer
                                         Student</cite>
                                 </blockquote>
-                            </div>
-                        </div>
-
-
-                        <div class="section-content-item section-content-item-half">
-                            <div class="media youtube-video">
-                                <?php if (get_sub_field('video_or_image') == 'image') : ?>
-
-                                    <img src="<?php the_sub_field('image') ?>"/>
-                                <?php else : ?>
-                                    <iframe width="347" height="194" src="<?php the_sub_field('video_link'); ?>"
-                                            frameborder="0" allowfullscreen></iframe>
-                                <?php endif ?>
                             </div>
                         </div>
                     </div>
@@ -162,10 +167,28 @@ get_header(); ?>
                 <?php
                 if (have_rows('seniors')): while (have_rows('seniors')) : the_row(); ?>
                     <div class="the-students">
+                        <div class="section-content-item section-content-item-half">
+                            <header class="small-screens">
+                                <h3><?php the_sub_field('student_name'); ?></h3>
+                                <h4 class="grade"><?php the_sub_field('student_grade'); ?></h4>
+                            </header>
+                            
+                            <div class="media youtube-video">
+                                <?php if (get_sub_field('video_or_image') == 'image') : ?>
+                                    <img src="<?php the_sub_field('image') ?>"/>
+                                <?php else : ?>
+                                    <iframe width="347" height="194" src="<?php the_sub_field('video_link'); ?>"
+                                            frameborder="0" allowfullscreen></iframe>
+                                <?php endif ?>
+                            </div>
+                        </div>
 
-                        <div class="section-content-item section-content-item-half first-item">
-                            <h3><?php the_sub_field('student_name'); ?></h3>
-                            <h4 class="grade"><?php the_sub_field('student_grade'); ?></h4>
+                        <div class="section-content-item section-content-item-half">
+                            <header class="large-screens">
+                                <h3><?php the_sub_field('student_name'); ?></h3>
+                                <h4 class="grade"><?php the_sub_field('student_grade'); ?></h4>
+                            </header>
+
                             <div class="testimonial pull-quote">
                                 <blockquote>
                                     <svg aria-hidden="true">
@@ -178,24 +201,12 @@ get_header(); ?>
                                 </blockquote>
                             </div>
                         </div>
-
-
-                        <div class="section-content-item section-content-item-half">
-                            <div class="media youtube-video">
-                                <?php if (get_sub_field('video_or_image') == 'image') : ?>
-
-                                    <img src="<?php the_sub_field('image') ?>"/>
-                                <?php else : ?>
-                                    <iframe width="347" height="194" src="<?php the_sub_field('video_link'); ?>"
-                                            frameborder="0" allowfullscreen></iframe>
-                                <?php endif ?>
-                            </div>
-                        </div>
                     </div>
                 <?php endwhile; endif; ?>
-
             </div>
         </section>
+
+        
         <section class="section section-pair section-school-blog even-section">
             <div class="section-navigation">
                 <h2 id="blog">Student Blog</h2>
