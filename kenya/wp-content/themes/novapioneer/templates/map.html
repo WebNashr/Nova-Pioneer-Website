@@ -59,6 +59,11 @@
             map.fitBounds(bounds);
         });
     }
+
+    $(window).resize(function () {
+        initMap()
+        console.log('initialize map again')
+    })
 </script>
 
 
