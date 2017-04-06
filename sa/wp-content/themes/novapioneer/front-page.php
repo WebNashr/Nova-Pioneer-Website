@@ -70,7 +70,7 @@ get_header(); ?>
         </section>
 
 
-        <section class="section section-pair even-section">
+        <section class="section section-pair even-section section-our-students">
             <div class="section-navigation">
                 <h2>Our Students</h2>
                 <div class="button-wrap">
@@ -118,7 +118,7 @@ get_header(); ?>
         </section>
 
 
-        <section class="section section-pair">
+        <section class="section section-pair section-learning-at-np">
             <div class="section-navigation">
                 <h2>Learning at Nova Pioneer</h2>
                 <div class="button-wrap">

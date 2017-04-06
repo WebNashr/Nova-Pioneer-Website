@@ -24,7 +24,7 @@ get_header(); ?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1>(iOS) Learners are inspired become adaptive, independent thinkers</h1>
+                    <h1>Learners are inspired become adaptive, independent thinkers</h1>
                 </div>
             </div>
         </section>
@@ -119,7 +119,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="section section-pair even-section">
+        <section class="section section-pair even-section section-our-students">
             <div class="section-navigation">
                 <h2>Our Students</h2>
                 <div class="button-wrap">
