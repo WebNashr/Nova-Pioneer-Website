@@ -2165,7 +2165,39 @@
 
 	}
 }
-.section-meet-students {
+.section-our-students {
+	.section-content {
+		@include break-point(tablet) {
+			flex-direction: column;
+			height: 100%;
+		}
+		@include break-point(laptop) {
+			flex-direction: row;
+			height: auto;
+		}
+	}
+	.section-content-item-half  {
+
+			@include break-point(tablet) {
+				flex-direction: column;
+
+				&:not(:first-of-type) {
+					margin-left: 0;
+					margin-right: 0;
+				}
+			}
+			@include break-point(laptop) {
+				flex-direction: row;
+
+				&:not(:first-of-type) {
+					margin-left: 0;
+					margin-right: $gut;
+				}
+			}
+		}
+}
+
+.section-the-np-way {
 	.section-content {
 		@include break-point(tablet) {
 			flex-direction: column;
@@ -2178,3 +2210,55 @@
 	}
 
 }
+
+.section-learning-at-np {
+	.section-content {
+		@include break-point(tablet) {
+			flex-direction: column;
+			height: 100%;
+		}
+		@include break-point(laptop) {
+			flex-direction: row;
+			height: auto;
+		}
+	}
+	.section-content-item-half  {
+
+			@include break-point(tablet) {
+				flex-direction: column;
+
+				&:not(:first-of-type) {
+					margin-left: 0;
+					margin-right: 0;
+				}
+			}
+			@include break-point(laptop) {
+				flex-direction: row;
+
+				&:not(:first-of-type) {
+					margin-left: 0;
+					margin-right: $gut;
+				}
+			}
+		}
+}
+
+
+// .section-content-item-half {
+// 	&:not(:first-of-type) {
+// 		margin-left: 0;
+// 		margin-right: $gut;
+// 	}
+// 	@include break-point(tablet) {
+// 		&:not(:first-of-type) {
+// 			margin-left: 0;
+// 			margin-right: 0;
+// 		}
+// 	}
+// }
+// @include break-point(tablet) {
+// 	flex-direction: column;
+// }
+// @include break-point(laptop) {
+// 	flex-direction: row;
+// }
