@@ -441,7 +441,7 @@
 		background: $green-lt;
 		margin-right: auto;
 		margin-left: calc(#{$space-tiny} * 0.5);
-		
+
 		&:hover {
 			background: $blue-lt;
 		}
@@ -1136,12 +1136,18 @@
 	.section-content-item-half {
 		&:not(:first-of-type) {
 			margin-left: 0;
-			margin-right: $gut;
+			margin-right: 0;
 		}
 		@include break-point(tablet) {
 			&:not(:first-of-type) {
 				margin-left: 0;
 				margin-right: 0;
+			}
+		}
+		@include break-point(laptop) {
+			&:not(:first-of-type) {
+				margin-left: 0;
+				margin-right: $gut;
 			}
 		}
 	}
