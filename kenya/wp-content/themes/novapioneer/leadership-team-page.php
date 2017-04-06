@@ -231,7 +231,8 @@ $("#content-slider").lightSlider({
            {
                breakpoint:1024,
                settings: {
-                   slideMargin:160,
+                //    slideMargin:160,
+                   slideMargin:100,
                  }
            },
 
@@ -241,7 +242,7 @@ $("#content-slider").lightSlider({
                    autoWidth: false,
                    item: 2,
                    slideMove: 2,
-                   slideMargin:160,
+                   slideMargin:80,
                  }
            },
 
@@ -251,7 +252,7 @@ $("#content-slider").lightSlider({
                    autoWidth: false,
                    item: 2,
                    slideMove: 2,
-                   slideMargin: 160
+                   slideMargin: 80
                 }
            },
 
@@ -261,7 +262,7 @@ $("#content-slider").lightSlider({
                    autoWidth: false,
                    item: 1,
                    slideMove: 1,
-                   slideMargin: 160
+                //    slideMargin: 160
                  }
            }
        ]
