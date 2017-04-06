@@ -121,10 +121,9 @@
 		}
 
 		.modal.modal-menu & {
-			@include font-size(16px);
+			@include font-size(19px);
 			line-height: 1.25;
-			padding: 0 0px 16px;
-			color: $white;
+			padding: 0 0 16px;
 			color: $orange-lt;
 		}
 
@@ -180,9 +179,8 @@
 			color: lighten($grey-mdk, 15%);
 
 			.modal.modal-menu & {
-			    @include font-size(14px);
+			    @include font-size(16px);
 				line-height: 1.35;
-				// padding: 6px 0;
 				padding: 4px 0;
 				color: $white;
 
@@ -286,7 +284,6 @@
 		}
     }
 }
-
 
 .menu-item-current {
 	a {
