@@ -523,6 +523,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
           color: $white;
           text-align: left;
           text-indent: 0;
+          margin-top: 4px;
           margin-left: -1.5rem;
           &.hero-subtitle {
             -webkit-animation-delay: 2s;
@@ -535,7 +536,6 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
           @include break-point(tablet) {
               // @include font-size(24px);
               @include font-size(18px);
-              margin-top: 4px;
               // max-width: 100%;
           }
           @include break-point(desktop) {
