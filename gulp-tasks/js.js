@@ -30,7 +30,7 @@ gulp.task('js', function () {
     .pipe(plumber())
     .pipe(concat('main.js'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(maps.init())
     .pipe(plumber.stop())
     .pipe(maps.write('maps'))

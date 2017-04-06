@@ -106,6 +106,7 @@
 	&.meet-students-nav {
 		padding-bottom: 0;
 		margin-bottom: -1rem;
+		z-index: 115;
 			@include break-point(laptop) {
 			.navigation-wrap {
 				max-width: inherit;
