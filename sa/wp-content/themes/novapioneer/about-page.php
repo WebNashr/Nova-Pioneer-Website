@@ -56,11 +56,13 @@ get_header(); ?>
                            <?php endforeach; ?>
                 </span></div>
                 <?php if ($counter_s > 0): ?>
-                  <div class="button-wrap">
-                    <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="story">
-                        Read More
-                    </button>
-                  </div>
+                    <div class="button-wrap">
+                        <button class="read-more-trigger-js button button-tiny button-primary"
+                                data-collapse="story" <?php if (wpmd_is_device()) {
+                                echo ' style="z-index:115"';} ?>>
+                                Read More
+                        </button>
+                    </div>
                 <?php endif; ?>
                 <h2 class="centered-title">Our Vision</h2>
                 <?php echo $our_vision; ?>
@@ -77,11 +79,12 @@ get_header(); ?>
                   </span>
                 </div>
                 <?php if ($counter_m > 0): ?>
-                  <div class="button-wrap">
-                    <button class="read-more-trigger-js button button-tiny button-primary" data-collapse="mission">
-                        Read More
-                    </button>
-                  </div>
+                    <div class="button-wrap">
+                        <button class="read-more-trigger-js button button-tiny button-primary"  <?php if (wpmd_is_device()) {
+                            echo ' style="z-index:115"';} ?> data-collapse="mission">
+                            Read More
+                        </button>
+                    </div>
                 <?php endif ?>
 
 
@@ -91,8 +94,8 @@ get_header(); ?>
 
         <section class="full-width-image-container small-screens">
             <figure class="full-width-image">
-                <?php if(get_field('our_culture_banner_image')): ?>
-                    <img src="<?php the_field('our_culture_banner_image'); ?>" />
+                <?php if (get_field('our_culture_banner_image')): ?>
+                    <img src="<?php the_field('our_culture_banner_image'); ?>"/>
                 <?php endif; ?>
 
                 <div class="section-content full-image-caption">
@@ -102,11 +105,11 @@ get_header(); ?>
                 </div>
             </figure>
         </section>
-        
+
         <section class="full-width-image-container large-screens" data-enllax-type="foreground">
             <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
                     style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);"
-                    data-enllax-ratio="<?php echo isOnMobile()->ratio?>">
+                    data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
                 <div class="section-content full-image-caption animated caption slideInLeft">
                     <figcaption>
                         <?php echo get_field('our_culture_banner_image_caption'); ?>
