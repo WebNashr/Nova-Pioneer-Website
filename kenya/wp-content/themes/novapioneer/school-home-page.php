@@ -24,7 +24,7 @@ get_header(); ?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1>(iOS) Learners are inspired become adaptive, independent thinkers</h1>
+                    <h1>Learners are inspired become adaptive, independent thinkers</h1>
                 </div>
             </div>
         </section>
