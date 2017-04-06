@@ -1627,6 +1627,9 @@
 			margin-left: 0 !important;
 		}
 	}
+	@include break-point(laptop) {
+		margin-top: 2rem;
+	}
 	// @extend %column-10;
 	// @extend %columns;
 }
@@ -1869,12 +1872,23 @@
 .the-students {
 	@extend %columns;
 	width: 100%;
+
 	&:not(:first-of-type) {
 		margin-top: 3rem;
 	}
 	&:not(:last-of-type) {
 		margin-bottom: 2rem;
 
+	}
+
+	header {
+		&.large-screens {
+			display: none;
+		}
+
+		&.small-screens {
+			display: block;
+		}
 	}
 
 	h4 {
@@ -1926,6 +1940,16 @@
         #student-contact-form {
         	margin-top: unset;
         }
+
+		header {
+			&.large-screens {
+				display: block;
+			}
+
+			&.small-screens {
+				display: none;
+			}
+		}
     }
 }
 //---Meet the Students end--
