@@ -419,9 +419,9 @@ get_header(); ?>
 
             // currentPagerPosition: 'middle',
 
-            enableTouch: true,
-            enableDrag: true,
-            freeMove: true,
+            enableTouch: false,
+            enableDrag: false,
+            freeMove: false,
             // swipeThreshold: 40,
             responsive: [
                 // {
