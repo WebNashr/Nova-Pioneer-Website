@@ -109,7 +109,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="section section-pair even-section">
+        <section class="section section-pair even-section section-meet-students">
             <div class="section-navigation">
                 <h2>Our Students</h2>
                 <div class="button-wrap">

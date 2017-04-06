@@ -2165,3 +2165,16 @@
 
 	}
 }
+.section-meet-students {
+	.section-content {
+		@include break-point(tablet) {
+			flex-direction: column;
+			height: 100%;
+		}
+		@include break-point(laptop) {
+			flex-direction: row;
+			height: auto;
+		}
+	}
+
+}
