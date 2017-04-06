@@ -985,6 +985,7 @@
 			margin-bottom: 2rem;
 		}
 		@include break-point(laptop) {
+			margin-top: -2rem;
 			margin-bottom: 0;
 		}
 	}
@@ -1025,6 +1026,8 @@
 	@include break-point(tablet) {
 		.section-content {
 			@include flex-direction(column);
+			// display: -webkit-flex;
+    	// -webkit-flex-direction: column;
 			height: 100%;
 			overflow: hidden;
 			// margin-bottom: $gut;
@@ -1039,6 +1042,7 @@
 	@include break-point(laptop) {
 		.section-content {
 			@include flex-direction(row);
+			// -webkit-flex-direction: row;
 			height: auto;
 			// &:first-of-type {
 			// 	@include flex-direction(column);
