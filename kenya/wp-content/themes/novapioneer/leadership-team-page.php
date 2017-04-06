@@ -239,7 +239,8 @@ $("#content-slider").lightSlider({
                breakpoint:768,
                settings: {
                    autoWidth: false,
-                   item: 1,
+                   item: 2,
+                   slideMove: 2,
                    slideMargin:160,
                  }
            },
@@ -248,9 +249,10 @@ $("#content-slider").lightSlider({
                breakpoint:640,
                settings: {
                    autoWidth: false,
-                   item: 1,
+                   item: 2,
+                   slideMove: 2,
                    slideMargin: 160
-                 }
+                }
            },
 
            {
@@ -258,11 +260,11 @@ $("#content-slider").lightSlider({
                settings: {
                    autoWidth: false,
                    item: 1,
+                   slideMove: 1,
                    slideMargin: 160
                  }
            }
        ]
-
      });
      // $('#image-gallery').lightSlider({
      //     gallery:true,
