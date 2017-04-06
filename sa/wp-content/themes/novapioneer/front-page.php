@@ -44,12 +44,12 @@ get_header(); ?>
                             <h3><?php echo $school->post_title; ?></h3>
                             <div class="school-summary">
                                 <?php $school_gender = get_field('school_gender', $school->ID);
-                                if (strpos(strtolower($school_gender), 'boy') !== false) {
-                                    $gender_style = 'boy-gender';
-                                } elseif (strpos(strtolower($school_gender), 'girl') !== false) {
-                                    $gender_style = 'girl-gender';
+                                if (strpos(strtolower($school_gender), 'boy-') !== false) {
+                                    $gender_style = 'boy-gender-';
+                                } elseif (strpos(strtolower($school_gender), 'girl-') !== false) {
+                                    $gender_style = 'girl-gender-';
                                 } else {
-                                    $gender_style = 'mixed-gender';
+                                    $gender_style = 'mixed-gender-';
                                 } ?>
                                 <p class="<?php echo $gender_style ?>"><?php echo $school_gender; ?></p>
                                 <!-- <p class="girl-gender"><?php echo $school_gender; ?></p>
