@@ -19,6 +19,17 @@ get_header(); ?>
             </div>
         </section>
 
+        <section class="section-hero-ios">
+            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
+            <div class="container hero-container">
+                <div class="main-callout-box">
+                    <hr>
+                    <h1>Working at Nova Pioneer</h1>
+                    <p>Building the future of African talent and global education</p>
+                </div>
+            </div>
+        </section>
+
         <div class="trigger"></div>
 
         <section class="section">
