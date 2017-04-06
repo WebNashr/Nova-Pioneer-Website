@@ -192,9 +192,20 @@ $("#content-slider").lightSlider({
          // swipeThreshold: 40,
          responsive : [
            {
+               breakpoint:1024,
+               settings: {
+                //    slideMargin:160,
+                   slideMargin:100,
+                 }
+           },
+
+           {
                breakpoint:768,
                settings: {
-                   slideMargin:160,
+                   autoWidth: false,
+                   item: 2,
+                   slideMove: 2,
+                   slideMargin:80,
                  }
            },
 
@@ -202,9 +213,10 @@ $("#content-slider").lightSlider({
                breakpoint:640,
                settings: {
                    autoWidth: false,
-                   item: 1,
-                   slideMargin: 160
-                 }
+                   item: 2,
+                   slideMove: 2,
+                   slideMargin: 80
+                }
            },
 
            {
@@ -212,7 +224,8 @@ $("#content-slider").lightSlider({
                settings: {
                    autoWidth: false,
                    item: 1,
-                   slideMargin: 160
+                   slideMove: 1,
+                //    slideMargin: 160
                  }
            }
        ]
