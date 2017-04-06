@@ -1,5 +1,5 @@
 <script>
-    console.log('safari map thingies')
+    console.log('safari map sa resize')
     var map;
     var locations_data = '{{locations}}';
     var locations = JSON.parse(locations_data.replace(/&quot;/ig, '"'));
@@ -55,9 +55,22 @@
         });
 
         map.fitBounds(bounds);
+        google.maps.event.addListener(map,'idle',function(event) {
+            mapCenter = map.getCenter();
+        });
+        google.maps.event.addDomListener(map, 'resize', function () {
+            google.maps.event.trigger(map, "resize");
+            console.log('resized map')
+            map.fitBounds(bounds);
+        });
 
 
     }
+
+    $( window ).resize(function() {
+      initMap()
+        console.log('initialize map again')
+    })
 </script>
 
 
