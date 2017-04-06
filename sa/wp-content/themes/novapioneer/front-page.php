@@ -38,7 +38,7 @@ get_header(); ?>
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>
                     <div class="section-school-list-select section-content-item-quarter">
-                        <a href="<?php echo get_permalink($school->ID); ?>" target="_blank">
+                        <a href="<?php echo get_permalink($school->ID); ?>">
                             <p class="school-photo"><img
                                     src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
                             <h3><?php echo $school->post_title; ?></h3>
@@ -61,7 +61,7 @@ get_header(); ?>
 
                             </div>
                             <a href="<?php echo get_permalink($school->ID); ?>"
-                               class="button button-tiny button-primary" target="_blank"> Read More</a>
+                               class="button button-tiny button-primary"> Read More</a>
                     </div>
 
                 <?php endforeach; ?>
@@ -307,7 +307,7 @@ get_header(); ?>
                         <h4>Our Calendar</h4>
                         <p><?php echo date('F Y'); ?> School Events</p>
                         <a href="<?php echo site_url('/calendar'); ?>" class="button button-small button-secondary"
-                           target="_blank">Calendar</a>
+                          >Calendar</a>
                     </div>
                 </div>
                 <!-- <div class="small-notice-container">

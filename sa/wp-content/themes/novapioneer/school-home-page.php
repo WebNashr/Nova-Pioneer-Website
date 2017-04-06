@@ -112,7 +112,7 @@ get_header(); ?>
                         <h4>Our Calendar</h4>
                         <p><?php echo date('F Y'); ?> School Events</p>
                         <a href="<?php echo site_url('/calendar'); ?>" class="button button-small button-secondary"
-                           target="_blank">Calendar</a>
+                           >Calendar</a>
                     </div>
                 </div>
 
