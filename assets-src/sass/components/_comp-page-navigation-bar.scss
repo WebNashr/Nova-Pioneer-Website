@@ -289,28 +289,28 @@
 }
 
 
-.learning-approach {
-	&:not(:first-of-type) {
-        margin-top: 2rem;
-    }
-
-    @include break-point(tablet) {
-        &:not(:first-of-type) {
-	        margin-top: unset;
-	    }
-
-	    &:nth-of-type(n+3) {
-	        margin-top: 2rem;
-	    }
-	}
-
-	@include break-point(laptop) {
-        &:not(:first-of-type) {
-	        // margin-top: unset;
-	    }
-
-	    &:nth-of-type(n+3) {
-	        margin-top: unset;
-	    }
-	}
-}
+// .learning-approach {
+// 	&:not(:first-of-type) {
+//         margin-top: 2rem;
+//     }
+//
+//     @include break-point(tablet) {
+//         &:not(:first-of-type) {
+// 	        margin-top: unset;
+// 	    }
+//
+// 	    &:nth-of-type(n+3) {
+// 	        margin-top: 2rem;
+// 	    }
+// 	}
+//
+// 	@include break-point(laptop) {
+//         &:not(:first-of-type) {
+// 	        // margin-top: unset;
+// 	    }
+//
+// 	    &:nth-of-type(n+3) {
+// 	        margin-top: unset;
+// 	    }
+// 	}
+// }
