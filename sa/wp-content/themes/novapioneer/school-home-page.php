@@ -333,9 +333,9 @@ get_header(); ?>
                     <div class="contact-info">
                         <span class="phone-contact-one">Call us: <a
                                 href="tel:<?php echo get_field('main_phone_number'); ?> "><?php echo get_field('main_phone_number'); ?> </a></span>
-                        <span class="phone-contact-two">Admission Enquiries:  <a
+                        <span class="phone-contact-two">Admission :  <a
                                 href="tel:<?php echo get_field('admission_enquiries_number'); ?> "><?php echo get_field('admission_enquiries_number'); ?> </a></span>
-                        <span class="phone-contact-three">Current Parents Enquiries: <a
+                        <span class="phone-contact-three">Current Parents : <a
                                 href="tel:<?php echo get_field('current_parents_contact__number'); ?>"> <?php echo get_field('current_parents_contact__number'); ?> </a> </span>
                         <span class="email-contact">Email us: <a
                                 href="mailto:<?php echo get_field('email_address'); ?>"><?php echo get_field('email_address'); ?></a></span>
