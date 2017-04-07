@@ -1574,6 +1574,7 @@
 //---Career & Job Details Pages end--
 
 //---Contact Page start--
+
 .school-contact {
 	padding-top: calc(#{$space-tiny} * 0.45);
 	margin-bottom: 1.5rem;
@@ -1603,10 +1604,11 @@
 				padding-bottom: calc(#{$space-tiny} * 0.25);
 
 				a {
+					display: block;
 					@include font-size(16px);
-					@include break-point(laptop) {
-						display: block;
-					}
+					// @include break-point(laptop) {
+					// 	display: block;
+					// }
 					@include break-point(desktop) {
 						display: inline;
 					}
@@ -1677,10 +1679,10 @@
 }
 
 .social-media-links {
+	margin-bottom: 1.2rem;
 	a {
 		display: inline-block;
 		padding-bottom: calc(#{$space-tiny} * 0.75);
-
 
 		&:hover {
 			.facebook-icon,
@@ -1723,6 +1725,9 @@
 			opacity: 0.9;
 			background-image: url(../../img/icons/instagram-icon.svg);
 		}
+	}
+	@include break-point(laptop) {
+		margin-bottom: 0;
 	}
 }
 
