@@ -997,7 +997,14 @@
   		margin-bottom: 0;
   	}
 	}
-
+	span {
+		a {
+			display: block;
+			@include break-point(tablet) {
+				display: inline;
+			}
+		}
+	}
 	.contact-info {
 		//width: 30%;
 		@include font-size(18px);
@@ -1006,7 +1013,7 @@
 		margin-top: 0;
 		margin-bottom: 2rem;
 		padding-top: 2px;
-		
+
 		// body.safari & {
 
 		// }
@@ -1230,7 +1237,45 @@
 
 }
 
+.learning-approach {
+	margin-top: 2rem;
+	&:first-of-type {
+		margin-top: 0;
+	}
+	@include break-point(tablet) {
 
+			margin-top: 0;
+
+	}
+	@include break-point(laptop) {
+		min-width: 400px;
+		&:nth-child(2n+3) {
+			margin-top: 2rem;
+			margin-left: 0;
+		}
+		&:nth-of-type(n+3) {
+			margin-top: 2rem;
+		}
+		// &:nth-of-type(n+3) {
+		// 	margin-top: 2rem;
+		// 	margin-left: 0;
+		// }
+	}
+	@include break-point(largelaptop) {
+		min-width: auto;
+		&:nth-child(2n+3) {
+			margin-top: inherit;
+			margin-left: $gut;
+		}
+		&:nth-of-type(n+3) {
+			margin-top: 0;
+		}
+	}
+	// @include break-point(desktop) {
+	// 	flex-basis: calc((100% - calc(3rem * 1))/ 2);
+	// 	max-width: calc((100% - calc(3rem * 1))/ 2);
+	// }
+}
 
 // .learning-approach {
 // 	h3 {
@@ -1258,6 +1303,46 @@
 // .section-school-leadership {
 // 	margin-top: 12rem;
 // }
+
+.admission-step {
+	margin-top: 0 !important;
+	&:first-of-type {
+		margin-top: 0 !important;
+	}
+	@include break-point(tablet) {
+
+			margin-top: 0 !important;
+
+	}
+	@include break-point(laptop) {
+		min-width: 400px;
+		&:nth-child(2n+3) {
+			margin-top: 1rem !important;
+			margin-left: 0;
+		}
+		&:nth-of-type(n+3) {
+			margin-top: 1rem !important;
+		}
+		// &:nth-of-type(n+3) {
+		// 	margin-top: 2rem;
+		// 	margin-left: 0;
+		// }
+	}
+	@include break-point(largelaptop) {
+		min-width: auto;
+		&:nth-child(2n+3) {
+			margin-top: inherit !important;
+			margin-left: $gut;
+		}
+		&:nth-of-type(n+3) {
+			margin-top: 0 !important;
+		}
+	}
+	// @include break-point(desktop) {
+	// 	flex-basis: calc((100% - calc(3rem * 1))/ 2);
+	// 	max-width: calc((100% - calc(3rem * 1))/ 2);
+	// }
+}
 
 .education-stage {
 	margin: 0 auto;
