@@ -997,7 +997,14 @@
   		margin-bottom: 0;
   	}
 	}
-
+	span {
+		a {
+			display: block;
+			@include break-point(tablet) {
+				display: inline;
+			}
+		}
+	}
 	.contact-info {
 		//width: 30%;
 		@include font-size(18px);
