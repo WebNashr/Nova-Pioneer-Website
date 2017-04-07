@@ -126,6 +126,10 @@
 			padding: 0 0 16px;
 			text-transform: uppercase;
 			color: $orange-lt;
+
+			body.ios & {
+				@include font-size(15px);
+			}
 		}
 
 		&:hover {
@@ -140,10 +144,6 @@
 		.modal.modal-menu & {
 			@include font-size(16px);
 			width: 100%;
-
-			body.ios & {
-				@include font-size(14px);
-			}
 
 			&:nth-of-type(2n+2) {
 				padding-right: 0;
@@ -181,13 +181,13 @@
 
 			.modal.modal-menu & {
 			    @include font-size(17px);
-				@include line-height(1.35);
+				@include line-height(1.25);
 				padding: 4px 0;
 				text-transform: capitalize;
 				color: $white;
 
 				body.ios & {
-					@include font-size(12px);
+					@include font-size(16px);
 				}
 			}
 		}
