@@ -19,6 +19,17 @@ get_header(); ?>
         preg_match_all('|<p>(.+?)</p>|', $our_story, $s_matches);
         $our_story_paragraphs = $s_matches[1];
         ?>
+        
+        <section class="section-hero-ios">
+            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
+            <div class="container hero-container">
+                <div class="main-callout-box">
+                    <hr>
+                    <h1><?php the_title(); ?></h1>
+                </div>
+            </div>
+        </section>
+        
         <section
             class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
             data-enllax-ratio="0.1">
@@ -30,15 +41,6 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="section-hero-ios">
-            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
-            <div class="container hero-container">
-                <div class="main-callout-box">
-                    <hr>
-                    <h1><?php the_title(); ?></h1>
-                </div>
-            </div>
-        </section>
 
         <div class="trigger"></div>
 
