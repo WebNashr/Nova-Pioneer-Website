@@ -1037,6 +1037,7 @@
 	// &:not(:first-of-type) {
 	// }
 
+
 	@include break-point(tablet) {
 		.section-content {
 			@include flex-direction(column);
@@ -1053,6 +1054,31 @@
 		}
 
 	}
+
+	// @media only screen and (min-width: 450px) and (max-width: 1023px) {
+	// 	body.ios {
+	// 	// .section-school-location {
+	// 		.section-content {
+	// 			display: block;
+	// 			flex-direction: unset;
+	// 			flex-wrap: unset;
+	// 			height: unset;
+	// 			overflow: initial;
+	// 		}
+
+	// 		.school-maps-container,
+	// 		.contact-info {
+	// 			display: block;
+	// 			width: 100%;
+	// 			min-height: 67px;
+	// 			margin-left: 0;
+	// 			padding: 12px 0;
+	// 			background: tan;
+	// 		}
+	// 	}
+	// }
+
+
 	@include break-point(laptop) {
 		.section-content {
 			@include flex-direction(row);
@@ -1064,7 +1090,6 @@
 		}
 
 	}
-
 }
 
 
