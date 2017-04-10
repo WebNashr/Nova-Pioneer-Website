@@ -111,9 +111,9 @@ the_post(); ?>
                     <table class="fees-table">
                         <thead>
                         <th class="text">Item</th>
-                        <th class="text">Term 1</th>
-                        <th class="text">Term 2</th>
-                        <th class="text">Term 3</th>
+                        <th class="text">Monthly</th>
+                        <th class="text">Termly </th>
+                        <th class="text">Yearly </th>
                         </thead>
 
                         <tbody>
