@@ -19,7 +19,7 @@ get_header();?>
                 </div>
             </div>
         </section>
-        
+
         <section class="section section-hero leadership-team" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>  data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
@@ -185,7 +185,7 @@ $("#content-slider").lightSlider({
          // nextHtml: '',
          //
          // currentPagerPosition: 'middle',
-         addClass:'content-slider',
+         addClass:'team-slider',
          // enableTouch:true,
          // enableDrag:true,
          // freeMove:true,
