@@ -1045,8 +1045,8 @@
 			@include flex-direction(column);
 			// display: -webkit-flex;
     	// -webkit-flex-direction: column;
-			height: 100%;
-			overflow: hidden;
+			// height: 100%;
+			// overflow: hidden;
 			// margin-bottom: $gut;
 
 			// height: 100%;
@@ -1054,7 +1054,15 @@
 			// 	@include flex-direction(column);
 			// }
 		}
-
+		// body.ios {
+		// 		.section-content {
+		// 			display: block;
+		// 			flex-direction: unset;
+		// 			flex-wrap: unset;
+		// 			height: unset;
+		// 			overflow: initial;
+		// 		}
+		// }
 	}
 
 	// @media only screen and (min-width: 450px) and (max-width: 1023px) {
@@ -1085,7 +1093,7 @@
 		.section-content {
 			@include flex-direction(row);
 			// -webkit-flex-direction: row;
-			height: auto;
+			// height: auto;
 			// &:first-of-type {
 			// 	@include flex-direction(column);
 			// }
