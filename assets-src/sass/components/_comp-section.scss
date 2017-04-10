@@ -973,6 +973,9 @@
 		    width: 100%;
 		    height: 100%;
 		}
+		@include break-point(laptop) {
+			margin-top: -2rem;
+		}
 
 	}
 	.school-maps-container {
@@ -984,7 +987,7 @@
 			margin-bottom: 2rem;
 		}
 		@include break-point(laptop) {
-			margin-top: -2rem;
+			// margin-top: -2rem;
 			margin-bottom: 0;
 		}
 	}
@@ -1018,7 +1021,7 @@
 		// }
 
 		@include break-point(laptop) {
-			margin-top: -0.4rem;
+			margin-top: -0.5rem;
 			margin-bottom: 0;
 		}
 		.phone-contact-one,
