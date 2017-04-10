@@ -434,14 +434,13 @@
 
 	}
 	.button {
-		// position: absolute;
-		// bottom: 0;
 		position: initial;
 		bottom: unset;
+		display: inline-table;
 		margin-top: 0.75rem;
-		background: $green-lt;
 		margin-right: auto;
 		margin-left: calc(#{$space-tiny} * 0.5);
+		background: $green-lt;
 
 		&:hover {
 			background: $blue-lt;
