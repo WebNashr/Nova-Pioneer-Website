@@ -459,3 +459,7 @@
   }
 }
 
+body.ios .section-hero-ios + .section-hero {
+  display: none;
+}
+

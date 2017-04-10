@@ -10,15 +10,6 @@ get_header(); ?>
 
     <?php while( have_posts() ): the_post(); ?>
 
-        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
-            <div class="container hero-container">
-                <div class="main-callout-box">
-                    <hr>
-                    <h1 class="animated-title"><?php the_title(); ?></h1>
-                </div>
-            </div>
-        </section>
-
         <section class="section-hero-ios">
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
             <div class="container hero-container">
@@ -28,6 +19,16 @@ get_header(); ?>
                 </div>
             </div>
         </section>
+        
+        <section class="section section-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
+            <div class="container hero-container">
+                <div class="main-callout-box">
+                    <hr>
+                    <h1 class="animated-title"><?php the_title(); ?></h1>
+                </div>
+            </div>
+        </section>
+
 
         <div class="trigger"></div>
 

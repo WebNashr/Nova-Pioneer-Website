@@ -434,14 +434,13 @@
 
 	}
 	.button {
-		// position: absolute;
-		// bottom: 0;
 		position: initial;
 		bottom: unset;
+		display: inline-table;
 		margin-top: 0.75rem;
-		background: $green-lt;
 		margin-right: auto;
 		margin-left: calc(#{$space-tiny} * 0.5);
+		background: $green-lt;
 
 		&:hover {
 			background: $blue-lt;
@@ -997,7 +996,14 @@
   		margin-bottom: 0;
   	}
 	}
-
+	span {
+		a {
+			display: block;
+			@include break-point(tablet) {
+				display: inline;
+			}
+		}
+	}
 	.contact-info {
 		//width: 30%;
 		@include font-size(18px);
@@ -1006,7 +1012,7 @@
 		margin-top: 0;
 		margin-bottom: 2rem;
 		padding-top: 2px;
-		
+
 		// body.safari & {
 
 		// }
@@ -1030,6 +1036,7 @@
 	// &:not(:first-of-type) {
 	// }
 
+
 	@include break-point(tablet) {
 		.section-content {
 			@include flex-direction(column);
@@ -1046,6 +1053,31 @@
 		}
 
 	}
+
+	// @media only screen and (min-width: 450px) and (max-width: 1023px) {
+	// 	body.ios {
+	// 	// .section-school-location {
+	// 		.section-content {
+	// 			display: block;
+	// 			flex-direction: unset;
+	// 			flex-wrap: unset;
+	// 			height: unset;
+	// 			overflow: initial;
+	// 		}
+
+	// 		.school-maps-container,
+	// 		.contact-info {
+	// 			display: block;
+	// 			width: 100%;
+	// 			min-height: 67px;
+	// 			margin-left: 0;
+	// 			padding: 12px 0;
+	// 			background: tan;
+	// 		}
+	// 	}
+	// }
+
+
 	@include break-point(laptop) {
 		.section-content {
 			@include flex-direction(row);
@@ -1057,7 +1089,6 @@
 		}
 
 	}
-
 }
 
 
@@ -1230,7 +1261,45 @@
 
 }
 
+.learning-approach {
+	margin-top: 2rem;
+	&:first-of-type {
+		margin-top: 0;
+	}
+	@include break-point(tablet) {
 
+			margin-top: 0;
+
+	}
+	@include break-point(laptop) {
+		min-width: 400px;
+		&:nth-child(2n+3) {
+			margin-top: 2rem;
+			margin-left: 0;
+		}
+		&:nth-of-type(n+3) {
+			margin-top: 2rem;
+		}
+		// &:nth-of-type(n+3) {
+		// 	margin-top: 2rem;
+		// 	margin-left: 0;
+		// }
+	}
+	@include break-point(largelaptop) {
+		min-width: auto;
+		&:nth-child(2n+3) {
+			margin-top: inherit;
+			margin-left: $gut;
+		}
+		&:nth-of-type(n+3) {
+			margin-top: 0;
+		}
+	}
+	// @include break-point(desktop) {
+	// 	flex-basis: calc((100% - calc(3rem * 1))/ 2);
+	// 	max-width: calc((100% - calc(3rem * 1))/ 2);
+	// }
+}
 
 // .learning-approach {
 // 	h3 {
@@ -1258,6 +1327,46 @@
 // .section-school-leadership {
 // 	margin-top: 12rem;
 // }
+
+.admission-step {
+	margin-top: 0 !important;
+	&:first-of-type {
+		margin-top: 0 !important;
+	}
+	@include break-point(tablet) {
+
+			margin-top: 0 !important;
+
+	}
+	@include break-point(laptop) {
+		min-width: 400px;
+		&:nth-child(2n+3) {
+			margin-top: 1rem !important;
+			margin-left: 0;
+		}
+		&:nth-of-type(n+3) {
+			margin-top: 1rem !important;
+		}
+		// &:nth-of-type(n+3) {
+		// 	margin-top: 2rem;
+		// 	margin-left: 0;
+		// }
+	}
+	@include break-point(largelaptop) {
+		min-width: auto;
+		&:nth-child(2n+3) {
+			margin-top: inherit !important;
+			margin-left: $gut;
+		}
+		&:nth-of-type(n+3) {
+			margin-top: 0 !important;
+		}
+	}
+	// @include break-point(desktop) {
+	// 	flex-basis: calc((100% - calc(3rem * 1))/ 2);
+	// 	max-width: calc((100% - calc(3rem * 1))/ 2);
+	// }
+}
 
 .education-stage {
 	margin: 0 auto;

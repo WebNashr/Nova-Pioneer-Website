@@ -213,6 +213,16 @@ h4 {
 
 	.admission-step & {
 		margin-bottom: calc(#{$space-tiny} * 1);
+		@include break-point(laptop) {
+			@include font-size(18px);
+			margin-bottom: calc(#{$space-tiny} * 0.75);
+		}
+		@include break-point(monitor) {
+			@include font-size(20px);
+			margin-bottom: calc(#{$space-tiny} * 1);
+
+		}
+
 	}
 }
 

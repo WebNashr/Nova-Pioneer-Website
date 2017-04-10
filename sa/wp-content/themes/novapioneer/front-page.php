@@ -6,11 +6,9 @@
 get_header(); ?>
 
 <?php if (have_posts()): ?>
-
     <?php while (have_posts()): the_post(); ?>
 
         <section class="section country-hero">
-
             <div class="container hero-container">
                 <ul id="hero-slider">
                     <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
@@ -30,7 +28,10 @@ get_header(); ?>
             </div>
         </section>
 
+
         <div class="trigger"></div>
+
+
         <section class="section" style="padding:auto 0;">
             <section><h2 style="text-align: center;">Our South Africa Schools</h2></section>
             <div class="section-school-list sa-schools">
@@ -178,6 +179,7 @@ get_header(); ?>
             </figure>
         </section>
 
+
         <section class="full-width-image-container large-screens" data-enllax-type="foreground">
             <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
                     style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
@@ -202,6 +204,7 @@ get_header(); ?>
                 </div>
             </figure>
         </aside> -->
+
 
         <div class="full-width-container" style="margin-bottom:0;">
             <section class="section section-pair">
@@ -273,6 +276,7 @@ get_header(); ?>
             </div>
         </section>
 
+
         <section class="section even-section">
             <div class="general-notices-container">
                 <div
@@ -317,6 +321,7 @@ get_header(); ?>
             </div>
         </section>
 
+
         <aside>
             <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">
@@ -347,7 +352,10 @@ get_header(); ?>
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
     <!-- <?php // get_template_part('includes/partials/content', 'rsvp-modal'); ?> no longer necessary -->
+
 <?php endif; ?>
+
+
 <script type="text/javascript">
     $(document).ready(function () {
         function startWayPoint() {
@@ -398,27 +406,22 @@ get_header(); ?>
             autoWidth: false,
             slideMove: 1, // slidemove will be 1 if loop is true
             // slideMargin: 300, //500
-
             addClass: '',
             mode: "slide",
             useCSS: true,
             cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
             easing: 'linear', //'for jquery animation',////
-
             speed: 400, //ms'
             auto: false,
             loop: true,
             // slideEndAnimation: true,
             pause: 2000,
-
             keyPress: false,
             controls: true,
             prevHtml: '',
             nextHtml: '',
             addClass: 'content-slider',
-
             // currentPagerPosition: 'middle',
-
             enableTouch: false,
             enableDrag: false,
             freeMove: false,
@@ -457,8 +460,9 @@ get_header(); ?>
                     }
                 }
             ]
-
         });
+
+
         $('#hero-slider').slippry({
             auto: true,
             speed: 800,
@@ -488,7 +492,7 @@ get_header(); ?>
     Add this script tag after the carousel options JS block on whichever page
     the carousel gets going on being a right pain in the footer!
 -->
-<script type="text/javascript"
-        src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
+
 
 <?php get_footer(); ?>

@@ -51,8 +51,8 @@
 
 	.modal.modal-menu & {
 		@include flexbox();
-	        // margin: 0.75rem 0 1rem;
-			margin: 0.25rem 0 0;
+		// margin: 0.75rem 0 1rem;
+		margin: 0.125rem 0 0;
 	}
 }
 
@@ -88,8 +88,8 @@
 
     .modal.modal-menu & {
 		@include font-size(20px);
-		width: 55%;
-		padding-right: 20px;
+		width: 52%;
+		padding-right: 10px;
 		text-align: left;
 
 		&:not(:first-of-type) {
@@ -97,7 +97,7 @@
 		}
 
 		&:nth-of-type(2n+2) {
-			width: 45%;
+			width: 48%;
 			padding-right: 0;
 			// background: red;
 		}
@@ -121,9 +121,10 @@
 		}
 
 		.modal.modal-menu & {
-			@include font-size(19px);
-			line-height: 1.25;
+			@include font-size(16px);
+			@include line-height(1.25);
 			padding: 0 0 16px;
+			text-transform: uppercase;
 			color: $orange-lt;
 		}
 
@@ -139,10 +140,6 @@
 		.modal.modal-menu & {
 			@include font-size(16px);
 			width: 100%;
-
-			body.ios & {
-				@include font-size(14px);
-			}
 
 			&:nth-of-type(2n+2) {
 				padding-right: 0;
@@ -179,14 +176,15 @@
 			color: lighten($grey-mdk, 15%);
 
 			.modal.modal-menu & {
-			    @include font-size(16px);
-				line-height: 1.35;
+			    @include font-size(15px);
+				@include line-height(1.25);
 				padding: 4px 0;
+				text-transform: capitalize;
 				color: $white;
 
-				body.ios & {
-					@include font-size(12px);
-				}
+				// body.ios & {
+				// 	@include font-size(15px);
+				// }
 			}
 		}
 	}
