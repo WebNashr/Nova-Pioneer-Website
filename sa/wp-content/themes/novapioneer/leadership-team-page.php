@@ -151,108 +151,113 @@ get_header();?>
         </section>
 
     <?php endwhile; ?>
-
 <?php endif; ?>
+
 
 <?php get_footer(); ?>
 
+
+
 <script src="<?php echo novap_get_baseurl(); ?>/assets/js/lightslider/lightslider.js"></script>
-<<script>
-$(document).ready(function() {
-$("#content-slider").lightSlider({
-         // loop:true,
-         // keyPress:true
-         // item: 1,
-         // autoWidth: false,
-         // slideMove: 1, // slidemove will be 1 if loop is true
-         slideMargin: 50,
-         //
-         // addClass: '',
-         // mode: "slide",
-         // useCSS: true,
-         cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-         easing: 'linear', //'for jquery animation',////
-         //
-         // speed: 400, //ms'
-         // auto: false,
-         // loop: true,
-         // slideEndAnimation: true,
-         // pause: 2000,
-         //
-         // keyPress: false,
-         // controls: true,
-         // prevHtml: '',
-         // nextHtml: '',
-         //
-         // currentPagerPosition: 'middle',
-         addClass:'content-slider',
-         // enableTouch:true,
-         // enableDrag:true,
-         // freeMove:true,
-         // swipeThreshold: 40,
-         responsive : [
-           {
-               breakpoint:1024,
-               settings: {
-                //    slideMargin:160,
-                   slideMargin:100,
-                 }
-           },
+<script>
+    $(document).ready(function() {
+        $("#content-slider").lightSlider({
+            // loop:true,
+            // keyPress:true
+            // item: 1,
+            // autoWidth: false,
+            // slideMove: 1, // slidemove will be 1 if loop is true
+            slideMargin: 50,
+            //
+            // addClass: '',
+            // mode: "slide",
+            // useCSS: true,
+            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+            easing: 'linear', //'for jquery animation',////
+            //
+            // speed: 400, //ms'
+            // auto: false,
+            // loop: true,
+            // slideEndAnimation: true,
+            // pause: 2000,
+            //
+            // keyPress: false,
+            // controls: true,
+            // prevHtml: '',
+            // nextHtml: '',
+            //
+            // currentPagerPosition: 'middle',
+            addClass:'content-slider',
+            // enableTouch:true,
+            // enableDrag:true,
+            // freeMove:true,
+            // swipeThreshold: 40,
+            responsive : [
+                {
+                    breakpoint:1024,
+                    settings: {
+                        //    slideMargin:160,
+                        slideMargin:100,
+                        }
+                },
 
-           {
-               breakpoint:768,
-               settings: {
-                   autoWidth: false,
-                   item: 2,
-                   slideMove: 2,
-                   slideMargin:80,
-                 }
-           },
+                {
+                    breakpoint:768,
+                    settings: {
+                        autoWidth: false,
+                        item: 2,
+                        slideMove: 2,
+                        slideMargin:80,
+                        }
+                },
 
-           {
-               breakpoint:640,
-               settings: {
-                   autoWidth: false,
-                   item: 2,
-                   slideMove: 2,
-                   slideMargin: 80
+                {
+                    breakpoint:640,
+                    settings: {
+                        autoWidth: false,
+                        item: 2,
+                        slideMove: 2,
+                        slideMargin: 80
+                        }
+                },
+
+                {
+                    breakpoint:425,
+                    settings: {
+                        autoWidth: false,
+                        item: 1,
+                        slideMove: 1,
+                        //    slideMargin: 160
+                        }
                 }
-           },
-
-           {
-               breakpoint:425,
-               settings: {
-                   autoWidth: false,
-                   item: 1,
-                   slideMove: 1,
-                //    slideMargin: 160
-                 }
-           }
-       ]
-     });
-     // $('#image-gallery').lightSlider({
-     //     gallery:true,
-     //     item:1,
-     //     thumbItem:9,
-     //     slideMargin:0,
-     //     speed:500,
-     //     auto:true,
-     //     loop:true,
-     //     onSliderLoad: function() {
-     //         $('#image-gallery').removeClass('cS-hidden');
-     //     }
-     // });
-});
+            ]
+        });
+        
+        // $('#image-gallery').lightSlider({
+        //     gallery:true,
+        //     item:1,
+        //     thumbItem:9,
+        //     slideMargin:0,
+        //     speed:500,
+        //     auto:true,
+        //     loop:true,
+        //     onSliderLoad: function() {
+        //         $('#image-gallery').removeClass('cS-hidden');
+        //     }
+        // });
+    });
 </script>
-    <!-- smooth scroll-->
-    <script>
-       $('a[href^="#"]').on('click', function(event) {
-           var target = $(this.getAttribute('href'));
-           if( target.length ) {
-               event.preventDefault();
-               $('html, body').stop().animate({
-                   scrollTop: target.offset().top
-               }, 1000);
-           }
-       });
-    </script>
+
+
+<!-- smooth scroll-->
+<script>
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if( target.length ) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+    });
+</script>

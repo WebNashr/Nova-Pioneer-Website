@@ -208,7 +208,7 @@
 		@extend %column-2;
 	}
 
-  &-quarter {
+  	&-quarter {
 		@extend %column-3;
 	}
 
@@ -258,7 +258,6 @@
 				// padding-top: 0;
 			}
 		}
-
 	}
 
 	@include break-point(laptop) {
