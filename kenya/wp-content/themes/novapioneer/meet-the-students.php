@@ -13,7 +13,6 @@ get_header(); ?>
 </style>
 
 <?php if (have_posts()): ?>
-
     <?php while (have_posts()): the_post(); ?>
 
         <section class="section-hero-ios">
@@ -39,7 +38,9 @@ get_header(); ?>
             </div>
         </section>
 
+
         <div class="trigger"></div>
+
 
         <section class="section">
             <div class="page-navigation-container meet-students-nav">
@@ -141,6 +142,7 @@ get_header(); ?>
             </figure>
         </section>
         
+
         <section class="full-width-image-container large-screens" data-enllax-type="foreground">
             <figure
                 class="full-width-image secondary-bgd-image <?php echo isOnMobile()->parallax ?>" <?php if (get_field('parallax_image')): echo 'style="background-image: url(' . get_field('parallax_image') . ');"'; endif; ?>
