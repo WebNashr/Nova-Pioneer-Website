@@ -41,7 +41,7 @@ get_header(); ?>
                     <div class="section-school-list-select section-content-item-quarter">
                         <a href="<?php echo get_permalink($school->ID); ?>">
                             <p class="school-photo"><img
-                                    src="<?php echo get_the_post_thumbnail_url($school->ID);?>" alt=""></p>
+                                    src="<?php echo get_the_post_thumbnail_url($school->ID);?>" alt="" c></p>
                             <h3><?php echo $school->post_title; ?></h3>
                             <div class="school-summary">
                                 <?php $school_gender = get_field('school_gender', $school->ID);
