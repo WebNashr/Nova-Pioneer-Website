@@ -76,7 +76,7 @@
 		overflow: hidden;
 		margin-bottom: 1rem;
 		@include break-point(tablet) {
-			max-height: 248px;
+			max-height: 315px;
 
 		}
 		@include break-point(laptop) {
@@ -337,6 +337,9 @@
 			}
 		}
 		@include break-point(tablet) {
+			.image-wrap {
+				max-height: 315px;
+			}
 			&:nth-child(n+3) {
 	      //  margin-left: $gut;
 	    }
@@ -357,6 +360,9 @@
 			// }
 		}
 		@include break-point(laptop) {
+			.image-wrap {
+				max-height: 193px;
+			}
 			&:nth-child(2n+3) {
 	      margin-left: unset;
 	    }
@@ -376,6 +382,11 @@
 				margin-left: 0;
 			}
 
+		}
+		@include break-point(monitor) {
+			.image-wrap {
+				max-height: 200px;
+			}
 		}
 		// @media (min-width: 1024px) and (max-width: 1024px) {
 		// 	&:nth-child(2n+3) {
