@@ -19,7 +19,7 @@ get_header();?>
                 </div>
             </div>
         </section>
-        
+
         <section class="section section-hero leadership-team" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>  data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
@@ -187,48 +187,44 @@ get_header();?>
             // nextHtml: '',
             //
             // currentPagerPosition: 'middle',
-            addClass:'content-slider',
+            addClass:'team-slider',
             // enableTouch:true,
             // enableDrag:true,
             // freeMove:true,
             // swipeThreshold: 40,
             responsive : [
-                {
-                    breakpoint:1024,
+                {breakpoint:1024,
                     settings: {
                         //    slideMargin:160,
                         slideMargin:100,
-                        }
+                    }
                 },
 
-                {
-                    breakpoint:768,
+                {breakpoint:768,
                     settings: {
                         autoWidth: false,
                         item: 2,
                         slideMove: 2,
                         slideMargin:80,
-                        }
+                    }
                 },
 
-                {
-                    breakpoint:640,
+                {breakpoint:640,
                     settings: {
                         autoWidth: false,
                         item: 2,
                         slideMove: 2,
                         slideMargin: 80
-                        }
+                    }
                 },
 
-                {
-                    breakpoint:425,
+                {breakpoint:425,
                     settings: {
                         autoWidth: false,
                         item: 1,
                         slideMove: 1,
                         //    slideMargin: 160
-                        }
+                    }
                 }
             ]
         });
