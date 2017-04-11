@@ -40,7 +40,7 @@ get_header(); ?>
 
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>
-                    <div class="section-school-list-select section-content-item section-content-item-quarter">
+                    <div class="section-school-list-select kenya-schools section-content-item section-content-item-quarter">
                         <a href="<?php echo get_permalink($school->ID); ?>">
                             <p class="school-photo"><img
                                     src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></p>
