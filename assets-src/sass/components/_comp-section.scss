@@ -306,6 +306,28 @@
 		}
 }
 
+.kenya-schools {
+	&.section-school-list-select {
+		-webkit-font-smoothing: subpixel-antialiased;
+			text-rendering: optimizeLegibility;
+		&:nth-of-type(2) {
+			// -webkit-font-smoothing: antialiased;
+
+			p {
+				font-weight: 600;
+				// text-shadow: none;
+				// text-shadow: $grey-md 0 0 0px;
+			}
+		}
+		p {
+			font-weight: 900;
+			// text-shadow: $grey-md 0 0 1px;
+		}
+		@include break-point(laptop) {
+		}
+	}
+
+}
 .section-school-list-select {
 	// @extend %column;
 	// @extend %column-3;
@@ -325,12 +347,15 @@
 	// &:first-child {
 	// 	margin-top: 0;
 	// }
+	// -webkit-font-smoothing: antialiased;
+
+
 
 	&:last-of-type {
 		margin-bottom: 0;
 	}
 	h3{
-		@include font-size(22px);
+		@include font-size(21px);
 		text-align: left;
 		margin-top: 0.5rem;
 		margin-bottom: 0.5rem;
@@ -344,7 +369,12 @@
 				transition: color 0.15s ease-in-out;
 			}
 		}
-
+		@include break-point(largelaptop) {
+			@include font-size(21px);
+		}
+		@include break-point(desktop) {
+			@include font-size(22px);
+		}
 	}
 
 	img {
@@ -364,8 +394,11 @@
 	}
 
 	p {
-		@include copy(bold);
+		// @include copy(bold);
 		padding: calc(#{$space-tiny} * 1);
+		@include break-point(largelaptop) {
+			// font-weight: 700 !important;
+		}
 		&.school-photo {
 			text-align: center;
 			padding: 0;
@@ -393,6 +426,7 @@
 			}
 		}
 	}
+
 	.school-summary {
 		margin-right: auto;
 		// margin-bottom: 2rem;
@@ -401,13 +435,17 @@
 		// padding-left: calc(#{$space-tiny} * 0.5);
 		// padding-right: calc(#{$space-tiny} * 0.5);
 		width: 94%;
-		p + p {
-				margin: 0;
-		}
+
 		p {
 			margin: 0;
+			// @include copy(bold);
+			// text-shadow: $grey-md 0 0 0px;
+			font-weight: 600;
+			// font-weight: 900;
+
 			// text-align: center;
 			display: block;
+
 			// padding-top: 0;
 			padding-left: 0;
 			padding-bottom: calc(#{$space-tiny} * 0.65);
@@ -416,6 +454,15 @@
 			&:not(:first-of-type) {
 				padding-top: 0;
 			}
+
+		}
+		p + p {
+				margin: 0;
+		}
+		.summary-item {
+			// @include copy(bold);
+			// font-weight: bold !important;
+			// font-weight: 700 !important;
 		}
 		.boy-gender {
 			color: $blue-dk;
