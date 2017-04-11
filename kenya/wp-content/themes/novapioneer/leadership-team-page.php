@@ -120,10 +120,11 @@ get_header(); ?>
         </section>
 
 
-        <section class="section section-pair team-profile-container even-section">
-            <h2 class="centered-title" id="management">Nova Pioneer Management</h2>
+        <section class="section section-pair team-profile-container">
+            <!-- <h2 class="centered-title" id="management">Nova Pioneer Management</h2> -->
 
             <div class="section-content section-content-plain np-management-profiles">
+              <h2 class="centered-title" id="management">Nova Pioneer Management</h2>
                 <?php foreach (get_field('management') as $manager): $manager = (object)$manager; ?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <?php $flip_photo = get_field('flip_photo', $manager->ID); ?>

@@ -229,7 +229,7 @@
             margin-top: $gut;
         }
 
-		body.ios & {			
+		body.ios & {
 			&:nth-child(2n+3) {
 				margin-left: $gut;
 			}
@@ -305,20 +305,76 @@
 
 }
 .np-management-profiles {
+	// body.safari & {
+	// 	display: block;
+	// 	flex-direction: unset;
+	// 	flex-wrap: unset;
+	//
+	// }
 	justify-content: flex-start;
+	.centered-title {
+		display: block;
+	}
 	.profile {
+
+		&:not(:first-of-type) {
+			margin-left: $gut;
+		}
+		&:last-of-type {
+			margin-left: 0;
+		}
+		&:nth-child(n+3) {
+			margin-top: 0;
+		}
+		body.safari & {
+			// display: inline-table;
+			// max-width: calc((100% - calc(3rem * 1)) / 2);
+
+		}
+		@include break-point(mobile) {
+			&:not(:first-of-type) {
+				margin-left: 0;
+			}
+		}
 		@include break-point(tablet) {
-			&:nth-child(2n+3) {
-	      margin-left: 0;
+			&:nth-child(n+3) {
+	      //  margin-left: $gut;
 	    }
+			&:nth-child(2n+3) {
+	      margin-left: $gut;
+	    }
+			&:nth-child(odd) {
+	       margin-left: $gut;
+	    }
+			&:nth-child(even) {
+	       margin-left: 0;
+	    }
+			// &:not(:first-of-type) {
+			// 	margin-left: inherit;
+			// }
+			// &:last-of-type {
+			// 	margin-left: 0;
+			// }
 		}
 		@include break-point(laptop) {
+			&:nth-child(2n+3) {
+	      margin-left: unset;
+	    }
+			&:nth-child(odd) {
+	       margin-left: unset;
+	    }
+			&:nth-child(n+3) {
+	      margin-left: $gut;
+	    }
 			&:nth-child(2n+3) {
 	      margin-left: $gut;
 	    }
 			&:nth-child(4n+1) {
-	      margin-left: 0;
+	      // margin-left: 0;
 	    }
+			&:last-of-type {
+				margin-left: 0;
+			}
 
 		}
 		// @media (min-width: 1024px) and (max-width: 1024px) {
