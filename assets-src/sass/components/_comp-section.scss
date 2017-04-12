@@ -578,9 +578,20 @@
 			position: absolute;
 			bottom: 0;
 		}
+
+		body.safari & {
+			height: unset;
+
+			.button {
+				position: unset;
+				bottom: unset;
+			}	
+		}
 	}
+
 	@include break-point(desktop) {
 		height: 440px;
+
 		&:nth-child(n+3) {
 			height: 440px;
 			margin-top: 0;
@@ -603,6 +614,7 @@
 			height: 440px;
 		}
 	}
+	
 	@media screen
   and (min-device-width: 1680px)
   and (max-device-width: 1920px) {
