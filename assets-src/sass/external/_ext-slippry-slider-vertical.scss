@@ -509,7 +509,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
       	// }
         @include break-point(tablet) {
             // @include font-size(28px);
-            @include font-size(36px);
+            @include font-size(40px);
             // max-width: 100%;
         }
         @include break-point(desktop) {
@@ -537,7 +537,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
             }
           }
           @include break-point(tablet) {
-              @include font-size(28px);
+              @include font-size(32px);
               // @include font-size(18px);
               // max-width: 100%;
           }
