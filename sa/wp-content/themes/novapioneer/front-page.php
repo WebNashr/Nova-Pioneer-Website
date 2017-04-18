@@ -81,15 +81,18 @@ get_header(); ?>
             </div>
 
             <div class="section-content even-section">
+
                 <div class="section-content-item section-content-item-half first-item">
+                    <?php  $our_students_video = get_field('our_students_video');
+                    if (get_field('type', $our_students_video->ID) == 'student'): ?>
                     <?php echo get_field('our_students_description'); ?>
 
                     <div class="testimonial pull-quote">
                         <?php
-                        $our_students_video = get_field('our_students_video');
                         $vid_caption = get_field('video_caption', $our_students_video->ID);
                         $student_name = get_field('student_name', $our_students_video->ID);
                         $video = get_field('video', $our_students_video->ID);
+                        $grade = get_field('student_grade', $our_students_video->ID);
                         ?>
                         <?php if ($vid_caption): ?>
                             <blockquote>
@@ -99,7 +102,7 @@ get_header(); ?>
                                 </svg>
                                 <?php echo $vid_caption; ?>
                                 <cite><span><strong><?php echo $student_name; ?></strong>,</span> Nova Pioneer
-                                    Student</cite>
+                                    <?php echo $grade; ?> Student</cite>
                             </blockquote>
                         <?php endif; ?>
                     </div>
@@ -115,6 +118,7 @@ get_header(); ?>
                         } ?>
                     </div>
                 </div>
+                <?php endif;?>
             </div>
         </section>
 
