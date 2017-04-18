@@ -42,7 +42,7 @@ get_header(); ?>
 
         <section class="section section-pair school-features-container">
             <div class="section-navigation">
-                <h4><?php the_title(); ?></h4>
+                <h3><?php the_title(); ?></h3>
             </div>
 
             <div class="section-content">
