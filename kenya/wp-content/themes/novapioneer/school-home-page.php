@@ -13,18 +13,27 @@ get_header(); ?>
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
             <div class="container hero-container">
                 <div class="main-callout-box">
-                    <hr>
-                    <h1>Learners are inspired become adaptive, independent thinkers</h1>
+                    <?php if (get_field('hero_caption')): ?>
+                        <h1><?php the_field('hero_caption') ?></h1>
+                    <?php else: ?>
+                        <hr>
+                        <h1 class="animated-title">Learners are inspired become adaptive, independent thinkers</h1>
+                    <?php endif ?>
                 </div>
             </div>
         </section>
-        
-        <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
+
+        <section
+            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
             data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
-                    <hr>
-                    <h1 class="animated-title">Learners are inspired become adaptive, independent thinkers</h1>
+                    <?php if (get_field('hero_caption')): ?>
+                        <h1><?php the_field('hero_caption') ?></h1>
+                    <?php else: ?>
+                        <hr>
+                        <h1 class="animated-title">Learners are inspired become adaptive, independent thinkers</h1>
+                    <?php endif ?>
                 </div>
             </div>
         </section>
@@ -112,7 +121,7 @@ get_header(); ?>
                         <h4>Our Calendar</h4>
                         <p><?php echo date('F Y'); ?> School Events</p>
                         <a href="<?php echo site_url('/calendar'); ?>" class="button button-small button-secondary"
-                           >Calendar</a>
+                        >Calendar</a>
                     </div>
                 </div>
 
@@ -123,8 +132,8 @@ get_header(); ?>
             <div class="section-navigation">
                 <h2>Our Students</h2>
                 <div class="button-wrap">
-                <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
-                   title="">Meet the Students</a>
+                    <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
+                       title="">Meet the Students</a>
                 </div>
             </div>
 
@@ -170,8 +179,9 @@ get_header(); ?>
             <div class="section-navigation">
                 <h2>School Leadership</h2>
                 <div class="button-wrap">
-                <a href="<?php echo get_permalink(); ?>our-team" class="button button-small button-primary" title="">View
-                    the team</a>
+                    <a href="<?php echo get_permalink(); ?>our-team" class="button button-small button-primary"
+                       title="">View
+                        the team</a>
                 </div>
             </div>
 
@@ -197,10 +207,10 @@ get_header(); ?>
                 <?php foreach ($leadership_team_members as $member): if ($x >= 2): break; endif; ?>
                     <div class="section-content-item section-content-item-quarter profile school-team">
                         <div class="image-wrap">
-                        <img
-                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'profile-square')[0]; ?>"
-                            alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
-                            class="profile-img">
+                            <img
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'profile-square')[0]; ?>"
+                                alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
+                                class="profile-img">
                         </div>
                         <h3 class="profile-name"><a href="<?php echo get_permalink($member->ID); ?>"
                                                     class="profile-name"
@@ -233,11 +243,12 @@ get_header(); ?>
                     <div class="photo-container">
                         <ul id="slippry-gallery">
                             <?php $im = 1;
-                                foreach ($images as $image): ?>
+                            foreach ($images as $image): ?>
                                 <li>
                                     <a href="#slide<?php echo $im ?>">
                                         <!--<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['caption'] ?>">-->
-                                        <img src="<?php echo $image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">
+                                        <img src="<?php echo $image['sizes']['16-9-large'] ?>"
+                                             alt="<?php echo $image['caption'] ?>">
                                     </a>
                                 </li>
                                 <?php $im++; endforeach; ?>
@@ -281,7 +292,8 @@ get_header(); ?>
                         <?php foreach (get_field('testimonials') as $testimonial): $testimonial = (object)$testimonial; ?>
                             <li class="single-testimonial">
                                 <figure class="full-width-figure">
-                                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'profile-square'); ?>">
+                                    <img
+                                        src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'profile-square'); ?>">
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
@@ -303,8 +315,9 @@ get_header(); ?>
             <div class="section-navigation">
                 <h2>A Day in the Life</h2>
                 <div class="button-wrap">
-                <a href="<?php echo get_field('day_in_the_life_link'); ?>" class="button button-small button-primary">Learn
-                    More</a>
+                    <a href="<?php echo get_field('day_in_the_life_link'); ?>"
+                       class="button button-small button-primary">Learn
+                        More</a>
                 </div>
             </div>
 
@@ -315,13 +328,13 @@ get_header(); ?>
 
                 </div>
                 <div class="section-content-item section-content-item-half">
-                  <div class="image-wrap"
-                  <img class=""
-                  style="background-image: url(<?php echo get_field('day_in_the_life_picture'); ?>);"
-                  alt="">
-                  </div>
-                    <!-- <figure><img src="<?php echo get_field('day_in_the_life_picture'); ?>"/></figure> -->
+                    <div class="image-wrap"
+                    <img class=""
+                         style="background-image: url(<?php echo get_field('day_in_the_life_picture'); ?>);"
+                         alt="">
                 </div>
+                <!-- <figure><img src="<?php echo get_field('day_in_the_life_picture'); ?>"/></figure> -->
+            </div>
 
 
             </div>
@@ -346,10 +359,10 @@ get_header(); ?>
                             novap_render_google_map($locations);
                         } ?>
                     </div>
-                  </div>
+                </div>
 
-                    <div class="section-content-item section-content-item-half">
-                        <div class="contact-info">
+                <div class="section-content-item section-content-item-half">
+                    <div class="contact-info">
                         <span class="phone-contact-one">Call us: <a
                                 href="tel:<?php echo get_field('main_phone_number'); ?> "><?php echo get_field('main_phone_number'); ?> </a></span>
                         <span class="phone-contact-two">Admission :  <a
@@ -358,13 +371,13 @@ get_header(); ?>
                                 href="tel:<?php echo get_field('current_parents_contact__number'); ?>"> <?php echo get_field('current_parents_contact__number'); ?> </a> </span>
                         <span class="email-contact">Email us: <a
                                 href="mailto:<?php echo get_field('email_address'); ?>"><?php echo get_field('email_address'); ?></a></span>
-                        </div>
+                    </div>
 
-                        <div class="contact-info">
-                            <?php echo get_field('physical_address'); ?>
-                        </div>
+                    <div class="contact-info">
+                        <?php echo get_field('physical_address'); ?>
                     </div>
                 </div>
+            </div>
         </section>
 
     <?php endwhile; ?>
