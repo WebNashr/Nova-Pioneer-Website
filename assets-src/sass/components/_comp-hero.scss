@@ -337,17 +337,19 @@
 	    letter-spacing: 2px;
 	    color: $white;
       // @include font-size(28px);
-      @include font-size(18px);
+      // @include font-size(18px);
+      @include font-size(24px);
+
       @include break-point(tablet) {
-          @include font-size(28px);
+          // @include font-size(28px);
+          @include font-size(32px);
           max-width: 100%;
       }
+
       @include break-point(desktop) {
           @include font-size(48px);
           // max-width: 75%;
       }
-
-
 	}
 
 	p {
