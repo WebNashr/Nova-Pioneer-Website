@@ -40,10 +40,12 @@ get_header(); ?>
 
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>
-                    <div class="section-school-list-select kenya-schools section-content-item section-content-item-quarter">
+                    <div
+                        class="section-school-list-select kenya-schools section-content-item section-content-item-quarter">
                         <a href="<?php echo get_permalink($school->ID); ?>">
                             <p class="school-photo"><img
-                                    src="<?php echo get_the_post_thumbnail_url($school->ID);?>" alt="" style="min-height:179px"></p>
+                                    src="<?php echo get_the_post_thumbnail_url($school->ID); ?>" alt=""
+                                    style="min-height:179px"></p>
                             <h3><?php echo $school->post_title; ?></h3>
                             <div class="school-summary">
                                 <?php $school_gender = get_field('school_gender', $school->ID);
@@ -111,13 +113,14 @@ get_header(); ?>
             <div class="section-content even-section">
                 <div class="section-content-item section-content-item-half first-item">
                     <?php echo get_field('our_students_description'); ?>
-
+                    <?php $our_students_video = get_field('our_students_video');
+                    if (get_field('type', $our_students_video->ID) == 'student'): ?>
                     <div class="testimonial pull-quote">
                         <?php
-                        $our_students_video = get_field('our_students_video');
                         $vid_caption = get_field('video_caption', $our_students_video->ID);
                         $student_name = get_field('student_name', $our_students_video->ID);
                         $video = get_field('video', $our_students_video->ID);
+                        $grade = get_field('student_grade', $our_students_video->ID);
                         ?>
                         <?php if ($vid_caption): ?>
                             <blockquote>
@@ -127,7 +130,7 @@ get_header(); ?>
                                 </svg>
                                 <?php echo $vid_caption; ?>
                                 <cite><span><strong><?php echo $student_name; ?></strong>,</span> Nova Pioneer
-                                    Student</cite>
+                                    <?php echo $grade; ?> student </cite>
                             </blockquote>
                         <?php endif; ?>
                     </div>
@@ -143,6 +146,7 @@ get_header(); ?>
                         } ?>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </section>
 
@@ -337,7 +341,7 @@ get_header(); ?>
                         <h4>Our Calendar</h4>
                         <p><?php echo date('F Y'); ?> School Events</p>
                         <a href="<?php echo site_url('/calendar'); ?>" class="button button-small button-secondary"
-                          >Calendar</a>
+                        >Calendar</a>
                     </div>
                 </div>
 
@@ -517,7 +521,8 @@ get_header(); ?>
     Add this script tag after the carousel options JS block on whichever page
     the carousel gets going on being a right pain in the footer!
 -->
-<script type="text/javascript" src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
+<script type="text/javascript"
+        src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
 
 
 <?php get_footer(); ?>
