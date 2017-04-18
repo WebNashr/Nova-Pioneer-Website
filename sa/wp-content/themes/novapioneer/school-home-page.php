@@ -13,8 +13,12 @@ get_header(); ?>
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
             <div class="container hero-container">
                 <div class="main-callout-box">
-                    <hr>
-                    <h1>Learners are inspired become adaptive, independent thinkers</h1>
+                    <?php if(get_field('hero_caption')):?>
+                        <h1><?php the_field('hero_caption')?></h1>
+                    <?php else:?>
+                        <hr>
+                        <h1>Learners are inspired become adaptive, independent thinkers</h1>
+                    <?php endif?>
                 </div>
             </div>
         </section>
@@ -24,8 +28,12 @@ get_header(); ?>
             data-enllax-ratio="0.1">
             <div class="container hero-container">
                 <div class="main-callout-box">
-                    <hr>
-                    <h1 class="animated-title">Learners are inspired become adaptive, independent thinkers</h1>
+                    <?php if(get_field('hero_caption')):?>
+                        <h1><?php the_field('hero_caption')?></h1>
+                    <?php else:?>
+                        <hr>
+                        <h1 class="animated-title">Learners are inspired become adaptive, independent thinkers</h1>
+                    <?php endif?>
                 </div>
             </div>
         </section>
