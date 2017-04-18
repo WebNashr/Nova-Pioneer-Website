@@ -479,7 +479,8 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
       }
       h1 {
         // position: relative;
-        @include font-size(18px);
+        // @include font-size(18px);
+        @include font-size(24px);
         max-width: 100%;
         color: $white;
         text-align: left;
@@ -507,7 +508,8 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
         //
       	// }
         @include break-point(tablet) {
-            @include font-size(28px);
+            // @include font-size(28px);
+            @include font-size(40px);
             // max-width: 100%;
         }
         @include break-point(desktop) {
@@ -518,7 +520,8 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
 
         }
         h2 {
-          @include font-size(14px);
+          // @include font-size(14px);
+          @include font-size(18px);
           max-width: 100%;
           color: $white;
           text-align: left;
@@ -534,8 +537,8 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
             }
           }
           @include break-point(tablet) {
-              // @include font-size(24px);
-              @include font-size(18px);
+              @include font-size(32px);
+              // @include font-size(18px);
               // max-width: 100%;
           }
           @include break-point(desktop) {
