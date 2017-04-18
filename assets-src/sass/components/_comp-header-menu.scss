@@ -60,7 +60,7 @@
 .page-header .sub-menu {
 	display: none;
 	position: absolute;
-	top: 34px; // looks like a Webkit magic number find FF fix
+	top: 32px; // looks like a Webkit magic number find FF fix
     left: -12px;
     width: 16vw;
     padding: 0;
