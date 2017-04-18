@@ -574,10 +574,10 @@
 			height: 430px;
 		}
 
-		.button {
-			position: absolute;
-			bottom: 0;
-		}
+		// .button {
+		// 	position: absolute;
+		// 	bottom: 0;
+		// }
 
 		body.safari & {
 			height: unset;
@@ -596,10 +596,16 @@
 			height: 440px;
 			margin-top: 0;
 		}
+		
 		&:last-of-type {
 			margin-top: 0;
 			margin-bottom: 2rem;
 			height: 440px;
+		}
+
+		.button {
+			position: absolute;
+			bottom: 0;
 		}
 	}
 	@include break-point(monitor) {
