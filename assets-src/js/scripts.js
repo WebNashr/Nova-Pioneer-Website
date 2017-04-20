@@ -7,8 +7,9 @@ if( ios ) {
 };
 
 
-// start document.ready
+
 (function ($) {
+    // start document.ready
     $(document).ready(function () {
         console.log('one ready')
 
@@ -78,38 +79,52 @@ if( ios ) {
             console.log("07. trigger offset for Waypoints");
         });
 
+        
+        // 07. make each tesimonial the same in height
+        $(function() {
+            $('.single-testimonial').css("height", "auto");
+            
+            var testimonialHeight = 0;
+            $('.single-testimonial').each(function () {
+                testimonialHeight = Math.max($(this).height(), testimonialHeight);
+            });
+                    
+            $('.single-testimonial').css("height", parseInt(testimonialHeight) + "px");
+            console.log("testimonial height resized to " + testimonialHeight + "px");
+        });
+
 
         // 08. sticky header
         $('.trigger').waypoint(function (direction) {
-                if (direction == 'down') {
-                    $('.header-section-main').addClass('stuck');
-                    $('.menu-item-main').addClass('stuck');
-                    $('.header-logo').addClass('stuck');
-                    $('.page-header').addClass('stuck');
-                    console.log("08. sticky header was made unstuck");
-                }
-                if (direction == 'up') {
-                    $('.header-section-main').removeClass('stuck');
-                    $('.menu-item-main').removeClass('stuck');
-                    $('.header-logo').removeClass('stuck');
-                    $('.page-header').removeClass('stuck');
-                    console.log("08. sticky header got, er... stuck");
-                }
-            },
-            {
-                offset: '72.5%'
-            });
+            if (direction == 'down') {
+                $('.header-section-main').addClass('stuck');
+                $('.menu-item-main').addClass('stuck');
+                $('.header-logo').addClass('stuck');
+                $('.page-header').addClass('stuck');
+                console.log("08. sticky header was made unstuck");
+            }
+            if (direction == 'up') {
+                $('.header-section-main').removeClass('stuck');
+                $('.menu-item-main').removeClass('stuck');
+                $('.header-logo').removeClass('stuck');
+                $('.page-header').removeClass('stuck');
+                console.log("08. sticky header got, er... stuck");
+            }
+        },
+        {
+            offset: '72.5%'
+        });
 
 
         // 09. what's this? somebody add a comment please...
         /*
-         somebody added this comment
-         ================================
-         to effectively scroll to top we have to account for our static
-         header height.
-         so our "top" is actually RealTop - StaticHeaderHeight
+        somebody added this comment
+        ================================
+        to effectively scroll to top we have to account for our static
+        header height.
+        so our "top" is actually RealTop - StaticHeaderHeight
 
-         */
+        */
         $('.anchor-link a[href^="#"]').on('click', function (event) {
             event.preventDefault();
             console.log('stop event default action');
@@ -120,16 +135,38 @@ if( ios ) {
             console.log(headerHeight)
             var scrollToPosition = $(target).offset().top - headerHeight;
             console.log(scrollToPosition);
+
             if (target.length) {
                 $('html, body').stop().animate({
                     scrollTop: scrollToPosition
                 }, 1000);
             }
         });
+    });
+    // end document.ready
 
+
+    // start document.resize
+    $(window).resize(function () {
+
+        // 1.. make each tesimonial the same in height
+        $(function() {
+            $('.single-testimonial').css("height", "auto");
+            
+            var testimonialHeight = 0;
+            $('.single-testimonial').each(function () {
+                testimonialHeight = Math.max($(this).height(), testimonialHeight);
+            });
+                    
+            $('.single-testimonial').css("height", parseInt(testimonialHeight) + "px");
+            console.log("testimonial height resized to " + testimonialHeight + "px");
+        });
 
     });
+    // end document.resize
 })(jQuery);
+
+
 (function ($) {
 // 10. Full width caption animation
     console.log(' two ready')
@@ -160,7 +197,7 @@ if( ios ) {
         });
     });
 
-// end document.ready
+
 
 
 // 12. escape modal with ESC
@@ -179,16 +216,10 @@ if( ios ) {
     });
 
 
-// start document.resize
-    $(window).resize(function () {
 
-        // 1.
-        $(function () {
 
-        });
 
-    });
-// end document.resize
+
     $(document).ready(function () {
         // add blank and new href
         $(".menu-item-1315 a").attr({
