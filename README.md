@@ -6,7 +6,7 @@ Simple wordpress installation  see https://github.com/WordPress/WordPress/blob/m
 ### How do I get set up? ###
 
 * clone repo
-* copy DB from RDS always use the live version unless otherwise always suffixed by "_live"
+* copy DB from RDS [usually named  same as project suffixed by either "_uat" or "_live"] always use the live version unless otherwise always suffixed by "_live"
 * Database configuration --> https://codex.wordpress.org/Editing_wp-config.php
 *there a secondary config file at the root , simply copy the "site-config-example.php" to "site-config.php"  this file is used to configure the shared assets of the Nova schools and handle redirects 
 * Site uses twig https://twig.sensiolabs.org/  sure twig can write to its cache folder
