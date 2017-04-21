@@ -36,7 +36,7 @@ get_header(); ?>
 
         <div class="trigger"></div>
 
-        <section class="section" style="padding-bottom:2rem;">
+        <section class="section" style="padding-bottom: 2rem;">
           <div class="page-navigation-container">
               <div class="navigation-wrap">
                   <div class="section-title">
@@ -87,9 +87,9 @@ get_header(); ?>
         </section>
 
 
-        <section class="section section-pair team-profile-container">
+        <section class="section section-pair team-profile-container" id="leadership">
             <div class="section-content section-content-plain global-leaders-profiles">
-                <span class="anchor-link" id="leadership"></span>
+                <!--<span class="anchor-link"></span>-->
                 <?php foreach (get_field('leadership') as $leader): $leader = (object)$leader; ?>
                     <div class="section-content-item section-content-item-third profile">
                         <?php $flip_photo = get_field('flip_photo', $leader->ID); ?>
@@ -120,11 +120,11 @@ get_header(); ?>
         </section>
 
 
-        <section class="section section-pair team-profile-container">
-            <!-- <h2 class="centered-title" id="management">Nova Pioneer Management</h2> -->
+        <section class="section section-pair team-profile-container" id="management">
+             <h2 class="centered-title">Nova Pioneer Management</h2> 
 
             <div class="section-content section-content-plain np-management-profiles">
-              <h2 class="centered-title" id="management">Nova Pioneer Management</h2>
+              <!--<h2 class="centered-title" id="management">Nova Pioneer Management</h2>-->
                 <?php foreach (get_field('management') as $manager): $manager = (object)$manager; ?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <?php $flip_photo = get_field('flip_photo', $manager->ID); ?>
@@ -152,10 +152,10 @@ get_header(); ?>
         </section>
 
 
-        <span class="anchor-link"></span>
+        <!--<span class="anchor-link"></span>-->
 
-        <section class="section team-profile-container np-team-profiles slider-profiles">
-            <h2 class="centered-title" id="team">Nova Pioneer Team</h2>
+        <section class="section team-profile-container np-team-profiles slider-profiles" id="team">
+            <h2 class="centered-title">Nova Pioneer Team</h2>
             <div class="content-slider-container">
 
                 <ul id="content-slider" class="content-slider">

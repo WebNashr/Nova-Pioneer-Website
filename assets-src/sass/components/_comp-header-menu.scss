@@ -13,6 +13,8 @@
     display: none;
 	margin-left: 2rem;
 	list-style-type: none;
+	touch-action: manipulation;
+	touch-action: pan-x pan-y pan-left pan-right pan-up pan-down pinch-zoom;
 
 	.modal.modal-menu & {
 		@include flexbox();
@@ -60,7 +62,7 @@
 .page-header .sub-menu {
 	display: none;
 	position: absolute;
-	top: 34px; // looks like a Webkit magic number find FF fix
+	top: 32px; // looks like a Webkit magic number find FF fix
     left: -12px;
     width: 16vw;
     padding: 0;

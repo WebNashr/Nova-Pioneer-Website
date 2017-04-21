@@ -44,7 +44,7 @@ get_header(); ?>
 
         <section class="section section-pair school-features-container">
             <div class="section-navigation">
-                <h4><?php the_title(); ?></h4>
+                <h3><?php the_title(); ?></h3>
             </div>
 
             <div class="section-content">
@@ -276,8 +276,10 @@ get_header(); ?>
                                             xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
                                     <?php echo $testimonial->post_content; ?>
-                                    <cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
-                                    </cite>
+                                    <p>
+                                        <cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
+                                        </cite>
+                                    </p>
                                 </blockquote>
                             </li>
                         <?php endforeach; ?>

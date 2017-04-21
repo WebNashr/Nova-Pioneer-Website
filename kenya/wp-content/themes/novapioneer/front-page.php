@@ -360,13 +360,16 @@ get_header(); ?>
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
-                                        <use
-                                            xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                        <usexlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
+
                                     <?php echo $testimonial->post_content; ?>
+
                                     <p>
-                                        <cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
-                                        </cite></p>
+                                        <cite>
+                                            <span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>, </span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
+                                        </cite>
+                                    </p>
                                 </blockquote>
                             </li>
                         <?php endforeach; ?>
