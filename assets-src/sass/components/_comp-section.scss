@@ -2178,33 +2178,33 @@
 		// background-color: lighten($background-grey, 5%);
 
 		&.card-1 {
-			background-color: $orange-lt;
+			background-color: $green-lt;
 			opacity: 1;
 			&:hover {
-				background-color: darken($orange-lt, 5%);
+				background-color: darken($green-lt, 5%);
 				transition: background-color 0.15s;
 			}
 			// width: 90%;
 			// height: 90%;
 		}
 		&.card-2 {
-			background-color: $green-lt;
+			background-color: $orange-lt;
 			&:hover {
-				background-color: darken($green-lt, 6%);
+				background-color: darken($orange-lt, 6%);
 				transition: background-color 0.15s;
 			}
 		}
 		&.card-3 {
-			background-color: $orange-dk;
+			background-color: $green-dk;
 			&:hover {
-				background-color: darken($orange-dk, 10%);
+				background-color: darken($green-dk, 10%);
 				transition: background-color 0.15s;
 			}
 		}
 		&.card-4 {
-			background-color: $green-dk;
+			background-color: $orange-dk;
 			&:hover {
-				background-color: darken($green-dk, 10%);
+				background-color: darken($orange-dk, 10%);
 				transition: background-color 0.15s;
 			}
 		}
