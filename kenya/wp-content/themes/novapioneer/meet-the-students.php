@@ -51,12 +51,12 @@ get_header(); ?>
                     <div class="links-inner-wrap">
                         <div class="section-content-item">
                             <div class="anchor-link">
-                                <a href="#primary" class="" title="">Primary Students</a>
+                                <a href="#primary" class="" title="">Nova Pioneer Girls</a>
                             </div>
                         </div>
                         <div class="section-content-item">
                             <div class="anchor-link">
-                                <a href="#secondary" class="" title="">Secondary Students</a>
+                                <a href="#secondary" class="" title="">Nova Pioneer Boys</a>
                             </div>
                         </div>
                         <div class="section-content-item">
@@ -81,7 +81,7 @@ get_header(); ?>
 
         <section class="section section-pair">
             <div class="section-navigation">
-                <h2 id="primary">Primary Students</h2>
+                <h2 id="primary">Nova Pioneer Girls</h2>
             </div>
 
             <div class="section-content">
@@ -162,7 +162,7 @@ get_header(); ?>
 
         <section class="section section-pair">
             <div class="section-navigation">
-                <h2 id="secondary">Secondary Students</h2>
+                <h2 id="secondary">Nova Pioneer Boys</h2>
             </div>
 
             <div class="section-content">
