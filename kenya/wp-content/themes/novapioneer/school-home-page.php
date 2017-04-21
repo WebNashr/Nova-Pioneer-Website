@@ -297,12 +297,16 @@ get_header(); ?>
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
-                                        <use
-                                            xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                        <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
+
                                     <?php echo $testimonial->post_content; ?>
-                                    <cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
-                                    </cite>
+
+                                    <p>
+                                        <cite>
+                                            <span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
+                                        </cite>
+                                    </p>
                                 </blockquote>
                             </li>
                         <?php endforeach; ?>
@@ -310,6 +314,7 @@ get_header(); ?>
                 </div>
             </div>
         </aside>
+
 
         <section class="section section-pair even-section">
             <div class="section-navigation">
@@ -324,14 +329,10 @@ get_header(); ?>
             <div class="section-content section-day-in-the-life">
                 <div class="section-content-item section-content-item-half first-item">
                     <?php echo get_field('day_in_the_life_description'); ?>
-
-
                 </div>
                 <div class="section-content-item section-content-item-half">
                     <div class="image-wrap"
-                    <img class=""
-                         style="background-image: url(<?php echo get_field('day_in_the_life_picture'); ?>);"
-                         alt="">
+                    <img class=""style="background-image: url(<?php echo get_field('day_in_the_life_picture'); ?>);" alt="">
                 </div>
                 <!-- <figure><img src="<?php echo get_field('day_in_the_life_picture'); ?>"/></figure> -->
             </div>

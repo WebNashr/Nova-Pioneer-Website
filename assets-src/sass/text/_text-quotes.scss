@@ -202,17 +202,24 @@
 				}
 
 			}
+			}
 		}
 	}
-}
 
 	&.pull-quote {
 		background: none;
 		padding: calc(#{$space-tiny} * 2) 0;
 
-
 		@include break-point(laptop) {
 			padding: calc(#{$space-tiny} * 2) 0;
+
+			&:first-child {
+				padding-top: 0;
+			}
+
+			&:last-child {
+				padding-bottom: 0;
+			}
 		}
 
 		blockquote {
