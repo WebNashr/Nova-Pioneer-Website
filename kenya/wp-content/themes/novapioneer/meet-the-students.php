@@ -74,11 +74,7 @@ get_header(); ?>
                 </div>
             </div>
         </section>
-
-
-        <span class="anchor-link" id="primary"></span>
-
-
+        
         <section class="section section-pair">
             <div class="section-navigation">
                 <h2 id="primary">Nova Pioneer Girls</h2>
