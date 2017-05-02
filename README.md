@@ -13,6 +13,9 @@ Simple wordpress installation  see https://github.com/WordPress/WordPress/blob/m
 * Run `npm install` from the root folder
 * Run `bower install` from the root folder
 * Run `gulp default` to generate JS and CSS assets
+* Make sure to have a `.htaccess` file in both the `kenya` and `sa` folder with permalink redirects setup
+* The `novapioneer` themes directory needs to be writable in both `kenya` and `sa` for `twig` to create the `cache` folder.
+Either 777 or 757 should do i.e. `chmod 757 kenya/wp-content/themes/novapioneer`
 
 ### Virtual Host Settings
 
