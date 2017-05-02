@@ -53,14 +53,12 @@ the_post(); ?>
         <h1 class="page-title" id="fees-table">Fee Structure</h1>
         <?php the_content(); ?>
     </article>
-
-
+    
     <?php
-    $schools = get_field('schools');
-    $selected_school = $_GET['school'];
-    $selected_grade = $_GET['grade'];
-    $selected_year = $_GET['school_year'];
-
+        $schools = get_field('schools');
+        $selected_school = $_GET['school'];
+        $selected_grade = $_GET['grade'];
+        $selected_year = $_GET['school_year'];
     ?>
 
     <article class="article article-inner article-inner-alt table-container">
@@ -102,6 +100,7 @@ the_post(); ?>
             <input name="view" value="View Fees" class="button button-small button-primary fees-button" style=""
                    type="submit"/>
         </form>
+
         <?php if (!empty($selected_school) && !empty($selected_grade) && !empty($selected_year) && ($_GET["view"] === "true")): ?>
             <div class="fees-container">
                 <h2><?php echo $selected_school->post_title; ?> Fee Structure for
@@ -162,12 +161,20 @@ the_post(); ?>
             <header class="table-header" id="payment">How to make payment</header>
 
             <table class="fees-table">
+                <tbody>
+                <tr class="">
+                    <td><?php echo get_field('foot_note'); ?></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="fees-table">
                 <thead>
 
                 <th class="text"></th>
-                <th class="text">Payment method</th>
-                <th class="text">Instructions</th>
-                <th class="text">Proof of payment</th>
+                <th class="text">Nova Pioneer School</th>
+                <th class="text">Banking Details</th>
+                <th class="text">Admissions email to send your proof of payment</th>
 
                 </thead>
 
@@ -186,18 +193,10 @@ the_post(); ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>
-
-            <table class="fees-table">
-                <tbody>
-                <tr class="">
-                    <td><?php echo get_field('foot_note'); ?></td>
-                </tr>
-                </tbody>
-            </table>
         </div>
     </article>
-    <section>
 
+    <section>
         <section class="faqs-container">
             <article class="article article-inner article-inner-alt ">
                 <h2 id="faqs">Frequently Asked Questions</h2>
@@ -217,69 +216,70 @@ the_post(); ?>
                 </ul>
             </article>
         </section>
-
-        <?php endwhile; ?>
-
-        <?php if (isset($_REQUEST['school']) && isHandHeld()): ?>
-            <script>
-                $(document).ready(function () {
-                    // Handler for .ready() called.
-                    $('html, body').animate({
-                        scrollTop: $('#scroll-back-here').offset().top
-                    }, 'slow');
-                });
-            </script>
-
-        <?php endif; ?>
-        <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
-
-        <script>
-            $(document).ready(function () {
-
-                $('form.fees-structures-form').submit(function (event) {
-
-                    var file_to_download = $(this).children('select').find(':selected').val();
-
-                    if (file_to_download === "") {
-                        alert("You need to choose a fee structure.");
-                        event.preventDefault();
-                        return false;
-                    }
-
-                    return true;
-
-                });
-            });
-        </script>
+    </section>
+</section>
 
 
-        <?php endif; ?>
-
-        <?php get_footer(); ?>
+<?php endwhile; ?>
 
 
-        <script>
+<?php if (isset($_REQUEST['school']) && isHandHeld()): ?>
+    <script>
+        $(document).ready(function () {
+            // Handler for .ready() called.
+            $('html, body').animate({
+                scrollTop: $('#scroll-back-here').offset().top
+            }, 'slow');
+        });
+    </script>
+<?php endif; ?>
 
-            (function ($) {
+<?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 
-                $('form.table-filter .dropdown').change(function () {
+<script>
+    $(document).ready(function () {
 
-                    let name = $(this).prop("name");
-                    let value = $(this).val();
+        $('form.fees-structures-form').submit(function (event) {
 
-                    if ((window.location.search === "") || (name === "school") || (window.location.search === null) || (window.location.search === undefined)) {
-                        location.search = "?" + name + "=" + value;
-                    } else {
-                        location.search += "&" + name + "=" + value;
-                    }
-                });
+            var file_to_download = $(this).children('select').find(':selected').val();
 
-                $('form.table-filter').submit(function (event) {
-                    event.preventDefault();
-                    location.search += "&view=true";
-                });
+            if (file_to_download === "") {
+                alert("You need to choose a fee structure.");
+                event.preventDefault();
+                return false;
+            }
 
-            })(jQuery);
+            return true;
+
+        });
+    });
+</script>
 
 
-        </script>
+<?php endif; ?>
+
+
+<?php get_footer(); ?>
+
+<script>
+    (function ($) {
+
+        $('form.table-filter .dropdown').change(function () {
+
+            let name = $(this).prop("name");
+            let value = $(this).val();
+
+            if ((window.location.search === "") || (name === "school") || (window.location.search === null) || (window.location.search === undefined)) {
+                location.search = "?" + name + "=" + value;
+            } else {
+                location.search += "&" + name + "=" + value;
+            }
+        });
+
+        $('form.table-filter').submit(function (event) {
+            event.preventDefault();
+            location.search += "&view=true";
+        });
+
+    })(jQuery);
+</script>
