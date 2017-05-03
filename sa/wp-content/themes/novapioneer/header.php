@@ -1,48 +1,78 @@
 <!doctype html>
 <html class="no-js" lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-        <meta name="description" content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
-        <meta http-equiv="cleartype" content="on">
-        <?php wp_head(); ?>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description"
+          content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
+    <meta http-equiv="cleartype" content="on">
+    <?php wp_head(); ?>
 
-        <?php if( novap_ga_tracking_id() ): ?>
-            <!-- Google Analytics -->
-            <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-            ga('create','<?php echo novap_ga_tracking_id() ?>', 'auto');
-            ga('send', 'pageview');
-            </script>
-            <!-- End Google Analytics -->
-        <?php endif; ?>
+    <?php if (novap_ga_tracking_id()): ?>
+        <!-- Google Analytics -->
         <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-97642297-1', 'auto');
+            ga('create', '<?php echo novap_ga_tracking_id() ?>', 'auto');
             ga('send', 'pageview');
-
         </script>
-    </head>
+        <!-- End Google Analytics -->
+    <?php endif; ?>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    <body <?php body_class(); ?>>
-        <!-- page-modal -->
-        <div class="modal">
-            <div class="modal-logo">
-                <a href="<?php echo home_url(); ?>" class="logo header-logo">
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="188.031px" height="203.368px" viewBox="0 0 188.031 203.368"
-                    enable-background="new 0 0 188.031 203.368"
-                    xml:space="preserve" class="logo-mark-only">
+        ga('create', 'UA-97642297-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 966928664;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt=""
+                 src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966928664/?guid=ON&script=0"/>
+        </div>
+    </noscript>
+</head>
+
+<body <?php body_class(); ?>>
+<!-- page-modal -->
+<div class="modal">
+    <div class="modal-logo">
+        <a href="<?php echo home_url(); ?>" class="logo header-logo">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="188.031px" height="203.368px" viewBox="0 0 188.031 203.368"
+                 enable-background="new 0 0 188.031 203.368"
+                 xml:space="preserve" class="logo-mark-only">
                             <g id="white">
                                 <g>
                                     <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="10" y1="65.9565"
@@ -57,7 +87,8 @@
                                     <polygon fill="url(#SVGID_1_)" points="15.169,44.127 4,74.316 72.662,34.613 93.689,47.434 140.766,74.614 140.912,49.504
                                         73.908,10.209       "/>
 
-                                    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643" y1="54.0454"
+                                    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643"
+                                                    y1="54.0454"
                                                     x2="127.9901" y2="-63.9692"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#F68B1F"/>
@@ -67,7 +98,8 @@
                                     <polygon fill="url(#SVGID_2_)" points="163.25,117.336 140.766,128.983 93.689,156.165 115.268,168.629 184.343,130.163
                                         184.343,63.148 163.25,37.922        "/>
 
-                                    <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236" y1="-101.4995"
+                                    <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236"
+                                                    y1="-101.4995"
                                                     x2="25.281" y2="18.4552"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#6CBE45"/>
@@ -77,7 +109,8 @@
                                     <polygon fill="url(#SVGID_3_)" points="25.506,86.729 25.506,166.145 81.765,199.237 113.611,193.866 46.606,154.157
                                         46.606,128.983 46.606,74.614        "/>
 
-                                    <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.998" y1="113.897"
+                                    <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.998"
+                                                    y1="113.897"
                                                     x2="174.5494" y2="-4.8885"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#F68B1F"/>
@@ -87,7 +120,8 @@
                                     <polygon fill="url(#SVGID_4_)" points="73.908,10.209 140.912,49.504 140.766,74.614 140.766,128.983 163.25,117.336
                                         163.25,37.922 105.75,4      "/>
 
-                                    <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5347" y1="-41.5591"
+                                    <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5347"
+                                                    y1="-41.5591"
                                                     x2="72.4756" y2="77.3446"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#6CBE45"/>
@@ -100,7 +134,8 @@
                                     <polygon fill="url(#SVGID_5_)" points="4,74.316 4,141.745 25.506,166.145 25.506,86.729 46.606,74.614 93.689,47.434
                                         72.666,34.613       "/>
 
-                                    <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.6875" y1="-53.647"
+                                    <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.6875"
+                                                    y1="-53.647"
                                                     x2="52.3966" y2="-52.8733"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#188EBF"/>
@@ -114,51 +149,54 @@
                                 </g>
                             </g>
                         </svg>
-                    </a>
+        </a>
 
-            </div>
+    </div>
 
-            <!-- clear -->
-            <svg class="modal-control close" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                <path d="M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z"/>
+    <!-- clear -->
+    <svg class="modal-control close" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+        <path
+            d="M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z"/>
+    </svg>
+
+    <form action="<?php echo esc_url(home_url('/')); ?>" class="header-search">
+        <fieldset>
+            <input type="text" name="s" placeholder="Search"/>
+
+            <input type="submit" name="submit" class="search-button"/>
+
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                <path
+                    d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
             </svg>
+        </fieldset>
+    </form>
 
-            <form action="<?php echo esc_url( home_url('/') ); ?>" class="header-search">
-                <fieldset>
-                    <input type="text" name="s" placeholder="Search"/>
-
-                    <input type="submit" name="submit" class="search-button" />
-
-                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                        <path d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
-                    </svg>
-                </fieldset>
-            </form>
-
-            <!-- start navigation -->
-            <div class="scroller-outer">
-                <div class="scroller-inner">
-                    <?php wp_nav_menu( array(
-                        'menu_class' => 'menu',
-                        'walker' => new NovaPioneer\NovapHeaderMenuWalker,
-                        'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
-                        'theme_location' => 'novap-header-menu',
-                        'container' => ''
-                    )); ?>
-                </div>
-            </div>
-            <!-- end navigation -->
+    <!-- start navigation -->
+    <div class="scroller-outer">
+        <div class="scroller-inner">
+            <?php wp_nav_menu(array(
+                'menu_class' => 'menu',
+                'walker' => new NovaPioneer\NovapHeaderMenuWalker,
+                'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
+                'theme_location' => 'novap-header-menu',
+                'container' => ''
+            )); ?>
         </div>
-        <!-- end page-modal -->
+    </div>
+    <!-- end navigation -->
+</div>
+<!-- end page-modal -->
 
 
-        <!-- page-header -->
-        <header class="page-header <?php if(is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>"  id="header-container">
-            <!-- <section class="header-section header-section-countries"> -->
-                <!-- we'll probably need to find a way to pick which country is selected -->
-                <!--<span class="country country-choose">Choose country</span>-->
+<!-- page-header -->
+<header class="page-header <?php if (is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>"
+        id="header-container">
+    <!-- <section class="header-section header-section-countries"> -->
+    <!-- we'll probably need to find a way to pick which country is selected -->
+    <!--<span class="country country-choose">Choose country</span>-->
 
-                <!-- <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke">
+    <!-- <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke">
                     <span class="flag-icon flag-icon-ke"></span>
                     <span class="text">Kenya</span>
                 </a>
@@ -173,64 +211,78 @@
                 </script>
             </section> -->
 
-            <section class="header-section header-section-main">
-                <a href="<?php echo home_url(); ?>" class="logo header-logo">
-                    <!-- mark and text -->
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        width="714.234px" height="203.368px" viewBox="0 0 714.234 203.368" enable-background="new 0 0 714.234 203.368"
-                        xml:space="preserve" class="logo-mark-text">
+    <section class="header-section header-section-main">
+        <a href="<?php echo home_url(); ?>" class="logo header-logo">
+            <!-- mark and text -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="714.234px" height="203.368px" viewBox="0 0 714.234 203.368"
+                 enable-background="new 0 0 714.234 203.368"
+                 xml:space="preserve" class="logo-mark-text">
                         <g id="coloured">
                             <g class="logo-mark">
-                                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="10" y1="65.9565" x2="146.5885" y2="65.9565" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#188EBF"/>
-                                    <stop  offset="0.2459" style="stop-color:#1D7AAA"/>
-                                    <stop  offset="0.7761" style="stop-color:#1C5184"/>
-                                    <stop  offset="1" style="stop-color:#1D3F75"/>
+                                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="10" y1="65.9565"
+                                                x2="146.5885" y2="65.9565"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#188EBF"/>
+                                    <stop offset="0.2459" style="stop-color:#1D7AAA"/>
+                                    <stop offset="0.7761" style="stop-color:#1C5184"/>
+                                    <stop offset="1" style="stop-color:#1D3F75"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_1_)" points="15.169,44.127 4,74.316 72.662,34.613 93.689,47.434 140.765,74.614 140.912,49.504
                                     73.908,10.209       "/>
 
-                                <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643" y1="54.0454" x2="127.9901" y2="-63.9692" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#F68B1F"/>
-                                    <stop  offset="1" style="stop-color:#FFCF01"/>
+                                <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643" y1="54.0454"
+                                                x2="127.9901" y2="-63.9692"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#F68B1F"/>
+                                    <stop offset="1" style="stop-color:#FFCF01"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_2_)" points="163.25,117.336 140.765,128.983 93.689,156.165 115.268,168.629 184.343,130.163
                                     184.343,63.148 163.25,37.922        "/>
 
-                                <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236" y1="-101.4985" x2="25.2814" y2="18.4553" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#6CBE45"/>
-                                    <stop  offset="1" style="stop-color:#0D9046"/>
+                                <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236" y1="-101.4985"
+                                                x2="25.2814" y2="18.4553"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#6CBE45"/>
+                                    <stop offset="1" style="stop-color:#0D9046"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_3_)" points="25.506,86.729 25.506,166.145 81.765,199.237 113.611,193.866 46.606,154.157
                                     46.606,128.983 46.606,74.614        "/>
 
-                                <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.9985" y1="113.8979" x2="174.5499" y2="-4.8876" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#F68B1F"/>
-                                    <stop  offset="1" style="stop-color:#FFCF01"/>
+                                <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.9985" y1="113.8979"
+                                                x2="174.5499" y2="-4.8876"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#F68B1F"/>
+                                    <stop offset="1" style="stop-color:#FFCF01"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_4_)" points="73.908,10.209 140.912,49.504 140.765,74.614 140.765,128.983 163.25,117.336
                                     163.25,37.922 105.75,4      "/>
 
-                                <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5342" y1="-41.5581" x2="72.4751" y2="77.3456" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#6CBE45"/>
-                                    <stop  offset="0.2554" style="stop-color:#67B945"/>
-                                    <stop  offset="0.5116" style="stop-color:#59AE45"/>
-                                    <stop  offset="0.7672" style="stop-color:#40A046"/>
-                                    <stop  offset="1" style="stop-color:#0D9046"/>
+                                <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5342" y1="-41.5581"
+                                                x2="72.4751" y2="77.3456"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#6CBE45"/>
+                                    <stop offset="0.2554" style="stop-color:#67B945"/>
+                                    <stop offset="0.5116" style="stop-color:#59AE45"/>
+                                    <stop offset="0.7672" style="stop-color:#40A046"/>
+                                    <stop offset="1" style="stop-color:#0D9046"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_5_)" points="4,74.316 4,141.745 25.506,166.145 25.506,86.729 46.606,74.614 93.689,47.434
                                     72.666,34.613       "/>
 
-                                <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.687" y1="-53.647" x2="52.3961" y2="-52.8733" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#188EBF"/>
-                                    <stop  offset="0.2459" style="stop-color:#1D7AAA"/>
-                                    <stop  offset="0.7761" style="stop-color:#1C5184"/>
-                                    <stop  offset="1" style="stop-color:#1D3F75"/>
+                                <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.687" y1="-53.647"
+                                                x2="52.3961" y2="-52.8733"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#188EBF"/>
+                                    <stop offset="0.2459" style="stop-color:#1D7AAA"/>
+                                    <stop offset="0.7761" style="stop-color:#1C5184"/>
+                                    <stop offset="1" style="stop-color:#1D3F75"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_6_)" points="46.602,154.157 113.616,193.866 172.35,161.176 184.338,130.154 115.268,168.629
@@ -361,62 +413,76 @@
                         </g>
                     </svg>
 
-                    <!-- mark only -->
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        width="188.031px" height="203.368px" viewBox="0 0 188.031 203.368" enable-background="new 0 0 188.031 203.368"
-                        xml:space="preserve" class="logo-mark-only">
+            <!-- mark only -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="188.031px" height="203.368px" viewBox="0 0 188.031 203.368"
+                 enable-background="new 0 0 188.031 203.368"
+                 xml:space="preserve" class="logo-mark-only">
                         <g id="coloured_blue">
                             <g>
-                                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="10" y1="65.9565" x2="146.5885" y2="65.9565" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#188EBF"/>
-                                    <stop  offset="0.2459" style="stop-color:#1D7AAA"/>
-                                    <stop  offset="0.7761" style="stop-color:#1C5184"/>
-                                    <stop  offset="1" style="stop-color:#1D3F75"/>
+                                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="10" y1="65.9565"
+                                                x2="146.5885" y2="65.9565"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#188EBF"/>
+                                    <stop offset="0.2459" style="stop-color:#1D7AAA"/>
+                                    <stop offset="0.7761" style="stop-color:#1C5184"/>
+                                    <stop offset="1" style="stop-color:#1D3F75"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_1_)" points="15.169,44.127 4,74.316 72.662,34.613 93.689,47.434 140.766,74.614 140.912,49.504
                                     73.908,10.209       "/>
 
-                                <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643" y1="54.0454" x2="127.9901" y2="-63.9692" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#F68B1F"/>
-                                    <stop  offset="1" style="stop-color:#FFCF01"/>
+                                <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643" y1="54.0454"
+                                                x2="127.9901" y2="-63.9692"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#F68B1F"/>
+                                    <stop offset="1" style="stop-color:#FFCF01"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_2_)" points="163.25,117.336 140.766,128.983 93.689,156.165 115.268,168.629 184.343,130.163
                                     184.343,63.148 163.25,37.922        "/>
 
-                                <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236" y1="-101.4995" x2="25.281" y2="18.4552" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#6CBE45"/>
-                                    <stop  offset="1" style="stop-color:#0D9046"/>
+                                <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236" y1="-101.4995"
+                                                x2="25.281" y2="18.4552"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#6CBE45"/>
+                                    <stop offset="1" style="stop-color:#0D9046"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_3_)" points="25.506,86.729 25.506,166.145 81.765,199.237 113.611,193.866 46.606,154.157
                                     46.606,128.983 46.606,74.614        "/>
 
-                                <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.998" y1="113.897" x2="174.5494" y2="-4.8885" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#F68B1F"/>
-                                    <stop  offset="1" style="stop-color:#FFCF01"/>
+                                <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.998" y1="113.897"
+                                                x2="174.5494" y2="-4.8885"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#F68B1F"/>
+                                    <stop offset="1" style="stop-color:#FFCF01"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_4_)" points="73.908,10.209 140.912,49.504 140.766,74.614 140.766,128.983 163.25,117.336
                                     163.25,37.922 105.75,4      "/>
 
-                                <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5347" y1="-41.5591" x2="72.4756" y2="77.3446" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#6CBE45"/>
-                                    <stop  offset="0.2554" style="stop-color:#67B945"/>
-                                    <stop  offset="0.5116" style="stop-color:#59AE45"/>
-                                    <stop  offset="0.7672" style="stop-color:#40A046"/>
-                                    <stop  offset="1" style="stop-color:#0D9046"/>
+                                <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5347" y1="-41.5591"
+                                                x2="72.4756" y2="77.3446"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#6CBE45"/>
+                                    <stop offset="0.2554" style="stop-color:#67B945"/>
+                                    <stop offset="0.5116" style="stop-color:#59AE45"/>
+                                    <stop offset="0.7672" style="stop-color:#40A046"/>
+                                    <stop offset="1" style="stop-color:#0D9046"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_5_)" points="4,74.316 4,141.745 25.506,166.145 25.506,86.729 46.606,74.614 93.689,47.434
                                     72.666,34.613       "/>
 
-                                <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.6875" y1="-53.647" x2="52.3966" y2="-52.8733" gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
-                                    <stop  offset="0" style="stop-color:#188EBF"/>
-                                    <stop  offset="0.2459" style="stop-color:#1D7AAA"/>
-                                    <stop  offset="0.7761" style="stop-color:#1C5184"/>
-                                    <stop  offset="1" style="stop-color:#1D3F75"/>
+                                <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.6875" y1="-53.647"
+                                                x2="52.3966" y2="-52.8733"
+                                                gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
+                                    <stop offset="0" style="stop-color:#188EBF"/>
+                                    <stop offset="0.2459" style="stop-color:#1D7AAA"/>
+                                    <stop offset="0.7761" style="stop-color:#1C5184"/>
+                                    <stop offset="1" style="stop-color:#1D3F75"/>
                                 </linearGradient>
 
                                 <polygon fill="url(#SVGID_6_)" points="46.602,154.157 113.616,193.866 172.35,161.176 184.338,130.154 115.268,168.629
@@ -424,37 +490,42 @@
                             </g>
                         </g>
                     </svg>
-                </a>
+        </a>
 
-                <!-- start navigation -->
-                <?php wp_nav_menu( array(
-                    'menu_class' => 'menu',
-                    'walker' => new NovaPioneer\NovapHeaderMenuWalker,
-                    'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
-                    'theme_location' => 'novap-header-menu',
-                    'container' => ''
-                )); ?>
-                <!-- end navigation -->
+        <!-- start navigation -->
+        <?php wp_nav_menu(array(
+            'menu_class' => 'menu',
+            'walker' => new NovaPioneer\NovapHeaderMenuWalker,
+            'items_wrap' => '<ul role="navigation" id="%1$s" class="%2$s">%3$s</ul>',
+            'theme_location' => 'novap-header-menu',
+            'container' => ''
+        )); ?>
+        <!-- end navigation -->
 
-                <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
+        <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
+            now</a>
 
-                <!-- open search form -->
-                <svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                    <path d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
-                </svg>
+        <!-- open search form -->
+        <svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+             viewBox="0 0 48 48">
+            <path
+                d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
+        </svg>
 
-                <!-- open small menu -->
-                <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                    <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
-                </svg>
-            </section>
-            <div class=" sticky-mobile-container">
-              <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-                  <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
-              </svg>
-            </div>
-            <section class="header-section country-switch-container">
-              <!-- <div class="drop-list-container">
+        <!-- open small menu -->
+        <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+             viewBox="0 0 48 48">
+            <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
+        </svg>
+    </section>
+    <div class=" sticky-mobile-container">
+        <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+             viewBox="0 0 48 48">
+            <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
+        </svg>
+    </div>
+    <section class="header-section country-switch-container">
+        <!-- <div class="drop-list-container">
                 <a href="<?php echo novap_get_baseurl(); ?>sa" class="country country-sa drop-list-item drop-list-selected">
                     <span class="flag-icon flag-icon-za"></span>
                     <span class="text">South Africa</span>
@@ -465,23 +536,25 @@
                     <span class="text">Kenya</span>
                 </a>
             </div> -->
-            <div class="drop-list-container">
-              <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa drop-list-item drop-list-selected">
-                  <span class="flag-icon flag-icon-za"></span>
-                  <span class="text">South Africa</span>
-              </a>
+        <div class="drop-list-container">
+            <a href="<?php echo novap_get_baseurl(); ?>/sa"
+               class="country country-sa drop-list-item drop-list-selected">
+                <span class="flag-icon flag-icon-za"></span>
+                <span class="text">South Africa</span>
+            </a>
 
-              <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke drop-list-item drop-list-option">
-                  <span class="flag-icon flag-icon-ke"></span>
-                  <span class="text">Kenya</span>
-              </a>
-          </div>
-              <script>
-                  $('body').addClass('body-ke');
-              </script>
-            </section>
-        </header>
-        <!-- end page-header -->
+            <a href="<?php echo novap_get_baseurl(); ?>/kenya"
+               class="country country-ke drop-list-item drop-list-option">
+                <span class="flag-icon flag-icon-ke"></span>
+                <span class="text">Kenya</span>
+            </a>
+        </div>
+        <script>
+            $('body').addClass('body-ke');
+        </script>
+    </section>
+</header>
+<!-- end page-header -->
 
-        <!-- start content -->
-        <main role="main">
+<!-- start content -->
+<main role="main">
