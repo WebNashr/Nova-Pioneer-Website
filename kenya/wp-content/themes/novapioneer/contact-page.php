@@ -32,11 +32,10 @@ get_header(); ?>
             </div>
         </section>
 
-        
-
         <?php $locations = array(); // The school locations ?>
 
         <div class="trigger"></div>
+
         <section class="section">
             <div class="section-pair">
                 <div class="section-navigation">
@@ -73,18 +72,17 @@ get_header(); ?>
                         </div>
 
                         <?php
-                        array_push($locations, array(
-                            "latitude" => $school_branch->latitude,
-                            "longitude" => $school_branch->longitude,
-                            "info_text" => "Novapioneer " . $school_branch->branch_name
-                        ));
+                            array_push($locations, array(
+                                "latitude" => $school_branch->latitude,
+                                "longitude" => $school_branch->longitude,
+                                "info_text" => $school_branch->branch_name
+                            ));
                         ?>
 
                     <?php endforeach; ?>
+
                     <div class="school-maps-container">
-                        <?php
-                        novap_render_google_map($locations);
-                        ?>
+                        <?php novap_render_google_map($locations); ?>
                     </div>
 
                 </div>

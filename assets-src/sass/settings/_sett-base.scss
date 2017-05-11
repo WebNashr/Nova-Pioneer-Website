@@ -21,7 +21,8 @@ html {
 	@include font-size(16px);
 	@include line-height(24px);
 	color: $dark-grey;
-	touch-action: manipulation auto pinch-zoom;
+	touch-action: manipulation;
+	touch-action: pan-x pan-y pan-left pan-right pan-up pan-down pinch-zoom;
 
 	@include break-point(tablet) {
 

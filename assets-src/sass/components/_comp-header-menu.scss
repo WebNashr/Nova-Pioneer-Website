@@ -13,6 +13,8 @@
     display: none;
 	margin-left: 2rem;
 	list-style-type: none;
+	touch-action: manipulation;
+	touch-action: pan-x pan-y pan-left pan-right pan-up pan-down pinch-zoom;
 
 	.modal.modal-menu & {
 		@include flexbox();

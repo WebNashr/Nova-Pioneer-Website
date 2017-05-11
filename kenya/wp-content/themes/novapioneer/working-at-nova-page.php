@@ -34,7 +34,7 @@ get_header();?>
 
         <section class="section">
             <article class="article article-inner article-inner-alt">
-                <h2>Why work at NovaPioneer? </h2>
+                <h2>Why work at Nova Pioneer? </h2>
                 <?php echo get_field('why_work_at_novap'); ?>
             </article>
         </section>
