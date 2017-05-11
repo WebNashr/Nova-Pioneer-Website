@@ -53,9 +53,16 @@
             marker.setMap(map);
             bounds.extend(marker.position);
         });
+        google.maps.event.addListenerOnce(map, 'bounds_changed', function (event) {
+            this.setZoom(map.getZoom() - 1);
+            if (this.getZoom() > 15) {
+                this.setZoom(16);
+            }
 
+            console.log(this.getZoom())
+        });
         map.fitBounds(bounds);
-        google.maps.event.addListener(map,'idle',function(event) {
+        google.maps.event.addListener(map, 'idle', function (event) {
             mapCenter = map.getCenter();
         });
         google.maps.event.addDomListener(map, 'resize', function () {
@@ -67,8 +74,8 @@
 
     }
 
-    $( window ).resize(function() {
-      initMap()
+    $(window).resize(function () {
+        initMap()
         console.log('initialize map again')
     })
 </script>

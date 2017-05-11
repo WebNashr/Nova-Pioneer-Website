@@ -1,3 +1,6 @@
+
+# Nova-Pioneer-Website
+
 # README #
 
 Simple wordpress installation  see https://github.com/WordPress/WordPress/blob/master/readme.html
@@ -45,3 +48,4 @@ An example of virtual host settings:
 
 Both the `kenya` and `sa` folders have their own `wp-config.php` files, in which you'll have to specify the base_url of the site 
 (as per your virtual host settings) as well as the home_url and site_url
+

@@ -19,7 +19,7 @@ get_header(); ?>
                 </div>
             </div>
         </section>
-        
+
         <section
             class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
             data-enllax-ratio="0.1">
@@ -72,17 +72,17 @@ get_header(); ?>
                         </div>
 
                         <?php
-                            array_push($locations, array(
-                                "latitude" => $school_branch->latitude,
-                                "longitude" => $school_branch->longitude,
-                                "info_text" => $school_branch->branch_name
-                            ));
+                        array_push($locations, array(
+                            "latitude" => $school_branch->latitude,
+                            "longitude" => $school_branch->longitude,
+                            "info_text" => $school_branch->branch_name
+                        ));
                         ?>
 
                     <?php endforeach; ?>
 
                     <div class="school-maps-container">
-                        <?php novap_render_google_map($locations); ?>
+                        <?php novap_render_google_map($locations, 12); ?>
                     </div>
 
                 </div>
