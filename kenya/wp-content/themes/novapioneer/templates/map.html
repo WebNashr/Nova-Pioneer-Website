@@ -1,13 +1,14 @@
 <script>
     console.log('safari map thingies')
     var map;
+    var zoom = '{{zoom}}'
     var locations_data = '{{locations}}';
     var locations = JSON.parse(locations_data.replace(/&quot;/ig, '"'));
 
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: new google.maps.LatLng(locations[0].latitude, locations[0].longitude),
-            zoom: 12,
+            zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: true,
             mapTypeControlOptions: {
