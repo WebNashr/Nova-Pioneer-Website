@@ -350,7 +350,7 @@ function novap_delete_rsvp_from_event()
 add_action('load-post.php', 'novap_delete_rsvp_from_event');
 
 
-function novap_render_google_map(array $locations, $zoom = 8)
+function novap_render_google_map(array $locations, $zoom = 18)
 {
     $map_view = new View("map.html");
 
