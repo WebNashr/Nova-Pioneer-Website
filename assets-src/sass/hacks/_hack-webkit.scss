@@ -3,30 +3,6 @@
 /* ==================================================== */
 
 
-// .header-logo {
-//     max-width: 3rem;
-//     max-height: 3rem;
-//     background: yellow;
-
-//     @include break-point(tablet) {
-//         max-width: 4rem;
-//         max-height: 4rem;
-//         background: pink;
-//     }
-
-//     @include break-point(laptop) {
-//         max-width: 14rem;
-//         max-height: 64px;
-//         background: red;
-//     }
-
-//     @include break-point(largelaptop) {
-//         max-width: 18rem;
-//         max-height: 84px;
-//         background: cyan;
-//     }
-// }
-
 .header-search input[type="text"].open {
     .chrome & {
     	padding: 0.72rem;
@@ -45,7 +21,6 @@
     	margin-top: calc(1rem * 1.5);
     }
 }
-
 
 .modal .header-section,
 .non-hero .modal .header-section {
