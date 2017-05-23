@@ -206,7 +206,8 @@ header {
 
 // hide any Google Conversion elements that are affecting the layout
 #google_conversion_738966685,
-*[id*="google_conversion_"] {
+*[id*="google_conversion_"],
+*[name*="google_conversion_"] {
 	margin: 0;
 	padding: 0;
 	height: 0;
