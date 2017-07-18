@@ -672,3 +672,19 @@ function ishandheld()
     }
     return false;
 }
+
+function cliff_et_rsvp_bcc_admin_ticket() {
+    // get site admin's email
+    $bcc = sanitize_email( get_option( 'admin_email' ) );
+
+    // set Headers to Event Tickets' default
+    $headers = array( 'Content-type: text/html' );
+
+    // add BCC email if it's a valid email address
+    if ( is_email( $bcc ) ) {
+        $headers[] = sprintf( 'Bcc: %s', $bcc );
+    }
+
+    return $headers;
+}
+add_filter( 'tribe_rsvp_email_headers', 'cliff_et_rsvp_bcc_admin_ticket' );
