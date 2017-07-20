@@ -130,7 +130,7 @@ $website = tribe_get_event_website_link();
 				'before'       => '',
 				'sep'          => ', ',
 				'after'        => '',
-				'label'        => null, // An appropriate plural/singular label will be provided
+				'label'        => 'Campus', // An appropriate plural/singular label will be provided
 				'label_before' => '<dt>',
 				'label_after'  => '</dt>',
 				'wrap_before'  => '<dd class="tribe-events-event-categories">',
@@ -145,7 +145,7 @@ $website = tribe_get_event_website_link();
 		// Event Website
 		if ( ! empty( $website ) ) : ?>
 
-			<dt> <?php esc_html_e( 'Website:', 'the-events-calendar' ) ?> </dt>
+			<dt> <?php esc_html_e( 'Event Details:', 'the-events-calendar' ) ?> </dt>
 			<dd class="tribe-events-event-url"> <?php echo $website; ?> </dd>
 		<?php endif ?>
 
