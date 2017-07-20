@@ -13,7 +13,7 @@ get_header(); ?>
                 <ul id="hero-slider">
                     <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
                         <li>
-                            <a href="#slide1">
+                            <a href="<?php if($hero_slide->has_link){echo $hero_slide->link;}?>">
                                 <img src="<?php echo $hero_slide->image; ?>">
                                 <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
                                 <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
