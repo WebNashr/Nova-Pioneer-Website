@@ -12,8 +12,13 @@ get_header(); ?>
             <div class="container hero-container">
                 <ul id="hero-slider">
                     <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
+                        <?php $link = $target = '';
+                        if ($hero_slide->has_link) {
+                            $link = $hero_slide->link;
+                            $target = 'target="_blank"';
+                        } ?>
                         <li>
-                            <a href="<?php if($hero_slide->has_link){echo $hero_slide->link;}?>">
+                            <a href="<?php echo $link ?>" <?php echo $target ?>>
                                 <img src="<?php echo $hero_slide->image; ?>">
                                 <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
                                 <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
@@ -360,7 +365,8 @@ get_header(); ?>
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
-                                        <usexlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                        <usexlink:href
+                                        ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
 
                                     <?php echo $testimonial->post_content; ?>
