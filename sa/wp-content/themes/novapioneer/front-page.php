@@ -13,10 +13,11 @@ get_header(); ?>
                 <ul id="hero-slider">
                     <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
                         <li>
-                            <?php $link = $target = '';
+                            <?php $link = '#';
+                            $target = '';
                             if ($hero_slide->has_link) {
-                                $link= $hero_slide->link;
-                                $target='target="_blank"';
+                                $link = $hero_slide->link;
+                                $target = 'target="_blank"';
                             } ?>
                             <a href="<?php echo $link ?>" <?php echo $target ?>>
                                 <img src="<?php echo $hero_slide->image; ?>">
