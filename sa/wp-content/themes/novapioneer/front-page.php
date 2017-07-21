@@ -13,7 +13,12 @@ get_header(); ?>
                 <ul id="hero-slider">
                     <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
                         <li>
-                            <a href="<?php if($hero_slide->has_link){echo $hero_slide->link;}?>">
+                            <?php $link = $target = '';
+                            if ($hero_slide->has_link) {
+                                $link= $hero_slide->link;
+                                $target='target="_blank"';
+                            } ?>
+                            <a href="<?php echo $link ?>" <?php echo $target ?>>
                                 <img src="<?php echo $hero_slide->image; ?>">
                                 <div class="callout-box">
                                     <div class="animated-headings">
@@ -41,7 +46,8 @@ get_header(); ?>
                     <div class="section-school-list-select section-content-item-quarter">
                         <a href="<?php echo get_permalink($school->ID); ?>">
                             <p class="school-photo"><img
-                                    src="<?php echo get_the_post_thumbnail_url($school->ID);?>" alt="" style="min-height:179px"></p>
+                                    src="<?php echo get_the_post_thumbnail_url($school->ID); ?>" alt=""
+                                    style="min-height:179px"></p>
                             <h3><?php echo $school->post_title; ?></h3>
                             <div class="school-summary">
                                 <?php $school_gender = get_field('school_gender', $school->ID);
@@ -83,7 +89,7 @@ get_header(); ?>
             <div class="section-content even-section">
 
                 <div class="section-content-item section-content-item-half first-item">
-                    <?php  $our_students_video = get_field('our_students_video');
+                    <?php $our_students_video = get_field('our_students_video');
                     if (get_field('type', $our_students_video->ID) == 'student'): ?>
                     <?php echo get_field('our_students_description'); ?>
 
@@ -118,7 +124,7 @@ get_header(); ?>
                         } ?>
                     </div>
                 </div>
-                <?php endif;?>
+                <?php endif; ?>
             </div>
         </section>
 
@@ -315,7 +321,7 @@ get_header(); ?>
                         <h4>Our Calendar</h4>
                         <p><?php echo date('F Y'); ?> School Events</p>
                         <a href="<?php echo site_url('/calendar'); ?>" class="button button-small button-secondary"
-                          >Calendar</a>
+                        >Calendar</a>
                     </div>
                 </div>
                 <!-- <div class="small-notice-container">
@@ -496,7 +502,8 @@ get_header(); ?>
     Add this script tag after the carousel options JS block on whichever page
     the carousel gets going on being a right pain in the footer!
 -->
-<script type="text/javascript" src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
+<script type="text/javascript"
+        src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
 
 
 <?php get_footer(); ?>
