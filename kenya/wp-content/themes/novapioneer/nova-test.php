@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name : Nova Test
+ * Template Name: Nova Test
  */
 
 get_header(); ?>
