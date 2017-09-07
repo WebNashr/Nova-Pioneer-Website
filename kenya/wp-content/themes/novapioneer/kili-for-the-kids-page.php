@@ -90,7 +90,7 @@ get_header();?>
                     <?php endforeach; ?> -->
 
                     <div class="button-wrap">
-                        <a href="http://novaacademies.applytojob.com/" target="_blank" class="button button-default button-primary" title="">View Open Positions</a>
+                        <a href="https://www.generosity.com/education-fundraising/kilimanjaro-4-the-kids-innovative-stem-programmes" target="_blank" class="button button-default button-primary" title="">Donate to Kilimanjaro 4 The Kids</a>
                     </div>
                 </div>
             </article>
