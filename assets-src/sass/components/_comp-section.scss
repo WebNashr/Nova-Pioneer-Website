@@ -2320,6 +2320,68 @@
 		padding:  0 calc(#{$space-tiny} * 1);
 	}
 }
+
+.principles-container .principle-card.campaign-card {
+	padding: 0;
+	background: $light-grey;
+	overflow-wrap: break-word;
+}
+
+.principles-container .principle-card.campaign-card header {
+	padding: 1rem 1.5rem;
+}
+
+.principles-container .principle-card.campaign-card h3,
+.principles-container .principle-card.campaign-card p,
+.principles-container .principle-card.campaign-card li,
+.principles-container .principle-card.campaign-card a {
+	text-align: left;
+}
+
+.principles-container .principle-card.campaign-card h3,
+.principles-container .principle-card.campaign-card:hover h3 {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.2;
+	transition: unset;
+}
+
+.principles-container .principle-card.campaign-card p,
+.principles-container .principle-card.campaign-card li {
+	font-size: 1rem;
+}
+
+.principles-container .principle-card.campaign-card p+p {
+	margin-top: 1rem;
+}
+
+.principles-container .principle-card.campaign-card li {
+	margin-bottom: 1rem;
+	line-height: 0.75;
+	color: $white;
+}
+
+.principles-container .principle-card.campaign-card a {
+	font-size: inherit;
+	text-decoration: underline;
+	color: $white;
+}
+
+.principles-container .principle-card.campaign-card:nth-child(1) {
+	background: $green-lt;
+}
+
+.principles-container .principle-card.campaign-card:nth-child(2) {
+	background: $orange-lt;
+}
+
+.principles-container .principle-card.campaign-card:nth-child(3) {
+	background: $blue-lt;
+}
+
+.principles-container .principle-card.campaign-card:nth-child(4) {
+	background: $blue-dk;
+}
 //---About Nova Pioneer end--
 
 //---Working at Nova Pioneer start--
