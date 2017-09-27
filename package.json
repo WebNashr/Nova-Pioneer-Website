@@ -9,10 +9,10 @@
   "author": "Circle",
   "license": "ISC",
   "dependencies": {
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-cache": "^0.4.6",
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^3.1.0",
@@ -23,12 +23,12 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-uglify": "^2.0.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
-    "jshint": "^2.9.4",
-    "require-dir": "^0.3.1",
-    "sass-lint": "^1.10.2"
+    "jshint": "^2.9.5",
+    "require-dir": "^0.3.2",
+    "sass-lint": "^1.11.1"
   },
   "repository": {
     "type": "git",
