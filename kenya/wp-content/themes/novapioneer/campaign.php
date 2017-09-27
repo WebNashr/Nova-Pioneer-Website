@@ -106,7 +106,7 @@
 
         <!--hero - desktop-->
         <section class="section section-hero campaign-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
-            <div class="container hero-coXntainer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/bg.png');">
+            <div class="container hero-coXntainer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/bg-3.png');">
                 <div class="main-callout-box">
                     <a href="<?php echo home_url(); ?>" class="logo header-logo">
                         <!-- mark and text -->
@@ -311,6 +311,8 @@
                     </a>
                     
                     <h1 class="animated-title"><?php echo get_field('title', $post->ID); ?></h1>
+
+                    <a href="" class="button button button-large button-secondary campaign-school-apply">apply here</a>
                 </div>
             </div>
             <!--<div class="container" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/bg.png');"></div>-->
@@ -342,7 +344,7 @@
                         </fieldset>
 
                         <fieldset>
-                            <input id="" class="form-submit button button-large button-primary" value="Submit" type="submit">
+                            <input id="" class="form-submit button button-default button-primary" value="Submit" type="submit">
                         </fieldset>
                     </form>
 
@@ -359,9 +361,10 @@
 
                         <a href="" class="campaign-school-link">Fee structure</a>
 
+                        <br>
                         <a href="" class="button button button-large button-secondary campaign-school-apply">apply here</a>
 
-                        <div class="campaign-contacts">
+                        <!--<div class="campaign-contacts">
                             <p class="contact-header">Get in touch with us</p>
 
                             <span class="contact"><a href="tel: 0745 990 7280" title="">0745 990 7280</a></span>
@@ -369,7 +372,7 @@
                             <span class="contact"><a href="mailto:admissions@nova.co.ke" title="">admissions@nova.co.ke</a></span>
 
                             <span class="contact"><a href="facebook.com/nova" title="">facebook.com/nova</a></span>
-                        </div>
+                        </div>-->
                     </div>
 
                 </article>
@@ -465,6 +468,18 @@
                 </article>
             </section>
         </article>
+
+        <div class="campaign-contacts">
+                            <p class="contact-header">Get in touch with us</p>
+
+                            <div class="campaign-contacts-proper">
+                                <span class="contact">Phone: <a href="tel: 0745 990 7280" title="">0745 990 7280</a></span>
+
+                            <span class="contact">Email: <a href="mailto:admissions@nova.co.ke" title="">admissions@nova.co.ke</a></span>
+
+                            <span class="contact">FB: <a href="facebook.com/nova" title="">facebook.com/nova</a></span>
+                            </div>
+                        </div>
     <?php endwhile; ?>
 
 <?php endif; ?>

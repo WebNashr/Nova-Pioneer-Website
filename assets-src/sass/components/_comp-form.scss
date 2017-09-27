@@ -98,7 +98,8 @@ select {
 		border: 1px solid $blue-dk;
 	}
 
-	&::placeholder {
+	&::placeholder,
+	&::-webkit-input-placeholder {
 		color: $grey-md;
 		opacity: 1;
 	}
