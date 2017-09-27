@@ -103,11 +103,12 @@
 
 <?php if (have_posts()): ?>
     <?php while (have_posts()): the_post(); ?>
+        <?php global $post; ?>
 
         <!--hero - desktop-->
         <section class="section section-hero campaign-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
             <div class="container hero-coXntainer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/bg-3.png');">
-                <div class="main-callout-box">
+                <div class="main-callout-boxX intro">
                     <a href="<?php echo home_url(); ?>" class="logo header-logo">
                         <!-- mark and text -->
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -312,6 +313,20 @@
                     
                     <h1 class="animated-title"><?php echo get_field('title', $post->ID); ?></h1>
 
+                    <?php //echo get_field('introduction', $post->ID); ?>
+
+                    <p class="school-list">
+                        <?php echo get_field('list_1', $post->ID); ?>
+                    </p>
+
+                    <p class="school-list">
+                        <?php echo get_field('list_2', $post->ID); ?>
+                    </p>
+
+                    <p class="school-list">
+                        <?php echo get_field('list_3', $post->ID); ?>
+                    </p>
+
                     <a href="" class="button button button-large button-secondary campaign-school-apply">apply here</a>
                 </div>
             </div>
@@ -327,8 +342,8 @@
 
                     <form action="" id="campaign-lead" class="campaign-lead" style="display:flexbox;flex-direction:column;flex-wrap:nowrap;">
                         <fieldset>
-                            <h2>form instructions</h2>
-                            <p>more stuff</p>
+                            <h2><?php echo get_field('form_title', $post->ID); ?></h2>
+                            <?php echo get_field('form_help', $post->ID); ?>
                         </fieldset>
 
                         <fieldset>
@@ -344,25 +359,27 @@
                         </fieldset>
 
                         <fieldset>
-                            <input id="" class="form-submit button button-default button-primary" value="Submit" type="submit">
+                            <input id="" class="form-submit button button-default button-primary" value="Send" type="submit">
                         </fieldset>
                     </form>
 
                     <div class="campaign-school">
-                        <!--<img src="" alt="" class="campaign-school-image">-->
+                        <!--<img src="<?php echo get_field('school_image', $post->ID); ?>" alt="" class="campaign-school-image">-->
 
-                        <h2 class="campaign-school-name">Nova Pioneer Primary</h2>
+                        <h2 class="campaign-school-name"><?php echo get_field('school_name', $post->ID); ?></h2>
 
-                        <h3 class="campaign-school-location">Tatu City</h3>
+                        <h3 class="campaign-school-location"><?php echo get_field('school_location', $post->ID); ?></h3>
 
-                        <div class="campaign-school-description"><?php echo get_field('introduction', $post->ID); ?></div>
+                        <div class="campaign-school-description"><?php echo get_field('school_description', $post->ID); ?></div>
 
+                        <a href="" class="button button button-large button-secondary campaign-school-apply">apply here</a>
+                        
                         <a href="" class="campaign-school-link">Admissions</a>
 
                         <a href="" class="campaign-school-link">Fee structure</a>
 
-                        <br>
-                        <a href="" class="button button button-large button-secondary campaign-school-apply">apply here</a>
+                        <!--<br>
+                        <a href="" class="button button button-large button-secondary campaign-school-apply">apply here</a>-->
 
                         <!--<div class="campaign-contacts">
                             <p class="contact-header">Get in touch with us</p>
@@ -470,18 +487,18 @@
         </article>
 
         <div class="campaign-contacts">
-                            <p class="contact-header">Get in touch with us</p>
+            <p class="contact-header">Get in touch with us</p>
 
-                            <div class="campaign-contacts-proper">
-                                <span class="contact">Phone: <a href="tel: 0745 990 7280" title="">0745 990 7280</a></span>
+            <div class="campaign-contacts-proper">
+                <span class="contact">Phone: <a href="tel: <?php echo get_field('phone', $post->ID); ?>" title=""><?php echo get_field('phone', $post->ID); ?></a></span>
 
-                            <span class="contact">Email: <a href="mailto:admissions@nova.co.ke" title="">admissions@nova.co.ke</a></span>
+            <span class="contact">Email: <a href="mailto:<?php echo get_field('email', $post->ID); ?>" title=""><?php echo get_field('email', $post->ID); ?></a></span>
 
-                            <span class="contact">FB: <a href="facebook.com/nova" title="">facebook.com/nova</a></span>
-                            </div>
-                        </div>
+            <span class="contact">FB: <a href="<?php echo get_field('facebook', $post->ID); ?>" title=""><?php echo get_field('facebook', $post->ID); ?></a></span>
+            </div>
+        </div>
+
     <?php endwhile; ?>
-
 <?php endif; ?>
 
 
@@ -496,14 +513,12 @@
         <div class="footer-logo">
             <div class="logo">
                 <a href="<?php echo site_url(); ?>">
-                    <img src="<?php echo novap_get_baseurl(); ?>/img/logo/logo-vertical-coloured-blue.svg"
-                         alt="Nova Pioneer">
+                    <img src="<?php echo novap_get_baseurl(); ?>/img/logo/logo-vertical-coloured-blue.svg" alt="Nova Pioneer">
                 </a>
             </div>
         </div>
 
         <div class="footer-boxes">
-
             <?php wp_nav_menu(array(
                 'walker' => new NovaPioneer\NovapFooterMenuWalker,
                 'items_wrap' => '%3$s',
@@ -511,24 +526,11 @@
                 'container' => ''
             )); ?>
 
+            <div class="footer-box">
+                <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; <?php echo date('Y'); ?>. All rights reserved.</span>
+            </div>
         </div>
     </nav>
-
-    <?php if (is_active_sidebar('main-footer') && !is_page_template('leadership-team-page.php')): ?>
-        <div class="main-footer-widget-area">
-            <?php dynamic_sidebar('main-footer'); ?>
-        </div>
-        <script>
-            'use strict';
-            $('#text-2').hide(); //Hides the title of the chat widget so that only the happyfox generated stuff apppears.
-        </script>
-    <?php endif; ?>
-</footer>
-
-
-<footer class="page-footer page-footer-aux">
-    <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; <?php echo date('Y'); ?>
-        . All right reserved.</span>
 </footer>
 <!-- end footer -->
 
