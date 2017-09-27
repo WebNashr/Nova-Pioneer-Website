@@ -327,7 +327,7 @@
                         <?php echo get_field('list_3', $post->ID); ?>
                     </p>
 
-                    <a href="" class="button button button-large button-secondary campaign-school-apply">apply</a>
+                    <a href="" class="button button button-large button-secondary campaign-school-apply now">apply now</a>
                 </div>
             </div>
             <!--<div class="container" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/bg.png');"></div>-->
@@ -372,14 +372,14 @@
 
                         <div class="campaign-school-description"><?php echo get_field('school_description', $post->ID); ?></div>
 
-                        <a href="" class="button button button-large button-secondary campaign-school-apply">apply</a>
+                        <a href="" class="button button button-large button-secondary campaign-school-apply now">apply now</a>
                         
                         <a href="" class="campaign-school-link">Admissions</a>
 
                         <a href="" class="campaign-school-link">Fee structure</a>
 
                         <!--<br>
-                        <a href="" class="button button button-large button-secondary campaign-school-apply">apply here</a>-->
+                        <a href="" class="button button button-large button-secondary campaign-school-apply now">apply now</a>-->
 
                         <!--<div class="campaign-contacts">
                             <p class="contact-header">Get in touch with us</p>
