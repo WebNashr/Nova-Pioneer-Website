@@ -52,7 +52,7 @@ get_header(); ?>
 
                           <div class="section-content-item">
                               <div class="anchor-link">
-                                <a href="#management" class="" title="">Managment</a>
+                                <a href="#management" class="" title="">Management</a>
                               </div>
                           </div>
                           <div class="section-content-item">
@@ -74,7 +74,7 @@ get_header(); ?>
                         </div>
                         <div class="link-separator">&nbsp;</div>
                         <div class="anchor-link">
-                            <a href="#management" class="" title="">Managment</a>
+                            <a href="#management" class="" title="">Management</a>
                         </div>
                         <div class="link-separator">&nbsp;</div>
                         <div class="anchor-link">
