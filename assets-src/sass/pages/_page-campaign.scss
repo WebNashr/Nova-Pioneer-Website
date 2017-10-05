@@ -4,7 +4,8 @@
 
 
 .campaign-hero {
-	height: 90vh;color: white;
+	height: 90vh;
+	color: white;
 
 }
 
@@ -24,7 +25,7 @@
 	width: 45%;
     height: 100%;
 	margin: 0;
-	padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
+	padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4);
     // top: unset;
 	// right: unset;
     // bottom: unset;
@@ -66,25 +67,47 @@
 
 	p {
 		display: block;
-		margin-top: 1rem;
+		margin-top: 1.5rem;
 		font-size: 1.5rem;
 		text-shadow: none;
 		text-indent: 8px;
 		color: $white;
 
+		// &:before {
+		// 	content: '';
+		// 	position: relative;
+		// 	top: -2px;
+    	// 	left: -8px;
+		// 	display: inline-block;
+		// 	width: 12px;
+		// 	height: 12px;
+		// 	font-size: 1rem;
+		// 	background: $green-lt;
+    	// 	border-radius: 50%;
+		// }
+	}
+
+	.feature-icon {
 		&:before {
-			content: '';
-			position: relative;
-			top: -2px;
-    		left: -8px;
-			display: inline-block;
-			width: 12px;
-			height: 12px;
-			font-size: 1rem;
-			background: $green-lt;
-    		border-radius: 50%;
+			content: "\00a0";
+		}
+		&.boys-school-icon {
+			background-image: url(../../img/icons/boys-school-campaign-icon.svg);
+		}
+		&.curriculum-icon {
+			background-image: url(../../img/icons/curriculum-campaign-icon.svg);
+		}
+		&.Boarding-icon {
+			background-image: url(../../img/icons/boarding-campaign-icon.svg);
+		}
+		&.Day-icon {
+			background-image: url(../../img/icons/day-campaign-icon.svg);
+		}
+		&.grade-icon {
+			background-image: url(../../img/icons/grade-campaign-icon.svg);
 		}
 	}
+
 	.campaign-school-apply {
 		margin-right: auto;
 		background: $green-lt;
@@ -111,8 +134,12 @@
 	@include flexbox();
     @include flex-direction(column);
     @include flex-wrap(wrap);
-	width: 42.5%;
-	padding: 0 7.5% 0 0;
+	// width: 42.5%;
+	// padding: 0 7.5% 0 0;
+	// padding: 0 0 0 7.5%;
+	width: 30%;
+	margin-left: auto;
+	padding: 0;
 
 	fieldset {
 		
@@ -180,13 +207,25 @@
 
 
 .campaign-school {
-	width: 55%;
-	padding: 0 0 0 2.5rem;
+	@include flexbox();
+	@include flex-direction(row);
+	@include flex-wrap(nowrap);
+	align-items: flex-start;
+	width: 65%;
+	margin-right: auto;
+	// padding: 0 2.5rem 0 0;
+	padding: 0;
 
 	* + * {
 		margin-top: 1rem;
 		line-height: 1.35;
 	}
+}
+
+.campaign-school-map {
+	width: 45%;
+	height: 100%;
+	margin-right: 2rem;
 }
 
 h2.campaign-school-name {
@@ -204,12 +243,32 @@ h3.campaign-school-location {
     color: #888;
 }
 
+.campaign-school-fees {
+	font-size: 1.125rem;
+    font-weight: 300;
+    color: #888;
+
+	.term-1 {
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #787878;
+	}
+}
+
 .campaign-school-link {
 	display: inline-block;
 	font-weight: 700;
 
-	&:not(:first-of-type) {
+	// &:not(:first-of-type) {
+	// 	margin-left: 2rem;
+	// }
+
+	&.campaign-school-link-admissions {
 		margin-left: 2rem;
+	}
+
+	&.campaign-school-link-fees {
+		margin-top: 1rem;
 	}
 }
 
@@ -296,278 +355,5 @@ h3.campaign-school-location {
 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.careers-container {
-	@include flexbox();
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    padding: calc(#{$space-tiny} * 2);
-    padding-top: 0;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    //height: 100%;
-    width: 100%;
-
-    header {
-    	flex: 1 1 100%;
-
-    	h1 {
-    		@include font-size(46px);
-    		margin-bottom: 3rem;
-    	}
-    }
-
- //    .section-nav {
-	// 	@include flex-direction(column);
-	// 	flex-basis:20%;
-	// 	padding-right: calc(#{$space-tiny} * 2);
-
-	// 	 h1 {
-	// 	 	@include copy(semi);
-	// 	 	@include font-size(36px);
-	// 	 	color: $green-blue;
-	// 	 	text-shadow: none;
-	// 	 	margin-bottom: 1rem;
-	// 	 }
-
-	// 	 a {
-	// 	 	display: block;
-	// 	 	color: $blue;
-	// 	 	line-height: 1.5;
-	// 	 	margin-bottom: 1rem;
-
-	// 	 	&:hover {
-	// 	 		color: $dark-blue;
-	// 	 		text-decoration: underline;
-	// 	 	}
-	// 	 }
-	// }
-
-
-	.inner-careers-container {
-	 	//@include flexbox();
-		// border-left: 1px $light-grey solid;
-		// padding-left: calc(#{$space-tiny} * 2);
-		// padding-right: 0;
-		//flex-basis: 80%;
-			@extend %columns;
-	}
-
-	.job-summary-container {
-		// @include flexbox();
-    	// @include flex-direction(row);
-    	// @include flex-wrap(nowrap);
-    	// flex: 1;
-    	// align-items: flex-start;
-    	margin-bottom: 1rem;
-    	width: 100%;
-	}
-
-	.job-summary {
-		padding: calc(#{$space-tiny} * 2);
-		padding-top: 0;
-		padding-left: calc(#{$space-tiny} * 1);
-
-		h1 {
-			@include copy(bold);
-			@include font-size(26px);
-			color: $blue;
-		}
-
-	    a {
-	    	@include copy(bold);
-			@include font-size(26px);
-			color: $blue;
-
-				&:hover {
-					color: $dark-blue;
-				}
-	    }
-
-
-	    .job-location {
-	    // 	@include copy(bold);
-			// @include font-size(16px);
-	    // 	color: $green-blue;
-	    // 	padding: 0;
-	    // 	margin-bottom: 0.5rem;
-	    }
-
-	    .job-type{
-	    // 	@include copy(semi);
-			// @include font-size(14px);
-	    // 	color: lighten($dark-grey, 20%);
-	    // 	margin-bottom: 0.5rem;
-	    	span {
-	    		@include copy(bold);
-	    		color: $dark-grey;
-	    	}
-	    }
-
-	    p {
-	    	line-height: 1.65;
-	    	//padding-top: calc(#{$space-tiny} * 1);
-	    	padding-bottom: calc(#{$space-tiny} * 1);
-
-	    	a {
-	    		@include font-size(14px);
-	    		@include copy(regular);
-	    		//display: block;
-
-	    		&:hover {
-	    			text-decoration: underline;
-	    			color: $dark-blue;
-	    		}
-	    	}
-	    }
-	    // .button-tiny {
-	    // 	display: block;
-	    // 	width: 15%;
-	    // 	margin-top: 1rem;
-	    // 	&:hover {
-	    // 		cursor: pointer;
-	    // 		border: 0;
-	    // 		background: $dark-blue;
-	    // 	}
-	    // }
-	    // .button-big {
-	    // 	display: block;
-	    // 	width: 25%;
-	    // 	margin-top: 1rem;
-	    // 	padding: 1rem 0;
-	    // 	&:hover {
-	    // 		cursor: pointer;
-	    // 		border: 0;
-	    // 		background: $dark-blue;
-	    // 	}
-	    // }
-	    ul {
-	    	list-style-type: disc;
-	    	color: $dark-grey;
-	    	margin-left: 1rem;
-	    	padding-top: calc(#{$space-tiny} * 1);
-	    	padding-bottom: calc(#{$space-tiny} * 1);
-
-	    	li {
-	    		@include font-size(14px);
-	    	}
-	    }
-
-	    em {
-	    	@include font-size(14px);
-	    }
-	}
-
-	.job-thumbnail-image {
-		width: auto;
-
-		img {
-			width: 100%;
-			//height: 50vh;
-			border: 1px solid $white;
-
-			&:hover {
-				border: 1px solid $blue;
-			}
-		}
-	}
-}
-
-
-#job-application-form {
-    //text-align: center;
-    position: relative;
-    //width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-
-  	h2 {
-  		@include font-size(20px);
-		@include copy(semi);
-		color: $dark-grey;
-		margin-bottom: 0.75rem;
-  	}
-
-    label {
-		color: $dark-grey;
-		@include copy(semi);
-	}
-
-
-    #student-contact-form input, #student-contact-form textarea {
-        padding: 15px;
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-        color: darken($dark-grey, 10%);
-        @include copy(regular);
-    	@include font-size(21px);
-
-    	&::placeholder {
-			color: lighten($dark-grey, 20%);
-			opacity: 1;
-		}
-
-		&:focus {
-			border: 1px solid $blue;
-		}
-
-		input[type=radio]{
-		  width: 28px;
-		  margin: 0;
-		  padding: 0;
-		  display: inline-block;
-		}
-
-    }
-    // .action-button {
-    //     width: auto;
-    //     border: 0 none;
-    //     color: $white;
-    //     text-align: center;
-    //     cursor: pointer;
-    //     margin: 10px 5px;
-    //     background: lighten($blue, 20%);
-	   //  height: auto;
-	   //  padding:0.4rem 2rem;
-	   //  @include copy(light);
-    // 	@include font-size(21px);
-	   //  &:hover {
-	   //  	cursor: pointer;
-	   //      background: $blue;
-	   //      border: none;
-
-	   //  }
-	   //  &.submit-button {
-	   //  	background: $blue;
-	   //  	&:hover {
-	   //  		background: $dark-blue;
-	   //  	}
-	   //  }
-    // }
-}
-
-
 
 
