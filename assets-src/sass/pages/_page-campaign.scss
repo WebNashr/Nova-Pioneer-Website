@@ -67,25 +67,47 @@
 
 	p {
 		display: block;
-		margin-top: 1rem;
+		margin-top: 1.5rem;
 		font-size: 1.5rem;
 		text-shadow: none;
 		text-indent: 8px;
 		color: $white;
 
+		// &:before {
+		// 	content: '';
+		// 	position: relative;
+		// 	top: -2px;
+    	// 	left: -8px;
+		// 	display: inline-block;
+		// 	width: 12px;
+		// 	height: 12px;
+		// 	font-size: 1rem;
+		// 	background: $green-lt;
+    	// 	border-radius: 50%;
+		// }
+	}
+
+	.feature-icon {
 		&:before {
-			content: '';
-			position: relative;
-			top: -2px;
-    		left: -8px;
-			display: inline-block;
-			width: 12px;
-			height: 12px;
-			font-size: 1rem;
-			background: $green-lt;
-    		border-radius: 50%;
+			content: "\00a0";
+		}
+		&.boys-school-icon {
+			background-image: url(../../img/icons/boys-school-campaign-icon.svg);
+		}
+		&.curriculum-icon {
+			background-image: url(../../img/icons/curriculum-campaign-icon.svg);
+		}
+		&.Boarding-icon {
+			background-image: url(../../img/icons/boarding-campaign-icon.svg);
+		}
+		&.Day-icon {
+			background-image: url(../../img/icons/day-campaign-icon.svg);
+		}
+		&.grade-icon {
+			background-image: url(../../img/icons/grade-campaign-icon.svg);
 		}
 	}
+
 	.campaign-school-apply {
 		margin-right: auto;
 		background: $green-lt;
@@ -112,8 +134,12 @@
 	@include flexbox();
     @include flex-direction(column);
     @include flex-wrap(wrap);
-	width: 42.5%;
-	padding: 0 7.5% 0 0;
+	// width: 42.5%;
+	// padding: 0 7.5% 0 0;
+	// padding: 0 0 0 7.5%;
+	width: 30%;
+	margin-left: auto;
+	padding: 0;
 
 	fieldset {
 		
@@ -181,13 +207,25 @@
 
 
 .campaign-school {
-	width: 55%;
-	padding: 0 0 0 2.5rem;
+	@include flexbox();
+	@include flex-direction(row);
+	@include flex-wrap(nowrap);
+	align-items: flex-start;
+	width: 65%;
+	margin-right: auto;
+	// padding: 0 2.5rem 0 0;
+	padding: 0;
 
 	* + * {
 		margin-top: 1rem;
 		line-height: 1.35;
 	}
+}
+
+.campaign-school-map {
+	width: 45%;
+	height: 100%;
+	margin-right: 2rem;
 }
 
 h2.campaign-school-name {
@@ -205,12 +243,32 @@ h3.campaign-school-location {
     color: #888;
 }
 
+.campaign-school-fees {
+	font-size: 1.125rem;
+    font-weight: 300;
+    color: #888;
+
+	.term-1 {
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #787878;
+	}
+}
+
 .campaign-school-link {
 	display: inline-block;
 	font-weight: 700;
 
-	&:not(:first-of-type) {
+	// &:not(:first-of-type) {
+	// 	margin-left: 2rem;
+	// }
+
+	&.campaign-school-link-admissions {
 		margin-left: 2rem;
+	}
+
+	&.campaign-school-link-fees {
+		margin-top: 1rem;
 	}
 }
 
