@@ -49,6 +49,7 @@
             ga('create', '<?php echo novap_ga_tracking_id() ?>', 'auto');
             ga('send', 'pageview');
         </script>
+
         <script>
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
@@ -64,11 +65,10 @@
 
             ga('create', 'UA-97642297-1', 'auto');
             ga('send', 'pageview');
-
         </script>
         <!-- End Google Analytics -->
-
     <?php endif; ?>
+
     <script type="text/javascript">
         /* <![CDATA[ */
         var google_conversion_id = 966928664;
@@ -76,12 +76,11 @@
         var google_remarketing_only = true;
         /* ]]> */
     </script>
-    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-    </script>
+
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
     <noscript>
         <div style="display:inline;">
-            <img height="1" width="1" style="border-style:none;" alt=""
-                 src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966928664/?guid=ON&script=0"/>
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966928664/?guid=ON&script=0"/>
         </div>
     </noscript>
 </head>
@@ -407,9 +406,9 @@
             <div class="campaign-contacts-proper">
                 <span class="contact">Phone: <a href="tel: <?php echo get_field('school_phone', $post->ID); ?>" title=""><?php echo get_field('school_phone', $post->ID); ?></a></span>
 
-            <span class="contact">Email: <a href="mailto:<?php echo get_field('school_email', $post->ID); ?>" title=""><?php echo get_field('school_email', $post->ID); ?></a></span>
+                <span class="contact">Email: <a href="mailto:<?php echo get_field('school_email', $post->ID); ?>" title=""><?php echo get_field('school_email', $post->ID); ?></a></span>
 
-            <span class="contact">FB: <a href="https://www.facebook.com/<?php echo get_field('school_facebook', $post->ID); ?>" title="Join us on Facebook">facebook.com/<?php echo get_field('school_facebook', $post->ID); ?></a></span>
+                <span class="contact">FB: <a href="https://www.facebook.com/<?php echo get_field('school_facebook', $post->ID); ?>" title="Join us on Facebook">facebook.com/<?php echo get_field('school_facebook', $post->ID); ?></a></span>
             </div>
         </div>
 
