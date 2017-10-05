@@ -11,8 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description"
-          content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
+    <meta name="description" content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
     <meta http-equiv="cleartype" content="on">
     <?php wp_head(); ?>
 
@@ -91,8 +90,7 @@
 
 <!-- Google Tag Manager (noscript) -->
 <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W89TX54"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W89TX54" height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
 
@@ -315,7 +313,7 @@
 
                     <?php //echo get_field('introduction', $post->ID); ?>
 
-                    <p class="school-list">
+                    <!--<p class="school-list">
                         <?php echo get_field('list_1', $post->ID); ?>
                     </p>
 
@@ -325,9 +323,31 @@
 
                     <p class="school-list">
                         <?php echo get_field('list_3', $post->ID); ?>
-                    </p>
+                    </p>-->
 
-                    <a href="" class="button button button-large button-secondary campaign-school-apply now">apply now</a>
+                    <div class="section-content-item school-features" style="background: whitem;">
+                        <div class="feature-item">
+                            <span class="feature-icon boys-school-icon"></span>
+                            <p><?php echo get_field('school_student_body'); ?> School</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon curriculum-icon"></span>
+                            <p><?php echo get_field('school_curriculum'); ?> Curriculum</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon <?php echo $icon ?>"></span>
+                            <p><?php echo get_field('school_residency'); ?> School</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon grade-icon"></span>
+                            <p><?php echo get_field('school_range'); ?></p>
+                        </div>
+                    </div>
+
+                    <!--<a href="" class="button button button-large button-secondary campaign-school-apply now">apply now</a>-->
                 </div>
             </div>
             <!--<div class="container" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/bg.png');"></div>-->
@@ -377,6 +397,12 @@
                         <a href="" class="campaign-school-link">Admissions</a>
 
                         <a href="" class="campaign-school-link">Fee structure</a>
+
+                        <?php echo get_field('school-map', $post->ID); ?>
+
+                        <?php echo get_field('fees_range'); ?>
+
+                        <?php echo get_field('xxx'); ?>
 
                         <!--<br>
                         <a href="" class="button button button-large button-secondary campaign-school-apply now">apply now</a>-->
@@ -494,7 +520,7 @@
 
             <span class="contact">Email: <a href="mailto:<?php echo get_field('email', $post->ID); ?>" title=""><?php echo get_field('email', $post->ID); ?></a></span>
 
-            <span class="contact">FB: <a href="<?php echo get_field('facebook', $post->ID); ?>" title=""><?php echo get_field('facebook', $post->ID); ?></a></span>
+            <span class="contact">FB: <a href="https://www.facebook.com/<?php echo get_field('facebook', $post->ID); ?>" title="Join us on Facebook">facebook.com/<?php echo get_field('facebook', $post->ID); ?></a></span>
             </div>
         </div>
 
