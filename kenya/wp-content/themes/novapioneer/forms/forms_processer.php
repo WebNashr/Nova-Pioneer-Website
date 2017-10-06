@@ -14,6 +14,7 @@ function set_nova_forms()
         name varchar(255) NOT NULL,
         email varchar(255) NOT NULL,
         phone varchar(255) NOT NULL,
+        country varchar(255) NOT NULL,
         inserted_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
         PRIMARY KEY  (id)
     )$charset_collate;";
@@ -42,6 +43,7 @@ function prefix_admin_insert_form_entry()
         'name' => $data->name,
         'email' => $data->email,
         'phone' => $data->phone,
+        'country' =>'KE'
     );
     $data_types = array('%s', '%s', '%s');
 
