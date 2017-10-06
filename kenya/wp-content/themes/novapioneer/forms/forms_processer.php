@@ -76,6 +76,6 @@ function form_entry_notify($data)
     $adminMessage .= '<p>name : ' . $data->name . "</p>";
     $adminMessage .= '<p>Email: ' . $data->email . "</p>";
     $adminMessage .= '<p>Phone :' . $data->phone . "</p>";
-    $adminNotifier->sendMail($subject, $adminMessage, $to_email, $bcc_email, $data->email, $data->name);
+    $adminNotifier->sendMail($subject, $adminMessage, $to_email, $bcc_email, 'keCampaign@novapioneer.com', $data->name);
     return true;
 }
