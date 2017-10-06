@@ -1,0 +1,13 @@
+{
+    "name": "edgarchris/lib",
+    "description": "leads library files and packages",
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "edgar chris",
+            "email": "edgarchris4@gmail.com"
+        }
+    ]
+}
