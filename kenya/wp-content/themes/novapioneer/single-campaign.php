@@ -102,7 +102,8 @@
 
 
     <?php if (have_posts()): ?>
-        <?php while (have_posts()): the_post(); ?>
+        <?php while (have_posts()):
+            the_post(); ?>
             <?php global $post; ?>
 
             <!--hero - desktop-->
@@ -321,7 +322,8 @@
 
                         <h1 class="animated-title"><?php echo get_field('title', $post->ID); ?></h1>
 
-                        <?php //echo get_field('introduction', $post->ID); ?>
+                        <?php //echo get_field('introduction', $post->ID);
+                        ?>
 
                         <div class="section-content-item school-features"
                              style="flex-direction: column; align-items: left;">
@@ -381,48 +383,17 @@
                                     now</a>
                             </div>
                         </div>
-                        <form action="" id="campaign-lead" class="campaign-lead">
-                            <fieldset>
-                                <h2><?php echo get_field('form_title', $post->ID); ?></h2>
-                                <?php echo get_field('form_help', $post->ID); ?>
-                                <?php echo get_field('form_title', $post->ID);
-                                echo get_field('gravity_form_id', $post->ID); ?>
-                            </fieldset>
-
-
-                            <fieldset>
-                                <input id="" class="form-text" value="Name" type="text"
-                                       onfocus="if(this.value==this.defaultValue)this.value='';"
-                                       onblur="if(this.value=='')this.value=this.defaultValue;">
-                            </fieldset>
-
-                            <fieldset>
-                                <input id="" class="form-text" value="Email" type="text"
-                                       onfocus="if(this.value==this.defaultValue)this.value='';"
-                                       onblur="if(this.value=='')this.value=this.defaultValue;">
-                            </fieldset>
-
-                            <fieldset>
-                                <input id="" class="form-text" value="Phone" type="text"
-                                       onfocus="if(this.value==this.defaultValue)this.value='';"
-                                       onblur="if(this.value=='')this.value=this.defaultValue;">
-                            </fieldset>
-
-                            <fieldset>
-                                <input id="" class="form-submit button button-default button-primary"
-                                       value="<?php echo get_field('form_button', $post->ID); ?>" type="submit">
-                            </fieldset>
-                        </form>
-                    </article>
+                        <?php get_nova_campaign_form(); ?>
+                    </article >
                 </section>
             </article>
 
             <div class="campaign-contacts">
-                <p class="contact-header">Get in touch with us</p>
+                <p class="contact-header"> Get in touch with us </p>
 
                 <div class="campaign-contacts-proper">
-                    <span class="contact">Phone: <a href="tel: <?php echo get_field('school_phone', $post->ID); ?>"
-                                                    title=""><?php echo get_field('school_phone', $post->ID); ?></a></span>
+                    <span class="contact"> Phone: <a href="tel: <?php echo get_field('school_phone', $post->ID); ?>"
+                                                     title=""><?php echo get_field('school_phone', $post->ID); ?></a></span>
 
                     <span class="contact">Email: <a href="mailto:<?php echo get_field('school_email', $post->ID); ?>"
                                                     title=""><?php echo get_field('school_email', $post->ID); ?></a></span>
