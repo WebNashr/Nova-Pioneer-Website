@@ -383,8 +383,8 @@
                                     now</a>
                             </div>
                         </div>
-                        <?php get_nova_campaign_form(); ?>
-                    </article >
+                        <?php get_nova_campaign_form($post); ?>
+                    </article>
                 </section>
             </article>
 

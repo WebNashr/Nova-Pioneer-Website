@@ -15,10 +15,10 @@
  * @param $redirect
  * @param bool $infoBox
  */
-function get_nova_campaign_form($post)
+function get_nova_campaign_form($post = false)
 {
     ?>
-    <form method="post" id="campaign-lead" class="campaign-lead">
+    <form method="post" id="campaign-lead" class="campaign-lead"
           action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
         <input type="hidden" name="action" value="prefix_admin_insert_form_entry" id="action">
         <fieldset>
@@ -30,78 +30,46 @@ function get_nova_campaign_form($post)
 
 
         <fieldset>
-            <input id="" class="form-text" value="Name" type="text"
+            <input id="name" class="form-text" value="Name" type="text"
                    onfocus="if(this.value==this.defaultValue)this.value='';"
                    onblur="if(this.value=='')this.value=this.defaultValue;" required>
         </fieldset>
 
         <fieldset>
-            <input id="" class="form-text" value="Email" type="text"
+            <input id="email" class="form-text" value="Email" type="text"
                    onfocus="if(this.value==this.defaultValue)this.value='';"
                    onblur="if(this.value=='')this.value=this.defaultValue;" required>
         </fieldset>
 
         <fieldset>
-            <input id="" class="form-text" value="Phone" type="text"
+            <input id="phone" class="form-text" value="Phone" type="text"
                    onfocus="if(this.value==this.defaultValue)this.value='';"
                    onblur="if(this.value=='')this.value=this.defaultValue;" required>
         </fieldset>
 
         <fieldset>
-            <input id="" class="form-submit button button-default button-primary"
+            <input id="campaign-button" class="form-submit button button-default button-primary"
                    value="<?php echo get_field('form_button', $post->ID); ?>" type="submit">
         </fieldset>
-
         <script>
             $(document).ready(function () {
-                $('input[name="name"]').keypress(function (e) {
-                    if (this.value.length == 'Name') {
-                        e.preventDefault();
-                        console.log('true');
-                        return false;
-
-
-                    }
-                });
-                $('#request-visit').change(function () {
-                    $(this).val('NO')
-                    if ($(this).attr('checked')) {
-                        $(this).val('YES');
-                    }
-                });
-            });
-
-        </script>
-        <script>
-            $(document).ready(function () {
-                // open form modal
-                $("#enquiry-form").submit(function (e) {
+                console.log('form');
+                $("#campaign-lead").submit(function (e) {
                     e.preventDefault();
-                    var action, form_type, subject, redirect, admin_notify, name, email, phone, request_visit
+                    var action, admin_notify, name, email, phone;
                     action = $('#action').val();
-                    form_type = $('#form_type').val();
-                    subject = $('#subject').val();
-                    redirect = $('#redirect').val();
                     admin_notify = $("input[name='admin_notify[]']").map(function () {
                         return $(this).val();
                     }).get();
                     name = $('#name').val();
                     email = $('#email').val();
                     phone = $('#phone').val();
-                    request_visit = $('#request-visit').val();
                     var form = {
                         'action': action,
-                        'form_type': form_type,
-                        'subject': subject,
-                        'redirect': redirect,
                         'admin_notify': admin_notify,
                         'name': name,
                         'email': email,
                         'phone': phone,
-                        'request_visit': request_visit,
-                    }
-                    if ($("#comment").length) {
-                        form.comment = $('#comment').val();
                     }
                     if (name == 'Name') {
                         $('#error-span').text('Please Correctly fill the form');
@@ -109,22 +77,14 @@ function get_nova_campaign_form($post)
                     }
                     $('#error-span').text('');
                     $('#submit').val('Please Wait..');
-                    console.log(form)
+                    //console.log(form)
                     $.post("<?php echo esc_url(admin_url('admin-ajax.php'));?>", form, function (data) {
                         console.log(data);
-                        $(".form-modal").addClass("form-modal-open");
-                        console.log('a modal box was opened');
 
                     });
 
                 });
 
-                // close form modal
-                $(".modal-clear, .form-modal").click(function () {
-                    $(".form-modal").removeClass("form-modal-open");
-                    console.log('a modal box was closed');
-                    location.reload();
-                });
             })
 
         </script>

@@ -35,7 +35,7 @@ add_action('admin_post_nopriv_insert_form_entry', 'prefix_admin_insert_form_entr
 function prefix_admin_insert_form_entry()
 {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'im_forms';
+    $table_name = $wpdb->prefix . 'nova_campaign_forms';
     $data = (object)$_REQUEST;
     $insert_form = array(
         'name' => $data->name,
@@ -72,11 +72,15 @@ function form_entry_notify($data)
     $bcc_email = array(
         "edgar@circle.co.ke" => "Circle Developers",);
     $adminNotifier = new  LeadsMailer();
+
     $subject = $data->subject;
     $adminMessage = 'New lead' . "\r\n";
     $adminMessage .= '<p>name : ' . $data->name . "</p>";
     $adminMessage .= '<p>Email: ' . $data->email . "</p>";
     $adminMessage .= '<p>Phone :' . $data->phone . "</p>";
+    echo "here";
+    exit;
+
     $adminNotifier->sendMail($subject, $adminMessage, $to_email, $bcc_email, $data->email, $data->name);
 
 
