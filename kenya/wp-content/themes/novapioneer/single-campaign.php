@@ -381,14 +381,6 @@
                                     now</a>
                             </div>
                         </div>
-
-                        <?php echo do_shortcode('[gravityform id="'.get_field('gravity_form_id', $post->ID).'" title="false" description="false"]'); //do_shortcode('[gravityform id="' . get_field('form_id', $post->ID) . '"]');
-
-
-                        echo get_field('form_title', $post->ID);
-                        echo get_field('form_id', $post->ID);
-
-                        ?>
                         <form action="" id="campaign-lead" class="campaign-lead">
                             <fieldset>
                                 <h2><?php echo get_field('form_title', $post->ID); ?></h2>
