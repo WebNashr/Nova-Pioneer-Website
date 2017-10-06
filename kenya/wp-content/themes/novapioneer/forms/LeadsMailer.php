@@ -15,7 +15,7 @@ class LeadsMailer
         $this->mailer->Port = 587;
         $this->mailer->SMTPAuth = true;
         $this->mailer->Username = 'aliya@circle.co.ke';
-        $this->mailer->Password = 'cotr35wlVOUplhClB0rXAA';
+        $this->mailer->Password = 'S6Yo6P8olCD7tYRRKjyzeg';
     }
 
     public function sendMail($subject, $message, array $to = array(), array $bcc = array(), $from_email = null, $from_name = null, $attachments = null)
@@ -36,8 +36,8 @@ class LeadsMailer
 
         // Set from
         if ($from_email == null) {
-            $this->mailer->setFrom('sales@imbank.co.ke', 'I&M Bank Kenya Sales');
-            $this->mailer->addReplyTo('sales@imbank.co.ke', 'I&M Bank Kenya Sales');
+            $this->mailer->setFrom('no-reply@novapioneer.com', 'Nova Campaign Pages');
+            $this->mailer->addReplyTo('no-reply@novapioneer.com', 'Nova Campaign Pages');
         } else {
             $this->mailer->setFrom($from_email, $from_name);
             $this->mailer->addReplyTo($from_email, $from_name);
