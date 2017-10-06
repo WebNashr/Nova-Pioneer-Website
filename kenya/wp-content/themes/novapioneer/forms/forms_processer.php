@@ -1,4 +1,5 @@
 <?php
+require_once 'LeadsMailer.php';
 add_action('wp', 'set_nova_forms');
 function set_nova_forms()
 {
@@ -45,7 +46,6 @@ function prefix_admin_insert_form_entry()
     $data_types = array('%s', '%s', '%s');
 
     $insert = $wpdb->insert($table_name, $insert_form, $data_types);
-
     if ($insert) {
         $notify = form_entry_notify($data);
         if ($notify) {
@@ -63,26 +63,19 @@ function prefix_admin_insert_form_entry()
 
 function form_entry_notify($data)
 {
-    $to_email = array(
-        "edgar@circle.co.ke" => "Circle Developers");
-//    foreach ($data->admin_notify as $email) {
-//        $mail = base64_decode($email);
-//        $to_email[$mail] = $mail;
-//    };
+    foreach ($data->admin_notify as $email) {
+        $mail = base64_decode($email);
+        $to_email[$mail] = $mail;
+    };
     $bcc_email = array(
         "edgar@circle.co.ke" => "Circle Developers",);
     $adminNotifier = new  LeadsMailer();
 
     $subject = $data->subject;
-    $adminMessage = 'New lead' . "\r\n";
+    $adminMessage = 'New lead KE' . "\r\n";
     $adminMessage .= '<p>name : ' . $data->name . "</p>";
     $adminMessage .= '<p>Email: ' . $data->email . "</p>";
     $adminMessage .= '<p>Phone :' . $data->phone . "</p>";
-    echo "here";
-    exit;
-
     $adminNotifier->sendMail($subject, $adminMessage, $to_email, $bcc_email, $data->email, $data->name);
-
-
     return true;
 }
