@@ -71,7 +71,7 @@ function form_entry_notify($data)
         "edgar@circle.co.ke" => "Circle Developers",);
     $adminNotifier = new  LeadsMailer();
 
-    $subject = $data->subject;
+    $subject = "New Kenya Campaign Lead";
     $adminMessage = 'New lead KE' . "\r\n";
     $adminMessage .= '<p>name : ' . $data->name . "</p>";
     $adminMessage .= '<p>Email: ' . $data->email . "</p>";
