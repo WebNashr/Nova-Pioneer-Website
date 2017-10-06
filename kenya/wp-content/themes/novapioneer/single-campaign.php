@@ -1,7 +1,7 @@
 <?php
-    /**
-    * Template Name: Campaign Page
-    */
+/**
+ * Template Name: Campaign Page
+ */
 ?>
 
 
@@ -11,7 +11,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
+    <meta name="description"
+          content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
     <meta http-equiv="cleartype" content="on">
     <?php wp_head(); ?>
 
@@ -80,7 +81,8 @@
     <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
     <noscript>
         <div style="display:inline;">
-            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966928664/?guid=ON&script=0"/>
+            <img height="1" width="1" style="border-style:none;" alt=""
+                 src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966928664/?guid=ON&script=0"/>
         </div>
     </noscript>
 </head>
@@ -89,7 +91,8 @@
 
 <!-- Google Tag Manager (noscript) -->
 <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W89TX54" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W89TX54" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
 
@@ -98,21 +101,24 @@
 <main role="main">
 
 
-<?php if (have_posts()): ?>
-    <?php while (have_posts()): the_post(); ?>
-        <?php global $post; ?>
+    <?php if (have_posts()): ?>
+        <?php while (have_posts()): the_post(); ?>
+            <?php global $post; ?>
 
-        <!--hero - desktop-->
-        <section class="section section-hero campaign-hero" <?php if(has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( ), 'single-post-thumbnail' )[0] . ');"'; endif; ?> data-enllax-ratio="0.1">
-            <div class="container hero-coXntainer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/bg.png');">
-                <div class="main-callout-boxX intro">
-                    <a href="<?php echo home_url(); ?>" class="logo header-logo">
-                        <!-- mark and text -->
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            width="714.234px" height="203.368px" viewBox="0 0 714.234 203.368"
-                            enable-background="new 0 0 714.234 203.368"
-                            xml:space="preserve" class="logo-mark-text">
+            <!--hero - desktop-->
+            <section
+                class="section section-hero campaign-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
+                data-enllax-ratio="0.1">
+                <div class="container hero-coXntainer"
+                     style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/bg.png');">
+                    <div class="main-callout-boxX intro">
+                        <a href="<?php echo home_url(); ?>" class="logo header-logo">
+                            <!-- mark and text -->
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                 x="0px" y="0px"
+                                 width="714.234px" height="203.368px" viewBox="0 0 714.234 203.368"
+                                 enable-background="new 0 0 714.234 203.368"
+                                 xml:space="preserve" class="logo-mark-text">
                             <g id="coloured">
                                 <g class="logo-mark">
                                     <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="10" y1="65.9565"
@@ -127,7 +133,8 @@
                                     <polygon fill="url(#SVGID_1_)" points="15.169,44.127 4,74.316 72.662,34.613 93.689,47.434 140.765,74.614 140.912,49.504
                                         73.908,10.209       "/>
 
-                                    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643" y1="54.0454"
+                                    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="196.8643"
+                                                    y1="54.0454"
                                                     x2="127.9901" y2="-63.9692"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#F68B1F"/>
@@ -137,7 +144,8 @@
                                     <polygon fill="url(#SVGID_2_)" points="163.25,117.336 140.765,128.983 93.689,156.165 115.268,168.629 184.343,130.163
                                         184.343,63.148 163.25,37.922        "/>
 
-                                    <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236" y1="-101.4985"
+                                    <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="92.2236"
+                                                    y1="-101.4985"
                                                     x2="25.2814" y2="18.4553"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#6CBE45"/>
@@ -147,7 +155,8 @@
                                     <polygon fill="url(#SVGID_3_)" points="25.506,86.729 25.506,166.145 81.765,199.237 113.611,193.866 46.606,154.157
                                         46.606,128.983 46.606,74.614        "/>
 
-                                    <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.9985" y1="113.8979"
+                                    <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="107.9985"
+                                                    y1="113.8979"
                                                     x2="174.5499" y2="-4.8876"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#F68B1F"/>
@@ -157,7 +166,8 @@
                                     <polygon fill="url(#SVGID_4_)" points="73.908,10.209 140.912,49.504 140.765,74.614 140.765,128.983 163.25,117.336
                                         163.25,37.922 105.75,4      "/>
 
-                                    <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5342" y1="-41.5581"
+                                    <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="3.5342"
+                                                    y1="-41.5581"
                                                     x2="72.4751" y2="77.3456"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#6CBE45"/>
@@ -170,7 +180,8 @@
                                     <polygon fill="url(#SVGID_5_)" points="4,74.316 4,141.745 25.506,166.145 25.506,86.729 46.606,74.614 93.689,47.434
                                         72.666,34.613       "/>
 
-                                    <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.687" y1="-53.647"
+                                    <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.687"
+                                                    y1="-53.647"
                                                     x2="52.3961" y2="-52.8733"
                                                     gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                         <stop offset="0" style="stop-color:#188EBF"/>
@@ -306,107 +317,132 @@
                                 </g>
                             </g>
                         </svg>
-                    </a>
-                    
-                    <h1 class="animated-title"><?php echo get_field('title', $post->ID); ?></h1>
+                        </a>
 
-                    <?php //echo get_field('introduction', $post->ID); ?>
+                        <h1 class="animated-title"><?php echo get_field('title', $post->ID); ?></h1>
 
-                    <div class="section-content-item school-features" style="flex-direction: column; align-items: left;">
-                        <p class="feature-item">
-                            <span class="feature-icon boys-school-icon"></span>
-                            <span><?php echo get_field('school_student_body'); ?> School</span>
-                        </p>
+                        <?php //echo get_field('introduction', $post->ID); ?>
 
-                        <p class="feature-item">
-                            <span class="feature-icon curriculum-icon"></span>
-                            <span><?php echo get_field('school_curriculum'); ?> Curriculum</span>
-                        </p>
+                        <div class="section-content-item school-features"
+                             style="flex-direction: column; align-items: left;">
+                            <p class="feature-item">
+                                <span class="feature-icon boys-school-icon"></span>
+                                <span><?php echo get_field('school_student_body'); ?> School</span>
+                            </p>
 
-                        <p class="feature-item">
-                            <span class="feature-icon <?php echo get_field('school_residency'); ?>-icon"></span>
-                            <span><?php echo get_field('school_residency'); ?> School</span>
-                        </p>
+                            <p class="feature-item">
+                                <span class="feature-icon curriculum-icon"></span>
+                                <span><?php echo get_field('school_curriculum'); ?> Curriculum</span>
+                            </p>
 
-                        <p class="feature-item">
-                            <span class="feature-icon grade-icon"></span>
-                            <span><?php echo get_field('school_range'); ?></span>
-                        </p>
+                            <p class="feature-item">
+                                <span class="feature-icon <?php echo get_field('school_residency'); ?>-icon"></span>
+                                <span><?php echo get_field('school_residency'); ?> School</span>
+                            </p>
+
+                            <p class="feature-item">
+                                <span class="feature-icon grade-icon"></span>
+                                <span><?php echo get_field('school_range'); ?></span>
+                            </p>
+                        </div>
+
+                        <!--<a href="" class="button button button-large button-secondary campaign-school-apply now">apply now</a>-->
                     </div>
+                </div>
+            </section>
 
-                    <!--<a href="" class="button button button-large button-secondary campaign-school-apply now">apply now</a>-->
+            <article class="article">
+                <div class="trigger"></div>
+
+                <!--intro-->
+                <section class="section section-campaign-main" style="background-image: url('img/bg.png');">
+                    <article class="article">
+
+                        <div class="campaign-school">
+                            <div class="campaign-school-map">
+                                <?php echo get_field('school_map', $post->ID); ?>
+                            </div>
+
+                            <div class="" style="margin-top:0;">
+                                <h2 class="campaign-school-name"><?php echo get_field('school_name', $post->ID); ?></h2>
+
+                                <h3 class="campaign-school-location"><?php echo get_field('school_location', $post->ID); ?></h3>
+
+                                <p class="campaign-school-fees">
+                                    <span class="term-1">Term 1 Fees: </span>
+                                    <span><?php echo get_field('fees_range'); ?></span>
+                                    <br>
+                                    <a href="<?php echo site_url('/admissions/fees-structure'); ?>" target="_blank"
+                                       class="campaign-school-link campaign-school-link-fees">See full fee structure</a>
+                                </p>
+
+                                <a href=""
+                                   class="button button button-large button-secondary campaign-school-apply now">apply
+                                    now</a>
+                            </div>
+                        </div>
+
+                        <?php echo do_shortcode('[gravityform id="'.get_field('gravity_form_id', $post->ID).'" title="false" description="false"]'); //do_shortcode('[gravityform id="' . get_field('form_id', $post->ID) . '"]');
+
+
+                        echo get_field('form_title', $post->ID);
+                        echo get_field('form_id', $post->ID);
+
+                        ?>
+                        <form action="" id="campaign-lead" class="campaign-lead">
+                            <fieldset>
+                                <h2><?php echo get_field('form_title', $post->ID); ?></h2>
+                                <?php echo get_field('form_help', $post->ID); ?>
+                                <?php echo get_field('form_title', $post->ID);
+                                echo get_field('gravity_form_id', $post->ID); ?>
+                            </fieldset>
+
+
+                            <fieldset>
+                                <input id="" class="form-text" value="Name" type="text"
+                                       onfocus="if(this.value==this.defaultValue)this.value='';"
+                                       onblur="if(this.value=='')this.value=this.defaultValue;">
+                            </fieldset>
+
+                            <fieldset>
+                                <input id="" class="form-text" value="Email" type="text"
+                                       onfocus="if(this.value==this.defaultValue)this.value='';"
+                                       onblur="if(this.value=='')this.value=this.defaultValue;">
+                            </fieldset>
+
+                            <fieldset>
+                                <input id="" class="form-text" value="Phone" type="text"
+                                       onfocus="if(this.value==this.defaultValue)this.value='';"
+                                       onblur="if(this.value=='')this.value=this.defaultValue;">
+                            </fieldset>
+
+                            <fieldset>
+                                <input id="" class="form-submit button button-default button-primary"
+                                       value="<?php echo get_field('form_button', $post->ID); ?>" type="submit">
+                            </fieldset>
+                        </form>
+                    </article>
+                </section>
+            </article>
+
+            <div class="campaign-contacts">
+                <p class="contact-header">Get in touch with us</p>
+
+                <div class="campaign-contacts-proper">
+                    <span class="contact">Phone: <a href="tel: <?php echo get_field('school_phone', $post->ID); ?>"
+                                                    title=""><?php echo get_field('school_phone', $post->ID); ?></a></span>
+
+                    <span class="contact">Email: <a href="mailto:<?php echo get_field('school_email', $post->ID); ?>"
+                                                    title=""><?php echo get_field('school_email', $post->ID); ?></a></span>
+
+                    <span class="contact">FB: <a
+                            href="https://www.facebook.com/<?php echo get_field('school_facebook', $post->ID); ?>"
+                            title="Join us on Facebook">facebook.com/<?php echo get_field('school_facebook', $post->ID); ?></a></span>
                 </div>
             </div>
-        </section>
 
-        <article class="article">
-            <div class="trigger"></div>
-            
-            <!--intro-->
-            <section class="section section-campaign-main" style="background-image: url('img/bg.png');">
-                <article class="article">
-
-                    <div class="campaign-school">
-                        <div class="campaign-school-map">
-                            <?php echo get_field('school_map', $post->ID); ?>
-                        </div>
-
-                        <div class="" style="margin-top:0;">
-                            <h2 class="campaign-school-name"><?php echo get_field('school_name', $post->ID); ?></h2>
-
-                            <h3 class="campaign-school-location"><?php echo get_field('school_location', $post->ID); ?></h3>
-
-                            <p class="campaign-school-fees">
-                                <span class="term-1">Term 1 Fees: </span>
-                                <span><?php echo get_field('fees_range'); ?></span>
-                                <br>
-                                <a href="<?php echo site_url('/admissions/fees-structure'); ?>" target="_blank" class="campaign-school-link campaign-school-link-fees">See full fee structure</a>
-                            </p>
-                            
-                            <a href="" class="button button button-large button-secondary campaign-school-apply now">apply now</a>
-                        </div>
-                    </div>
-                    
-                    <form action="" id="campaign-lead" class="campaign-lead">
-                        <fieldset>
-                            <h2><?php echo get_field('form_title', $post->ID); ?></h2>
-                            <?php echo get_field('form_help', $post->ID); ?>
-                        </fieldset>
-
-                        <fieldset>
-                            <input id="" class="form-text" value="Name" type="text" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-                        </fieldset>
-
-                        <fieldset>
-                            <input id="" class="form-text" value="Email" type="text" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-                        </fieldset>
-
-                        <fieldset>
-                            <input id="" class="form-text" value="Phone" type="text" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-                        </fieldset>
-
-                        <fieldset>
-                            <input id="" class="form-submit button button-default button-primary" value="<?php echo get_field('form_button', $post->ID); ?>" type="submit">
-                        </fieldset>
-                    </form>
-                </article>
-            </section>
-        </article>
-
-        <div class="campaign-contacts">
-            <p class="contact-header">Get in touch with us</p>
-
-            <div class="campaign-contacts-proper">
-                <span class="contact">Phone: <a href="tel: <?php echo get_field('school_phone', $post->ID); ?>" title=""><?php echo get_field('school_phone', $post->ID); ?></a></span>
-
-                <span class="contact">Email: <a href="mailto:<?php echo get_field('school_email', $post->ID); ?>" title=""><?php echo get_field('school_email', $post->ID); ?></a></span>
-
-                <span class="contact">FB: <a href="https://www.facebook.com/<?php echo get_field('school_facebook', $post->ID); ?>" title="Join us on Facebook">facebook.com/<?php echo get_field('school_facebook', $post->ID); ?></a></span>
-            </div>
-        </div>
-
-    <?php endwhile; ?>
-<?php endif; ?>
+        <?php endwhile; ?>
+    <?php endif; ?>
 
 
 </main>
@@ -420,7 +456,8 @@
         <div class="footer-logo">
             <div class="logo">
                 <a href="<?php echo site_url(); ?>">
-                    <img src="<?php echo novap_get_baseurl(); ?>/img/logo/logo-vertical-coloured-blue.svg" alt="Nova Pioneer">
+                    <img src="<?php echo novap_get_baseurl(); ?>/img/logo/logo-vertical-coloured-blue.svg"
+                         alt="Nova Pioneer">
                 </a>
             </div>
         </div>
@@ -434,7 +471,8 @@
             )); ?>
 
             <div class="footer-box">
-                <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; <?php echo date('Y'); ?>. All rights reserved.</span>
+                <span class="footer-menu-aux-item footer-menu-aux-item-copyright"
+                      title="">Copyright &copy; <?php echo date('Y'); ?>. All rights reserved.</span>
             </div>
         </div>
     </nav>
