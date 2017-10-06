@@ -5,9 +5,11 @@ if (!defined('NOVAP_THEME_PATH')) {
 }
 
 require_once NOVAP_THEME_PATH . 'vendor/autoload.php';
-use NovaPioneer\View;
-use NovaPioneer\Mailer;
 
+use NovaPioneer\Mailer;
+use NovaPioneer\View;
+
+include_once 'forms/forms.php';
 function novap_get_baseurl()
 {
     if (defined('NOVAP_BASE_URL')) {
@@ -673,18 +675,22 @@ function ishandheld()
     return false;
 }
 
-function cliff_et_rsvp_bcc_admin_ticket() {
+function cliff_et_rsvp_bcc_admin_ticket()
+{
     // get site admin's email
-    $bcc = sanitize_email( get_option( 'admin_email' ) );
+    $bcc = sanitize_email(get_option('admin_email'));
 
     // set Headers to Event Tickets' default
-    $headers = array( 'Content-type: text/html' );
+    $headers = array('Content-type: text/html');
 
     // add BCC email if it's a valid email address
-    if ( is_email( $bcc ) ) {
-        $headers[] = sprintf( 'Bcc: %s', $bcc );
+    if (is_email($bcc)) {
+        $headers[] = sprintf('Bcc: %s', $bcc);
     }
 
     return $headers;
 }
-add_filter( 'tribe_rsvp_email_headers', 'cliff_et_rsvp_bcc_admin_ticket' );
+
+add_filter('tribe_rsvp_email_headers', 'cliff_et_rsvp_bcc_admin_ticket');
+
+
