@@ -7,7 +7,7 @@ if (!defined('NOVAP_THEME_PATH')) {
 require_once NOVAP_THEME_PATH . 'vendor/autoload.php';
 use NovaPioneer\View;
 use NovaPioneer\Mailer;
-
+include_once 'forms/forms.php';
 function novap_get_baseurl()
 {
     if (defined('NOVAP_BASE_URL')) {

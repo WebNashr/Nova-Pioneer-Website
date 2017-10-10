@@ -1,7 +1,7 @@
 <?php
-/**
- * Template Name: Campaign Page
- */
+    /**
+    * Template Name: Campaign Page
+    */
 ?>
 
 
@@ -102,8 +102,7 @@
 
 
     <?php if (have_posts()): ?>
-        <?php while (have_posts()):
-            the_post(); ?>
+        <?php while (have_posts()): the_post(); ?>
             <?php global $post; ?>
 
             <!--hero - desktop-->
@@ -325,8 +324,7 @@
                         <?php //echo get_field('introduction', $post->ID);
                         ?>
 
-                        <div class="section-content-item school-features"
-                             style="flex-direction: column; align-items: left;">
+                        <div class="section-content-item school-features">
                             <p class="feature-item">
                                 <span class="feature-icon boys-school-icon"></span>
                                 <span><?php echo get_field('school_student_body'); ?> School</span>
@@ -365,7 +363,7 @@
                                 <?php echo get_field('school_map', $post->ID); ?>
                             </div>
 
-                            <div class="" style="margin-top:0;">
+                            <div class="campaign-school-info">
                                 <h2 class="campaign-school-name"><?php echo get_field('school_name', $post->ID); ?></h2>
 
                                 <h3 class="campaign-school-location"><?php echo get_field('school_location', $post->ID); ?></h3>
@@ -383,6 +381,7 @@
                                     now</a>
                             </div>
                         </div>
+
                         <?php get_nova_campaign_form($post); ?>
                     </article>
                 </section>

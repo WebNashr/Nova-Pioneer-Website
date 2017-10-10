@@ -43,9 +43,9 @@ function prefix_admin_insert_form_entry()
         'name' => $data->name,
         'email' => $data->email,
         'phone' => $data->phone,
-        'country' =>'KE'
+        'country' => 'SA'
     );
-    $data_types = array('%s', '%s', '%s');
+    $data_types = array('%s', '%s', '%s', '%s');
 
     $insert = $wpdb->insert($table_name, $insert_form, $data_types);
     if ($insert) {
@@ -73,7 +73,7 @@ function form_entry_notify($data)
         "edgar@circle.co.ke" => "Circle Developers",);
     $adminNotifier = new  LeadsMailer();
 
-    $subject = "New Kenya Campaign Lead";
+    $subject = "New SA Campaign Lead";
     $adminMessage = 'New lead KE' . "\r\n";
     $adminMessage .= '<p>name : ' . $data->name . "</p>";
     $adminMessage .= '<p>Email: ' . $data->email . "</p>";
