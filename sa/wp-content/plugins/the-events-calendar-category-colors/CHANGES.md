@@ -1,5 +1,22 @@
 #### [unreleased]
 
+#### 4.6.8 / 2017-07-28
+* fixed PHP Notice with more specific test of WP_POST
+* fixed text color for featured events [#79](https://github.com/afragen/the-events-calendar-category-colors/issues/79)
+
+#### 4.6.7 / 2017-07-06
+* fixed PHP Notice
+* added additional link color CSS selector for `#tribe-events-content`
+
+#### 4.6.6 / 2017-04-30
+* added more shortcodes to list for support
+* updated some week view CSS
+
+#### 4.6.5 / 2017-04-20
+* fixed ECP week view
+* added support for ECP week view shortcode
+* make Autoloader a drop-in
+
 #### 4.6.4 / 2017-02-19
 * move graceful exit to just before plugin initialization
 

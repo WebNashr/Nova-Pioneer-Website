@@ -5,8 +5,6 @@ use Jaybizzle\CrawlerDetect\CrawlerDetect;
 *  Class that will compare rules and determine if popup needs to show
 *  @since: 2.0
 */
-if( session_id() == '' )
-	session_start();
 class Spu_Rules
 {
 	/**
@@ -78,7 +76,7 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/crawlers', array($this, 'rule_match_crawlers'), 10, 2);
 		add_filter('spu/rules/rule_match/query_string', array($this, 'rule_match_query_string'), 10, 2);
 
-		$this->post_id 	    = isset( $post->ID ) ? $post->ID : '';
+		$this->post_id 	    = get_queried_object_id();
 		$this->referrer     = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 		$this->query_string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
 
@@ -335,26 +333,14 @@ class Spu_Rules
 	 */
 	function rule_match_query_string( $match, $rule ) {
 
-		parse_str( str_replace('?', '', $this->query_string ), $request );
-		parse_str( $rule['value'], $rule_query );
 
-		if( is_array( $request ) && is_array( $rule_query ) ) {
-			sort( $request );
-			sort( $rule_query );
-		}
+		$found = strpos($this->query_string, $rule['value']) > -1 ? true: false;
 
-		if ( $rule['operator'] == "==" ) {
 
-			if( $request == $rule_query )
-				return true;
-			return false;
+		if ( $rule['operator'] == "==" )
+			return $found;
 
-		} else {
-			if( $request != $rule_query )
-				return true;
-			return false;
-
-		}
+		return ! $found;
 
 	}
 
@@ -369,8 +355,8 @@ class Spu_Rules
 
 		$ref = $this->referrer;
 
-		$internal = str_replace( array( 'http://','https://' ), '', site_url() );
-		
+		$internal = str_replace( array( 'http://','https://' ), '', home_url() );
+
 		if( $rule['operator'] == "==" ) {
 
 			return !preg_match( '~' . $internal . '~i', $ref );
@@ -618,12 +604,6 @@ class Spu_Rules
         elseif( $rule['value'] == 'top_level') {
 
 
-        	if( $options['page_parent'] )
-        	{
-	        	$post_parent = $options['page_parent'];
-        	}
-
-
 	        if($rule['operator'] == "==")
 	        {
 	        	$match = ( $post_parent == 0 );
@@ -653,11 +633,6 @@ class Spu_Rules
         }
         elseif( $rule['value'] == 'child') {
 
-        	$post_parent = $post_parent;
-        	if( $options['page_parent'] )
-        	{
-	        	$post_parent = $options['page_parent'];
-        	}
 
 
 	        if($rule['operator'] == "==")
@@ -773,6 +748,12 @@ class Spu_Rules
 		{
 			return false;
 		}
+		//check if we are in category page
+		if( ($cat = get_category($this->post_id) ) ) {
+			if($rule['operator'] == "==")
+				return $rule['value'] == $this->post_id;
+			return 	!($rule['value'] == $this->post_id);
+		}// otherwise think this of a single post page
 
 
 		// post type

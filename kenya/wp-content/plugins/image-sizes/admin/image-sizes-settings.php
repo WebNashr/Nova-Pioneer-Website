@@ -62,7 +62,7 @@ class CB_Image_Sizes_Settings {
     }
 
     function option_page() {
-        echo '<div class="wrap">';
+        echo '<div class="wrap mdc-image-sizes-wrap">';
         ?>
         
             <div class="setting-page-title">
@@ -82,7 +82,9 @@ class CB_Image_Sizes_Settings {
     public function image_sizes() {
         global $_wp_additional_image_sizes;
 
-        $sizes = array();
+        $sizes = array(
+            'all'   => __( 'Select All', 'image-sizes' )
+        );
 
         $thumb_crop = ( get_option( 'thumbnail_crop' ) == 1 ) ? 'crop' : 'no crop';
         $sizes['thumbnail'] = 'Thumbnail (Default, ' . get_option( 'thumbnail_size_w' ) . 'x' . get_option( 'thumbnail_size_h' ) . ' pixel, ' . $thumb_crop . ')';

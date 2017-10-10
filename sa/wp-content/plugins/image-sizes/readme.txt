@@ -3,7 +3,7 @@ Contributors: mukto90
 Donate link: http://nazmulahsan.me
 Tags: image sizes, multiple image creation, image copy, media file duplicate, image duplicate wordpress, prevent duplicate image, stop creating image sizes
 Requires at least: 2.9.0
-Tested up to: 4.6.1
+Tested up to: 4.7.4
 Stable tag: trunk
 
 So, it creates multiple sizes of an image while uploading? Here is the solution!
@@ -25,6 +25,10 @@ Let's show you a solution to get rid of this. Just choose which of the sizes you
 1. Choose image sizes to be prevented from creating.
 
 == Changelog ==
+
+= 1.1 =
+* [add] Transliteration
+* [add] Checkbox to select all
 
 = 1.0 =
 * Initial release

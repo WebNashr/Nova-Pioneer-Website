@@ -124,7 +124,7 @@ class Tribe__Events__iCal {
 					die();
 				}
 				$event_ids = explode( ',', $_GET['event_ids'] );
-				$events    = Tribe__Events__Query::getEvents( array( 'post__in' => $event_ids ) );
+				$events    = tribe_get_events( array( 'post__in' => $event_ids ) );
 				$this->generate_ical_feed( $events );
 			} elseif ( is_single() ) {
 				$this->generate_ical_feed( $wp_query->post );
@@ -236,6 +236,7 @@ class Tribe__Events__iCal {
 
 			$full_format = 'Ymd\THis';
 			$utc_format = 'Ymd\THis\Z';
+			$all_day = ( 'yes' === get_post_meta( $event_post->ID, '_EventAllDay', true ) );
 			$time = (object) array(
 				'start' => tribe_get_start_date( $event_post->ID, false, 'U' ),
 				'end' => tribe_get_end_date( $event_post->ID, false, 'U' ),
@@ -243,7 +244,7 @@ class Tribe__Events__iCal {
 				'created' => Tribe__Date_Utils::wp_strtotime( $event_post->post_date ),
 			);
 
-			if ( 'yes' == get_post_meta( $event_post->ID, '_EventAllDay', true ) ) {
+			if ( $all_day ) {
 				$type = 'DATE';
 				$format = 'Ymd';
 			} else {
@@ -258,25 +259,33 @@ class Tribe__Events__iCal {
 				'created'  => date( $utc_format, $time->created ),
 			);
 
-			if ( 'DATE' === $type ){
-				$item[] = "DTSTART;VALUE=$type:" . $tzoned->start;
-				$item[] = "DTEND;VALUE=$type:" . $tzoned->end;
+			$dtstart = $tzoned->start;
+			$dtend   = $tzoned->end;
+
+			if ( 'DATE' === $type ) {
+				// For all day events dtend should always be +1 day.
+				if ( $all_day ) {
+					$dtend = date( $format, strtotime( '+1 day', strtotime( $dtend ) ) );
+				}
+
+				$item[] = 'DTSTART;VALUE=' . $type . ':' . $dtstart;
+				$item[] = 'DTEND;VALUE=' . $type . ':' . $dtend;
 			} else {
 				// Are we using the sitewide timezone or the local event timezone?
 				$tz = Tribe__Events__Timezones::EVENT_TIMEZONE === Tribe__Events__Timezones::mode()
 					? Tribe__Events__Timezones::get_event_timezone_string( $event_post->ID )
 					: Tribe__Events__Timezones::wp_timezone_string();
 
-				$item[] = 'DTSTART;TZID=' . $tz . ':' . $tzoned->start;
-				$item[] = 'DTEND;TZID=' . $tz . ':' . $tzoned->end;
+				$item[] = 'DTSTART;TZID=' . $tz . ':' . $dtstart;
+				$item[] = 'DTEND;TZID=' . $tz . ':' . $dtend;
 			}
 
 			$item[] = 'DTSTAMP:' . date( $full_format, time() );
 			$item[] = 'CREATED:' . $tzoned->created;
 			$item[] = 'LAST-MODIFIED:' . $tzoned->modified;
 			$item[] = 'UID:' . $event_post->ID . '-' . $time->start . '-' . $time->end . '@' . parse_url( home_url( '/' ), PHP_URL_HOST );
-			$item[] = 'SUMMARY:' . str_replace( array( ',', "\n", "\r", "\t" ), array( '\,', '\n', '', '\t' ), html_entity_decode( strip_tags( $event_post->post_title ), ENT_QUOTES ) );
-			$item[] = 'DESCRIPTION:' . str_replace( array( ',', "\n", "\r", "\t" ), array( '\,', '\n', '', '\t' ), html_entity_decode( strip_tags( $event_post->post_content ), ENT_QUOTES ) );
+			$item[] = 'SUMMARY:' . str_replace( array( ',', "\n", "\r" ), array( '\,', '\n', '' ), html_entity_decode( strip_tags( $event_post->post_title ), ENT_QUOTES ) );
+			$item[] = 'DESCRIPTION:' . str_replace( array( ',', "\n", "\r" ), array( '\,', '\n', '' ), html_entity_decode( strip_tags( str_replace( '</p>', '</p> ', apply_filters( 'the_content', $event_post->post_content ) ) ), ENT_QUOTES ) );
 			$item[] = 'URL:' . get_permalink( $event_post->ID );
 
 			// add location if available

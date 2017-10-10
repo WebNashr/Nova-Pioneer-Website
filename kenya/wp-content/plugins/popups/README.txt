@@ -3,17 +3,19 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
-Tested up to: 4.7.1
-Stable tag: 1.7.0.1
+Tested up to: 4.8
+Stable tag: 1.7.3
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Most complete free Popups plugin, scroll triggered popups, compatible with social networks, Gravity Forms, Ninja Forms, Contact form 7, Mailpoet, Mailchimp for WP, Postmatic, etc
+Popup plugin that works! Most complete free popup plugin with display filters, scroll triggered popups, compatible with social networks, Gravity Forms, Ninja Forms, Contact form 7, Mailpoet, Mailchimp for WP, Postmatic, etc
 
 == Description ==
 
-The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, add call to actions, increase your mailing lists by adding a form like mailchimp or to display any important message in a simple popup.
+The new Popups plugin can display multiple popups. Is the perfect solution to show important messages such as EU Cookie notice, increase your social followers, add call to actions, increase your mailing lists by adding a form like mailchimp or to display any other important message in a simple popup.
+
+https://www.youtube.com/watch?v=S_MfZne6X2I&t=3s
 
 It's compatible with the major form plugins like (read FAQ):
 
@@ -50,7 +52,7 @@ There are multiple display filters that can be combined:
 = Available Settings =
 
 * Choose from 5 different popup locations
-* Trigger popup after X seconds or after scrolling % of page
+* Trigger popup after X seconds , after scrolling % of page, after scrolling X pixels
 * Auto hide the popup if the user scroll up
 * Change font color, background, borders, etc
 * You can also configure background opacity.
@@ -92,6 +94,8 @@ Fork me in https://github.com/timersys/popups/
 
 = Available Languages =
 
+* French
+* Russian
 * Serbo-Croatian - Borisa - http://www.webhostinghub.com/
 * Spanish - Andrew Kurtis - http://www.webhostinghub.com/
 
@@ -126,6 +130,9 @@ Enhance your site by letting your users send Social Invitations ([https://timers
 
 == Frequently Asked Questions ==
 
+= How to open a popup by pressing a link or button ? =
+Check the following gist (https://gist.github.com/timersys/d68690a85aed14a02318)
+
 = How can I include a custom link inside of the popup ? =
 By default any link you enter will be used as a conversion link. By that we mean that if the link is clicked the popup will be closed as the user already performed the desired action.
 To avoid that you can add the class attribute .spu-not-close to the link
@@ -152,8 +159,6 @@ You can modify everything with css. If your popup id is 120 you can add some css
 = Can I give other roles permissions to edit popups ? =
 You need to add [this code](https://gist.github.com/timersys/03067ac7594fdce288ca) to your functions.php
 
-= How to open a popup by pressing a link or button ? =
-Check the following gist (https://gist.github.com/timersys/d68690a85aed14a02318)
 
 = How to close the popup is a user clicks on a regular link ? =
 To use custom conversions check [this code](https://gist.github.com/timersys/7facec9c80935a0df1c6) . You need to add it in your theme javascript files
@@ -194,6 +199,33 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.7.3 =
+* Improved how post id is detected
+* Rule match category also check on category pages now
+* Updated freemius library
+* Polylang plugin support
+* Added special classes for not closig the popup when clicked
+= 1.7.2 =
+* Added french language
+* Query string rule is wide match now
+* New trigger method , X amount of pixels
+
+
+= 1.7.1.1 =
+* Added freemius insights
+* Changed some assets
+
+= 1.7.1 =
+* Added new google+ version
+* Added fractional time support for cookies
+* Removed session start that was causing issues with varnish cache
+* Fixed problem with shortcode popup
+* Fixed takeover popup bug
+* Fixed bug with referral not working fine on certian urls
+* Fixed undefined errors php warnings
+* Fixed incompatibility with underscores library
+
 
 = 1.7.0.1 =
 * Left some debug code on previous release that can cause issues

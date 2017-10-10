@@ -1,10 +1,10 @@
  === Event Tickets ===
 
-Contributors: ModernTribe, borkweb, zbtirrell, barry.hughes, bordoni, brianjessee, brook-tribe, faction23, geoffgraham, ggwicz, jazbek, jbrinley, leahkoerper, lucatume, mastromktg, mat-lipe, mdbitz, MZAWeb, neillmcshea, nicosantos, peterchester, reid.peifer, roblagatta, ryancurban, shelbelliott, shane.pearlman, aguseo, tribecari, trishasalas
+Contributors: ModernTribe, aguseo, borkweb, barry.hughes, bordoni, brianjessee, brook-tribe, cliffpaulick, courane01, faction23, GeoffBel, geoffgraham, ggwicz, jbrinley, jentheo, leahkoerper, lucatume, mastromktg, mat-lipe, MZAWeb, neillmcshea, nicosantos, patriciahillebrandt, peterchester, reid.peifer, roblagatta, ryancurban, shane.pearlman, shelbelliott, tribecari, vicskf, zbtirrell
 Tags: RSVP, events, tickets, event management, calendar, ticket sales, community, registration, api, dates, date, posts, workshop, conference, meeting, seminar, concert, summit, ticket integration, event ticketing
-Requires at least: 3.9
-Tested up to: 4.7.3
-Stable tag: 4.4.4
+Requires at least: 4.5
+Tested up to: 4.8.2
+Stable tag: 4.5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -192,17 +192,16 @@ The plugin is produced by [Modern Tribe Inc](http://m.tri.be/18uc).
 * [Geoff Graham](https://profiles.wordpress.org/geoffgraham)
 * [George Gecewicz](https://profiles.wordpress.org/ggwicz)
 * [Gustavo Bordoni](https://profiles.wordpress.org/bordoni)
-* [Hunter Wilson](https://profiles.wordpress.org/joinfof)
 * [Leah Koerper](https://profiles.wordpress.org/leahkoerper)
 * [Luca Tumedei](https://profiles.wordpress.org/lucatume)
 * [Matthew Batchelder](https://profiles.wordpress.org/borkweb)
 * [Neill McShea](https://profiles.wordpress.org/neillmcshea)
 * [Nico Santos](https://profiles.wordpress.org/nicosantos)
+* [Patricia Hillebrandt](https://profiles.wordpress.org/patriciahillebrandt)
 * [Peter Chester](https://profiles.wordpress.org/peterchester)
 * [Reid Peifer](https://profiles.wordpress.org/reid.peifer)
 * [Shane Pearlman](https://profiles.wordpress.org/shane.pearlman)
 * [Shelby Elliott](https://profiles.wordpress.org/shelbelliott)
-* [Trisha Salas](https://profiles.wordpress.org/trishasalas)
 * [Zachary Tirrell](https://profiles.wordpress.org/zbtirrell)
 
 = Past Contributors =
@@ -230,13 +229,117 @@ The plugin is produced by [Modern Tribe Inc](http://m.tri.be/18uc).
 * [Ryan Urban](https://profiles.wordpress.org/ryancurban)
 * [Samuel Estok](https://profiles.wordpress.org/faction23)
 * [Timothy Wood](https://profiles.wordpress.org/codearachnid)
+* [Trisha Salas](https://profiles.wordpress.org/trishasalas)
 
 == Changelog ==
 
+= [4.5.6] 2017-09-20 =
+
+* Fix - Prevent occasional issue with email content-type not being reset after ticket emails were sent (props to @jappleton in the forums for reporting this!) [62976]
+* Fix - Hide unused 'back' button when moving tickets to another post [80604]
+* Fix - Prevent multiple instances of the 'View your RSVPs and Tickets' link from showing on single events (or other ticket-enabled post types - props to @svkg in the forums for reporting this) [87429]
+* Fix - Clear attendee cache when a ticket gets moved to another post [80200]
+* Fix - Open the exportable CSV file of attendees in a new tab to accommodate Google Chrome's strict handling of file and MIME types, preventing some console errors and notices in Chrome [70750]
+* Fix - Added "View Tickets" link to Custom Post Types when appropriate (thank you @19ideas for helping identify this) [67570]
+* Fix - Fix some layout issues with the "Email Attendees" modal in the Attendees list admin view, especially when viewed on phones or tablets (props to @event-control for reporting this!) [80975]
+* Fix - Avoid notice-level errors when calling ticket stock functions in relation to events with unlimited stock (props to Lou Anne for highlighting this) [78685]
+* Tweak - Documented filter for available Ticket Modules, and used its method instead more places [66421]
+* Tweak - The `tribe_events_tickets_modules` filter has now been deprecated and should not be used
+
+= [4.5.5] 2017-09-06 =
+
+* Fix - Fixed issue where RSVP options would often fail to show up on custom post types (thanks to tvtap for reporting this issue!) [73052]
+* Fix - Confirm RSVP button not showing when last ticket was out of stock [86616]
+* Fix - Fixed issue where email address links were getting http:// prepended in the RSVP list (thank you to @petemorelli for reporting this!) [85556]
+* Fix - Resolved issue where tribe_events_count_available_tickets() sometimes returned the wrong stock count (props to Florian for reporting this) [81967]
+* Fix - Added check to see if log directory is readable before listing logs within it (thank you @rodrigochallengeday-org and @richmondmom for reporting this) [86091]
+* Tweak - RSVP non attendance email filters names are now unique (thanks to solwebsolutions for reporting this!) [74412]
+* Tweak - Include full event start and end date in Tickets Email (thank you @pagan11460 for the suggestion!) [73885]
+* Tweak - Improve performance of the addition of the "Attendees" row action link in wp-admin list tables (props to pixeldesigns for reporting this!) [72126]
+* Tweak - Changed views: `tickets/email.php`, `tickets/orders-link.php`, `tickets/orders-rsvp.php`, and `tickets/rsvp.php`
+* Tweak - Added filters: `tribe_events_set_notice`, `tribe_rsvp_non_attendance_email_headers`, `tribe_rsvp_non_attendance_email_attachments`, `tribe_rsvp_non_attendance_email_recipient`, `tribe_rsvp_non_attendance_email_subject`, and `tribe_rsvp_non_attendance_email_content`
+* Tweak - Added filters: `tribe_event_tickets_plus_email_meta_fields`
+* Tweak - Added actions: `tribe_tickets_before_front_end_ticket_form`
+* Language - 0 new strings added, 53 updated, 0 fuzzied, and 0 obsoleted
+
+= [4.5.4] 2017-08-24 =
+
+* Tweak - Removed WP API adjustments [85996]
+* Compatibility - Minimum supported version of WordPress is now 4.5
+* Language - 0 new strings added, 18 updated, 0 fuzzied, and 0 obsoleted [event-tickets]
+
+= [4.5.3] 2017-07-26 =
+
+* Fix - Improved get_ticket_counts() to account for tickets with global stock enabled  [82684]
+* Fix - Improved tribe_events_count_available_tickets() to account for tickets with global stock enabled (thanks to Florian for reporting this) [81967]
+* Fix — Fixed some PHP notices that would show up when buying EDD tickets. [83277]
+
+= [4.5.2] 2017-07-13 =
+
+* Fix - Hide others users from attendee managers email options [77050]
+* Tweak - In 'user event confirmations' shortcode, add shortcode name to shortcode_atts function call to give more customization options [66141]
+* Tweak - Added a filter to modify the Primary Info column of the Attendees Table [69538]
+* Tweak - Added a filter to hide the attendee optout option in the tickets form [46087]
+* Tweak - Added new parameters to RSVP email filters [64172]
+
+= [4.5.1] 2017-06-28 =
+
+* Tweak - Spelling and related language fixes (with thanks to @garrett-eclipse) [77196]
+
+= [4.5.0.2] 2017-06-22 =
+
+* Fix - Prevent warnings on Strict mode for PHP 5.3 and for PHP 7
+
+= [4.5.0.1] 2017-06-22 =
+
+* Fix - Prevent fatals involving Commerce Classes and Tribe__Tickets__Tickets
+
+= [4.5] 2017-06-22 =
+
+* Feature - Show remaining ticket count, buy now or rsvp now buttons in list views of The Events Calendar [71092 & 71094]
+* Feature - An API to get ticket, attendee, event, and order infomation from a post id for RSVP, EDD, and WooCommerce Tickets [74363]
+* Fix - Resolved issue where the Meta Chunker attempted to inappropriately chunk meta for post post_types [80857]
+* Fix - Resolve Thunderbird for Windows rendering of Tickets email
+* Tweak - Added filters: `tribe_tickets_buy_button`
+* Tweak - Changed views: `tickets/rsvp`, `tickets/email`
+* Language - 5 new strings added, 65 updated, 0 fuzzied, and 0 obsoleted [event-tickets]
+* Language - 0 new strings added, 0 updated, 1 fuzzied, and 0 obsoleted [tribe-common]
+
+= [4.4.10] 2017-06-14 =
+
+* Fix - Allow importing of RSVP tickets with sale dates, even when time is not specified [77608]
+
+= [4.4.9] 2017-06-01 =
+
+* Feature - Overlay over ticket fields when javascript is disabled to prevent ticket orders [63912]
+* Performance - Allow ticket providers to defer expensive calculations until it's necessary to run them [79683]
+* Tweak - Introduce a new hook making it easier to disable the additional "Attendees" column [79683]
+
+= [4.4.8] 2017-05-17 =
+
+* Fix - Remove undefined and unneeded template variable [77421]
+* Fix - Location of the #buy-tickets anchor should respect the ticket form location (our thanks to Hans for reporting this) [77992]
+* Tweak - Language and text changes [68432]
+* Tweak - Now uses tribe_tickets_get_template_part() to load the email/tickets template for increased flexibility [69660]
+
+= [4.4.7] 2017-05-04 =
+
+* Fix — Fixed "Email attendees" modal window display on mobile devices [72558]
+
+= [4.4.6] 2017-04-19 =
+
+* Tweak — Some corrections on and tweaks of the welcome screen [75575]
+* Tweak - Added filters for adjusting the register post type arguments
+
+= [4.4.5] 2017-03-23 =
+
+* Fix - Improve handling of unlimited ticket stock (props: @jtsternberg) [74123]
+* Fix - A PHP error rendered the help tab broken [75544]
+
 = [4.4.4] 2017-03-08 =
 
-* Fix - Fixed a bug that casued an incosistency with the check-in/undo check-in button (thanks to @joe for the report in the forums) [68414]
-* Fix - Fixed a bug that displayed an error message even for succesful check-ins via QR code [68416]
+* Fix - Fixed a bug that casued an inconsistency with the check-in/undo check-in button (thanks to @joe for the report in the forums) [68414]
+* Fix - Fixed a bug that displayed an error message even for successful check-ins via QR code [68416]
 
 = [4.4.3] 2017-02-22 =
 

@@ -450,8 +450,8 @@ class Tribe__Tickets__Admin__Move_Tickets {
 		wp_send_json_success( array(
 			'message' => sprintf(
 				_n(
-					'%1$s attendee for %2$s was successfully %3$s. Please adjust stock manually as needed. This attendee will receive an email notifying them of the change.',
-					'%1$s attendees for %2$s were successfully moved to %3$s. Please adjust stock manually as needed. These attendees will receive an email notifying them of the change.',
+					'%1$d attendee for %2$s was successfully %3$s. Please adjust stock manually as needed. This attendee will receive an email notifying them of the change.',
+					'%1$d attendees for %2$s were successfully %3$s. Please adjust stock manually as needed. These attendees will receive an email notifying them of the change.',
 					$moved_tickets,
 					'event-tickets'
 				),
@@ -564,6 +564,10 @@ class Tribe__Tickets__Admin__Move_Tickets {
 
 			$successful_moves++;
 		}
+
+		// Clear attendee cache now that the attendees have moved.
+		$provider_class->clear_attendees_cache( $src_event_id );
+		$provider_class->clear_attendees_cache( $tgt_event_id );
 
 		/**
 		 * Fires when all of the specified ticket IDs have been moved

@@ -285,9 +285,7 @@ class SocialPopup {
 
 
 		if ( empty( $spus) ) {
-			$post_content ='<h1 style="text-align: center;">Support us!</h1>
-<p style="text-align: center;">If you like this site please help and make click on any of these buttons!</p>
-<p style="text-align: center;">[spu-facebook][spu-google][spu-twitter]</p>';
+			$post_content ='<h2 style="text-align:center">Welcome!</h2><p style="text-align:center">This is popup preview that you can fill with any content you want.</p><p style="text-align:center">The plugin include some shortcodes, you can read more about them at the bottom of this page. The main 3 sections to configure the popup are:</p><p>Appearance: Where you edit the look and feel of the popup.<br>Display Rules: Here you choose on which page to display the popup (Set to all by default)<br>Display options: Some important settings about the plugin, being the more important trigger action.</br></p>';
 			$defaults = array(
 			  'post_status'           => 'draft',
 			  'post_type'             => 'spucpt',
@@ -357,7 +355,7 @@ class SocialPopup {
 
 		wp_register_script( 'spu-twitter', '//platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
 
-		wp_register_script( 'spu-google', '//apis.google.com/js/plusone.js', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-google', '//apis.google.com/js/platform.js', array('jquery'), self::VERSION, FALSE);
 
 	}
 
@@ -397,6 +395,13 @@ class SocialPopup {
 		// IF wpml is active and spucpt is translated get correct ids for language
 		if( function_exists('icl_object_id') ) {
 			$spu_ids = $this->get_wpml_ids();
+			if(!empty($spu_ids)) {
+				return $spu_ids;
+			}
+		}
+		// IF polylang is active and spucpt is translated get correct ids for language
+		if( function_exists('pll_current_language') ) {
+			$spu_ids = $this->get_polylang_ids();
 			if(!empty($spu_ids)) {
 				return $spu_ids;
 			}
@@ -448,7 +453,7 @@ class SocialPopup {
 		global $wpdb,$spuvar_social;
 
 		$opts = $this->spu_settings;
-		$spuvar_social = '';
+		$spuvar_social = array();
 
 		$handle = 'spu-public';
 
@@ -577,6 +582,7 @@ class SocialPopup {
 	 */
 	function google_shortcode( $atts, $content ) {
 		extract( shortcode_atts( array(
+			'type' 			=> 'g-plusone', //small standard tall
 			'size' 			=> 'medium', //small standard tall
 			'annotation' 	=> 'bubble', //inline none
 			'url' 			=> apply_filters( 'spu/social/gp_url', 'https://plus.google.com/u/0/103508783120806246698/posts' ),
@@ -592,8 +598,11 @@ class SocialPopup {
 		if( 'bubble' != $annotation && 'inline' != $annotation && 'none' != $annotation ) {
 			$annotation = 'bubble';
 		}
+		if( 'g-plusone' != $type && 'g-follow' != $type  ) {
+			$type = 'g-plusone';
+		}
 
-		return '<div class="spu-google spu-shortcode"><div class="g-plusone" data-callback="googleCB" data-onendinteraction="closeGoogle" data-recommendations="false" data-annotation="'.$annotation.'" data-size="'.$size.'" data-href="'.$url.'"></div></div>';
+		return '<div class="spu-google spu-shortcode"><div class="'.$type.'" data-callback="googleCB" data-onendinteraction="closeGoogle" data-recommendations="false" data-annotation="'.$annotation.'" data-size="'.$size.'" data-href="'.$url.'"></div></div>';
 
 	}
 
@@ -688,6 +697,8 @@ class SocialPopup {
 	  	if ( empty( $_REQUEST['spu_action'] ) || $_REQUEST['spu_action'] != 'spu_load' )
     		return;
 
+		do_action('spu/print_boxes');
+
 	  	define( 'DOING_AJAX', TRUE );
 
   		$this->print_boxes();
@@ -696,6 +707,45 @@ class SocialPopup {
 	}
 
 
+	/**
+	 * Return popups for current language
+	 * @return bool | array of ids
+	 */
+	protected function get_polylang_ids( ) {
+		global $wpdb;
+
+			$sql = "SELECT description
+			FROM $wpdb->posts p
+			LEFT JOIN $wpdb->term_relationships as tr ON p.ID = tr.object_id
+			LEFT JOIN $wpdb->term_taxonomy as tt ON tt.term_taxonomy_id = tr.term_taxonomy_id
+			WHERE post_type='spucpt' AND post_status='publish' AND tt.taxonomy = 'post_translations'
+			GROUP BY p.ID";
+
+			$ids = array();
+			$popups = $wpdb->get_results( $sql );
+			if( !empty($popups) ) {
+				$current  = pll_current_language();
+				foreach ($popups as $p) {
+					$langs = unserialize($p->description);
+
+					if( isset($langs[$current]) )
+						$ids[] = $langs[$current];
+				}
+			}
+
+			if( !empty($ids)){
+				$sql = "SELECT DISTINCT ID, post_content,
+				MAX(CASE WHEN pm1.meta_key = 'spu_rules' then pm1.meta_value ELSE NULL END) as spu_rules,
+				MAX(CASE WHEN pm1.meta_key = 'spu_ab_parent' then pm1.meta_value ELSE NULL END) as spu_ab_parent
+				FROM $wpdb->posts p
+				LEFT JOIN $wpdb->postmeta pm1 ON ( pm1.post_id = p.ID)
+				WHERE post_type='spucpt' AND post_status='publish' AND ID IN (".implode(',',array_unique($ids)).")
+				GROUP BY p.ID";
+				return  $wpdb->get_results( $sql );
+			}
+
+		return false;
+	}
 	/**
 	 * Return popups for current language
 	 * @return bool | array of ids
