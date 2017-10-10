@@ -5,17 +5,17 @@ class Tribe__Tickets__Main {
 	/**
 	 * Current version of this plugin
 	 */
-	const VERSION = '4.4.4';
+	const VERSION = '4.5.6';
 
 	/**
 	 * Min required The Events Calendar version
 	 */
-	const MIN_TEC_VERSION = '4.4';
+	const MIN_TEC_VERSION = '4.5.6';
 
 	/**
 	 * Min required version of Tribe Common
 	 */
-	const MIN_COMMON_VERSION = '4.4';
+	const MIN_COMMON_VERSION = '4.5.6';
 
 	/**
 	 * Name of the provider
@@ -330,7 +330,9 @@ class Tribe__Tickets__Main {
 		add_action( 'tribe_help_pre_get_sections', array( $this, 'add_help_section_extra_content' ) );
 		add_filter( 'tribe_support_registered_template_systems', array( $this, 'add_template_updates_check' ) );
 		add_action( 'plugins_loaded', array( 'Tribe__Support', 'getInstance' ) );
-		add_action( 'tribe_events_single_event_after_the_meta', array( $this, 'add_linking_archor' ), 5 );
+
+		// Setup Front End Display
+		add_action( 'tribe_events_inside_cost', 'tribe_tickets_buy_button', 10, 0 );
 
 		// Hook to oembeds
 		add_action( 'tribe_events_embed_after_the_cost_value', array( $this, 'inject_buy_button_into_oembed' ) );
@@ -372,6 +374,9 @@ class Tribe__Tickets__Main {
 		tribe_singleton( 'tickets.query', 'Tribe__Tickets__Query', array( 'hook' ) );
 		tribe( 'tickets.query' );
 
+		// Tribe Data API Init
+		tribe_singleton( 'tickets.data_api', 'Tribe__Tickets__Data_API' );
+
 		// View links, columns and screen options
 		if ( is_admin() ) {
 			tribe_singleton( 'tickets.admin.views', 'Tribe__Tickets__Admin__Views', array( 'hook' ) );
@@ -406,10 +411,23 @@ class Tribe__Tickets__Main {
 	 * Add an Anchor for users to be able to link to
 	 * The height is to make sure it links on all browsers
 	 *
+	 * @deprecated 4.4.8
+	 *
 	 * @return void
 	 */
 	public function add_linking_archor() {
-		echo '<div id="buy-tickets" style="height: 1px;"></div>';
+		_deprecated_function( __METHOD__, '4.4.8', 'Tribe__Tickets__Main::add_linking_anchor' );
+	}
+
+	/**
+	 * Prints a div with an ID that can be used to link to the ticket form location.
+	 *
+	 * The height is specified inline to ensure this works x-browser.
+	 *
+	 * @deprecated 4.6
+	 */
+	public function add_linking_anchor() {
+		_deprecated_function( __METHOD__, '4.5' );
 	}
 
 	/**

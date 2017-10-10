@@ -384,16 +384,24 @@ if ( ! class_exists( 'Tribe__Tickets__Ticket_Object' ) ) {
 
 		/**
 		 * Method to manage the protected `stock` propriety of the Object
-		 * Prevents setting `stock` lower then zero
+		 * Prevents setting `stock` lower then zero.
+		 *
+		 * Returns the current ticket stock level: either an integer or an
+		 * empty string (Tribe__Tickets__Ticket_Object::UNLIMITED_STOCK)
+		 * if stock is unlimited.
 		 *
 		 * @param int|null $value This will overwrite the old value
-		 * @return int
+		 *
+		 * @return int|string
 		 */
 		public function stock( $value = null ) {
 			// If the Value was passed as numeric value overwrite
-			if ( is_numeric( $value ) ) {
+			if ( is_numeric( $value ) || $value === self::UNLIMITED_STOCK ) {
 				$this->stock = $value;
 			}
+
+			// if stock is negative, force it to 0
+			$this->stock = 0 >= $this->stock ? 0 : $this->stock;
 
 			// return the new Stock
 			return $this->stock;
@@ -462,19 +470,35 @@ if ( ! class_exists( 'Tribe__Tickets__Ticket_Object' ) ) {
 		 * Method to get/set protected quantity properties, disallowing illegal
 		 * things such as setting a negative value.
 		 *
-		 * @param int      &$property
-		 * @param int|null $value
+		 * Callables are also supported, allowing properties to be lazily fetched
+		 * or calculated on demand.
 		 *
-		 * @return int
+		 * @param int               &$property
+		 * @param int|callable|null $value
+		 *
+		 * @return int|mixed
 		 */
 		protected function qty_getter_setter( &$property, $value = null ) {
+			// Set to a positive numeric value
 			if ( is_numeric( $value ) ) {
 				$property = (int) $value;
+
+				// Disallow negative values (and force to zero if one is passed)
+				$property = max( (int) $property, 0 );
 			}
 
-			// Disallow negative values (and force to zero if one is passed)
-			$property = max( (int) $property, 0 );
+			// Set to a callback
+			if ( is_callable( $value ) ) {
+				$property = $value;
+			}
 
+			// Return the callback's output if appropriate: but only when the
+			// property is being set to avoid upfront costs
+			if ( null === $value && is_callable( $property ) ) {
+				return call_user_func( $property, $this->ID );
+			}
+
+			// Or else return the current property value
 			return $property;
 		}
 

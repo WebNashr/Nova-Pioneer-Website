@@ -11,9 +11,7 @@ $options = Admin::fetch_options( $teccc );
 
 /* The Events Calendar Category Colors <?php echo Main::$version ?> generated CSS */
 .teccc-legend a, .tribe-events-calendar a, #tribe-events-content .tribe-events-tooltip h4
-{
-	font-weight: <?php esc_attr_e( $options['font_weight'] ) ?>;
-}
+{ font-weight: <?php esc_attr_e( $options['font_weight'] ) ?>; }
 
 .tribe-events-list .vevent.hentry h2 { padding-left: 5px; }
 
@@ -34,8 +32,11 @@ $options = Admin::fetch_options( $teccc );
 <?php if ( '1' === $options['color_widgets'] ): ?>
 	<?php Widgets::add_widget_link_css( $slug ); ?>
 <?php endif ?>
+#tribe-events-content table.tribe-events-calendar .tribe-event-featured.tribe-events-category-<?php echo $slug ?> .tribe-events-month-event-title a,
 .teccc-legend .tribe-events-category-<?php echo $slug ?> a,
 .tribe-events-calendar .tribe-events-category-<?php echo $slug ?> a,
+#tribe-events-content .teccc-legend .tribe-events-category-<?php echo $slug ?> a,
+#tribe-events-content .tribe-events-calendar .tribe-events-category-<?php echo $slug ?> a,
 .tribe-events-category-<?php echo $slug ?> > div.hentry.vevent > h3.entry-title a,
 .tribe-events-mobile.tribe-events-category-<?php echo $slug ?> h4 a
 {
@@ -67,13 +68,14 @@ $options = Admin::fetch_options( $teccc );
 	padding-bottom: 2px;
 }
 
+<?php Extras::fix_transparent_week_background( $slug ); ?>
+
 <?php Extras::add_map_display_css( $slug ); ?>
 <?php if ( '1' === $options['color_widgets'] ): ?>
 	<?php Widgets::add_widget_display_css( $slug ); ?>
 <?php endif ?>
 .tribe-events-category-<?php echo $slug ?> h2.tribe-events-list-event-title.entry-title a,
-.tribe-events-category-<?php echo $slug ?> h2.tribe-events-list-event-title a
-{
+.tribe-events-category-<?php echo $slug ?> h2.tribe-events-list-event-title a {
 	width: auto;
 	display: block;
 }
