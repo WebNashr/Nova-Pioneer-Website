@@ -18,10 +18,6 @@
  * @package WordPress
  */
 
-define('WP_HOME','wp_home_here');
-define('WP_SITEURL','wp_siteurl_here');
-define('NOVAP_BASE_URL', 'domain_root_uri_here');
-
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', 'database_name_here');
