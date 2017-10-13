@@ -376,7 +376,7 @@
                                        class="campaign-school-link campaign-school-link-fees">See full fee structure</a>
                                 </p>
 
-                                <a href=""
+                                <a href="<?php echo site_url() . '/apply-online/' ?>"
                                    class="button button button-large button-secondary campaign-school-apply now">apply
                                     now</a>
                             </div>

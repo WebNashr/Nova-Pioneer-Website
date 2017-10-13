@@ -99,6 +99,9 @@ function get_nova_campaign_form($post = false)
                             $('#email').val('');
                             $('#phone').val('');
                             $('#campaign-button').val('<?php echo get_field('form_button', $post->ID); ?>');
+                            window.setTimeout(function () {
+                                window.location.href = "<?php echo site_url()?>";
+                            }, 1000);
 
                         }
 
