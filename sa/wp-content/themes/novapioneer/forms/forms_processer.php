@@ -74,13 +74,12 @@ function form_entry_notify($data)
     $bcc_email = array(
         "edgar@circle.co.ke" => "Circle Developers",);
     $adminNotifier = new  LeadsMailer();
-
     $subject = "New SA Campaign Lead";
     $adminMessage = 'New lead KE' . "\r\n";
     $adminMessage .= '<p>name : ' . $data->name . "</p>";
     $adminMessage .= '<p>Email: ' . $data->email . "</p>";
     $adminMessage .= '<p>Phone :' . $data->phone . "</p>";
-    $adminMessage .= '<p>School :' . str_replace("-", $data->school) . "</p>";
+    $adminMessage .= '<p>School :' . str_replace("-",' ' ,$data->school) . "</p>";
     $adminNotifier->sendMail($subject, $adminMessage, $to_email, $bcc_email, 'keCampaign@novapioneer.com', $data->name);
     return true;
 }
