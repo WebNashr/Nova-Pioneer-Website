@@ -15,7 +15,7 @@ class LeadsMailer
         $this->mailer->Port = 587;
         $this->mailer->SMTPAuth = true;
         $this->mailer->Username = 'aliya@circle.co.ke';
-        $this->mailer->Password = 'S6Yo6P8olCD7tYRRKjyzeg';
+        $this->mailer->Password = 'vp6Uj5Cg5PvL6qnz8iMTng';
     }
 
     public function sendMail($subject, $message, array $to = array(), array $bcc = array(), $from_email = null, $from_name = null, $attachments = null)

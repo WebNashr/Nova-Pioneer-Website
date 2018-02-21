@@ -21,6 +21,7 @@ function get_nova_campaign_form($post = false)
     <form method="post" id="campaign-lead" class="campaign-lead"
           action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
         <input type="hidden" name="action" value="prefix_admin_insert_form_entry" id="action">
+        <input type="hidden" name="school" value="<?php echo $post->post_name ?>" id="school">
 
         <?php
 
@@ -68,7 +69,7 @@ function get_nova_campaign_form($post = false)
                 console.log('form');
                 $("#campaign-lead").submit(function (e) {
                     e.preventDefault();
-                    var action, admin_notify, name, email, phone;
+                    var action, admin_notify, name, email, phone, school;
                     action = $('#action').val();
                     admin_notify = $("input[name='admin_notify[]']").map(function () {
                         return $(this).val();
@@ -76,12 +77,14 @@ function get_nova_campaign_form($post = false)
                     name = $('#name').val();
                     email = $('#email').val();
                     phone = $('#phone').val();
+                    school = $('#school').val();
                     var form = {
                         'action': action,
                         'admin_notify': admin_notify,
                         'name': name,
                         'email': email,
                         'phone': phone,
+                        'school': school
                     }
                     if (name == 'Name') {
                         $('#error-span').text('Please Correctly fill the form');
@@ -99,6 +102,9 @@ function get_nova_campaign_form($post = false)
                             $('#email').val('');
                             $('#phone').val('');
                             $('#campaign-button').val('<?php echo get_field('form_button', $post->ID); ?>');
+                            window.setTimeout(function () {
+                                window.location.href = "<?php echo site_url()?>";
+                            }, 1000);
 
                         }
 
