@@ -573,9 +573,9 @@
 		// 	height: 430px;
 		// }
 
-        &:nth-child(4n+5) {
-            margin-left: 0;
-        }
+        // &:nth-child(4n+5) {
+        //     margin-left: 0;
+        // }
 	}
 
 	@include break-point(laptop) {
@@ -594,6 +594,10 @@
 			height: 430px;
 			margin-top: 0;
 		}
+
+        &:nth-child(4n+5) {
+            margin-left: 0;
+        }
 
 		&:last-of-type {
 			margin-top: 0;
