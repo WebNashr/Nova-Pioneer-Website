@@ -49,7 +49,7 @@ get_header(); ?>
                     <a
                         href="<?php echo get_permalink($school->ID); ?>"
                         title="<?php echo $school->post_title; ?>"
-                        class="section-school-list-select section-content-item-quarter"
+                        class="section-school-list-select section-content-item--XXX"
                     >
                         <!--<img
                             class="school-photo"
@@ -64,17 +64,20 @@ get_header(); ?>
                             alt="<?php echo $school->post_title; ?>"
                         >
 
-                        <h3><?php echo $school->post_title; ?></h3>
-
                         <div class="school-summary">
-                            <?php $school_gender = get_field('school_gender', $school->ID);
-                            if (strpos(strtolower($school_gender), 'boy-') !== false) {
-                                $gender_style = 'boy-gender-';
-                            } elseif (strpos(strtolower($school_gender), 'girl-') !== false) {
-                                $gender_style = 'girl-gender-';
-                            } else {
-                                $gender_style = 'mixed-gender-';
-                            } ?>
+                            <h3><?php echo $school->post_title; ?></h3>
+
+                            <?php
+                                $school_gender = get_field('school_gender', $school->ID);
+
+                                if (strpos(strtolower($school_gender), 'boy-') !== false) {
+                                    $gender_style = 'boy-gender-';
+                                } elseif (strpos(strtolower($school_gender), 'girl-') !== false) {
+                                    $gender_style = 'girl-gender-';
+                                } else {
+                                    $gender_style = 'mixed-gender-';
+                                }
+                            ?>
                             <p>
                                 <?php echo $school_gender; ?><br>
                                 <?php echo get_field('booarding_or_day_school', $school->ID); ?><br>
@@ -82,11 +85,10 @@ get_header(); ?>
                                 <?php echo get_field('school_type', $school->ID); ?><br>
                                 <?php echo get_field('school_curriculumn', $school->ID); ?>
                             </p>
+
+                            <div class="button button-tiny button-primary"> Read More</div>
                         </div>
-
-                        <div class="button button-tiny button-primary"> Read More</div>
                     </a>
-
                 <?php endforeach; ?>
             </div>
         </section>
