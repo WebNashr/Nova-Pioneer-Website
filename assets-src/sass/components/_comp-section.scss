@@ -343,23 +343,30 @@
     width: 100%;
     transition: $ease;
 
-    img {
-
-	}
-
-	.school-summary {
-        width: 100%;
-        padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 1.65);
+        padding: 0 0 calc(#{$space-tiny} * 1.65);
         background: lighten($grey-lt, 4%);
         border: 1px solid lighten($grey-lt, 2%);
         border-top: none;
+
+    img {
+            margin-bottom: calc(#{$space-tiny} * 1.5);
+	}
+
+	.school-summary {
+        // width: 100%;
+        // padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 1.65);
+        // background: lighten($grey-lt, 4%);
+        // border: 1px solid lighten($grey-lt, 2%);
+        // border-top: none;
 	}
 
     h3 {
         @include font-size(21px);
         text-align: left;
         margin-bottom: calc(#{$space-tiny} * 0.5);
+            padding: 0 calc(#{$space-tiny} * 1.65);
         color: $orange-lt;
+            color: $blue-lt;
     }
 
     p {
@@ -369,20 +376,23 @@
         @include line-height(1.75);
         margin-bottom: 1rem;
         padding: 0;
+            padding: 0 calc(#{$space-tiny} * 1.65);
         color: lighten($grey-mdk, 10%);
     }
 
 	.button {
 		position: initial;
 		bottom: unset;
+        width: auto;
 		display: inline-table;
 		margin-top: 0.75rem;
         margin-top: unset;
 		margin-right: auto;
 		margin-left: calc(#{$space-tiny} * 0.5);
         margin-left: unset;
+            margin: unset;
+            margin: 0 calc(#{$space-tiny} * 1.65);
 		background: $green-lt;
-        width: auto;
 	}
 
     * {
@@ -390,139 +400,97 @@
     }
 
 	&:hover {
-		img {
-            position: relative;
-            -webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
-            filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
-		}
-
-		.school-summary {
-            padding: calc(#{$space-tiny} * 1.5);
+		    // padding: 0 0 calc(#{$space-tiny} * 1.5);
             background: lighten($grey-lt, 2%);
             border: 1px solid darken($grey-lt, 1%);
             border-top: none;
 
-            // background: $orange-lt;
-            // border: 1px solid darken($orange-lt, 1.5%);
+            background: $blue-dk;
+
+        img {
+            position: relative;
+		}
+
+		.school-summary {
+            // padding: calc(#{$space-tiny} * 1.5);
+            // background: lighten($grey-lt, 2%);
+            // border: 1px solid darken($grey-lt, 1%);
+            // border-top: none;
 		}
 
 		h3 {
             color: $green-lt;
-
-            // color: $blue-dk;
-            color: $blue-lt;
+                color: $blue-lt;
+                color: $orange-lt;
+                padding: 0 calc(#{$space-tiny} * 1.5);
 		}
 
         p {
             color: lighten($grey-mdk, 7.5%);
-
-            // color: $white;
+                color: $white;
+                padding: 0 calc(#{$space-tiny} * 1.5);
         }
 
 		.button {
             background: $blue-lt;
-
-            // background: $green-lt;
-            background: $orange-lt;
+                // background: $green-lt;
+                background: $orange-lt;
+                background: $blue-lt;
 		}
 	}
 
-    &:not(:first-of-type) {
-        margin-top: 48px;
+    $sch-gutter: calc(#{$space-tiny} * 2);
+
+    &:not(:first-child) {
+        margin-top: calc(#{$space-tiny} * 2);
     }
+
+    // &:last-child {
+        // background: yellow;
+    // }
 
 	@include break-point(tablet) {
         width: calc(calc(100% - 48px) / 2);
 
-        &:not(:first-of-type) {
-            margin-top: 0;
+        // override mobile
+        &:not(:first-child) {
+            margin-top: unset;
+            margin-left: unset;
+            // background: unset;
         }
 
-        &:nth-child(2n+2) {
-            margin-left: 48px;
-            // padding-top: 40px;
-            // background: maroon;
+        &:not(:nth-child(2n+1)) {
+            margin-left: calc(#{$space-tiny} * 2);
+            // background: goldenrod;
         }
 
-        &:nth-child(2n+3) {
-			margin-top: 48px;
-            margin-left: 0;
-            // padding-top: 40px;
+        &:nth-child(n+3) {
+			margin-top: calc(#{$space-tiny} * 2);
             // background: aquamarine;
-		}
-
-        &:nth-child(n+4) {
-            margin-top: 48px;
-            // padding-top: 40px;
-            // background: red;
-        }
-
-		&:last-child {
-			margin-top: 48px;
-            margin-right: auto;
-            // padding-top: 40px;
-            // background: indigo;
 		}
 	}
 
 	@include break-point(laptop) {
         width: calc(calc(100% - 96px) / 3);
 
-        &:not(:first-of-type) {
-            margin-top: 0;
-            margin-left: 48px;
+        // override mobile, tablet
+        &:not(:first-child),
+        &:not(:nth-child(2n+1)),
+        &:nth-child(n+3) {
+			margin-top: unset;
+            margin-left: unset;
+            // background: unset;
+		}
+
+        &:not(:nth-child(3n+1)) {
+            margin-left: calc(#{$space-tiny} * 2);
+            // background: indianred;
         }
 
-        &:nth-child(3n+4) {
-			margin-top: 48px;
-            margin-left: 0;
-            // padding-top: 40px;
+        &:nth-child(n+4) {
+            margin-top: calc(#{$space-tiny} * 2);
             // background: lawngreen;
 		}
-
-		&:last-child {
-			margin-top: 48px;
-            margin-top: 0;
-            margin-right: auto;
-            // padding-top: 40px;
-            // background: hotpink;
-		}
-	}
-
-	@include break-point(desktop) {
-		// height: 440px;
-
-		// &:nth-child(n+3) {
-		// 	// height: 440px;
-		// 	margin-top: 0;
-        //     background: cyan;
-		// }
-
-		// &:last-of-type {
-		// 	margin-top: 0;
-		// 	margin-bottom: 2rem;
-		// 	// height: 440px;
-		// }
-
-		// .button {
-		// 	position: absolute;
-		// 	bottom: 0;
-		// }
-	}
-
-	@include break-point(monitor) {
-		// height: 440px;
-
-		// &:nth-child(n+3) {
-		// 	height: 440px;
-		// 	margin-top: 0;
-		// }
-
-		// &:last-of-type {
-		// 	margin-top: 0;
-		// 	margin-bottom: 2rem;
-		// 	height: 440px;
-		// }
 	}
 }
 
