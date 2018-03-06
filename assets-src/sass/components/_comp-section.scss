@@ -284,41 +284,27 @@
 
 .section-school-list {
     @extend %columns;
-    // background: $background-grey;
-    // justify-content: center;
-    // justify-content: space-around;
     // justify-content: space-between;
     width: 100%;
     padding-top: calc(#{$space-tiny} * 2);
-    // padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1);
 
     @include break-point(tablet) {
-        // @include flex-direction(row);
-        // @include flex-wrap(wrap);
         @include flexbox();
 	    @include flex-direction(row);
         @include flex-wrap(wrap);
-        padding-top: calc(#{$space-tiny} * 2);
-        padding-right: 0;
-        padding-left: 0;
-        // padding: calc(#{$space-tiny} * 2);
         padding: calc(#{$space-tiny} * 2) 0 0;
     }
 
     @include break-point(laptop) {
-        // padding: calc(#{$space-tiny} * 3);
-        padding-top: calc(#{$space-tiny} * 2.5);
-    }
-
-    @include break-point(desktop) {
-        // padding: calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
+        padding: calc(#{$space-tiny} * 2.5) 0 ;
     }
 }
 
 .kenya-schools {
 	&.section-school-list-select {
 		-webkit-font-smoothing: subpixel-antialiased;
-			text-rendering: optimizeLegibility;
+		text-rendering: optimizeLegibility;
+
 		&:nth-of-type(2) {
 			// -webkit-font-smoothing: antialiased;
 
@@ -328,14 +314,12 @@
 				// text-shadow: $grey-md 0 0 0px;
 			}
 		}
+
 		p {
 			font-weight: 900;
 			// text-shadow: $grey-md 0 0 1px;
 		}
-		@include break-point(laptop) {
-		}
 	}
-
 }
 
 .section-school-list-select {
@@ -343,32 +327,26 @@
 	@include flex-direction(column);
     align-items: flex-start;
     width: 100%;
+    padding: 0 0 calc(#{$space-tiny} * 1.65);
+    background: lighten($grey-lt, 4%);
+    border: 1px solid lighten($grey-lt, 2%);
+    border-top: none;
     transition: $ease;
 
-        padding: 0 0 calc(#{$space-tiny} * 1.65);
-        background: lighten($grey-lt, 4%);
-        border: 1px solid lighten($grey-lt, 2%);
-        border-top: none;
-
     img {
-            margin-bottom: calc(#{$space-tiny} * 1.5);
+        margin-bottom: calc(#{$space-tiny} * 1.5);
 	}
 
-	.school-summary {
-        // width: 100%;
-        // padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 1.65);
-        // background: lighten($grey-lt, 4%);
-        // border: 1px solid lighten($grey-lt, 2%);
-        // border-top: none;
-	}
+    // .school-summary {
+
+	// }
 
     h3 {
         @include font-size(21px);
         text-align: left;
         margin-bottom: calc(#{$space-tiny} * 0.5);
-            padding: 0 calc(#{$space-tiny} * 1.65);
-        color: $orange-lt;
-            color: $blue-lt;
+        padding: 0 calc(#{$space-tiny} * 1.65);
+        color: $blue-lt;
     }
 
     p {
@@ -377,8 +355,7 @@
         @include font-size(14px);
         @include line-height(1.75);
         margin-bottom: 1rem;
-        padding: 0;
-            padding: 0 calc(#{$space-tiny} * 1.65);
+        padding: 0 calc(#{$space-tiny} * 1.65);
         color: lighten($grey-mdk, 10%);
     }
 
@@ -387,13 +364,8 @@
 		bottom: unset;
         width: auto;
 		display: inline-table;
-		margin-top: 0.75rem;
-        margin-top: unset;
-		margin-right: auto;
-		margin-left: calc(#{$space-tiny} * 0.5);
-        margin-left: unset;
-            margin: unset;
-            margin: 0 calc(#{$space-tiny} * 1.65);
+        margin: unset;
+        margin: 0 calc(#{$space-tiny} * 1.65);
 		background: $green-lt;
 	}
 
@@ -402,42 +374,30 @@
     }
 
 	&:hover {
-		    // padding: 0 0 calc(#{$space-tiny} * 1.5);
-            background: lighten($grey-lt, 2%);
-            border: 1px solid darken($grey-lt, 1%);
-            border-top: none;
-
-            background: $blue-dk;
+        background: $blue-dk;
+        border: 1px solid darken($grey-lt, 1%);
+        border-top: none;
 
         img {
             position: relative;
 		}
 
-		.school-summary {
-            // padding: calc(#{$space-tiny} * 1.5);
-            // background: lighten($grey-lt, 2%);
-            // border: 1px solid darken($grey-lt, 1%);
-            // border-top: none;
-		}
+		// .school-summary {
+
+		// }
 
 		h3 {
-            color: $green-lt;
-                color: $blue-lt;
-                color: $orange-lt;
-                padding: 0 calc(#{$space-tiny} * 1.5);
+            color: $orange-lt;
+            padding: 0 calc(#{$space-tiny} * 1.5);
 		}
 
         p {
-            color: lighten($grey-mdk, 7.5%);
-                color: $white;
-                padding: 0 calc(#{$space-tiny} * 1.5);
+            color: $white;
+            padding: 0 calc(#{$space-tiny} * 1.5);
         }
 
 		.button {
             background: $blue-lt;
-                // background: $green-lt;
-                background: $orange-lt;
-                background: $blue-lt;
 		}
 	}
 
@@ -445,30 +405,20 @@
         margin-top: calc(#{$space-tiny} * 2);
     }
 
-    // &:last-child {
-        // background: yellow;
-    // }
-
 	@include break-point(tablet) {
         width: calc(calc(100% - 48px) / 2);
 
         // override mobile
         &:not(:first-child) {
             margin-top: unset;
-            // margin-left: unset;
-            // background: unset;
         }
 
         &:not(:nth-child(2n+1)) {
-            // margin-left: calc(#{$space-tiny} * 2);
             margin-left: auto;
-            // background: goldenrod;
         }
 
         &:nth-child(n+3) {
-			// margin-top: calc(#{$space-tiny} * 2);
             margin-top: 48px;
-            // background: aquamarine;
 		}
 	}
 
@@ -477,29 +427,22 @@
 
         // override mobile, tablet
         &:not(:first-child),
-        // &:not(:nth-child(2n+1)),
         &:nth-child(n+3) {
 			margin-top: unset;
             margin-left: unset;
-            // background: unset;
 		}
 
         &:not(:nth-child(3n+1)) {
-            // margin-left: calc(#{$space-tiny} * 2);
             margin-left: auto;
-            // background: indianred;
         }
 
         &:nth-child(n+4) {
-            // margin-top: calc(#{$space-tiny} * 2);
             margin-top: 48px;
-            // background: lawngreen;
 		}
 
         &:last-child:nth-child(3n+2) {
             margin-left: 48px;
             margin-right: auto;
-            background: yellow;
         }
 	}
 }
