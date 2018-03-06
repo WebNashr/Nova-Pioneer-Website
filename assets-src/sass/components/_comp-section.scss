@@ -296,7 +296,7 @@
     }
 
     @include break-point(laptop) {
-        padding: calc(#{$space-tiny} * 2.5) 0 ;
+        padding: calc(#{$space-tiny} * 2.5) 0 0;
     }
 }
 
