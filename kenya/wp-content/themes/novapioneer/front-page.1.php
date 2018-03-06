@@ -12,15 +12,17 @@ get_header(); ?>
             <div class="container hero-container">
                 <ul id="hero-slider">
                     <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
+                        <?php $link = '#';
+                          $target = '';
+                        if ($hero_slide->has_link) {
+                            $link = $hero_slide->link;
+                            $target = 'target="_blank"';
+                        } ?>
                         <li>
-                            <?php $link = '#';
-                            $target = '';
-                            if ($hero_slide->has_link) {
-                                $link = $hero_slide->link;
-                                $target = 'target="_blank"';
-                            } ?>
                             <a href="<?php echo $link ?>" <?php echo $target ?>>
                                 <img src="<?php echo $hero_slide->image; ?>">
+                                <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
+                                <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
                                 <div class="callout-box">
                                     <div class="animated-headings">
                                         <h1 class="hero-title"><?php echo $hero_slide->title; ?></h1>
@@ -39,53 +41,70 @@ get_header(); ?>
 
 
         <section class="section" style="padding:auto 0;">
-            <section>
-                <h2 style="text-align: center;">Our South Africa Schools</h2>
-            </section>
+            <section><h2 style="text-align: center;">Our Kenya Schools</h2></section>
+            <div class="section-school-list">
 
-            <div class="section-school-list sa-schools">
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>
-                    <a
-                        href="<?php echo get_permalink($school->ID); ?>"
-                        title="<?php echo $school->post_title; ?>"
-                        class="section-school-list-select"
-                    >
-
-                        <img
-                            class="school-photo"
-                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-small')[0]; ?>"
-                            alt="<?php echo $school->post_title; ?>"
-                        >
-
-                        <div class="school-summary">
+                    <div
+                        class="section-school-list-select kenya-schools section-content-item section-content-item-quarter">
+                        <a href="<?php echo get_permalink($school->ID); ?>">
+                            <p class="school-photo"><img
+                                    src="<?php echo get_the_post_thumbnail_url($school->ID); ?>" alt=""
+                                    style="min-height:179px"></p>
                             <h3><?php echo $school->post_title; ?></h3>
-
-                            <?php
-                                $school_gender = get_field('school_gender', $school->ID);
-
+                            <div class="school-summary">
+                                <?php $school_gender = get_field('school_gender', $school->ID);
                                 if (strpos(strtolower($school_gender), 'boy-') !== false) {
-                                    $gender_style = 'boy-gender-';
+                                    $gender_style = 'boy-gender';
                                 } elseif (strpos(strtolower($school_gender), 'girl-') !== false) {
                                     $gender_style = 'girl-gender-';
                                 } else {
                                     $gender_style = 'mixed-gender-';
-                                }
-                            ?>
-                            <p>
-                                <?php echo $school_gender; ?><br>
-                                <?php echo get_field('booarding_or_day_school', $school->ID); ?><br>
-                                <?php echo get_field('school_grades', $school->ID); ?><br>
-                                <?php echo get_field('school_type', $school->ID); ?><br>
-                                <?php echo get_field('school_curriculumn', $school->ID); ?>
-                            </p>
+                                } ?>
+                                <p class="<?php echo $gender_style ?>"><?php echo $school_gender; ?></p>
+                                <!-- <p class="girl-gender"><?php echo $school_gender; ?></p>
+                            <p class="mixed-gender"><?php echo $school_gender; ?></p> -->
+                                <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
+                                <p><?php echo get_field('school_grades', $school->ID); ?></p>
+                                <p><?php echo get_field('school_type', $school->ID); ?></p>
+                                <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
 
-                            <div class="button button-tiny button-primary"> Read More</div>
-                        </div>
-                    </a>
+                            </div>
+
+                            <a href="<?php echo get_permalink($school->ID); ?>"
+                               class="button button-tiny button-primary"> Read More</a>
+                    </div>
+
                 <?php endforeach; ?>
+                </a>
             </div>
         </section>
+
+
+        <!-- <section class="section" style="padding:auto 0;">
+            <section><h2 style="text-align: center;">Select a School</h2></section>
+            <div class="section-school-list">
+                <?php $schools = get_field('schools'); ?>
+                <?php foreach ($schools as $school): $school = (object)$school; ?>
+                    <div class="section-school-list-select">
+
+                        <p class="school-photo"><a href="<?php echo get_permalink($school->ID); ?>"><img
+                                    src="<?php echo novap_get_baseurl(); ?>/img/image-wide-2-sa.jpg" alt=""></a></p>
+                        <h3><a href="<?php echo get_permalink($school->ID); ?>"><?php echo $school->post_title; ?></a>
+                        </h3>
+                        <div class="school-summary">
+                            <p><?php echo get_field('school_gender', $school->ID); ?></p>
+                            <p><?php echo get_field('booarding_or_day_school', $school->ID); ?></p>
+                            <p><?php echo get_field('school_grades', $school->ID); ?></p>
+                            <p><?php echo get_field('school_type', $school->ID); ?></p>
+                            <p><?php echo get_field('school_curriculumn', $school->ID); ?></p>
+                            <a href="<?php echo get_permalink($school->ID); ?>"
+                               class="button button-tiny button-primary"> Read More</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+        </section> -->
 
 
         <section class="section section-pair even-section section-our-students">
@@ -98,12 +117,10 @@ get_header(); ?>
             </div>
 
             <div class="section-content even-section">
-
                 <div class="section-content-item section-content-item-half first-item">
+                    <?php echo get_field('our_students_description'); ?>
                     <?php $our_students_video = get_field('our_students_video');
                     if (get_field('type', $our_students_video->ID) == 'student'): ?>
-                    <?php echo get_field('our_students_description'); ?>
-
                     <div class="testimonial pull-quote">
                         <?php
                         $vid_caption = get_field('video_caption', $our_students_video->ID);
@@ -119,7 +136,7 @@ get_header(); ?>
                                 </svg>
                                 <?php echo $vid_caption; ?>
                                 <cite><span><strong><?php echo $student_name; ?></strong>,</span> Nova Pioneer
-                                    <?php echo $grade; ?> Student</cite>
+                                    <?php echo $grade; ?> student </cite>
                             </blockquote>
                         <?php endif; ?>
                     </div>
@@ -175,8 +192,8 @@ get_header(); ?>
                 </div>
                 <div class="section-content-item section-content-item-half">
                     <div class="media youtube-video ">
-                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
-                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
+                        <?php if (get_field('video_or_image', $learning_at_novapioneer_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $learning_at_novapioneer_video->ID) . '" />';
                         } else {
                             echo $video;
                         } ?>
@@ -184,6 +201,17 @@ get_header(); ?>
                 </div>
             </div>
         </section>
+
+
+        <!-- <section class="full-width-image-container hide-on-small-screens" data-enllax-type="foreground">
+        <figure class="full-width-image parallax" style="background-image: url(<?php echo $stage->banner_image; ?>);" data-enllax-ratio="0.2" >
+            <div class="section-content full-image-caption animated caption">
+                <figcaption>
+                    <p><?php echo $stage->banner_image_caption; ?></p>
+                </figcaption>
+            </div>
+        </figure>
+        </section> -->
 
 
         <section class="full-width-image-container small-screens">
@@ -212,20 +240,6 @@ get_header(); ?>
                 </div>
             </figure>
         </section>
-
-
-        <!-- <aside>
-            <figure class="full-width-image parallax" data-type="background" data-speed="7"
-                    style="background-image:url('<?php the_field('below_learning_hero_image') ?>');">
-                <div class="section-content full-image-caption animated caption">
-                    <figcaption>
-                        <p>We are developing generations of innovators and leaders who will shape the African Century.<a
-                                href="<?php echo site_url('/learning/'); ?>" class="">Learn More</a></p>
-                    </figcaption>
-                </div>
-            </figure>
-        </aside> -->
-
 
         <div class="full-width-container" style="margin-bottom:0;">
             <section class="section section-pair">
@@ -259,7 +273,7 @@ get_header(); ?>
                                 <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?>
                                 </cite>
                             </blockquote>
-                        <?php endif; ?>
+                        <?php endif ?>
                     </div>
                 </div>
 
@@ -312,6 +326,7 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
+
                 <div class="small-notice-container"><?php
                     $taxonomies = wp_get_post_terms(get_the_ID(), 'school', array("fields" => "all"));
                     foreach ($taxonomies as $tax) {
@@ -322,8 +337,8 @@ get_header(); ?>
                     <?php echo get_nova_events($taxies); ?>
 
                     <div class="small-notice">
-                        <h4>South Africa Fee Structure</h4>
-
+                        <h4>Kenya Fee Structure</h4>
+                        <!-- <p>View Our Fee Structure</p> -->
                         <a href="<?php echo site_url('fees-structure/') ?>"
                            class="button button-small button-secondary">View Fees</a>
                     </div>
@@ -335,9 +350,6 @@ get_header(); ?>
                         >Calendar</a>
                     </div>
                 </div>
-                <!-- <div class="small-notice-container">
-                <?php echo get_nova_events(); ?>
-            </div> -->
 
             </div>
         </section>
@@ -354,14 +366,17 @@ get_header(); ?>
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
-                                        <use
-                                            xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                        <usexlink:href
+                                        ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
+
                                     <?php echo $testimonial->post_content; ?>
+
                                     <p>
-                                        <cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>
-                                                ,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
-                                        </cite></p>
+                                        <cite>
+                                            <span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>, </span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
+                                        </cite>
+                                    </p>
                                 </blockquote>
                             </li>
                         <?php endforeach; ?>
@@ -378,132 +393,135 @@ get_header(); ?>
 
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        function startWayPoint() {
-            $(function () {
-                removeAnimateClasses();
+    (function ($) {
+        $(document).ready(function () {
+            function startWayPoint() {
+                $(function () {
+                    removeAnimateClasses();
 
-                var inview1 = new Waypoint.Inview({
-                    element: $('.hero-title'),
-                    entered: function () {
-                        $(this.element).addClass('animated bounceInLeft');
-                        console.log('animated one');
+                    var inview1 = new Waypoint.Inview({
+                        element: $('.hero-title'),
+                        entered: function () {
+                            $(this.element).addClass('animated bounceInLeft');
+                            console.log('animated one');
 
-                    }
+                        }
+                    });
+
+                    var inview2 = new Waypoint.Inview({
+                        element: $('.hero-subtitle'),
+                        entered: function () {
+                            $(this.element).addClass('animated bounceInRight');
+                            console.log('animated two')
+
+                        }
+                    });
+                    console.log("12. Animated Country Hero titles");
+                    inview1.destroy()
+                    inview2.destroy()
+                    console.log('destroyed all');
+
                 });
 
-                var inview2 = new Waypoint.Inview({
-                    element: $('.hero-subtitle'),
-                    entered: function () {
-                        $(this.element).addClass('animated bounceInRight');
-                        console.log('animated two')
+                return true;
+            }
 
+            function removeAnimateClasses() {
+                if ($('.hero-title').hasClass('animated') || $('.hero-title').hasClass('bounceInLeft')) {
+                    $('.hero-title').removeClass('animated bounceInLeft');
+                    console.log('class removed 1')
+                }
+                if ($('.hero-subtitle').hasClass('animated') || $('.hero-subtitle').hasClass('bounceInRight')) {
+                    $('.hero-subtitle').removeClass('animated bounceInRight');
+
+                }
+            }
+
+
+            $("#testimonial-slider").lightSlider({
+                item: 1,
+                autoWidth: false,
+                slideMove: 1, // slidemove will be 1 if loop is true
+                // slideMargin: 300, //500
+                addClass: '',
+                mode: "slide",
+                useCSS: true,
+                cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+                easing: 'linear', //'for jquery animation',////
+                speed: 400, //ms'
+                auto: false,
+                loop: true,
+                // slideEndAnimation: true,
+                pause: 2000,
+                keyPress: false,
+                controls: true,
+                prevHtml: '',
+                nextHtml: '',
+                addClass: 'content-slider',
+                // currentPagerPosition: 'middle',
+                enableTouch: false,
+                enableDrag: false,
+                freeMove: false,
+                // swipeThreshold: 40,
+                responsive: [
+                    // {
+                    //     breakpoint: 1024,
+                    //     settings: {
+                    //         slideMargin: 500,
+                    //     }
+                    // },
+                    //   {
+                    //       breakpoint: 800,
+                    //       settings: {
+                    //           slideMargin: 500,
+                    //       }
+                    //   },
+
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            auto: false,
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            auto: false,
+                        }
+                    },
+                    {
+                        breakpoint: 320,
+                        settings: {
+                            auto: false,
+                            slideMargin: 245,
+                        }
                     }
-                });
-                console.log("12. Animated Country Hero titles");
-                inview1.destroy()
-                inview2.destroy()
-                console.log('destroyed all');
-
+                ]
             });
 
-            return true;
-        }
 
-        function removeAnimateClasses() {
-            if ($('.hero-title').hasClass('animated') || $('.hero-title').hasClass('bounceInLeft')) {
-                $('.hero-title').removeClass('animated bounceInLeft');
-                console.log('class removed 1')
-            }
-            if ($('.hero-subtitle').hasClass('animated') || $('.hero-subtitle').hasClass('bounceInRight')) {
-                $('.hero-subtitle').removeClass('animated bounceInRight');
-
-            }
-        }
-
-
-        $("#testimonial-slider").lightSlider({
-            item: 1,
-            autoWidth: false,
-            slideMove: 1, // slidemove will be 1 if loop is true
-            // slideMargin: 300, //500
-            addClass: '',
-            mode: "slide",
-            useCSS: true,
-            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-            easing: 'linear', //'for jquery animation',////
-            speed: 400, //ms'
-            auto: false,
-            loop: true,
-            // slideEndAnimation: true,
-            pause: 2000,
-            keyPress: false,
-            controls: true,
-            prevHtml: '',
-            nextHtml: '',
-            addClass: 'content-slider',
-            // currentPagerPosition: 'middle',
-            enableTouch: false,
-            enableDrag: false,
-            freeMove: false,
-            // swipeThreshold: 40,
-            responsive: [
-                // {
-                //     breakpoint: 1024,
-                //     settings: {
-                //         slideMargin: 500,
-                //     }
-                // },
-                //   {
-                //       breakpoint: 800,
-                //       settings: {
-                //           slideMargin: 500,
-                //       }
-                //   },
-
-                {
-                    breakpoint: 800,
-                    settings: {
-                        auto: false,
-                    }
+            $('#hero-slider').slippry({
+                auto: false,
+                speed: 800,
+                pause: 8000,
+                // adaptiveHeight: false,
+                autoHover: false,
+                onSlideBefore: function () {
+                    removeAnimateClasses();
                 },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        auto: false,
-                    }
+                onSlideAfter: function () {
+
+                    return startWayPoint();
                 },
-                {
-                    breakpoint: 320,
-                    settings: {
-                        auto: false,
-                        slideMargin: 245,
-                    }
-                }
-            ]
-        });
+            });
 
 
-        $('#hero-slider').slippry({
-            auto: true,
-            speed: 800,
-            pause: 8000,
-            autoHover: false,
-            onSlideBefore: function () {
-                removeAnimateClasses();
-            },
-            onSlideAfter: function () {
-
-                return startWayPoint();
-            },
-        });
-
-
-        $('.sy-controls a').click(function () {
+            $('.sy-controls a').click(function () {
+                startWayPoint()
+            })
             startWayPoint()
-        })
-        startWayPoint()
-    });
+        });
+    })(jQuery);
 </script>
 
 
