@@ -286,8 +286,8 @@
     @extend %columns;
     // background: $background-grey;
     // justify-content: center;
-    // justify-content: space-around;
-    // justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     padding-top: calc(#{$space-tiny} * 2);
     // padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 1);
@@ -295,9 +295,6 @@
     @include break-point(tablet) {
         // @include flex-direction(row);
         // @include flex-wrap(wrap);
-        @include flexbox();
-	    @include flex-direction(row);
-        @include flex-wrap(wrap);
         padding-top: calc(#{$space-tiny} * 2);
         padding-right: 0;
         padding-left: 0;
@@ -335,42 +332,167 @@
 	}
 
 }
-
 .section-school-list-select {
-    @include flexbox();
-	@include flex-direction(column);
-    align-items: flex-start;
-    width: 100%;
-    transition: $ease;
+	// @extend %column;
+	// @extend %column-3;
+	display: flex;
+	flex-direction: column;
+	// height: 432px;
+	height: auto;
+	// width: 100%;
+	align-self: center;
+	position: relative;
+	margin-top: 0;
+	// margin-bottom: 2rem;
+	margin-bottom: 3rem;
+	// &:nth-child(n+3) {
+	// 	margin-top: 0;
+	// }
+	// &:first-child {
+	// 	margin-top: 0;
+	// }
+	// -webkit-font-smoothing: antialiased;
 
-    img {
+	&:last-of-type {
+		margin-bottom: 0;
+	}
 
+    &:not(:first-of-type) {
+		margin-left: 0;
+	}
+
+	h3 {
+		@include font-size(21px);
+		text-align: left;
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+		color: $orange-lt;
+		padding-left: calc(#{$space-tiny} * 0.5);
+		padding-right: calc(#{$space-tiny} * 0.5);
+
+		a {
+			color: $orange-lt;
+			&:hover {
+				color: $blue-lt;
+				transition: color 0.15s ease-in-out;
+			}
+		}
+
+		@include break-point(largelaptop) {
+			@include font-size(21px);
+		}
+
+		@include break-point(desktop) {
+			@include font-size(22px);
+		}
+	}
+
+	img {
+		max-width: 400px;
+		width: 95%;
+
+		// opacity: 1;
+		// &:hover {
+		// 	opacity: 0.9;
+		// }
+		// max-width: 175px;
+		// width: 195px;
+		// height: 195px;
+		// transition: width 0.1s, height 0.1s;
+		// border-radius: 50%;
+		// border: 4px solid darken($grey, 5%);
+	}
+
+	p {
+		// @include copy(bold);
+		padding: calc(#{$space-tiny} * 1);
+
+		@include break-point(largelaptop) {
+			// font-weight: 700 !important;
+		}
+
+		&.school-photo {
+			text-align: center;
+			padding: 0;
+		}
+	}
+
+	a {
+		&:hover {
+			// border: 1px solid blue;
+
+			img {
+				// width: 200px;
+				// height: 200px;
+			}
+			h3 {
+				color: $blue-lt;
+			}
+		}
+
+		.school-link {
+			@include copy(semi);
+			@include font-size(21px);
+			text-align: center;
+
+			&:hover {
+			    border: none;
+			}
+		}
 	}
 
 	.school-summary {
-        width: 100%;
-        padding: calc(#{$space-tiny} * 1.5) calc(#{$space-tiny} * 1.65);
-        background: lighten($grey-lt, 4%);
-        border: 1px solid lighten($grey-lt, 2%);
-        border-top: none;
+		margin-right: auto;
+		// margin-bottom: 2rem;
+		margin-left: auto;
+		border-top: 1px $grey-md solid;
+		// padding-left: calc(#{$space-tiny} * 0.5);
+		// padding-right: calc(#{$space-tiny} * 0.5);
+		width: 94%;
+
+		p {
+			margin: 0;
+			// @include copy(bold);
+			// text-shadow: $grey-md 0 0 0px;
+			font-weight: 600;
+			// font-weight: 900;
+
+			// text-align: center;
+			display: block;
+
+			// padding-top: 0;
+			padding-left: 0;
+			padding-bottom: calc(#{$space-tiny} * 0.65);
+			@include font-size(16px);
+			color: lighten($grey-mdk, 10%);
+			&:not(:first-of-type) {
+				padding-top: 0;
+			}
+
+		}
+		p + p {
+				margin: 0;
+		}
+		.summary-item {
+			// @include copy(bold);
+			// font-weight: bold !important;
+			// font-weight: 700 !important;
+		}
+		.boy-gender {
+			color: $blue-dk;
+		}
+		.girl-gender {
+			color: $orange-dk;
+		}
+		.mixed-gender {
+			color: $green-lt;
+		}
+		// strong {
+		// 	@include copy(bold);
+		// 	color: $green-lt;
+		// }
+
 	}
-
-    h3 {
-        @include font-size(21px);
-        text-align: left;
-        margin-bottom: calc(#{$space-tiny} * 0.5);
-        color: $orange-lt;
-    }
-
-    p {
-        display: block;
-        @include title(medium);
-        @include font-size(14px);
-        @include line-height(1.75);
-        margin-bottom: 1rem;
-        padding: 0;
-        color: lighten($grey-mdk, 10%);
-    }
 
 	.button {
 		position: initial;
@@ -382,148 +504,205 @@
 		margin-left: calc(#{$space-tiny} * 0.5);
         margin-left: unset;
 		background: $green-lt;
-        width: auto;
+
+		&:hover {
+			background: $blue-lt;
+		}
 	}
 
-    * {
-        transition: $ease;
-    }
+	.school-link {
+		@include copy(semi);
+		@include font-size(21px);
+		text-align: center;
+		// width: auto;
+		// min-width: 80%;
+
+		&:hover {
+		    border: none;
+		    //transition: background 0.3s ease;
+		}
+	}
+
+	// &:not(:first-of-type) {
+	// 	margin-left: 0;
+	// }
 
 	&:hover {
-		img {
-            position: relative;
-            -webkit-filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
-            filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
+		img{
+			width:100%;
+			transition: width 0.15s ease-in-out;
 		}
-
 		.school-summary {
-            padding: calc(#{$space-tiny} * 1.5);
-            background: lighten($grey-lt, 2%);
-            border: 1px solid darken($grey-lt, 1%);
-            border-top: none;
-
-            // background: $orange-lt;
-            // border: 1px solid darken($orange-lt, 1.5%);
+			width: 100%;
+			transition: width 0.15s ease-in-out;
 		}
-
 		h3 {
-            color: $green-lt;
-
-            // color: $blue-dk;
-            color: $blue-lt;
+			padding-left: 0;
+			padding-right: 0;
 		}
-
-        p {
-            color: lighten($grey-mdk, 7.5%);
-
-            // color: $white;
-        }
-
 		.button {
-            background: $blue-lt;
-
-            // background: $green-lt;
-            background: $orange-lt;
+			margin-left: 0;
 		}
 	}
 
-    &:not(:first-of-type) {
-        margin-top: 48px;
-    }
+	// @media screen and (min-device-width: 320px) and (max-device-width: 375px) {
+	// 	height: 425px;
+	// 	&:last-of-type {
+	// 		height: 430px;
+	// 	}
+
+	// }
+	// @media screen and (min-device-width: 425px) and (max-device-width: 550px) {
+	// 	height: 452px;
+	// }
 
 	@include break-point(tablet) {
-        width: calc(calc(100% - 48px) / 2);
+		// height: 432px;
+		// margin-top: 3rem;
+		margin-bottom: 2rem;
+        margin-bottom: 3rem;
 
-        &:not(:first-of-type) {
-            margin-top: 0;
-        }
+		// &:first-of-type {
+		// 	margin-top: 0;
+		// }
+		// &:nth-child(n+3) {
+		// 	height: 450px;
+		// 	margin-top: 0;
+		// }
+		// &:last-of-type {
+		// 	height: 430px;
+		// }
 
-        &:nth-child(2n+2) {
-            margin-left: 48px;
-            // padding-top: 40px;
-            // background: maroon;
-        }
-
-        &:nth-child(2n+3) {
-			margin-top: 48px;
-            margin-left: 0;
-            // padding-top: 40px;
-            // background: aquamarine;
-		}
-
-        &:nth-child(n+4) {
-            margin-top: 48px;
-            // padding-top: 40px;
-            // background: red;
-        }
-
-		&:last-child {
-			margin-top: 48px;
-            margin-right: auto;
-            // padding-top: 40px;
-            // background: indigo;
-		}
+        // &:nth-child(4n+5) {
+        //     margin-left: 0;
+        // }
 	}
 
 	@include break-point(laptop) {
-        width: calc(calc(100% - 96px) / 3);
+		// width: auto;
+		height: 432px;
+        height: auto;
+		align-self: center;
+		margin-top: 0;
 
-        &:not(:first-of-type) {
-            margin-top: 0;
-            margin-left: 48px;
+		// align-self: flex-start;
+		&:not(:first-of-type) {
+			margin-left: 2rem;
+		}
+
+		&:nth-child(n+3) {
+			height: 430px;
+			margin-top: 0;
+		}
+
+        &:nth-child(4n+5) {
+            margin-left: 0;
         }
 
-        &:nth-child(3n+4) {
-			margin-top: 48px;
-            margin-left: 0;
-            // padding-top: 40px;
-            // background: lawngreen;
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 430px;
 		}
-
-		&:last-child {
-			margin-top: 48px;
-            margin-top: 0;
-            margin-right: auto;
-            // padding-top: 40px;
-            // background: hotpink;
-		}
-	}
-
-	@include break-point(desktop) {
-		// height: 440px;
-
-		// &:nth-child(n+3) {
-		// 	// height: 440px;
-		// 	margin-top: 0;
-        //     background: cyan;
-		// }
-
-		// &:last-of-type {
-		// 	margin-top: 0;
-		// 	margin-bottom: 2rem;
-		// 	// height: 440px;
-		// }
 
 		// .button {
 		// 	position: absolute;
 		// 	bottom: 0;
 		// }
+
+		body.safari & {
+			height: unset;
+
+			.button {
+				position: unset;
+				bottom: unset;
+			}
+		}
+	}
+
+	@include break-point(desktop) {
+		height: 440px;
+
+		&:nth-child(n+3) {
+			height: 440px;
+			margin-top: 0;
+		}
+
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 440px;
+		}
+
+		.button {
+			position: absolute;
+			bottom: 0;
+		}
 	}
 
 	@include break-point(monitor) {
-		// height: 440px;
-
-		// &:nth-child(n+3) {
-		// 	height: 440px;
-		// 	margin-top: 0;
-		// }
-
-		// &:last-of-type {
-		// 	margin-top: 0;
-		// 	margin-bottom: 2rem;
-		// 	height: 440px;
-		// }
+		height: 440px;
+		&:nth-child(n+3) {
+			height: 440px;
+			margin-top: 0;
+		}
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 440px;
+		}
 	}
+
+	@media screen and (min-device-width: 1680px) and (max-device-width: 1920px) {
+		height: 485px;
+
+		&:nth-child(n+3) {
+			height: 485px;
+			margin-top: 0;
+		}
+
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 485px;
+		}
+	}
+
+	@media screen and (min-device-width: 2000px) and (max-device-width: 2560px) {
+		height: 570px;
+
+		h3 {
+			padding-left: calc(#{$space-tiny} * 1);
+			padding-right: calc(#{$space-tiny} * 1);
+		}
+
+		img {
+			max-width: 600px;
+		}
+
+		.button {
+			margin-left: 1rem;
+		}
+
+		&:nth-child(n+3) {
+			height: 570px;
+			margin-top: 0;
+		}
+
+		&:last-of-type {
+			margin-top: 0;
+			margin-bottom: 2rem;
+			height: 570px;
+		}
+	}
+
+	// @include break-point(monitor) {
+	// 	height: 485px;
+	// }
+
+	// @include break-point(laptop) {
+	// 	align-self: flex-start;
+	// }
 }
 
 .divider {
@@ -730,7 +909,7 @@
 	// }
 
 
-.sign-up {
+	.sign-up {
 		// @extend %column;
 		// @extend %columns;
 		// align-items: center;
