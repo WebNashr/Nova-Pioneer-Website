@@ -302,10 +302,12 @@
         padding-right: 0;
         padding-left: 0;
         // padding: calc(#{$space-tiny} * 2);
+        padding: calc(#{$space-tiny} * 2) 0 0;
     }
 
     @include break-point(laptop) {
         // padding: calc(#{$space-tiny} * 3);
+        padding-top: calc(#{$space-tiny} * 2.5);
     }
 
     @include break-point(desktop) {
@@ -439,8 +441,6 @@
 		}
 	}
 
-    $sch-gutter: calc(#{$space-tiny} * 2);
-
     &:not(:first-child) {
         margin-top: calc(#{$space-tiny} * 2);
     }
@@ -455,17 +455,19 @@
         // override mobile
         &:not(:first-child) {
             margin-top: unset;
-            margin-left: unset;
+            // margin-left: unset;
             // background: unset;
         }
 
         &:not(:nth-child(2n+1)) {
-            margin-left: calc(#{$space-tiny} * 2);
+            // margin-left: calc(#{$space-tiny} * 2);
+            margin-left: auto;
             // background: goldenrod;
         }
 
         &:nth-child(n+3) {
-			margin-top: calc(#{$space-tiny} * 2);
+			// margin-top: calc(#{$space-tiny} * 2);
+            margin-top: 48px;
             // background: aquamarine;
 		}
 	}
@@ -475,7 +477,7 @@
 
         // override mobile, tablet
         &:not(:first-child),
-        &:not(:nth-child(2n+1)),
+        // &:not(:nth-child(2n+1)),
         &:nth-child(n+3) {
 			margin-top: unset;
             margin-left: unset;
@@ -483,14 +485,22 @@
 		}
 
         &:not(:nth-child(3n+1)) {
-            margin-left: calc(#{$space-tiny} * 2);
+            // margin-left: calc(#{$space-tiny} * 2);
+            margin-left: auto;
             // background: indianred;
         }
 
         &:nth-child(n+4) {
-            margin-top: calc(#{$space-tiny} * 2);
+            // margin-top: calc(#{$space-tiny} * 2);
+            margin-top: 48px;
             // background: lawngreen;
 		}
+
+        &:last-child:nth-child(3n+2) {
+            margin-left: 48px;
+            margin-right: auto;
+            background: yellow;
+        }
 	}
 }
 
