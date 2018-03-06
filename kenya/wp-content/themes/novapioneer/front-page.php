@@ -540,8 +540,7 @@ get_header(); ?>
     Add this script tag after the carousel options JS block on whichever page
     the carousel gets going on being a right pain in the footer!
 -->
-<script type="text/javascript"
-        src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
 
 
 <?php get_footer(); ?>
