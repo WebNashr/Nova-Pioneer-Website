@@ -73,10 +73,14 @@ get_header(); ?>
                                 }
                             ?>
                             <p>
-                                <?php echo $school_gender; ?><br>
-                                <?php echo get_field('booarding_or_day_school', $school->ID); ?><br>
-                                <?php echo get_field('school_grades', $school->ID); ?><br>
-                                <?php echo get_field('school_type', $school->ID); ?><br>
+                                <?php //echo $school_gender; ?>
+                                <!--<br>-->
+                                <?php echo get_field('booarding_or_day_school', $school->ID); ?>
+                                <br>
+                                <?php echo get_field('school_grades', $school->ID); ?>
+                                <br>
+                                <?php echo get_field('school_type', $school->ID); ?>
+                                <br>
                                 <?php echo get_field('school_curriculumn', $school->ID); ?>
                             </p>
 
