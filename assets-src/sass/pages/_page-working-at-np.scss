@@ -81,3 +81,15 @@
 // // .first-content{
 // // 	padding-top: calc(#{$space-tiny} * 6);
 // // }
+
+.border {
+    background:#5a4e4e;
+    height:.19em;
+    width:94%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.covered {
+    border: .1em solid black;
+}
