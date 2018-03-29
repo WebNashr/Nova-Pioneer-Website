@@ -33,8 +33,8 @@ get_header();?>
         <section class="section">
             <article class="article">
                 <h3>Why work at Nova Pioneer? </h3> 
-                <h4> Opportunities at Nova Pioneer - What We're Looking For - 
-                  Grow With Us - Apply </h4>
+                <h4> <a href="#">Opportunities at Nova Pioneer</a> - <a href="#">What We're Looking For</a> - 
+                <a href="#">Grow With Us</a> - <a href="#">Apply</a> </h4>
             </article>
         </section>
 

@@ -37,113 +37,68 @@ get_header();?>
                     place in the organisation, whether you are a Resident teacher hoping to become a
                     Dean of Instruction or an Admissions Associate aspiring to be a Marketing Director.</p>
             </article>
-        </section>
-
-        <section class="section">
-            <article class="article">
-                <h3>Opportunities:</h3> 
-                <h4>How do you want to help shape education on the African continent?</h4>
-            </article>
-
-            <div class="card-container">
-                 <div class="card">
-                      <h1>TEACHERS</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-                 <div class="card">
-                      <h1>INSTRUCTIONAL &
-                        SCHOOL LEADERSHIP</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-                 <div class="card">
-                      <h1>CENTRAL TEAM &
-                        SCHOOL SUPPORT
-                        ROLES</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-            </div>
-
-        </section>
-
-        <section class="section">
-            <article class="article">
-                <h3>What we're looking for</h3> 
+        </section><section class="section">
+            <div class="">
+                <h3>DON'T FORGET TO STRETCH!</h3>
                 <p>
-                Working at Nova Pioneer is for people who love a challenge and love to grow, get a kick out
-                of solving tough problems, and flourish in an environment where everyone works hard and
-                puts their whole heart into their work. IS THAT YOU?
+                Our learning design team are the experts behind developing enquiry-based curricula.
+                They ensure that we hold a high bar when it comes to delivering rigorous,
+                student-centered learning that pushes students to think critically and take ownership
+                of their own learning.
                 </p>
-            </article>
-
-            <div class="card-container">
-                 <div class="card">
-                      <h1>TEACHERS</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-                 <div class="card">
-                      <h1>INSTRUCTIONAL &
-                        SCHOOL LEADERSHIP</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
             </div>
-            <div class="card-container">
-                 <div class="card">
-                      <h1>TEACHERS</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-                 <div class="card">
-                      <h1>INSTRUCTIONAL &
-                        SCHOOL LEADERSHIP</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
+            <div class="">
+                <h3>FEEDBACK, FEEDBACK, FEEDBACK</h3>
+                <p>
+                Our learning design team are the experts behind developing enquiry-based curricula.
+                They ensure that we hold a high bar when it comes to delivering rigorous,
+                student-centered learning that pushes students to think critically and take ownership
+                of their own learning.
+                </p>
             </div>
-
+            <div class="">
+                <h3>FALLING FORWARD</h3>
+                <p>
+                Our learning design team are the experts behind developing enquiry-based curricula.
+                They ensure that we hold a high bar when it comes to delivering rigorous,
+                student-centered learning that pushes students to think critically and take ownership
+                of their own learning.
+                </p>
+            </div>
+            <div class="">
+                <h3>STAYING ON TRACK</h3>
+                <p>
+                Our learning design team are the experts behind developing enquiry-based curricula.
+                They ensure that we hold a high bar when it comes to delivering rigorous,
+                student-centered learning that pushes students to think critically and take ownership
+                of their own learning.
+                </p>
+            </div>
+            <div class="">
+                <h3>YOUR CAREER ROAD MAP</h3>
+                <p>
+                Our learning design team are the experts behind developing enquiry-based curricula.
+                They ensure that we hold a high bar when it comes to delivering rigorous,
+                student-centered learning that pushes students to think critically and take ownership
+                of their own learning.
+                </p>
+            </div>
         </section>
 
         <section class="section">
-            Stories from Nova
+            <article class="article">
+                <h3>professional development programmes</h3> 
+                <ol>
+                    <li>Apprentice Teacher Programme – for new teachers</li>
+                    <li>Emerging Leader Programme – for Novaneers on a leadership trajectory
+                        within the organisation</li>
+                    <li>School Leader Programme – for Existing and Aspiring School Leaders</li>
+                </ol>
+            </article>
+
+            <div class="card-container">
+            </div>
+
         </section>
 
 
