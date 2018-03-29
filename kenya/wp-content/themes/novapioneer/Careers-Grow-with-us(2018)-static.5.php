@@ -29,65 +29,45 @@ get_header();?>
         </section>
 
         
-
         <section class="section">
-            <article class="article">
-                <p>You are the master of your journey at Nova Pioneer, the captain of your ship. Through
-                    intense practice, dedication, coaching and support we help you to find your best
-                    place in the organisation, whether you are a Resident teacher hoping to become a
-                    Dean of Instruction or an Admissions Associate aspiring to be a Marketing Director.</p>
-            </article>
-        </section><section class="section">
-            <div class="">
+            <article class="article ">
+            <div class="card-container steps-container">
+                <div class="card admission-step">
                 <h3>DON'T FORGET TO STRETCH!</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
+                <p>You will move from one stretch position to the next to ensure that you are always growing and getting to the next level in your career and leadership journey.
                 </p>
-            </div>
-            <div class="">
+               </div>
+
+            <div class="card admission-step">
                 <h3>FEEDBACK, FEEDBACK, FEEDBACK</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
+                <p>You will move from one stretch position to the next to ensure that you are always growing and getting to the next level in your career and leadership journey.
                 </p>
             </div>
-            <div class="">
+
+            <div class="card admission-step">
                 <h3>FALLING FORWARD</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
+                <p>You will move from one stretch position to the next to ensure that you are always growing and getting to the next level in your career and leadership journey.
                 </p>
             </div>
-            <div class="">
+
+            <div class="card admission-step">
                 <h3>STAYING ON TRACK</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
+                <p>You will move from one stretch position to the next to ensure that you are always growing and getting to the next level in your career and leadership journey.
                 </p>
             </div>
-            <div class="">
+            <div class="card admission-step">
                 <h3>YOUR CAREER ROAD MAP</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
+                <p>You will move from one stretch position to the next to ensure that you are always growing and getting to the next level in your career and leadership journey.
                 </p>
             </div>
+
+        </div>
+        </article>
         </section>
 
         <section class="section">
             <article class="article">
-                <h3>professional development programmes</h3> 
+                <h3>PROFESSIONAL DEVELOPMENT PROGRAMMES</h3> 
                 <ol>
                     <li>Apprentice Teacher Programme – for new teachers</li>
                     <li>Emerging Leader Programme – for Novaneers on a leadership trajectory

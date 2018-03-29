@@ -38,20 +38,57 @@ get_header();?>
                 ensure that our candidates get the opportunity to interview us and find out if Nova
                 Pioneer is the right place for them.</p>
             </article>
-        </section>
+        </section>   
+        <section class="section">
+            <article class="article ">
 
-        <section class="section ">
             <p>The interview process consists of the following components:</p>
+            <div class="card-container steps-container">
+                <div class="card admission-step">
+                <h1>-1-</h1>
+                <h2>Online application:</h2>
+                <p> submit your CV and answer questions related to the job
+                you’re applying for.
+                </p>
+               </div>
+                <div class="card admission-step">
+                <h1>-2-</h1>
+                <h2>Phone interview:</h2>
+                <p>
+                 a short conversation to understand your skills and
+                experience a little better.
+                </p>
+               </div>
+                <div class="card admission-step">
+                <h1>-3-</h1>
+                <h2>Practical demonstration of what you can do:</h2>
+                <p>
+                 you will complete a written
+                task or a demonstration related to the role you are applying for. Teachers
+                participate in a half-day selection event at one of our campuses as well as
+                deliver a lesson to a class.
+                </p>
+               </div>
+                <div class="card admission-step">
+                <h1>-4-</h1>
+                <h2>Meet the team:</h2>
+                <p>
+                 along the way, you’ll get to interact with various people from
+                across the organisation and experience our culture for yourselves.
+                </p>
+               </div>
+                <div class="card admission-step">
+                <h1>-5-</h1>
+                <h2>Final interview:</h2>
+                <p> you’ll have a final conversation with the hiring manager before
+                offer decisions are made.
+                </p>
+               </div>
 
-            <ol>
-                <li>Online application: submit your CV and answer questions related to the job
-                you’re applying for.</li>
-                <li>Phone interview: a short conversation to understand your skills and
-                    experience a little better.</li>
-                <li>Final interview: you’ll have a final conversation with the hiring manager before
-                offer decisions are made.</li>
-            </ol>
+        </div>
+        </article>
         </section>
+
 
         <section class="section ">
             <p>Note: The process may vary depending on the role you are applying for and whether

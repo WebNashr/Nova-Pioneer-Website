@@ -85,47 +85,48 @@ get_header();?>
             </div>
         </section>
 
-        <section class="section">
-            <article class="article">
+         <section class="section">
                 <h3>Why become a school leader at Nova Pioneer?</h3> 
-            </article>
+            <article class="article">
+            <div class="card-container steps-container">
+                <div class="card admission-step">
+                <h1> We develop you more intensively as a leader than anywhere else</h1>
+                    Receive leadership coaching across multiple dimensions including
+                    instructional leadership, culture leadership and people leadership. Whether
+                    you are new on the leadership journey or you have been a leader for many
+                    years, you will receive coaching and development as much as you coach others
+                    - you never stop growing as a leader at Nova Pioneer.
+               </div>
 
-            <ol>
-                <li>
-                <b> We develop you more intensively as a leader than anywhere else</b>
+            <div class="card admission-step">
+                <h1>You’re not alone - you’re part of a powerful network</h1>
                     Receive leadership coaching across multiple dimensions including
                     instructional leadership, culture leadership and people leadership. Whether
                     you are new on the leadership journey or you have been a leader for many
                     years, you will receive coaching and development as much as you coach others
                     - you never stop growing as a leader at Nova Pioneer.
-                </li>
-                <li>
-                <b>You’re not alone - you’re part of a powerful network</b>
-                    Receive leadership coaching across multiple dimensions including
-                    instructional leadership, culture leadership and people leadership. Whether
-                    you are new on the leadership journey or you have been a leader for many
-                    years, you will receive coaching and development as much as you coach others
-                    - you never stop growing as a leader at Nova Pioneer.
-                </li>
-                <li>
-                <b>Culture, culture, culture</b>
-                    Receive leadership coaching across multiple dimensions including
-                    instructional leadership, culture leadership and people leadership. Whether
-                    you are new on the leadership journey or you have been a leader for many
-                    years, you will receive coaching and development as much as you coach others
-                    - you never stop growing as a leader at Nova Pioneer.
-                </li>
-                <li>
-                <b>We develop people leaders, not administrators</b>
-                    Receive leadership coaching across multiple dimensions including
-                    instructional leadership, culture leadership and people leadership. Whether
-                    you are new on the leadership journey or you have been a leader for many
-                    years, you will receive coaching and development as much as you coach others
-                    - you never stop growing as a leader at Nova Pioneer.
-                </li>
-            </ol>
             </div>
 
+            <div class="card admission-step">
+                <h1>Culture, culture, culture</h1>
+                    Receive leadership coaching across multiple dimensions including
+                    instructional leadership, culture leadership and people leadership. Whether
+                    you are new on the leadership journey or you have been a leader for many
+                    years, you will receive coaching and development as much as you coach others
+                    - you never stop growing as a leader at Nova Pioneer.
+            </div>
+
+            <div class="card admission-step">
+                <h1>We develop people leaders, not administrators</h1>
+                    Receive leadership coaching across multiple dimensions including
+                    instructional leadership, culture leadership and people leadership. Whether
+                    you are new on the leadership journey or you have been a leader for many
+                    years, you will receive coaching and development as much as you coach others
+                    - you never stop growing as a leader at Nova Pioneer.
+            </div>
+
+        </div>
+        </article>
         </section>
 
 
