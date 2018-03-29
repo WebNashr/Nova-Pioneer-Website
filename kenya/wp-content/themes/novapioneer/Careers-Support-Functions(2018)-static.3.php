@@ -28,65 +28,34 @@ get_header();?>
             </div>
         </section>
 
-        
+         <section class="section">
+                <h1>Who may apply?</h1>
+                <p>You may apply if you:</p>
 
-        <section class="section">
-            <article class="article">
-                <h3>Why work at Nova Pioneer? </h3> 
-                <p>From developing systems and processes to helping us work more efficiently, to
-                thinking about scale as we launch new campuses across the continent, to developing
-                strategies that attract world-class talent to our organisation, our Central Teams think
-                big and are creative and innovative in how they approach problems. They are doing
-                exciting work to further our mission to develop leaders and innovators for Africa.</p>
-            </article>
-        </section>
+            <div class="card-container steps-container">
+                <div class="card admission-step">
+                <h1>-1-</h1>
+                <p>are pursuing a teaching degree/qualification</p>
+            </div>
 
-        <section class="section">
-            <div class="">
-                <h3>LEARNING DESIGN</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
-                </p>
+            <div class="card admission-step">
+                <h1>-2-</h1>
+                <p>are excited to grow, develop, reflect and constantly refine your teaching
+                    practice</p>
             </div>
-            <div class="">
-                <h3>FINANCE</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
-                </p>
+
+            <div class="card admission-step">
+                <h1>-3-</h1>
+                <p>have a high level of detail-orientation, organization and professionalism</p>
             </div>
-            <div class="">
-                <h3>MARKETING</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
-                </p>
+
+            <div class="card admission-step">
+                <h1>-4-</h1>
+                <p>are eager to think outside the box and contribute to the growth of a startup
+                community</p>
             </div>
-            <div class="">
-                <h3>OPERATIONS</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
-                </p>
-            </div>
-            <div class="">
-                <h3>TALENT</h3>
-                <p>
-                Our learning design team are the experts behind developing enquiry-based curricula.
-                They ensure that we hold a high bar when it comes to delivering rigorous,
-                student-centered learning that pushes students to think critically and take ownership
-                of their own learning.
-                </p>
-            </div>
+
+        </div>
         </section>
 
         <section class="section section-pair team-profile-container">

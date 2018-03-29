@@ -90,8 +90,6 @@ get_header();?>
                 <blockquote>"Quote here"</blockquote>
             </div>
 
-
-
         </div>
         </section>
 

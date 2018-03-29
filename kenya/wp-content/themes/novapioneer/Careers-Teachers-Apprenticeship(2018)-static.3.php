@@ -42,43 +42,76 @@ get_header();?>
         </section>
 
         <section class="section">
-            <article class="article">
-                <h1>What the program offers</h1>
-                <ul>
-                    <li><b>Freedom to fail:</b> starting out as a new teacher requires you to step out and try
-                    new things - some of which you might fail at. Start your teaching journey in an
-                    environment that encourages you to take risks, take on challenges because we
-                    recognise that failure allows for learning and leads to growth.</li>
-                    <li><b>Freedom to fail:</b> starting out as a new teacher requires you to step out and try
-                    new things - some of which you might fail at. Start your teaching journey in an
-                    environment that encourages you to take risks, take on challenges because we
-                    recognise that failure allows for learning and leads to growth.</li>
-                    <li><b>Freedom to fail:</b> starting out as a new teacher requires you to step out and try
-                    new things - some of which you might fail at. Start your teaching journey in an
-                    environment that encourages you to take risks, take on challenges because we
-                    recognise that failure allows for learning and leads to growth.</li>
-                    <li><b>Freedom to fail:</b> starting out as a new teacher requires you to step out and try
-                    new things - some of which you might fail at. Start your teaching journey in an
-                    environment that encourages you to take risks, take on challenges because we
-                    recognise that failure allows for learning and leads to growth.</li>
-                </ul>
+        <h1>What the program offers</h1>
+            <div class="card-container steps-container">
+                <div class="card admission-step">
+                <h1>Freedom to fail</h1>
+                <p>
+                Nova Pioneer teachers love what they do. Teaching is not just a job for them - it gives
+                them energy and makes their eyes light up. Their passion drives them to work harder
+                and push themselves further than they ever have before. They invest their heart and
+                soul into what they do because they love it and believe in their students’ potential for
+                greatness.
+                </p>
+            </div>
 
-                <blockquote>Quote here</blockquote>
-            </article>
+            <div class="card admission-step">
+                <h1>An innovative, enquiry-based learning approach</h1>
+                <p>Our teachers are on a fast track to reach their goals. Through constant feedback,
+                coaching and mentorship our teachers are given every opportunity to become the
+                leaders they aspire to be. They are proactive about their growth and are always taking
+                the initiative to seek out new opportunities that will challenge and stretch them.
+                </p>
+            </div>
+
+            <div class="card admission-step">
+                <h1>Coaching and mentorship</h1>
+                <p>Our teachers are super collaborative. Every teacher brings their own unique
+                personality and creativity to the classroom and they share their ideas and best
+                techniques with one another. They are always pushing one another to be the best
+                educators they can be. They role model for our students what it means to embody our
+                culture principle of ‘greater together’.
+                </p>
+            </div>
+
+            <div class="card admission-step">
+                <h1>Get your foot in the door at Nova</h1>
+                <p>Our teachers are on a fast track to reach their goals. Through constant feedback,
+                    coaching and mentorship our teachers are given every opportunity to become the
+                    leaders they aspire to be. They are proactive about their growth and are always taking
+                    the initiative to seek out new opportunities that will challenge and stretch them.
+                </p>
+            </div>
+
+        </div>
         </section>
-
         <section class="section">
-            <article class="article">
                 <h1>Who may apply?</h1>
                 <p>You may apply if you:</p>
-                <ul>
-                    <li>Reason 1 ...</li>
-                    <li>Reason 2 ...</li>
-                    <li>Reason 3 ...</li>
-                    <li>Reason 4 ...</li>
-                </ul>
+            <div class="card-container steps-container">
+                <div class="card admission-step">
+                <h1>Reason 1</h1>
+                <p>Text</p>
+            </div>
 
-            </article>
+            <div class="card admission-step">
+                <h1>Reason 2</h1>
+                <p>Text</p>
+            </div>
+
+            <div class="card admission-step">
+                <h1>Reason 3</h1>
+                <p>Text</p>
+            </div>
+
+            <div class="card admission-step">
+                <h1>Reason 4</h1>
+                <p>Text</p>
+            </div>
+
+        </div>
+        </section>
+
         </section>
 
                 <section class="section">
