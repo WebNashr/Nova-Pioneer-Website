@@ -1,0 +1,22 @@
+
+/*  School list */
+/* ==================================================== */
+
+
+.section-school-list {
+	@extend %columns;
+	padding-top: 8rem;
+    background: $background-grey;
+}
+
+.section-school-list-select {
+	@extend %column;
+	@extend %column-4;
+	
+	img {
+		//margin-bottom: 1rem;
+		max-height: 300px;
+	}
+}
+
+
