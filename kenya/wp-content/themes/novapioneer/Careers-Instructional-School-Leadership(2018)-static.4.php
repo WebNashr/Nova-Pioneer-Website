@@ -185,7 +185,7 @@ get_header();?>
             <article class="article article-inner article-inner-alt ">
                 <h2 id="faqs">Frequently Asked Questions</h2>
                 <ul class="toggle-list">
-                        <li class=" ">
+                        <li class="show">
                             <h3 class="toggle-list-title">Do I need to have prior experience in enquiry-based learning?</h3>
                             <div class="toggle-list-content">
                             No. Most of the teachers who join us come from more traditional educational
