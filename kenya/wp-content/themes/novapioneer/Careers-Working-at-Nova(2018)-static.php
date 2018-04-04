@@ -120,7 +120,52 @@ get_header();?>
            <?php endif;?>
 
         <section class="section">
-            Stories from Nova
+                    <aside>
+            <div class=" testimonial full-width-quote ">
+                <div class=" section content-slider-container testimonials">
+                    <ul id="stories-slider" class="content-slider">
+                            <li class="single-testimonial">
+                                <figure class="full-width-figure">
+                                    <img src="">
+                                </figure>
+                                <blockquote>
+                                    <svg aria-hidden="true">
+                                        <usexlink:href
+                                        ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                    </svg>
+
+                                    <?php echo $testimonial->post_content; ?>
+
+                                    <p>
+                                        <cite>
+                                            <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?>
+                                        </cite>
+                                    </p>
+                                </blockquote>
+                            </li>
+                            <li class="single-testimonial">
+                                <figure class="full-width-figure">
+                                    <img src="">
+                                </figure>
+                                <blockquote>
+                                    <svg aria-hidden="true">
+                                        <usexlink:href
+                                        ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                    </svg>
+
+                                    <?php echo "test" ?>
+
+                                    <p>
+                                        <cite>
+                                            <span><strong><?php echo "TET" ?></strong>, </span> <?php echo "TITLE" ?>
+                                        </cite>
+                                    </p>
+                                </blockquote>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
         </section>
 
         <?php 
@@ -139,5 +184,76 @@ get_header();?>
     <?php endwhile; ?>
 <?php endif; ?>
 
+
+<script>
+    (function ($) {
+        $(document).ready(function (){
+
+
+            $("#stories-slider").lightSlider({
+                item: 1,
+                autoWidth: false,
+                slideMove: 1, // slidemove will be 1 if loop is true
+                // slideMargin: 300, //500
+                addClass: '',
+                mode: "slide",
+                useCSS: true,
+                cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+                easing: 'linear', //'for jquery animation',////
+                speed: 400, //ms'
+                auto: false,
+                loop: true,
+                // slideEndAnimation: true,
+                pause: 2000,
+                keyPress: false,
+                controls: true,
+                prevHtml: '',
+                nextHtml: '',
+                addClass: 'content-slider',
+                // currentPagerPosition: 'middle',
+                enableTouch: false,
+                enableDrag: false,
+                freeMove: false,
+                // swipeThreshold: 40,
+                responsive: [
+                    // {
+                    //     breakpoint: 1024,
+                    //     settings: {
+                    //         slideMargin: 500,
+                    //     }
+                    // },
+                    //   {
+                    //       breakpoint: 800,
+                    //       settings: {
+                    //           slideMargin: 500,
+                    //       }
+                    //   },
+
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            auto: false,
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            auto: false,
+                        }
+                    },
+                    {
+                        breakpoint: 320,
+                        settings: {
+                            auto: false,
+                            slideMargin: 245,
+                        }
+                    }
+                ]
+            });
+
+        })
+    })(jQuery);
+
+</script>
 
 <?php get_footer(); ?>
