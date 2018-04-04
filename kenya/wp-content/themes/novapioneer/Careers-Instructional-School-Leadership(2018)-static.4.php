@@ -139,55 +139,6 @@ get_header();?>
                         <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
                     </div>
                 </section>
-<<<<<<< HEAD
-
-       <section class="section">
-       <section class="faqs-container">
-            <article class="article article-inner article-inner-alt ">
-                <h2 id="faqs">Frequently Asked Questions</h2>
-                <ul class="toggle-list">
-                        <li class="show">
-                            <h3 class="toggle-list-title">Do I need to have prior experience in enquiry-based learning?</h3>
-                            <div class="toggle-list-content">
-                            No. Most of the teachers who join us come from more traditional educational
-                                backgrounds so we provide rigorous training to make sure you are equipped
-                                and prepared to deliver amazing enquiry-based lessons.
-                            </div>
-                        </li>
-                        <li class=" ">
-                            <h3 class="toggle-list-title">What is the difference between a Resident and Apprentice teacher?</h3>
-                            <div class="toggle-list-content">Resident teachers are able to lead classrooms and have strong content
-                                knowledge relevant to what they teach. They are qualified teachers with
-                                classroom experience or have a strong ability to lead a classroom
-                                independently. Apprentice teachers are teachers who are studying toward a
-                                teacher qualification with an eagerness to learn and grow into a Resident
-                                teacher. They provide support in the classroom and get more and more
-                                teaching responsibility as they grow. Click here to read more about the
-                                Apprentice program . (go to apprentice page)
-                            </div>
-                        </li>
-                        <li class=" ">
-                            <h3 class="toggle-list-title">What qualifications do I need?</h3>
-                            <div class="toggle-list-content">
-                                To teach as a Resident teacher at Nova Pioneer you need a teacher’s qualification.
-                                If you do not yet have a teaching qualification and are an aspiring teacher you
-                                can join our teacher apprentice program and get valuable teacher experience
-                                and coaching while you study. Apprentice teachers must have just qualified
-                                from their final year of teacher studies or be pursuing a teaching degree to
-                                qualify for the apprentice programme.
-                            </div>
-                        </li>
-                        <li class=" ">
-                            <h3 class="toggle-list-title">How many terms does Nova Pioneer have?</h3>
-                            <div class="toggle-list-content">
-                                At Nova Pioneer we follow a three term system.
-                            </div>
-                        </li>
-                </ul>
-            </article>
-        </section>
-        </section>
-=======
                 
             <?php 
                 $field = 'faq';
@@ -216,7 +167,6 @@ get_header();?>
                  </article>
              </section>
              </section>
->>>>>>> 8ae018aa8c9f58712adc12a89d801b82ed49411b
 
 
     <?php endwhile; ?>

@@ -33,204 +33,107 @@ get_header();?>
         <section class="section">
             <article class="article">
                 <h3>Why work at Nova Pioneer? </h3> 
-                <h4> <a href="#">Opportunities at Nova Pioneer</a> - <a href="#">What We're Looking For</a> - 
-                <a href="#">Grow With Us</a> - <a href="#">Apply</a> </h4>
+                <h4> 
+                    <a href="http://novaacademies.applytojob.com/">Opportunities at Nova Pioneer</a> - 
+                    <a href="http://novapioneer.local/kenya/open-positions-2/what-were-looking-for/">What We're Looking For</a> - 
+                <a href="http://novapioneer.local/kenya/open-positions-2/grow-with-us/">Grow With Us</a> - <a href="#">Apply</a> </h4>
             </article>
         </section>
 
         <div class="border"></div>
 
+        <?php
+            $intro = 'intro';
+            if(have_rows($intro)):
+        ?>
+
         <section class="section ">
             <div class="card-container">
+                <?php while(have_rows($intro)): the_row();?>
                 <div class="card">
                     <figure>
-                    <img src="../../wp-admin/images/africa.png"></img>
+                    <img style="width:100%;" src="<?php the_sub_field('icon'); ?>"></img>
                     </figure>
-                    <h2>Innovate</h2>
-                    <h3>Shape education on
-                    the African Continent</h3>
+                    <h2><?php the_sub_field('heading'); ?></h2>
+                    <h3><?php the_sub_field('sub_heading'); ?></h3>
                     <p>
-                    Help build the first
-                    large school network
-                    across the continent
-                    that creates a
-                    generation of leaders
-                    and innovators and
-                    makes this the African
-                    century.
+                    <?php the_sub_field('paragraph'); ?>
                     </p>
                 </div>
-                <div class="card">
-                    <figure>
-                    <img src="../../wp-admin/images/plant.png"></img>
-                    </figure>
-                    <h2>Impact</h2>
-                    <h3>Shape education on
-                    the African Continent</h3>
-                    <p>
-                    Help build the first
-                    large school network
-                    across the continent
-                    that creates a
-                    generation of leaders
-                    and innovators and
-                    makes this the African
-                    century.
-                    </p>
-                </div>
-                <div class="card">
-                    <figure>
-                    <img src="../../wp-admin/images/people.png"></img>
-                    </figure>
-                    <h2>Grow</h2>
-                    <h3>Shape education on
-                    the African Continent</h3>
-                    <p>
-                    Help build the first
-                    large school network
-                    across the continent
-                    that creates a
-                    generation of leaders
-                    and innovators and
-                    makes this the African
-                    century.
-                    </p>
-                </div>
-                <div class="card">
-                    <figure>
-                    <img src="../../wp-admin/images/bulb.png"></img>
-                    </figure>
-                    <h2>Belong</h2>
-                    <h3>Shape education on
-                    the African Continent</h3>
-                    <p>
-                    Help build the first
-                    large school network
-                    across the continent
-                    that creates a
-                    generation of leaders
-                    and innovators and
-                    makes this the African
-                    century.
-                    </p>
-                </div>
-
+                 <?php endwhile;?>
             </div>
         </section>
+            <?php endif;?>
 
-        <section class="section">
-            <article class="article">
-                <h3>Opportunities:</h3> 
-                <h4>How do you want to help shape education on the African continent?</h4>
-            </article>
 
-            <div class="card-container">
-                 <div class="card">
-                      <h1>TEACHERS</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-                 <div class="card">
-                      <h1>INSTRUCTIONAL &
-                        SCHOOL LEADERSHIP</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-                 <div class="card">
-                      <h1>CENTRAL TEAM &
-                        SCHOOL SUPPORT
-                        ROLES</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-            </div>
+        <?php 
+            $opp = 'opportunities';
+            if(have_rows($opp)):
+        ?>
+            <section class="section">
+                <article class="article">
+                    <h3>Opportunities:</h3> 
+                    <h4>How do you want to help shape education on the African continent?</h4>
+                </article><br>
 
-        </section>
+                <div class="card-container">
+                    <?php while(have_rows($opp)): the_row();?>
+                    <div class="card">
+                        <h1><?php the_sub_field('heading');?></h1>
+                        <p>
+                        <?php the_sub_field('paragraph_text');?>
+                        </p>
+                        <a href="<?php the_sub_field('link_url');?>">LEARN MORE</a>
+                    </div>
+            <?php endwhile;?>
+                </div>
+            </section>
+            <?php endif;?>
 
-        <section class="section">
-            <article class="article">
-                <h3>What we're looking for</h3> 
-                <p>
-                Working at Nova Pioneer is for people who love a challenge and love to grow, get a kick out
-                of solving tough problems, and flourish in an environment where everyone works hard and
-                puts their whole heart into their work. IS THAT YOU?
-                </p>
-            </article>
 
-            <div class="card-container">
-                 <div class="card">
-                      <h1>TEACHERS</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-                 <div class="card">
-                      <h1>INSTRUCTIONAL &
-                        SCHOOL LEADERSHIP</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-            </div>
-            <div class="card-container">
-                 <div class="card">
-                      <h1>TEACHERS</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-                 <div class="card">
-                      <h1>INSTRUCTIONAL &
-                        SCHOOL LEADERSHIP</h1>
-                      <p>
-                         We love teachers. They are at
-                        the heart of what we do. They
-                        inspire our students with a
-                        passion for learning.
-                      </p>
-                      <a>LEARN MORE</a>
-                 </div>
-            </div>
+        <?php 
+           $fields = 'what_were_looking_for';
+           if(have_rows($fields)):   
+        ?>
+            <section class="section">
+                <article class="article">
+                    <h3>What we're looking for</h3> 
+                    <p>
+                    Working at Nova Pioneer is for people who love a challenge and love to grow, get a kick out
+                    of solving tough problems, and flourish in an environment where everyone works hard and
+                    puts their whole heart into their work. IS THAT YOU?
+                    </p>
+                </article><br>
 
-        </section>
+                <div class="card-container">
+                    <?php while(have_rows($fields)): the_row();?>
+                    <div class="card">
+                        <h1><?php the_sub_field('heading');?></h1>
+                        <p>
+                        <?php the_sub_field('paragraph');?>
+                        </p>
+                        <a href="<?php the_sub_field('link_url');?>">LEARN MORE</a>
+                    </div>
+                     <?php endwhile;?>
+                </div>
+            </section>
+           <?php endif;?>
 
         <section class="section">
             Stories from Nova
         </section>
 
-
-                <section class="section">
-                    <div class="button-wrap">
-                        <a href="http://novaacademies.applytojob.com/" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
-                    </div>
-                </section>
+        <?php 
+            $apply = get_field('apply_now');
+            //var_dump($apply);
+            if($apply):
+        ?>
+        <section class="section">
+            <div class="button-wrap">
+            <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
+            </div>
+        </section>
+            <?php endif;?>
 
 
     <?php endwhile; ?>
