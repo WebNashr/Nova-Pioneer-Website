@@ -137,7 +137,7 @@ get_header();?>
                 <?php if($url)?>
                     <div class="button-wrap">
                         <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
-                    </div>
+                    </div> 
                 </section>
                 
             <?php 
