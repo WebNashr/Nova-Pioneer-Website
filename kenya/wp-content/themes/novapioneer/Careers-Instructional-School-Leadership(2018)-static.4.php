@@ -29,106 +29,62 @@ get_header();?>
         </section>
 
         
+        <!-- Intro -->
+        <?php 
+        
+        ?>
 
         <section class="section">
-            <article class="article">
-        <p>Strong, visionary instructional leadership is key to the success of our schools. There are
-        various pathways to leadership in Nova Pioneer schools including leadership in the
-        classroom, leadership in our curriculum or leadership of a school.</p>
-            </article>
+            <?php //while(); ?>
+                <article class="article">
+                <p><?php echo the_content(); ?></p>
+                </article>
+            <?php //endwhile; wp_reset_postdata(); ?>
         </section>
+
+        <?php 
+            $body = 'body';
+        ?>
 
         <section class="section ">
+            <?php if(have_rows($body)):?>
             <div class="card-container">
+                <?php while(have_rows($body)): the_row();?>
                 <div class="card">
-                    <h2>Classroom Leadership</h2>
+                    <h2><?php the_sub_field('title') ?></h2>
                     <p>
-                    Help build the first
-                    large school network
-                    across the continent
-                    that creates a
-                    generation of leaders
-                    and innovators and
-                    makes this the African
-                    century.
+                    <?php the_sub_field('paragraph') ?>
                     </p>
                 </div>
-                <div class="card">
-                    <h2>Instructional & School
-                    Leadership</h2>
-                    <p>
-                    Help build the first
-                    large school network
-                    across the continent
-                    that creates a
-                    generation of leaders
-                    and innovators and
-                    makes this the African
-                    century.
-                    </p>
-                </div>
-                <div class="card">
-                    <h2>Curriculum & Learning
-                    Leadership</h2>
-                    <p>
-                    Help build the first
-                    large school network
-                    across the continent
-                    that creates a
-                    generation of leaders
-                    and innovators and
-                    makes this the African
-                    century.
-                    </p>
-                </div>
-
+                <?php endwhile;?>
             </div>
+        <?php endif;?>
         </section>
 
-         <section class="section">
-                <h3>Why become a school leader at Nova Pioneer?</h3> 
+        <?php 
+            $school_leaders = 'why_become_nova_leader';
+            $title = 'title';
+            $paragraph = 'paragraph';
+        ?>
+        <section class="section">
             <article class="article">
-            <div class="card-container steps-container">
-                <div class="card admission-step">
-                <h1> We develop you more intensively as a leader than anywhere else</h1>
-                    Receive leadership coaching across multiple dimensions including
-                    instructional leadership, culture leadership and people leadership. Whether
-                    you are new on the leadership journey or you have been a leader for many
-                    years, you will receive coaching and development as much as you coach others
-                    - you never stop growing as a leader at Nova Pioneer.
-               </div>
+                <h3>Why become a school leader at Nova Pioneer?</h3> 
+            </article>
+            <?php if(have_rows($school_leaders)):?>
 
-            <div class="card admission-step">
-                <h1>You’re not alone - you’re part of a powerful network</h1>
-                    Receive leadership coaching across multiple dimensions including
-                    instructional leadership, culture leadership and people leadership. Whether
-                    you are new on the leadership journey or you have been a leader for many
-                    years, you will receive coaching and development as much as you coach others
-                    - you never stop growing as a leader at Nova Pioneer.
-            </div>
+            <ol>
+                <?php while(have_rows($school_leaders)): the_row();?>
+                <li>
+                <b> <?php the_sub_field($title)?></b>
+                    <?php the_sub_field($paragraph) ?>
+                </li>
 
-            <div class="card admission-step">
-                <h1>Culture, culture, culture</h1>
-                    Receive leadership coaching across multiple dimensions including
-                    instructional leadership, culture leadership and people leadership. Whether
-                    you are new on the leadership journey or you have been a leader for many
-                    years, you will receive coaching and development as much as you coach others
-                    - you never stop growing as a leader at Nova Pioneer.
-            </div>
+            <? endwhile;?>
 
-            <div class="card admission-step">
-                <h1>We develop people leaders, not administrators</h1>
-                    Receive leadership coaching across multiple dimensions including
-                    instructional leadership, culture leadership and people leadership. Whether
-                    you are new on the leadership journey or you have been a leader for many
-                    years, you will receive coaching and development as much as you coach others
-                    - you never stop growing as a leader at Nova Pioneer.
-            </div>
-
-        </div>
-        </article>
+            </ol>
+            
+            <? endif;?>
         </section>
-
 
         <section class="section section-pair team-profile-container">
 
@@ -174,11 +130,16 @@ get_header();?>
         </section>
 
 
+            <?php 
+            $url = get_field('apply');
+            ?>
                 <section class="section">
+                <?php if($url)?>
                     <div class="button-wrap">
-                        <a href="http://novaacademies.applytojob.com/" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
+                        <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
                     </div>
                 </section>
+<<<<<<< HEAD
 
        <section class="section">
        <section class="faqs-container">
@@ -226,6 +187,36 @@ get_header();?>
             </article>
         </section>
         </section>
+=======
+                
+            <?php 
+                $field = 'faq';
+                $sub_field_1 = 'question';
+                $sub_field_2 = 'answer';
+            ?>
+            <section class="section">
+            <section class="faqs-container">
+                 <article class="article article-inner article-inner-alt ">
+                     <h2 id="faqs">Frequently Asked Questions</h2>
+                     <?php if(have_rows($field)): $i = 0;?>
+
+                     <ul class="toggle-list">
+                            <?php while(have_rows($field)):  the_row();?>
+                                        <li class= '<?php if($i == 0){ echo 'show'; } ?>' >
+                                            <h3 class="toggle-list-title"><?php the_sub_field($sub_field_1);?></h3>
+                                            <div class="toggle-list-content">
+                                            <?php the_sub_field($sub_field_2);?>
+                                            </div>
+                                        </li>
+                                <?php $i += 1; ?>
+                            <?php  endwhile; wp_reset_postdata();?>
+                     </ul>
+
+                <?php endif; ?>
+                 </article>
+             </section>
+             </section>
+>>>>>>> 8ae018aa8c9f58712adc12a89d801b82ed49411b
 
 
     <?php endwhile; ?>

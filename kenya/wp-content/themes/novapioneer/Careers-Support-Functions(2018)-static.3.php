@@ -30,8 +30,8 @@ get_header();?>
 
          <section class="section">
                 <h1>Who may apply?</h1>
-                <p>You may apply if you:</p>
-
+                <p>You may apply if you:</p> <br>
+            <article class="article ">
             <div class="card-container steps-container">
                 <div class="card admission-step">
                 <h1>-1-</h1>
@@ -56,6 +56,7 @@ get_header();?>
             </div>
 
         </div>
+        </article>
         </section>
 
         <section class="section section-pair team-profile-container">

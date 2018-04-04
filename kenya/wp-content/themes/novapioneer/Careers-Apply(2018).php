@@ -33,7 +33,7 @@ get_header();?>
         <?php //if(the_content()):?>
         <section class="section">
             <article class="article">
-                <h2>How to apply </h2> 
+                <h3>How to apply </h3> 
                 <p><?php echo the_content();?></p>
             </article>
         </section>
@@ -45,26 +45,15 @@ get_header();?>
         $paragraph = the_sub_field('paragraph');
         ?>
         <?php if(have_rows($interview_process)):?>
+        <section class="section ">
+            <p>The interview process consists of the following components:</p>
 
-         <section class="section">
-                <h2>The Interview Process</h2>
-            <p>The interview process consists of the following components:</p><br>
-
-            <article class="article">
-            <div class="card-container steps-container">
-                    <?php $i = 0 ; ?>
+            <ol>
                 <?php while(have_rows($interview_process)): the_row()?>
-                    <div class="card admission-step">
-                    <h1>-<?php echo $i + 1;?>-</h1>
-                    <h1><?php the_sub_field('title'); echo ': ';?></h1>
-                    <p><?php  the_sub_field('paragraph') ?></p>
-                    </div>
-                    <?php $i++; ?>
-                <?php endwhile?>    
-            </div>
-            </article>
-            </section>
-
+                <li><?php the_sub_field('title'); echo ': '; the_sub_field('paragraph') ?></li>
+                <?php endwhile?>
+            </ol>
+        </section>
         <?php endif;?>
 
 
@@ -73,8 +62,8 @@ get_header();?>
         ?>
         <section class="section ">
             <?php if($url):?>
-            <p><b>Note: The process may vary depending on the role you are applying for and whether
-                you are applying in or out of the peak hiring season.</b></p>
+            <p>Note: The process may vary depending on the role you are applying for and whether
+                you are applying in or out of the peak hiring season.</p>
 
             <p>If you think Nova Pioneer is the right place for you then see what jobs are available
                 <a href="<?php echo $url?>">here</a>.</p>

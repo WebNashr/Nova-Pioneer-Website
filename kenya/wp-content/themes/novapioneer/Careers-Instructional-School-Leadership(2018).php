@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Teachers (2018)
+* Template Name: Instructional-School-Leadership (2018)
 */
 
 get_header();?>
@@ -28,72 +28,67 @@ get_header();?>
             </div>
         </section>
 
+        
+        <!-- Intro -->
+        <?php 
+        
+        ?>
 
         <section class="section">
-            <div class="">
-                <p><?php the_content();?></p>
-            </div>
+            <?php //while(); ?>
+                <article class="article">
+                <p><?php echo the_content(); ?></p>
+                </article>
+            <?php //endwhile; wp_reset_postdata(); ?>
         </section>
 
-
-        <?php
+        <?php 
             $body = 'body';
-
-            if(have_rows($body)):
-        ?>
-        <section class="section">
-            <div class="card-container steps-container">
-            <?php while(have_rows($body)): the_row()?>
-                <div class="card admission-step">
-                <h1><?php the_sub_field('title') ?></h1>
-                <p><?php the_sub_field('paragraph') ?>
-                </p>
-
-                <blockquote><?php the_sub_field('quote') ?></blockquote>
-            </div>
-            <?php endwhile;?>
-            </div>
-        </section>
-            <?php endif;?>
-
-
-        <?php
-            $app_program = 'teacher_apprentice_program';
-            if(have_rows($app_program)):
         ?>
 
-        <section class="section">
-            <h1>Teacher Apprentice Program</h1>
-                
-            <div class="card-container" style="width:90%;">
-
-            <?php while(have_rows($app_program)): the_row(); ?>
+        <section class="section ">
+            <?php if(have_rows($body)):?>
+            <div class="card-container">
+                <?php while(have_rows($body)): the_row();?>
                 <div class="card">
-                    <figure>
-                    <img style="width:100%;" src="<?php the_sub_field('icon')?>"></img>
-                    </figure>
-                </div>
-
-                <div class="card">
-                    <p><?php the_sub_field('paragraph');?>
+                    <h2><?php the_sub_field('title') ?></h2>
+                    <p>
+                    <?php the_sub_field('paragraph') ?>
                     </p>
-                    <a href="<?php the_sub_field('link_url');?>">Learn more about the Teacher Apprentice Programme here</a>
                 </div>
-
-            <?php endwhile; ?> 
-
+                <?php endwhile;?>
             </div>
-                    <?php $url = get_field('apply_now');  if($url)?>
-                        <div class="button-wrap">
-                            <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
-                        </div>  
-                    <?php endif;?>    
-         </section>
+        <?php endif;?>
+        </section>
 
+        <?php 
+            $school_leaders = 'why_become_nova_leader';
+            $title = 'title';
+            $paragraph = 'paragraph';
+        ?>
+        <section class="section">
+            <article class="article">
+                <h3>Why become a school leader at Nova Pioneer?</h3> 
+            </article>
+            <?php if(have_rows($school_leaders)):?>
+
+            <ol>
+                <?php while(have_rows($school_leaders)): the_row();?>
+                <li>
+                <b> <?php the_sub_field($title)?></b>
+                    <?php the_sub_field($paragraph) ?>
+                </li>
+
+            <? endwhile;?>
+
+            </ol>
+            
+            <? endif;?>
+        </section>
 
         <section class="section section-pair team-profile-container">
 
-                <h2 class="centered-title">Meet our teachers</h2>
+                <h2 class="centered-title">Meet our leaders</h2>
             <div class="section-content section-content-plain np-team-profiles">
                         <div class="section-content-item section-content-item-quarter profile">
                             <div class="image-wrap">
@@ -134,13 +129,23 @@ get_header();?>
             </div>
         </section>
 
-       
-       <?php 
+
+            <?php 
+            $url = get_field('apply');
+            ?>
+                <section class="section">
+                <?php if($url)?>
+                    <div class="button-wrap">
+                        <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
+                    </div> 
+                </section>
+                
+            <?php 
                 $field = 'faq';
                 $sub_field_1 = 'question';
                 $sub_field_2 = 'answer';
             ?>
-       <section class="section">
+            <section class="section">
             <section class="faqs-container">
                  <article class="article article-inner article-inner-alt ">
                      <h2 id="faqs">Frequently Asked Questions</h2>
@@ -162,7 +167,6 @@ get_header();?>
                  </article>
              </section>
              </section>
-
 
 
     <?php endwhile; ?>
