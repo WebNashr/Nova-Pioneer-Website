@@ -119,26 +119,29 @@ get_header();?>
             </section>
            <?php endif;?>
 
-        <section class="section">
-                    <aside>
+          <aside>
             <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">
-                    <ul id="stories-slider" class="content-slider">
+                    <ul id="testimonial-slider" class="content-slider">
                             <li class="single-testimonial">
                                 <figure class="full-width-figure">
                                     <img src="">
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
-                                        <usexlink:href
+                                        <use xlink:href
                                         ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
 
-                                    <?php echo $testimonial->post_content; ?>
+                                    <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales tortor quis laoreet fermentum. 
+                                    Quisque placerat ac urna et auctor. Nunc eu convallis ex. Nunc a risus mollis, rhoncus nibh et, egestas diam.
+                                    </p>
 
                                     <p>
                                         <cite>
-                                            <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?>
+                                            <!-- <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?> -->
+                                            <span><a style="color:#efff00;" href="#">Link to story</a></span>
                                         </cite>
                                     </p>
                                 </blockquote>
@@ -149,15 +152,19 @@ get_header();?>
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
-                                        <usexlink:href
+                                        <use xlink:href
                                         ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
 
-                                    <?php echo "test" ?>
+                                    <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales tortor quis laoreet fermentum. 
+                                    Quisque placerat ac urna et auctor. Nunc eu convallis ex. Nunc a risus mollis, rhoncus nibh et, egestas diam.
+                                    </p>
 
                                     <p>
                                         <cite>
-                                            <span><strong><?php echo "TET" ?></strong>, </span> <?php echo "TITLE" ?>
+                                            <!-- <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?> -->
+                                            <span><a style="color:#efff00;" href="#">Link to story</a></span>
                                         </cite>
                                     </p>
                                 </blockquote>
@@ -166,7 +173,6 @@ get_header();?>
                 </div>
             </div>
         </aside>
-        </section>
 
         <?php 
             $apply = get_field('apply_now');
@@ -190,7 +196,7 @@ get_header();?>
         $(document).ready(function (){
 
 
-            $("#stories-slider").lightSlider({
+            $("#testimonial-slider").lightSlider({
                 item: 1,
                 autoWidth: false,
                 slideMove: 1, // slidemove will be 1 if loop is true
