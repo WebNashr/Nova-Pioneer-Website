@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Apply(2018)-static
+* Template Name: Careers-Apply(2018)
 */
 
 get_header();?>
