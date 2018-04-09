@@ -61,6 +61,30 @@ get_header();?>
         <?php endif;?>
         </section>
 
+        <?php 
+            $school_leaders = 'why_become_nova_leader';
+            $title = 'title';
+            $paragraph = 'paragraph';
+        ?>
+        <section class="section">
+            <article class="article">
+                <h3>Why become a school leader at Nova Pioneer?</h3> 
+            </article>
+            <?php if(have_rows($school_leaders)):?>
+
+            <ol>
+                <?php while(have_rows($school_leaders)): the_row();?>
+                <li>
+                <b> <?php the_sub_field($title)?></b>
+                    <?php the_sub_field($paragraph) ?>
+                </li>
+
+            <? endwhile;?>
+
+            </ol>
+            
+            <? endif;?>
+        </section>
 
 
         <?php
