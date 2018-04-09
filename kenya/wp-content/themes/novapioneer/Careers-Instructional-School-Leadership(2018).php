@@ -62,21 +62,21 @@ get_header();?>
         </section>
 
         <?php 
-            $school_leaders = 'why_become_nova_leader';
-            $title = 'title';
-            $paragraph = 'paragraph';
+            $_school_leaders = 'why_become_nova_leader';
+            $_title = 'title';
+            $_paragraph = 'paragraph';
         ?>
         <section class="section">
             <article class="article">
                 <h3>Why become a school leader at Nova Pioneer?</h3> 
             </article>
-            <?php if(have_rows($school_leaders)):?>
+            <?php if(have_rows($_school_leaders)):?>
 
             <ol>
-                <?php while(have_rows($school_leaders)): the_row();?>
+                <?php while(have_rows($_school_leaders)): the_row();?>
                 <li>
-                <b> <?php the_sub_field($title)?></b>
-                    <?php the_sub_field($paragraph) ?>
+                <b> <?php the_sub_field($_title)?></b>
+                    <?php the_sub_field($_paragraph) ?>
                 </li>
 
             <? endwhile;?>
