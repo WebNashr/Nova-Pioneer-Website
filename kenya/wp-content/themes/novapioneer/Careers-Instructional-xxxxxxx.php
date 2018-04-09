@@ -71,12 +71,12 @@ get_header();?>
         <?php if(have_rows($_school_leaders)): ?>
         <section class="section ">
             <article class="article">
-                <h3>Why become a school leader at Nova Pioneer?</h3> 
+                <h3>Why become a school leader at Nova Pioneer?</h3> <b>
             </article>
             <div class="card-container">
             <?php while(have_rows($_school_leaders)): the_row();?>
                 <div class="card">
-                    <h2><?php the_sub_field('title'); ?></h2>
+                    <h1><?php the_sub_field('title'); ?></h1>
                     <p>
                     <?php the_sub_field('paragraph'); ?>
                     </p>

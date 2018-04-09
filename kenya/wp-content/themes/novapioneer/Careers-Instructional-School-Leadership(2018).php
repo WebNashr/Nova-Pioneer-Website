@@ -62,34 +62,29 @@ get_header();?>
         <?php endif;?>
 
 
-<!-- TODO: Uncomment & Debug loop -->
-
-        <!-- <?php 
-            //$_school_leaders = 'why_become_nova_leader';
-            //$_title = 'title';
-            //$_paragraph = 'paragraph';
+        <?php 
+            $_school_leaders = 'why_become_nova_leader';
+            $_title = 'title';
+            $_paragraph = 'paragraph';
         ?>
-        <?php //if(have_rows($_school_leaders)): ?>
-        <section class="section">
+
+        <?php if(have_rows($_school_leaders)): ?>
+        <section class="section ">
             <article class="article">
-                <h3>Why become a school leader at Nova Pioneer?</h3> 
+                <h3>Why become a school leader at Nova Pioneer?</h3> <br>
             </article>
-
-            <ol>
-                <?php //while(have_rows($_school_leaders)): the_row();?>
-               
-                <li>
-                <b> <?php //the_sub_field($_title); ?></b>
-                    <?php //the_sub_field($_paragraph); ?>
-                </li>
-
-                <? //endwhile; ?>
-
-            </ol>
+            <div class="card-container">
+            <?php while(have_rows($_school_leaders)): the_row();?>
+                <div class="card">
+                    <h1><?php the_sub_field('title'); ?></h1>
+                    <p>
+                    <?php the_sub_field('paragraph'); ?>
+                    </p>
+                </div>
+                <?php endwhile;?>
+            </div>
         </section>
-            <? //endif; ?> -->
-
-
+        <?php endif;?>
 
         <?php
             $args = array(
