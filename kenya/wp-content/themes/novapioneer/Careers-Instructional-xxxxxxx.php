@@ -136,44 +136,6 @@ get_header();?>
             <?php endif;?>
 
 
-            <?php 
-            $url = get_field('apply');
-            ?>
-                <section class="section">
-                <?php if($url)?>
-                    <div class="button-wrap">
-                        <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
-                    </div>
-                </section>
-                
-            <?php 
-                $field = 'faq';
-                $sub_field_1 = 'question';
-                $sub_field_2 = 'answer';
-            ?>
-            <section class="section">
-            <section class="faqs-container">
-                 <article class="article article-inner article-inner-alt ">
-                     <h2 id="faqs">Frequently Asked Questions</h2>
-                     <?php if(have_rows($field)): $i = 0;?>
-
-                     <ul class="toggle-list">
-                            <?php while(have_rows($field)):  the_row();?>
-                                        <li class= '<?php if($i == 0){ echo 'show'; } ?>' >
-                                            <h3 class="toggle-list-title"><?php the_sub_field($sub_field_1);?></h3>
-                                            <div class="toggle-list-content">
-                                            <?php the_sub_field($sub_field_2);?>
-                                            </div>
-                                        </li>
-                                <?php $i += 1; ?>
-                            <?php  endwhile; wp_reset_postdata();?>
-                     </ul>
-
-                <?php endif; ?>
-                 </article>
-             </section>
-             </section>
-
 
     <?php endwhile; ?>
 <?php endif; ?>
