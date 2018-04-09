@@ -46,20 +46,7 @@ get_header();?>
             $body = 'body';
         ?>
 
-            <?php if(have_rows($body)):?>
-        <section class="section ">
-            <div class="card-container">
-                <?php while(have_rows($body)): the_row();?>
-                <div class="card">
-                    <h2><?php the_sub_field('title'); ?></h2>
-                    <p>
-                    <?php the_sub_field('paragraph'); ?>
-                    </p>
-                </div>
-                <?php endwhile;?>
-            </div>
-        </section>
-        <?php endif;?>
+
 
         <?php 
             $_school_leaders = 'why_become_nova_leader';
