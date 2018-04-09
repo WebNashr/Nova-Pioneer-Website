@@ -86,7 +86,7 @@ get_header();?>
                 <?php while($featured_team->have_posts()): $featured_team->the_post();?>
                         <div class="section-content-item section-content-item-quarter profile">
                             <div class="image-wrap">
-                                <img src="../../wp-admin/images/avatar_placeholder_large.png" alt="">
+                                <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
                             </div>
                             <h3 class="profile-name"><?php the_title(); ?></h3>
                             <h5 class="profile-role"><?php the_field('quote', $featured_leader->ID); ?></h5>
