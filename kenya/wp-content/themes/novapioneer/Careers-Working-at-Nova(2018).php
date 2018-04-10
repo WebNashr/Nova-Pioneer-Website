@@ -52,7 +52,7 @@ get_header();?>
                 <?php while(have_rows($intro)): the_row();?>
                 <div class="card">
                     <figure>
-                    <img style="width:100%;" src="<?php the_sub_field('icon'); ?>"></img>
+                    <img style="width:150px;" src="<?php the_sub_field('icon'); ?>"></img>
                     </figure>
                     <h2><?php the_sub_field('heading'); ?></h2>
                     <h3><?php the_sub_field('sub_heading'); ?></h3>
@@ -98,11 +98,11 @@ get_header();?>
             <section class="section">
                 <article class="article">
                     <h3>What we're looking for</h3> 
-                    <p>
+                    <h4>
                     Working at Nova Pioneer is for people who love a challenge and love to grow, get a kick out
                     of solving tough problems, and flourish in an environment where everyone works hard and
-                    puts their whole heart into their work. IS THAT YOU?
-                    </p>
+                    puts their whole heart into their work. <b>IS THAT YOU?</b>
+                    </h4>
                 </article><br>
 
                 <div class="card-container">
