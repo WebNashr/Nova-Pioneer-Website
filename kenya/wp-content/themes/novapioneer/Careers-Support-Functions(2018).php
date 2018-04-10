@@ -43,8 +43,6 @@ get_header();?>
         ?>
 
          <section class="section">
-                <h1>Who may apply?</h1>
-                <p>You may apply if you:</p> <br>
             <article class="article ">
             <div class="card-container steps-container">
                 <?php while(have_rows($info)): the_row(); ?>
