@@ -63,7 +63,7 @@ get_header();?>
         ?>
 
         <section class="section">
-            <h1>Teacher Apprentice Program</h1>
+            <h1>Teacher Apprentice Program</h1><br>
                 
             <div class="card-container" style="width:90%;">
 

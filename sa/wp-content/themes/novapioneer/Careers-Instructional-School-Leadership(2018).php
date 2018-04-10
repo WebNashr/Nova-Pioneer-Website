@@ -46,46 +46,45 @@ get_header();?>
             $body = 'body';
         ?>
 
-        <section class="section ">
             <?php if(have_rows($body)):?>
+        <section class="section ">
             <div class="card-container">
                 <?php while(have_rows($body)): the_row();?>
                 <div class="card">
-                    <h2><?php the_sub_field('title') ?></h2>
+                    <h2><?php the_sub_field('title'); ?></h2>
                     <p>
-                    <?php the_sub_field('paragraph') ?>
+                    <?php the_sub_field('paragraph'); ?>
                     </p>
                 </div>
                 <?php endwhile;?>
             </div>
-        <?php endif;?>
         </section>
+        <?php endif;?>
+
 
         <?php 
-            $school_leaders = 'why_become_nova_leader';
-            $title = 'title';
-            $paragraph = 'paragraph';
+            $_school_leaders = 'why_become_nova_leader';
+            $_title = 'title';
+            $_paragraph = 'paragraph';
         ?>
-        <section class="section">
+
+        <?php if(have_rows($_school_leaders)): ?>
+        <section class="section ">
             <article class="article">
-                <h3>Why become a school leader at Nova Pioneer?</h3> 
+                <h3>Why become a school leader at Nova Pioneer?</h3> <br>
             </article>
-            <?php if(have_rows($school_leaders)):?>
-
-            <ol>
-                <?php while(have_rows($school_leaders)): the_row();?>
-                <li>
-                <b> <?php the_sub_field($title)?></b>
-                    <?php the_sub_field($paragraph) ?>
-                </li>
-
-            <? endwhile;?>
-
-            </ol>
-            
-            <? endif;?>
+            <div class="card-container">
+            <?php while(have_rows($_school_leaders)): the_row();?>
+                <div class="card">
+                    <h1><?php the_sub_field('title'); ?></h1>
+                    <p>
+                    <?php the_sub_field('paragraph'); ?>
+                    </p>
+                </div>
+                <?php endwhile;?>
+            </div>
         </section>
-
+        <?php endif;?>
 
         <?php
             $args = array(
