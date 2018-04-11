@@ -52,7 +52,7 @@ get_header();?>
                 <?php while(have_rows($intro)): the_row();?>
                 <div class="card">
                     <figure>
-                    <img style="width:100%;" src="<?php the_sub_field('icon'); ?>"></img>
+                    <img style="width:150px;" src="<?php the_sub_field('icon'); ?>"></img>
                     </figure>
                     <h2><?php the_sub_field('heading'); ?></h2>
                     <h3><?php the_sub_field('sub_heading'); ?></h3>
@@ -98,11 +98,11 @@ get_header();?>
             <section class="section">
                 <article class="article">
                     <h3>What we're looking for</h3> 
-                    <p>
+                    <h4>
                     Working at Nova Pioneer is for people who love a challenge and love to grow, get a kick out
                     of solving tough problems, and flourish in an environment where everyone works hard and
-                    puts their whole heart into their work. IS THAT YOU?
-                    </p>
+                    puts their whole heart into their work. <b>IS THAT YOU?</b>
+                    </h4>
                 </article><br>
 
                 <div class="card-container">
@@ -119,13 +119,35 @@ get_header();?>
             </section>
            <?php endif;?>
 
+            <?php
+            $args = array(
+                'post_type' => 'stories',   
+                'post_status' => 'publish'
+                );
+            $acf_stories = get_field('stories');        
+            $featured_story = new WP_Query($args);
+
+
+        if(!empty($acf_stories) && (count($acf_stories) > 0)):
+            $ids = array();
+            foreach($acf_stories as $story):
+            $ids[] = $story->ID;
+            endforeach;
+            $featured_story = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
+            else:
+            $featured_story = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
+            endif; 
+
+            if($featured_story->have_posts()):
+            ?>
           <aside>
             <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">
                     <ul id="testimonial-slider" class="content-slider">
+                            <?php while($featured_story->have_posts()): $featured_story->the_post() ?>
                             <li class="single-testimonial">
                                 <figure class="full-width-figure">
-                                    <img src="">
+                                    <img src="<?php if(has_post_thumbnail()) { echo get_the_post_thumbnail_url(); } ?>">
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
@@ -133,46 +155,26 @@ get_header();?>
                                         ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
                                     </svg>
 
-                                    <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales tortor quis laoreet fermentum. 
-                                    Quisque placerat ac urna et auctor. Nunc eu convallis ex. Nunc a risus mollis, rhoncus nibh et, egestas diam.
+                                    <p style="width:100%;">
+                                    <?php substr(the_content(), 0,45); ?>
                                     </p>
-
+                                        
                                     <p>
                                         <cite>
                                             <!-- <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?> -->
-                                            <span><a style="color:#efff00;" href="#">Link to story</a></span>
+                                            <span><a style="color:#efff00;" href="<?php echo get_permalink();?>">Link to full story</a></span>
                                         </cite>
                                     </p>
                                 </blockquote>
                             </li>
-                            <li class="single-testimonial">
-                                <figure class="full-width-figure">
-                                    <img src="">
-                                </figure>
-                                <blockquote>
-                                    <svg aria-hidden="true">
-                                        <use xlink:href
-                                        ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                                    </svg>
+                            <?php endwhile; ?>
 
-                                    <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales tortor quis laoreet fermentum. 
-                                    Quisque placerat ac urna et auctor. Nunc eu convallis ex. Nunc a risus mollis, rhoncus nibh et, egestas diam.
-                                    </p>
-
-                                    <p>
-                                        <cite>
-                                            <!-- <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?> -->
-                                            <span><a style="color:#efff00;" href="#">Link to story</a></span>
-                                        </cite>
-                                    </p>
-                                </blockquote>
-                            </li>
                     </ul>
                 </div>
             </div>
         </aside>
+                        <?php wp_reset_postdata();?>
+            <?php endif;?>
 
         <?php 
             $apply = get_field('apply_now');
