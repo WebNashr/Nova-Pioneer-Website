@@ -159,7 +159,7 @@ get_header();?>
                                     <?php substr(the_content(), 0,45); ?>
                                     </p>
                                         
-                                    <p>
+                                    <p style="width:100%;">
                                         <cite>
                                             <!-- <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?> -->
                                             <span><a style="color:#efff00;" href="<?php echo get_permalink();?>">Link to full story</a></span>
