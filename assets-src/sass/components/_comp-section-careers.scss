@@ -1,0 +1,168 @@
+
+/*  Page section: Careers */
+/* ==================================================== */
+
+
+.coloured-container {
+    @extend %columns;
+    // justify-content: space-between;
+    width: 100%;
+    padding-top: calc(#{$space-tiny} * 2);
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+        padding: calc(#{$space-tiny} * 2) 0 0;
+    }
+
+    @include break-point(laptop) {
+        padding: calc(#{$space-tiny} * 2.5) 0 0;
+    }
+}
+
+.coloured-step {
+    @include flexbox();
+	@include flex-direction(column);
+    align-items: flex-start;
+    // justify-content: flex-end;
+    width: 100%;
+    min-height: calc(100vw / 4);
+    padding: calc(#{$space-tiny} * 2);
+    padding-top: 6rem;
+    text-align: left;
+    background: lighten($grey-lt, 4%);
+    border: 1px solid lighten($grey-lt, 2%);
+    border-top: none;
+    transition: $ease;
+
+    h3 {
+        @include font-size(22px);
+        text-align: left;
+        margin-bottom: calc(#{$space-tiny} * 0.75);
+        color: $white;
+    }
+
+    p {
+        display: block;
+        @include title(light);
+        @include font-size(16px);
+        @include line-height(1.5);
+        margin-bottom: 1rem;
+        color: $white;
+    }
+
+    &:nth-child(1) {
+        background: $orange-lt;
+
+        h3 {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(2) {
+        background: $green-lt;
+    }
+
+    &:nth-child(3) {
+        background: $blue-lt;
+
+        h3 {
+            color: $orange-lt;
+		}
+    }
+
+    &:nth-child(4) {
+        background: $green-lt;
+
+        h3 {
+            color: $orange-lt;
+		}
+    }
+
+    &:nth-child(5) {
+        background: $blue-dk;
+
+        h3 {
+            color: $orange-lt;
+		}
+    }
+
+    &:nth-child(6) {
+        background: $orange-dk;
+    }
+
+    // &:hover {
+    //     background: $blue-dk;
+    //     border: 1px solid darken($grey-lt, 1%);
+    //     border-top: none;
+
+    //     img {
+    //         position: relative;
+	// 	}
+
+	// 	// .school-summary {
+
+	// 	// }
+
+	// 	h3 {
+    //         color: $orange-lt;
+    //         padding: 0 calc(#{$space-tiny} * 1.5);
+	// 	}
+
+    //     p {
+    //         color: $white;
+    //         padding: 0 calc(#{$space-tiny} * 1.5);
+    //     }
+
+	// 	.button {
+    //         background: $blue-lt;
+	// 	}
+	// }
+
+    &:not(:first-child) {
+        margin-top: calc(#{$space-tiny} * 2);
+    }
+
+    @include break-point(tablet) {
+        width: calc(calc(100% - 48px) / 2);
+
+        // override mobile
+        &:not(:first-child) {
+            margin-top: unset;
+        }
+
+        &:not(:nth-child(2n+1)) {
+            margin-left: auto;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 48px;
+		}
+	}
+
+	@include break-point(laptop) {
+        width: calc(calc(100% - 96px) / 3);
+
+        // override mobile, tablet
+        &:not(:first-child),
+        &:nth-child(n+3) {
+			margin-top: unset;
+            margin-left: unset;
+		}
+
+        &:not(:nth-child(3n+1)) {
+            margin-left: auto;
+        }
+
+        &:nth-child(n+4) {
+            margin-top: 48px;
+		}
+
+        &:last-child:nth-child(3n+2) {
+            margin-left: 48px;
+            margin-right: auto;
+        }
+	}
+}
+
