@@ -7,25 +7,46 @@
 	clear: both;
 	padding: calc(#{$space-tiny} * 2);
 
+    &.section-no-top {
+        padding-top: 0;
+    }
+
+    &.section-no-right {
+        padding-right: 0;
+    }
+
+    &.section-no-bottom {
+        padding-bottom: 0;
+    }
+
+    &.section-no-left {
+        padding-left: 0;
+    }
+
 	&.full-width {
 		padding-right: 0;
 		padding-left: 0;
 	}
+
  	&.school-fees {
 		margin-top: -3rem;
 		padding-bottom: 1rem;
 	}
+
 	&.even-section {
 		background: lighten($background-grey, 5%);
 	}
+
 	&.call-to-action {
 		padding: 0 calc(#{$space-tiny} * 2);
 	}
+
 	&.gallery-section {
 		padding: calc(#{$space-tiny} * 2) 0 0 0;
 		background: lighten($background-grey, 5%);
-
 	}
+
+
 	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 3);
     }

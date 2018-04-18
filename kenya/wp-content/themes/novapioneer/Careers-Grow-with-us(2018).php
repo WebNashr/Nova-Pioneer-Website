@@ -27,9 +27,9 @@ get_header();?>
         </section>
 
 
-        <section class="section">
+        <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                <p><?php the_content(); ?></p>
+                <?php the_content(); ?>
             </article>
         </section>
 
@@ -39,7 +39,7 @@ get_header();?>
             $body = 'body';
             if(have_rows($body)):
         ?>
-        <section class="section">
+        <section class="section section-no-bottom">
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX coloured-container">
                     <?php while(have_rows($body)): the_row();?>
@@ -61,20 +61,19 @@ get_header();?>
             $dev_programs = 'development_programs';
             if(have_rows($dev_programs)):
         ?>
-        <section class="section">
+        <section class="section section-no-bottom">
             <article class="article">
-                <h3>PROFESSIONAL DEVELOPMENT PROGRAMS</h3>
+                <h3>Professional Development Programmes</h3>
+                <br>
                 <ol>
                 <?php while(have_rows($dev_programs)): the_row();?>
                     <li><?php the_sub_field('title'); ?> – <?php the_sub_field('text'); ?></li>
-
                 <?php endwhile; ?>
                 </ol>
             </article>
 
             <div class="card-container">
             </div>
-
         </section>
         <?php endif;?>
 
@@ -85,7 +84,7 @@ get_header();?>
         <section class="section">
             <?php if($url)?>
             <div class="button-wrap">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
+                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap-XXX button-default button-primary" title="">APPLY NOW</a>
             </div>
         </section>
 

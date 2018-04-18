@@ -3,21 +3,39 @@
 /* ==================================================== */
 
 
+.parent-pageid-919 .section-hero {
+    height: 65vh;
+}
+
+.parent-pageid-919 .section-hero .main-callout-box {
+    bottom: 0;
+}
+
+.section-page-intro p {
+    // @include title(light);
+    @include font-size(24px);
+    max-width: 75vw;
+    border-left: 12px solid $grey-md;
+    padding-left: calc(#{$space-tiny} * 2);
+}
+
+
+
 .coloured-container {
     @extend %columns;
     // justify-content: space-between;
     width: 100%;
-    padding-top: calc(#{$space-tiny} * 2);
+    // padding-top: calc(#{$space-tiny} * 2);
 
     @include break-point(tablet) {
         @include flexbox();
 	    @include flex-direction(row);
         @include flex-wrap(wrap);
-        padding: calc(#{$space-tiny} * 2) 0 0;
+        // padding: calc(#{$space-tiny} * 2) 0 0;
     }
 
     @include break-point(laptop) {
-        padding: calc(#{$space-tiny} * 2.5) 0 0;
+        // padding: calc(#{$space-tiny} * 2.5) 0 0;
     }
 }
 
@@ -60,12 +78,8 @@
 		}
     }
 
-    &:nth-child(2) {
-        background: $green-lt;
-    }
-
     &:nth-child(3) {
-        background: $blue-lt;
+        background: $green-lt;
 
         h3 {
             color: $orange-lt;
@@ -73,7 +87,7 @@
     }
 
     &:nth-child(4) {
-        background: $green-lt;
+        background: $blue-lt;
 
         h3 {
             color: $orange-lt;
@@ -81,6 +95,14 @@
     }
 
     &:nth-child(5) {
+        background: $green-dk;
+
+        h3 {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(2) {
         background: $blue-dk;
 
         h3 {
