@@ -349,3 +349,11 @@
     }
 }
 
+.new-card-button {
+    @include title(medium);
+    @include font-size(16px);
+    margin-top: 2rem;
+    color: $blue-lt;
+    background: $white;
+}
+

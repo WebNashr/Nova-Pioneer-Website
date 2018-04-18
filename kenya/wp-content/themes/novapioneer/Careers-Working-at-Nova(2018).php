@@ -96,29 +96,33 @@ get_header();?>
            $fields = 'what_were_looking_for';
            if(have_rows($fields)):
         ?>
-            <section class="section">
-                <article class="article">
-                    <h3>What we're looking for</h3>
-                    <h4>
-                    Working at Nova Pioneer is for people who love a challenge and love to grow, get a kick out
-                    of solving tough problems, and flourish in an environment where everyone works hard and
-                    puts their whole heart into their work. <b>IS THAT YOU?</b>
-                    </h4>
-                </article><br>
+        <section class="section section-no-top">
+            <article class="article">
+                <h3>What we're looking for</h3><!--!!! Young: this text has to be dynamic-->
+                <p>Working at Nova Pioneer is for people who love a challenge and love to grow, get a kick out
+                of solving tough problems, and flourish in an environment where everyone works hard and
+                puts their whole heart into their work. <b>IS THAT YOU?</b></p><!--!!! Young: this text has to be dynamic-->
+            </article>
+            <br>
 
-                <div class="card-container">
-                    <?php while(have_rows($fields)): the_row();?>
-                    <div class="card">
-                        <h1><?php the_sub_field('heading');?></h1>
-                        <p>
-                        <?php the_sub_field('paragraph');?>
-                        </p>
-                        <a href="<?php the_sub_field('link_url');?>">LEARN MORE</a>
+            <div class="card-container-XXX new-card-container">
+                <?php while(have_rows($fields)): the_row();?>
+                <div class="card-XXX new-card-item new-card-item-third">
+                    <div class="new-card-copy new-card-copy-only">
+                        <h3><?php the_sub_field('heading');?></h3>
+                        <p><?php the_sub_field('paragraph');?></p>
+                        <a href="<?php the_sub_field('link_url');?>" title="" class="button button-small button-primary new-card-button">Learn more</a>
                     </div>
-                     <?php endwhile;?>
                 </div>
-            </section>
-           <?php endif;?>
+                <?php endwhile;?>
+            </div>
+        </section>
+        <?php endif;?>
+
+
+
+
+
 
             <?php
             $args = array(
