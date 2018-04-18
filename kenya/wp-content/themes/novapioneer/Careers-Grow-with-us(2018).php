@@ -29,6 +29,7 @@ get_header();?>
 
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
+                <!--!!! Young: we need the page's alternative title here-->
                 <?php the_content(); ?>
             </article>
         </section>

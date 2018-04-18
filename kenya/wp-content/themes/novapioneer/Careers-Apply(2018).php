@@ -30,8 +30,8 @@ get_header();?>
 
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                <h2>How to apply </h2>
-                <p><?php echo the_content();?></p>
+                <h2>How to apply</h2>
+                <?php echo the_content();?>
             </article>
         </section>
 
@@ -44,7 +44,8 @@ get_header();?>
         <?php if(have_rows($interview_process)):?>
         <section class="section section-no-bottom">
             <h2>The Interview Process</h2>
-            <p>The interview process consists of the following components:</p><br>
+            <p>The interview process consists of the following components:</p><!--!!! Young: this text has to be dynamic-->
+            <br>
 
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX coloured-container">
@@ -63,6 +64,7 @@ get_header();?>
         <?php endif;?>
 
 
+        <!--!!! Young: content in this section needs to be handled on the back-end, not static in the template-->
         <?php
             $url = get_field('link_url');
         ?>
@@ -71,10 +73,9 @@ get_header();?>
             <p><b>Note: The process may vary depending on the role you are applying for and whether
                 you are applying in or out of the peak hiring season.</b></p>
 
-            <p>If you think Nova Pioneer is the right place for you then see what jobs are available
-                <a href="<?php echo $url?>">here</a>.</p>
+            <p>If you think Nova Pioneer is the right place for you then see what jobs are available <a href="<?php echo $url?>">here</a>.</p>
 
-                <?php endif;?>
+            <?php endif;?>
         </section>
 
 
