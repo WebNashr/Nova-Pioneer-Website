@@ -29,6 +29,7 @@ get_header();?>
 
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
+                <!--!!! Young: we need the page's alternative title here-->
                 <?php the_content(); ?>
             </article>
         </section>
@@ -41,13 +42,13 @@ get_header();?>
         ?>
         <section class="section section-no-bottom">
             <article class="article">
-                <div class="card-container-XXX steps-container-XXX coloured-container">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while(have_rows($body)): the_row();?>
-                    <div class="card-XXX admission-step-XXX coloured-step">
-                        <h3><?php the_sub_field('title');?></h3>
-                        <p>
-                            <?php the_sub_field('paragraph');?>
-                        </p>
+                    <div class="card-XXX admission-step-XXX new-card-item new-card-item-third">
+                        <div class="new-card-copy new-card-copy-only">
+                            <h3><?php the_sub_field('title');?></h3>
+                            <p><?php the_sub_field('paragraph');?></p>
+                        </div>
                     </div>
                     <?php endwhile;?>
                 </div>
@@ -63,7 +64,7 @@ get_header();?>
         ?>
         <section class="section section-no-bottom">
             <article class="article">
-                <h3>Professional Development Programmes</h3>
+                <h2>Professional Development Programmes</h2>
                 <br>
                 <ol>
                 <?php while(have_rows($dev_programs)): the_row();?>
