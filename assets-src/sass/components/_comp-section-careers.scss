@@ -54,6 +54,19 @@
     border-top: none;
     transition: $ease;
 
+    span.coloured-number {
+        @include font-size(36px);
+        @include title(bold);
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1.5rem;
+        padding: 22px 0 0;
+        text-align: center;
+        background: $white;
+        border-radius: 50%;
+        color: $blue-dk;
+    }
+
     h3 {
         @include font-size(22px);
         text-align: left;
@@ -76,6 +89,10 @@
         h3 {
             color: $blue-lt;
 		}
+
+        span.coloured-number {
+            color: $blue-lt;
+		}
     }
 
     &:nth-child(3) {
@@ -83,6 +100,10 @@
 
         h3 {
             color: $orange-lt;
+		}
+
+        span.coloured-number {
+            color: $blue-lt;
 		}
     }
 
@@ -92,12 +113,22 @@
         h3 {
             color: $orange-lt;
 		}
+
+        span.coloured-number {
+            color: $blue-lt;
+		}
     }
 
     &:nth-child(5) {
         background: $green-dk;
+        background: $raspberry;
 
         h3 {
+            color: $blue-lt;
+            color: $orange-lt;
+		}
+
+        span.coloured-number {
             color: $blue-lt;
 		}
     }
@@ -108,10 +139,22 @@
         h3 {
             color: $orange-lt;
 		}
+
+        span.coloured-number {
+            color: $blue-lt;
+		}
     }
 
     &:nth-child(6) {
         background: $orange-dk;
+
+        h3 {
+            color: $green-lt;
+		}
+
+        span.coloured-number {
+            color: $blue-lt;
+		}
     }
 
     // &:hover {

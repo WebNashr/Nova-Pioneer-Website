@@ -63,7 +63,7 @@ get_header();?>
         ?>
         <section class="section section-no-bottom">
             <article class="article">
-                <h3>Professional Development Programmes</h3>
+                <h2>Professional Development Programmes</h2>
                 <br>
                 <ol>
                 <?php while(have_rows($dev_programs)): the_row();?>
