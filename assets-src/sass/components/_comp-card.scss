@@ -21,10 +21,6 @@
 	&.all-contacts-container {
 		width: 100%;
 	}
-
-    &.coloured-container {
-		width: 100%;
-	}
 }
 
 
@@ -94,7 +90,7 @@
     	}
 	}
 
-    // &.coloured-step {
+    // &.new-card-item {
 	// 	@extend %column-4;
     //     @include flexbox();
     //     @include flex-direction(column);

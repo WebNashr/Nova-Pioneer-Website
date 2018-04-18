@@ -48,13 +48,15 @@ get_header();?>
             <br>
 
             <article class="article">
-                <div class="card-container-XXX steps-container-XXX coloured-container">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php $i = 0 ; ?>
                     <?php while(have_rows($interview_process)): the_row()?>
-                        <div class="card-XXX admission-step-XXX coloured-step">
-                            <span class="coloured-number"><?php echo $i + 1;?></span>
-                            <h3><?php the_sub_field('title'); echo '';?></h3>
-                            <p><?php  the_sub_field('paragraph') ?></p>
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-third">
+                            <div class="new-card-copy new-card-copy-only">
+                                <span class="new-card-number"><?php echo $i + 1;?></span>
+                                <h3><?php the_sub_field('title'); echo '';?></h3>
+                                <p><?php  the_sub_field('paragraph') ?></p>
+                            </div>
                         </div>
                     <?php $i++; ?>
                     <?php endwhile?>
