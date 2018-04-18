@@ -16,10 +16,8 @@ get_header();?>
                 </div>
             </div>
         </section>
-        
-        <section
-            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
-            data-enllax-ratio="0.1">
+
+        <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -29,70 +27,69 @@ get_header();?>
         </section>
 
 
-        <section class="section">
+        <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                <p><?php the_content(); ?></p>
+                <?php the_content(); ?>
             </article>
         </section>
 
-        <div class="border"></div>
-        
-        <?php 
+        <!--<div class="border"></div>-->
+
+        <?php
             $body = 'body';
             if(have_rows($body)):
         ?>
-        <section class="section">
-            <article class="article ">
-            <div class="card-container steps-container">
-                <?php while(have_rows($body)): the_row();?>
-                <div class="card admission-step">
-                <h3><?php the_sub_field('title');?></h3>
-                <p>
-                    <?php the_sub_field('paragraph');?>
-                </p>
-               </div>
-            <?php endwhile;?>
-
-            </div>
+        <section class="section section-no-bottom">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX coloured-container">
+                    <?php while(have_rows($body)): the_row();?>
+                    <div class="card-XXX admission-step-XXX coloured-step">
+                        <h3><?php the_sub_field('title');?></h3>
+                        <p>
+                            <?php the_sub_field('paragraph');?>
+                        </p>
+                    </div>
+                    <?php endwhile;?>
+                </div>
             </article>
         </section>
-            <?php endif;?>
+        <?php endif;?>
 
-        <?php 
+
+
+        <?php
             $dev_programs = 'development_programs';
             if(have_rows($dev_programs)):
         ?>
-        <section class="section">
+        <section class="section section-no-bottom">
             <article class="article">
-                <h3>PROFESSIONAL DEVELOPMENT PROGRAMS</h3> 
+                <h3>Professional Development Programmes</h3>
+                <br>
                 <ol>
                 <?php while(have_rows($dev_programs)): the_row();?>
                     <li><?php the_sub_field('title'); ?> – <?php the_sub_field('text'); ?></li>
-
-                <?php endwhile; ?>    
+                <?php endwhile; ?>
                 </ol>
             </article>
 
             <div class="card-container">
             </div>
-
         </section>
-            <?php endif;?>
+        <?php endif;?>
 
 
-            <?php 
+        <?php
             $url = get_field('apply_url');
-            ?>
-                <section class="section">
-                <?php if($url)?>
-                    <div class="button-wrap">
-                        <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
-                    </div>
-                </section>
+        ?>
+        <section class="section">
+            <?php if($url)?>
+            <div class="button-wrap">
+                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap-XXX button-default button-primary" title="">APPLY NOW</a>
+            </div>
+        </section>
 
-
-    <?php endwhile; ?>
-<?php endif; ?>
+        <?php endwhile; ?>
+    <?php endif; ?>
 
 
 <?php get_footer(); ?>
