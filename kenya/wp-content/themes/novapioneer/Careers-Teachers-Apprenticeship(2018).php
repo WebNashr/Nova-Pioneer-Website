@@ -117,12 +117,13 @@ get_header();?>
         <?php
             $url = get_field('apply');
         ?>
-        <section class="section">
-            <?php if($url)?>
+        <?php if($url)?>
+        <section class="section section-no-bottom">
             <div class="button-wrap">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY TO BE AN APPRENTICE NOW</a>
+                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap-XXX button-default button-primary" title="">APPLY TO BE AN APPRENTICE NOW</a>
             </div>
         </section>
+        <?php //endif;?>
 
 
         <?php
@@ -134,37 +135,42 @@ get_header();?>
                         'taxonomy' => 'apprentice'
                             )
 
-                );
+            );
             $acf_teachers = get_field('meet_our_teachers');
             $featured_teacher = new WP_Query($args);
 
-
-        if(!empty($acf_teachers) && (count($acf_teachers) > 0)):
-            $ids = array();
+            if(!empty($acf_teachers) && (count($acf_teachers) > 0)):
+                $ids = array();
             foreach($acf_teachers as $teacher):
-            $ids[] = $teacher->ID;
+                $ids[] = $teacher->ID;
             endforeach;
-            $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
+                $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
             else:
-            $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
+                $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
             endif;
         ?>
         <?php if($featured_teacher->have_posts() ): ?>
-        <section class="section section-pair team-profile-container">
+        <section class="section section-no-bottom">
+            <h2 class="centered-title-XXX">Meet our apprentice teachers</h2>
+            <br>
 
-                <h2 class="centered-title">Meet our apprentice teachers</h2>
-            <div class="section-content section-content-plain np-team-profiles">
+            <article class="article">
+                <div class="new-card-container">
                 <?php while($featured_teacher->have_posts()): $featured_teacher->the_post(); ?>
-                        <div class="section-content-item section-content-item-quarter profile">
-                            <div class="image-wrap">
-                                <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
-                            </div>
+                    <div class="new-card-item new-card-item-quarter">
+                        <figure class="new-card-img">
+                            <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt=""><!--!!! Young: this needs an image -->
+                        </figure>
+
+                        <div class="new-card-copy">
                             <h3 class="profile-name"><?php the_title();?></h3>
                             <h5 class="profile-role"><?php the_field('quote', $featured_teacher->ID);?></h5>
-                            <a href="<?php echo get_permalink();?>">Link to full profile</a>
+                            <a href="<?php echo get_permalink();?>">Read my story</a>
                         </div>
+                    </div>
                 <?php endwhile; ?>
-            </div>
+                </div>
+            </article>
         </section>
         <?php wp_reset_postdata();?>
         <?php endif;?>
