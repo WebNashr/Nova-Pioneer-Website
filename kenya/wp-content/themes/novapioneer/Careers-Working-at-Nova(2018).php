@@ -27,21 +27,48 @@ get_header();?>
         </section>
 
 
+        <?php
+           $title = 'section_a';
+           if(have_rows($title)):
+        ?>
+        <?php while(have_rows($title)): the_row();?>
         <section class="section">
             <article class="article">
-                <h3>Why work at Nova Pioneer?</h3>
+                <h3><?php the_sub_field('heading');?></h3>
+      
+        <?php
+           $subField = get_sub_field('careers_navigation');
+           //var_dump($subField[0]['text']);
+           if($subField):   
+           $i = 1;
+           //echo sizeof($subField);
+        ?>
                 <h4>
-                    <a href="http://novaacademies.applytojob.com/">Opportunities at Nova Pioneer</a> -
-                    <a href="http://novapioneer.local/kenya/open-positions-2/what-were-looking-for/">What We're Looking For</a> -
-                <a href="http://novapioneer.local/kenya/open-positions-2/grow-with-us/">Grow With Us</a> - <a href="#">Apply</a> </h4>
-            </article>
+                <?php foreach($subField as $s): ?>
+                    <a href="<?php echo $s['url'] ?>"> <?php echo $s['text'] ?> </a> 
+                    <?php
+                    
+                    if($i < sizeof($subField)) {
+                        echo '-';
+                    }
+                    
+                    $i++; ?>
+                <?php endforeach; ?>
+                </h4>
+
+        <?php endif;?>
+        
+        </article>
         </section>
+        <?php endwhile;?>
+        <?php endif;?>
 
         <!--<div class="border"></div>-->
 
         <?php
             $intro = 'intro';
             if(have_rows($intro)):
+            $i = 0;
         ?>
         <section class="section section-no-bottom">
             <article class="article">
@@ -92,18 +119,26 @@ get_header();?>
         <?php endif;?>
 
 
+        <section class="section section-no-top">
+
+        <?php
+           $title = 'section_c';
+           if(have_rows($title)):
+        ?>
+            <?php while(have_rows($title)): the_row();?>
+            <article class="article">
+                <h3><?php the_sub_field('heading'); ?></h3><!--!!! Young: this text has to be dynamic-->
+                <p><?php the_sub_field('sub-heading'); ?></p><!--!!! Young: this text has to be dynamic-->
+            </article>
+           <?php endwhile;?>
+        <?php endif;?>
+
+            <br>
+
         <?php
            $fields = 'what_were_looking_for';
            if(have_rows($fields)):
         ?>
-        <section class="section section-no-top">
-            <article class="article">
-                <h3>What we're looking for</h3><!--!!! Young: this text has to be dynamic-->
-                <p>Working at Nova Pioneer is for people who love a challenge and love to grow, get a kick out
-                of solving tough problems, and flourish in an environment where everyone works hard and
-                puts their whole heart into their work. <b>IS THAT YOU?</b></p><!--!!! Young: this text has to be dynamic-->
-            </article>
-            <br>
 
             <div class="card-container-XXX new-card-container">
                 <?php while(have_rows($fields)): the_row();?>
@@ -116,8 +151,8 @@ get_header();?>
                 </div>
                 <?php endwhile;?>
             </div>
-        </section>
         <?php endif;?>
+        </section>
 
 
 
