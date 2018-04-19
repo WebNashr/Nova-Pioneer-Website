@@ -56,9 +56,9 @@ get_header();?>
                 <?php endforeach; ?>
                 </h4>
 
-        <?php endif;?>
+                 <?php endif;?>
         
-        </article>
+            </article>
         </section>
         <?php endwhile;?>
         <?php endif;?>
@@ -94,29 +94,40 @@ get_header();?>
         <?php endif;?>
 
 
+        
+        <section class="section">
+           <?php 
+            $field = 'section_b';
+            if(have_rows($field)):
+           ?>  
+
+            <article class="article">
+                <?php while(have_rows($field)): the_row(); ?>
+                <h3><?php the_sub_field('heading');?></h3>
+                <h4><?php the_sub_field('sub_heading');?></h4>
+                <?php endwhile;?>
+            </article>
+            <br>
+            <?php endif;?>
+
         <?php
             $opp = 'opportunities';
             if(have_rows($opp)):
         ?>
-        <section class="section">
-            <article class="article">
-                <h3>Opportunities:</h3>
-                <h4>How do you want to help shape education on the African continent?</h4>
-            </article><br>
 
-            <div class="card-container">
-                <?php while(have_rows($opp)): the_row();?>
-                <div class="card">
-                    <h1><?php the_sub_field('heading');?></h1>
-                    <p>
-                    <?php the_sub_field('paragraph_text');?>
-                    </p>
-                    <a href="<?php the_sub_field('link_url');?>">LEARN MORE</a>
+                <div class="card-container">
+                    <?php while(have_rows($opp)): the_row();?>
+                    <div class="card">
+                        <h1><?php the_sub_field('heading');?></h1>
+                        <p>
+                        <?php the_sub_field('paragraph_text');?>
+                        </p>
+                        <a href="<?php the_sub_field('link_url');?>">LEARN MORE</a>
+                    </div>
+                    <?php endwhile;?>
                 </div>
-        <?php endwhile;?>
-            </div>
+            <?php endif;?>
         </section>
-        <?php endif;?>
 
 
         <section class="section section-no-top">
@@ -127,8 +138,8 @@ get_header();?>
         ?>
             <?php while(have_rows($title)): the_row();?>
             <article class="article">
-                <h3><?php the_sub_field('heading'); ?></h3><!--!!! Young: this text has to be dynamic-->
-                <p><?php the_sub_field('sub-heading'); ?></p><!--!!! Young: this text has to be dynamic-->
+                <h3><?php the_sub_field('heading'); ?></h3>
+                <p><?php the_sub_field('sub-heading'); ?></p>
             </article>
            <?php endwhile;?>
         <?php endif;?>
@@ -153,10 +164,6 @@ get_header();?>
             </div>
         <?php endif;?>
         </section>
-
-
-
-
 
 
             <?php
