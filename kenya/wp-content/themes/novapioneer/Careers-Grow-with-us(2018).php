@@ -26,10 +26,14 @@ get_header();?>
             </div>
         </section>
 
-
+        <?php
+            $title = get_field('section_a');
+        ?>
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                <!--!!! Young: we need the page's alternative title here-->
+            <?php if($title):?>
+               <h2><?php echo $title ?></h2>
+            <?php endif;?>    
                 <?php the_content(); ?>
             </article>
         </section>
@@ -57,26 +61,30 @@ get_header();?>
         <?php endif;?>
 
 
-
+        <?php
+           $title = get_field('section_c');
+        ?>
+        <section class="section section-no-bottom">
+            <article class="article">
+                <?php if($title):?>
+                <h2><?php echo $title ?></h2>
+            <?php endif; ?>
+                <br>
         <?php
             $dev_programs = 'development_programs';
             if(have_rows($dev_programs)):
         ?>
-        <section class="section section-no-bottom">
-            <article class="article">
-                <h2>Professional Development Programmes</h2>
-                <br>
                 <ol>
                 <?php while(have_rows($dev_programs)): the_row();?>
                     <li><?php the_sub_field('title'); ?> – <?php the_sub_field('text'); ?></li>
                 <?php endwhile; ?>
                 </ol>
+        <?php endif;?>
             </article>
 
             <div class="card-container">
             </div>
         </section>
-        <?php endif;?>
 
 
         <?php

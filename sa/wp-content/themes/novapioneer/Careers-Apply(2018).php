@@ -16,10 +16,9 @@ get_header();?>
                 </div>
             </div>
         </section>
-        
+
         <section
-            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
-            data-enllax-ratio="0.1">
+            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -28,58 +27,70 @@ get_header();?>
             </div>
         </section>
 
-        
-
-        <?php //if(the_content()):?>
-        <section class="section">
+        <?php 
+            $field = get_field('section_a');
+        ?>
+        <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                <h2>How to apply </h2> 
-                <p><?php echo the_content();?></p>
+            <?php if($field):?>
+                <h2><?php echo $field;?></h2>
+            <?php endif; ?>    
+                <?php echo the_content();?>
             </article>
         </section>
-        <?php //endif;?>
+
+
+        <section class="section section-no-bottom">
+            <?php 
+                $field = 'section_b';
+                if(have_rows($field)):
+            ?>
+             <?php while(have_rows($field)): the_row();?>
+            <h2><?php the_sub_field('heading');?></h2>
+            <p><?php the_sub_field('sub_heading');?></p>
+            <br>
+
+            <?php endwhile;?>
+            <?php endif;?>
 
         <?php
-        $interview_process = 'interview_process';
-        $title = the_sub_field('title');
-        $paragraph = the_sub_field('paragraph');
+            $interview_process = 'interview_process';
+            $title = the_sub_field('title');
+            $paragraph = the_sub_field('paragraph');
         ?>
         <?php if(have_rows($interview_process)):?>
-
-         <section class="section">
-                <h2>The Interview Process</h2>
-            <p>The interview process consists of the following components:</p><br>
-
             <article class="article">
-            <div class="card-container steps-container">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php $i = 0 ; ?>
-                <?php while(have_rows($interview_process)): the_row()?>
-                    <div class="card admission-step">
-                    <h1>-<?php echo $i + 1;?>-</h1>
-                    <h1><?php the_sub_field('title'); echo ': ';?></h1>
-                    <p><?php  the_sub_field('paragraph') ?></p>
-                    </div>
+                    <?php while(have_rows($interview_process)): the_row()?>
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-third">
+                            <div class="new-card-copy new-card-copy-only">
+                                <span class="new-card-number"><?php echo $i + 1;?></span>
+                                <h3><?php the_sub_field('title'); echo '';?></h3>
+                                <p><?php  the_sub_field('paragraph') ?></p>
+                            </div>
+                        </div>
                     <?php $i++; ?>
-                <?php endwhile?>    
-            </div>
+                    <?php endwhile?>
+                </div>
             </article>
-            </section>
-
         <?php endif;?>
+        </section>
 
 
-        <?php 
-            $url = get_field('link_url');
+        <?php
+            //$url = get_field('link_url');
+            $nfield = get_field('note');
+            $nfield2 = get_field('note_2');
         ?>
         <section class="section ">
-            <?php if($url):?>
-            <p><b>Note: The process may vary depending on the role you are applying for and whether
-                you are applying in or out of the peak hiring season.</b></p>
+            <?php if($nfield):?>
+            <p><b><?php echo $nfield; ?></b></p>
+            <?php endif;?>
 
-            <p>If you think Nova Pioneer is the right place for you then see what jobs are available
-                <a href="<?php echo $url?>">here</a>.</p>
-
-                <?php endif;?>    
+            <?php if($nfield2):?>
+            <p><?php echo $nfield2; ?></p>
+            <?php endif;?>
         </section>
 
 

@@ -27,10 +27,14 @@ get_header();?>
             </div>
         </section>
 
-
+        <?php 
+            $field = get_field('section_a');
+        ?>
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                <h2>How to apply</h2>
+            <?php if($field):?>
+                <h2><?php echo $field;?></h2>
+            <?php endif; ?>    
                 <?php echo the_content();?>
             </article>
         </section>
