@@ -91,7 +91,6 @@ get_header();?>
             $app_program = 'teacher_apprentice_program';
             if(have_rows($app_program)):
         ?>
-
         <section class="section">
             <h1>Teacher Apprentice Program</h1><br>
 
@@ -128,50 +127,53 @@ get_header();?>
                 'tax_query' =>
                     array(
                         'taxonomy' => 'teacher'
-                            )
-
-                );
+                    )
+            );
             $acf_teachers = get_field('meet_our_teacher');
             $featured_teacher = new WP_Query($args);
-
-
-        if(!empty($acf_teachers) && (count($acf_teachers) > 0)):
-            $ids = array();
+            if(!empty($acf_teachers) && (count($acf_teachers) > 0)):
+                $ids = array();
             foreach($acf_teachers as $teacher):
-            $ids[] = $teacher->ID;
+                $ids[] = $teacher->ID;
             endforeach;
-            $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
+                $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
             else:
-            $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
+                $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
             endif;
         ?>
         <?php if($featured_teacher->have_posts() ): ?>
-        <section class="section section-pair team-profile-container">
+        <section class="section section-no-bottom">
+            <h2>Meet our teachers</h2>
+            <br>
 
-                <h2 class="centered-title">Meet our teachers</h2>
-            <div class="section-content section-content-plain np-team-profiles">
-                <?php while($featured_teacher->have_posts()): $featured_teacher->the_post(); ?>
-                        <div class="section-content-item section-content-item-quarter profile">
-                            <div class="image-wrap">
-                                <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
-                            </div>
-                            <h3 class="profile-name"><?php the_title();?></h3>
-                            <h5 class="profile-role"><?php the_field('quote', $featured_teacher->ID);?></h5>
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
+                    <?php while($featured_teacher->have_posts()): $featured_teacher->the_post(); ?>
+                    <div class="new-card-item new-card-item-plain new-card-item-quarter">
+                        <figure class="new-card-img">
+                            <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
+                        </figure>
+
+                        <div class="new-card-copy">
+                            <h3><?php the_title();?></h3>
+                            <h5><?php the_field('quote', $featured_teacher->ID);?></h5>
                             <a href="<?php echo get_permalink();?>">Link to full profile</a>
                         </div>
-                <?php endwhile; ?>
-            </div>
+                    </div>
+                    <?php endwhile; ?>
+                </div>
+            </article>
         </section>
         <?php wp_reset_postdata();?>
         <?php endif;?>
 
 
-       <?php
-                $field = 'faq';
-                $sub_field_1 = 'question';
-                $sub_field_2 = 'answer';
-            ?>
-       <section class="section">
+        <?php
+            $field = 'faq';
+            $sub_field_1 = 'question';
+            $sub_field_2 = 'answer';
+        ?>
+        <section class="section">
             <section class="faqs-container">
                  <article class="article article-inner article-inner-alt ">
                      <h2 id="faqs">Frequently Asked Questions</h2>
