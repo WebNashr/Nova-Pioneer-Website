@@ -47,15 +47,15 @@ get_header();?>
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while(have_rows($intro)): the_row();?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-quarter">
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-plain new-card-item-quarter">
                             <figure class="new-card-img">
                                 <img src="<?php the_sub_field('icon'); ?>" alt="">
                             </figure>
 
                             <div class="new-card-copy">
                                 <!--<span class="new-card-number"><?php echo $i + 1;?></span>-->
-                                <h2><?php the_sub_field('heading'); ?></h2>
-                                <h3><?php the_sub_field('sub_heading'); ?></h3>
+                                <h3><?php the_sub_field('heading'); ?></h3>
+                                <h6><?php the_sub_field('sub_heading'); ?></h6>
                                 <p><?php the_sub_field('paragraph'); ?></p>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ get_header();?>
 
             <div class="card-container-XXX new-card-container">
                 <?php while(have_rows($fields)): the_row();?>
-                <div class="card-XXX new-card-item new-card-item-third">
+                <div class="card-XXX new-card-item new-card-item-coloured new-card-item-third">
                     <div class="new-card-copy new-card-copy-only">
                         <h3><?php the_sub_field('heading');?></h3>
                         <p><?php the_sub_field('paragraph');?></p>
