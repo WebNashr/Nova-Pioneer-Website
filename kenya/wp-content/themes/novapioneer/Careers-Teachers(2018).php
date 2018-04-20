@@ -156,7 +156,7 @@ get_header();?>
 
                         <div class="new-card-copy">
                             <h3><?php the_title();?></h3>
-                            <h5><?php the_field('quote', $featured_teacher->ID);?></h5>
+                            <h6><?php the_field('quote', $featured_teacher->ID);?></h6>
                             <a href="<?php echo get_permalink();?>">Link to full profile</a>
                         </div>
                     </div>
