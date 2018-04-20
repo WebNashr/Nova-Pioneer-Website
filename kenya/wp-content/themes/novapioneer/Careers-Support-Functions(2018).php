@@ -26,12 +26,12 @@ get_header();?>
             </div>
         </section>
 
-
+<!--TODO: Create this custom field -->
         <section class="section section-no-bottom section-page-intro">
                 <article class="article">
-                    <?php if($field):?>
-                        <h2><?php echo $field;?></h2>
-                    <?php endif; ?>
+                    <?php //if($field):?>
+                        <!-- <h2><?php //echo $field;?></h2> -->
+                    <?php //endif; ?>
                     <?php echo the_content(); ?>
                 </article>
         </section>
