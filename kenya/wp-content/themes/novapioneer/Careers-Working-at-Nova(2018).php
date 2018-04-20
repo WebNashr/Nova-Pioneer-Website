@@ -71,7 +71,7 @@ get_header();?>
             $opp = 'opportunities';
             if(have_rows($opp)):
         ?>
-        <section class="section">
+        <section class="section" style="display: none;">
             <article class="article">
                 <h3>Opportunities:</h3>
                 <h4>How do you want to help shape education on the African continent?</h4>
@@ -86,8 +86,35 @@ get_header();?>
                     </p>
                     <a href="<?php the_sub_field('link_url');?>">LEARN MORE</a>
                 </div>
-        <?php endwhile;?>
+                <?php endwhile;?>
             </div>
+        </section>
+
+
+
+        <section class="section section-no-bottom-">
+            <h2>Opportunities</h2>
+            <h4>How do you want to help shape education on the African continent?</h4>
+            <br>
+            <br>
+
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
+                    <?php while(have_rows($opp)): the_row();?>
+                    <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
+                        <figure class="alternating-item-img"><!--!!! Young: this needs an image -->
+                            <img src="https://placeimg.com/480/320/people">
+                        </figure>
+
+                        <div class="alternating-item-copy">
+                            <h2><?php the_sub_field('heading');?></h2>
+                            <p><?php the_sub_field('paragraph_text');?></p>
+                            <a href="<?php the_sub_field('link_url');?>" title="" class="button button-small button-primary">Learn more</a>
+                        </div>
+                    </div>
+                    <?php endwhile;?>
+                </div>
+            </article>
         </section>
         <?php endif;?>
 
