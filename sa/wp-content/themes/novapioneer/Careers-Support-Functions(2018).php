@@ -87,7 +87,7 @@ get_header();?>
                                 <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
                             </div>
                             <h3 class="profile-name"><?php the_title(); ?></h3>
-                            <h5 class="profile-role"><?php the_field('quote', $featured_leader->ID); ?></h5>
+                            <h5 class="profile-role"><?php the_field('quote', $featured_team->ID); ?></h5>
                             <a href="<?php echo get_permalink();?>">Link to full profile</a>
                         </div> 
                 <?php endwhile;?>       

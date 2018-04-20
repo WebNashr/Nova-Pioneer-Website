@@ -27,14 +27,31 @@ get_header();?>
             </div>
         </section>
 
-
+        <?php 
+            $field = get_field('section_a');
+        ?>
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                <h2>How to apply</h2>
+            <?php if($field):?>
+                <h2><?php echo $field;?></h2>
+            <?php endif; ?>    
                 <?php echo the_content();?>
             </article>
         </section>
 
+
+        <section class="section section-no-bottom">
+            <?php 
+                $field = 'section_b';
+                if(have_rows($field)):
+            ?>
+             <?php while(have_rows($field)): the_row();?>
+            <h2><?php the_sub_field('heading');?></h2>
+            <p><?php the_sub_field('sub_heading');?></p>
+            <br>
+
+            <?php endwhile;?>
+            <?php endif;?>
 
         <?php
             $interview_process = 'interview_process';
@@ -42,11 +59,6 @@ get_header();?>
             $paragraph = the_sub_field('paragraph');
         ?>
         <?php if(have_rows($interview_process)):?>
-        <section class="section section-no-bottom">
-            <h2>The Interview Process</h2>
-            <p>The interview process consists of the following components:</p><!--!!! Young: this text has to be dynamic-->
-            <br>
-
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php $i = 0 ; ?>
@@ -62,21 +74,22 @@ get_header();?>
                     <?php endwhile?>
                 </div>
             </article>
-        </section>
         <?php endif;?>
+        </section>
 
 
-        <!--!!! Young: content in this section needs to be handled on the back-end, not static in the template-->
         <?php
-            $url = get_field('link_url');
+            //$url = get_field('link_url');
+            $nfield = get_field('note');
+            $nfield2 = get_field('note_2');
         ?>
         <section class="section ">
-            <?php if($url):?>
-            <p><b>Note: The process may vary depending on the role you are applying for and whether
-                you are applying in or out of the peak hiring season.</b></p>
+            <?php if($nfield):?>
+            <p><b><?php echo $nfield; ?></b></p>
+            <?php endif;?>
 
-            <p>If you think Nova Pioneer is the right place for you then see what jobs are available <a href="<?php echo $url?>">here</a>.</p>
-
+            <?php if($nfield2):?>
+            <p><?php echo $nfield2; ?></p>
             <?php endif;?>
         </section>
 

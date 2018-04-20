@@ -16,10 +16,8 @@ get_header();?>
                 </div>
             </div>
         </section>
-        
-        <section
-            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
-            data-enllax-ratio="0.1">
+
+        <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -28,53 +26,94 @@ get_header();?>
             </div>
         </section>
 
-        
 
+        <?php
+           $title = 'section_a';
+           if(have_rows($title)):
+        ?>
+        <?php while(have_rows($title)): the_row();?>
         <section class="section">
             <article class="article">
-                <h3>Why work at Nova Pioneer? </h3> 
-                <h4> 
-                    <a href="http://novaacademies.applytojob.com/">Opportunities at Nova Pioneer</a> - 
-                    <a href="http://novapioneer.local/kenya/open-positions-2/what-were-looking-for/">What We're Looking For</a> - 
-                <a href="http://novapioneer.local/kenya/open-positions-2/grow-with-us/">Grow With Us</a> - <a href="#">Apply</a> </h4>
+                <h3><?php the_sub_field('heading');?></h3>
+      
+        <?php
+           $subField = get_sub_field('careers_navigation');
+           //var_dump($subField[0]['text']);
+           if($subField):   
+           $i = 1;
+           //echo sizeof($subField);
+        ?>
+                <h4>
+                <?php foreach($subField as $s): ?>
+                    <a href="<?php echo $s['url'] ?>"> <?php echo $s['text'] ?> </a> 
+                    <?php
+                    
+                    if($i < sizeof($subField)) {
+                        echo '-';
+                    }
+                    
+                    $i++; ?>
+                <?php endforeach; ?>
+                </h4>
+
+                 <?php endif;?>
+        
             </article>
         </section>
+        <?php endwhile;?>
+        <?php endif;?>
 
-        <div class="border"></div>
+        <!--<div class="border"></div>-->
 
         <?php
             $intro = 'intro';
             if(have_rows($intro)):
+            $i = 0;
         ?>
+        <section class="section section-no-bottom">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
+                    <?php while(have_rows($intro)): the_row();?>
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-quarter">
+                            <figure class="new-card-img">
+                                <img src="<?php the_sub_field('icon'); ?>" alt="">
+                            </figure>
 
-        <section class="section ">
-            <div class="card-container">
-                <?php while(have_rows($intro)): the_row();?>
-                <div class="card">
-                    <figure>
-                    <img style="width:150px;" src="<?php the_sub_field('icon'); ?>"></img>
-                    </figure>
-                    <h2><?php the_sub_field('heading'); ?></h2>
-                    <h3><?php the_sub_field('sub_heading'); ?></h3>
-                    <p>
-                    <?php the_sub_field('paragraph'); ?>
-                    </p>
+                            <div class="new-card-copy">
+                                <!--<span class="new-card-number"><?php echo $i + 1;?></span>-->
+                                <h2><?php the_sub_field('heading'); ?></h2>
+                                <h3><?php the_sub_field('sub_heading'); ?></h3>
+                                <p><?php the_sub_field('paragraph'); ?></p>
+                            </div>
+                        </div>
+                    <?php $i++; ?>
+                    <?php endwhile?>
                 </div>
-                 <?php endwhile;?>
-            </div>
+            </article>
         </section>
+        <?php endif;?>
+
+
+        
+        <section class="section">
+           <?php 
+            $field = 'section_b';
+            if(have_rows($field)):
+           ?>  
+
+            <article class="article">
+                <?php while(have_rows($field)): the_row(); ?>
+                <h3><?php the_sub_field('heading');?></h3>
+                <h4><?php the_sub_field('sub_heading');?></h4>
+                <?php endwhile;?>
+            </article>
+            <br>
             <?php endif;?>
 
-
-        <?php 
+        <?php
             $opp = 'opportunities';
             if(have_rows($opp)):
         ?>
-            <section class="section">
-                <article class="article">
-                    <h3>Opportunities:</h3> 
-                    <h4>How do you want to help shape education on the African continent?</h4>
-                </article><br>
 
                 <div class="card-container">
                     <?php while(have_rows($opp)): the_row();?>
@@ -85,46 +124,54 @@ get_header();?>
                         </p>
                         <a href="<?php the_sub_field('link_url');?>">LEARN MORE</a>
                     </div>
-            <?php endwhile;?>
+                    <?php endwhile;?>
                 </div>
-            </section>
             <?php endif;?>
+        </section>
 
 
-        <?php 
-           $fields = 'what_were_looking_for';
-           if(have_rows($fields)):   
+        <section class="section section-no-top">
+
+        <?php
+           $title = 'section_c';
+           if(have_rows($title)):
         ?>
-            <section class="section">
-                <article class="article">
-                    <h3>What we're looking for</h3> 
-                    <h4>
-                    Working at Nova Pioneer is for people who love a challenge and love to grow, get a kick out
-                    of solving tough problems, and flourish in an environment where everyone works hard and
-                    puts their whole heart into their work. <b>IS THAT YOU?</b>
-                    </h4>
-                </article><br>
+            <?php while(have_rows($title)): the_row();?>
+            <article class="article">
+                <h3><?php the_sub_field('heading'); ?></h3>
+                <p><?php the_sub_field('sub-heading'); ?></p>
+            </article>
+           <?php endwhile;?>
+        <?php endif;?>
 
-                <div class="card-container">
-                    <?php while(have_rows($fields)): the_row();?>
-                    <div class="card">
-                        <h1><?php the_sub_field('heading');?></h1>
-                        <p>
-                        <?php the_sub_field('paragraph');?>
-                        </p>
-                        <a href="<?php the_sub_field('link_url');?>">LEARN MORE</a>
+            <br>
+
+        <?php
+           $fields = 'what_were_looking_for';
+           if(have_rows($fields)):
+        ?>
+
+            <div class="card-container-XXX new-card-container">
+                <?php while(have_rows($fields)): the_row();?>
+                <div class="card-XXX new-card-item new-card-item-third">
+                    <div class="new-card-copy new-card-copy-only">
+                        <h3><?php the_sub_field('heading');?></h3>
+                        <p><?php the_sub_field('paragraph');?></p>
+                        <a href="<?php the_sub_field('link_url');?>" title="" class="button button-small button-primary new-card-button">Learn more</a>
                     </div>
-                     <?php endwhile;?>
                 </div>
-            </section>
-           <?php endif;?>
+                <?php endwhile;?>
+            </div>
+        <?php endif;?>
+        </section>
+
 
             <?php
             $args = array(
-                'post_type' => 'stories',   
+                'post_type' => 'stories',
                 'post_status' => 'publish'
                 );
-            $acf_stories = get_field('stories');        
+            $acf_stories = get_field('stories');
             $featured_story = new WP_Query($args);
 
 
@@ -136,7 +183,7 @@ get_header();?>
             $featured_story = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
             else:
             $featured_story = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
-            endif; 
+            endif;
 
             if($featured_story->have_posts()):
             ?>
@@ -158,7 +205,7 @@ get_header();?>
                                     <p style="width:100%;">
                                     <?php substr(the_content(), 0,45); ?>
                                     </p>
-                                        
+
                                     <p style="width:100%;">
                                         <cite>
                                             <!-- <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?> -->
@@ -176,7 +223,7 @@ get_header();?>
                         <?php wp_reset_postdata();?>
             <?php endif;?>
 
-        <?php 
+        <?php
             $apply = get_field('apply_now');
             //var_dump($apply);
             if($apply):
