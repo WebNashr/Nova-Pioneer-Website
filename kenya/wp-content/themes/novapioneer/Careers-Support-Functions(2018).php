@@ -16,10 +16,8 @@ get_header();?>
                 </div>
             </div>
         </section>
-        
-        <section
-            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
-            data-enllax-ratio="0.1">
+
+        <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -29,39 +27,50 @@ get_header();?>
         </section>
 
 
-        <section class="section">
-            <?php //while(); ?>
+        <section class="section section-no-bottom section-page-intro">
                 <article class="article">
-                <p><?php echo the_content(); ?></p>
+                    <?php if($field):?>
+                        <h2><?php echo $field;?></h2>
+                    <?php endif; ?>
+                    <?php echo the_content(); ?>
                 </article>
-            <?php //endwhile; wp_reset_postdata(); ?>
         </section>
 
-        <?php 
+
+        <?php
             $info = 'info';
             if(have_rows($info)):
         ?>
+        <section class="section section-no-bottom">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
+                    <?php while(have_rows($info)): the_row();?>
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-plain new-card-item-third">
+                            <figure class="new-card-img">
+                                <!--<img src="<?php the_sub_field('icon'); ?>" alt=""> -->
+                                <!--!!! Young: this needs an image --><!--!!! Young: this needs an image -->
+                                <img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">
+                                <!--<img src="https://placeimg.com/480/320/any">-->
+                        </figure>
 
-         <section class="section">
-            <article class="article ">
-            <div class="card-container steps-container">
-                <?php while(have_rows($info)): the_row(); ?>
-                <div class="card admission-step">
-                    <h1><?php the_sub_field('title'); ?></h1>
-                    <p><?php the_sub_field('paragraph'); ?></p>
-                 </div>
-            <?php endwhile;?>
-        </div>
-        </article>
+                            <div class="new-card-copy">
+                                <h3><?php the_sub_field('title'); ?></h3>
+                                <p><?php the_sub_field('paragraph'); ?></p>
+                            </div>
+                        </div>
+                    <?php endwhile?>
+                </div>
+            </article>
         </section>
-            <?php endif;?>
+        <?php endif;?>
 
-        <?php 
+
+        <?php
             $args = array(
-                'post_type' => 'profile',   
+                'post_type' => 'profile',
                 'post_status' => 'publish'
                 );
-            $acf_teams = get_field('meet_our_team');        
+            $acf_teams = get_field('meet_our_team');
             $featured_team = new WP_Query($args);
 
 
@@ -73,7 +82,7 @@ get_header();?>
             $featured_team = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
             else:
             $featured_team = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
-            endif; 
+            endif;
 
         ?>
         <?php if($featured_team->have_posts()):?>
@@ -89,15 +98,15 @@ get_header();?>
                             <h3 class="profile-name"><?php the_title(); ?></h3>
                             <h5 class="profile-role"><?php the_field('quote', $featured_team->ID); ?></h5>
                             <a href="<?php echo get_permalink();?>">Link to full profile</a>
-                        </div> 
-                <?php endwhile;?>       
+                        </div>
+                <?php endwhile;?>
             </div>
         </section>
         <?php wp_reset_postdata();?>
         <?php endif;?>
 
 
-            <?php 
+            <?php
             $url = get_field('apply');
             ?>
                 <section class="section">

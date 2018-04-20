@@ -27,21 +27,21 @@ get_header();?>
             </div>
         </section>
 
-        <?php 
+        <?php
             $field = get_field('section_a');
         ?>
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
-            <?php if($field):?>
-                <h2><?php echo $field;?></h2>
-            <?php endif; ?>    
+                <?php if($field):?>
+                    <h2><?php echo $field;?></h2>
+                <?php endif; ?>
                 <?php echo the_content();?>
             </article>
         </section>
 
 
         <section class="section section-no-bottom">
-            <?php 
+            <?php
                 $field = 'section_b';
                 if(have_rows($field)):
             ?>
