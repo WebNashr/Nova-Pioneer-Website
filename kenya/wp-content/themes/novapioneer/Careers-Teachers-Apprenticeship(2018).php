@@ -163,8 +163,8 @@ get_header();?>
                         </figure>
 
                         <div class="new-card-copy">
-                            <h3 class="profile-name"><?php the_title();?></h3>
-                            <h5 class="profile-role"><?php the_field('quote', $featured_teacher->ID);?></h5>
+                            <h3><?php the_title();?></h3>
+                            <h6><?php the_field('quote', $featured_teacher->ID);?></h6>
                             <a href="<?php echo get_permalink();?>">Read my story</a>
                         </div>
                     </div>
