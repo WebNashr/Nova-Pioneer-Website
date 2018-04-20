@@ -96,27 +96,21 @@ get_header();?>
 
 
         <section class="section">
-           <?php
-            $field = 'section_b';
-            if(have_rows($field)):
-           ?>
-
-            <article class="article">
-                <?php while(have_rows($field)): the_row(); ?>
-                <h3><?php the_sub_field('heading');?></h3>
-                <h4><?php the_sub_field('sub_heading');?></h4>
-                <?php endwhile;?>
-            </article>
-            <br>
-            <?php endif;?>
+           
 
         <?php
             $opp = 'opportunities';
             if(have_rows($opp)):
         ?>
         <section class="section section-no-bottom-">
-            <h2>Opportunities</h2>
-            <h4>How do you want to help shape education on the African continent?</h4>
+            <?php
+            $field = 'section_b';
+            if(have_rows($field)): ?>
+            <?php while(have_rows($field)): the_row(); ?>
+            <h2><?php the_sub_field('heading');?></h2>
+            <h4><?php the_sub_field('sub_heading');?></h4>
+            <?php endwhile;?>
+            <?php endif;?>
             <br>
             <br>
 
