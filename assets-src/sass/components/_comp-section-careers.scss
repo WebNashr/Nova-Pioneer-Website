@@ -15,8 +15,8 @@
     // @include title(light);
     @include font-size(24px);
     max-width: 75vw;
-    border-left: 12px solid $grey-md;
-    padding-left: calc(#{$space-tiny} * 2);
+    // border-left: 12px solid $grey-md;
+    // padding-left: calc(#{$space-tiny} * 2);
 }
 
 
@@ -85,7 +85,7 @@
 
     h6 {
         margin-bottom: calc(#{$space-tiny} * 0.5);
-        color: $grey-mdk;
+        color: git add$grey-mdk;
     }
 
     p {
@@ -361,8 +361,10 @@
     align-items: center;
     // justify-content: flex-end;
     width: 100%;
-    background: lighten($grey-lt, 4%);
-    border: 1px solid lighten($grey-lt, 2%);
+    // background: lighten($grey-lt, 4%);
+    // border: 1px solid lighten($grey-lt, 2%);
+    // background: lighten($grey-lt, 5%);
+    // border: 1px solid lighten($grey-lt, 4.5%);
     // border-top: none;
     transition: $ease;
 
@@ -372,47 +374,39 @@
 
     &:nth-child(1) {
         h2 {
-        color: $orange-lt;
+            color: $orange-lt;
         }
     }
 
     &:nth-child(2) {
         h2 {
-        color: $blue-dk;
+            color: $green-lt;
         }
     }
 
     &:nth-child(3) {
         h2 {
-        color: $green-lt;
+            color: $blue-lt;
         }
     }
 
     &:nth-child(4) {
         h2 {
-        color: $blue-lt;
+            color: $green-dk;
         }
     }
 
     &:nth-child(5) {
         h2 {
-        color: $raspberry;
+            color: $orange-dk;
         }
     }
 
     &:nth-child(6) {
         h2 {
-        color: $orange-dk;
+            color: $raspberry;
         }
     }
-
-    // &:nth-child(odd) {
-    //     background: $orange-lt;
-    // }
-
-    // &:nth-child(even) {
-    //     background: $green-lt;
-    // }
 
     @include break-point(tablet) {
         @include flexbox();
@@ -437,7 +431,7 @@
     width: 100%;
 
     @include break-point(laptop) {
-        width: 50%;
+        width: 47.5%;
 
         .alternating-item:nth-child(even) & {
             order: 2;
@@ -450,47 +444,47 @@
     padding: calc(#{$space-tiny} * 1.5);
 
     @include break-point(laptop) {
-        width: 50%;
+        width: 52.5%;
         padding: calc(#{$space-tiny} * 2);
 
         .alternating-item:nth-child(odd) & {
-            padding-left: 3.5rem;
+            padding-left: 4.5rem;
         }
 
         .alternating-item:nth-child(even) & {
             order: 1;
-            padding-right: 3.5rem;
+            padding-right: 4.5rem;
         }
     }
 }
 
 .alternating-item-copy h2 {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 2px dashed $grey-mdk;
+    // margin-bottom: 1.5rem;
+    // padding-bottom: 1.5rem;
+    // border-bottom: 2px dashed $grey-mdk;
 
     .alternating-item:nth-child(1) & {
         border-color: $orange-lt;
     }
 
     .alternating-item:nth-child(2) & {
-        border-color: $blue-dk;
-    }
-
-    .alternating-item:nth-child(3) & {
         border-color: $green-lt;
     }
 
-    .alternating-item:nth-child(4) & {
+    .alternating-item:nth-child(3) & {
         border-color: $blue-lt;
     }
 
+    .alternating-item:nth-child(4) & {
+        border-color: $green-dk;
+    }
+
     .alternating-item:nth-child(5) & {
-        border-color: $raspberry;
+        border-color: $orange-dk;
     }
 
     .alternating-item:nth-child(6) & {
-        border-color: $orange-dk;
+        border-color: $raspberry;
     }
 }
 
@@ -498,9 +492,9 @@
     font-family: Georgia, serif;
     font-weight: bold;
     margin-top: 1.5rem;
-    // font-style: italic;
+    font-style: italic;
     border-left: 4px solid grey;
-    padding: 0.75rem 1rem;
+    padding: 0.125rem 1rem;
     color: $grey-mdk;
     background: rgba(0,0,0,0.05);
     background: $white;
@@ -511,23 +505,23 @@
     }
 
     .alternating-item:nth-child(2) & {
-        border-left-color: $blue-dk;
-    }
-
-    .alternating-item:nth-child(3) & {
         border-left-color: $green-lt;
     }
 
-    .alternating-item:nth-child(4) & {
+    .alternating-item:nth-child(3) & {
         border-left-color: $blue-lt;
     }
 
+    .alternating-item:nth-child(4) & {
+        border-left-color: $green-dk;
+    }
+
     .alternating-item:nth-child(5) & {
-        border-left-color: $raspberry;
+        border-left-color: $orange-dk;
     }
 
     .alternating-item:nth-child(6) & {
-        border-left-color: $orange-dk;
+        border-left-color: $raspberry;
     }
 }
 
