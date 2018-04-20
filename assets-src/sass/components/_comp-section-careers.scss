@@ -15,8 +15,8 @@
     // @include title(light);
     @include font-size(24px);
     max-width: 75vw;
-    border-left: 12px solid $grey-md;
-    padding-left: calc(#{$space-tiny} * 2);
+    // border-left: 12px solid $grey-md;
+    // padding-left: calc(#{$space-tiny} * 2);
 }
 
 
@@ -73,22 +73,71 @@
         // @include font-size(22px);
         text-align: left;
         margin-bottom: calc(#{$space-tiny} * 0.5);
-        color: $white;
+        color: $blue-lt;
     }
 
     h3 {
         @include font-size(22px);
         text-align: left;
-        margin-bottom: calc(#{$space-tiny} * 0.75);
-        color: $white;
+        margin-bottom: calc(#{$space-tiny} * 0.5);
+        color: $blue-dk;
+    }
+
+    h6 {
+        margin-bottom: calc(#{$space-tiny} * 0.5);
+        color: git add$grey-mdk;
     }
 
     p {
         display: block;
-        @include title(light);
+        @include title(medium);
         @include font-size(16px);
         @include line-height(1.35);
-        // margin-bottom: 1rem;
+        color: lighten($grey-mdk, 10%);
+    }
+}
+
+.new-card-item-plain {
+    &:nth-child(1) {
+        h3 {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(2) {
+        h3 {
+            color: $green-lt;
+		}
+    }
+
+    &:nth-child(3) {
+        h3 {
+            color: $orange-lt;
+		}
+    }
+
+    &:nth-child(4) {
+        h3 {
+            color: $blue-dk;
+		}
+    }
+
+    &:nth-child(5) {
+        h3 {
+            color: $orange-dk;
+		}
+    }
+
+    &:nth-child(6) {
+        h3 {
+            color: $raspberry;
+		}
+    }
+}
+
+.new-card-item-coloured {
+    h2,
+    p {
         color: $white;
     }
 
@@ -97,6 +146,18 @@
 
         h3 {
             color: $blue-lt;
+		}
+
+        span.new-card-number {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(2) {
+        background: $blue-dk;
+
+        h3 {
+            color: $orange-lt;
 		}
 
         span.new-card-number {
@@ -142,18 +203,6 @@
 		}
     }
 
-    &:nth-child(2) {
-        background: $blue-dk;
-
-        h3 {
-            color: $orange-lt;
-		}
-
-        span.new-card-number {
-            color: $blue-lt;
-		}
-    }
-
     &:nth-child(6) {
         background: $orange-dk;
 
@@ -165,79 +214,6 @@
             color: $blue-lt;
 		}
     }
-
-    // &:hover {
-    //     background: $blue-dk;
-    //     border: 1px solid darken($grey-lt, 1%);
-    //     border-top: none;
-
-    //     img {
-    //         position: relative;
-	// 	}
-
-	// 	// .school-summary {
-
-	// 	// }
-
-	// 	h3 {
-    //         color: $orange-lt;
-    //         padding: 0 calc(#{$space-tiny} * 1.5);
-	// 	}
-
-    //     p {
-    //         color: $white;
-    //         padding: 0 calc(#{$space-tiny} * 1.5);
-    //     }
-
-	// 	.button {
-    //         background: $blue-lt;
-	// 	}
-	// }
-
-    // &:not(:first-child) {
-    //     margin-top: calc(#{$space-tiny} * 2);
-    // }
-
-    // @include break-point(tablet) {
-    //     width: calc(calc(100% - 48px) / 2);
-
-    //     // override mobile
-    //     &:not(:first-child) {
-    //         margin-top: unset;
-    //     }
-
-    //     &:not(:nth-child(2n+1)) {
-    //         margin-left: auto;
-    //     }
-
-    //     &:nth-child(n+3) {
-    //         margin-top: 48px;
-	// 	}
-	// }
-
-	// @include break-point(laptop) {
-    //     width: calc(calc(100% - 96px) / 3);
-
-    //     // override mobile, tablet
-    //     &:not(:first-child),
-    //     &:nth-child(n+3) {
-	// 		margin-top: unset;
-    //         margin-left: unset;
-	// 	}
-
-    //     &:not(:nth-child(3n+1)) {
-    //         margin-left: auto;
-    //     }
-
-    //     &:nth-child(n+4) {
-    //         margin-top: 48px;
-	// 	}
-
-    //     &:last-child:nth-child(3n+2) {
-    //         margin-left: 48px;
-    //         margin-right: auto;
-    //     }
-	// }
 }
 
 .new-card-item-third {
@@ -355,5 +331,225 @@
     margin-top: 2rem;
     color: $blue-lt;
     background: $white;
+}
+
+
+
+
+
+.alternating-container {
+    @extend %columns;
+    // @include flexbox();
+	// @include flex-direction(column);
+    width: 100%;
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+    }
+
+    @include break-point(laptop) {
+
+    }
+}
+
+.alternating-item {
+    @include flexbox();
+	@include flex-direction(column);
+    // align-items: flex-start;
+    align-items: center;
+    // justify-content: flex-end;
+    width: 100%;
+    // background: lighten($grey-lt, 4%);
+    // border: 1px solid lighten($grey-lt, 2%);
+    // background: lighten($grey-lt, 5%);
+    // border: 1px solid lighten($grey-lt, 4.5%);
+    // border-top: none;
+    transition: $ease;
+
+    &:not(:first-child) {
+        margin-top: calc(#{$space-tiny} * 2);
+    }
+
+    &:nth-child(1) {
+        h2 {
+            color: $orange-lt;
+        }
+    }
+
+    &:nth-child(2) {
+        h2 {
+            color: $green-lt;
+        }
+    }
+
+    &:nth-child(3) {
+        h2 {
+            color: $blue-lt;
+        }
+    }
+
+    &:nth-child(4) {
+        h2 {
+            color: $green-dk;
+        }
+    }
+
+    &:nth-child(5) {
+        h2 {
+            color: $orange-dk;
+        }
+    }
+
+    &:nth-child(6) {
+        h2 {
+            color: $raspberry;
+        }
+    }
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+
+        &:not(:first-child) {
+        margin-top: calc(#{$space-tiny} * 3);
+    }
+    }
+
+    @include break-point(tablet) {
+        &:not(:first-child) {
+            margin-top: calc(#{$space-tiny} * 6);
+        }
+    }
+}
+
+.alternating-item-img {
+    order: 1;
+    display: block;
+    width: 100%;
+
+    @include break-point(laptop) {
+        width: 47.5%;
+
+        .alternating-item:nth-child(even) & {
+            order: 2;
+        }
+    }
+}
+
+.alternating-item-copy {
+    order: 2;
+    padding: calc(#{$space-tiny} * 1.5);
+
+    @include break-point(laptop) {
+        width: 52.5%;
+        padding: calc(#{$space-tiny} * 2);
+
+        .alternating-item:nth-child(odd) & {
+            padding-left: 4.5rem;
+        }
+
+        .alternating-item:nth-child(even) & {
+            order: 1;
+            padding-right: 4.5rem;
+        }
+    }
+}
+
+.alternating-item-copy h2 {
+    // margin-bottom: 1.5rem;
+    // padding-bottom: 1.5rem;
+    // border-bottom: 2px dashed $grey-mdk;
+
+    .alternating-item:nth-child(1) & {
+        border-color: $orange-lt;
+    }
+
+    .alternating-item:nth-child(2) & {
+        border-color: $green-lt;
+    }
+
+    .alternating-item:nth-child(3) & {
+        border-color: $blue-lt;
+    }
+
+    .alternating-item:nth-child(4) & {
+        border-color: $green-dk;
+    }
+
+    .alternating-item:nth-child(5) & {
+        border-color: $orange-dk;
+    }
+
+    .alternating-item:nth-child(6) & {
+        border-color: $raspberry;
+    }
+}
+
+.alternating-item-copy blockquote {
+    font-family: Georgia, serif;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    font-style: italic;
+    border-left: 4px solid grey;
+    padding: 0.125rem 1rem;
+    color: $grey-mdk;
+    background: rgba(0,0,0,0.05);
+    background: $white;
+    display: inline-block;
+
+    .alternating-item:nth-child(1) & {
+        border-left-color: $orange-lt;
+    }
+
+    .alternating-item:nth-child(2) & {
+        border-left-color: $green-lt;
+    }
+
+    .alternating-item:nth-child(3) & {
+        border-left-color: $blue-lt;
+    }
+
+    .alternating-item:nth-child(4) & {
+        border-left-color: $green-dk;
+    }
+
+    .alternating-item:nth-child(5) & {
+        border-left-color: $orange-dk;
+    }
+
+    .alternating-item:nth-child(6) & {
+        border-left-color: $raspberry;
+    }
+}
+
+.alternating-item-copy .button {
+    margin-top: 1.5rem;
+
+    .alternating-item:nth-child(1) & {
+        background: $orange-lt;
+    }
+
+    .alternating-item:nth-child(2) & {
+        background: $green-lt;
+    }
+
+    .alternating-item:nth-child(3) & {
+        background: $blue-lt;
+    }
+
+    .alternating-item:nth-child(4) & {
+        background: $green-dk;
+    }
+
+    .alternating-item:nth-child(5) & {
+        background: $orange-dk;
+    }
+
+    .alternating-item:nth-child(6) & {
+        background: $raspberry;
+    }
 }
 

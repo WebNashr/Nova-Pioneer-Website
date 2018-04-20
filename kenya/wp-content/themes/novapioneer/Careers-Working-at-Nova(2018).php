@@ -35,29 +35,29 @@ get_header();?>
         <section class="section">
             <article class="article">
                 <h3><?php the_sub_field('heading');?></h3>
-      
+
         <?php
            $subField = get_sub_field('careers_navigation');
            //var_dump($subField[0]['text']);
-           if($subField):   
+           if($subField):
            $i = 1;
            //echo sizeof($subField);
         ?>
                 <h4>
                 <?php foreach($subField as $s): ?>
-                    <a href="<?php echo $s['url'] ?>"> <?php echo $s['text'] ?> </a> 
+                    <a href="<?php echo $s['url'] ?>"> <?php echo $s['text'] ?> </a>
                     <?php
-                    
+
                     if($i < sizeof($subField)) {
                         echo '-';
                     }
-                    
+
                     $i++; ?>
                 <?php endforeach; ?>
                 </h4>
 
                  <?php endif;?>
-        
+
             </article>
         </section>
         <?php endwhile;?>
@@ -74,15 +74,15 @@ get_header();?>
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while(have_rows($intro)): the_row();?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-quarter">
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-plain new-card-item-quarter">
                             <figure class="new-card-img">
                                 <img src="<?php the_sub_field('icon'); ?>" alt="">
                             </figure>
 
                             <div class="new-card-copy">
                                 <!--<span class="new-card-number"><?php echo $i + 1;?></span>-->
-                                <h2><?php the_sub_field('heading'); ?></h2>
-                                <h3><?php the_sub_field('sub_heading'); ?></h3>
+                                <h3><?php the_sub_field('heading'); ?></h3>
+                                <h6><?php the_sub_field('sub_heading'); ?></h6>
                                 <p><?php the_sub_field('paragraph'); ?></p>
                             </div>
                         </div>
@@ -94,12 +94,12 @@ get_header();?>
         <?php endif;?>
 
 
-        
+
         <section class="section">
-           <?php 
+           <?php
             $field = 'section_b';
             if(have_rows($field)):
-           ?>  
+           ?>
 
             <article class="article">
                 <?php while(have_rows($field)): the_row(); ?>
@@ -114,20 +114,31 @@ get_header();?>
             $opp = 'opportunities';
             if(have_rows($opp)):
         ?>
+        <section class="section section-no-bottom-">
+            <h2>Opportunities</h2>
+            <h4>How do you want to help shape education on the African continent?</h4>
+            <br>
+            <br>
 
-                <div class="card-container">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
                     <?php while(have_rows($opp)): the_row();?>
-                    <div class="card">
-                        <h1><?php the_sub_field('heading');?></h1>
-                        <p>
-                        <?php the_sub_field('paragraph_text');?>
-                        </p>
-                        <a href="<?php the_sub_field('link_url');?>">LEARN MORE</a>
+                    <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
+                        <figure class="alternating-item-img"><!--!!! Young: this needs an image -->
+                            <img src="https://placeimg.com/480/320/people">
+                        </figure>
+
+                        <div class="alternating-item-copy">
+                            <h2><?php the_sub_field('heading');?></h2>
+                            <p><?php the_sub_field('paragraph_text');?></p>
+                            <a href="<?php the_sub_field('link_url');?>" title="" class="button button-small button-primary">Learn more</a>
+                        </div>
                     </div>
                     <?php endwhile;?>
                 </div>
-            <?php endif;?>
+            </article>
         </section>
+        <?php endif;?>
 
 
         <section class="section section-no-top">
@@ -153,7 +164,7 @@ get_header();?>
 
             <div class="card-container-XXX new-card-container">
                 <?php while(have_rows($fields)): the_row();?>
-                <div class="card-XXX new-card-item new-card-item-third">
+                <div class="card-XXX new-card-item new-card-item-coloured new-card-item-third">
                     <div class="new-card-copy new-card-copy-only">
                         <h3><?php the_sub_field('heading');?></h3>
                         <p><?php the_sub_field('paragraph');?></p>

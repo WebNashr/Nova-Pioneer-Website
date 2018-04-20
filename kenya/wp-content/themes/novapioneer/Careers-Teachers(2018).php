@@ -16,10 +16,8 @@ get_header();?>
                 </div>
             </div>
         </section>
-        
-        <section
-            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
-            data-enllax-ratio="0.1">
+
+        <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -29,32 +27,64 @@ get_header();?>
         </section>
 
 
-        <section class="section">
-            <div class="">
-                <p><?php the_content();?></p>
-            </div>
+        <section class="section section-no-bottom section-page-intro">
+            <article class="article">
+                <h2>Teaching</h2>
+                <?php the_content();?>
+            </article>
         </section>
 
 
         <?php
             $body = 'body';
-
             if(have_rows($body)):
         ?>
-        <section class="section">
-            <div class="card-container steps-container">
+        <section class="section" style="display: none;">
+            <div class="card-container-XXX steps-container-XXX alternating-container">
             <?php while(have_rows($body)): the_row()?>
-                <div class="card admission-step">
-                <h1><?php the_sub_field('title') ?></h1>
-                <p><?php the_sub_field('paragraph') ?>
-                </p>
+                <div class="card-XXX admission-step-XXX alternating-item">
+                    <figure class="alternating-item-img"><!--!!! Young: this needs an image -->
+                        <!--<img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">-->
+                        <img src="https://placeimg.com/800/450/any">
+                    </figure>
 
-                <blockquote><?php the_sub_field('quote') ?></blockquote>
-            </div>
+                    <div class="alternating-item-copy">
+                        <h1><?php the_sub_field('title') ?></h1>
+                        <p><?php the_sub_field('paragraph') ?></p>
+                        <blockquote><?php the_sub_field('quote') ?></blockquote>
+                    <div>
+                </div>
             <?php endwhile;?>
             </div>
         </section>
-            <?php endif;?>
+        <?php endif;?>
+
+
+        <?php
+            $body = 'body';
+            if(have_rows($body)):
+        ?>
+        <section class="section section-no-bottom">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
+                    <?php while(have_rows($body)): the_row();?>
+                    <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
+                        <figure class="alternating-item-img"><!--!!! Young: this needs an image -->
+                            <!--<img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">-->
+                            <img src="https://placeimg.com/480/320/any">
+                        </figure>
+
+                        <div class="alternating-item-copy">
+                            <h2><?php the_sub_field('title');?></h2>
+                            <p><?php the_sub_field('paragraph');?></p>
+                            <blockquote><?php the_sub_field('quote') ?></blockquote>
+                        </div>
+                    </div>
+                    <?php endwhile;?>
+                </div>
+            </article>
+        </section>
+        <?php endif;?>
 
 
         <?php
@@ -64,7 +94,7 @@ get_header();?>
 
         <section class="section">
             <h1>Teacher Apprentice Program</h1><br>
-                
+
             <div class="card-container" style="width:90%;">
 
             <?php while(have_rows($app_program)): the_row(); ?>
@@ -80,28 +110,28 @@ get_header();?>
                     <a href="<?php the_sub_field('link_url');?>">Learn more about the Teacher Apprentice Programme here</a>
                 </div>
 
-            <?php endwhile; ?> 
+            <?php endwhile; ?>
 
             </div>
                     <?php $url = get_field('apply_now');  if($url)?>
                         <div class="button-wrap">
                             <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
-                        </div>  
-                    <?php endif;?>    
-         </section>
+                        </div>
+                    <?php endif;?>
+        </section>
 
 
         <?php
             $args = array(
-                'post_type' => 'profile',   
-                'post_status' => 'publish',    
+                'post_type' => 'profile',
+                'post_status' => 'publish',
                 'tax_query' =>
                     array(
-                        'taxonomy' => 'teacher'               
+                        'taxonomy' => 'teacher'
                             )
-                    
+
                 );
-            $acf_teachers = get_field('meet_our_teacher');        
+            $acf_teachers = get_field('meet_our_teacher');
             $featured_teacher = new WP_Query($args);
 
 
@@ -113,7 +143,7 @@ get_header();?>
             $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
             else:
             $featured_teacher = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
-            endif; 
+            endif;
         ?>
         <?php if($featured_teacher->have_posts() ): ?>
         <section class="section section-pair team-profile-container">
@@ -128,15 +158,15 @@ get_header();?>
                             <h3 class="profile-name"><?php the_title();?></h3>
                             <h5 class="profile-role"><?php the_field('quote', $featured_teacher->ID);?></h5>
                             <a href="<?php echo get_permalink();?>">Link to full profile</a>
-                        </div> 
+                        </div>
                 <?php endwhile; ?>
             </div>
         </section>
         <?php wp_reset_postdata();?>
         <?php endif;?>
 
-       
-       <?php 
+
+       <?php
                 $field = 'faq';
                 $sub_field_1 = 'question';
                 $sub_field_2 = 'answer';
