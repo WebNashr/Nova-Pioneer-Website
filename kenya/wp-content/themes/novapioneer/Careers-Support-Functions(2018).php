@@ -26,12 +26,14 @@ get_header();?>
             </div>
         </section>
 
-<!--TODO: Create this custom field -->
+        <?php
+            $field = get_field('intro');
+        ?>
         <section class="section section-no-bottom section-page-intro">
                 <article class="article">
-                    <?php //if($field):?>
-                        <!-- <h2><?php //echo $field;?></h2> -->
-                    <?php //endif; ?>
+                    <?php if($field):?>
+                        <h2><?php echo $field;?></h2>
+                    <?php endif; ?>
                     <?php echo the_content(); ?>
                 </article>
         </section>
@@ -47,9 +49,7 @@ get_header();?>
                     <?php while(have_rows($info)): the_row();?>
                         <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
                             <figure class="new-card-img">
-                                <!--<img src="<?php the_sub_field('icon'); ?>" alt=""> -->
-                                <!--!!! Young: this needs an image --><!--!!! Young: this needs an image -->
-                                <img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">
+                                <img src="<?php echo the_sub_field('image'); ?>" alt="">
                                 <!--<img src="https://placeimg.com/480/320/any">-->
                             </figure>
 

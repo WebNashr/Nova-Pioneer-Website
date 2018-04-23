@@ -27,9 +27,14 @@ get_header();?>
         </section>
 
 
+        <?php
+            $field = get_field('intro');
+        ?>
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                <h2>Teaching</h2>
+                    <?php if($field):?>
+                        <h2><?php echo $field;?></h2>
+                    <?php endif; ?>
                 <?php the_content();?>
             </article>
         </section>
@@ -43,9 +48,9 @@ get_header();?>
             <div class="card-container-XXX steps-container-XXX alternating-container">
             <?php while(have_rows($body)): the_row()?>
                 <div class="card-XXX admission-step-XXX alternating-item">
-                    <figure class="alternating-item-img"><!--!!! Young: this needs an image -->
+                    <figure class="alternating-item-img">
                         <!--<img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">-->
-                        <img src="https://placeimg.com/800/450/any">
+                        <img src="<?php echo the_sub_field('image'); ?>">
                     </figure>
 
                     <div class="alternating-item-copy">
@@ -69,9 +74,9 @@ get_header();?>
                 <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
                     <?php while(have_rows($body)): the_row();?>
                     <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
-                        <figure class="alternating-item-img"><!--!!! Young: this needs an image -->
+                        <figure class="alternating-item-img">
                             <!--<img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">-->
-                            <img src="https://placeimg.com/480/320/any">
+                            <img src="<?php echo the_sub_field('image'); ?>">
                         </figure>
 
                         <div class="alternating-item-copy">

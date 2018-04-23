@@ -118,8 +118,8 @@ get_header();?>
                 <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
                     <?php while(have_rows($opp)): the_row();?>
                     <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
-                        <figure class="alternating-item-img"><!--!!! Young: this needs an image -->
-                            <img src="https://placeimg.com/480/320/people">
+                        <figure class="alternating-item-img">
+                            <img src="<?php echo the_sub_field('image'); ?>">
                         </figure>
 
                         <div class="alternating-item-copy">

@@ -27,9 +27,14 @@ get_header();?>
         </section>
 
 
+        <?php
+            $field = get_field('intro');
+        ?>
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                <h2>Join us today</h2>
+                    <?php if($field):?>
+                        <h2><?php echo $field;?></h2>
+                    <?php endif; ?>
                 <?php the_content();?>
             </article>
         </section>
@@ -62,7 +67,7 @@ get_header();?>
                     <?php while(have_rows($body)): the_row();?>
                         <div class="card-XXX admission-step-XXX new-card-item new-card-item-third">
                             <figure class="new-card-img">
-                                <img src="https://placeimg.com/480/320/people" alt=""><!--!!! Young: this needs an image -->
+                                <img src="<?php echo the_sub_field('image'); ?>" alt="">
                             </figure>
 
                             <div class="new-card-copy">
@@ -159,7 +164,7 @@ get_header();?>
                 <?php while($featured_teacher->have_posts()): $featured_teacher->the_post(); ?>
                     <div class="new-card-item new-card-item-quarter">
                         <figure class="new-card-img">
-                            <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt=""><!--!!! Young: this needs an image -->
+                            <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
                         </figure>
 
                         <div class="new-card-copy">

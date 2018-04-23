@@ -27,21 +27,21 @@ get_header();?>
             </div>
         </section>
 
-        <?php 
+        <?php
             $field = get_field('section_a');
         ?>
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
-            <?php if($field):?>
-                <h2><?php echo $field;?></h2>
-            <?php endif; ?>    
+                <?php if($field):?>
+                    <h2><?php echo $field;?></h2>
+                <?php endif; ?>
                 <?php echo the_content();?>
             </article>
         </section>
 
 
         <section class="section section-no-bottom">
-            <?php 
+            <?php
                 $field = 'section_b';
                 if(have_rows($field)):
             ?>
@@ -63,7 +63,7 @@ get_header();?>
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php $i = 0 ; ?>
                     <?php while(have_rows($interview_process)): the_row()?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-third">
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
                             <div class="new-card-copy new-card-copy-only">
                                 <span class="new-card-number"><?php echo $i + 1;?></span>
                                 <h3><?php the_sub_field('title'); echo '';?></h3>
