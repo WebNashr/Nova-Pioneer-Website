@@ -30,16 +30,17 @@ get_header();?>
 
         
         <!-- Intro -->
-        <?php 
         
+        <?php
+            $title = get_field('intro');
         ?>
-
         <section class="section">
-            <?php //while(); ?>
                 <article class="article">
+            <?php if($title):?>
+               <h2><?php echo $title ?></h2>
+            <?php endif;?>  
                 <p><?php echo the_content(); ?></p>
-                </article>
-            <?php //endwhile; wp_reset_postdata(); ?>
+                </article
         </section>
 
         <?php 

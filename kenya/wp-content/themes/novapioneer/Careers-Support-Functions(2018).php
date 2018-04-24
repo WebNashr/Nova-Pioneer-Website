@@ -16,10 +16,8 @@ get_header();?>
                 </div>
             </div>
         </section>
-        
-        <section
-            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
-            data-enllax-ratio="0.1">
+
+        <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
@@ -28,86 +26,99 @@ get_header();?>
             </div>
         </section>
 
-
-        <section class="section">
-            <?php //while(); ?>
+        <?php
+            $field = get_field('intro');
+        ?>
+        <section class="section section-no-bottom section-page-intro">
                 <article class="article">
-                <p><?php echo the_content(); ?></p>
+                    <?php if($field):?>
+                        <h2><?php echo $field;?></h2>
+                    <?php endif; ?>
+                    <?php echo the_content(); ?>
                 </article>
-            <?php //endwhile; wp_reset_postdata(); ?>
         </section>
 
-        <?php 
+
+        <?php
             $info = 'info';
             if(have_rows($info)):
         ?>
+        <section class="section section-no-bottom-XXX">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
+                    <?php while(have_rows($info)): the_row();?>
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
+                            <figure class="new-card-img">
+                                <img src="<?php echo the_sub_field('image'); ?>" alt="">
+                                <!--<img src="https://placeimg.com/480/320/any">-->
+                            </figure>
 
-         <section class="section">
-            <article class="article ">
-            <div class="card-container steps-container">
-                <?php while(have_rows($info)): the_row(); ?>
-                <div class="card admission-step">
-                    <h1><?php the_sub_field('title'); ?></h1>
-                    <p><?php the_sub_field('paragraph'); ?></p>
-                 </div>
-            <?php endwhile;?>
-        </div>
-        </article>
+                            <div class="new-card-copy">
+                                <h3><?php the_sub_field('title'); ?></h3>
+                                <p><?php the_sub_field('paragraph'); ?></p>
+                            </div>
+                        </div>
+                    <?php endwhile?>
+                </div>
+            </article>
         </section>
-            <?php endif;?>
+        <?php endif;?>
 
-        <?php 
+
+        <?php
             $args = array(
-                'post_type' => 'profile',   
+                'post_type' => 'profile',
                 'post_status' => 'publish'
                 );
-            $acf_teams = get_field('meet_our_team');        
+            $acf_teams = get_field('meet_our_team');
             $featured_team = new WP_Query($args);
 
-
-        if(!empty($acf_teams) && (count($acf_teams) > 0)):
-            $ids = array();
+            if(!empty($acf_teams) && (count($acf_teams) > 0)):
+                $ids = array();
             foreach($acf_teams as $team):
-            $ids[] = $team->ID;
+                $ids[] = $team->ID;
             endforeach;
-            $featured_team = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
+                $featured_team = new WP_Query(array_merge($args, array('posts_per_page' => 5,'post__in' => $ids)));
             else:
-            $featured_team = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
-            endif; 
-
+                $featured_team = new WP_Query(array_merge($args, array('posts_per_page' => 5,'orderby' => 'rand','post_status' => 'publish')));
+            endif;
         ?>
         <?php if($featured_team->have_posts()):?>
-        <section class="section section-pair team-profile-container">
+        <section class="section section-no-bottom">
+            <h2>Meet our team</h2>
+            <br>
 
-                <h2 class="centered-title">Meet our team</h2>
-            <div class="section-content section-content-plain np-team-profiles">
-                <?php while($featured_team->have_posts()): $featured_team->the_post();?>
-                        <div class="section-content-item section-content-item-quarter profile">
-                            <div class="image-wrap">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
+                    <?php while($featured_team->have_posts()): $featured_team->the_post();?>
+                        <div class="new-card-item new-card-item-plain new-card-item-quarter">
+                            <figure class="new-card-img">
                                 <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
+                            </figure>
+
+                            <div class="new-card-copy">
+                                <h3><?php the_title(); ?></h3>
+                                <h6><?php the_field('quote', $featured_team->ID); ?></h6>
+                                <a href="<?php echo get_permalink();?>">Read my story</a>
                             </div>
-                            <h3 class="profile-name"><?php the_title(); ?></h3>
-                            <h5 class="profile-role"><?php the_field('quote', $featured_leader->ID); ?></h5>
-                            <a href="<?php echo get_permalink();?>">Link to full profile</a>
-                        </div> 
-                <?php endwhile;?>       
-            </div>
+                        </div>
+                    <?php endwhile?>
+                </div>
+            </article>
         </section>
         <?php wp_reset_postdata();?>
         <?php endif;?>
 
 
-            <?php 
+        <?php
             $url = get_field('apply');
-            ?>
-                <section class="section">
-                <?php if($url)?>
-                    <div class="button-wrap">
-                        <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
-                    </div>
-                </section>
-
-
+        ?>
+        <section class="section">
+            <?php if($url)?>
+            <div class="button-wrap">
+                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap=XXX button-default button-primary" title="">APPLY NOW</a>
+            </div>
+        </section>
     <?php endwhile; ?>
 <?php endif; ?>
 
