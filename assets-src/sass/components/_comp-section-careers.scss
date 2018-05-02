@@ -569,3 +569,261 @@
         margin-bottom: 3rem;
     }
 }
+
+
+
+
+
+
+
+[name*="interveiw-step"] {
+    position: absolute;
+    left: -9999px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.interview-step-label {
+    @include flexbox();
+	@include flex-direction(row);
+}
+
+
+.article-interview {
+    position: relative;
+    padding: 0 0 0 2rem;
+}
+
+.interview-steps {
+    @extend %columns;
+    @include flexbox();
+	@include flex-direction(column);
+    width: 100%;
+    // justify-content: space-between;
+    // padding: 0 2rem;
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+    }
+}
+
+.interview-step {
+    @include flexbox();
+	@include flex-direction(column);
+    // width: calc(100%/5);
+    // padding: 0 1rem;
+    z-index: 99999;
+
+    &:not(:first-of-type) {
+        margin-left: 1.5rem;
+    }
+
+    &:nth-child(1) {
+        .interview-number,
+        .interview-title {
+            background: $orange-lt;
+        }
+    }
+
+    &:nth-child(2) {
+        .interview-number,
+        .interview-title {
+            background: $blue-dk;
+        }
+    }
+
+    &:nth-child(3) {
+        .interview-number,
+        .interview-title {
+            background: $green-lt;
+        }
+    }
+
+    &:nth-child(4) {
+        .interview-number,
+        .interview-title {
+            background: $blue-lt;
+        }
+    }
+
+    &:nth-child(5) {
+        .interview-number,
+        .interview-title {
+            background: $green-dk;
+            background: $raspberry;
+        }
+    }
+
+    &:nth-child(6) {
+        .interview-number,
+        .interview-title {
+            background: $orange-dk;
+        }
+    }
+}
+
+.interview-step-1 {
+
+}
+
+.interview-number {
+    @include font-size(36px);
+    @include line-height(1);
+    @include title(bold);
+    display: block;
+    // width: 64px;
+    // height: 64px;
+    // margin-bottom: 1.5rem;
+    // padding: 15px 0 0;
+    width: 96px;
+    height: 96px;
+    padding: 32px 0 0;
+    text-align: center;
+    color: $blue-dk;
+    color: $white;
+    background: $white;
+    background: $grey-lt;
+    border-radius: 50%;
+}
+
+.interview-heading {
+    @include flexbox();
+	@include flex-direction(column);
+    display: none;
+    max-width: 480px;
+    // max-width: 640px;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    // padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.interview-title {
+    @include font-size(22px);
+    text-align: left;
+    margin-bottom: calc(#{$space-tiny} * 0.5);
+    color: $blue-dk;
+
+    padding: .65rem 1rem;
+    margin-bottom: 0;
+    background: wheat;
+    color: white;
+}
+
+.interview-description {
+    display: block;
+    @include title(medium);
+    @include font-size(14px);
+    @include line-height(1.35);
+    color: lighten($grey-mdk, 10%);
+
+    padding: 0.65rem 1rem .75rem;
+}
+
+.interview-notch {
+
+}
+
+.interview-timeline {
+    position: absolute;
+    left: 0;
+    top: 47px;
+    width: 100%;
+    height: 8px;
+    background: $grey-lt;
+    border-radius: 4px;
+}
+
+
+
+// input[id*="interview-step-"]:checked ~ label[for*="interview-step-"] {
+// 	background: $green-lt;
+// }
+
+// input[id*="interview-step-"]:checked ~ label[for*="interview-step-"] .interview-heading {
+// 	display: block;
+// }
+
+@for $step from 1 through 5 {
+    input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-number {
+        width: 140px;
+        height: 140px;
+        margin-top: -22px;
+        font-size: 52px;
+        padding-top: 44px;
+    }
+
+    input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-heading {
+        display: block;
+        background: $grey-lt;
+    }
+}
+
+
+
+#switch-bar:checked ~ table {
+	width: 100%;
+	max-width: 768px;
+	height: 300px;
+	background: $grey-lt;
+	border: 0;
+	position: relative;
+
+	tr {
+		padding: unset;
+		border: 0;
+		position: relative;
+	}
+
+	th {
+		display: none;
+		padding: unset;
+		border: 0;
+	}
+
+	td {
+		position: relative;
+		padding: unset;
+		color: transparent;
+		border: 0;
+
+		div.data-bar {
+			position: absolute;
+			bottom: 0;
+			// left: 0;
+			width: calc(100% - 2px);
+			margin: 0 auto;
+			text-align: center;
+			color: $white;
+			background: $blue-lt;
+			display: block;
+			vertical-align: bottom;
+		}
+
+		&:after {
+			position: absolute;
+			bottom: -30px;
+			content: attr(data-th);
+			display: block;
+			width: calc(100% - 2px);
+			margin: 0 auto;
+			padding: 2px 0 3px;
+			text-align: center;
+			text-transform: uppercase;
+			color: $white;
+			background: darken($grey-lt, 5%);
+		}
+	}
+
+	@for $column from 1 through 5 {
+		$temp: attr(data-td);
+
+		td:nth-of-type(#{$column}):before {
+			content: $temp;
+			// height: attr(data-td);
+		}
+	}
+}
