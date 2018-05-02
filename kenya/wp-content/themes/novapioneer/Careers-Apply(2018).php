@@ -38,9 +38,16 @@ get_header();?>
                 <?php echo the_content();?>
             </article>
         </section>
+        <br>
+
+        <section class="section section-no-top section-no-bottom">
+            <article style="max-width: 1024px">
+                <?php the_field('introduction') ?>
+            </article>
+        </section>
 
 
-        <section class="section section-no-bottom">
+        <section class="section section-no-bottom" style="display: none;">
             <?php
                 $field = 'section_b';
                 if(have_rows($field)):
@@ -49,9 +56,9 @@ get_header();?>
             <h2><?php the_sub_field('heading');?></h2>
             <p><?php the_sub_field('sub_heading');?></p>
             <br>
-
             <?php endwhile;?>
             <?php endif;?>
+
 
         <?php
             $interview_process = 'interview_process';
@@ -78,12 +85,86 @@ get_header();?>
         </section>
 
 
+
+
+
+        <section class="section">
+            <article class="article article-interview">
+                <div class="interview-steps" style="display: none;">
+                    <div class="interview-step interview-step-1">
+                        <div class="interview-number">1</div>
+                        <h3 class="interview-title">title</h3>
+                        <p class="interview-description">descriptions</p>
+                        <div class="interview-notch"></div>
+                    </div>
+
+                    <div class="interview-step interview-step-2">
+                        <div class="interview-number">2</div>
+                        <h3 class="interview-title">title</h3>
+                        <p class="interview-description">descriptions</p>
+                        <div class="interview-notch"></div>
+                    </div>
+
+                    <div class="interview-step interview-step-3">
+                        <div class="interview-number">3</div>
+                        <h3 class="interview-title">title</h3>
+                        <p class="interview-description">descriptions</p>
+                        <div class="interview-notch"></div>
+                    </div>
+
+                    <div class="interview-step interview-step-4">
+                        <div class="interview-number">4</div>
+                        <h3 class="interview-title">title</h3>
+                        <p class="interview-description">descriptions</p>
+                        <div class="interview-notch"></div>
+                    </div>
+
+                    <div class="interview-step interview-step-5">
+                        <div class="interview-number">5</div>
+                        <h3 class="interview-title">title</h3>
+                        <p class="interview-description">descriptions</p>
+                        <div class="interview-notch"></div>
+                    </div>
+                </div>
+
+                <?php
+                    $interview_process = 'interview_process';
+                    $title = the_sub_field('title');
+                    $paragraph = the_sub_field('paragraph');
+                ?>
+                <?php if(have_rows($interview_process)):?>
+
+                <div class="interview-steps">
+                    <?php $i = 0 ; ?>
+                    <?php while(have_rows($interview_process)): the_row()?>
+                    <div class="interview-step interview-step-<?php echo $i + 1;?>">
+                    <input type="radio" name="interview-step-progress" id="interview-step-<?php echo $i + 1;?>" hidden>
+                    <label for="interview-step-<?php echo $i + 1;?>" class="interview-step-label">
+                        <div class="interview-number"><?php echo $i + 1;?></div>
+                        <heading class="interview-heading">
+                            <h3 class="interview-title"><?php the_sub_field('title'); echo '';?></h3>
+                            <p class="interview-description"><?php  the_sub_field('paragraph') ?></p>
+                        </heading>
+                    </label>
+                    </div>
+                    <?php $i++; ?>
+                    <?php endwhile?>
+
+                    <!--<a href="" title="" class="interview-step-apply">Apply</a>-->
+                </div>
+                <?php endif;?>
+
+                <div class="interview-timeline"></div>
+            </article>
+        </section>
+
+
         <?php
             //$url = get_field('link_url');
             $nfield = get_field('note');
             $nfield2 = get_field('note_2');
         ?>
-        <section class="section ">
+        <section class="section" style="display: none;">
             <?php if($nfield):?>
             <p><b><?php echo $nfield; ?></b></p>
             <?php endif;?>
