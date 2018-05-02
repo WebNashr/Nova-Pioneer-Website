@@ -30,6 +30,7 @@
 	// margin-bottom: 5rem;
 	text-align: center;
 	margin-bottom: 3rem;
+
 	&:last-of-type{
 		margin-bottom: 0;
 	}
@@ -61,11 +62,11 @@
 		}
 
 		.member-name {
-		 	@include copy(semi);
-		 	@include font-size(26px);
-		 	color: $green-blue;
-		 	text-shadow: none;
-		 	text-align: center;
+            @include copy(semi);
+            @include font-size(26px);
+            color: $green-blue;
+            text-shadow: none;
+            text-align: center;
 		}
 	}
 
@@ -73,7 +74,7 @@
 	// 	width: unset;
 	// 	@extend %column-3;
 
- //    	@include break-point(laptop) {
+    //    	@include break-point(laptop) {
 	// 		&:not(:first-of-type) {
 	//     		margin-left: calc(#{$space-tiny} * 2);
 	//     	}
@@ -132,3 +133,4 @@
 		width: auto;
 	}
 }
+
