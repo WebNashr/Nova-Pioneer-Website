@@ -157,7 +157,6 @@ get_header();?>
         <?php if($featured_leader->have_posts() ): ?>
         <section class="section section-pair team-profile-container">
             <h2 class="centered-title">Meet our leaders</h2>
-
             <br>
 
             <article class="article">
