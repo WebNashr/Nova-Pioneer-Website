@@ -554,3 +554,18 @@
     }
 }
 
+
+
+.interrupter-image {
+    max-height: 67.5vh;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+
+    @include break-point(tablet) {
+        margin-bottom: 2rem;
+    }
+
+    @include break-point(laptop) {
+        margin-bottom: 3rem;
+    }
+}
