@@ -171,7 +171,7 @@ get_header();?>
                         <div class="new-card-copy">
                             <h3><?php the_title();?></h3>
                             <h6><?php the_field('quote', $featured_leader->ID);?></h6>
-                            <a href="<?php echo get_permalink();?>">Link to full profile</a>
+                            <a href="<?php echo get_permalink();?>">Read my story</a>
                         </div>
                     </div>
                     <?php endwhile; ?>
