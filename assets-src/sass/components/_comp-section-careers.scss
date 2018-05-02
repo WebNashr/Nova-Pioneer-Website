@@ -717,10 +717,10 @@
     display: block;
     @include title(medium);
     @include font-size(14px);
-    @include line-height(1.35);
+    @include line-height(1.5);
     color: lighten($grey-mdk, 10%);
 
-    padding: 0.65rem 1rem .75rem;
+    padding: 0.65rem 1rem 1rem;
 }
 
 .interview-notch {

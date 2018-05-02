@@ -38,9 +38,16 @@ get_header();?>
                 <?php echo the_content();?>
             </article>
         </section>
+        <br>
+
+        <section class="section section-no-top section-no-bottom">
+            <article style="max-width: 1024px">
+                <?php the_field('introduction') ?>
+            </article>
+        </section>
 
 
-        <section class="section section-no-bottom">
+        <section class="section section-no-bottom" style="display: none;">
             <?php
                 $field = 'section_b';
                 if(have_rows($field)):
@@ -49,9 +56,9 @@ get_header();?>
             <h2><?php the_sub_field('heading');?></h2>
             <p><?php the_sub_field('sub_heading');?></p>
             <br>
-
             <?php endwhile;?>
             <?php endif;?>
+
 
         <?php
             $interview_process = 'interview_process';
