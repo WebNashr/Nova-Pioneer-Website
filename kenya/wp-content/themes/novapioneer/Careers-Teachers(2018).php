@@ -96,11 +96,10 @@ get_header();?>
             $app_program = 'teacher_apprentice_program';
             if(have_rows($app_program)):
         ?>
-        <section class="section">
-            <h1>Teacher Apprentice Program</h1><br>
-
+        <section class="section" style="display: none;">
+            <h1>Teacher Apprentice Program</h1>
+            <br>
             <div class="card-container" style="width:90%;">
-
             <?php while(have_rows($app_program)): the_row(); ?>
                 <div class="card">
                     <figure>
@@ -117,12 +116,33 @@ get_header();?>
             <?php endwhile; ?>
 
             </div>
-                    <?php $url = get_field('apply_now');  if($url)?>
-                        <div class="button-wrap">
-                            <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
-                        </div>
-                    <?php endif;?>
+            <?php $url = get_field('apply_now');  if($url)?>
+                <div class="button-wrap">
+                    <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
+                </div>
+            <?php endif;?>
         </section>
+
+
+
+        <section class="section section-no-bottom">
+            <figure class="interrupter-image">
+                <img src="<?php the_field('teacher_apprentice_programme_image') ?>" alt="">
+            </figure>
+
+            <div style="max-width: 1024px">
+                <h2><?php the_field('teacher_apprentice_programme_title') ?></h2>
+                <br>
+                <?php the_field('teacher_apprentice_programme_text') ?>
+                <br>
+                <br>
+
+                <h3>Who may apply</h3>
+                <br>
+                <?php the_field('teacher_apprentice_programme_apply') ?>
+            </div>
+        </section>
+
 
 
         <?php
@@ -162,7 +182,7 @@ get_header();?>
                         <div class="new-card-copy">
                             <h3><?php the_title();?></h3>
                             <h6><?php the_field('quote', $featured_teacher->ID);?></h6>
-                            <a href="<?php echo get_permalink();?>">Link to full profile</a>
+                            <a href="<?php echo get_permalink();?>">Read my story</a>
                         </div>
                     </div>
                     <?php endwhile; ?>
