@@ -14,7 +14,7 @@
 
 .section-page-intro p {
     // @include title(light);
-    @include font-size(24px);
+    // @include font-size(24px);
     max-width: 75vw;
     // border-left: 12px solid $grey-md;
     // padding-left: calc(#{$space-tiny} * 2);
@@ -419,7 +419,7 @@
     }
     }
 
-    @include break-point(tablet) {
+    @include break-point(laptop) {
         &:not(:first-child) {
             margin-top: calc(#{$space-tiny} * 6);
         }
@@ -446,7 +446,7 @@
 
     @include break-point(laptop) {
         width: 52.5%;
-        padding: calc(#{$space-tiny} * 2);
+        padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2.5);
 
         .alternating-item:nth-child(odd) & {
             padding-left: 4.5rem;
@@ -576,20 +576,19 @@
 
 
 
-[name*="interveiw-step"] {
-    position: absolute;
-    left: -9999px;
-    width: 0;
-    height: 0;
-    opacity: 0;
-}
+// [name*="interveiw-step"] {
+//     position: absolute;
+//     left: -9999px;
+//     width: 0;
+//     height: 0;
+//     opacity: 0;
+// }
 
 .interview-step-label {
     @include flexbox();
 	@include flex-direction(row);
     text-transform: unset;
 }
-
 
 .article-interview {
     position: relative;
@@ -794,8 +793,8 @@
         padding-top: 44px;
 
         .interview-step:not(:first-of-type) & {
-        margin-left: 1.5rem;
-    }
+            margin-left: 1.5rem;
+        }
     }
 
     input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-heading {
@@ -809,6 +808,160 @@
     //         background: initial;
     //     }
     // }
+}
+
+
+
+
+
+
+
+label.opportunity-label {
+    @include font-size(14px);
+    @include line-height(1);
+	display: block;
+    margin-bottom: 0;
+	text-align: left;
+	text-transform: uppercase;
+    color: darken($grey-lt, 10%);
+	cursor: pointer;
+
+    &:not(:first-of-type) {
+        margin-top: 0.75rem;
+        margin-left: 0;
+    }
+
+	&:hover {
+        color: darken($grey, 17.5%);
+	}
+
+    @include break-point(tablet) {
+	    &:not(:first-of-type) {
+            margin-top: 1.5rem;
+            margin-left: 0;
+        }
+    }
+
+    @include break-point(laptop) {
+	    @include font-size(15px);
+        display: inline-block;
+        margin-bottom: 0;
+        text-align: center;
+
+        &:not(:first-of-type) {
+            margin-top: 0;
+            margin-left: 1.5rem;
+        }
+    }
+}
+
+.opportunities {
+    // padding: 3rem;
+    // background: $grey-lt;
+}
+
+.opportunity {
+    @include flexbox();
+	@include flex-direction(column);
+    align-items: center;
+    width: 100%;
+    margin-top: calc(1rem * 1.25);
+    background: $grey-lt;
+    transition: $ease;
+    display: none;
+
+    &:nth-of-type(1) {
+        background: $orange-lt;
+
+        h2 {
+            color: $blue-dk;
+        }
+
+        .button {
+            background: $blue-lt;
+        }
+    }
+
+    &:nth-of-type(2) {
+        background: $raspberry;
+
+        h2 {
+            color: $orange-lt;
+        }
+
+        .button {
+            background: $green-lt;
+        }
+    }
+
+    &:nth-of-type(3) {
+        background: $blue-lt;
+
+        h2 {
+            color: $orange-lt;
+        }
+
+        .button {
+            background: $green-lt;
+        }
+    }
+
+    @include break-point(tablet) {
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+    }
+}
+
+.opportunity-img {
+    order: 1;
+    display: block;
+    width: 100%;
+
+    @include break-point(laptop) {
+        width: 50%;
+
+        .opportunity:nth-child(even) & {
+            order: 2;
+        }
+    }
+}
+
+.opportunity-copy {
+    order: 2;
+    padding: calc(#{$space-tiny} * 1.5);
+
+    p {
+        @include font-size(21px);
+        @include line-height(1.5);
+        color: $white;
+    }
+
+    @include break-point(laptop) {
+        width: 50%;
+        padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3.5);
+    }
+}
+
+.opportunity-copy .button {
+    margin-top: 1.5rem;
+}
+
+@for $opp from 1 through 3 {
+    input[id="opportunity-#{$opp}"]:checked ~ .opportunity-#{$opp} {
+        @include flexbox();
+    }
+}
+
+input[id="opportunity-1"]:checked ~ label[for="opportunity-1"] {
+	color: $orange-lt;
+}
+
+input[id="opportunity-2"]:checked ~ label[for="opportunity-2"] {
+	color: $raspberry;
+}
+
+input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
+	color: $blue-lt;
 }
 
 
