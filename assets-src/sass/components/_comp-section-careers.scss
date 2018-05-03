@@ -576,13 +576,13 @@
 
 
 
-[name*="interveiw-step"] {
-    position: absolute;
-    left: -9999px;
-    width: 0;
-    height: 0;
-    opacity: 0;
-}
+// [name*="interveiw-step"] {
+//     position: absolute;
+//     left: -9999px;
+//     width: 0;
+//     height: 0;
+//     opacity: 0;
+// }
 
 .interview-step-label {
     @include flexbox();
@@ -820,20 +820,40 @@
 label.opportunity-label {
     @include font-size(14px);
     @include line-height(1);
-	display: inline-block;
+	display: block;
     margin-bottom: 0;
-	text-align: center;
+	text-align: left;
 	text-transform: uppercase;
     color: darken($grey-lt, 10%);
 	cursor: pointer;
 
     &:not(:first-of-type) {
-        margin-left: 1.5rem;
+        margin-top: 0.75rem;
+        margin-left: 0;
     }
 
 	&:hover {
         color: darken($grey, 17.5%);
 	}
+
+    @include break-point(tablet) {
+	    &:not(:first-of-type) {
+            margin-top: 1.5rem;
+            margin-left: 0;
+        }
+    }
+
+    @include break-point(laptop) {
+	    @include font-size(15px);
+        display: inline-block;
+        margin-bottom: 0;
+        text-align: center;
+
+        &:not(:first-of-type) {
+            margin-top: 0;
+            margin-left: 1.5rem;
+        }
+    }
 }
 
 .opportunities {
@@ -887,18 +907,6 @@ label.opportunity-label {
         }
     }
 
-    &:nth-of-type(4) {
-        background: $green-dk;
-    }
-
-    &:nth-of-type(5) {
-        background: $orange-dk;
-    }
-
-    &:nth-of-type(6) {
-        background: $raspberry;
-    }
-
     @include break-point(tablet) {
 	    @include flex-direction(row);
         @include flex-wrap(wrap);
@@ -939,7 +947,7 @@ label.opportunity-label {
     margin-top: 1.5rem;
 }
 
-@for $opp from 1 through 5 {
+@for $opp from 1 through 3 {
     input[id="opportunity-#{$opp}"]:checked ~ .opportunity-#{$opp} {
         @include flexbox();
     }
