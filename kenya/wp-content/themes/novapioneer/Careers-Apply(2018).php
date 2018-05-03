@@ -42,7 +42,8 @@ get_header();?>
 
         <section class="section section-no-top section-no-bottom">
             <article style="max-width: 1024px">
-                <?php the_field('introduction') ?>
+                <p><?php the_field('introduction') ?></p>
+                <br>
             </article>
         </section>
 
@@ -52,7 +53,7 @@ get_header();?>
                 $field = 'section_b';
                 if(have_rows($field)):
             ?>
-             <?php while(have_rows($field)): the_row();?>
+            <?php while(have_rows($field)): the_row();?>
             <h2><?php the_sub_field('heading');?></h2>
             <p><?php the_sub_field('sub_heading');?></p>
             <br>
@@ -60,32 +61,29 @@ get_header();?>
             <?php endif;?>
 
 
-        <?php
-            $interview_process = 'interview_process';
-            $title = the_sub_field('title');
-            $paragraph = the_sub_field('paragraph');
-        ?>
-        <?php if(have_rows($interview_process)):?>
-            <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
-                    <?php $i = 0 ; ?>
-                    <?php while(have_rows($interview_process)): the_row()?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
-                            <div class="new-card-copy new-card-copy-only">
-                                <span class="new-card-number"><?php echo $i + 1;?></span>
-                                <h3><?php the_sub_field('title'); echo '';?></h3>
-                                <p><?php  the_sub_field('paragraph') ?></p>
+            <?php
+                $interview_process = 'interview_process';
+                $title = the_sub_field('title');
+                $paragraph = the_sub_field('paragraph');
+            ?>
+            <?php if(have_rows($interview_process)):?>
+                <article class="article">
+                    <div class="card-container-XXX steps-container-XXX new-card-container">
+                        <?php $i = 0 ; ?>
+                        <?php while(have_rows($interview_process)): the_row()?>
+                            <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
+                                <div class="new-card-copy new-card-copy-only">
+                                    <span class="new-card-number"><?php echo $i + 1;?></span>
+                                    <h3><?php the_sub_field('title'); echo '';?></h3>
+                                    <p><?php  the_sub_field('paragraph') ?></p>
+                                </div>
                             </div>
-                        </div>
-                    <?php $i++; ?>
-                    <?php endwhile?>
-                </div>
-            </article>
-        <?php endif;?>
+                        <?php $i++; ?>
+                        <?php endwhile?>
+                    </div>
+                </article>
+            <?php endif;?>
         </section>
-
-
-
 
 
         <section class="section">
@@ -155,6 +153,12 @@ get_header();?>
                 <?php endif;?>
 
                 <div class="interview-timeline"></div>
+
+                <script>
+                    $(document).ready(function () {
+                        $("#interview-step-1").prop("checked", true);
+                    });
+                </script>
             </article>
         </section>
 
@@ -164,9 +168,9 @@ get_header();?>
             $nfield = get_field('note');
             $nfield2 = get_field('note_2');
         ?>
-        <section class="section" style="display: none;">
+        <section class="section section-no-top" style="display: nonex;">
             <?php if($nfield):?>
-            <p><b><?php echo $nfield; ?></b></p>
+            <p><?php echo $nfield; ?></p>
             <?php endif;?>
 
             <?php if($nfield2):?>
