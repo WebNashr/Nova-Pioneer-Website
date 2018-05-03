@@ -711,7 +711,7 @@
 }
 
 .interview-number {
-    @include font-size(36px);
+    @include font-size(32px);
     @include line-height(1);
     @include title(regular);
     display: block;
@@ -719,7 +719,7 @@
     height: 64px;
     margin-top: 1rem;
     // margin-bottom: 1.5rem;
-    padding: 15px 0 0;
+    padding: 18px 0 0;
     // width: 96px;
     // height: 96px;
     // padding: 32px 0 0;
