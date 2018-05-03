@@ -244,7 +244,7 @@ get_header();?>
 
             if($featured_story->have_posts()):
         ?>
-        <aside>
+        <aside style="display:none;">
             <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">
                     <ul id="testimonial-slider" class="content-slider">
