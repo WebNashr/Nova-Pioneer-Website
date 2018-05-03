@@ -12,7 +12,8 @@ get_header();?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1><?php the_title(); ?></h1>
+                    <!--<h1><?php the_title(); ?></h1>-->
+                    <h1><?php the_field('page_title') ?></h1>
                 </div>
             </div>
         </section>
@@ -21,49 +22,61 @@ get_header();?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1 class="animated-title"><?php the_title(); ?></h1>
+                    <!--<h1 class="animated-title"><?php the_title(); ?></h1>-->
+                    <h1 class="animated-title"><?php the_field('page_title') ?></h1>
                 </div>
             </div>
         </section>
 
 
+        <section class="section section-no-bottom section-page-intro">
+            <article class="article">
+                <?php the_content();?>
+            </article>
+        </section>
+
+
         <?php
-           $title = 'section_a';
-           if(have_rows($title)):
+            $title = 'section_a';
+            if(have_rows($title)):
         ?>
         <?php while(have_rows($title)): the_row();?>
-        <section class="section">
-            <article class="article">
-                <h3><?php the_sub_field('heading');?></h3>
+        <section class="section section-no-bottom section-learning-content-XXX">
+            <div class="page-navigation-container">
+                <div class="navigation-wrap" style="max-width: unset;">
+                    <div class="section-title">
+                        <h3>Join us</h3>
+                    </div>
 
-        <?php
-           $subField = get_sub_field('careers_navigation');
-           //var_dump($subField[0]['text']);
-           if($subField):
-           $i = 1;
-           //echo sizeof($subField);
-        ?>
-                <h4>
-                <?php foreach($subField as $s): ?>
-                    <a href="<?php echo $s['url'] ?>"> <?php echo $s['text'] ?> </a>
                     <?php
-
-                    if($i < sizeof($subField)) {
-                        echo '-';
-                    }
-
-                    $i++; ?>
-                <?php endforeach; ?>
-                </h4>
-
-                 <?php endif;?>
-
-            </article>
+                        $subField = get_sub_field('careers_navigation');
+                        //var_dump($subField[0]['text']);
+                        if($subField):
+                        $i = 1;
+                        //echo sizeof($subField);
+                    ?>
+                    <div class="links-inner-wrap">
+                        <?php foreach($subField as $s): ?>
+                            <div class="section-content-item">
+                                <div class="anchor-link">
+                                    <a href="<?php echo $s['url'] ?>"><?php echo $s['text'] ?></a>
+                                </div>
+                            </div>
+                            <?php
+                                // if($i < sizeof($subField)) {
+                                //     echo '-';
+                                // }
+                                // $i++;
+                            ?>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif;?>
+                </div>
+            </div>
         </section>
         <?php endwhile;?>
         <?php endif;?>
 
-        <!--<div class="border"></div>-->
 
         <?php
             $intro = 'intro';
@@ -75,7 +88,7 @@ get_header();?>
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while(have_rows($intro)): the_row();?>
                         <div class="card-XXX admission-step-XXX new-card-item new-card-item-plain new-card-item-quarter">
-                            <figure class="new-card-img">
+                            <figure class="new-card-img" style="margin: 1.5rem auto 0;">
                                 <img src="<?php the_sub_field('icon'); ?>" alt="">
                             </figure>
 
@@ -94,18 +107,16 @@ get_header();?>
         <?php endif;?>
 
 
-
-        <section class="section">
-           
-
+        <!--<section class="section">-->
         <?php
             $opp = 'opportunities';
             if(have_rows($opp)):
         ?>
-        <section class="section section-no-bottom-">
+        <section class="section section-no-bottom-" style="display:none;">
             <?php
-            $field = 'section_b';
-            if(have_rows($field)): ?>
+                $field = 'section_b';
+                if(have_rows($field)):
+            ?>
             <?php while(have_rows($field)): the_row(); ?>
             <h2><?php the_sub_field('heading');?></h2>
             <h4><?php the_sub_field('sub_heading');?></h4>
@@ -135,27 +146,69 @@ get_header();?>
         <?php endif;?>
 
 
-        <section class="section section-no-top">
+
 
         <?php
-           $title = 'section_c';
-           if(have_rows($title)):
+            $opp = 'opportunities';
+            if(have_rows($opp)):
         ?>
+        <section class="section section-no-bottom-XXX">
+            <article class="article">
+                <div class="opportunities">
+                    <?php $i = 0; ?>
+                    <?php while(have_rows($opp)): the_row();?>
+                    <!--<div class="opportunity-labels">-->
+                        <input type="radio" name="opportunity" id="opportunity-<?php echo $i + 1;?>" hidden>
+                        <label for="opportunity-<?php echo $i + 1;?>" class="opportunity-label"><?php the_sub_field('heading');?></label>
+                    <!--</div>-->
+                    <?php $i++; ?>
+                    <?php endwhile;?>
+
+                    <?php $i = 0 ; ?>
+                    <?php while(have_rows($opp)): the_row();?>
+                    <div class="opportunity opportunity-<?php echo $i + 1;?> alternating-item-xxx">
+                        <figure class="opportunity-img">
+                            <img src="<?php echo the_sub_field('image'); ?>">
+                        </figure>
+
+                        <div class="opportunity-copy">
+                            <h2><?php the_sub_field('heading');?></h2>
+                            <p><?php the_sub_field('paragraph_text');?></p>
+                            <a href="<?php the_sub_field('link_url');?>" title="" class="button button-small button-primary">Learn more</a>
+                        </div>
+                    </div>
+                    <?php $i++; ?>
+                    <?php endwhile;?>
+
+                    <script>
+                        $(document).ready(function () {
+                            $("#opportunity-1").prop("checked", true);
+                        });
+                    </script>
+                </div>
+            </article>
+        </section>
+        <?php endif;?>
+
+
+        <?php
+            $title = 'section_c';
+            if(have_rows($title)):
+        ?>
+        <section class="section section-no-top" style="display:none;">
             <?php while(have_rows($title)): the_row();?>
             <article class="article">
                 <h3><?php the_sub_field('heading'); ?></h3>
                 <p><?php the_sub_field('sub-heading'); ?></p>
             </article>
-           <?php endwhile;?>
-        <?php endif;?>
-
+            <?php endwhile;?>
+            <?php endif;?>
             <br>
 
-        <?php
-           $fields = 'what_were_looking_for';
-           if(have_rows($fields)):
-        ?>
-
+            <?php
+            $fields = 'what_were_looking_for';
+            if(have_rows($fields)):
+            ?>
             <div class="card-container-XXX new-card-container">
                 <?php while(have_rows($fields)): the_row();?>
                 <div class="card-XXX new-card-item new-card-item-coloured new-card-item-third">
@@ -167,11 +220,11 @@ get_header();?>
                 </div>
                 <?php endwhile;?>
             </div>
-        <?php endif;?>
         </section>
+        <?php endif;?>
 
 
-            <?php
+        <?php
             $args = array(
                 'post_type' => 'stories',
                 'post_status' => 'publish'
@@ -179,8 +232,7 @@ get_header();?>
             $acf_stories = get_field('stories');
             $featured_story = new WP_Query($args);
 
-
-        if(!empty($acf_stories) && (count($acf_stories) > 0)):
+            if(!empty($acf_stories) && (count($acf_stories) > 0)):
             $ids = array();
             foreach($acf_stories as $story):
             $ids[] = $story->ID;
@@ -191,42 +243,42 @@ get_header();?>
             endif;
 
             if($featured_story->have_posts()):
-            ?>
-          <aside>
+        ?>
+        <aside>
             <div class=" testimonial full-width-quote ">
                 <div class=" section content-slider-container testimonials">
                     <ul id="testimonial-slider" class="content-slider">
-                            <?php while($featured_story->have_posts()): $featured_story->the_post() ?>
-                            <li class="single-testimonial">
-                                <figure class="full-width-figure">
-                                    <img src="<?php if(has_post_thumbnail()) { echo get_the_post_thumbnail_url(); } ?>">
-                                </figure>
-                                <blockquote>
-                                    <svg aria-hidden="true">
-                                        <use xlink:href
-                                        ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                                    </svg>
+                        <?php while($featured_story->have_posts()): $featured_story->the_post() ?>
+                        <li class="single-testimonial">
+                            <figure class="full-width-figure">
+                                <img src="<?php if(has_post_thumbnail()) { echo get_the_post_thumbnail_url(); } ?>">
+                            </figure>
+                            <blockquote>
+                                <svg aria-hidden="true">
+                                    <use xlink:href
+                                    ="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                </svg>
 
-                                    <p style="width:100%;">
-                                    <?php substr(the_content(), 0,45); ?>
-                                    </p>
+                                <p style="width:100%;">
+                                <?php substr(the_content(), 0,45); ?>
+                                </p>
 
-                                    <p style="width:100%;">
-                                        <cite>
-                                            <!-- <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?> -->
-                                            <span><a style="color:#efff00;" href="<?php echo get_permalink();?>">Link to full story</a></span>
-                                        </cite>
-                                    </p>
-                                </blockquote>
-                            </li>
-                            <?php endwhile; ?>
-
+                                <p style="width:100%;">
+                                    <cite>
+                                        <!-- <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?> -->
+                                        <span><a style="color:#efff00;" href="<?php echo get_permalink();?>">Link to full story</a></span>
+                                    </cite>
+                                </p>
+                            </blockquote>
+                        </li>
+                        <?php endwhile; ?>
                     </ul>
                 </div>
             </div>
         </aside>
-                        <?php wp_reset_postdata();?>
-            <?php endif;?>
+        <?php wp_reset_postdata();?>
+        <?php endif;?>
+
 
         <?php
             $apply = get_field('apply_now');
@@ -235,10 +287,10 @@ get_header();?>
         ?>
         <section class="section">
             <div class="button-wrap">
-            <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
+                <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
             </div>
         </section>
-            <?php endif;?>
+        <?php endif;?>
 
 
     <?php endwhile; ?>
@@ -248,7 +300,6 @@ get_header();?>
 <script>
     (function ($) {
         $(document).ready(function (){
-
 
             $("#testimonial-slider").lightSlider({
                 item: 1,
@@ -313,7 +364,8 @@ get_header();?>
 
         })
     })(jQuery);
-
 </script>
 
+
 <?php get_footer(); ?>
+
