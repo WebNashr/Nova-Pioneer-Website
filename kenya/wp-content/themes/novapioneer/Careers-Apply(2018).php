@@ -155,6 +155,12 @@ get_header();?>
                 <?php endif;?>
 
                 <div class="interview-timeline"></div>
+
+                <script>
+                    $(document).ready(function () {
+                        $("#interview-step-1").prop("checked", true);
+                    });
+                </script>
             </article>
         </section>
 
