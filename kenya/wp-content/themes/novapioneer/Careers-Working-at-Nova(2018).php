@@ -93,9 +93,13 @@ get_header();?>
                             </figure>
 
                             <div class="new-card-copy">
-                                <!--<span class="new-card-number"><?php echo $i + 1;?></span>-->
+                                <!--
+                                <span class="new-card-number"><?php echo $i + 1;?></span>
                                 <h3><?php the_sub_field('heading'); ?></h3>
                                 <h6><?php the_sub_field('sub_heading'); ?></h6>
+                                -->
+
+                                <h3><?php the_sub_field('sub_heading'); ?></h3>
                                 <p><?php the_sub_field('paragraph'); ?></p>
                             </div>
                         </div>
@@ -285,7 +289,7 @@ get_header();?>
             //var_dump($apply);
             if($apply):
         ?>
-        <section class="section">
+        <section class="section section-no-top">
             <div class="button-wrap">
                 <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
             </div>
