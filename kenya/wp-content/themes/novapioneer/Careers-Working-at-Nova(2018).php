@@ -93,9 +93,13 @@ get_header();?>
                             </figure>
 
                             <div class="new-card-copy">
-                                <!--<span class="new-card-number"><?php echo $i + 1;?></span>-->
+                                <!--
+                                <span class="new-card-number"><?php echo $i + 1;?></span>
                                 <h3><?php the_sub_field('heading'); ?></h3>
                                 <h6><?php the_sub_field('sub_heading'); ?></h6>
+                                -->
+
+                                <h3><?php the_sub_field('sub_heading'); ?></h3>
                                 <p><?php the_sub_field('paragraph'); ?></p>
                             </div>
                         </div>
