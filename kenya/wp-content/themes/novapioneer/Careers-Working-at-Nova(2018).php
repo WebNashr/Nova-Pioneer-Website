@@ -29,11 +29,13 @@ get_header();?>
         </section>
 
 
+        <!--
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
                 <?php the_content();?>
             </article>
         </section>
+        -->
 
 
         <?php
@@ -87,7 +89,7 @@ get_header();?>
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while(have_rows($intro)): the_row();?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-plain new-card-item-quarter">
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-plain new-card-item-centre new-card-item-quarter">
                             <figure class="new-card-img" style="margin: 1.5rem auto 0;">
                                 <img src="<?php the_sub_field('icon'); ?>" alt="">
                             </figure>
@@ -172,7 +174,18 @@ get_header();?>
                     <?php while(have_rows($opp)): the_row();?>
                     <div class="opportunity opportunity-<?php echo $i + 1;?> alternating-item-xxx">
                         <figure class="opportunity-img">
-                            <img src="<?php echo the_sub_field('image'); ?>">
+                            <!--<img src="<?php echo the_sub_field('image'); ?>">-->
+                            <img src="
+                                <?php
+                                    // $image = get_field('image');
+                                    $image = the_sub_field('image');
+                                    $size = '16-9-large'; // (thumbnail, medium, large, full or custom size)
+
+                                    if( $image ) {
+                                        echo wp_get_attachment_image( $image, $size );
+                                    }
+                                ?>
+                            ">
                         </figure>
 
                         <div class="opportunity-copy">
@@ -295,6 +308,15 @@ get_header();?>
             </div>
         </section>
         <?php endif;?>
+
+
+        <section class="section section-no-top">
+            <article class="article article-video-embed">
+                <div class="media youtube-video">
+                    <?php the_field('working_video') ?>
+                </div>
+            </article>
+        </section>
 
 
     <?php endwhile; ?>

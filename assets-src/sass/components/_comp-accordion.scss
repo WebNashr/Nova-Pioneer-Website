@@ -12,7 +12,7 @@ ul.toggle-list {
     }
 }
 
-ul.toggle-list li {
+ul.toggle-list > li {
     width: 100%;
     margin: 0;
     padding: 1.25rem 0;
@@ -59,7 +59,7 @@ ul.toggle-list li {
     }
 }
 
-ul.toggle-list.toggle-list-plus li {
+ul.toggle-list.toggle-list-plus > li {
     &:before {
         @include font-size(32px);
         content: "+";
@@ -116,5 +116,17 @@ ul.toggle-list.toggle-list-plus li {
     .show & {
         display: block;
         margin-top: 1rem;
+    }
+}
+
+li {
+    .toggle-list-content & {
+        margin-left: 1rem;
+    }
+}
+
+li::before {
+    .toggle-list-content & {
+        color: $blue-lt;
     }
 }
