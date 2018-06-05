@@ -29,11 +29,13 @@ get_header();?>
         </section>
 
 
+        <!--
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
                 <?php the_content();?>
             </article>
         </section>
+        -->
 
 
         <?php
@@ -87,7 +89,7 @@ get_header();?>
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while(have_rows($intro)): the_row();?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-plain new-card-item-quarter">
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-plain new-card-item-centre new-card-item-quarter">
                             <figure class="new-card-img" style="margin: 1.5rem auto 0;">
                                 <img src="<?php the_sub_field('icon'); ?>" alt="">
                             </figure>

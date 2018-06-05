@@ -98,6 +98,10 @@
     }
 }
 
+.new-card-item.new-card-item-centre * {
+    text-align: center;
+}
+
 .new-card-item-plain {
     &:nth-child(1) {
         h3 {
