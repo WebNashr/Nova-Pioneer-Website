@@ -52,7 +52,18 @@ get_header();?>
                     <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
                         <figure class="alternating-item-img">
                             <!--<img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">-->
-                            <img src="<?php echo the_sub_field('image'); ?>">
+                            <!--<img src="<?php echo the_sub_field('image'); ?>">-->
+                            <img src="
+                                <?php
+                                    // $image = get_field('image');
+                                    $image = the_sub_field('image');
+                                    $size = '16-9-large'; // (thumbnail, medium, large, full or custom size)
+
+                                    if( $image ) {
+                                        echo wp_get_attachment_image( $image, $size );
+                                    }
+                                ?>
+                            ">
                         </figure>
 
                         <div class="alternating-item-copy">
@@ -190,12 +201,13 @@ get_header();?>
         </section>
 
 
+        <!--hide this for now-->
         <?php
             $field = 'faq';
             $sub_field_1 = 'question';
             $sub_field_2 = 'answer';
         ?>
-        <section class="section">
+        <section class="section" style="display: none;">
             <section class="faqs-container">
                 <article class="article article-inner article-inner-alt ">
                     <h2 id="faqs">Frequently Asked Questions</h2>
