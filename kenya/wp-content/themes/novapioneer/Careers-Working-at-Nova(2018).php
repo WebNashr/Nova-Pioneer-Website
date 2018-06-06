@@ -174,18 +174,21 @@ get_header();?>
                     <?php while(have_rows($opp)): the_row();?>
                     <div class="opportunity opportunity-<?php echo $i + 1;?> alternating-item-xxx">
                         <figure class="opportunity-img">
-                            <!--<img src="<?php echo the_sub_field('image'); ?>">-->
-                            <img src="
-                                <?php
-                                    // $image = get_field('image');
-                                    $image = the_sub_field('image');
-                                    $size = '16-9-large'; // (thumbnail, medium, large, full or custom size)
+                            <?php $image = get_sub_field('image'); ?>
 
-                                    if( $image ) {
-                                        echo wp_get_attachment_image( $image, $size );
-                                    }
-                                ?>
-                            ">
+                            <?php if( !empty($image) ):
+                                // vars
+                                $url = $image['url'];
+                                $title = $image['title'];
+                                $alt = $image['alt'];
+
+                                // thumbnail
+                                $size = '4-3-large';
+                                $thumb = $image['sizes'][ $size ];
+                            ?>
+
+                            <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
+                            <?php endif; ?>
                         </figure>
 
                         <div class="opportunity-copy">
