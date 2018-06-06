@@ -45,7 +45,7 @@ get_header();?>
             $_paragraph = 'paragraph';
         ?>
         <?php if(have_rows($field)): ?>
-        <section class="section">
+        <section class="section" style="display: none;">
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
                     <?php while(have_rows($field)): the_row();?>
@@ -71,6 +71,41 @@ get_header();?>
                         <div class="alternating-item-copy">
                             <h2><?php the_sub_field('title');?></h2>
                             <p><?php the_sub_field('paragraph');?></p>
+                            <!--<blockquote><?php the_sub_field('quote') ?></blockquote>-->
+                        </div>
+                    </div>
+                    <?php endwhile;?>
+                </div>
+            </article>
+        </section>
+
+        <section class="section">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
+                    <?php while(have_rows($field)): the_row();?>
+                    <div class="card-XXX admission-step-XXX new-card-item new-card-item-half">
+                        <figure class="alternating-item-img-XXX">
+                            <?php $image = get_sub_field('image'); ?>
+
+                            <?php if( !empty($image) ):
+                                // vars
+                                $url = $image['url'];
+                                $title = $image['title'];
+                                $alt = $image['alt'];
+
+                                // thumbnail
+                                $size = '4-3-large';
+                                $thumb = $image['sizes'][ $size ];
+                            ?>
+
+                            <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
+                            <?php endif; ?>
+                        </figure>
+
+                        <div class="new-card-copy new-card-copy-hover" style="display: noneX;">
+                            <p><span></span><?php the_sub_field('paragraph');?></p>
+                            <h2><?php the_sub_field('title');?></h2>
+
                             <!--<blockquote><?php the_sub_field('quote') ?></blockquote>-->
                         </div>
                     </div>
