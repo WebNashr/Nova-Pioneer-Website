@@ -174,19 +174,6 @@ get_header();?>
                     <?php while(have_rows($opp)): the_row();?>
                     <div class="opportunity opportunity-<?php echo $i + 1;?> alternating-item-xxx">
                         <figure class="opportunity-img">
-                            <!--<img src="<?php echo the_sub_field('image'); ?>">-->
-                            <img style="display: none;" src="
-                                <?php
-                                    // $image = get_field('image');
-                                    $image = the_sub_field('image');
-                                    $size = 'thumbnail'; // (thumbnail, medium, large, full or custom size)
-
-                                    if( $image ) {
-                                        echo wp_get_attachment_image( $image, $size );
-                                    }
-                                ?>
-                            ">
-
                             <?php $image = get_sub_field('image'); ?>
 
                             <?php if( !empty($image) ):
@@ -194,27 +181,13 @@ get_header();?>
                                 $url = $image['url'];
                                 $title = $image['title'];
                                 $alt = $image['alt'];
-                                $caption = $image['caption'];
 
                                 // thumbnail
                                 $size = '4-3-large';
                                 $thumb = $image['sizes'][ $size ];
-                                $width = $image['sizes'][ $size . '-width' ];
-                                $height = $image['sizes'][ $size . '-height' ];
                             ?>
 
-                                <?php if( $caption ): ?>
-                                    <div class="wp-caption">
-                                        <?php endif; ?>
-
-                                        <a href="<?php echo $url; ?>" title="<?php echo $title; ?>">
-                                            <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
-                                        </a>
-
-                                        <?php if( $caption ): ?>
-                                        <p class="wp-caption-text"><?php echo $caption; ?></p>
-                                    </div>
-                                <?php endif; ?>
+                            <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
                             <?php endif; ?>
                         </figure>
 
