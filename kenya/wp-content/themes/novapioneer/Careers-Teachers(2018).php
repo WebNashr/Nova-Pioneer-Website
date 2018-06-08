@@ -75,12 +75,6 @@ get_header();?>
                     <?php while(have_rows($body)): the_row();?>
                     <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
                         <figure class="alternating-item-img">
-                            <!--<img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">-->
-                            <!--<img src="<?php echo the_sub_field('image'); ?>">-->
-                            <!--<img
-                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '4-3-small')[0]; ?>"
-                                alt="<?php the_title();?>"
-                            >-->
                             <?php $image = get_sub_field('image'); ?>
 
                             <?php if( !empty($image) ):
@@ -96,12 +90,19 @@ get_header();?>
 
                             <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
                             <?php endif; ?>
+
+                            <figcaption>
+                                <blockquote>
+                                    <?php the_sub_field('quote') ?>
+                                    <cite><?php the_sub_field('quote_by') ?></cite>
+                                </blockquote>
+                            </figcaption>
                         </figure>
 
                         <div class="alternating-item-copy">
                             <h2><?php the_sub_field('title');?></h2>
                             <p><?php the_sub_field('paragraph');?></p>
-                            <blockquote><?php the_sub_field('quote') ?></blockquote>
+                            <!--<blockquote><?php the_sub_field('quote') ?></blockquote>-->
                         </div>
                     </div>
                     <?php endwhile;?>

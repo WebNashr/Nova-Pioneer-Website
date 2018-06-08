@@ -616,6 +616,7 @@
     order: 1;
     display: block;
     width: 100%;
+    overflow: hidden;
 
     @include break-point(laptop) {
         width: 47.5%;
@@ -623,6 +624,41 @@
         .alternating-item:nth-child(even) & {
             order: 2;
         }
+    }
+}
+
+.alternating-item-img figcaption {
+    @include flexbox();
+    position: absolute;
+    top: 0;
+    left: -709px;
+    width: 100%;
+    height: 100%;
+    // background: #ffce01;
+    transition: $ease;
+
+    .alternating-item:nth-child(1) & {
+        background: rgba($orange-lt, 0.875);
+    }
+
+    .alternating-item:nth-child(2) & {
+        background: rgba($green-lt, 0.875);
+    }
+
+    .alternating-item:nth-child(3) & {
+        background: rgba($blue-lt, 0.875);
+    }
+
+    .alternating-item:nth-child(4) & {
+        background: rgba($green-dk, 0.875);
+    }
+
+    .alternating-item:nth-child(5) & {
+        background: rgba($orange-dk, 0.875);
+    }
+
+    .alternating-item:nth-child(6) & {
+        background: rgba($raspberry, 0.875);
     }
 }
 
@@ -712,6 +748,30 @@
     }
 }
 
+.alternating-item-img figcaption blockquote {
+    align-self: center;
+    // margin-left: 2.5rem;
+    padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+    // border-left: 6px dotted $white;
+
+    p {
+        display: inline-block;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        color: $white;
+    }
+
+    cite {
+        display: block;
+        margin-top: 1rem;
+        font-family: Georgia, serif;
+        font-size: 1rem;
+        color: $white;
+    }
+}
+
+
+
 .alternating-item-copy .button {
     margin-top: 1.5rem;
 
@@ -737,6 +797,14 @@
 
     .alternating-item:nth-child(6) & {
         background: $raspberry;
+    }
+}
+
+.alternating-item:hover {
+    background: $grey-lt;
+
+    figcaption {
+        left: 0;
     }
 }
 
