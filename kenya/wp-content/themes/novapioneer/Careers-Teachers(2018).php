@@ -69,7 +69,7 @@ get_header();?>
             $body = 'body';
             if(have_rows($body)):
         ?>
-        <section class="section section-no-bottom">
+        <section class="section section-no-bottom-XXX">
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
                     <?php while(have_rows($body)): the_row();?>
