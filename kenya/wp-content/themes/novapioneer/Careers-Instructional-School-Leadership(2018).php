@@ -212,7 +212,10 @@ get_header();?>
                     <?php while($featured_leader->have_posts()): $featured_leader->the_post(); ?>
                     <div class="new-card-item new-card-item-plain new-card-item-quarter">
                         <figure class="new-card-img">
-                            <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
+                            <img
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'square-medium')[0]; ?>"
+                                alt="<?php the_title();?>"
+                            >
                         </figure>
 
                         <div class="new-card-copy">
