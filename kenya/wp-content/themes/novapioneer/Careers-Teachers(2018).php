@@ -76,7 +76,26 @@ get_header();?>
                     <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
                         <figure class="alternating-item-img">
                             <!--<img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">-->
-                            <img src="<?php echo the_sub_field('image'); ?>">
+                            <!--<img src="<?php echo the_sub_field('image'); ?>">-->
+                            <!--<img
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '4-3-small')[0]; ?>"
+                                alt="<?php the_title();?>"
+                            >-->
+                            <?php $image = get_sub_field('image'); ?>
+
+                            <?php if( !empty($image) ):
+                                // vars
+                                $url = $image['url'];
+                                $title = $image['title'];
+                                $alt = $image['alt'];
+
+                                // thumbnail
+                                $size = '4-3-large';
+                                $thumb = $image['sizes'][ $size ];
+                            ?>
+
+                            <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
+                            <?php endif; ?>
                         </figure>
 
                         <div class="alternating-item-copy">
@@ -92,6 +111,7 @@ get_header();?>
         <?php endif;?>
 
 
+        <!--hide this for now-->
         <?php
             $app_program = 'teacher_apprentice_program';
             if(have_rows($app_program)):
@@ -125,7 +145,8 @@ get_header();?>
 
 
 
-        <section class="section section-no-bottom">
+        <!--hide this for now-->
+        <section class="section section-no-bottom" style="display: none;">
             <figure class="interrupter-image">
                 <img src="<?php the_field('teacher_apprentice_programme_image') ?>" alt="">
             </figure>
@@ -176,7 +197,10 @@ get_header();?>
                     <?php while($featured_teacher->have_posts()): $featured_teacher->the_post(); ?>
                     <div class="new-card-item new-card-item-plain new-card-item-quarter">
                         <figure class="new-card-img">
-                            <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
+                            <img
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'square-medium')[0]; ?>"
+                                alt="<?php the_title();?>"
+                            >
                         </figure>
 
                         <div class="new-card-copy">
