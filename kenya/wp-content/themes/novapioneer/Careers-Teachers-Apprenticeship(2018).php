@@ -32,10 +32,10 @@ get_header();?>
         ?>
         <section class="section section-no-bottom section-page-intro">
             <article class="article">
-                    <?php if($field):?>
-                        <h2><?php echo $field;?></h2>
-                    <?php endif; ?>
-                <?php the_content();?>
+                <?php if($field):?>
+                    <h2><?php echo $field;?></h2>
+                <?php endif; ?>
+                <h2><?php the_content();?></h2>
             </article>
         </section>
 
