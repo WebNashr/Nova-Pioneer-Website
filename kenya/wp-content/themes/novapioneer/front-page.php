@@ -54,9 +54,15 @@ get_header(); ?>
                         class="section-school-list-select"
                     >
 
-                        <img
+                        <!--<img
                             class="school-photo"
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-small')[0]; ?>"
+                            alt="<?php echo $school->post_title; ?>"
+                        >-->
+
+                        <img
+                            class="school-photo"
+                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-large')[0]; ?>"
                             alt="<?php echo $school->post_title; ?>"
                         >
 
@@ -310,7 +316,7 @@ get_header(); ?>
                     <div class="section-content-item section-content-item-quarter profile">
                         <div class="image-wrap">
                             <img
-                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'profile-square')[0]; ?>"
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'square-small')[0]; ?>"
                                 alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                                 class="profile-img">
                         </div>
@@ -375,7 +381,7 @@ get_header(); ?>
                         <?php foreach (get_field('testimonials') as $testimonial): $testimonial = (object)$testimonial; ?>
                             <li class="single-testimonial">
                                 <figure class="full-width-figure">
-                                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'thumbnail'); ?>">
+                                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'square-small'); ?>">
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
