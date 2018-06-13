@@ -57,7 +57,8 @@ $has_venue_address = ( ! empty( $venue_details['address'] ) ) ? ' location' : ''
 <?php do_action( 'tribe_events_after_the_meta' ) ?>
 
 <!-- Event Image -->
-<?php echo tribe_event_featured_image( null, 'medium' ); ?>
+<?php //echo tribe_event_featured_image( null, 'medium' ); ?>
+<?php echo tribe_event_featured_image( null, '16-9-large' ); ?>
 
 <!-- Event Content -->
 <?php do_action( 'tribe_events_before_the_content' ) ?>

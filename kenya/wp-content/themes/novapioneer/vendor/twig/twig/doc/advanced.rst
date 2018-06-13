@@ -240,7 +240,7 @@ When a filter should accept an arbitrary number of arguments, set the
 ``is_variadic`` option to ``true``; Twig will pass the extra arguments as the
 last argument to the filter call as an array::
 
-    $filter = new Twig_SimpleFilter('thumbnail', function ($file, array $options = array()) {
+    $filter = new Twig_SimpleFilter('square-small', function ($file, array $options = array()) {
         // ...
     }, array('is_variadic' => true));
 

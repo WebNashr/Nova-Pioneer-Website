@@ -208,7 +208,7 @@ get_header(); ?>
                     <div class="section-content-item section-content-item-quarter profile school-team">
                         <div class="image-wrap">
                             <img
-                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'profile-square')[0]; ?>"
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'square-small')[0]; ?>"
                                 alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
                                 class="profile-img">
                         </div>
@@ -234,7 +234,7 @@ get_header(); ?>
                                 $images = get_field('gallery');
                                 foreach ($images as $thumb): ?>
                                     <li><a href="#slide<?php echo $th ?>" data-slide="<?php echo $th ?>"><img
-                                                src="<?php echo $thumb['sizes']['thumbnail'] ?>"> </a></li>
+                                                src="<?php echo $thumb['sizes']['square-small'] ?>"> </a></li>
                                     <?php $th++; endforeach; ?>
 
                             </ul>
@@ -293,7 +293,7 @@ get_header(); ?>
                             <li class="single-testimonial">
                                 <figure class="full-width-figure">
                                     <img
-                                        src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'profile-square'); ?>">
+                                        src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'square-small'); ?>">
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">
