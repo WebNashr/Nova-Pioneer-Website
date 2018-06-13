@@ -97,7 +97,7 @@ get_header(); ?>
                           <div class="image-wrap">
                             <div class="image-flip">
                                 <img
-                                    src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($leader->ID), 'profile-square')[0]; ?>"
+                                    src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($leader->ID), 'square-profile')[0]; ?>"
                                     alt="<?php echo $leader->post_title; ?>">
                                 <img src="<?php echo $flip_photo; ?>" alt="<?php echo $leader->post_title; ?>">
                             </div>
@@ -105,7 +105,7 @@ get_header(); ?>
                         <?php else: ?>
                           <div class="image-wrap">
                             <img
-                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($leader->ID), 'profile-square')[0]; ?>"
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($leader->ID), 'square-profile')[0]; ?>"
                                 alt="<?php echo $leader->post_title; ?>">
                           </div>
                         <?php endif; ?>
@@ -121,7 +121,7 @@ get_header(); ?>
 
 
         <section class="section section-pair team-profile-container" id="management">
-             <h2 class="centered-title">Nova Pioneer Management</h2> 
+             <h2 class="centered-title">Nova Pioneer Management</h2>
 
             <div class="section-content section-content-plain np-management-profiles">
               <!--<h2 class="centered-title" id="management">Nova Pioneer Management</h2>-->
@@ -132,7 +132,7 @@ get_header(); ?>
                           <div class="image-wrap">
                             <div class="image-flip">
                                 <img
-                                    src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($manager->ID), 'profile-square')[0]; ?>"
+                                    src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($manager->ID), 'square-profile')[0]; ?>"
                                     alt="<?php echo $manager->post_title; ?>">
                                 <img src="<?php echo $flip_photo; ?>" alt="<?php echo $manager->post_title; ?>">
                             </div>
@@ -140,7 +140,7 @@ get_header(); ?>
                         <?php else: ?>
                           <div class="image-wrap">
                             <img
-                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($manager->ID), 'profile-square')[0]; ?>"
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($manager->ID), 'square-profile')[0]; ?>"
                                 alt="<?php echo $manager->post_title; ?>">
                           </div>
                         <?php endif; ?>
@@ -167,7 +167,7 @@ get_header(); ?>
                                   <div class="image-wrap">
                                     <div class="image-flip">
                                         <img
-                                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'profile-square')[0]; ?>"
+                                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'square-profile')[0]; ?>"
                                             alt="<?php echo $member->post_title; ?>">
                                         <img src="<?php echo $flip_photo; ?>" alt="<?php echo $member->post_title; ?>">
                                     </div>
@@ -175,7 +175,7 @@ get_header(); ?>
                                 <?php else: ?>
                                   <div class="image-wrap">
                                     <img
-                                        src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'profile-square')[0]; ?>"
+                                        src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'square-profile')[0]; ?>"
                                         alt="<?php echo $member->post_title; ?>">
                                   </div>
                                 <?php endif; ?>
