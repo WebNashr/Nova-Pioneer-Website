@@ -381,7 +381,7 @@ get_header(); ?>
                         <?php foreach (get_field('testimonials') as $testimonial): $testimonial = (object)$testimonial; ?>
                             <li class="single-testimonial">
                                 <figure class="full-width-figure">
-                                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'thumbnail'); ?>">
+                                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'square-small'); ?>">
                                 </figure>
                                 <blockquote>
                                     <svg aria-hidden="true">

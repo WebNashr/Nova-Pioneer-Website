@@ -234,7 +234,7 @@ get_header(); ?>
                                 $images = get_field('gallery');
                                 foreach ($images as $thumb): ?>
                                     <li><a href="#slide<?php echo $th ?>" data-slide="<?php echo $th ?>"><img
-                                                src="<?php echo $thumb['sizes']['thumbnail'] ?>"> </a></li>
+                                                src="<?php echo $thumb['sizes']['square-small'] ?>"> </a></li>
                                     <?php $th++; endforeach; ?>
 
                             </ul>
