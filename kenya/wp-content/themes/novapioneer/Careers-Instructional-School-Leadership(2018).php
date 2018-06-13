@@ -34,7 +34,7 @@ get_header();?>
                 <?php if($title):?>
                 <h2><?php echo $title ?></h2>
                 <?php endif;?>
-                <?php echo the_content(); ?>
+                <h2><?php the_content();?></h2>
             </article>
         </section>
 
