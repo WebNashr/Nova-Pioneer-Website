@@ -35,7 +35,8 @@ get_header();?>
                 <?php if($field):?>
                     <h2><?php echo $field;?></h2>
                 <?php endif; ?>
-                <?php echo the_content();?>
+
+                <h2><?php the_content();?></h2>
             </article>
         </section>
         <br>
