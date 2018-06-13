@@ -54,9 +54,15 @@ get_header(); ?>
                         class="section-school-list-select"
                     >
 
-                        <img
+                        <!--<img
                             class="school-photo"
                             src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-small')[0]; ?>"
+                            alt="<?php echo $school->post_title; ?>"
+                        >-->
+
+                        <img
+                            class="school-photo"
+                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '4-3-small')[0]; ?>"
                             alt="<?php echo $school->post_title; ?>"
                         >
 
