@@ -213,7 +213,7 @@ class Meta_Slider extends Integration {
 			return;
 		}
 
-		if ( ! $this->as3cf->is_plugin_setup() ) {
+		if ( ! $this->as3cf->is_plugin_setup( true ) ) {
 			return;
 		}
 

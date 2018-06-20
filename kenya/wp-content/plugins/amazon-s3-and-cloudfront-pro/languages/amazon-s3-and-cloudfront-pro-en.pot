@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amazon-s3-and-cloudfront-pro\n"
 "Report-Msgid-Bugs-To: nom@deliciousbrains.com\n"
-"POT-Creation-Date: 2017-07-11 14:28+0100\n"
+"POT-Creation-Date: 2018-02-22 21:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,137 +17,177 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: classes/amazon-s3-and-cloudfront.php:122
-msgid "Offload S3 Lite"
-msgstr ""
-
 #: classes/amazon-s3-and-cloudfront.php:123
-msgid "S3 and CloudFront"
+#: classes/amazon-s3-and-cloudfront.php:124
+msgid "Offload S3"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:232
-#: view/bucket-setting.php:18
+#: classes/amazon-s3-and-cloudfront.php:254
+#: view/bucket-setting.php:17
+#: view/pro/licence-settings.php:22
+#: view/settings/settings.php:76
+#: view/settings/settings.php:93
 msgid "defined in wp-config.php"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:900
-msgid "Upload aborted by filter 'as3cf_pre_upload_attachment'"
+#: classes/amazon-s3-and-cloudfront.php:781
+msgid "Access keys updated successfully."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:911
-#: classes/amazon-s3-and-cloudfront.php:1071
+#: classes/amazon-s3-and-cloudfront.php:786
+msgid ""
+"All access key constants must be removed before keys can be set in the "
+"database."
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:794
+msgid "The Access Key ID must be set."
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:799
+#: classes/amazon-s3-and-cloudfront.php:2871
+#: view/settings/settings.php:88
+msgctxt "placeholder for hidden access key, 39 char max"
+msgid "-- not shown --"
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:803
+msgid "The Secret Access Key must be at least 40 characters long."
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:824
+msgid "Access keys removed from the database successfully."
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:1012
+#: classes/amazon-s3-and-cloudfront.php:1170
 #, php-format
 msgid "File %s does not exist"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:922
+#: classes/amazon-s3-and-cloudfront.php:1023
 #, php-format
 msgid "Mime type %s is not allowed"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:1007
-#: classes/amazon-s3-and-cloudfront.php:1079
+#: classes/amazon-s3-and-cloudfront.php:1106
+#: classes/amazon-s3-and-cloudfront.php:1178
 #, php-format
 msgid "Error uploading %s to S3: %s"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2223
+#: classes/amazon-s3-and-cloudfront.php:2324
 msgid "Cheatin&#8217; eh?"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2227
+#: classes/amazon-s3-and-cloudfront.php:2328
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2233
+#: classes/amazon-s3-and-cloudfront.php:2334
 msgid "No bucket name provided."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2497
+#: classes/amazon-s3-and-cloudfront.php:2637
 msgid "Error Getting Bucket Region"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2498
+#: classes/amazon-s3-and-cloudfront.php:2638
 #, php-format
 msgid "There was an error attempting to get the region of the bucket %s: %s"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2626
+#: classes/amazon-s3-and-cloudfront.php:2776
 msgid ""
 "This is a test file to check if the user has write permission to S3. Delete "
 "me if found."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2645
+#: classes/amazon-s3-and-cloudfront.php:2795
 #, php-format
 msgid ""
 "There was an error attempting to check the permissions of the bucket %s: %s"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2699
+#: classes/amazon-s3-and-cloudfront.php:2861
 msgid "Error creating bucket"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2700
+#: classes/amazon-s3-and-cloudfront.php:2862
 msgid "Bucket name too short."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2701
+#: classes/amazon-s3-and-cloudfront.php:2863
 msgid "Bucket name too long."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2702
+#: classes/amazon-s3-and-cloudfront.php:2864
 msgid ""
 "Invalid character. Bucket names can contain lowercase letters, numbers, "
 "periods and hyphens."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2703
+#: classes/amazon-s3-and-cloudfront.php:2865
 msgid "Error saving bucket"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2704
+#: classes/amazon-s3-and-cloudfront.php:2866
 msgid "Error fetching buckets"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2705
+#: classes/amazon-s3-and-cloudfront.php:2867
 msgid "Error getting URL preview: "
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2706
+#: classes/amazon-s3-and-cloudfront.php:2868
 msgid "The changes you made will be lost if you navigate away from this page"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2707
+#: classes/amazon-s3-and-cloudfront.php:2869
 msgid "Getting diagnostic info..."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2708
+#: classes/amazon-s3-and-cloudfront.php:2870
 msgid "Error getting diagnostic info: "
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2776
+#: classes/amazon-s3-and-cloudfront.php:2873
+#: classes/amazon-s3-and-cloudfront.php:4583
+msgid "Settings saved."
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:2943
 msgid "Cheatin' eh?"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2883
+#: classes/amazon-s3-and-cloudfront.php:2992
 msgctxt "Show the media library tab"
 msgid "Media Library"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:2884
+#: classes/amazon-s3-and-cloudfront.php:2993
+msgctxt "Show the addons tab"
+msgid "Addons"
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:2994
+msgctxt "Show the settings tab"
+msgid "Settings"
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:2995
 msgctxt "Show the support tab"
 msgid "Support"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3101
+#: classes/amazon-s3-and-cloudfront.php:3230
 #, php-format
 msgid ""
 "<strong>WP Offload S3</strong> &mdash; The file %s has been given %s "
 "permissions on Amazon S3."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3120
+#: classes/amazon-s3-and-cloudfront.php:3249
 msgid ""
 "<strong>WP Offload S3 Requirement Missing</strong> &mdash; Looks like you "
 "don't have an image manipulation library installed on this server and "
@@ -155,11 +195,17 @@ msgid ""
 "Please setup GD or ImageMagick."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3729
+#: classes/amazon-s3-and-cloudfront.php:3863
+#, php-format
+msgid ""
+"<a href=\"%s\">Define your AWS keys</a> to enable write access to the bucket"
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:3870
 msgid "Quick Start Guide"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3731
+#: classes/amazon-s3-and-cloudfront.php:3872
 #, php-format
 msgid ""
 "Looks like we don't have write access to this bucket. It's likely that the "
@@ -168,7 +214,7 @@ msgid ""
 "correctly."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3733
+#: classes/amazon-s3-and-cloudfront.php:3874
 #, php-format
 msgid ""
 "Looks like we don't have access to the buckets. It's likely that the user "
@@ -176,39 +222,39 @@ msgid ""
 "Please see our %s for instructions on setting up permissions correctly."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3883
+#: classes/amazon-s3-and-cloudfront.php:4024
 msgid "WP Offload S3 Activation"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3884
+#: classes/amazon-s3-and-cloudfront.php:4025
 msgid ""
 "WP Offload S3 Lite and WP Offload S3 cannot both be active. We've "
 "automatically deactivated WP Offload S3 Lite."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3886
+#: classes/amazon-s3-and-cloudfront.php:4027
 msgid "WP Offload S3 Lite Activation"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3887
+#: classes/amazon-s3-and-cloudfront.php:4028
 msgid ""
 "WP Offload S3 Lite and WP Offload S3 cannot both be active. We've "
 "automatically deactivated WP Offload S3."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:3939
-msgid "More info"
+#: classes/amazon-s3-and-cloudfront.php:4080
+msgid "More&nbsp;info&nbsp;&raquo;"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:4034
+#: classes/amazon-s3-and-cloudfront.php:4175
 msgid "this doc"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:4036
+#: classes/amazon-s3-and-cloudfront.php:4177
 msgid "WP Offload S3 Feature Removed"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:4037
+#: classes/amazon-s3-and-cloudfront.php:4178
 #, php-format
 msgid ""
 "You had the \"Always non-SSL\" option selected in your settings, but we've "
@@ -219,33 +265,175 @@ msgid ""
 "to the old behavior."
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:4067
-#: classes/amazon-s3-and-cloudfront.php:4165
+#: classes/amazon-s3-and-cloudfront.php:4208
+#: classes/amazon-s3-and-cloudfront.php:4317
 msgid "Amazon S3"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:4166
+#: classes/amazon-s3-and-cloudfront.php:4318
 msgctxt "Amazon S3 bucket"
 msgid "Bucket"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:4167
+#: classes/amazon-s3-and-cloudfront.php:4319
 msgctxt "Path to file on Amazon S3"
 msgid "Path"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:4168
+#: classes/amazon-s3-and-cloudfront.php:4320
 msgctxt "Location of Amazon S3 bucket"
 msgid "Region"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:4169
+#: classes/amazon-s3-and-cloudfront.php:4321
 msgctxt "Access control list of the file on Amazon S3"
 msgid "Access"
 msgstr ""
 
-#: classes/amazon-s3-and-cloudfront.php:4170
+#: classes/amazon-s3-and-cloudfront.php:4322
 msgid "URL"
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:4546
+msgid "Assets Pull"
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:4547
+msgid ""
+"An addon for WP Offload S3 to serve your site's JS, CSS, and other enqueued "
+"assets from Amazon CloudFront or another CDN."
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:4551
+msgid "Feature"
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:4597
+#, php-format
+msgid ""
+"<strong>Amazon Web Services Plugin No Longer Required</strong> &mdash; As of "
+"version 1.6 of WP Offload S3, the <a href=\"%1$s\">Amazon Web Services</a> "
+"plugin is no longer required. We have removed the dependency by bundling a "
+"small portion of the AWS SDK into WP Offload S3. As long as none of your "
+"other active plugins or themes depend on the Amazon Web Services plugin, it "
+"should be safe to deactivate and delete it. %2$s"
+msgstr ""
+
+#: classes/amazon-s3-and-cloudfront.php:4629
+#, php-format
+msgid ""
+"<strong>WP Offload S3 Settings Moved</strong> &mdash; You now define your "
+"AWS keys for WP Offload S3 in the new <a href=\"%1$s\">Settings tab</a>. "
+"Saving settings in the form below will have no effect on WP Offload S3. %2$s"
+msgstr ""
+
+#: classes/amazon-web-services.php:148
+#, php-format
+msgid ""
+"You must first <a href=\"%s\">set your AWS access keys</a> to use this addon."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:317
+msgid "deactivate"
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:318
+#, php-format
+msgid "You can %s the %s plugin to get rid of this notice."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:336
+#, php-format
+msgid "%s has been disabled as it requires the %s plugin."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:340
+msgid "which is currently disabled."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:342
+msgid "It appears to be installed already."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:344
+msgctxt "Activate plugin"
+msgid "Activate it now."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:351
+#, php-format
+msgid "<a href=\"%s\">Install</a> and activate it."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:362
+#, php-format
+msgid ""
+"%s has been disabled as it requires version %s or later of the %s plugin."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:365
+#, php-format
+msgid "You currently have version %s installed."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:372
+#: classes/as3cf-compatibility-check.php:410
+#, php-format
+msgid "A valid license for %s is required to update."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:381
+msgid "Update to the latest version"
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:392
+#, php-format
+msgid ""
+"%1$s has been disabled because it is not a supported addon of the %2$s "
+"plugin."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:401
+#, php-format
+msgid ""
+"%1$s has been disabled because it will not work with the version of the %2$s "
+"plugin installed. %1$s %3$s or later is required."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:404
+#, php-format
+msgid "Update %s to the latest version"
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:473
+#, php-format
+msgid "The %s plugin has been deactivated."
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:619
+msgid "a PHP version less than 5.3.3"
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:623
+msgid "no PHP cURL library activated"
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:629
+msgid "a cURL version less than 7.16.2"
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:644
+msgid "cURL compiled without"
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:649
+msgid "the function curl_multi_exec disabled"
+msgstr ""
+
+#: classes/as3cf-compatibility-check.php:667
+msgid ""
+"The official Amazon&nbsp;Web&nbsp;Services SDK requires PHP 5.3.3+ and cURL "
+"7.16.2+ compiled with OpenSSL and zlib. Your server currently has"
 msgstr ""
 
 #: classes/as3cf-notices.php:431
@@ -256,112 +444,118 @@ msgstr ""
 msgid "Invalid notice ID."
 msgstr ""
 
-#: classes/as3cf-plugin-compatibility.php:512
+#: classes/as3cf-plugin-base.php:461
+msgid "Settings"
+msgstr ""
+
+#: classes/as3cf-plugin-compatibility.php:570
 #, php-format
 msgid "The local directory %s does not exist and could not be created."
 msgstr ""
 
-#: classes/as3cf-plugin-compatibility.php:513
-#: classes/as3cf-plugin-compatibility.php:525
+#: classes/as3cf-plugin-compatibility.php:571
+#: classes/as3cf-plugin-compatibility.php:583
 #: classes/upgrades/upgrade-meta-wp-error.php:81
 #, php-format
 msgid "There was an error attempting to download the file %s from S3: %s"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:238
+#: classes/as3cf-plugin-compatibility.php:891
+#, php-format
+msgid ""
+"<strong>Warning:</strong> This site is using PHP %1$s, in a future update WP "
+"Offload S3 will require PHP %2$s or later. %3$s"
+msgstr ""
+
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:255
 msgid "Copy to S3"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:239
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:256
 msgid "Remove from S3"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:240
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:257
 msgid "Copy to Server from S3"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:241
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:258
 msgid ""
 "This file does not exist locally so removing it from S3 will result in "
 "broken links on your site. Are you sure you want to continue?"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:242
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:259
 msgid ""
 "Some files do not exist locally so removing them from S3 will result in "
 "broken links on your site. Are you sure you want to continue?"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:243
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:260
 msgid "Click to set as Private on S3"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:244
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:261
 msgid "Click to set as Public on S3"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:245
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:262
 msgid "Updating…"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:246
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:263
 msgid ""
 "There was an error changing the ACL. Make sure the IAM user has permission "
 "to change the ACL and try again."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:309
-msgctxt "Show the license and support tab"
-msgid "License & Support"
-msgstr ""
-
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:323
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:318
 msgid ""
 "Alternatively, use the Media Library bulk action <strong>Copy to Server from "
 "S3</strong> to ensure the local files exist."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:823
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:880
 msgid "Edit attachment"
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:842
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:899
 msgid "Media successfully copied to S3."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:843
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:900
 msgid "Media copied to S3 with some errors."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:844
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:901
 msgid "There were errors when copying the media to S3."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:847
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:904
 msgid "Media successfully removed from S3."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:848
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:905
 msgid "Media removed from S3, with some errors."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:849
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:906
 msgid "There were errors when removing the media from S3."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:852
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:909
 msgid "Media successfully downloaded from S3."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:853
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:910
 msgid "Media downloaded from S3, with some errors."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:854
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:911
 msgid "There were errors when downloading the media from S3."
 msgstr ""
 
-#: classes/pro/amazon-s3-and-cloudfront-pro.php:1062
+#: classes/pro/amazon-s3-and-cloudfront-pro.php:1127
 #, php-format
 msgid "There were %s errors downloading files for attachment ID %s from S3"
 msgstr ""
@@ -372,129 +566,158 @@ msgstr ""
 msgid "Every %d Minutes"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:154
+#: classes/pro/as3cf-pro-licences-updates.php:160
 #: vendor/deliciousbrains/updates.php:193
 msgid "A problem occurred when trying to check the license, please try again."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:156
+#: classes/pro/as3cf-pro-licences-updates.php:162
 msgid "Please enter your license key."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:157
+#: classes/pro/as3cf-pro-licences-updates.php:163
 msgid ""
 "A problem occurred when trying to register the license, please try again."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:158
+#: classes/pro/as3cf-pro-licences-updates.php:164
 msgid ""
 "Your license has been activated. You will now receive automatic updates and "
 "access to email support."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:159
+#: classes/pro/as3cf-pro-licences-updates.php:165
 msgid "Fetching license details, please wait&hellip;"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:160
+#: classes/pro/as3cf-pro-licences-updates.php:166
 msgid ""
 "An error occurred when trying to reactivate your license. Please contact "
 "support."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:161
+#: classes/pro/as3cf-pro-licences-updates.php:167
 msgid "Attempting to activate your license, please wait&hellip;"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:162
+#: classes/pro/as3cf-pro-licences-updates.php:168
 msgctxt "Current request status"
 msgid "Status"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:163
+#: classes/pro/as3cf-pro-licences-updates.php:169
 msgctxt "The message the server responded with"
 msgid "Response"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:164
+#: classes/pro/as3cf-pro-licences-updates.php:170
 msgid "License successfully activated, please wait&hellip;"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:165
+#: classes/pro/as3cf-pro-licences-updates.php:171
 msgid ""
 "<strong>We've temporarily activated your licence and will complete the "
 "activation once the Delicious Brains API is available again.</strong><br /"
 ">Please refresh this page to continue."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:201
+#: classes/pro/as3cf-pro-licences-updates.php:200
 msgid "Upgrade"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:209
+#: classes/pro/as3cf-pro-licences-updates.php:208
 msgid "Download"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:312
+#: classes/pro/as3cf-pro-licences-updates.php:328
 msgid "Activate Your License"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:321
+#: classes/pro/as3cf-pro-licences-updates.php:342
 #, php-format
-msgid "Renew Your%s License"
+msgid "Your %s License Has Expired"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:333
+#: classes/pro/as3cf-pro-licences-updates.php:344
+msgid "Your License Has Expired"
+msgstr ""
+
+#: classes/pro/as3cf-pro-licences-updates.php:349
+msgid ""
+"All features will continue to work, but you won't have access to software "
+"updates or email support."
+msgstr ""
+
+#: classes/pro/as3cf-pro-licences-updates.php:363
 #, php-format
 msgid ""
 "The total number of attachments across the media libraries for your installs "
-"(%s) has %s the limit for your license (%s)."
+"(%1$s) is approaching the limit for your license (%2$s)."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:334
+#: classes/pro/as3cf-pro-licences-updates.php:369
 #, php-format
-msgid "Upgrade Your%s License"
+msgid "Approaching %s License Limit"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:338
-#, php-format
-msgid ""
-"The total number of attachments across the media libraries for your installs "
-"(%s) is %s the limit for your license (%s)."
-msgstr ""
-
-#: classes/pro/as3cf-pro-licences-updates.php:339
-#, php-format
-msgid "Approaching%s License Limit"
-msgstr ""
-
-#: classes/pro/as3cf-pro-licences-updates.php:372
-#, php-format
-msgid ""
-"All essential features will continue to work, but a few <a href=\"%s\">non-"
-"essential features</a> will be disabled"
+#: classes/pro/as3cf-pro-licences-updates.php:371
+msgid "Approaching License Limit"
 msgstr ""
 
 #: classes/pro/as3cf-pro-licences-updates.php:376
 #, php-format
 msgid ""
 "When you exceed the limit, all essential features will continue to work, but "
-"a few <a href=\"%s\">non-essential features</a> will be disabled"
+"a few <a href=\"%1$s\">non-essential features</a> will be disabled until you "
+"<a href=\"%2$s\">upgrade your license</a> or <a href=\"%3$s\">free-up some "
+"of your current limit</a>."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:379
+#: classes/pro/as3cf-pro-licences-updates.php:397
+#, php-format
+msgid "Upgrade Your %s License"
+msgstr ""
+
+#: classes/pro/as3cf-pro-licences-updates.php:399
+msgid "Upgrade Your License"
+msgstr ""
+
+#: classes/pro/as3cf-pro-licences-updates.php:402
 #, php-format
 msgid ""
-"until you <a href=\"%s\">upgrade your license</a> or <a href=\"%s\">free-up "
-"some of your current limit</a>"
+"The total number of attachments across the media libraries for your installs "
+"(%1$s) has reached the limit for your license (%2$s)."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:381
+#: classes/pro/as3cf-pro-licences-updates.php:403
 #, php-format
-msgid "until you %s"
+msgid ""
+"The total number of attachments across the media libraries for your installs "
+"(%1$s) has exceeded the limit for your license (%2$s)."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:536
+#: classes/pro/as3cf-pro-licences-updates.php:412
+#, php-format
+msgid ""
+"All essential features will continue to work, but a few <a href=\"%1$s\">non-"
+"essential features</a> will be disabled until you <a href=\"%2$s\">upgrade "
+"your license</a> or <a href=\"%3$s\">free-up some of your current limit</a>."
+msgstr ""
+
+#: classes/pro/as3cf-pro-licences-updates.php:450
+msgid "Upgrade Your License Now"
+msgstr ""
+
+#: classes/pro/as3cf-pro-licences-updates.php:451
+msgid "Renew Your License Now"
+msgstr ""
+
+#: classes/pro/as3cf-pro-licences-updates.php:452
+#: classes/pro/as3cf-pro-licences-updates.php:637
+msgid "Check again"
+msgstr ""
+
+#: classes/pro/as3cf-pro-licences-updates.php:636
 #, php-format
 msgid ""
 "<strong>Your License Has Expired</strong> &mdash; Please visit <a href=\"%s"
@@ -502,34 +725,29 @@ msgid ""
 "receiving access to email support."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:537
-#: view/pro/licence-notice.php:15
-msgid "Check again"
-msgstr ""
-
-#: classes/pro/as3cf-pro-licences-updates.php:607
+#: classes/pro/as3cf-pro-licences-updates.php:707
 #, php-format
 msgid "for %s"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:611
+#: classes/pro/as3cf-pro-licences-updates.php:711
 #, php-format
 msgid ""
 "<strong>Activate Your License</strong> &mdash; You can only update %1$s with "
 "a valid license key%2$s."
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:612
+#: classes/pro/as3cf-pro-licences-updates.php:712
 msgctxt "Activate license"
 msgid "Activate"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:613
+#: classes/pro/as3cf-pro-licences-updates.php:713
 msgctxt "Purchase license"
 msgid "Purchase"
 msgstr ""
 
-#: classes/pro/as3cf-pro-licences-updates.php:615
+#: classes/pro/as3cf-pro-licences-updates.php:715
 #, php-format
 msgid ""
 "<strong>Your License Has Expired</strong> &mdash; You can only update %1$s "
@@ -550,20 +768,20 @@ msgstr ""
 msgid "You do not have sufficient permissions to install plugins on this site."
 msgstr ""
 
-#: classes/pro/as3cf-pro-plugin-installer.php:261
+#: classes/pro/as3cf-pro-plugin-installer.php:256
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
-#: classes/pro/as3cf-pro-plugin-installer.php:284
+#: classes/pro/as3cf-pro-plugin-installer.php:279
 msgid "but not activated"
 msgstr ""
 
-#: classes/pro/as3cf-pro-plugin-installer.php:308
+#: classes/pro/as3cf-pro-plugin-installer.php:303
 #, php-format
 msgid "%s installed successfully"
 msgstr ""
 
-#: classes/pro/as3cf-pro-plugin-installer.php:311
+#: classes/pro/as3cf-pro-plugin-installer.php:306
 #, php-format
 msgid "%s not installed"
 msgstr ""
@@ -607,11 +825,6 @@ msgstr ""
 
 #: classes/pro/integrations/woocommerce.php:58
 msgid "Retrieving..."
-msgstr ""
-
-#: classes/pro/integrations/wpml.php:150
-msgid ""
-"S3 metadata added to duplicated WPML attachment, no need to upload again."
 msgstr ""
 
 #: classes/pro/modal-tool.php:135
@@ -660,34 +873,34 @@ msgstr ""
 msgid "No files to process."
 msgstr ""
 
-#: classes/pro/tools/copy-buckets.php:68
+#: classes/pro/tools/copy-buckets.php:85
 msgid "There was an error attempting to start the copy tool. Please try again."
 msgstr ""
 
-#: classes/pro/tools/copy-buckets.php:93
+#: classes/pro/tools/copy-buckets.php:110
 msgid "Copy files to new bucket"
 msgstr ""
 
-#: classes/pro/tools/copy-buckets.php:102
+#: classes/pro/tools/copy-buckets.php:119
 msgid "Begin Copy"
 msgstr ""
 
-#: classes/pro/tools/copy-buckets.php:111
+#: classes/pro/tools/copy-buckets.php:128
 msgid "Copying Media Library items between buckets."
 msgstr ""
 
-#: classes/pro/tools/copy-buckets.php:120
+#: classes/pro/tools/copy-buckets.php:137
 msgid ""
 "Would you like to consolidate your offloaded media files by copying them "
 "into the currently selected bucket? All existing S3 URLs will be updated to "
 "reference the new bucket."
 msgstr ""
 
-#: classes/pro/tools/copy-buckets.php:129
+#: classes/pro/tools/copy-buckets.php:146
 msgid "Copy Bucket Errors"
 msgstr ""
 
-#: classes/pro/tools/copy-buckets.php:130
+#: classes/pro/tools/copy-buckets.php:147
 msgid ""
 "Previous attempts at copying your media library between buckets have "
 "resulted in errors."
@@ -789,117 +1002,117 @@ msgid ""
 "errors."
 msgstr ""
 
-#: classes/pro/tools/downloader.php:57
+#: classes/pro/tools/downloader.php:60
 msgid "Download all files from S3 to server"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:58
+#: classes/pro/tools/downloader.php:61
 msgid "Download Files"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:59
+#: classes/pro/tools/downloader.php:62
 msgid ""
 "If you've ever had the \"Remove Files From Server\" option on, some Media "
 "Library files are likely missing on your server. You can use this tool to "
 "download any missing files back to your server."
 msgstr ""
 
-#: classes/pro/tools/downloader.php:72
+#: classes/pro/tools/downloader.php:75
 msgid "Downloading Media Library from S3"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:73
+#: classes/pro/tools/downloader.php:76
 msgctxt "Number of files downloaded from S3"
 msgid "Files Processed"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:74
+#: classes/pro/tools/downloader.php:77
 #, php-format
 msgctxt "Number of files out of total downloaded from S3"
 msgid "%1$d of %2$d Files Downloaded"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:75
+#: classes/pro/tools/downloader.php:78
 msgid "Download completed with some errors"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:76
+#: classes/pro/tools/downloader.php:79
 msgid "Download partially completed with some errors"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:77
+#: classes/pro/tools/downloader.php:80
 msgctxt "The download is being cancelled"
 msgid "Cancelling download"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:78
+#: classes/pro/tools/downloader.php:81
 msgid "Completing current media download batch"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:79
+#: classes/pro/tools/downloader.php:82
 msgctxt "The download has been temporarily stopped"
 msgid "Paused"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:80
+#: classes/pro/tools/downloader.php:83
 msgctxt "The download is being paused"
 msgid "Pausing&hellip;"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:81
+#: classes/pro/tools/downloader.php:84
 msgid "Download cancellation failed"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:82
+#: classes/pro/tools/downloader.php:85
 msgctxt "The download has been cancelled"
 msgid "Download cancelled"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:83
+#: classes/pro/tools/downloader.php:86
 msgctxt "The download is in the last stages"
 msgid "Finalizing download"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:84
+#: classes/pro/tools/downloader.php:87
 msgctxt "Confirmation required"
 msgid "Are you sure you want to leave whilst download from S3?"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:85
+#: classes/pro/tools/downloader.php:88
 msgctxt "Download of attachments from S3 did not complete"
 msgid "Download failed"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:86
+#: classes/pro/tools/downloader.php:89
 msgctxt "The download has been temporarily stopped"
 msgid "Download Paused"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:227
+#: classes/pro/tools/downloader.php:230
 msgid "Download Errors"
 msgstr ""
 
-#: classes/pro/tools/downloader.php:228
+#: classes/pro/tools/downloader.php:231
 msgid ""
 "Previous attempts at downloading your media library from S3 have resulted in "
 "errors."
 msgstr ""
 
-#: classes/pro/tools/remove-local-files.php:129
+#: classes/pro/tools/remove-local-files.php:146
 msgid "Remove all files from server"
 msgstr ""
 
-#: classes/pro/tools/remove-local-files.php:138
+#: classes/pro/tools/remove-local-files.php:155
 msgid ""
 "You can use this tool to delete all Media Library files from your local "
 "server that have already been uploaded to S3."
 msgstr ""
 
-#: classes/pro/tools/remove-local-files.php:147
+#: classes/pro/tools/remove-local-files.php:164
 msgid "Begin Removal"
 msgstr ""
 
-#: classes/pro/tools/remove-local-files.php:156
+#: classes/pro/tools/remove-local-files.php:173
 msgid "Removing Media Library files from your local server."
 msgstr ""
 
@@ -1052,6 +1265,7 @@ msgid ""
 msgstr ""
 
 #: classes/pro/upgrades/disable-compatibility-plugins.php:103
+#: view/pro/licence-settings.php:24
 msgid "Remove"
 msgstr ""
 
@@ -1184,83 +1398,6 @@ msgstr ""
 msgid " (%s%% Complete)"
 msgstr ""
 
-#: classes/wp-aws-compatibility-check.php:323
-msgid "deactivate"
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:324
-#, php-format
-msgid "You can %s the %s plugin to get rid of this notice."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:327
-#, php-format
-msgid "%s has been disabled as it requires the %s plugin."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:331
-msgid "which is currently disabled."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:333
-msgid "It appears to be installed already."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:335
-msgctxt "Activate plugin"
-msgid "Activate it now."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:342
-#, php-format
-msgid "<a href=\"%s\">Install</a> and activate it."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:353
-#, php-format
-msgid ""
-"%s has been disabled as it requires version %s or later of the %s plugin."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:356
-#, php-format
-msgid "You currently have version %s installed."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:363
-#: classes/wp-aws-compatibility-check.php:401
-#, php-format
-msgid "A valid license for %s is required to update."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:371
-msgid "Update to the latest version"
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:383
-#, php-format
-msgid ""
-"%1$s has been disabled because it is not a supported addon of the %2$s "
-"plugin."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:392
-#, php-format
-msgid ""
-"%1$s has been disabled because it will not work with the version of the %2$s "
-"plugin installed. %1$s %3$s or later is required."
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:395
-#, php-format
-msgid "Update %s to the latest version"
-msgstr ""
-
-#: classes/wp-aws-compatibility-check.php:464
-#, php-format
-msgid "The %s plugin has been deactivated."
-msgstr ""
-
 #: vendor/deliciousbrains/base.php:146
 msgid ""
 "<strong>Could not connect to deliciousbrains.com</strong> &mdash; You will "
@@ -1306,46 +1443,46 @@ msgstr ""
 msgid "Here's the most recent update on its status"
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:193
+#: vendor/deliciousbrains/licences.php:194
 msgid "enter your license key"
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:194
+#: vendor/deliciousbrains/licences.php:195
 #, php-format
 msgid ""
 "To finish activating %1$s, %2$s. If you don't have a license key, you may <a "
 "href=\"%3$s\">purchase one</a>."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:281
+#: vendor/deliciousbrains/licences.php:282
 #, php-format
 msgid ""
 "<strong>Activate Your License</strong> &mdash; Please <a href=\"#\" class="
 "\"%s\">enter your license key</a>."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:299
+#: vendor/deliciousbrains/licences.php:300
 msgid ""
 "<strong>We've temporarily activated your license and will complete the "
 "activation once the Delicious Brains API is available again.</strong>"
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:309
+#: vendor/deliciousbrains/licences.php:310
 #, php-format
 msgid ""
 "<strong>Your License Was Cancelled</strong> &mdash; Please visit <a href=\"%s"
 "\" target=\"_blank\">My Account</a> to renew or upgrade your license."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:310
-#: vendor/deliciousbrains/licences.php:313
-#: vendor/deliciousbrains/licences.php:316
-#: vendor/deliciousbrains/licences.php:323
+#: vendor/deliciousbrains/licences.php:311
+#: vendor/deliciousbrains/licences.php:314
+#: vendor/deliciousbrains/licences.php:317
+#: vendor/deliciousbrains/licences.php:324
 #: vendor/deliciousbrains/updates.php:192
 msgid "Check my license again"
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:312
+#: vendor/deliciousbrains/licences.php:313
 #, php-format
 msgid ""
 "<strong>Your License Has Expired</strong> &mdash; Your expired license has "
@@ -1354,7 +1491,7 @@ msgid ""
 "access to email support."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:315
+#: vendor/deliciousbrains/licences.php:316
 #, php-format
 msgid ""
 "<strong>No Activations Left</strong> &mdash; Please visit <a href=\"%s\" "
@@ -1362,7 +1499,7 @@ msgid ""
 "previous activation."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:319
+#: vendor/deliciousbrains/licences.php:320
 #, php-format
 msgid ""
 "<strong>Your License Was Not Found</strong> &mdash; Make sure you have "
@@ -1370,7 +1507,7 @@ msgid ""
 "\"%s\" target=\"_blank\">My Account</a>."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:321
+#: vendor/deliciousbrains/licences.php:322
 #, php-format
 msgid ""
 "<strong>Your License Was Not Found</strong> &mdash; Perhaps you made a typo "
@@ -1378,47 +1515,61 @@ msgid ""
 "\"%s\" target=\"_blank\">My Account</a> to double check your license key."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:326
+#: vendor/deliciousbrains/licences.php:327
 msgid "<strong>Your License Was Not Found</strong> &mdash; "
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:330
+#: vendor/deliciousbrains/licences.php:331
 msgid "Your License Is Inactive"
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:331
+#: vendor/deliciousbrains/licences.php:332
 msgid "Your license has been deactivated for this install."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:331
+#: vendor/deliciousbrains/licences.php:332
 msgid "Reactivate License"
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:334
+#: vendor/deliciousbrains/licences.php:335
 #, php-format
 msgid ""
 "<strong>An Unexpected Error Occurred</strong> &mdash; Please contact us at "
 "<a href=\"%1$s\">%2$s</a> and quote the following:"
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:377
+#: vendor/deliciousbrains/licences.php:378
 msgctxt "Delete license"
 msgid "Remove"
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:505
+#: vendor/deliciousbrains/licences.php:424
+msgid ""
+"Your licence key is currently defined via a constant and must be removed "
+"manually."
+msgstr ""
+
+#: vendor/deliciousbrains/licences.php:431
+msgid "Licence key removed successfully."
+msgstr ""
+
+#: vendor/deliciousbrains/licences.php:484
+msgid "License activated successfully."
+msgstr ""
+
+#: vendor/deliciousbrains/licences.php:531
 msgid ""
 "If you have an <strong>active license</strong>, you may send an email to the "
 "following address."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:507
+#: vendor/deliciousbrains/licences.php:533
 msgid ""
 "Please copy the Diagnostic Info &amp; Error Log info below into a text file "
 "and attach it to your email."
 msgstr ""
 
-#: vendor/deliciousbrains/licences.php:598
+#: vendor/deliciousbrains/licences.php:620
 #, php-format
 msgid "Invalid nonce for: %s"
 msgstr ""
@@ -1463,11 +1614,35 @@ msgctxt "Download and install a new version of the plugin"
 msgid "Update Now"
 msgstr ""
 
-#: view/attachment-metabox.php:4
+#: view/addon.php:11
+msgid "More Details &raquo;"
+msgstr ""
+
+#: view/addon.php:40
+msgctxt "Plugin already installed and activated"
+msgid "Installed & Activated"
+msgstr ""
+
+#: view/addon.php:42
+msgctxt "Plugin already installed"
+msgid "Installed"
+msgstr ""
+
+#: view/addon.php:43
+msgctxt "Activate plugin now"
+msgid "Activate Now"
+msgstr ""
+
+#: view/addon.php:45
+msgctxt "Install plugin now"
+msgid "Install Now"
+msgstr ""
+
+#: view/attachment-metabox.php:14
 msgid "This item has not been copied to S3 yet."
 msgstr ""
 
-#: view/attachment-metabox.php:29
+#: view/attachment-metabox.php:39
 msgid "File does not exist on server"
 msgstr ""
 
@@ -1552,19 +1727,26 @@ msgstr ""
 msgid "Create New Bucket"
 msgstr ""
 
-#: view/bucket-setting.php:7
+#: view/bucket-setting.php:8
 msgid "Bucket"
 msgstr ""
 
-#: view/bucket-setting.php:12
+#: view/bucket-setting.php:13
 msgid "View in S3 console"
 msgstr ""
 
-#: view/bucket-setting.php:16
+#: view/bucket-setting.php:19
 msgid "Change"
 msgstr ""
 
-#: view/bucket-setting.php:35
+#: view/bucket-setting.php:37
+#, php-format
+msgid ""
+"<strong>Bucket Select Disabled</strong> &mdash; <a href=\"%s\">Define your "
+"AWS keys</a> to configure the bucket"
+msgstr ""
+
+#: view/bucket-setting.php:46
 msgid ""
 "<strong>Bucket Select Disabled</strong> &mdash; Bucket selection has been "
 "disabled while files are copied between buckets."
@@ -1702,36 +1884,27 @@ msgstr ""
 msgid "Email Support"
 msgstr ""
 
-#: view/pro/licence-info.php:6
+#: view/pro/licence-info.php:8
 msgid "Fetching support form for your license, please wait..."
 msgstr ""
 
-#: view/pro/licence-info.php:9
+#: view/pro/licence-info.php:13
 msgid "We couldn't find your license information."
 msgstr ""
 
-#: view/pro/licence-info.php:10
+#: view/pro/licence-info.php:15
 msgid "Please enter a valid license key."
 msgstr ""
 
-#: view/pro/licence-info.php:12
+#: view/pro/licence-info.php:18
 msgid "Once entered, you can view your support details."
 msgstr ""
 
-#: view/pro/licence-notice.php:21
-#: view/pro/tool-errors.php:43
-msgid "Dismiss"
-msgstr ""
-
-#: view/pro/licence-settings.php:2
+#: view/pro/licence-settings.php:14
 msgid "Your License"
 msgstr ""
 
-#: view/pro/licence-settings.php:6
-msgid "The license key is currently defined in wp-config.php."
-msgstr ""
-
-#: view/pro/licence-settings.php:16
+#: view/pro/licence-settings.php:23
 msgid "Activate License"
 msgstr ""
 
@@ -1756,17 +1929,21 @@ msgid ""
 "to S3?"
 msgstr ""
 
-#: view/pro/tool-errors.php:29
+#: view/pro/tool-errors.php:30
 #, php-format
 msgid "Media Library Item #%1$s"
 msgstr ""
 
-#: view/pro/tool-errors.php:32
+#: view/pro/tool-errors.php:33
 msgid "Edit"
 msgstr ""
 
-#: view/pro/tool-errors.php:35
+#: view/pro/tool-errors.php:36
 msgid "Dismiss All"
+msgstr ""
+
+#: view/pro/tool-errors.php:44
+msgid "Dismiss"
 msgstr ""
 
 #: view/pro/tool-progress.php:10
@@ -1801,103 +1978,179 @@ msgid ""
 "addons are removed this message will go away."
 msgstr ""
 
-#: view/settings.php:10
-msgid "Settings saved."
+#: view/settings/addons.php:10
+#, php-format
+msgid ""
+"<strong>Get Addons</strong> — The following addons are available with a WP "
+"Offload S3 Gold license or better.<br>Visit <a href=\"%s\">deliciousbrains."
+"com</a> to purchase in just a few clicks."
 msgstr ""
 
-#: view/settings.php:48
+#: view/settings/media.php:13
+#, php-format
+msgid "<a href=\"%s\">Define your AWS keys</a> to configure WP Offload S3"
+msgstr ""
+
+#: view/settings/media.php:47
 msgid "Enable/Disable the Plugin"
 msgstr ""
 
-#: view/settings.php:56
+#: view/settings/media.php:56
 msgid "Copy Files to S3"
 msgstr ""
 
-#: view/settings.php:58
+#: view/settings/media.php:58
 msgid ""
 "When a file is uploaded to the Media Library, copy it to S3. Existing files "
 "are <em>not</em> copied to S3."
 msgstr ""
 
-#: view/settings.php:71
+#: view/settings/media.php:71
 msgid "Rewrite File URLs"
 msgstr ""
 
-#: view/settings.php:73
+#: view/settings/media.php:73
 msgid ""
 "For Media Library files that have been copied to S3, rewrite the URLs so "
 "that they are served from S3/CloudFront instead of your server."
 msgstr ""
 
-#: view/settings.php:80
+#: view/settings/media.php:80
 msgid "Configure File URLs"
 msgstr ""
 
-#: view/settings.php:101
+#: view/settings/media.php:101
 msgid "Path"
 msgstr ""
 
-#: view/settings.php:103
+#: view/settings/media.php:103
 msgid "By default the path is the same as your local WordPress files."
 msgstr ""
 
-#: view/settings.php:120
+#: view/settings/media.php:120
 msgid "Year/Month"
 msgstr ""
 
-#: view/settings.php:122
+#: view/settings/media.php:122
 msgid "Add the Year/Month in the URL."
 msgstr ""
 
-#: view/settings.php:135
+#: view/settings/media.php:135
 msgid "Force HTTPS"
 msgstr ""
 
-#: view/settings.php:137
+#: view/settings/media.php:137
 msgid ""
 "By default we use HTTPS when the request is HTTPS and regular HTTP when the "
 "request is HTTP, but you may want to force the use of HTTPS always, "
 "regardless of the request."
 msgstr ""
 
-#: view/settings.php:144
+#: view/settings/media.php:144
 msgid "Advanced Options"
 msgstr ""
 
-#: view/settings.php:153
+#: view/settings/media.php:153
 msgid "Remove Files From Server"
 msgstr ""
 
-#: view/settings.php:154
+#: view/settings/media.php:154
 msgid "Once a file has been copied to S3, remove it from the local server."
 msgstr ""
 
-#: view/settings.php:158
+#: view/settings/media.php:158
 msgid ""
 "<strong>Broken URLs</strong> &mdash; There will be broken URLs for files "
 "that don't exist locally. You can fix this by enabling <strong>Rewrite File "
 "URLs</strong> to use the S3 URLs."
 msgstr ""
 
-#: view/settings.php:169
+#: view/settings/media.php:169
 #, php-format
 msgid ""
 "<strong>Warning</strong> &mdash; Some plugins depend on the file being "
 "present on the local server and may not work when the file is removed. %s"
 msgstr ""
 
-#: view/settings.php:187
+#: view/settings/media.php:187
 msgid "Object Versioning"
 msgstr ""
 
-#: view/settings.php:189
+#: view/settings/media.php:189
 msgid ""
 "Append a timestamp to the S3 file path. Recommended when using CloudFront so "
 "you don't have to worry about cache invalidation."
 msgstr ""
 
-#: view/settings.php:196
+#: view/settings/media.php:196
+#: view/settings/settings.php:112
 msgid "Save Changes"
+msgstr ""
+
+#: view/settings/settings.php:19
+msgid "AWS Access Keys"
+msgstr ""
+
+#: view/settings/settings.php:23
+msgid "You have enabled the use of IAM roles for Amazon EC2 instances."
+msgstr ""
+
+#: view/settings/settings.php:30
+msgid ""
+"Please check your wp-config.php file as it looks like one of your defines is "
+"missing or incorrect."
+msgstr ""
+
+#: view/settings/settings.php:36
+#, php-format
+msgid ""
+"You&#8217;ve already defined your AWS access keys in your wp-config.php. If "
+"you&#8217;d prefer to manage them here and store them in the database (<a "
+"href=\"%s\">not recommended</a>), simply remove the lines from your wp-"
+"config."
+msgstr ""
+
+#: view/settings/settings.php:42
+msgid ""
+"We recommend defining your Access Keys in wp-config.php so long as you "
+"don&#8217;t commit it to source control (you shouldn&#8217;t be). Simply "
+"copy the following snippet and replace the stars with the keys."
+msgstr ""
+
+#: view/settings/settings.php:52
+#, php-format
+msgid ""
+"You&#8217;re storing your Access Keys in the database (<a href=\"%s\">not "
+"recommended</a>).</a>"
+msgstr ""
+
+#: view/settings/settings.php:56
+msgid ""
+"If you&#8217;d rather store your Access Keys in the database, <a href=\"#\" "
+"data-as3cf-toggle-access-keys-form>click here to reveal a form.</a>"
+msgstr ""
+
+#: view/settings/settings.php:66
+msgid "Access Key ID"
+msgstr ""
+
+#: view/settings/settings.php:83
+msgid "Secret Access Key"
+msgstr ""
+
+#: view/settings/settings.php:103
+msgid "This will store your AWS access keys in the database (not recommended)."
+msgstr ""
+
+#: view/settings/settings.php:115
+msgid "Remove Keys"
+msgstr ""
+
+#: view/settings/settings.php:127
+#, php-format
+msgid ""
+"Need help getting your Access Keys? <a href=\"%s\">Check out the Quick Start "
+"Guide &rarr;</a>"
 msgstr ""
 
 #: view/sidebar.php:13
@@ -1909,15 +2162,15 @@ msgid "Manage S3 files in WordPress"
 msgstr ""
 
 #: view/sidebar.php:15
-msgid "Assets addon - Serve your CSS & JS from S3/CloudFront"
+msgid "Assets addon - Serve your CSS & JS from CloudFront or another CDN"
 msgstr ""
 
 #: view/sidebar.php:16
-msgid "WooCommerce addon"
+msgid "WooCommerce integration"
 msgstr ""
 
 #: view/sidebar.php:17
-msgid "Easy Digital Downloads addon"
+msgid "Easy Digital Downloads integration"
 msgstr ""
 
 #: view/sidebar.php:18

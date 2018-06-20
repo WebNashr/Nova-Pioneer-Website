@@ -119,7 +119,7 @@ class Easy_Digital_Downloads extends Integration {
 					continue;
 				}
 
-				if ( $this->as3cf->is_pro_plugin_setup() ) {
+				if ( $this->as3cf->is_pro_plugin_setup( true ) ) {
 					$s3object = $this->as3cf->set_attachment_acl_on_s3( $file['attachment_id'], $s3object, Amazon_S3_And_CloudFront::PRIVATE_ACL );
 					if ( $s3object && ! is_wp_error( $s3object ) ) {
 						$this->as3cf->make_acl_admin_notice( $s3object );

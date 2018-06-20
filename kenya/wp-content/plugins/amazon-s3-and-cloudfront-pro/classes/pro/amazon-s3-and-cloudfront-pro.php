@@ -1,5 +1,6 @@
 <?php
 
+use DeliciousBrains\WP_Offload_S3\Amazon_Web_Services;
 use DeliciousBrains\WP_Offload_S3\Pro\Integration_Manager;
 use DeliciousBrains\WP_Offload_S3\Pro\Integrations\Advanced_Custom_Fields;
 use DeliciousBrains\WP_Offload_S3\Pro\Integrations\Easy_Digital_Downloads;
@@ -38,14 +39,24 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	protected $sidebar;
 
 	/**
-	 * @param string              $plugin_file_path
-	 * @param Amazon_Web_Services $aws aws plugin
+	 * @var array
 	 */
-	public function __construct( $plugin_file_path, $aws ) {
+	private $_is_pro_plugin_setup;
+
+	/**
+	 * @var array
+	 */
+	private $_user_can_use_media_actions;
+
+	/**
+	 * @param string                   $plugin_file_path
+	 * @param Amazon_Web_Services|null $aws
+	 */
+	public function __construct( $plugin_file_path, $aws = null ) {
 		$this->integrations = Integration_Manager::get_instance();
 		$this->sidebar      = Sidebar_Presenter::get_instance( $this );
 
-		parent::__construct( $plugin_file_path, $aws );
+		parent::__construct( $plugin_file_path, $aws, $this->plugin_slug );
 	}
 
 	/**
@@ -64,7 +75,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 		// add our custom CSS classes to <body>
 		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 		// load assets
-		add_action( 'aws_admin_menu', array( $this, 'aws_admin_menu' ), 11 );
+		add_action( 'as3cf_plugin_load', array( $this, 'load_assets' ) );
 
 		// Only enable the plugin if compatible,
 		// so we don't disable the license and updates functionality when disabled
@@ -75,28 +86,19 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	}
 
 	/**
-	 * aws_admin_menu event handler.
-	 */
-	public function aws_admin_menu() {
-		global $as3cf;
-		add_action( 'load-' . $as3cf->hook_suffix, array( $this, 'load_assets' ), 11 );
-	}
-
-	/**
 	 * Enable the complete plugin when compatible
 	 */
 	public function enable_plugin() {
 		add_action( 'load-upload.php', array( $this, 'load_media_pro_assets' ), 11 );
 
 		// Pro customisations
-		add_filter( 'as3cf_settings_page_title', array( $this, 'settings_page_title' ) );
-		add_filter( 'as3cf_settings_tabs', array( $this, 'settings_tabs' ) );
 		add_filter( 'as3cf_lost_files_notice', array( $this, 'lost_files_notice' ) );
 		add_action( 'as3cf_load_attachment_assets', array( $this, 'load_attachment_js' ) );
 		add_filter( 'as3cf_media_action_strings', array( $this, 'media_action_strings' ) );
 
 		// Media row actions
 		add_filter( 'wp_prepare_attachment_for_js', array( $this, 'enrich_attachment_model' ), 10, 2 );
+		add_filter( 'bulk_actions-upload', array( $this, 'add_list_table_bulk_actions' ) );
 		add_filter( 'media_row_actions', array( $this, 'add_media_row_actions' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'maybe_display_media_action_message' ) );
 		add_action( 'admin_init', array( $this, 'process_media_actions' ) );
@@ -107,6 +109,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 
 		// Settings link on the plugins page
 		add_filter( 'plugin_action_links', array( $this, 'plugin_actions_settings_link' ), 10, 2 );
+		add_filter( 'network_admin_plugin_action_links', array( $this, 'plugin_actions_settings_link' ), 10, 2 );
 
 		// Diagnostic info
 		add_filter( 'as3cf_diagnostic_info', array( $this, 'diagnostic_info' ) );
@@ -174,7 +177,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 * Load the media Pro assets
 	 */
 	public function load_media_pro_assets() {
-		if ( ! $this->verify_media_actions() ) {
+		if ( ! $this->is_plugin_setup() ) {
 			return;
 		}
 
@@ -185,15 +188,23 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 			'wp-util',
 		), false );
 
+		$nonces = array(
+			'get_attachment_s3_details' => wp_create_nonce( 'get-attachment-s3-details' ),
+		);
+
+		foreach ( $this->get_available_media_actions() as $action => $scopes ) {
+			foreach ( $scopes as $scope ) {
+				$nonces["{$scope}_{$action}"] = wp_create_nonce( "{$scope}-{$action}" );
+			}
+		}
+
 		wp_localize_script( 'as3cf-pro-media-script', 'as3cfpro_media', array(
 				'strings'  => $this->get_media_action_strings(),
-				'nonces'   => array(
-					'copy_media'                => wp_create_nonce( 'copy-media' ),
-					'remove_media'              => wp_create_nonce( 'remove-media' ),
-					'download_media'            => wp_create_nonce( 'download-media' ),
-					'get_attachment_s3_details' => wp_create_nonce( 'get-attachment-s3-details' ),
-					'update_acl'                => wp_create_nonce( 'update-acl' ),
+				'actions'  => array(
+					'bulk'     => $this->get_available_media_actions( 'bulk' ),
+					'singular' => $this->get_available_media_actions( 'singular' ),
 				),
+				'nonces'   => $nonces,
 				'settings' => array(
 					'default_acl' => self::DEFAULT_ACL,
 					'private_acl' => self::PRIVATE_ACL,
@@ -210,15 +221,21 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 			'wp-util',
 		), false );
 
+		$actions = $this->get_available_media_actions( 'singular' );
+		$nonces  = array();
+
+		foreach ( $actions as $action ) {
+			$nonces["singular_{$action}"] = wp_create_nonce( "singular-{$action}" );
+		}
+
 		wp_localize_script( 'as3cf-pro-attachment-script', 'as3cfpro_media', array(
 				'strings'  => array(
 					'local_warning'    => $this->get_media_action_strings( 'local_warning' ),
 					'updating_acl'     => $this->get_media_action_strings( 'updating_acl' ),
 					'change_acl_error' => $this->get_media_action_strings( 'change_acl_error' ),
 				),
-				'nonces'   => array(
-					'update_acl' => wp_create_nonce( 'update-acl' ),
-				),
+				'actions'  => $actions,
+				'nonces'   => $nonces,
 				'settings' => array(
 					'post_id'     => get_the_ID(),
 					'default_acl' => self::DEFAULT_ACL,
@@ -256,6 +273,10 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 * @return string
 	 */
 	protected function get_acl_value_string( $acl ) {
+		if ( ! in_array( 'update_acl', $this->get_available_media_actions( 'singular' ) ) ) {
+			return parent::get_acl_value_string( $acl );
+		}
+
 		return sprintf( '<a id="as3cfpro-toggle-acl" title="%s" data-currentACL="%s" href="#">%s</a>', $acl['title'], $acl['acl'], $acl['name'] );
 	}
 
@@ -284,32 +305,6 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 		}
 
 		return implode( ' ', $classes );
-	}
-
-	/**
-	 * Customise the S3 and CloudFront settings page title
-	 *
-	 * @param string $title
-	 *
-	 * @return string
-	 */
-	function settings_page_title( $title ) {
-		return str_replace( ' Lite', '', $title );
-	}
-
-	/**
-	 * Override the settings tabs
-	 *
-	 * @param array $tabs
-	 *
-	 * @return array
-	 */
-	function settings_tabs( $tabs ) {
-		if ( isset( $tabs['support'] ) ) {
-			$tabs['support'] = _x( 'License & Support', 'Show the license and support tab', 'amazon-s3-and-cloudfront' );
-		}
-
-		return $tabs;
 	}
 
 	/**
@@ -412,9 +407,10 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 			return;
 		}
 
-		$action = sanitize_key( $_POST['s3_action'] ); // input var okay
+		$scope  = filter_input( INPUT_POST, 'scope' );
+		$action = filter_input( INPUT_POST, 's3_action' );
 
-		check_ajax_referer( $action . '-media', '_nonce' );
+		check_ajax_referer( "{$scope}-{$action}" );
 
 		$ids = array_map( 'intval', $_POST['ids'] ); // input var okay
 
@@ -434,7 +430,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 * Handle updating the ACL for an attachment
 	 */
 	function ajax_update_acl() {
-		check_ajax_referer( 'update-acl', '_nonce' );
+		check_ajax_referer( 'singular-update_acl' );
 
 		$id    = $this->filter_input( 'id', INPUT_POST, FILTER_VALIDATE_INT ); // input var ok
 		$acl   = $this->filter_input( 'acl', INPUT_POST, FILTER_SANITIZE_STRING ); // input var ok
@@ -531,7 +527,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 * @return bool
 	 */
 	function verify_media_actions() {
-		if ( ! $this->is_pro_plugin_setup() ) {
+		if ( ! $this->is_pro_plugin_setup( true ) ) {
 			return false;
 		}
 
@@ -539,31 +535,88 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	}
 
 	/**
+	 * Get a list of available media actions which can be performed according to plugin and user capability requirements.
+	 *
+	 * @param string|null $scope
+	 *
+	 * @return array
+	 */
+	public function get_available_media_actions( $scope = null ) {
+		$actions = array();
+
+		if ( ! $this->is_plugin_setup( true ) || ! $this->user_can_use_media_actions() ) {
+			return $actions;
+		}
+
+		if ( $this->is_pro_plugin_setup( true ) ) {
+			$actions['copy']       = array( 'singular', 'bulk' );
+			$actions['download']   = array( 'singular', 'bulk' );
+			$actions['update_acl'] = array( 'singular' );
+		}
+
+		$actions['remove'] = array( 'singular', 'bulk' );
+
+		if ( $scope ) {
+			$in_scope = array_filter( $actions, function( $scopes ) use ( $scope ) {
+				return in_array( $scope, $scopes );
+			} );
+
+			return array_keys( $in_scope );
+		}
+
+		return $actions;
+	}
+
+	/**
 	 * Check if the given user can use on-demand S3 media actions.
 	 *
-	 * @param null|int|WP_User $user  User to check. Defaults to current user.
+	 * @param null|int|WP_User $user User to check. Defaults to current user.
 	 *
 	 * @return bool
 	 */
 	public function user_can_use_media_actions( $user = null ) {
 		$user = $user ? $user : wp_get_current_user();
 
+		if ( is_object( $user ) ) {
+			$user = $user->ID;
+		}
+
+		if ( ! is_null( $this->_user_can_use_media_actions ) && isset( $this->_user_can_use_media_actions[ $user ] ) ) {
+			return $this->_user_can_use_media_actions[ $user ];
+		}
+
+		$this->_user_can_use_media_actions[ $user ] = false;
+
 		if ( user_can( $user, 'use_as3cf_media_actions' ) ) {
-			return true;
+			$this->_user_can_use_media_actions[ $user ] = true;
+		} else {
+			/**
+			 * The default capability for using on-demand S3 media actions.
+			 *
+			 * @param string $capability Registered capability identifier
+			 */
+			$capability                                 = apply_filters( 'as3cfpro_media_actions_capability', 'manage_options' );
+			$this->_user_can_use_media_actions[ $user ] = user_can( $user, $capability );
 		}
 
-		/**
-		 * The default capability for using on-demand S3 media actions.
-		 *
-		 * @param string $capability Registered capability identifier
-		 */
-		$capability = apply_filters( 'as3cfpro_media_actions_capability', 'manage_options' );
+		return $this->_user_can_use_media_actions[ $user ];
+	}
 
-		if ( user_can( $user, $capability ) ) {
-			return true;
+	/**
+	 * Add bulk media actions to a list table's bulk actions dropdown.
+	 *
+	 * @param array $actions
+	 *
+	 * @return array
+	 */
+	public function add_list_table_bulk_actions( $actions ) {
+		$strings = $this->get_media_action_strings();
+
+		foreach ( $this->get_available_media_actions( 'bulk' ) as $action ) {
+			$actions["bulk_as3cfpro_{$action}"] = $strings[ $action ];
 		}
 
-		return false;
+		return $actions;
 	}
 
 	/**
@@ -576,30 +629,31 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 * @return array
 	 */
 	function add_media_row_actions( $actions = array(), $post ) {
-		if ( ! $this->verify_media_actions() ) {
+		$available_actions = $this->get_available_media_actions( 'singular' );
+
+		if ( ! $available_actions ) {
 			return $actions;
 		}
 
-		$post_id = ( is_object( $post ) ) ? $post->ID : $post;
+		$post_id     = ( is_object( $post ) ) ? $post->ID : $post;
+		$file        = get_attached_file( $post_id, true );
+		$file_exists = file_exists( $file );
 
-		$file = get_attached_file( $post_id, true );
-
-		if ( ( $file_exists = file_exists( $file ) ) ) {
-			// show the copy link if the file exists, even if the copy main setting is off
-			$text = $this->get_media_action_strings( 'copy' );
-			$this->add_media_row_action( $actions, $post_id, 'copy', $text );
+		if ( in_array( 'copy', $available_actions ) && $file_exists ) {
+			$this->add_media_row_action( $actions, $post_id, 'copy' );
 		}
 
-		if ( $this->get_attachment_s3_info( $post_id ) ) {
-			// only show the remove link if media has been previously copied
-			$text = $this->get_media_action_strings( 'remove' );
-			$this->add_media_row_action( $actions, $post_id, 'remove', $text, ! $file_exists );
+		// Actions beyond this point are for items on S3 only
+		if ( ! $this->get_attachment_s3_info( $post_id ) ) {
+			return $actions;
+		}
 
-			if ( ! $file_exists ) {
-				// only show download link if the file does not exist locally
-				$text = $this->get_media_action_strings( 'download' );
-				$this->add_media_row_action( $actions, $post_id, 'download', $text );
-			}
+		if ( in_array( 'remove', $available_actions ) ) {
+			$this->add_media_row_action( $actions, $post_id, 'remove' );
+		}
+
+		if ( in_array( 'download', $available_actions ) && ! $file_exists ) {
+			$this->add_media_row_action( $actions, $post_id, 'download' );
 		}
 
 		return $actions;
@@ -614,8 +668,9 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 * @param string $text
 	 * @param bool   $show_warning
 	 */
-	function add_media_row_action( &$actions, $post_id, $action, $text, $show_warning = false ) {
+	function add_media_row_action( &$actions, $post_id, $action, $text = '', $show_warning = false ) {
 		$url   = $this->get_media_action_url( $action, $post_id );
+		$text  = $text ?: $this->get_media_action_strings( $action );
 		$class = $action;
 		if ( $show_warning ) {
 			$class .= ' local-warning';
@@ -662,10 +717,6 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 			return;
 		}
 
-		if ( ! $this->verify_media_actions() ) {
-			return;
-		}
-
 		if ( ! isset( $_GET['action'] ) ) { // input var okay
 			return;
 		}
@@ -678,6 +729,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 		}
 
 		if ( false === strpos( $action, 'bulk_as3cfpro_' ) ) {
+			$available_actions = $this->get_available_media_actions( 'singular' );
 			$referrer          = 'as3cfpro-' . $action;
 			$doing_bulk_action = false;
 			if ( ! isset( $_GET['ids'] ) ) {
@@ -685,6 +737,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 			}
 			$ids = explode( ',', $_GET['ids'] ); // input var okay
 		} else {
+			$available_actions = $this->get_available_media_actions( 'bulk' );
 			$action            = str_replace( 'bulk_as3cfpro_', '', $action );
 			$referrer          = 'bulk-media';
 			$doing_bulk_action = true;
@@ -692,6 +745,10 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 				return;
 			}
 			$ids = $_REQUEST['media']; // input var okay
+		}
+
+		if ( ! in_array( $action, $available_actions ) ) {
+			return;
 		}
 
 		$ids      = array_map( 'intval', $ids );
@@ -927,7 +984,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 *                                   perform a check for each attachment to make sure it has
 	 *                                   been uploaded to S3 before trying to delete it
 	 *
-	 * @return bool
+	 * @return array
 	 */
 	function maybe_delete_attachments_from_s3( $post_ids, $doing_bulk_action = false ) {
 		$error_count   = 0;
@@ -938,6 +995,14 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 			if ( $doing_bulk_action && ! $this->get_attachment_s3_info( $post_id ) ) {
 				// Confirm that item already deleted.
 				$deleted_count++;
+				continue;
+			}
+
+			// Download any missing local files before removing from S3
+			$downloaded = $this->download_attachment_from_s3( $post_id, $doing_bulk_action );
+
+			if ( is_wp_error( $downloaded ) ) {
+				$error_count++;
 				continue;
 			}
 
@@ -1017,7 +1082,7 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 * @return bool|WP_Error
 	 */
 	function download_attachment_from_s3( $post_id, $force_new_s3_client = false, $skip_setup_check = false ) {
-		if ( ! $skip_setup_check && ! $this->is_plugin_setup() ) {
+		if ( ! $skip_setup_check && ! $this->is_plugin_setup( true ) ) {
 			return false;
 		}
 
@@ -1097,15 +1162,6 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	}
 
 	/**
-	 * Get the My Account URL
-	 *
-	 * @return string
-	 */
-	public function get_my_account_url() {
-		return $this->licence->plugin->account_url;
-	}
-
-	/**
 	 * Get the plugin slug used as the identifier in the Plugin page table
 	 *
 	 * @return string
@@ -1124,6 +1180,15 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	 */
 	public function is_valid_licence( $skip_transient_check = false ) {
 		return $this->licence->is_valid_licence( $skip_transient_check );
+	}
+
+	/**
+	 * Check if the license is over the media limit.
+	 *
+	 * @return bool
+	 */
+	public function is_licence_over_media_limit() {
+		return $this->licence->is_licence_over_media_limit();
 	}
 
 	/**
@@ -1194,22 +1259,34 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 	/**
 	 * Check to see if the plugin is setup
 	 *
+	 * @param bool $with_credentials Do S3 credentials need to be set up too? Defaults to false.
+	 *
 	 * @return bool
 	 */
-	public function is_pro_plugin_setup() {
+	public function is_pro_plugin_setup( $with_credentials = false ) {
+		if ( ! is_null( $this->_is_pro_plugin_setup ) && isset( $this->_is_pro_plugin_setup[ $with_credentials ] ) ) {
+			return $this->_is_pro_plugin_setup[ $with_credentials ];
+		}
+
 		if ( isset( $this->licence ) ) {
-			if ( ! $this->licence->is_valid_licence() ) {
+			if ( ! $this->is_valid_licence() ) {
 				// Empty, invalid or expired license
-				return false;
+				$this->_is_pro_plugin_setup[ $with_credentials ] = false;
+
+				return $this->_is_pro_plugin_setup[ $with_credentials ];
 			}
 
-			if ( $this->licence->is_licence_over_media_limit() ) {
+			if ( $this->is_licence_over_media_limit() ) {
 				// License key over the media library total license limit
-				return false;
+				$this->_is_pro_plugin_setup[ $with_credentials ] = false;
+
+				return $this->_is_pro_plugin_setup[ $with_credentials ];
 			}
 		}
 
-		return parent::is_plugin_setup();
+		$this->_is_pro_plugin_setup[ $with_credentials ] = $this->is_plugin_setup( $with_credentials );
+
+		return $this->_is_pro_plugin_setup[ $with_credentials ];
 	}
 
 	/**
@@ -1262,6 +1339,10 @@ class Amazon_S3_And_CloudFront_Pro extends Amazon_S3_And_CloudFront {
 		$output .= 'License Constant: ';
 		$output .= $this->licence->is_licence_constant() ? 'On' : 'Off';
 		$output .= "\r\n\r\n";
+
+		$output .= 'Host IP: ';
+		$output .= gethostbyname( parse_url( admin_url(), PHP_URL_HOST ) );
+		$output .= "\r\n";
 
 		// Background processing jobs
 		$output .= 'Background Jobs: ';
