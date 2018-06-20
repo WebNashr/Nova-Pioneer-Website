@@ -48,12 +48,13 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 		$plugin->basename                 = $this->as3cf->get_plugin_basename();
 		$plugin->dir_path                 = $this->as3cf->get_plugin_dir_path();
 		$plugin->prefix                   = 'as3cfpro';
-		$plugin->settings_url_path        = 'admin.php?page=amazon-s3-and-cloudfront';
-		$plugin->settings_url_hash        = '#support';
-		$plugin->hook_suffix              = 'aws_page_amazon-s3-and-cloudfront';
+		$plugin->settings_url_path        = $this->as3cf->get_plugin_pagenow() . '?page=amazon-s3-and-cloudfront';
+		$plugin->settings_url_hash        = '#settings';
+		$plugin->hook_suffix              = $as3cf->hook_suffix;
 		$plugin->email_address_name       = 'as3cf';
 		$plugin->notices_hook             = 'as3cf_pre_settings_render';
-		$plugin->expired_licence_is_valid = false;
+		$plugin->load_hook                = 'as3cf_plugin_load';
+		$plugin->expired_licence_is_valid = true;
 		$plugin->purchase_url             = $this->as3cf->dbrains_url( '/wp-offload-s3/pricing/', array(
 			'utm_campaign' => 'WP+Offload+S3',
 		) );
@@ -71,14 +72,14 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 		add_action( 'network_admin_notices', array( $this, 'dashboard_licence_issue_notice' ) );
 		add_action( 'as3cf_pre_settings_render', array( $this, 'licence_issue_notice' ), 11 );
 
-		add_action( 'as3cf_support_pre_debug', array( $this, 'render_licence_settings' ) );
+		add_action( 'as3cf_licence_field', array( $this, 'render_licence_settings' ) );
 		add_action( 'as3cf_support_pre_debug', array( $this, 'render_licence_info' ) );
 
 		add_filter( 'as3cfpro_js_nonces', array( $this, 'add_licence_nonces' ) );
 		add_filter( 'as3cfpro_js_strings', array( $this, 'add_licence_strings' ) );
-		add_filter( 'aws_addons', array( $this, 'inject_addon_page_links' ) );
+		add_filter( 'as3cf_addons', array( $this, 'inject_addon_page_links' ) );
 
-		add_action( 'load-' . $this->plugin->hook_suffix, array( $this, 'http_dismiss_licence_notice' ) );
+		add_action( 'as3cf_plugin_load', array( $this, 'http_dismiss_licence_notice' ) );
 		add_action( 'as3cfpro_http_refresh_licence', array( $this, 'do_http_refresh_licence' ) );
 		add_action( 'as3cfpro_http_remove_licence', array( $this, 'do_http_remove_licence' ) );
 		add_action( 'as3cfpro_activate_licence_response', array( $this, 'refresh_licence_notice' ) );
@@ -113,8 +114,12 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	/**
 	 * Display the license form
 	 */
-	function render_licence_settings() {
-		$this->as3cf->render_view( 'licence-settings' );
+	public function render_licence_settings() {
+		$this->as3cf->render_view( 'licence-settings', array(
+			'is_defined'     => $this->is_licence_constant(),
+			'is_set'         => (bool) $this->get_licence_key(),
+			'masked_licence' => $this->get_masked_licence(),
+		) );
 	}
 
 	/**
@@ -137,6 +142,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	function add_licence_nonces( $nonces ) {
 		$nonces['check_licence']      = wp_create_nonce( 'check-licence' );
 		$nonces['activate_licence']   = wp_create_nonce( 'activate-licence' );
+		$nonces['remove_licence']     = wp_create_nonce( 'remove-licence' );
 		$nonces['reactivate_licence'] = wp_create_nonce( 'reactivate-licence' );
 
 		return $nonces;
@@ -177,20 +183,13 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	 * @return array $addons
 	 */
 	function inject_addon_page_links( $addons ) {
-		if ( ! isset( $addons[ $this->plugin->slug ]['addons'] ) ) {
-			// No addons defined for this plugin, abort
-			return $addons;
-		}
-
 		if ( ! $this->is_valid_licence( true ) ) {
-			// We don't have a valid license, abort
 			return $addons;
 		}
 
-		$plugin_addons = $addons[ $this->plugin->slug ]['addons'];
-
-		foreach ( $plugin_addons as $slug => $addon ) {
+		foreach ( $addons as $slug => &$addon ) {
 			$basename = $this->plugin->get_plugin_basename( $slug );
+
 			if ( ! isset( $this->addons[ $basename ] ) ) {
 				continue;
 			}
@@ -209,11 +208,8 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 				$extra_link['text'] = __( 'Download', 'amazon-s3-and-cloudfront' );
 			}
 
-			$addon['links'][]       = $extra_link;
-			$plugin_addons[ $slug ] = $addon;
+			$addon['links'][] = $extra_link;
 		}
-
-		$addons[ $this->plugin->slug ]['addons'] = $plugin_addons;
 
 		return $addons;
 	}
@@ -284,122 +280,230 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 	 * @param bool $skip_transient
 	 */
 	public function licence_issue_notice( $dashboard = false, $skip_transient = false ) {
-		global $amazon_web_services, $current_user;
-
-		if ( ! $amazon_web_services->are_access_keys_set() ) {
-			// Don't show the notice if we haven't set up AWS keys
+		if ( ! $this->as3cf->is_plugin_setup() ) {
+			// Don't show the notice if basic plugin requirements are not met.
 			return;
 		}
 
-		if ( $dashboard && method_exists( 'WP_AWS_Compatibility_Check', 'is_installing_or_updating_plugins' ) && WP_AWS_Compatibility_Check::is_installing_or_updating_plugins() ) {
+		if ( $dashboard && method_exists( 'AS3CF_Compatibility_Check', 'is_installing_or_updating_plugins' ) && AS3CF_Compatibility_Check::is_installing_or_updating_plugins() ) {
 			// Don't show the notice for plugin installs & updates, just too much noise
 			return;
 		}
 
-		$upgrade_url = $this->as3cf->get_my_account_url();
-
 		$license_check = $this->is_licence_expired();
-		$message       = false;
-		$type          = false;
-		$title         = '';
-		$title_product = $dashboard ? ' ' . $this->plugin->name : '';
+		$args          = compact( 'dashboard' );
 
-		$existing_type = get_site_option( $this->plugin->prefix . '_licence_issue_type', false );
+		if ( ! empty( $license_check['errors']['no_licence'] ) ) {
+			$this->display_no_licence_notice( $args );
 
-		if ( isset( $license_check['errors']['no_licence'] ) ) {
-			$type    = 'no_licence';
-			$message = $license_check['errors']['no_licence'];
-			$title   = __( 'Activate Your License', 'amazon-s3-and-cloudfront' );
-
-			if ( $dashboard ) {
-				// Don't show the activate license notice dashboard wide
-				return;
-			}
-		} else if ( isset( $license_check['errors']['subscription_expired'] ) ) {
-			$type    = 'subscription_expired';
-			$message = $license_check['errors']['subscription_expired'];
-			$title   = sprintf( __( 'Renew Your%s License', 'amazon-s3-and-cloudfront' ), $title_product );
-		} else if ( ! isset( $license_check['errors'] ) ) {
-			$media_limit_check = $this->check_licence_media_limit( $skip_transient );
-
-			if ( ! isset( $media_limit_check['status'] ) || self::MEDIA_USAGE_UNDER === $media_limit_check['status']['code'] ) {
-				return;
-			}
-				
-			$limit = absint( $media_limit_check['limit'] );
-			$total = absint( $media_limit_check['total'] );
-			if ( $media_limit_check['status']['code'] >= self::MEDIA_USAGE_REACHED ) {
-				$type    = 'over_limit';
-				$message = sprintf( __( 'The total number of attachments across the media libraries for your installs (%s) has %s the limit for your license (%s).', 'amazon-s3-and-cloudfront' ), number_format( $total ), $media_limit_check['status']['text'], number_format( $limit ), $upgrade_url );
-				$title = sprintf( __( 'Upgrade Your%s License', 'amazon-s3-and-cloudfront' ), $title_product );
-			} else {
-				if ( self::MEDIA_USAGE_APPROACHING === $media_limit_check['status']['code'] ) {
-					$type    = 'near_limit';
-					$message = sprintf( __( 'The total number of attachments across the media libraries for your installs (%s) is %s the limit for your license (%s).', 'amazon-s3-and-cloudfront' ), number_format( $total ), $media_limit_check['status']['text'], number_format( $limit ), $upgrade_url );
-					$title   = sprintf( __( 'Approaching%s License Limit', 'amazon-s3-and-cloudfront' ), $title_product );
-				}
-			}
+			return;
 		}
 
-		// Has the license issue type changed since the last check?
-		if ( $type !== $existing_type ) {
+		$media_limit_check = $this->check_licence_media_limit( $skip_transient );
+
+		if ( self::MEDIA_USAGE_REACHED <= $media_limit_check['status']['code'] ) {
+			$this->display_over_limit_licence_notice( $args );
+		} else if ( ! empty( $license_check['errors']['subscription_expired'] ) ) {
+			$this->display_expired_licence_notice( $args );
+		} else if ( self::MEDIA_USAGE_APPROACHING === $media_limit_check['status']['code'] ) {
+			$this->display_near_limit_licence_notice( $args );
+		} else if ( ! isset( $license_check['errors'] ) ) {
+			$this->clear_licence_issue();
+		}
+	}
+
+	/**
+	 * Display the notice for a missing licence.
+	 *
+	 * @param $args
+	 */
+	protected function display_no_licence_notice( $args ) {
+		if ( $args['dashboard'] ) {
+			return;
+		}
+
+		$license_check = $this->is_licence_expired();
+
+		$this->render_licence_notice( array_merge( $args, array(
+			'title'   => __( 'Activate Your License', 'amazon-s3-and-cloudfront' ),
+			'message' => $license_check['errors']['no_licence'],
+			'type'    => 'no_licence',
+			'links'   => array( 'check_again' ),
+		) ) );
+	}
+
+	/**
+	 * Display the notice for an expired licence.
+	 *
+	 * @param $args
+	 */
+	protected function display_expired_licence_notice( $args ) {
+		if ( $args['dashboard'] ) {
+			$title = sprintf( __( 'Your %s License Has Expired', 'amazon-s3-and-cloudfront' ), $this->plugin->name );
+		} else {
+			$title = __( 'Your License Has Expired', 'amazon-s3-and-cloudfront' );
+		}
+
+		$this->render_licence_notice( array_merge( $args, array(
+			'title'   => $title,
+			'message' => __( 'All features will continue to work, but you won\'t have access to software updates or email support.', 'amazon-s3-and-cloudfront' ),
+			'type'    => 'subscription_expired',
+			'links'   => array( 'renew_now', 'check_again' ),
+		) ) );
+	}
+
+	/**
+	 * Display the notice for a licence approaching its limit.
+	 *
+	 * @param $args
+	 */
+	protected function display_near_limit_licence_notice( $args ) {
+		$media_limit_check = $this->check_licence_media_limit();
+		$args['message']   = sprintf(
+			__( 'The total number of attachments across the media libraries for your installs (%1$s) is approaching the limit for your license (%2$s).', 'amazon-s3-and-cloudfront' ),
+			number_format( absint( $media_limit_check['total'] ) ),
+			number_format( absint( $media_limit_check['limit'] ) )
+		);
+
+		if ( $args['dashboard'] ) {
+			$args['title'] = sprintf( __( 'Approaching %s License Limit', 'amazon-s3-and-cloudfront' ), $this->plugin->name );
+		} else {
+			$args['title'] = __( 'Approaching License Limit', 'amazon-s3-and-cloudfront' );
+		}
+		
+		$args['type']  = 'near_limit';
+		$args['extra'] = sprintf(
+			__( 'When you exceed the limit, all essential features will continue to work, but a few <a href="%1$s">non-essential features</a> will be disabled until you <a href="%2$s">upgrade your license</a> or <a href="%3$s">free-up some of your current limit</a>.', 'amazon-s3-and-cloudfront' ),
+			$this->non_essential_features_url(),
+			$this->as3cf->get_my_account_url(),
+			$this->free_up_limit_url()
+		);
+		$args['links'] = array( 'upgrade_now', 'check_again' );
+
+		$this->render_licence_notice( $args );
+	}
+
+	/**
+	 * Display the notice for a licence which has exceeded its limit.
+	 *
+	 * @param $args
+	 */
+	protected function display_over_limit_licence_notice( $args ) {
+		$media_limit_check = $this->check_licence_media_limit();
+		$total             = absint( $media_limit_check['total'] );
+		$limit             = absint( $media_limit_check['limit'] );
+		
+		if ( $args['dashboard'] ) {
+			$args['title'] = sprintf( __( 'Upgrade Your %s License', 'amazon-s3-and-cloudfront' ), $this->plugin->name );
+		} else {
+			$args['title'] = __( 'Upgrade Your License', 'amazon-s3-and-cloudfront' );
+		}
+
+		$reached  = __( 'The total number of attachments across the media libraries for your installs (%1$s) has reached the limit for your license (%2$s).', 'amazon-s3-and-cloudfront' );
+		$exceeded = __( 'The total number of attachments across the media libraries for your installs (%1$s) has exceeded the limit for your license (%2$s).', 'amazon-s3-and-cloudfront' );
+		
+		$args['type']    = 'over_limit';
+		$args['message'] = sprintf(
+			$total > $limit ? $exceeded : $reached,
+			number_format( $total ),
+			number_format( $limit )
+		);
+		$args['extra'] = sprintf(
+			__( 'All essential features will continue to work, but a few <a href="%1$s">non-essential features</a> will be disabled until you <a href="%2$s">upgrade your license</a> or <a href="%3$s">free-up some of your current limit</a>.', 'amazon-s3-and-cloudfront' ),
+			$this->non_essential_features_url(),
+			$this->as3cf->get_my_account_url(),
+			$this->free_up_limit_url()
+		);
+		$args['links'] = array( 'upgrade_now', 'check_again' );
+
+		$this->render_licence_notice( $args );
+	}
+
+	/**
+	 * Render a licence notice.
+	 *
+	 * @param array $args
+	 */
+	public function render_licence_notice( $args = array() ) {
+		$args = array_merge( array(
+			'title'       => '',
+			'type'        => '',
+			'message'     => '',
+			'extra'       => '',
+			'links'       => array(),
+			'dashboard'   => false,
+			'dismissible' => false,
+			'dismiss_url' => '',
+		), $args );
+
+		// Don't show if current user has dismissed notice
+		if ( $args['dashboard'] && get_user_meta( get_current_user_id(), $this->plugin->prefix . '-dismiss-licence-notice' ) ) {
+			return;
+		}
+
+		if ( $args['dashboard'] ) {
+			$args['dismissible'] = true;
+			$args['dismiss_url'] = $this->get_licence_notice_url( 'dismiss-licence-notice', false, true );
+		}
+
+		$link_map = array(
+			'upgrade_now' => sprintf( '<a href="%s" class="as3cf-pro-upgrade-now">%s</a>', $this->as3cf->get_my_account_url(), __( 'Upgrade Your License Now', 'amazon-s3-and-cloudfront' ) ),
+			'renew_now'   => sprintf( '<a href="%s" class="as3cf-pro-renew-now">%s</a>', $this->as3cf->get_my_account_url(), __( 'Renew Your License Now', 'amazon-s3-and-cloudfront' ) ),
+			'check_again' => sprintf( '<a href="%s" class="as3cf-pro-check-again">%s</a>', $this->get_licence_notice_url( 'check-licence', true, $args['dashboard'] ), __( 'Check again', 'amazon-s3-and-cloudfront' ) ),
+		);
+
+		if ( ! empty( $args['links'] ) ) {
+			$args['links'] = array_map( function( $link ) use ( $link_map ) {
+				return isset( $link_map[ $link ] ) ? $link_map[ $link ] : $link;
+			}, $args['links'] );
+		}
+
+		$this->as3cf->render_view( 'licence-notice', $args );
+		$this->update_licence_issue( $args['type'] );
+	}
+	
+	/**
+	 * Update the saved license issue type.
+	 *
+	 * @param string $type
+	 */
+	protected function update_licence_issue( $type ) {
+		if ( $type !== get_site_option( $this->plugin->prefix . '_licence_issue_type' ) ) {
 			// Delete the dismissed flag for the user
-			delete_user_meta( $current_user->ID, $this->plugin->prefix . '-dismiss-licence-notice' );
+			delete_user_meta( get_current_user_id(), $this->plugin->prefix . '-dismiss-licence-notice' );
 
 			// Store the type of issue for comparison later
 			update_site_option( $this->plugin->prefix . '_licence_issue_type', $type );
 		}
+	}
 
-		if ( ! $message ) {
-			// No license issue
-			delete_site_option( $this->plugin->prefix . '_licence_issue_type' );
+	/**
+	 * Clear the saved licence issue type.
+	 */
+	protected function clear_licence_issue() {
+		delete_site_option( $this->plugin->prefix . '_licence_issue_type' );
+	}
 
-			return;
-		}
-
-		// Don't show if current user has dismissed notice
-		if ( $dashboard && get_user_meta( $current_user->ID, $this->plugin->prefix . '-dismiss-licence-notice' ) ) {
-			return;
-		}
-
-		$features_url   = $this->as3cf->dbrains_url( '/wp-offload-s3/doc/non-essential-features/', array(
+	/**
+	 * Get the document href for non-essential features.
+	 *
+	 * @return string
+	 */
+	public function non_essential_features_url() {
+		return $this->as3cf->dbrains_url( '/wp-offload-s3/doc/non-essential-features/', array(
 			'utm_campaign' => 'error+messages',
 		) );
-		$free_limit_url = $this->as3cf->dbrains_url( '/wp-offload-s3/pricing/', array(
+	}
+
+	/**
+	 * Get the document href for details about freeing up licence limit.
+	 *
+	 * @return string
+	 */
+	public function free_up_limit_url() {
+		return $this->as3cf->dbrains_url( '/wp-offload-s3/pricing/', array(
 			'utm_campaign' => 'error+messages',
 		), 'free-up-limit' );
-
-		$extra = sprintf( __( 'All essential features will continue to work, but a few <a href="%s">non-essential features</a> will be disabled', 'amazon-s3-and-cloudfront' ), $features_url, strtolower( $title ) );
-
-		if ( ! isset( $license_check['errors'] ) ) {
-			if ( 'near_limit' === $type ) {
-				$extra = sprintf( __( 'When you exceed the limit, all essential features will continue to work, but a few <a href="%s">non-essential features</a> will be disabled', 'amazon-s3-and-cloudfront' ), $features_url );
-			}
-
-			$extra .= ' ' . sprintf( __( 'until you <a href="%s">upgrade your license</a> or <a href="%s">free-up some of your current limit</a>' ), $upgrade_url, $free_limit_url );
-		} else {
-			$extra .= ' ' . sprintf( __( 'until you %s', 'amazon-s3-and-cloudfront' ), strtolower( $title ) );
-		}
-
-		$extra .= '.';
-
-		$check_url   = $this->get_licence_notice_url( 'check-licence', true, $dashboard );
-		$dismiss_url = false;
-		if ( $dashboard ) {
-			$dismiss_url = $this->get_licence_notice_url( 'dismiss-licence-notice', false, $dashboard );
-		}
-
-		$args = array(
-			'dashboard'   => $dashboard,
-			'check_url'   => $check_url,
-			'dismiss_url' => $dismiss_url,
-			'title'       => $title,
-			'type'        => $type,
-			'message'     => $message,
-			'extra'       => $extra,
-		);
-
-		$this->as3cf->render_view( 'licence-notice', $args );
 	}
 
 	/**
@@ -410,16 +514,12 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 			$hash = ( isset( $_GET['hash'] ) ) ? '#' . sanitize_title( $_GET['hash'] ) : ''; // input var okay
 
 			// Store the dismissed flag against the user
-			global $current_user;
-			update_user_meta( $current_user->ID, $this->plugin->prefix . '-dismiss-licence-notice', true );
+			update_user_meta( get_current_user_id(), $this->plugin->prefix . '-dismiss-licence-notice', true );
 
-			$sendback = $this->admin_url( $this->plugin->settings_url_path . $hash );
-			if ( isset( $_GET['sendback'] ) ) {
-				$sendback = $_GET['sendback'];
-			}
+			$sendback = filter_input( INPUT_GET, 'sendback' ) ?: $this->admin_url( $this->plugin->settings_url_path . $hash );
 
 			// redirecting because we don't want to keep the query string in the web browsers address bar
-			wp_redirect( esc_url_raw( $sendback ) );
+			wp_safe_redirect( $sendback );
 			exit;
 		}
 	}
@@ -511,7 +611,7 @@ class AS3CF_Pro_Licences_Updates extends Delicious_Brains_API_Licences {
 
 		if ( $licence_error ) {
 			$license                       = $this->is_licence_expired();
-			$decoded_response['errors']    = $license['errors'];
+			$decoded_response['errors']    = empty( $license['errors'] ) ? '' : $license['errors'];
 			$decoded_response['pro_error'] = $licence_error;
 		}
 

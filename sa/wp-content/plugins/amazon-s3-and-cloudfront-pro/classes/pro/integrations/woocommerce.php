@@ -40,7 +40,7 @@ class Woocommerce extends Integration {
 		$screen = get_current_screen();
 
 		if ( in_array( $screen->id, array( 'product', 'edit-product' ) ) ) {
-			if ( ! $this->as3cf->is_pro_plugin_setup() ) {
+			if ( ! $this->as3cf->is_pro_plugin_setup( true ) ) {
 				// Don't allow new shortcodes if Pro not set up
 				return;
 			}
@@ -106,7 +106,7 @@ class Woocommerce extends Integration {
 				continue;
 			}
 
-			if ( $this->as3cf->is_pro_plugin_setup() ) {
+			if ( $this->as3cf->is_pro_plugin_setup( true ) ) {
 				// Only set new files as private if the Pro plugin is setup
 				$s3object = $this->as3cf->set_attachment_acl_on_s3( $attachment_id, $s3object, Amazon_S3_And_CloudFront::PRIVATE_ACL );
 				if ( $s3object && ! is_wp_error( $s3object ) ) {
@@ -289,7 +289,7 @@ class Woocommerce extends Integration {
 				if ( $bucket_setting === $atts['bucket'] ) {
 					$region = $this->as3cf->get_setting( 'region' );
 				} else {
-					$region = $this->as3cf->get_bucket_region( $atts['bucket'] );
+					$region = $this->as3cf->get_bucket_region( $atts['bucket'], true );
 				}
 
 				try {
