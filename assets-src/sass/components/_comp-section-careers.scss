@@ -444,6 +444,7 @@
 
         &:not(:nth-child(3n+1)) {
             margin-left: auto;
+            margin-left: calc(96px / 3);
         }
 
         &:nth-child(n+4) {
@@ -491,6 +492,7 @@
 
         &:not(:nth-child(4n+1)) {
             margin-left: auto;
+            margin-left: calc(144px / 3);
         }
 
         &:nth-child(n+5) {
