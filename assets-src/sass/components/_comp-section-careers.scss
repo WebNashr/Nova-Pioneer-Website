@@ -335,61 +335,11 @@
         }
     }
 
-    &:nth-child(1) {
-        background: $orange-lt;
-
-        h2 {
-            background: $blue-lt;
-		}
-
-        p span {
-            background: $blue-lt;
-		}
-    }
-
-    &:nth-child(2) {
-        background: $blue-dk;
-
-        h2 {
-            background: $green-lt;
-		}
-
-        p span {
-            background: $green-lt;
-		}
-    }
-
-    &:nth-child(3) {
-        background: $green-lt;
-
-        h2 {
-            background: $orange-lt;
-		}
-
-        p span {
-            background: $orange-lt;
-		}
-    }
-
-    &:nth-child(4) {
+    &:nth-child(6n+1) {
         background: $blue-lt;
 
         h2 {
-            background: $raspberry;
-		}
-
-        p span {
-            background: $raspberry;
-		}
-    }
-
-    &:nth-child(5) {
-        background: $green-dk;
-        background: $raspberry;
-
-        h2 {
             background: $blue-lt;
-            background: $orange-lt;
 		}
 
         p span {
@@ -397,15 +347,63 @@
 		}
     }
 
-    &:nth-child(6) {
-        background: $orange-dk;
+    &:nth-child(6n+2) {
+        background: $green-lt;
 
         h2 {
             background: $green-lt;
 		}
 
         p span {
+            background: $green-lt;
+		}
+    }
+
+    &:nth-child(6n+3) {
+        background: $orange-lt;
+
+        h2 {
+            background: $orange-lt;
+		}
+
+        p span {
+            background: $orange-lt;
+		}
+    }
+
+    &:nth-child(6n+4) {
+        background: $raspberry;
+
+        h2 {
+            background: $raspberry;
+		}
+
+        p span {
+            background: $raspberry;
+		}
+    }
+
+    &:nth-child(6n+5) {
+        background: $blue-lt;
+
+        h2 {
             background: $blue-lt;
+		}
+
+        p span {
+            background: $blue-lt;
+		}
+    }
+
+    &:nth-child(6n+6) {
+        background: $orange-dk;
+
+        h2 {
+            background: $orange-dk;
+		}
+
+        p span {
+            background: $orange-dk;
 		}
     }
 }
@@ -512,6 +510,14 @@
 //     }
 // }
 
+.new-card-copy-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
 .new-card-copy {
     padding: calc(#{$space-tiny} * 1.5);
 
@@ -524,10 +530,10 @@
         @include flexbox();
 	    @include flex-direction(column);
         justify-content: end;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
+        // position: absolute;
+        // bottom: 0;
+        // width: 100%;
+        // height: 100%;
         padding: 0;
     }
 }

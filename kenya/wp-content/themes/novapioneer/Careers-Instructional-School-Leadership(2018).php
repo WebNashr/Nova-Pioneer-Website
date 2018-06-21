@@ -100,10 +100,14 @@ get_header();?>
 
                             <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
                             <?php endif; ?>
+
+                            <figcaption class="new-card-copy-caption">
+                                <p><span></span><?php the_sub_field('paragraph');?></p>
+                            </figcaption>
                         </figure>
 
                         <div class="new-card-copy new-card-copy-hover" style="display: noneX;">
-                            <p><span></span><?php the_sub_field('paragraph');?></p>
+                            <!--<p><span></span><?php the_sub_field('paragraph');?></p>-->
                             <h2><?php the_sub_field('title');?></h2>
 
                             <!--<blockquote><?php the_sub_field('quote') ?></blockquote>-->
