@@ -43,7 +43,7 @@ get_header();?>
             if(have_rows($title)):
         ?>
         <?php while(have_rows($title)): the_row();?>
-        <section class="section section-no-bottom section-learning-content-XXX">
+        <section class="section section-no-bottom section-learning-content-XXX" style="display: none;">
             <div class="page-navigation-container">
                 <div class="navigation-wrap" style="max-width: unset;">
                     <div class="section-title">
@@ -154,11 +154,18 @@ get_header();?>
 
 
 
+        <section class="section section-no-bottom section-page-intro">
+            <article class="article">
+                <h2>We’re seeking future Novaneers to join our growing pan-African network of schools across a variety of roles</h2>
+                <br>
+            </article>
+        </section>
+
         <?php
             $opp = 'opportunities';
             if(have_rows($opp)):
         ?>
-        <section class="section section-no-bottom-XXX">
+        <section class="section section-no-top section-no-bottom-XXX">
             <article class="article">
                 <div class="opportunities">
                     <?php $i = 0; ?>
