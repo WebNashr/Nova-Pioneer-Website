@@ -91,17 +91,20 @@ get_header();?>
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while($featured_team->have_posts()): $featured_team->the_post();?>
-                        <div class="new-card-item new-card-item-plain new-card-item-quarter">
-                            <figure class="new-card-img">
-                                <img src="<?php if(has_post_thumbnail()) {echo get_the_post_thumbnail_url();}?>" alt="">
-                            </figure>
+                    <div class="new-card-item new-card-item-plain new-card-item-quarter">
+                        <figure class="new-card-img">
+                            <img
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'square-medium')[0]; ?>"
+                                alt="<?php the_title();?>"
+                            >
+                        </figure>
 
-                            <div class="new-card-copy">
-                                <h3><?php the_title(); ?></h3>
-                                <h6><?php the_field('quote', $featured_team->ID); ?></h6>
-                                <a href="<?php echo get_permalink();?>">Read my story</a>
-                            </div>
+                        <div class="new-card-copy">
+                            <h3><?php the_title(); ?></h3>
+                            <h6><?php the_field('quote', $featured_team->ID); ?></h6>
+                            <a href="<?php echo get_permalink();?>">Read my story</a>
                         </div>
+                    </div>
                     <?php endwhile?>
                 </div>
             </article>
