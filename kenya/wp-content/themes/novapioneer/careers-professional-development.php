@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers - Growth
+* Template Name: Careers - professional development
 */
 
 get_header();?>

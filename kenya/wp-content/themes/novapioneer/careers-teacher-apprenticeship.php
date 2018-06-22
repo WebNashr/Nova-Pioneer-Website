@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers - Apprenticeship
+* Template Name: Careers - teacher apprenticeship
 */
 
 get_header();?>

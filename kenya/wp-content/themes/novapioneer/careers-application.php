@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers - Application
+* Template Name: Careers - apply
 */
 
 get_header();?>
