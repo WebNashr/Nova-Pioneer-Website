@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers Support
+* Template Name: Careers - Support
 */
 
 get_header();?>
