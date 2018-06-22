@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers - support functions
+* Template Name: Careers - teams and support
 */
 
 get_header();?>
