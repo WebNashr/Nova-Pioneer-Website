@@ -116,6 +116,11 @@
     }
 }
 
+.new-card-item.new-card-item-transparent {
+    background: transparent;
+    border: 1px solid transparent;
+}
+
 .new-card-item.new-card-item-centre * {
     text-align: center;
 }
@@ -1406,6 +1411,8 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 .article-video-embed {
     width: 75%;
     max-width: 1024px;
+    width: 80%;
+    max-width: 1280px;
     margin: 0 auto;
 }
 

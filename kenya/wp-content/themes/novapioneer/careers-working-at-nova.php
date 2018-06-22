@@ -85,7 +85,7 @@ get_header();?>
             if(have_rows($intro)):
             $i = 0;
         ?>
-        <section class="section section-no-bottom">
+        <section class="section section-no-bottom" style="display: none;">
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while(have_rows($intro)): the_row();?>
@@ -101,6 +101,33 @@ get_header();?>
                                 <h6><?php the_sub_field('sub_heading'); ?></h6>
                                 -->
 
+                                <h3><?php the_sub_field('sub_heading'); ?></h3>
+                                <p><?php the_sub_field('paragraph'); ?></p>
+                            </div>
+                        </div>
+                    <?php $i++; ?>
+                    <?php endwhile?>
+                </div>
+            </article>
+        </section>
+        <?php endif;?>
+
+
+        <?php
+            $intro = 'intro';
+            if(have_rows($intro)):
+            $i = 0;
+        ?>
+        <section class="section section-no-bottom">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
+                    <?php while(have_rows($intro)): the_row();?>
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-transparent new-card-item-plain new-card-item-centre new-card-item-quarter">
+                            <figure class="new-card-img" style="margin: 1.5rem auto 0;">
+                                <img src="<?php the_sub_field('icon'); ?>" alt="">
+                            </figure>
+
+                            <div class="new-card-copy">
                                 <h3><?php the_sub_field('sub_heading'); ?></h3>
                                 <p><?php the_sub_field('paragraph'); ?></p>
                             </div>
@@ -307,6 +334,15 @@ get_header();?>
         <?php endif;?>
 
 
+        <section class="section section-no-top">
+            <article class="article article-video-embed">
+                <div class="media youtube-video">
+                    <?php the_field('working_video') ?>
+                </div>
+            </article>
+        </section>
+
+
         <?php
             $apply = get_field('apply_now');
             //var_dump($apply);
@@ -318,15 +354,6 @@ get_header();?>
             </div>
         </section>
         <?php endif;?>
-
-
-        <section class="section section-no-top">
-            <article class="article article-video-embed">
-                <div class="media youtube-video">
-                    <?php the_field('working_video') ?>
-                </div>
-            </article>
-        </section>
 
 
     <?php endwhile; ?>
