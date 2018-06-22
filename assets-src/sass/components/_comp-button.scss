@@ -76,14 +76,20 @@
 	justify-content: center;
 	// margin: 0 25%;
 	// @extend %column-2;
+
 	@include break-point(laptop) {
 		margin: 0 auto;
 		justify-content: flex-start;
+
 		.mission-vision & {
 			justify-content: center;
 		}
 		// justify-content: center;
-  }
+
+        &.button-wrap-centered {
+            justify-content: center;
+        }
+    }
 }
 .fees-button {
 	width: 100% !important;
