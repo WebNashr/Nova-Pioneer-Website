@@ -857,6 +857,50 @@
     max-width: 1280px;
     margin-right: auto;
     margin-left: auto;
+
+    &:nth-child(4n+1) {
+        .interrupter-bg,
+        .interrupter-number {
+            background: $orange-lt;
+		}
+
+        h2 {
+            color: $orange-lt;
+        }
+    }
+
+    &:nth-child(4n+2) {
+        .interrupter-bg,
+        .interrupter-number {
+            background: $blue-lt;
+		}
+
+        h2 {
+            color: $blue-lt;
+        }
+    }
+
+    &:nth-child(4n+3) {
+        .interrupter-bg,
+        .interrupter-number {
+            background: $green-lt;
+		}
+
+        h2 {
+            color: $green-lt;
+        }
+    }
+
+    &:nth-child(4n+4) {
+        .interrupter-bg,
+        .interrupter-number {
+            background: $raspberry;
+		}
+
+        h2 {
+            color: $raspberry;
+        }
+    }
 }
 
 .section-interrupter .interrupter-image {
@@ -867,20 +911,18 @@
 }
 
 .interrupter-bg {
+    position: absolute;
     top: 0;
     right: 0;
+    // bottom: 0;
+    // left: 0;
+    display: block;
     width: 100%;
     height: 100%;
-    display: block;
-    content: '';
-    background: #ff0;
-    z-index: -1;
-    position: absolute;
-    // display: none;
-    bottom: 0;
-    right: 0;
     margin-top: -2rem;
     margin-right: -2rem;
+    content: '';
+    z-index: -1;
 }
 
 .interrupter-image figcaption {
@@ -890,31 +932,28 @@
 }
 
 .interrupter-number {
-    font-size: 32px;
-    font-size: 5rem;
-    line-height: 1;
-    font-weight: 700;
+    @include font-size(80px);
+    @include line-height(1);
+    @include title(bold);
     display: block;
     width: 10rem;
     height: 10rem;
     margin-top: 1rem;
     padding: 40px 0 0;
     text-align: center;
-    color: #fff;
-    background: yellow;
+    color: $white;
     border-radius: 0;
+    box-shadow: 0 0px 16px 8px rgba(0,0,0,0.1);
     cursor: pointer;
 }
 
 .interrupter-text {
+    position: relative;
     max-width: 768px;
     margin: 4rem auto 5rem;
-
-    background: white;
-    padding: 3rem 4rem;
     margin-top: -3rem;
-    z-index: 9999999999;
-    position: relative;
+    padding: 3rem 4rem;
+    background: $white;
     box-shadow: 0 0px 16px 8px rgba(0,0,0,0.1);
 }
 
