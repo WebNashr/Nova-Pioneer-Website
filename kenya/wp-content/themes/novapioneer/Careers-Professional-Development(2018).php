@@ -29,7 +29,7 @@ get_header();?>
         <?php
             $title = get_field('section_a');
         ?>
-        <section class="section section-no-bottom section-page-intro">
+        <section class="section section-no-bottom-XXX section-page-intro">
             <article class="article">
                 <?php if($title):?>
                 <h2><?php echo $title ?></h2>
