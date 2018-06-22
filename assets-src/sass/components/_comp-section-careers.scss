@@ -8,6 +8,38 @@
     height: 77.5vh;
 }
 
+.media-heading.ribbon {
+    position: relative;
+}
+
+.ribbon:before {
+    font: 700 38px/1 'Comfortaa', cursive;
+    content: 'We are hiring';
+    background-color: $green-lt;
+    padding: 25px;
+    width: 320px;
+    text-align: center;
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: -110px;
+    float: right;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width:468px){
+    .ribbon:before{
+        font-size:25px;
+        padding: 15px;
+        width: 290px;
+        top: 10px;
+        right: -110px;
+    }
+}
+
 .parent-pageid-919 .section-hero .main-callout-box {
     bottom: 0;
 }
@@ -114,6 +146,11 @@
         display: block;
         color: lighten($grey-mdk, 10%);
     }
+}
+
+.new-card-item.new-card-item-transparent {
+    background: transparent;
+    border: 1px solid transparent;
 }
 
 .new-card-item.new-card-item-centre * {
@@ -1406,10 +1443,70 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 .article-video-embed {
     width: 75%;
     max-width: 1024px;
+    width: 80%;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
 
 
+
+.team-item {
+    max-width: 1024px;
+
+    &:not(:last-of-type) {
+        margin-bottom: calc(#{$space-tiny} * 4);
+    }
+
+    @include flexbox();
+	@include flex-direction(column);
+    @include flex-wrap(nowrap);
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        align-items: center;
+    }
+
+    img {
+        width: 420px;
+        width: 240px;
+        margin-right: calc(#{$space-tiny} * 3.5);
+        border-radius: 50%;
+    }
+
+    figcaption {
+        width: calc(100% - calc(420px + 3rem));
+        width: calc(100% - calc(320px + 3rem));
+    }
+
+    h3 {
+        margin-bottom: calc(#{$space-tiny} * 1);
+    }
+
+    &:nth-child(4n+1) {
+        h3 {
+            color: $orange-lt;
+        }
+    }
+
+    &:nth-child(4n+2) {
+        h3 {
+            color: $blue-lt;
+        }
+    }
+
+    &:nth-child(4n+3) {
+        h3 {
+            color: $green-lt;
+        }
+    }
+
+    &:nth-child(4n+4) {
+        h3 {
+            color: $raspberry;
+        }
+    }
+}
 
 

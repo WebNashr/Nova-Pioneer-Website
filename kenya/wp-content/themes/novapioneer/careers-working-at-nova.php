@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Working-at-Nova(2018)
+* Template Name: Careers - working at Nova
 */
 
 get_header();?>
@@ -20,10 +20,21 @@ get_header();?>
 
         <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
+                <!--<h2 class="media-heading ribbon">&nbsp;</h2>-->
+
                 <div class="main-callout-box">
                     <hr>
                     <!--<h1 class="animated-title"><?php the_title(); ?></h1>-->
+                    <!--<h3>We're hiring!'</h3>-->
                     <h1 class="animated-title"><?php the_field('page_title') ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -85,7 +96,7 @@ get_header();?>
             if(have_rows($intro)):
             $i = 0;
         ?>
-        <section class="section section-no-bottom">
+        <section class="section section-no-bottom" style="display: none;">
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while(have_rows($intro)): the_row();?>
@@ -101,6 +112,33 @@ get_header();?>
                                 <h6><?php the_sub_field('sub_heading'); ?></h6>
                                 -->
 
+                                <h3><?php the_sub_field('sub_heading'); ?></h3>
+                                <p><?php the_sub_field('paragraph'); ?></p>
+                            </div>
+                        </div>
+                    <?php $i++; ?>
+                    <?php endwhile?>
+                </div>
+            </article>
+        </section>
+        <?php endif;?>
+
+
+        <?php
+            $intro = 'intro';
+            if(have_rows($intro)):
+            $i = 0;
+        ?>
+        <section class="section section-no-bottom">
+            <article class="article">
+                <div class="card-container-XXX steps-container-XXX new-card-container">
+                    <?php while(have_rows($intro)): the_row();?>
+                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-transparent new-card-item-plain new-card-item-centre new-card-item-quarter">
+                            <figure class="new-card-img" style="margin: 1.5rem auto 0;">
+                                <img src="<?php the_sub_field('icon'); ?>" alt="">
+                            </figure>
+
+                            <div class="new-card-copy">
                                 <h3><?php the_sub_field('sub_heading'); ?></h3>
                                 <p><?php the_sub_field('paragraph'); ?></p>
                             </div>
@@ -307,19 +345,6 @@ get_header();?>
         <?php endif;?>
 
 
-        <?php
-            $apply = get_field('apply_now');
-            //var_dump($apply);
-            if($apply):
-        ?>
-        <section class="section section-no-top">
-            <div class="button-wrap">
-                <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
-            </div>
-        </section>
-        <?php endif;?>
-
-
         <section class="section section-no-top">
             <article class="article article-video-embed">
                 <div class="media youtube-video">
@@ -327,6 +352,19 @@ get_header();?>
                 </div>
             </article>
         </section>
+
+
+        <?php
+            $apply = get_field('apply_now');
+            //var_dump($apply);
+            if($apply):
+        ?>
+        <section class="section section-no-top">
+            <div class="button-wrap button-wrap-center">
+                <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+            </div>
+        </section>
+        <?php endif;?>
 
 
     <?php endwhile; ?>

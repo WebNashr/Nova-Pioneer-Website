@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Support-Functions (2018)
+* Template Name: Careers - teams and support
 */
 
 get_header();?>
@@ -43,7 +43,7 @@ get_header();?>
             $info = 'info';
             if(have_rows($info)):
         ?>
-        <section class="section section-no-bottom-XXX">
+        <section class="section section-no-bottom-XXX" style="display: none;">
             <article class="article">
                 <div class="card-container-XXX steps-container-XXX new-card-container">
                     <?php while(have_rows($info)): the_row();?>
@@ -60,6 +60,41 @@ get_header();?>
                         </div>
                     <?php endwhile?>
                 </div>
+            </article>
+        </section>
+        <?php endif;?>
+
+
+        <?php
+            $info = 'info';
+            if(have_rows($info)):
+        ?>
+        <section class="section section-no-bottom">
+            <article class="article">
+                <?php while(have_rows($info)): the_row();?>
+                    <figure class="team-item">
+                        <?php $image = get_sub_field('image'); ?>
+
+                        <?php if( !empty($image) ):
+                            // vars
+                            $url = $image['url'];
+                            $title = $image['title'];
+                            $alt = $image['alt'];
+
+                            // thumbnail
+                            $size = 'square-small';
+                            $thumb = $image['sizes'][ $size ];
+                        ?>
+
+                        <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
+                        <?php endif; ?>
+
+                        <figcaption>
+                            <h3><?php the_sub_field('title'); ?></h3>
+                            <p><?php the_sub_field('paragraph'); ?></p>
+                        </figcaption>
+                    </figure>
+                <?php endwhile?>
             </article>
         </section>
         <?php endif;?>
@@ -118,8 +153,8 @@ get_header();?>
         ?>
         <section class="section">
             <?php if($url)?>
-            <div class="button-wrap">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap=XXX button-default button-primary" title="">APPLY NOW</a>
+            <div class="button-wrap button-wrap-center">
+                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap=XXX button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
     <?php endwhile; ?>

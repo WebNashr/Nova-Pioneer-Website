@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Professional-Development (2018)
+* Template Name: Careers - professional development
 */
 
 get_header();?>
@@ -35,7 +35,7 @@ get_header();?>
                 <h2><?php echo $title ?></h2>
                 <?php endif;?>
 
-                <h2><?php the_content();?></h2>
+                <?php the_content();?>
             </article>
         </section>
 
@@ -137,7 +137,7 @@ get_header();?>
         ?>
         <section class="section section-no-top">
             <?php if($url)?>
-            <div class="button-wrap" style="justify-content: center;">
+            <div class="button-wrap button-wrap-center">
                 <a href="<?php echo $url ?>" target="_blank" class="button button-wrap-XXX button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
