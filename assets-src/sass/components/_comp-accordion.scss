@@ -1,5 +1,6 @@
 .faqs-container {
     padding:0 calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2);
+
     @include break-point(tablet) {
       padding:0 calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
     }
@@ -11,7 +12,7 @@ ul.toggle-list {
     }
 }
 
-ul.toggle-list li {
+ul.toggle-list > li {
     width: 100%;
     margin: 0;
     padding: 1.25rem 0;
@@ -42,7 +43,7 @@ ul.toggle-list li {
     &:before {
         @include font-size(16px);
         position: relative;
-        top: -2px;
+        top: -4px;
         display: inline-block;
         width: 0.5rem;
         margin-right: 1rem;
@@ -53,6 +54,20 @@ ul.toggle-list li {
     &.show {
         &:before {
             content: "▼";
+            color: $blue-lt;
+        }
+    }
+}
+
+ul.toggle-list.toggle-list-plus > li {
+    &:before {
+        @include font-size(32px);
+        content: "+";
+    }
+
+    &.show {
+        &:before {
+            content: "−";
             color: $blue-lt;
         }
     }
@@ -100,5 +115,18 @@ ul.toggle-list li {
 
     .show & {
         display: block;
+        margin-top: 1rem;
+    }
+}
+
+li {
+    .toggle-list-content & {
+        margin-left: 3.25rem;
+    }
+}
+
+li::before {
+    .toggle-list-content & {
+        color: $blue-lt;
     }
 }

@@ -1,0 +1,1415 @@
+
+/*  Page section: Careers */
+/* ==================================================== */
+
+
+.parent-pageid-919 .section-hero {
+    height: 65vh;
+    height: 77.5vh;
+}
+
+.parent-pageid-919 .section-hero .main-callout-box {
+    bottom: 0;
+}
+
+.section-page-intro h2 {
+    // @include title(light);
+    @include font-size(28px);
+    max-width: 95vw;
+
+    p {
+        font-size: inherit;
+    }
+
+    @include break-point(laptop) {
+        max-width: 75vw;
+    }
+}
+
+.section-page-intro p {
+    // @include title(light);
+    // @include font-size(24px);
+    max-width: 95vw;
+    // border-left: 12px solid $grey-md;
+    // padding-left: calc(#{$space-tiny} * 2);
+
+    @include break-point(laptop) {
+        max-width: 75vw;
+    }
+}
+
+
+
+.new-card-container {
+    @extend %columns;
+    // justify-content: space-between;
+    width: 100%;
+    // padding-top: calc(#{$space-tiny} * 2);
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+        // padding: calc(#{$space-tiny} * 2) 0 0;
+    }
+
+    @include break-point(laptop) {
+        // padding: calc(#{$space-tiny} * 2.5) 0 0;
+    }
+}
+
+.new-card-item {
+    @include flexbox();
+	@include flex-direction(column);
+    align-items: flex-start;
+    // justify-content: flex-end;
+    width: 100%;
+    min-height: calc(100vw / 4);
+    // padding: calc(#{$space-tiny} * 2);
+    // padding-top: 6rem;
+    text-align: left;
+    background: lighten($grey-lt, 4%);
+    border: 1px solid lighten($grey-lt, 2%);
+    border-top: none;
+    transition: $ease;
+
+    span.new-card-number {
+        @include font-size(36px);
+        @include line-height(1);
+        @include title(bold);
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1.5rem;
+        padding: 15px 0 0;
+        text-align: center;
+        color: $blue-dk;
+        background: $white;
+        border-radius: 50%;
+    }
+
+    h2 {
+        // @include font-size(22px);
+        margin-bottom: calc(#{$space-tiny} * 0.5);
+        text-align: left;
+        color: $blue-lt;
+    }
+
+    h3 {
+        @include font-size(22px);
+        text-align: left;
+        margin-bottom: calc(#{$space-tiny} * 0.5);
+        color: $blue-dk;
+    }
+
+    h6 {
+        margin-bottom: calc(#{$space-tiny} * 0.5);
+        color: git add$grey-mdk;
+    }
+
+    p {
+        @include title(medium);
+        @include font-size(16px);
+        @include line-height(1.35);
+        display: block;
+        color: lighten($grey-mdk, 10%);
+    }
+}
+
+.new-card-item.new-card-item-centre * {
+    text-align: center;
+}
+
+.new-card-item-plain {
+    &:nth-child(1) {
+        h3 {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(2) {
+        h3 {
+            color: $green-lt;
+		}
+    }
+
+    &:nth-child(3) {
+        h3 {
+            color: $orange-lt;
+		}
+    }
+
+    &:nth-child(4) {
+        h3 {
+            color: $blue-dk;
+		}
+    }
+
+    &:nth-child(5) {
+        h3 {
+            color: $orange-dk;
+		}
+    }
+
+    &:nth-child(6) {
+        h3 {
+            color: $raspberry;
+		}
+    }
+}
+
+.new-card-item-coloured {
+    h2,
+    p {
+        color: $white;
+    }
+
+    &:nth-child(1) {
+        background: $orange-lt;
+
+        h3 {
+            color: $blue-lt;
+		}
+
+        span.new-card-number {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(2) {
+        background: $blue-dk;
+
+        h3 {
+            color: $orange-lt;
+		}
+
+        span.new-card-number {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(3) {
+        background: $green-lt;
+
+        h3 {
+            color: $orange-lt;
+		}
+
+        span.new-card-number {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(4) {
+        background: $blue-lt;
+
+        h3 {
+            color: $orange-lt;
+		}
+
+        span.new-card-number {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(5) {
+        background: $green-dk;
+        background: $raspberry;
+
+        h3 {
+            color: $blue-lt;
+            color: $orange-lt;
+		}
+
+        span.new-card-number {
+            color: $blue-lt;
+		}
+    }
+
+    &:nth-child(6) {
+        background: $orange-dk;
+
+        h3 {
+            color: $green-lt;
+		}
+
+        span.new-card-number {
+            color: $blue-lt;
+		}
+    }
+}
+
+.new-card-item-half {
+    position: relative;
+    cursor: pointer;
+
+    &:not(:first-child) {
+        margin-top: calc(#{$space-tiny} * 2);
+    }
+
+    @include break-point(tablet) {
+        width: calc(calc(100% - 48px) / 2);
+
+        // override mobile
+        &:not(:first-child) {
+            margin-top: unset;
+        }
+
+        &:not(:nth-child(2n+1)) {
+            margin-left: auto;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 48px;
+		}
+	}
+
+	@include break-point(laptop) {
+        // width: calc(calc(100% - 48px) / 2);
+
+        // override mobile, tablet
+        // &:not(:first-child),
+        // &:nth-child(n+3) {
+		// 	margin-top: unset;
+        //     margin-left: unset;
+		// }
+
+        // &:not(:nth-child(3n+1)) {
+        //     margin-left: auto;
+        // }
+
+        // &:nth-child(n+4) {
+        //     margin-top: 48px;
+		// }
+
+        // &:last-child:nth-child(3n+2) {
+        //     margin-left: 48px;
+        //     margin-right: auto;
+        // }
+	}
+
+    h2 {
+        @include title(regular);
+        @include font-size(22px);
+        @include line-height(1.5);
+        // width: 100%;
+        margin-bottom: calc(#{$space-tiny} * 0.5);
+        text-align: left;
+        color: $white;
+        background: $blue-dk;
+        // min-height: 25%;
+        margin: 0;
+        padding: calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 2.5);
+        padding: calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 5.5) calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 2.5);
+    }
+
+    p {
+        @include title(medium);
+        @include font-size(16px);
+        @include line-height(1.5);
+        // display: block;
+        // color: lighten($grey-mdk, 10%);
+        display: none;
+        // width: 100%;
+        color: $white;
+    }
+
+    p span {
+        display: block;
+        width: 100%;
+        max-width: 20%;
+        height: 8px;
+        margin-bottom: 2rem;
+    }
+
+    &:hover {
+        h2 {
+            background: rgba($green-lt, 0.95);
+        }
+
+        p {
+            display: block;
+            height: 100%;
+            padding: calc(#{$space-tiny} * 2.5);
+            background: rgba($blue-dk, 0.95);
+        }
+    }
+
+    &:nth-child(6n+1) {
+        background: $blue-lt;
+
+        h2 {
+            background: $blue-lt;
+		}
+
+        p span {
+            background: $blue-lt;
+		}
+    }
+
+    &:nth-child(6n+2) {
+        background: $green-lt;
+
+        h2 {
+            background: $green-lt;
+		}
+
+        p span {
+            background: $green-lt;
+		}
+    }
+
+    &:nth-child(6n+3) {
+        background: $orange-lt;
+
+        h2 {
+            background: $orange-lt;
+		}
+
+        p span {
+            background: $orange-lt;
+		}
+    }
+
+    &:nth-child(6n+4) {
+        background: $raspberry;
+
+        h2 {
+            background: $raspberry;
+		}
+
+        p span {
+            background: $raspberry;
+		}
+    }
+
+    &:nth-child(6n+5) {
+        background: $blue-lt;
+
+        h2 {
+            background: $blue-lt;
+		}
+
+        p span {
+            background: $blue-lt;
+		}
+    }
+
+    &:nth-child(6n+6) {
+        background: $orange-dk;
+
+        h2 {
+            background: $orange-dk;
+		}
+
+        p span {
+            background: $orange-dk;
+		}
+    }
+}
+
+.new-card-item-third {
+    &:not(:first-child) {
+        margin-top: calc(#{$space-tiny} * 2);
+    }
+
+    @include break-point(tablet) {
+        width: calc(calc(100% - 48px) / 2);
+
+        // override mobile
+        &:not(:first-child) {
+            margin-top: unset;
+        }
+
+        &:not(:nth-child(2n+1)) {
+            margin-left: auto;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 48px;
+		}
+	}
+
+	@include break-point(laptop) {
+        width: calc(calc(100% - 96px) / 3);
+
+        // override mobile, tablet
+        &:not(:first-child),
+        &:nth-child(n+3) {
+			margin-top: unset;
+            margin-left: unset;
+		}
+
+        &:not(:nth-child(3n+1)) {
+            margin-left: auto;
+            margin-left: calc(96px / 3);
+        }
+
+        &:nth-child(n+4) {
+            margin-top: 48px;
+		}
+
+        &:last-child:nth-child(3n+2) {
+            margin-left: 48px;
+            margin-right: auto;
+        }
+	}
+}
+
+.new-card-item-quarter {
+    &:not(:first-child) {
+        margin-top: calc(#{$space-tiny} * 2);
+    }
+
+    @include break-point(tablet) {
+        width: calc(calc(100% - 48px) / 2);
+
+        // override mobile
+        &:not(:first-child) {
+            margin-top: unset;
+        }
+
+        &:not(:nth-child(2n+1)) {
+            margin-left: auto;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 48px;
+		}
+	}
+
+	@include break-point(laptop) {
+        width: calc(calc(100% - 144px) / 4);
+
+        // override mobile, tablet
+        &:not(:first-child),
+        &:nth-child(n+4) {
+			margin-top: unset;
+            margin-left: unset;
+		}
+
+        &:not(:nth-child(4n+1)) {
+            margin-left: auto;
+            margin-left: calc(144px / 3);
+        }
+
+        &:nth-child(n+5) {
+            margin-top: 48px;
+		}
+
+        &:last-child:nth-child(4n+2) {
+            margin-left: 48px;
+            margin-right: auto;
+        }
+	}
+}
+
+// .new-card-img {
+//     img {
+
+//     }
+// }
+
+.new-card-copy-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.new-card-copy {
+    padding: calc(#{$space-tiny} * 1.5);
+
+    &.new-card-copy-only {
+        padding: calc(#{$space-tiny} * 2);
+        padding-top: 6rem;
+    }
+
+    &.new-card-copy-hover {
+        @include flexbox();
+	    @include flex-direction(column);
+        justify-content: end;
+        // position: absolute;
+        // bottom: 0;
+        // width: 100%;
+        // height: 100%;
+        padding: 0;
+    }
+}
+
+.new-card-button {
+    @include title(medium);
+    @include font-size(16px);
+    margin-top: 2rem;
+    color: $blue-lt;
+    background: $white;
+}
+
+
+
+
+
+.alternating-container {
+    @extend %columns;
+    // @include flexbox();
+	// @include flex-direction(column);
+    width: 100%;
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+    }
+
+    @include break-point(laptop) {
+
+    }
+}
+
+.alternating-item {
+    @include flexbox();
+	@include flex-direction(column);
+    // align-items: flex-start;
+    align-items: center;
+    // justify-content: flex-end;
+    width: 100%;
+    // background: lighten($grey-lt, 4%);
+    // border: 1px solid lighten($grey-lt, 2%);
+    // background: lighten($grey-lt, 5%);
+    // border: 1px solid lighten($grey-lt, 4.5%);
+    // border-top: none;
+    transition: $ease;
+
+    &:not(:first-child) {
+        margin-top: calc(#{$space-tiny} * 2);
+    }
+
+    &:nth-child(1) {
+        h2 {
+            color: $orange-lt;
+        }
+    }
+
+    &:nth-child(2) {
+        h2 {
+            color: $green-lt;
+        }
+    }
+
+    &:nth-child(3) {
+        h2 {
+            color: $blue-lt;
+        }
+    }
+
+    &:nth-child(4) {
+        h2 {
+            color: $green-dk;
+        }
+    }
+
+    &:nth-child(5) {
+        h2 {
+            color: $orange-dk;
+        }
+    }
+
+    &:nth-child(6) {
+        h2 {
+            color: $raspberry;
+        }
+    }
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+
+        &:not(:first-child) {
+        margin-top: calc(#{$space-tiny} * 3);
+    }
+    }
+
+    @include break-point(laptop) {
+        &:not(:first-child) {
+            margin-top: calc(#{$space-tiny} * 6);
+        }
+    }
+}
+
+.alternating-item-img {
+    order: 1;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+
+    @include break-point(laptop) {
+        width: 47.5%;
+
+        .alternating-item:nth-child(even) & {
+            order: 2;
+        }
+    }
+}
+
+.alternating-item-img figcaption {
+    @include flexbox();
+    position: absolute;
+    top: 0;
+    left: -709px;
+    width: 100%;
+    height: 100%;
+    // background: #ffce01;
+    transition: $ease;
+
+    .alternating-item:nth-child(6n+1) & {
+        background: rgba($orange-lt, 0.875);
+    }
+
+    .alternating-item:nth-child(6n+2) & {
+        background: rgba($green-lt, 0.875);
+    }
+
+    .alternating-item:nth-child(6n+3) & {
+        background: rgba($blue-lt, 0.875);
+    }
+
+    .alternating-item:nth-child(6n+4) & {
+        background: rgba($green-dk, 0.875);
+    }
+
+    .alternating-item:nth-child(6n+5) & {
+        background: rgba($orange-dk, 0.875);
+    }
+
+    .alternating-item:nth-child(6n+6) & {
+        background: rgba($raspberry, 0.875);
+    }
+}
+
+.alternating-item-copy {
+    order: 2;
+    padding: calc(#{$space-tiny} * 1.5);
+
+    @include break-point(laptop) {
+        width: 52.5%;
+        padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2.5);
+
+        .alternating-item:nth-child(odd) & {
+            padding-left: 4.5rem;
+        }
+
+        .alternating-item:nth-child(even) & {
+            order: 1;
+            padding-right: 4.5rem;
+        }
+    }
+}
+
+.alternating-item-copy h2 {
+    // margin-bottom: 1.5rem;
+    // padding-bottom: 1.5rem;
+    // border-bottom: 2px dashed $grey-mdk;
+
+    .alternating-item:nth-child(1) & {
+        border-color: $orange-lt;
+    }
+
+    .alternating-item:nth-child(2) & {
+        border-color: $green-lt;
+    }
+
+    .alternating-item:nth-child(3) & {
+        border-color: $blue-lt;
+    }
+
+    .alternating-item:nth-child(4) & {
+        border-color: $green-dk;
+    }
+
+    .alternating-item:nth-child(5) & {
+        border-color: $orange-dk;
+    }
+
+    .alternating-item:nth-child(6) & {
+        border-color: $raspberry;
+    }
+}
+
+.alternating-item-copy blockquote {
+    font-family: Georgia, serif;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    font-style: italic;
+    border-left: 4px solid grey;
+    padding: 0.125rem 1rem;
+    color: $grey-mdk;
+    background: rgba(0,0,0,0.05);
+    background: $white;
+    display: inline-block;
+
+    .alternating-item:nth-child(1) & {
+        border-left-color: $orange-lt;
+    }
+
+    .alternating-item:nth-child(2) & {
+        border-left-color: $green-lt;
+    }
+
+    .alternating-item:nth-child(3) & {
+        border-left-color: $blue-lt;
+    }
+
+    .alternating-item:nth-child(4) & {
+        border-left-color: $green-dk;
+    }
+
+    .alternating-item:nth-child(5) & {
+        border-left-color: $orange-dk;
+    }
+
+    .alternating-item:nth-child(6) & {
+        border-left-color: $raspberry;
+    }
+}
+
+.alternating-item-img figcaption blockquote {
+    align-self: center;
+    // margin-left: 2.5rem;
+    padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+    // border-left: 6px dotted $white;
+
+    p {
+        display: inline-block;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        color: $white;
+    }
+
+    cite {
+        display: block;
+        margin-top: 1rem;
+        font-family: Georgia, serif;
+        font-size: 1rem;
+        color: $white;
+    }
+}
+
+
+
+.alternating-item-copy .button {
+    margin-top: 1.5rem;
+
+    .alternating-item:nth-child(1) & {
+        background: $orange-lt;
+    }
+
+    .alternating-item:nth-child(2) & {
+        background: $green-lt;
+    }
+
+    .alternating-item:nth-child(3) & {
+        background: $blue-lt;
+    }
+
+    .alternating-item:nth-child(4) & {
+        background: $green-dk;
+    }
+
+    .alternating-item:nth-child(5) & {
+        background: $orange-dk;
+    }
+
+    .alternating-item:nth-child(6) & {
+        background: $raspberry;
+    }
+}
+
+.alternating-item:hover {
+    background: $grey-lt;
+
+    figcaption {
+        left: 0;
+    }
+}
+
+
+
+.interrupter-image {
+    max-height: 67.5vh;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+
+    @include break-point(tablet) {
+        margin-bottom: 2rem;
+    }
+
+    @include break-point(laptop) {
+        margin-bottom: 3rem;
+    }
+}
+
+
+
+
+.section-interrupter {
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+
+    &:nth-child(4n+1) {
+        .interrupter-bg,
+        .interrupter-number {
+            background: $orange-lt;
+		}
+
+        // h2 {
+        //     color: $orange-lt;
+        // }
+    }
+
+    &:nth-child(4n+2) {
+        .interrupter-bg,
+        .interrupter-number {
+            background: $blue-lt;
+		}
+
+        // h2 {
+        //     color: $blue-lt;
+        // }
+    }
+
+    &:nth-child(4n+3) {
+        .interrupter-bg,
+        .interrupter-number {
+            background: $green-lt;
+		}
+
+        // h2 {
+        //     color: $green-lt;
+        // }
+    }
+
+    &:nth-child(4n+4) {
+        .interrupter-bg,
+        .interrupter-number {
+            background: $raspberry;
+		}
+
+        // h2 {
+        //     color: $raspberry;
+        // }
+    }
+}
+
+.section-interrupter .interrupter-image {
+    max-height: unset;
+    margin-bottom: 0;
+    box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
+    overflow: unset;
+}
+
+.interrupter-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-top: -2rem;
+    margin-right: -2rem;
+    content: '';
+    z-index: -1;
+}
+
+.interrupter-image figcaption {
+    position: absolute;
+    bottom: -2rem;
+    left: -2rem;
+}
+
+.interrupter-number {
+    @include font-size(64px);
+    @include line-height(1);
+    @include title(bold);
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    padding: 32px 0 0;
+    text-align: center;
+    color: $white;
+    border-radius: 0;
+    box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.interrupter-text {
+    position: relative;
+    width: 100%;
+    max-width: 768px;
+    margin: -2rem 0 5rem 9rem;
+    padding: 3rem 4rem;
+    background: $white;
+    box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+// [name*="interveiw-step"] {
+//     position: absolute;
+//     left: -9999px;
+//     width: 0;
+//     height: 0;
+//     opacity: 0;
+// }
+
+.interview-step-label {
+    @include flexbox();
+	@include flex-direction(row);
+    text-transform: unset;
+}
+
+.article-interview {
+    position: relative;
+    padding: 0 0 0 2rem;
+}
+
+.interview-steps {
+    @extend %columns;
+    @include flexbox();
+	@include flex-direction(column);
+    width: 100%;
+    // justify-content: space-between;
+    // padding: 0 2rem;
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+    }
+}
+
+.interview-step {
+    @include flexbox();
+	@include flex-direction(column);
+    // width: calc(100%/5);
+    // padding: 0 1rem;
+    z-index: 99999;
+    cursor: pointer;
+
+    &:not(:first-of-type) {
+        margin-left: 1.5rem;
+    }
+
+    &:nth-child(1) {
+        .interview-number,
+        .interview-title {
+            background: $orange-lt;
+        }
+    }
+
+    &:nth-child(2) {
+        .interview-number,
+        .interview-title {
+            background: $blue-dk;
+        }
+    }
+
+    &:nth-child(3) {
+        .interview-number,
+        .interview-title {
+            background: $green-lt;
+        }
+    }
+
+    &:nth-child(4) {
+        .interview-number,
+        .interview-title {
+            background: $blue-lt;
+        }
+    }
+
+    &:nth-child(5) {
+        .interview-number,
+        .interview-title {
+            background: $raspberry;
+        }
+    }
+
+    &:nth-child(6) {
+        .interview-number,
+        .interview-title {
+            background: $orange-dk;
+        }
+    }
+}
+
+.interview-step:hover {
+    &:nth-child(1) {
+        .interview-number,
+        .interview-title {
+            background: lighten($orange-lt, 10%);
+        }
+    }
+
+    &:nth-child(2) {
+        .interview-number,
+        .interview-title {
+            background: lighten($blue-dk, 10%);
+        }
+    }
+
+    &:nth-child(3) {
+        .interview-number,
+        .interview-title {
+            background: lighten($green-lt, 10%);
+        }
+    }
+
+    &:nth-child(4) {
+        .interview-number,
+        .interview-title {
+            background: lighten($blue-lt, 10%);
+        }
+    }
+
+    &:nth-child(5) {
+        .interview-number,
+        .interview-title {
+            background: lighten($raspberry, 10%);
+        }
+    }
+
+    &:nth-child(6) {
+        .interview-number,
+        .interview-title {
+            background: lighten($orange-dk, 10%);
+        }
+    }
+}
+
+.interview-number {
+    @include font-size(32px);
+    @include line-height(1);
+    @include title(regular);
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin-top: 1rem;
+    // margin-bottom: 1.5rem;
+    padding: 18px 0 0;
+    // width: 96px;
+    // height: 96px;
+    // padding: 32px 0 0;
+    text-align: center;
+    color: $blue-dk;
+    color: $white;
+    background: $white;
+    background: $grey-lt;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.interview-heading {
+    @include flexbox();
+	@include flex-direction(column);
+    display: none;
+    max-width: 480px;
+    // max-width: 640px;
+    // margin-top: 1.5rem;
+    // margin-left: 1.5rem;
+    margin: 1.5rem 2rem 0 1.5rem;
+    // padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.interview-title {
+    @include font-size(22px);
+    text-align: left;
+    margin-bottom: calc(#{$space-tiny} * 0.5);
+    color: $blue-dk;
+
+    padding: .65rem 1rem;
+    margin-bottom: 0;
+    background: wheat;
+    color: $white;
+    border-radius: 8px 8px 0 0;
+}
+
+.interview-description {
+    display: block;
+    @include title(medium);
+    @include font-size(14px);
+    @include line-height(1.5);
+    color: lighten($grey-mdk, 10%);
+
+    padding: 0.65rem 1rem 1rem;
+    padding: 1rem;
+}
+
+.interview-notch {
+
+}
+
+.interview-timeline {
+    position: absolute;
+    left: 0;
+    top: 48px;
+    width: 100%;
+    height: 4px;
+    background: $grey-lt;
+    border-radius: 4px;
+}
+
+
+@for $step from 1 through 5 {
+    input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-number {
+        @include title(bold);
+        width: 140px;
+        height: 140px;
+        margin-top: -22px;
+        font-size: 52px;
+        padding-top: 44px;
+
+        .interview-step:not(:first-of-type) & {
+            margin-left: 1.5rem;
+        }
+    }
+
+    input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-heading {
+        display: block;
+        background: $grey-lt;
+    }
+
+    // .interview-step:hover input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-heading {
+    //     .interview-number,
+    //     .interview-title {
+    //         background: initial;
+    //     }
+    // }
+}
+
+
+
+
+
+
+
+label.opportunity-label {
+    @include title(medium);
+    @include font-size(14px);
+    @include line-height(1);
+    position: relative;
+	display: block;
+    margin-bottom: 0;
+    padding: 12px 16px 12px;
+	text-align: left;
+	text-transform: uppercase;
+    color: $grey-mdk;
+    background: lighten($grey-lt, 4%);
+    border-radius: 1px;
+    cursor: pointer;
+
+    &:not(:first-of-type) {
+        margin-top: 0.75rem;
+        margin-left: 0;
+    }
+
+	&:hover {
+        color: darken($grey-mdk, 2.5%);
+        background: lighten($grey-lt, 2%);
+	}
+
+    @include break-point(tablet) {
+	    &:not(:first-of-type) {
+            margin-top: 1.5rem;
+            margin-left: 0;
+        }
+    }
+
+    @include break-point(laptop) {
+	    @include font-size(15px);
+        display: inline-block;
+        margin-bottom: 0;
+        text-align: center;
+
+        &:not(:first-of-type) {
+            margin-top: 0;
+            margin-left: 1.5rem;
+        }
+    }
+}
+
+.opportunity-label::after {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -10px;
+    content: '';
+    width: 0;
+    height: 0;
+    // border-left: 10px solid transparent;
+    // border-right: 10px solid transparent;
+    // border-top: 10px solid lighten($grey-lt, 4%);
+}
+
+.opportunities {
+    // padding: 3rem;
+    // background: $grey-lt;
+}
+
+.opportunity {
+    @include flexbox();
+	@include flex-direction(column);
+    align-items: center;
+    width: 100%;
+    margin-top: calc(1rem * 1.75);
+    background: $grey-lt;
+    transition: $ease;
+    display: none;
+
+    &:nth-of-type(1) {
+        background: $orange-lt;
+
+        h2 {
+            color: $blue-dk;
+        }
+
+        .button {
+            background: $blue-lt;
+        }
+    }
+
+    &:nth-of-type(2) {
+        background: $raspberry;
+
+        h2 {
+            color: $orange-lt;
+        }
+
+        .button {
+            background: $green-lt;
+        }
+    }
+
+    &:nth-of-type(3) {
+        background: $blue-lt;
+
+        h2 {
+            color: $orange-lt;
+        }
+
+        .button {
+            background: $green-lt;
+        }
+    }
+
+    @include break-point(tablet) {
+	    @include flex-direction(row);
+        @include flex-wrap(wrap);
+    }
+}
+
+.opportunity-img {
+    order: 1;
+    display: block;
+    width: 100%;
+
+    @include break-point(laptop) {
+        width: 50%;
+
+        .opportunity:nth-child(even) & {
+            order: 2;
+        }
+    }
+}
+
+.opportunity-copy {
+    order: 2;
+    padding: calc(#{$space-tiny} * 1.5);
+
+    p {
+        @include font-size(21px);
+        @include line-height(1.5);
+        color: $white;
+    }
+
+    @include break-point(laptop) {
+        width: 50%;
+        padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3.5);
+    }
+}
+
+.opportunity-copy .button {
+    margin-top: 1.5rem;
+}
+
+@for $opp from 1 through 3 {
+    input[id="opportunity-#{$opp}"]:checked ~ .opportunity-#{$opp} {
+        @include flexbox();
+    }
+}
+
+// input[id="opportunity-1"]:checked ~ label[for="opportunity-1"] {
+// 	color: $orange-lt;
+// }
+
+// input[id="opportunity-2"]:checked ~ label[for="opportunity-2"] {
+// 	color: $raspberry;
+// }
+
+// input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
+// 	color: $blue-lt;
+// }
+
+
+input[id="opportunity-1"]:checked ~ label[for="opportunity-1"] {
+	color: $white;
+    background: $orange-lt;
+
+    &::after {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $orange-lt;
+    }
+}
+
+input[id="opportunity-2"]:checked ~ label[for="opportunity-2"] {
+    color: $white;
+    background: $raspberry;
+
+    &::after {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $raspberry;
+    }
+}
+
+input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
+    color: $white;
+    background: $blue-lt;
+
+    &::after {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $blue-lt;
+    }
+}
+
+
+
+.article-video-embed {
+    width: 75%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+
+
+
+

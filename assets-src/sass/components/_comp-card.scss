@@ -30,6 +30,7 @@
 	// margin-bottom: 5rem;
 	text-align: center;
 	margin-bottom: 3rem;
+
 	&:last-of-type{
 		margin-bottom: 0;
 	}
@@ -61,11 +62,11 @@
 		}
 
 		.member-name {
-		 	@include copy(semi);
-		 	@include font-size(26px);
-		 	color: $green-blue;
-		 	text-shadow: none;
-		 	text-align: center;
+            @include copy(semi);
+            @include font-size(26px);
+            color: $green-blue;
+            text-shadow: none;
+            text-align: center;
 		}
 	}
 
@@ -73,7 +74,7 @@
 	// 	width: unset;
 	// 	@extend %column-3;
 
- //    	@include break-point(laptop) {
+    //    	@include break-point(laptop) {
 	// 		&:not(:first-of-type) {
 	//     		margin-left: calc(#{$space-tiny} * 2);
 	//     	}
@@ -89,6 +90,41 @@
     		width: 40%;
     	}
 	}
+
+    // &.new-card-item {
+	// 	@extend %column-4;
+    //     @include flexbox();
+    //     @include flex-direction(column);
+    //     justify-content: flex-end;
+    //     width: calc()
+    //     min-height: calc(100vw / 4);
+    //     padding: 2rem;
+    //     text-align: left;
+
+    //     &:nth-child(1) {
+    //         background: $orange-lt;
+    //     }
+
+    //     &:nth-child(2) {
+    //         background: $green-lt;
+    //     }
+
+    //     &:nth-child(3) {
+    //         background: $blue-lt;
+    //     }
+
+    //     &:nth-child(4) {
+    //         background: $green-lt;
+    //     }
+
+    //     &:nth-child(5) {
+    //         background: $blue-dk;
+    //     }
+
+    //     &:nth-child(6) {
+    //         background: $orange-dk;
+    //     }
+	// }
 }
 
 .card figure {
@@ -97,3 +133,4 @@
 		width: auto;
 	}
 }
+

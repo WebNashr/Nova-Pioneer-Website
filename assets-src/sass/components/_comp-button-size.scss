@@ -5,12 +5,20 @@
 
 @mixin button-size($button-size) {
 	/* Large */
-	@if $button-size == 'large' {
-		$p: 19px; 
+	@if $button-size == 'grosse' {
+		$p: 26px;
+		@include font-size(26px);
+		@include letter-spacing(small);
+		padding: $p calc(#{$p} * 1.5);
+	}
+
+    /* Large */
+	@else if $button-size == 'large' {
+		$p: 19px;
 		@include font-size(19px);
 		@include letter-spacing(small);
 		padding: $p calc(#{$p} * 1.5);
-	} 
+	}
 
 	/* Default */
 	@else if $button-size == 'default' {
@@ -22,7 +30,7 @@
 
 	/* Small */
 	@else if $button-size == 'small' {
-		$p: 13px; 
+		$p: 13px;
 		@include font-size(13px);
 		@include letter-spacing(tiny);
 		padding: $p calc(#{$p} * 1.5);
@@ -30,7 +38,7 @@
 
 	/* Tiny */
 	@else if $button-size == 'tiny' {
-		$p: 10px; 
+		$p: 10px;
 		@include font-size(12px);
 		@include letter-spacing(tiny);
 		padding: $p calc(#{$p} * 1.5);
