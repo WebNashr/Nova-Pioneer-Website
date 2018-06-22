@@ -9,7 +9,11 @@
 
 
 	// Size
-	&-large {
+	&-grosse {
+		@include button-size(grosse);
+	}
+
+    &-large {
 		@include button-size(large);
 	}
 

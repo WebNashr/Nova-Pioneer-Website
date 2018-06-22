@@ -105,10 +105,11 @@ get_header();?>
         <?php endif;?>
 
 
+        <!--hide this for now-->
         <?php
             $title = get_field('section_c');
         ?>
-        <section class="section section-no-bottom">
+        <section class="section section-no-bottom" style="display: none;">
             <article class="article">
                 <?php if($title):?>
                 <h2><?php echo $title ?></h2>
@@ -134,10 +135,10 @@ get_header();?>
         <?php
             $url = get_field('apply_url');
         ?>
-        <section class="section">
+        <section class="section section-no-top">
             <?php if($url)?>
-            <div class="button-wrap">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap-XXX button-default button-primary" title="">APPLY NOW</a>
+            <div class="button-wrap" style="justify-content: center;">
+                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap-XXX button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
 
