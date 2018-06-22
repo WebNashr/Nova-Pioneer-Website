@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Teaching (2018)
+* Template Name: Careers Teaching
 */
 
 get_header();?>

@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Working-at-Nova(2018)
+* Template Name: Careers Home
 */
 
 get_header();?>

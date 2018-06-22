@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Instructional-School-Leadership (2018)
+* Template Name: Careers Leadership
 */
 
 get_header();?>
