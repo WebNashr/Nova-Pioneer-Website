@@ -25,6 +25,7 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <!--<h1 class="animated-title"><?php the_title(); ?></h1>-->
+                    <!--<h3>We're hiring!'</h3>-->
                     <h1 class="animated-title"><?php the_field('page_title') ?></h1>
 
                     <?php
