@@ -8,6 +8,38 @@
     height: 77.5vh;
 }
 
+.media-heading.ribbon {
+    position: relative;
+}
+
+.ribbon:before {
+    font: 700 38px/1 'Comfortaa', cursive;
+    content: 'We are hiring';
+    background-color: $green-lt;
+    padding: 25px;
+    width: 320px;
+    text-align: center;
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: -110px;
+    float: right;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width:468px){
+    .ribbon:before{
+        font-size:25px;
+        padding: 15px;
+        width: 290px;
+        top: 10px;
+        right: -110px;
+    }
+}
+
 .parent-pageid-919 .section-hero .main-callout-box {
     bottom: 0;
 }

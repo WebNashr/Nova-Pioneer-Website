@@ -20,10 +20,20 @@ get_header();?>
 
         <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
+                <h2 class="media-heading ribbon">&nbsp;</h2>
+
                 <div class="main-callout-box">
                     <hr>
                     <!--<h1 class="animated-title"><?php the_title(); ?></h1>-->
                     <h1 class="animated-title"><?php the_field('page_title') ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
