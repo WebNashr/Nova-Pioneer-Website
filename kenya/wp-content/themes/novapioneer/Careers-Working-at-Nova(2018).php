@@ -313,8 +313,8 @@ get_header();?>
             if($apply):
         ?>
         <section class="section section-no-top">
-            <div class="button-wrap">
-                <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
+            <div class="button-wrap button-wrap-center">
+                <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
         <?php endif;?>
