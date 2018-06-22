@@ -1412,4 +1412,62 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 
 
 
+.team-item {
+    max-width: 1024px;
+
+    &:not(:last-of-type) {
+        margin-bottom: calc(#{$space-tiny} * 4);
+    }
+
+    @include flexbox();
+	@include flex-direction(column);
+    @include flex-wrap(nowrap);
+
+    @include break-point(tablet) {
+        @include flexbox();
+	    @include flex-direction(row);
+        align-items: center;
+    }
+
+    img {
+        width: 420px;
+        width: 240px;
+        margin-right: calc(#{$space-tiny} * 3.5);
+        border-radius: 50%;
+    }
+
+    figcaption {
+        width: calc(100% - calc(420px + 3rem));
+        width: calc(100% - calc(320px + 3rem));
+    }
+
+    h3 {
+        margin-bottom: calc(#{$space-tiny} * 1);
+    }
+
+    &:nth-child(4n+1) {
+        h3 {
+            color: $orange-lt;
+        }
+    }
+
+    &:nth-child(4n+2) {
+        h3 {
+            color: $blue-lt;
+        }
+    }
+
+    &:nth-child(4n+3) {
+        h3 {
+            color: $green-lt;
+        }
+    }
+
+    &:nth-child(4n+4) {
+        h3 {
+            color: $raspberry;
+        }
+    }
+}
+
 
