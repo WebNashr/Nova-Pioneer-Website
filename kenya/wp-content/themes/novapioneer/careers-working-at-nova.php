@@ -20,7 +20,7 @@ get_header();?>
 
         <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
-                <h2 class="media-heading ribbon">&nbsp;</h2>
+                <!--<h2 class="media-heading ribbon">&nbsp;</h2>-->
 
                 <div class="main-callout-box">
                     <hr>
