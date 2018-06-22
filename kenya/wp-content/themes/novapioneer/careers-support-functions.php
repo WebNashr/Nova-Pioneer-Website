@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Support-Functions (2018)
+* Template Name: Careers - support functions
 */
 
 get_header();?>
@@ -118,8 +118,8 @@ get_header();?>
         ?>
         <section class="section">
             <?php if($url)?>
-            <div class="button-wrap">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap=XXX button-default button-primary" title="">APPLY NOW</a>
+            <div class="button-wrap button-wrap-center">
+                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap=XXX button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
     <?php endwhile; ?>

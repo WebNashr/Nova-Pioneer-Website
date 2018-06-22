@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Careers-Instructional-School-Leadership (2018)
+* Template Name: Careers - school leadership
 */
 
 get_header();?>
@@ -239,8 +239,8 @@ get_header();?>
         <?php $url = get_field('apply'); ?>
         <section class="section">
         <?php if($url)?>
-            <div class="button-wrap">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-default button-primary" title="">APPLY NOW</a>
+            <div class="button-wrap button-wrap-center">
+                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
 
