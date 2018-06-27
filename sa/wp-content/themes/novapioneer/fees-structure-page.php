@@ -62,95 +62,22 @@ the_post(); ?>
     ?>
 
     <article class="article article-inner article-inner-alt table-container">
-        <form class="table-filter">
-            <div class="selector" id="scroll-back-here">
-                <select name="school" class="dropdown">
-                    <option value=">Select a School">Select a School</option>
+
+            <table class="fees-table" style="margin: 1rem 0 3rem 0;min-width:470px;">
+                <tbody>
                     <?php foreach ($schools as $school): $school = (object)$school; ?>
-                        <option <?php if ($selected_school === $school->post_title): echo "selected";
-                            $selected_school = $school; endif; ?>
-                            value="<?php echo $school->post_title; ?>"><?php echo $school->post_title; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="selector">
-                <select name="grade" class="dropdown">
-                    <option value="Select a Grade">Select a Grade</option>
-                    <?php if (!empty($selected_school) && is_object($selected_school)): ?>
-                        <?php foreach (get_field('fees_structure_per_grade', $selected_school->ID) as $grade): $grade = (object)$grade; ?>
-                            <option <?php if ($selected_grade === $grade->grade): echo "selected";
-                                $selected_grade = $grade; endif; ?>
-                                value="<?php echo $grade->grade; ?>"><?php echo $grade->grade; ?></option>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </select>
-            </div>
-            <div class="selector">
-                <select name="school_year" class="dropdown">
-                    <option value="Please Select Your Area of Interest">Select a Year</option>
-                    <?php if (!empty($selected_grade) && is_object($selected_grade)): ?>
-                        <?php foreach ($selected_grade->fees_by_year as $year): $year = (object)$year; ?>
-                            <option <?php if ($selected_year === $year->year): echo "selected";
-                                $selected_year = $year; endif; ?>
-                                value="<?php echo $year->year; ?>"><?php echo $year->year; ?></option>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </select>
-            </div>
-            <input name="view" value="View Fees" class="button button-small button-primary fees-button" style=""
-                   type="submit"/>
-        </form>
-
-        <?php if (!empty($selected_school) && !empty($selected_grade) && !empty($selected_year) && ($_GET["view"] === "true")): ?>
-            <div class="fees-container">
-                <h2><?php echo $selected_school->post_title; ?> Fee Structure for
-                    Grade <?php echo $selected_grade->grade; ?> <?php echo $selected_year->year; ?></h2>
-                <div class="schedule-content">
-                    <header class="table-header"></header>
-                    <table class="fees-table">
-                        <thead>
-                        <th class="text">Item</th>
-                        <th class="text">Monthly</th>
-                        <th class="text">Termly </th>
-                        <th class="text">Yearly </th>
-                        </thead>
-
-                        <tbody>
-                        <?php foreach ($selected_year->fees as $fees): $fees = (object)$fees; ?>
-                            <tr class="">
-                                <td class="text row-title"><?php echo $fees->item_name; ?></td>
-                                <td class="text" data-title="Term 1"><?php echo $fees->term_1; ?></td>
-                                <td class="text" data-title="Term 2"><?php echo $fees->term_2; ?></td>
-                                <td class="text" data-title="Term 3"><?php echo $fees->term_3; ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
-
-
-                    <table class="fees-table">
-                        <thead class="secondary">
-                        <th class="text">Other fees</th>
-                        <th class="text"></th>
-                        <th class="text"></th>
-                        </thead>
-
-                        <tbody>
-                        <?php foreach ($selected_year->additional_fees as $additional_fees): $additional_fees = (object)$additional_fees; ?>
-                            <tr class="">
-                                <td class="text row-title"
-                                    data-title="First"><?php echo $additional_fees->item_name; ?></td>
-                                <td class="text cost" data-title="Term 1"><?php echo $additional_fees->fee; ?></td>
-                                <td class="text" data-title="Term 2"><?php echo $additional_fees->notes; ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                    <a href="<?php echo $selected_year->fees_structure; ?>" class="button button-small button-primary"
-                       download>Download the Fees Structure</a>
-                </div>
-            </div>
-        <?php endif; ?>
+                        <tr class="">
+                            <td class="text">
+                                <p class="text"><?php echo $school->post_title; ?></p>
+                            </td>
+                            <td>
+                                <input style="padding:10px calc(13px * 1.5)!important;color:#fff;float: right;" name="view" value="Download Fees Guide" class="button button-small button-primary fees-button" style=""
+                                type="submit"/>
+                            </td>
+                        </tr>   
+                     <?php endforeach; ?> 
+                </tbody>
+            </table>   
     </article>
 </section>
 
