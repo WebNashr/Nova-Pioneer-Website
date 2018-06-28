@@ -13,6 +13,9 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1><?php the_title(); ?></h1>
+
+                    <br>
+                    <a href="http://novaacademies.applytojob.com" target="_blank" class="button button-wrap button-grosse button-primary" title="">See open jobs</a>
                 </div>
             </div>
         </section>
@@ -23,6 +26,9 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
+
+                    <br>
+                    <a href="http://novaacademies.applytojob.com" target="_blank" class="button button-wrap button-grosse button-primary" title="">See open jobs</a>
                 </div>
             </div>
         </section>
@@ -178,6 +184,13 @@ get_header();?>
             <?php if($nfield2):?>
             <p><?php echo $nfield2; ?></p>
             <?php endif;?>
+        </section>
+
+
+        <section class="section section-no-top">
+            <div class="button-wrap button-wrap-center">
+                <a href="http://novaacademies.applytojob.com/" target="_blank" class="button button-wrap-XXX button-large button-primary" title="">See open jobs</a>
+            </div>
         </section>
 
 
