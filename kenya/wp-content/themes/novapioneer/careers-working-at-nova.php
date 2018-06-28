@@ -16,7 +16,7 @@ get_header();?>
                     <h1><?php the_field('page_title') ?></h1>
 
                     <?php
-                        $apply = get_field('apply_now');
+                        $apply = get_field('apply_now_link');
                         if($apply):
                     ?>
                     <br>
@@ -37,7 +37,7 @@ get_header();?>
                     <h1 class="animated-title"><?php the_field('page_title') ?></h1>
 
                     <?php
-                        $apply = get_field('apply_now');
+                        $apply = get_field('apply_now_link');
                         if($apply):
                     ?>
                     <br>
@@ -363,8 +363,7 @@ get_header();?>
 
 
         <?php
-            $apply = get_field('apply_now');
-            //var_dump($apply);
+            $apply = get_field('apply_now_link');
             if($apply):
         ?>
         <section class="section section-no-top">
