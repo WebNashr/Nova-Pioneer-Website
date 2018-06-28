@@ -993,18 +993,19 @@
 }
 
 .section-interrupter-quote blockquote {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     @include font-size(18px);
+    @include line-height(1.35);
     font-family: Georgia;
     font-style: italic;
 }
 
-// .section-interrupter-quote cite {
-//     margin-bottom: 1rem;
-//     @include font-size(18px);
-//     font-family: Georgia;
-//     font-style: italic;
-// }
+.section-interrupter-quote cite {
+    // margin-bottom: 1rem;
+    // @include font-size(18px);
+    // font-family: Georgia;
+    font-style: normal;
+}
 
 .interrupter-number {
     @include font-size(64px);
