@@ -79,8 +79,23 @@ table.fees-table {
 	border-spacing: 0;
 	margin: auto;
 }
+
 table.fees-table {
 	// width: 60%;
+	margin: 1.5rem 0 3rem 0;
+	min-width:470px;
+}
+
+table.fees-download p{
+	font-size: 1rem;
+}
+
+table.fees-download input {
+	padding:7px calc(7px * 1.5)!important;
+	color:#fff;
+	float: right;
+	font-size: 14px;
+	// font-size: 1rem;
 }
 
 table.schedule-table *,

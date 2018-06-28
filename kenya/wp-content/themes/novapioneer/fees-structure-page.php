@@ -64,7 +64,7 @@ the_post(); ?>
 
     <article class="article article-inner article-inner-alt table-container">
 
-            <table class="fees-table" style="margin: 1.5rem 0 3rem 0;min-width:470px;">
+            <table class="fees-table fees-download" style="">
                 <tbody>
                     <?php foreach ($schools as $school): $school = (object)$school; ?>
                         <tr class="">
@@ -72,7 +72,7 @@ the_post(); ?>
                                 <p class="text"><?php echo $school->post_title; ?></p>
                             </td>
                             <td>
-                                <input style="padding:10px calc(13px * 1.5)!important;color:#fff;float: right;" name="view" value="Download Fees Guide" class="button button-small button-primary fees-button" style=""
+                                <input style="" name="view" value="Download Fees Guide" class="button button-primary" style=""
                                 type="submit"/>
                             </td>
                         </tr>   
