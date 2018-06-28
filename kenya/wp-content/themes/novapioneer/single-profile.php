@@ -27,7 +27,7 @@ get_header(); ?>
         <!-- <div class="article-excerpt"> <?php the_excerpt(); ?> </div> -->
         <!--<h6><?php the_field('role', $featured_teacher->ID);?></h6>-->
         <!--<h6><?php the_field('quote', $featured_teacher->ID);?></h6>-->
-        <?php the_content(); ?>
+        <?php //the_content(); ?>
 
         <?php
             $questions = 'profile_questions';
