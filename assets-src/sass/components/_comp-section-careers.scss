@@ -1551,3 +1551,66 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 }
 
 
+
+
+.article-profile {
+    max-width: 958px;
+    margin: 0 auto;
+}
+
+.article-profile header {
+    margin-bottom: 2rem;
+}
+
+.article-profile figure {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 7rem;
+}
+
+.article-profile img {
+    width: 320px;
+    box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article-profile figcaption {
+    background: $green-lt;
+    padding: 3rem 3rem 3rem 6rem;
+    width: calc(100% - 320px);
+    position: absolute;
+    height: 100%;
+    right: 3rem;
+    top: 3rem;
+    z-index: -1;
+}
+
+.article-profile blockquote {
+    @include font-size(24px);
+    @include line-height(1.35);
+    font-family: Georgia;
+    font-style: italic;
+    color: $white;
+}
+
+.article-profile cite {
+    @include font-size(16px);
+    @include line-height(1.35);
+    display: block;
+    margin-top: 1.5rem;
+    font-family: Georgia;
+    font-style: normal;
+    color: $white;
+}
+
+.profile-question-item {
+    &:not(:last-of-type) {
+        margin-bottom: 3rem;
+    }
+
+    h3 {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
