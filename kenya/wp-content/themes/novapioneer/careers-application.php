@@ -36,14 +36,15 @@ get_header();?>
                     <h2><?php echo $field;?></h2>
                 <?php endif; ?>
 
-                <h2><?php the_content();?></h2>
+                <!--<h2><?php the_content();?></h2>-->
             </article>
         </section>
         <br>
 
         <section class="section section-no-top section-no-bottom">
             <article style="max-width: 1024px">
-                <p><?php the_field('introduction') ?></p>
+                <!--<p><?php the_field('introduction') ?></p>-->
+                <?php the_field('introduction') ?>
                 <br>
             </article>
         </section>
