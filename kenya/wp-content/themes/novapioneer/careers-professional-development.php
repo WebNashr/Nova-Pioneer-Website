@@ -125,9 +125,9 @@ get_header();?>
                 <?php endif; ?>
 
                 <figcaption>
-                    <?php $qtext = get_field('quote_text'); echo $qtext; ?>
+                    <blockquote><?php $qtext = get_field('quote_text'); echo $qtext; ?></blockquote>
 
-                    <?php $qcite = get_field('quote_cite'); echo $qcite; ?>
+                    <cite><?php $qcite = get_field('quote_cite'); echo $qcite; ?></cite>
                 </figcaption>
             </figure>
         </section>
