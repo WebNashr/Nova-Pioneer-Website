@@ -15,7 +15,7 @@ get_header();?>
                     <h1><?php the_title(); ?></h1>
 
                     <?php
-                        $apply = get_field('apply_now');
+                        $apply = get_field('apply_now_link');
                         if($apply):
                     ?>
                     <br>
@@ -32,7 +32,7 @@ get_header();?>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
 
                     <?php
-                        $apply = get_field('apply_now');
+                        $apply = get_field('apply_now_link');
                         if($apply):
                     ?>
                     <br>
@@ -265,12 +265,12 @@ get_header();?>
 
 
         <?php
-            $url = get_field('apply_url');
+            $apply = get_field('apply_now_link');
         ?>
         <section class="section section-no-top">
-            <?php if($url)?>
+            <?php if($apply)?>
             <div class="button-wrap button-wrap-center">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                <a href="<?php echo $apply ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
 
