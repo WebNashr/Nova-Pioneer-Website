@@ -105,6 +105,34 @@ get_header();?>
         <?php endif;?>
 
 
+
+        <section class="section section-interrupter section-interrupter-quote">
+            <figure class="interrupter-image">
+                <?php $qimage = get_field('quote_image'); ?>
+
+                <?php if( !empty($qimage) ):
+                    // vars
+                    $url = $qimage['url'];
+                    $title = $qimage['title'];
+                    $alt = $qimage['alt'];
+
+                    // thumbnail
+                    $size = 'square-small';
+                    $thumb = $qimage['sizes'][ $size ];
+                ?>
+
+                <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
+                <?php endif; ?>
+
+                <figcaption>
+                    <?php $qtext = get_field('quote_text'); echo $qtext; ?>
+
+                    <?php $qcite = get_field('quote_cite'); echo $qcite; ?>
+                </figcaption>
+            </figure>
+        </section>
+
+
         <!--hide this for now-->
         <?php
             $title = get_field('section_c');
@@ -138,7 +166,7 @@ get_header();?>
         <section class="section section-no-top">
             <?php if($url)?>
             <div class="button-wrap button-wrap-center">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap-XXX button-grosse button-primary" title="">APPLY NOW</a>
+                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
 

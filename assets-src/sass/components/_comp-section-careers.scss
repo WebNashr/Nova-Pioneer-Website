@@ -895,6 +895,11 @@
     margin-right: auto;
     margin-left: auto;
 
+    &.section-interrupter-quote {
+        max-width: 1024px;
+        padding: 2rem 0;
+    }
+
     &:nth-child(4n+1) {
         .interrupter-bg,
         .interrupter-number {
@@ -947,6 +952,19 @@
     overflow: unset;
 }
 
+.section-interrupter-quote .interrupter-image {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    align-items: center;
+    box-shadow: unset;
+}
+
+.section-interrupter-quote .interrupter-image img {
+    width: 250px;
+    border-radius: 50%;
+}
+
 .interrupter-bg {
     position: absolute;
     top: 0;
@@ -965,6 +983,28 @@
     bottom: -2rem;
     left: -2rem;
 }
+
+.section-interrupter-quote .interrupter-image figcaption {
+    position: unset;
+    bottom: unset;
+    left: unset;
+    width: calc(100% - 250px);
+    margin-left: 3rem;
+}
+
+.section-interrupter-quote blockquote {
+    margin-bottom: 1rem;
+    @include font-size(18px);
+    font-family: Georgia;
+    font-style: italic;
+}
+
+// .section-interrupter-quote cite {
+//     margin-bottom: 1rem;
+//     @include font-size(18px);
+//     font-family: Georgia;
+//     font-style: italic;
+// }
 
 .interrupter-number {
     @include font-size(64px);
