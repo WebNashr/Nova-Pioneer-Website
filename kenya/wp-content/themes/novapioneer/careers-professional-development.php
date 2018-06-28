@@ -163,7 +163,7 @@ get_header();?>
         <?php
             $url = get_field('apply_url');
         ?>
-        <section class="section section-no-top">
+        <section class="section section-no-top-XXX">
             <?php if($url)?>
             <div class="button-wrap button-wrap-center">
                 <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
