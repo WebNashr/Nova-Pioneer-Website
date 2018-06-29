@@ -55,31 +55,34 @@ the_post(); ?>
 
 
     <?php
-    $schools = get_field('schools');
-    $selected_school = $_GET['school'];
-    $selected_grade = $_GET['grade'];
-    $selected_year = $_GET['school_year'];
 
+    $schools = get_field('fee_structures');
+
+    if(have_rows('fee_structures')):
     ?>
 
     <article class="article article-inner article-inner-alt table-container">
 
             <table class="fees-table fees-download" style="">
                 <tbody>
-                    <?php foreach ($schools as $school): $school = (object)$school; ?>
+                    <?php while (have_rows('fee_structures')) : the_row(); ?>
                         <tr class="">
                             <td class="text">
-                                <p class="text"><?php echo $school->post_title; ?></p>
+                                <p class="text"><?php echo get_sub_field('school_name')->post_title; ?></p>
+                             
                             </td>
                             <td>
-                                <input style="" name="view" value="Download Fees Guide" class="button button-primary" style=""
-                                type="submit"/>
+                                <a class="button-fees-dl" 
+                                href="<?php echo get_sub_field('fee_structure')["url"]; ?>" 
+                                download="<?php echo get_sub_field('fee_structure')["filename"]; ?>">
+                                Download fees guide</a>
                             </td>
                         </tr>   
-                     <?php endforeach; ?> 
+                        <?php endwhile; ?> 
                 </tbody>
             </table>   
     </article>
+    <?php endif; ?> 
 </section>
 
 
