@@ -178,10 +178,10 @@
 		// margin-bottom: -5rem;
 		padding-right: calc(1rem * 2);
 	}
-	@media only (min-width: 1024px) and (max-width: 1024px) { //1024px
+	@media only screen and  (min-width: 1024px) and (max-width: 1024px) { //1024px
 			// margin-bottom: 0;
 	}
-	@media only (min-width: 1440px) and (max-width: 1440px) { //1024px
+	@media only screen and  (min-width: 1440px) and (max-width: 1440px) { //1024px
 			// margin-bottom: 0;
 	}
 	.section-navigation {
@@ -195,10 +195,10 @@
 		@include break-point(largelaptop) {
 			// height: 80.75%;
 		}
-		@media only (min-width: 1024px) and (max-width: 1024px) { //1024px
+		@media only screen and (min-width: 1024px) and (max-width: 1024px) { //1024px
 				// height: 88.85%;
 		}
-		@media only (min-width: 1440px) and (max-width: 1440px) { //1024px
+		@media only screen and  (min-width: 1440px) and (max-width: 1440px) { //1024px
 				// height: 88.85%;
 		}
 
@@ -262,7 +262,7 @@
 		max-height: 453px;
 	}
 
-	@media only (min-width: 1366px) and (max-width: 1440px) {
+	@media only screen and  (min-width: 1366px) and (max-width: 1440px) {
 			// max-height: 720px;
 			// max-height: 454px;
 			// margin-bottom: -2.65rem;
@@ -300,7 +300,7 @@
 		@include break-point(desktop) {
 			height: 100%;
 		}
-		@media only (min-width: 1440px) and (max-width: 1440px) { //1440px
+		@media only screen and  (min-width: 1440px) and (max-width: 1440px) { //1440px
 				height: 91.7%;
 		}
 		.gallery-nav{
