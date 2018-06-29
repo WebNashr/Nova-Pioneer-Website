@@ -13,6 +13,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -22,6 +30,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -236,11 +252,11 @@ get_header();?>
         <?php endif;?>
 
 
-        <?php $url = get_field('apply'); ?>
+        <?php $apply = get_field('apply_now_link'); ?>
         <section class="section">
-        <?php if($url)?>
+        <?php if($apply)?>
             <div class="button-wrap button-wrap-center">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                <a href="<?php echo $apply ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
 

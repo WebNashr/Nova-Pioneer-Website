@@ -13,6 +13,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -22,6 +30,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -102,7 +118,7 @@ get_header();?>
 
                         <div class="alternating-item-copy">
                             <h2><?php the_sub_field('title');?></h2>
-                            <p><?php the_sub_field('paragraph');?></p>
+                            <?php the_sub_field('paragraph');?>
                             <!--<blockquote><?php the_sub_field('quote') ?></blockquote>-->
                         </div>
                     </div>
@@ -226,28 +242,37 @@ get_header();?>
         ?>
         <section class="section">
             <section class="faqs-container">
-                 <article class="article article-inner article-inner-alt ">
-                     <h2 id="faqs">Frequently Asked Questions</h2>
-                     <?php if(have_rows($field)): $i = 0;?>
+                <article class="article article-inner article-inner-alt ">
+                    <h2 id="faqs">Frequently Asked Questions</h2>
+                    <?php if(have_rows($field)): $i = 0;?>
 
-                     <ul class="toggle-list">
-                            <?php while(have_rows($field)):  the_row();?>
-                                        <li class= '<?php if($i == 0){ echo 'show'; } ?>' >
-                                            <h3 class="toggle-list-title"><?php the_sub_field($sub_field_1);?></h3>
-                                            <div class="toggle-list-content">
-                                            <?php the_sub_field($sub_field_2);?>
-                                            </div>
-                                        </li>
-                                <?php $i += 1; ?>
-                            <?php  endwhile; wp_reset_postdata();?>
-                     </ul>
+                    <ul class="toggle-list">
+                        <?php while(have_rows($field)):  the_row();?>
+                                    <li class= '<?php if($i == 0){ echo 'show'; } ?>' >
+                                        <h3 class="toggle-list-title"><?php the_sub_field($sub_field_1);?></h3>
+                                        <div class="toggle-list-content">
+                                        <?php the_sub_field($sub_field_2);?>
+                                        </div>
+                                    </li>
+                            <?php $i += 1; ?>
+                        <?php  endwhile; wp_reset_postdata();?>
+                    </ul>
 
-                <?php endif; ?>
-                 </article>
-             </section>
-             </section>
+            <?php endif; ?>
+                </article>
+            </section>
+        </section>
 
 
+        <?php
+            $apply = get_field('apply_now_link');
+        ?>
+        <section class="section section-no-top">
+            <?php if($apply)?>
+            <div class="button-wrap button-wrap-center">
+                <a href="<?php echo $apply ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+            </div>
+        </section>
 
     <?php endwhile; ?>
 <?php endif; ?>

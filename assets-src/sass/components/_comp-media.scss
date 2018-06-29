@@ -55,10 +55,10 @@
 	@include break-point(tablet) {
 		margin-bottom: -5rem;
 	}
-	@media only (min-width: 1024px) and (max-width: 1024px) { //1024px
+	@media only screen and (min-width: 1024px) and (max-width: 1024px) { //1024px
 			margin-bottom: 0;
 	}
-	@media only (min-width: 1440px) and (max-width: 1440px) { //1024px
+	@media only screen and  (min-width: 1440px) and (max-width: 1440px) { //1024px
 			margin-bottom: 0;
 	}
 	.section-navigation {
@@ -72,10 +72,10 @@
 		@include break-point(largelaptop) {
 			height: 80.75%;
 		}
-		@media only (min-width: 1024px) and (max-width: 1024px) { //1024px
+		@media only screen and  (min-width: 1024px) and (max-width: 1024px) { //1024px
 				height: 88.85%;
 		}
-		@media only (min-width: 1440px) and (max-width: 1440px) { //1024px
+		@media only screen and  (min-width: 1440px) and (max-width: 1440px) { //1024px
 				height: 88.85%;
 		}
 

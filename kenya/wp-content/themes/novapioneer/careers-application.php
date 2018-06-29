@@ -13,6 +13,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_to_jobs');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">See open jobs</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -23,6 +31,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_to_jobs');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">See open jobs</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -36,14 +52,15 @@ get_header();?>
                     <h2><?php echo $field;?></h2>
                 <?php endif; ?>
 
-                <h2><?php the_content();?></h2>
+                <!--<h2><?php the_content();?></h2>-->
             </article>
         </section>
         <br>
 
         <section class="section section-no-top section-no-bottom">
             <article style="max-width: 1024px">
-                <p><?php the_field('introduction') ?></p>
+                <!--<p><?php the_field('introduction') ?></p>-->
+                <?php the_field('introduction') ?>
                 <br>
             </article>
         </section>
@@ -177,6 +194,17 @@ get_header();?>
             <?php if($nfield2):?>
             <p><?php echo $nfield2; ?></p>
             <?php endif;?>
+        </section>
+
+
+        <?php
+            $apply = get_field('apply_to_jobs');
+        ?>
+        <section class="section section-no-top">
+            <?php if($apply)?>
+            <div class="button-wrap button-wrap-center">
+                <a href="<?php echo $apply ?>" target="_blank" class="button button-wrap-XXX button-large button-primary" title="">See open jobs</a>
+            </div>
         </section>
 
 

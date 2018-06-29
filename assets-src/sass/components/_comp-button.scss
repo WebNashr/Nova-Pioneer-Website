@@ -91,9 +91,19 @@
         }
     }
 }
-.fees-button {
-	width: 100% !important;
-	@include break-point(tablet) {
-		width: auto !important;
-	}
+.button-fees-dl {
+	padding: 7px calc(7px * 1.5) !important;
+	color: #fff !important;
+	float: right;
+	font-size: 14px!important;
+	background: #178dbe;
+	border-radius: 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: all 0.2s ease;
+
+	// width: 100% !important;
+	// @include break-point(tablet) {
+	// 	width: auto !important;
+	// }
 }
