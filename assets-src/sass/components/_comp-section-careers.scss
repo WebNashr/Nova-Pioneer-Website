@@ -1443,10 +1443,10 @@ label.opportunity-label {
 	}
 
     @include break-point(tablet) {
-	    &:not(:first-of-type) {
-            margin-top: 1.5rem;
-            margin-left: 0;
-        }
+	    // &:not(:first-of-type) {
+        //     margin-top: 1.5rem;
+        //     margin-left: 0;
+        // }
     }
 
     @include break-point(laptop) {
@@ -1589,10 +1589,12 @@ input[id="opportunity-1"]:checked ~ label[for="opportunity-1"] {
 	color: $white;
     background: $orange-lt;
 
-    &::after {
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid $orange-lt;
+    @include break-point(laptop) {
+        &::after {
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid $orange-lt;
+        }
     }
 }
 
@@ -1600,10 +1602,12 @@ input[id="opportunity-2"]:checked ~ label[for="opportunity-2"] {
     color: $white;
     background: $raspberry;
 
-    &::after {
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid $raspberry;
+    @include break-point(laptop) {
+        &::after {
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid $raspberry;
+        }
     }
 }
 
@@ -1611,10 +1615,12 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     color: $white;
     background: $blue-lt;
 
-    &::after {
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid $blue-lt;
+    @include break-point(laptop) {
+        &::after {
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid $blue-lt;
+        }
     }
 }
 
