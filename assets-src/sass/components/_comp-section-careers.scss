@@ -1758,7 +1758,8 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 
     @include break-point(tablet) {
 	    @include flex-direction(row);
-        margin-bottom: 5rem;
+        align-items: flex-end;
+        margin-bottom: 3rem;
     }
 
     @include break-point(laptop) {
@@ -1771,7 +1772,7 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
 
     @include break-point(tablet) {
-	    width: 320px;
+	    width: 180px;
     }
 
     @include break-point(laptop) {
@@ -1786,12 +1787,13 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     z-index: -1;
 
     @include break-point(tablet) {
-	    position: absolute;
-        right: 3rem;
-        top: 3rem;
-        width: calc(100% - 320px);
+	    // position: absolute;
+        // right: 3rem;
+        // top: 3rem;
+        width: calc(100% - 180px + 3rem);
         height: auto;
         min-height: 100%;
+        margin-left: -3rem;
         padding: 3rem 3rem 3rem 6rem;
     }
 
@@ -1802,6 +1804,7 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
         width: calc(100% - 320px);
         height: auto;
         min-height: 100%;
+        margin-left: unset;
         padding: 3rem 3rem 3rem 6rem;
     }
 }
