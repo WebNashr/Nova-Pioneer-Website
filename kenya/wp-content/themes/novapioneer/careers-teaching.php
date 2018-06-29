@@ -118,7 +118,7 @@ get_header();?>
 
                         <div class="alternating-item-copy">
                             <h2><?php the_sub_field('title');?></h2>
-                            <p><?php the_sub_field('paragraph');?></p>
+                            <?php the_sub_field('paragraph');?>
                             <!--<blockquote><?php the_sub_field('quote') ?></blockquote>-->
                         </div>
                     </div>
