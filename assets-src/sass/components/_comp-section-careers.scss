@@ -1202,19 +1202,36 @@
 
 .interview-step-label {
     @include flexbox();
-	@include flex-direction(row);
+	@include flex-direction(column);
     text-transform: unset;
+
+    @include break-point(tablet) {
+		// margin-top: 32px;
+    }
+
+    @include break-point(laptop) {
+		@include flex-direction(row);
+    }
 }
 
 .article-interview {
     position: relative;
-    padding: 0 0 0 2rem;
+    padding: 0;
+
+    @include break-point(tablet) {
+		// margin-top: 32px;
+    }
+
+    @include break-point(laptop) {
+		padding: 0 0 0 2rem;
+    }
 }
 
 .interview-steps {
     @extend %columns;
     @include flexbox();
-	@include flex-direction(column);
+	// @include flex-direction(column);
+    @include flex-direction(row);
     width: 100%;
     // justify-content: space-between;
     // padding: 0 2rem;
@@ -1231,11 +1248,12 @@
 	@include flex-direction(column);
     // width: calc(100%/5);
     // padding: 0 1rem;
+    min-height: 300px;
     z-index: 99999;
     cursor: pointer;
 
     &:not(:first-of-type) {
-        margin-left: 1.5rem;
+        margin-left: 1rem;
     }
 
     &:nth-child(1) {
@@ -1277,6 +1295,18 @@
         .interview-number,
         .interview-title {
             background: $orange-dk;
+        }
+    }
+
+    @include break-point(tablet) {
+		// margin-top: 32px;
+    }
+
+    @include break-point(laptop) {
+		min-height: unset;
+
+        &:not(:first-of-type) {
+            margin-left: 1.5rem;
         }
     }
 }
@@ -1351,13 +1381,22 @@
     @include flexbox();
 	@include flex-direction(column);
     display: none;
-    max-width: 480px;
-    // max-width: 640px;
+    // max-width: 480px;
+    max-width: 640px;
     // margin-top: 1.5rem;
     // margin-left: 1.5rem;
-    margin: 1.5rem 2rem 0 1.5rem;
+    margin: 1.5rem 0 0;
     // padding: 1.5rem;
     border-radius: 8px;
+
+    @include break-point(tablet) {
+		// margin-top: 32px;
+    }
+
+    @include break-point(laptop) {
+		max-width: 480px;
+        margin: 1.5rem 2rem 0 1.5rem;
+    }
 }
 
 .interview-title {
@@ -1402,20 +1441,50 @@
 @for $step from 1 through 5 {
     input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-number {
         @include title(bold);
-        width: 140px;
-        height: 140px;
-        margin-top: -22px;
-        font-size: 52px;
-        padding-top: 44px;
+        width: 64px;
+        height: 64px;
+        margin-top: 1rem;
+        font-size: 32px;
+        padding-top: 18px;
 
         .interview-step:not(:first-of-type) & {
-            margin-left: 1.5rem;
+            margin-left: 0;
+        }
+
+        @include break-point(tablet) {
+            // margin-top: 32px;
+        }
+
+        @include break-point(laptop) {
+            @include title(bold);
+            width: 140px;
+            height: 140px;
+            margin-top: -22px;
+            font-size: 52px;
+            padding-top: 44px;
+
+            .interview-step:not(:first-of-type) & {
+                margin-left: 1.5rem;
+            }
         }
     }
 
     input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-heading {
+        position: absolute;
+        top: 85px;
+        left: 0;
         display: block;
         background: $grey-lt;
+
+        @include break-point(tablet) {
+            // margin-top: 32px;
+        }
+
+        @include break-point(laptop) {
+            position: unset;
+            top: unset;
+            left: unset;
+        }
     }
 
     // .interview-step:hover input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-heading {
