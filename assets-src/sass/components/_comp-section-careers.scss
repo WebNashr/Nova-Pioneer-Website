@@ -1562,54 +1562,132 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     margin-bottom: 2rem;
 }
 
+.article-profile h1 {
+    @include font-size(32px);
+
+    @include break-point(tablet) {
+	    @include font-size(40px);
+    }
+
+    @include break-point(laptop) {
+		@include font-size(48px);
+    }
+}
+
 .article-profile figure {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin-bottom: 7rem;
+    @include flexbox();
+	@include flex-direction(column);
+    @include flex-wrap(nowrap);
+    margin-bottom: 2rem;
+
+    @include break-point(tablet) {
+	    @include flex-direction(row);
+        margin-bottom: 5rem;
+    }
+
+    @include break-point(laptop) {
+		margin-bottom: 7rem;
+    }
 }
 
 .article-profile img {
-    width: 320px;
+    width: 100%;
     box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
+
+    @include break-point(tablet) {
+	    width: 320px;
+    }
+
+    @include break-point(laptop) {
+		width: 320px;
+    }
 }
 
 .article-profile figcaption {
+    width: 100%;
+    padding: 1rem 1.5rem;
     background: $green-lt;
-    padding: 3rem 3rem 3rem 6rem;
-    width: calc(100% - 320px);
-    position: absolute;
-    height: 100%;
-    right: 3rem;
-    top: 3rem;
     z-index: -1;
+
+    @include break-point(tablet) {
+	    position: absolute;
+        right: 3rem;
+        top: 3rem;
+        width: calc(100% - 320px);
+        height: auto;
+        min-height: 100%;
+        padding: 3rem 3rem 3rem 6rem;
+    }
+
+    @include break-point(laptop) {
+		position: absolute;
+        right: 3rem;
+        top: 3rem;
+        width: calc(100% - 320px);
+        height: auto;
+        min-height: 100%;
+        padding: 3rem 3rem 3rem 6rem;
+    }
 }
 
 .article-profile blockquote {
-    @include font-size(24px);
+    @include font-size(18px);
     @include line-height(1.35);
     font-family: Georgia;
     font-style: italic;
     color: $white;
+
+    @include break-point(tablet) {
+	    @include font-size(20px);
+    }
+
+    @include break-point(laptop) {
+		@include font-size(24px);
+    }
 }
 
 .article-profile cite {
-    @include font-size(16px);
+    @include font-size(14px);
     @include line-height(1.35);
     display: block;
-    margin-top: 1.5rem;
-    // font-family: Georgia;
+    margin-top: 1rem;
     font-style: normal;
     color: $white;
+
+    @include break-point(tablet) {
+	    @include font-size(16px);
+        margin-top: 1.5rem;
+    }
 }
 
 .profile-question-item {
     &:not(:last-of-type) {
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
     }
 
     h3 {
+        @include font-size(20px);
         margin-bottom: 0.5rem;
+    }
+
+    @include break-point(tablet) {
+	    &:not(:last-of-type) {
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            @include font-size(22px);
+        }
+    }
+
+    @include break-point(laptop) {
+		&:not(:last-of-type) {
+            margin-bottom: 3rem;
+        }
+
+        h3 {
+            @include font-size(24px);
+        }
     }
 }
 
