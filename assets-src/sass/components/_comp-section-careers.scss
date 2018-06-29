@@ -284,47 +284,6 @@
         margin-top: calc(#{$space-tiny} * 2);
     }
 
-    @include break-point(tablet) {
-        width: calc(calc(100% - 48px) / 2);
-
-        // override mobile
-        &:not(:first-child) {
-            margin-top: unset;
-        }
-
-        &:not(:nth-child(2n+1)) {
-            margin-left: auto;
-        }
-
-        &:nth-child(n+3) {
-            margin-top: 48px;
-		}
-	}
-
-	@include break-point(laptop) {
-        // width: calc(calc(100% - 48px) / 2);
-
-        // override mobile, tablet
-        // &:not(:first-child),
-        // &:nth-child(n+3) {
-		// 	margin-top: unset;
-        //     margin-left: unset;
-		// }
-
-        // &:not(:nth-child(3n+1)) {
-        //     margin-left: auto;
-        // }
-
-        // &:nth-child(n+4) {
-        //     margin-top: 48px;
-		// }
-
-        // &:last-child:nth-child(3n+2) {
-        //     margin-left: 48px;
-        //     margin-right: auto;
-        // }
-	}
-
     h2 {
         @include title(regular);
         @include font-size(22px);
@@ -443,6 +402,56 @@
             background: $orange-dk;
 		}
     }
+
+    @include break-point(tablet) {
+        width: calc(calc(100% - 48px) / 2);
+
+        // override mobile
+        &:not(:first-child) {
+            margin-top: unset;
+        }
+
+        &:not(:nth-child(2n+1)) {
+            margin-left: auto;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 48px;
+		}
+
+        p {
+            @include title(medium);
+            @include font-size(15px);
+        }
+
+        p span {
+            margin-bottom: 1.5rem;
+        }
+	}
+
+	@include break-point(laptop) {
+        // width: calc(calc(100% - 48px) / 2);
+
+        // override mobile, tablet
+        // &:not(:first-child),
+        // &:nth-child(n+3) {
+		// 	margin-top: unset;
+        //     margin-left: unset;
+		// }
+
+        // &:not(:nth-child(3n+1)) {
+        //     margin-left: auto;
+        // }
+
+        // &:nth-child(n+4) {
+        //     margin-top: 48px;
+		// }
+
+        // &:last-child:nth-child(3n+2) {
+        //     margin-left: 48px;
+        //     margin-right: auto;
+        // }
+	}
 }
 
 .new-card-item-third {
@@ -548,11 +557,27 @@
 // }
 
 .new-card-copy-caption {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0;
+    // position: absolute;
+    // bottom: 0;
+    // width: 100%;
+    // height: 100%;
+    // padding: 0;
+
+    @include break-point(tablet) {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+
+    @include break-point(laptop) {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
 }
 
 .new-card-copy {
