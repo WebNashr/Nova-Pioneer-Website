@@ -278,7 +278,7 @@
 
 .new-card-item-half {
     position: relative;
-    cursor: pointer;
+    // cursor: pointer;
 
     &:not(:first-child) {
         margin-top: calc(#{$space-tiny} * 2);
@@ -301,13 +301,13 @@
 
     p {
         @include title(medium);
-        @include font-size(16px);
+        @include font-size(15px);
         @include line-height(1.5);
-        // display: block;
-        // color: lighten($grey-mdk, 10%);
-        display: none;
-        // width: 100%;
+        display: block;
+        height: 100%;
+        padding: calc(#{$space-tiny} * 2.5);
         color: $white;
+        background: rgba($blue-dk, 0.95);
     }
 
     p span {
@@ -315,21 +315,21 @@
         width: 100%;
         max-width: 20%;
         height: 8px;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 
-    &:hover {
-        h2 {
-            background: rgba($green-lt, 0.95);
-        }
+    // &:hover {
+    //     h2 {
+    //         background: rgba($green-lt, 0.95);
+    //     }
 
-        p {
-            display: block;
-            height: 100%;
-            padding: calc(#{$space-tiny} * 2.5);
-            background: rgba($blue-dk, 0.95);
-        }
-    }
+    //     p {
+    //         display: block;
+    //         height: 100%;
+    //         padding: calc(#{$space-tiny} * 2.5);
+    //         background: rgba($blue-dk, 0.95);
+    //     }
+    // }
 
     &:nth-child(6n+1) {
         background: $blue-lt;
@@ -404,7 +404,33 @@
     }
 
     @include break-point(tablet) {
+        // width: calc(calc(100% - 48px) / 2);
+
+        // override mobile
+        // &:not(:first-child) {
+        //     margin-top: unset;
+        // }
+
+        // &:not(:nth-child(2n+1)) {
+        //     margin-left: auto;
+        // }
+
+        // &:nth-child(n+3) {
+        //     margin-top: 48px;
+		// }
+
+        // p {
+        //     @include font-size(15px);
+        // }
+
+        // p span {
+        //     margin-bottom: 1.5rem;
+        // }
+	}
+
+	@include break-point(laptop) {
         width: calc(calc(100% - 48px) / 2);
+        cursor: pointer;
 
         // override mobile
         &:not(:first-child) {
@@ -420,37 +446,26 @@
 		}
 
         p {
-            @include title(medium);
-            @include font-size(15px);
+            @include font-size(16px);
+            display: none;
         }
 
         p span {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
-	}
 
-	@include break-point(laptop) {
-        // width: calc(calc(100% - 48px) / 2);
+        &:hover {
+            h2 {
+                background: rgba($green-lt, 0.95);
+            }
 
-        // override mobile, tablet
-        // &:not(:first-child),
-        // &:nth-child(n+3) {
-		// 	margin-top: unset;
-        //     margin-left: unset;
-		// }
-
-        // &:not(:nth-child(3n+1)) {
-        //     margin-left: auto;
-        // }
-
-        // &:nth-child(n+4) {
-        //     margin-top: 48px;
-		// }
-
-        // &:last-child:nth-child(3n+2) {
-        //     margin-left: 48px;
-        //     margin-right: auto;
-        // }
+            p {
+                display: block;
+                height: 100%;
+                padding: calc(#{$space-tiny} * 2.5);
+                background: rgba($blue-dk, 0.95);
+            }
+        }
 	}
 }
 
@@ -563,13 +578,13 @@
     // height: 100%;
     // padding: 0;
 
-    @include break-point(tablet) {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        padding: 0;
-    }
+    // @include break-point(tablet) {
+    //     position: absolute;
+    //     bottom: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     padding: 0;
+    // }
 
     @include break-point(laptop) {
         position: absolute;
