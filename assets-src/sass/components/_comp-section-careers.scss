@@ -953,7 +953,7 @@
 
     &.section-interrupter-quote {
         max-width: 1024px;
-        padding: 2rem 0;
+        padding: 2rem;
     }
 
     &:nth-child(4n+1) {
@@ -1010,15 +1010,39 @@
 
 .section-interrupter-quote .interrupter-image {
     @include flexbox();
-    @include flex-direction(row);
+    @include flex-direction(column);
     @include flex-wrap(nowrap);
-    align-items: center;
+    // align-items: center;
     box-shadow: unset;
+    margin-bottom: 2rem;
+
+    @include break-point(tablet) {
+        // @include flex-direction(row);
+        // align-items: center;
+        // margin-bottom: 2rem;
+    }
+
+    @include break-point(laptop) {
+        @include flex-direction(row);
+        align-items: center;
+        margin-bottom: 2rem;
+    }
 }
 
 .section-interrupter-quote .interrupter-image img {
     width: 250px;
+    margin: 0 auto 2rem;
     border-radius: 50%;
+
+    @include break-point(tablet) {
+        // margin: unset;
+        // margin-bottom: 2rem;
+    }
+
+    @include break-point(laptop) {
+        margin: unset;
+        margin-bottom: 2rem;
+    }
 }
 
 .interrupter-bg {
@@ -1028,24 +1052,59 @@
     display: block;
     width: 100%;
     height: 100%;
-    margin-top: -2rem;
-    margin-right: -2rem;
+    margin-top: -1rem;
+    margin-right: -1rem;
     content: '';
     z-index: -1;
+
+    @include break-point(tablet) {
+        // width: calc(100% - 250px);
+        // margin-left: 3rem;
+        // text-align: left;
+    }
+
+    @include break-point(laptop) {
+        margin-top: -2rem;
+        margin-right: -2rem;
+    }
 }
 
 .interrupter-image figcaption {
     position: absolute;
-    bottom: -2rem;
-    left: -2rem;
+    bottom: -1rem;
+    left: -1rem;
+
+    @include break-point(tablet) {
+        // width: calc(100% - 250px);
+        // margin-left: 3rem;
+        // text-align: left;
+    }
+
+    @include break-point(laptop) {
+        bottom: -2rem;
+        left: -2rem;
+    }
 }
 
 .section-interrupter-quote .interrupter-image figcaption {
     position: unset;
     bottom: unset;
     left: unset;
-    width: calc(100% - 250px);
-    margin-left: 3rem;
+    width: 100%;
+    // margin-left: 3rem;
+    text-align: center;
+
+    @include break-point(tablet) {
+        // width: calc(100% - 250px);
+        // margin-left: 3rem;
+        // text-align: left;
+    }
+
+    @include break-point(laptop) {
+        width: calc(100% - 250px);
+        margin-left: 3rem;
+        text-align: left;
+    }
 }
 
 .section-interrupter-quote blockquote {
@@ -1064,28 +1123,52 @@
 }
 
 .interrupter-number {
-    @include font-size(64px);
+    @include font-size(40px);
     @include line-height(1);
     @include title(bold);
     display: block;
-    width: 8rem;
-    height: 8rem;
-    padding: 32px 0 0;
+    width: 5rem;
+    height: 5rem;
+    padding: 21px 0 0;
     text-align: center;
     color: $white;
     border-radius: 0;
     box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+
+    @include break-point(tablet) {
+        // width: calc(100% - 250px);
+        // margin-left: 3rem;
+        // text-align: left;
+    }
+
+    @include break-point(laptop) {
+        @include font-size(64px);
+        width: 8rem;
+        height: 8rem;
+        padding: 32px 0 0;
+    }
 }
 
 .interrupter-text {
     position: relative;
     width: 100%;
     max-width: 768px;
-    margin: -2rem 0 5rem 9rem;
-    padding: 3rem 4rem;
+    margin: 0rem 0 2rem 1rem;
+    padding: 1rem 2rem;
     background: $white;
     box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
+
+    @include break-point(tablet) {
+        // width: calc(100% - 250px);
+        // margin-left: 3rem;
+        // text-align: left;
+    }
+
+    @include break-point(laptop) {
+        margin: -2rem 0 5rem 9rem;
+        padding: 3rem 4rem;
+    }
 }
 
 
