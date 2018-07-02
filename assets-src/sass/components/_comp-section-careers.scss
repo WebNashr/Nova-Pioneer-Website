@@ -4,40 +4,11 @@
 
 
 .parent-pageid-919 .section-hero {
-    height: 65vh;
     height: 77.5vh;
 }
 
 .media-heading.ribbon {
     position: relative;
-}
-
-.ribbon:before {
-    font: 700 38px/1 'Comfortaa', cursive;
-    content: 'We are hiring';
-    background-color: $green-lt;
-    padding: 25px;
-    width: 320px;
-    text-align: center;
-    position: absolute;
-    display: inline-block;
-    top: 0;
-    right: -110px;
-    float: right;
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width:468px){
-    .ribbon:before{
-        font-size:25px;
-        padding: 15px;
-        width: 290px;
-        top: 10px;
-        right: -110px;
-    }
 }
 
 .parent-pageid-919 .section-hero .main-callout-box {
@@ -59,11 +30,7 @@
 }
 
 .section-page-intro p {
-    // @include title(light);
-    // @include font-size(24px);
     max-width: 95vw;
-    // border-left: 12px solid $grey-md;
-    // padding-left: calc(#{$space-tiny} * 2);
 
     @include break-point(laptop) {
         max-width: 75vw;
@@ -74,19 +41,12 @@
 
 .new-card-container {
     @extend %columns;
-    // justify-content: space-between;
     width: 100%;
-    // padding-top: calc(#{$space-tiny} * 2);
 
     @include break-point(tablet) {
         @include flexbox();
 	    @include flex-direction(row);
         @include flex-wrap(wrap);
-        // padding: calc(#{$space-tiny} * 2) 0 0;
-    }
-
-    @include break-point(laptop) {
-        // padding: calc(#{$space-tiny} * 2.5) 0 0;
     }
 }
 
@@ -94,11 +54,8 @@
     @include flexbox();
 	@include flex-direction(column);
     align-items: flex-start;
-    // justify-content: flex-end;
     width: 100%;
     min-height: calc(100vw / 4);
-    // padding: calc(#{$space-tiny} * 2);
-    // padding-top: 6rem;
     text-align: left;
     background: lighten($grey-lt, 4%);
     border: 1px solid lighten($grey-lt, 2%);
@@ -121,7 +78,6 @@
     }
 
     h2 {
-        // @include font-size(22px);
         margin-bottom: calc(#{$space-tiny} * 0.5);
         text-align: left;
         color: $blue-lt;
@@ -278,7 +234,6 @@
 
 .new-card-item-half {
     position: relative;
-    // cursor: pointer;
 
     &:not(:first-child) {
         margin-top: calc(#{$space-tiny} * 2);
@@ -288,14 +243,11 @@
         @include title(regular);
         @include font-size(22px);
         @include line-height(1.5);
-        // width: 100%;
         margin-bottom: calc(#{$space-tiny} * 0.5);
         text-align: left;
         color: $white;
         background: $blue-dk;
-        // min-height: 25%;
         margin: 0;
-        padding: calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 2.5);
         padding: calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 5.5) calc(#{$space-tiny} * 1.75) calc(#{$space-tiny} * 2.5);
     }
 
@@ -317,19 +269,6 @@
         height: 8px;
         margin-bottom: 1.5rem;
     }
-
-    // &:hover {
-    //     h2 {
-    //         background: rgba($green-lt, 0.95);
-    //     }
-
-    //     p {
-    //         display: block;
-    //         height: 100%;
-    //         padding: calc(#{$space-tiny} * 2.5);
-    //         background: rgba($blue-dk, 0.95);
-    //     }
-    // }
 
     &:nth-child(6n+1) {
         background: $blue-lt;
@@ -402,31 +341,6 @@
             background: $orange-dk;
 		}
     }
-
-    @include break-point(tablet) {
-        // width: calc(calc(100% - 48px) / 2);
-
-        // override mobile
-        // &:not(:first-child) {
-        //     margin-top: unset;
-        // }
-
-        // &:not(:nth-child(2n+1)) {
-        //     margin-left: auto;
-        // }
-
-        // &:nth-child(n+3) {
-        //     margin-top: 48px;
-		// }
-
-        // p {
-        //     @include font-size(15px);
-        // }
-
-        // p span {
-        //     margin-bottom: 1.5rem;
-        // }
-	}
 
 	@include break-point(laptop) {
         width: calc(calc(100% - 48px) / 2);
@@ -565,27 +479,7 @@
 	}
 }
 
-// .new-card-img {
-//     img {
-
-//     }
-// }
-
 .new-card-copy-caption {
-    // position: absolute;
-    // bottom: 0;
-    // width: 100%;
-    // height: 100%;
-    // padding: 0;
-
-    // @include break-point(tablet) {
-    //     position: absolute;
-    //     bottom: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     padding: 0;
-    // }
-
     @include break-point(laptop) {
         position: absolute;
         bottom: 0;
@@ -607,10 +501,6 @@
         @include flexbox();
 	    @include flex-direction(column);
         justify-content: end;
-        // position: absolute;
-        // bottom: 0;
-        // width: 100%;
-        // height: 100%;
         padding: 0;
     }
 }
@@ -629,8 +519,6 @@
 
 .alternating-container {
     @extend %columns;
-    // @include flexbox();
-	// @include flex-direction(column);
     width: 100%;
 
     @include break-point(tablet) {
@@ -647,15 +535,8 @@
 .alternating-item {
     @include flexbox();
 	@include flex-direction(column);
-    // align-items: flex-start;
     align-items: center;
-    // justify-content: flex-end;
     width: 100%;
-    // background: lighten($grey-lt, 4%);
-    // border: 1px solid lighten($grey-lt, 2%);
-    // background: lighten($grey-lt, 5%);
-    // border: 1px solid lighten($grey-lt, 4.5%);
-    // border-top: none;
     transition: $ease;
 
     &:not(:first-child) {
@@ -721,14 +602,6 @@
     width: 100%;
     overflow: hidden;
 
-    @include break-point(tablet) {
-        // width: 47.5%;
-
-        // .alternating-item:nth-child(even) & {
-        //     order: 2;
-        // }
-    }
-
     @include break-point(laptop) {
         width: 47.5%;
 
@@ -740,11 +613,7 @@
 
 .alternating-item-img figcaption {
     @include flexbox();
-    // position: absolute;
-    // top: 0;
-    // left: -9999px;
     width: 100%;
-    // height: 100%;
     transition: $ease;
 
     .alternating-item:nth-child(6n+1) & {
@@ -771,19 +640,10 @@
         background: rgba($raspberry, 0.875);
     }
 
-    @include break-point(tablet) {
-        // position: absolute;
-        // top: 0;
-        // left: -9999px;
-        // // width: 100%;
-        // height: 100%;
-    }
-
     @include break-point(laptop) {
         position: absolute;
         top: 0;
         left: -9999px;
-        // width: 100%;
         height: 100%;
     }
 }
@@ -808,10 +668,6 @@
 }
 
 .alternating-item-copy h2 {
-    // margin-bottom: 1.5rem;
-    // padding-bottom: 1.5rem;
-    // border-bottom: 2px dashed $grey-mdk;
-
     .alternating-item:nth-child(1) & {
         border-color: $orange-lt;
     }
@@ -876,9 +732,7 @@
 
 .alternating-item-img figcaption blockquote {
     align-self: center;
-    // margin-left: 2.5rem;
     padding: 2rem;
-    // border-left: 6px dotted $white;
 
     p {
         display: inline-block;
@@ -976,10 +830,6 @@
         .interrupter-number {
             background: $orange-lt;
 		}
-
-        // h2 {
-        //     color: $orange-lt;
-        // }
     }
 
     &:nth-child(4n+2) {
@@ -987,10 +837,6 @@
         .interrupter-number {
             background: $blue-lt;
 		}
-
-        // h2 {
-        //     color: $blue-lt;
-        // }
     }
 
     &:nth-child(4n+3) {
@@ -998,10 +844,6 @@
         .interrupter-number {
             background: $green-lt;
 		}
-
-        // h2 {
-        //     color: $green-lt;
-        // }
     }
 
     &:nth-child(4n+4) {
@@ -1009,10 +851,6 @@
         .interrupter-number {
             background: $raspberry;
 		}
-
-        // h2 {
-        //     color: $raspberry;
-        // }
     }
 }
 
@@ -1027,15 +865,8 @@
     @include flexbox();
     @include flex-direction(column);
     @include flex-wrap(nowrap);
-    // align-items: center;
     box-shadow: unset;
     margin-bottom: 2rem;
-
-    @include break-point(tablet) {
-        // @include flex-direction(row);
-        // align-items: center;
-        // margin-bottom: 2rem;
-    }
 
     @include break-point(laptop) {
         @include flex-direction(row);
@@ -1048,11 +879,6 @@
     width: 250px;
     margin: 0 auto 2rem;
     border-radius: 50%;
-
-    @include break-point(tablet) {
-        // margin: unset;
-        // margin-bottom: 2rem;
-    }
 
     @include break-point(laptop) {
         margin: unset;
@@ -1072,12 +898,6 @@
     content: '';
     z-index: -1;
 
-    @include break-point(tablet) {
-        // width: calc(100% - 250px);
-        // margin-left: 3rem;
-        // text-align: left;
-    }
-
     @include break-point(laptop) {
         margin-top: -2rem;
         margin-right: -2rem;
@@ -1088,12 +908,6 @@
     position: absolute;
     bottom: -1rem;
     left: -1rem;
-
-    @include break-point(tablet) {
-        // width: calc(100% - 250px);
-        // margin-left: 3rem;
-        // text-align: left;
-    }
 
     @include break-point(laptop) {
         bottom: -2rem;
@@ -1106,14 +920,7 @@
     bottom: unset;
     left: unset;
     width: 100%;
-    // margin-left: 3rem;
     text-align: center;
-
-    @include break-point(tablet) {
-        // width: calc(100% - 250px);
-        // margin-left: 3rem;
-        // text-align: left;
-    }
 
     @include break-point(laptop) {
         width: calc(100% - 250px);
@@ -1131,9 +938,6 @@
 }
 
 .section-interrupter-quote cite {
-    // margin-bottom: 1rem;
-    // @include font-size(18px);
-    // font-family: Georgia;
     font-style: normal;
 }
 
@@ -1150,12 +954,6 @@
     border-radius: 0;
     box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-
-    @include break-point(tablet) {
-        // width: calc(100% - 250px);
-        // margin-left: 3rem;
-        // text-align: left;
-    }
 
     @include break-point(laptop) {
         @include font-size(64px);
@@ -1174,12 +972,6 @@
     background: $white;
     box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
 
-    @include break-point(tablet) {
-        // width: calc(100% - 250px);
-        // margin-left: 3rem;
-        // text-align: left;
-    }
-
     @include break-point(laptop) {
         margin: -2rem 0 5rem 9rem;
         padding: 3rem 4rem;
@@ -1189,25 +981,10 @@
 
 
 
-
-
-
-// [name*="interveiw-step"] {
-//     position: absolute;
-//     left: -9999px;
-//     width: 0;
-//     height: 0;
-//     opacity: 0;
-// }
-
 .interview-step-label {
     @include flexbox();
 	@include flex-direction(column);
     text-transform: unset;
-
-    @include break-point(tablet) {
-		// margin-top: 32px;
-    }
 
     @include break-point(laptop) {
 		@include flex-direction(row);
@@ -1218,10 +995,6 @@
     position: relative;
     padding: 0;
 
-    @include break-point(tablet) {
-		// margin-top: 32px;
-    }
-
     @include break-point(laptop) {
 		padding: 0 0 0 2rem;
     }
@@ -1230,11 +1003,8 @@
 .interview-steps {
     @extend %columns;
     @include flexbox();
-	// @include flex-direction(column);
     @include flex-direction(row);
     width: 100%;
-    // justify-content: space-between;
-    // padding: 0 2rem;
 
     @include break-point(tablet) {
         @include flexbox();
@@ -1246,8 +1016,6 @@
 .interview-step {
     @include flexbox();
 	@include flex-direction(column);
-    // width: calc(100%/5);
-    // padding: 0 1rem;
     min-height: 300px;
     z-index: 99999;
     cursor: pointer;
@@ -1296,10 +1064,6 @@
         .interview-title {
             background: $orange-dk;
         }
-    }
-
-    @include break-point(tablet) {
-		// margin-top: 32px;
     }
 
     @include break-point(laptop) {
@@ -1363,15 +1127,9 @@
     width: 64px;
     height: 64px;
     margin-top: 1rem;
-    // margin-bottom: 1.5rem;
     padding: 18px 0 0;
-    // width: 96px;
-    // height: 96px;
-    // padding: 32px 0 0;
     text-align: center;
-    color: $blue-dk;
     color: $white;
-    background: $white;
     background: $grey-lt;
     border-radius: 50%;
     cursor: pointer;
@@ -1381,17 +1139,9 @@
     @include flexbox();
 	@include flex-direction(column);
     display: none;
-    // max-width: 480px;
     max-width: 640px;
-    // margin-top: 1.5rem;
-    // margin-left: 1.5rem;
     margin: 1.5rem 0 0;
-    // padding: 1.5rem;
     border-radius: 8px;
-
-    @include break-point(tablet) {
-		// margin-top: 32px;
-    }
 
     @include break-point(laptop) {
 		max-width: 480px;
@@ -1401,12 +1151,9 @@
 
 .interview-title {
     @include font-size(22px);
-    text-align: left;
-    margin-bottom: calc(#{$space-tiny} * 0.5);
-    color: $blue-dk;
-
-    padding: .65rem 1rem;
     margin-bottom: 0;
+    padding: .65rem 1rem;
+    text-align: left;
     background: wheat;
     color: $white;
     border-radius: 8px 8px 0 0;
@@ -1417,10 +1164,8 @@
     @include title(medium);
     @include font-size(14px);
     @include line-height(1.5);
-    color: lighten($grey-mdk, 10%);
-
-    padding: 0.65rem 1rem 1rem;
     padding: 1rem;
+    color: lighten($grey-mdk, 10%);
 }
 
 .interview-notch {
@@ -1451,10 +1196,6 @@
             margin-left: 0;
         }
 
-        @include break-point(tablet) {
-            // margin-top: 32px;
-        }
-
         @include break-point(laptop) {
             @include title(bold);
             width: 140px;
@@ -1476,23 +1217,12 @@
         display: block;
         background: $grey-lt;
 
-        @include break-point(tablet) {
-            // margin-top: 32px;
-        }
-
         @include break-point(laptop) {
             position: unset;
             top: unset;
             left: unset;
         }
     }
-
-    // .interview-step:hover input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-heading {
-    //     .interview-number,
-    //     .interview-title {
-    //         background: initial;
-    //     }
-    // }
 }
 
 
@@ -1526,13 +1256,6 @@ label.opportunity-label {
         background: lighten($grey-lt, 2%);
 	}
 
-    @include break-point(tablet) {
-	    // &:not(:first-of-type) {
-        //     margin-top: 1.5rem;
-        //     margin-left: 0;
-        // }
-    }
-
     @include break-point(laptop) {
 	    @include font-size(15px);
         display: inline-block;
@@ -1554,14 +1277,10 @@ label.opportunity-label {
     content: '';
     width: 0;
     height: 0;
-    // border-left: 10px solid transparent;
-    // border-right: 10px solid transparent;
-    // border-top: 10px solid lighten($grey-lt, 4%);
 }
 
 .opportunities {
-    // padding: 3rem;
-    // background: $grey-lt;
+
 }
 
 .opportunity {
@@ -1656,19 +1375,6 @@ label.opportunity-label {
     }
 }
 
-// input[id="opportunity-1"]:checked ~ label[for="opportunity-1"] {
-// 	color: $orange-lt;
-// }
-
-// input[id="opportunity-2"]:checked ~ label[for="opportunity-2"] {
-// 	color: $raspberry;
-// }
-
-// input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
-// 	color: $blue-lt;
-// }
-
-
 input[id="opportunity-1"]:checked ~ label[for="opportunity-1"] {
 	color: $white;
     background: $orange-lt;
@@ -1712,7 +1418,6 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 
 .article-video-embed {
     width: 100%;
-    // max-width: 1280px;
     margin: 0 auto;
 
     @include break-point(tablet) {
@@ -1721,7 +1426,6 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     }
 
     @include break-point(laptop) {
-        // width: 80%;
         max-width: 1280px;
     }
 }
@@ -1735,7 +1439,6 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     @include flex-wrap(nowrap);
     max-width: 1024px;
     text-align: center;
-    // background: red;
 
     &:not(:last-of-type) {
         margin-bottom: calc(#{$space-tiny} * 4);
@@ -1743,7 +1446,6 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 
     img {
         width: 192px;
-        // margin-right: 0;
         margin: 0 auto calc(#{$space-tiny} * 1.5);
         border-radius: 50%;
     }
@@ -1783,11 +1485,6 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     }
 
     @include break-point(tablet) {
-        // @include flexbox();
-	    // @include flex-direction(row);
-        // align-items: center;
-        // background: cyan;
-
         img {
             width: 220px;
             margin: 0 auto calc(#{$space-tiny} * 2);
@@ -1799,7 +1496,6 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 	    @include flex-direction(row);
         align-items: center;
         text-align: left;
-        // background: grey;
 
         img {
             width: 240px;
@@ -1877,9 +1573,6 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     z-index: -1;
 
     @include break-point(tablet) {
-	    // position: absolute;
-        // right: 3rem;
-        // top: 3rem;
         width: calc(100% - 180px + 3rem);
         height: auto;
         min-height: 100%;
