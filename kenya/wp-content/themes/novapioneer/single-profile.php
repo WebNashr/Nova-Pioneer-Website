@@ -10,12 +10,11 @@ get_header(); ?>
 
 <section class="section trigger-offset">
     <article class="article article-profile">
-        <header class="article-header-XXX">
+        <header class="">
             <h1><?php the_title(); ?></h1>
-            <!--<h6><?php the_field('role', $featured_teacher->ID);?></h6>-->
         </header>
 
-        <figure class="new-card-img-XXX">
+        <figure class="">
             <?php the_post_thumbnail('square-small', array('class' => '')); ?>
 
             <figcaption>
@@ -23,11 +22,6 @@ get_header(); ?>
                 <cite><?php the_field('quote_cite', $featured_teacher->ID);?></cite>
             </figcaption>
         </figure>
-
-        <!-- <div class="article-excerpt"> <?php the_excerpt(); ?> </div> -->
-        <!--<h6><?php the_field('role', $featured_teacher->ID);?></h6>-->
-        <!--<h6><?php the_field('quote', $featured_teacher->ID);?></h6>-->
-        <?php //the_content(); ?>
 
         <?php
             $questions = 'profile_questions';
@@ -38,7 +32,6 @@ get_header(); ?>
             <div class="profile-question-item">
                 <h3><?php the_sub_field('question'); ?></h3>
                 <?php the_sub_field('answer'); ?>
-                <!--<br>-->
             </div>
             <?php endwhile?>
         </div>
