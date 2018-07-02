@@ -45,7 +45,7 @@ get_header();?>
         <?php
             $title = get_field('section_a');
         ?>
-        <section class="section section-no-bottom-XXX section-page-intro">
+        <section class="section section-page-intro">
             <article class="article">
                 <?php if($title):?>
                 <h2><?php echo $title ?></h2>
@@ -54,29 +54,6 @@ get_header();?>
                 <?php the_content();?>
             </article>
         </section>
-
-        <!--<div class="border"></div>-->
-
-        <?php
-            $body = 'body';
-            if(have_rows($body)):
-        ?>
-        <section class="section section-no-bottom" style="display: none">
-            <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
-                    <?php while(have_rows($body)): the_row();?>
-                    <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
-                        <div class="new-card-copy new-card-copy-only">
-                            <h3><?php the_sub_field('title');?></h3>
-                            <p><?php the_sub_field('paragraph');?></p>
-                        </div>
-                    </div>
-                    <?php endwhile;?>
-                </div>
-            </article>
-        </section>
-        <?php endif;?>
-
 
 
 
@@ -179,7 +156,7 @@ get_header();?>
         <?php
             $apply = get_field('apply_now_link');
         ?>
-        <section class="section section-no-top-XXX">
+        <section class="section">
             <?php if($apply)?>
             <div class="button-wrap button-wrap-center">
                 <a href="<?php echo $apply ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
