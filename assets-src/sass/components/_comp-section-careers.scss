@@ -736,8 +736,9 @@
 
     p {
         display: inline-block;
-        font-size: 1.35rem;
-        line-height: 1.25;
+        // font-size: 1.35rem;
+        @include font-size(22px);
+        @include line-height(1.25);
         color: $white;
     }
 
@@ -745,7 +746,7 @@
         display: block;
         margin-top: 1rem;
         font-family: Georgia, serif;
-        font-size: 1rem;
+        @include font-size(16px);
         color: $white;
     }
 
@@ -1186,10 +1187,10 @@
 @for $step from 1 through 5 {
     input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-number {
         @include title(bold);
+        @include font-size(32px);
         width: 64px;
         height: 64px;
         margin-top: 1rem;
-        font-size: 32px;
         padding-top: 18px;
 
         .interview-step:not(:first-of-type) & {
@@ -1198,10 +1199,10 @@
 
         @include break-point(laptop) {
             @include title(bold);
+            @include font-size(52px);
             width: 140px;
             height: 140px;
             margin-top: -22px;
-            font-size: 52px;
             padding-top: 44px;
 
             .interview-step:not(:first-of-type) & {
@@ -1521,7 +1522,7 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 }
 
 .article-profile header {
-    margin-bottom: 2rem;
+    margin-bottom: calc(#{$space-tiny} * 2);
 }
 
 .article-profile h1 {
@@ -1540,16 +1541,16 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     @include flexbox();
 	@include flex-direction(column);
     @include flex-wrap(nowrap);
-    margin-bottom: 2rem;
+    margin-bottom: calc(#{$space-tiny} * 2);
 
     @include break-point(tablet) {
 	    @include flex-direction(row);
         align-items: flex-end;
-        margin-bottom: 3rem;
+        margin-bottom: calc(#{$space-tiny} * 3);
     }
 
     @include break-point(laptop) {
-		margin-bottom: 7rem;
+		margin-bottom: calc(#{$space-tiny} * 7);
     }
 }
 
