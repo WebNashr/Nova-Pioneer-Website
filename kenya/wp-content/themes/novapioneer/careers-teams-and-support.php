@@ -59,32 +59,6 @@ get_header();?>
             $info = 'info';
             if(have_rows($info)):
         ?>
-        <section class="section section-no-bottom-XXX" style="display: none;">
-            <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
-                    <?php while(have_rows($info)): the_row();?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
-                            <figure class="new-card-img">
-                                <img src="<?php echo the_sub_field('image'); ?>" alt="">
-                                <!--<img src="https://placeimg.com/480/320/any">-->
-                            </figure>
-
-                            <div class="new-card-copy">
-                                <h3><?php the_sub_field('title'); ?></h3>
-                                <p><?php the_sub_field('paragraph'); ?></p>
-                            </div>
-                        </div>
-                    <?php endwhile?>
-                </div>
-            </article>
-        </section>
-        <?php endif;?>
-
-
-        <?php
-            $info = 'info';
-            if(have_rows($info)):
-        ?>
         <section class="section section-no-bottom">
             <article class="article">
                 <?php while(have_rows($info)): the_row();?>
@@ -140,7 +114,7 @@ get_header();?>
             <br>
 
             <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
+                <div class="new-card-container">
                     <?php while($featured_team->have_posts()): $featured_team->the_post();?>
                     <div class="new-card-item new-card-item-plain new-card-item-quarter">
                         <figure class="new-card-img">
@@ -170,7 +144,7 @@ get_header();?>
         <section class="section">
             <?php if($apply)?>
             <div class="button-wrap button-wrap-center">
-                <a href="<?php echo $apply ?>" target="_blank" class="button button-wrap=XXX button-grosse button-primary" title="">APPLY NOW</a>
+                <a href="<?php echo $apply ?>" target="_blank" class="button button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
     <?php endwhile; ?>
