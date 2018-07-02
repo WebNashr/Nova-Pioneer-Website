@@ -61,36 +61,11 @@ get_header();?>
             $body = 'body';
             if(have_rows($body)):
         ?>
-        <section class="section" style="display: none;">
-            <div class="card-container-XXX steps-container-XXX alternating-container">
-            <?php while(have_rows($body)): the_row()?>
-                <div class="card-XXX admission-step-XXX alternating-item">
-                    <figure class="alternating-item-img">
-                        <!--<img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">-->
-                        <img src="<?php echo the_sub_field('image'); ?>">
-                    </figure>
-
-                    <div class="alternating-item-copy">
-                        <h1><?php the_sub_field('title') ?></h1>
-                        <p><?php the_sub_field('paragraph') ?></p>
-                        <blockquote><?php the_sub_field('quote') ?></blockquote>
-                    <div>
-                </div>
-            <?php endwhile;?>
-            </div>
-        </section>
-        <?php endif;?>
-
-
-        <?php
-            $body = 'body';
-            if(have_rows($body)):
-        ?>
-        <section class="section section-no-bottom-XXX">
+        <section class="section">
             <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
+                <div class="alternating-container">
                     <?php while(have_rows($body)): the_row();?>
-                    <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
+                    <div class="alternating-item">
                         <figure class="alternating-item-img">
                             <?php $image = get_sub_field('image'); ?>
 
@@ -162,7 +137,6 @@ get_header();?>
         </section>
 
 
-
         <!--hide this for now-->
         <section class="section section-no-bottom" style="display: none;">
             <figure class="interrupter-image">
@@ -211,7 +185,7 @@ get_header();?>
             <br>
 
             <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
+                <div class="new-card-container">
                     <?php while($featured_teacher->have_posts()): $featured_teacher->the_post(); ?>
                     <div class="new-card-item new-card-item-plain new-card-item-quarter">
                         <figure class="new-card-img">
