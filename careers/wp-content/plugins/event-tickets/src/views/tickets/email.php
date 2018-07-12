@@ -15,9 +15,9 @@
  *                              'ticket_id'
  *                              'security_code')
  *
- * @package TribeEventsCalendar
- * @version 4.5.5
+ * @version 4.7.4.1
  *
+ * @var array $tickets An array of tickets in the format documented above.
  */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -237,8 +237,23 @@
 				}
 
 				$event      = get_post( $ticket['event_id'] );
-				$header_id  = Tribe__Tickets__Tickets_Handler::instance()->get_header_image_id( $ticket['event_id'] );
+				$header_id  = get_post_meta( $ticket['event_id'], tribe( 'tickets.handler' )->key_image_header, true );
 				$header_img = false;
+
+				/**
+				 * If the ticket is a WooCommerce product and has a featured image,
+				 * display it on email.
+				 *
+				 * @since 4.7.4
+				 */
+				if ( 'Tribe__Tickets_Plus__Commerce__WooCommerce__Main' === $ticket['provider'] && class_exists( 'WC_Product' ) ) {
+					$product  = new WC_Product( $ticket['product_id'] );
+					$image_id = $product->get_image_id();
+					if ( ! empty( $image_id ) ) {
+						$header_img = wp_get_attachment_image_src( $image_id, 'full' );
+					}
+				}
+
 				if ( ! empty( $header_id ) ) {
 					$header_img = wp_get_attachment_image_src( $header_id, 'full' );
 				}
@@ -294,21 +309,12 @@
 				 * Filters whether or not the event date should be included in the ticket email.
 				 *
 				 * @since 4.5.11
+				 * @since 4.7.4    Include event date default value changed to true
 				 *
-				 * @var bool Include event date? Defaults to false.
+				 * @var bool Include event date? Defaults to true.
 				 * @var int  Event ID
 				 */
-				$include_event_date = apply_filters( 'tribe_tickets_email_include_event_date', false, $event->ID );
-
-				/**
-				 * Filters whether or not the event date should be included in the ticket email.
-				 *
-				 * @deprecated 4.5.11 Use `tribe_tickets_email_include_event_date` instead.
-				 *
-				 * @var bool Include event date? Defaults to false.
-				 * @var int  Event ID
-				 */
-				$include_event_date = apply_filters( 'event_tickets_email_include_start_date', false, $event->ID );
+				$include_event_date = apply_filters( 'tribe_tickets_email_include_event_date', true, $event->ID );
 
 				if ( $include_event_date && function_exists( 'tribe_events_event_schedule_details' ) ) {
 					$event_date = tribe_events_event_schedule_details( $event );
@@ -324,6 +330,16 @@
 				<table class="content" align="center" width="620" cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff" style="margin:0 auto; padding:0;<?php echo $break; ?>">
 					<tr>
 						<td align="center" valign="top" class="wrapper" width="620">
+							<?php
+							/**
+							 * Gives an opportunity to manipulate the current ticket before output
+							 *
+							 * @since  4.7.4
+							 *
+							 * @param  array $ticket Current ticket information
+							 */
+							do_action( 'tribe_tickets_ticket_email_ticket_top', $ticket );
+							?>
 							<table class="inner-wrapper" border="0" cellpadding="0" cellspacing="0" width="620" bgcolor="#f7f7f7" style="margin:0 auto !important; width:620px; padding:0;">
 								<tr>
 									<td valign="top" class="ticket-content" align="left" width="580" border="0" cellpadding="20" cellspacing="0" style="padding:20px; background:#f7f7f7;">

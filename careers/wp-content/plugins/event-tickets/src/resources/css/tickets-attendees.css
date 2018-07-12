@@ -28,13 +28,13 @@
 	zoom: 1;
 }
 
-#tribe-attendees-summary .welcome-panel-column-container:before,
-		#tribe-attendees-summary .welcome-panel-column-container:after {
+#tribe-attendees-summary .welcome-panel-column-container::before,
+		#tribe-attendees-summary .welcome-panel-column-container::after {
 	content: '';
 	display: table;
 }
 
-#tribe-attendees-summary .welcome-panel-column-container:after {
+#tribe-attendees-summary .welcome-panel-column-container::after {
 	clear: both;
 }
 
@@ -55,13 +55,13 @@
 	zoom: 1;
 }
 
-#tribe-attendees-summary .welcome-panel-last:before,
-		#tribe-attendees-summary .welcome-panel-last:after {
+#tribe-attendees-summary .welcome-panel-last::before,
+		#tribe-attendees-summary .welcome-panel-last::after {
 	content: '';
 	display: table;
 }
 
-#tribe-attendees-summary .welcome-panel-last:after {
+#tribe-attendees-summary .welcome-panel-last::after {
 	clear: both;
 }
 
@@ -210,13 +210,13 @@
 	zoom: 1;
 }
 
-.welcome-panel .welcome-panel-content:before,
-		.welcome-panel .welcome-panel-content:after {
+.welcome-panel .welcome-panel-content::before,
+		.welcome-panel .welcome-panel-content::after {
 	content: '';
 	display: table;
 }
 
-.welcome-panel .welcome-panel-content:after {
+.welcome-panel .welcome-panel-content::after {
 	clear: both;
 }
 
@@ -230,6 +230,10 @@
  * Preserves utility of modal windows in mobile view. !important declarations
  * are unfortunately needed to override Thickbox's inline styles.
  */
+
+table.orders tr.refunded, table.orders tr.denied, table.orders tr.pending {
+	font-style: italic;
+}
 
 @media screen and (max-width: 768px) {
 
@@ -323,7 +327,7 @@
 	}
 }
 
-@media screen and ( max-width: 440px ) {
+@media screen and (max-width: 440px) {
 
 	#TB_window {
 		left: 0 !important;
