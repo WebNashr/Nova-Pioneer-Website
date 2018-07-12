@@ -1,5 +1,4 @@
-$ = new jQuery.noConflict()
-$(document).ready(function(){
+jQuery(document).ready(function($){
 	// toggle checkboxes
 	$(".mdc-image-sizes-wrap input[type='checkbox']").click(function(){
 		if( ! $(this).is(':checked') ) {

@@ -4,8 +4,8 @@ Plugin Name: Image Sizes
 Description: So, it creates multiple sizes of an image while uploading? Here is the solution!
 Plugin URI: https://codebanyan.com
 Author: Nazmul Ahsan
-Author URI: http://nazmulahsan.me
-Version: 1.1
+Author URI: https://nazmulahsan.me
+Version: 1.2.1
 License: GPL2
 Text Domain: image-sizes
 Domain Path: /languages
@@ -13,7 +13,7 @@ Domain Path: /languages
 
 /*
 
-    Copyright (C) 2016  Nazmul Ahsan  mail@nazmulahsan.me
+    Copyright (C) 2016  Nazmul Ahsan  n.mukto@gmail.com
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -40,7 +40,7 @@ class CB_Image_Sizes {
 
 	public function __construct() {
 		$this->name = 'image-sizes';
-		$this->version = '1.1';
+		$this->version = '1.2.1';
 		self::inc();
 		self::hooks();
 	}
@@ -60,7 +60,7 @@ class CB_Image_Sizes {
 	}
 
 	/**
-	 * Trigger when activate
+	 * Trigger when activates
 	 *
 	 * @since 1.1
 	 */
@@ -83,7 +83,7 @@ class CB_Image_Sizes {
 	}
 
 	/**
-	 * Trigger when deactivate
+	 * Trigger when deactivates
 	 *
 	 * @since 1.1
 	 */
@@ -119,7 +119,7 @@ class CB_Image_Sizes {
 	 * @since 1.0
 	 */
 	public function image_sizes( $sizes ){
-		$disables = mdc_get_option( 'disables', 'prevent_image_sizes' );
+		$disables = mdc_get_option( 'disables', 'prevent_image_sizes' ) ? : array();
 		if( count( $disables ) ) :
 		foreach( $disables as $disable ){
 			unset( $sizes[ $disable ] );
@@ -138,11 +138,11 @@ class CB_Image_Sizes {
         ?>
         <div class="notice notice-success is-dismissible imgsz-survey-notice survey-notice">
             <p>
-                <strong><?php _e( 'Help us improve your experience: ', 'image-sizes' ); ?></strong>
-                <span><?php _e( 'We want to know what types of sites use our plugin. So that we can improve <i>Image Sizes</i> accordingly. Help us with your site URL and few basic information. It doesn\'t include your password or any kind of sercret data. Would you like to help us?', 'image-sizes' ); ?></span>
+                <p><strong><?php _e( 'Help us improve your experience', 'image-sizes' ); ?></strong></p>
+                <span><?php _e( 'We want to know what types of sites use our plugin. So that we can improve <strong>Image Sizes</strong> accordingly. Help us with your site URL and a few basic information. It doesn\'t include your password or any kind of sercret data. Would you like to help us?', 'image-sizes' ); ?></span>
             </p>
             <p>
-                <button class="button button-primary imgsz-survey" data-participate="1"><?php _e( 'Okay, don\'t bother me again!', 'image-sizes' ); ?></button>
+                <button class="button button-primary imgsz-survey" data-participate="1"><?php _e( 'Okay! Don\'t bother me again.', 'image-sizes' ); ?></button>
             </p>
         </div>
         <?php
