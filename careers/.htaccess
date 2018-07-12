@@ -4,5 +4,5 @@ RewriteBase /careers/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /kenya/index.php [L]
+RewriteRule . /careers/index.php [L]
 </IfModule>
