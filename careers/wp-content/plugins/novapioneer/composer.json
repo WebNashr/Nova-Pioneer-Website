@@ -1,0 +1,21 @@
+{
+   "name": "Novapioneer",
+
+   "description": "Plugin for theme options for the Novapioneer theme.",
+
+   "authors": [
+       { "name": "Circle Digital" }
+   ],
+
+   "autoload": {
+       "psr-4": {
+           "Novapioneer\\": "classes/"
+       }
+   },
+
+   "require": {
+       "php": ">=5.6.24"
+   }
+
+
+}
