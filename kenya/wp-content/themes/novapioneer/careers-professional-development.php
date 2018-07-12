@@ -13,6 +13,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -22,6 +30,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -29,7 +45,7 @@ get_header();?>
         <?php
             $title = get_field('section_a');
         ?>
-        <section class="section section-no-bottom-XXX section-page-intro">
+        <section class="section section-page-intro">
             <article class="article">
                 <?php if($title):?>
                 <h2><?php echo $title ?></h2>
@@ -38,29 +54,6 @@ get_header();?>
                 <?php the_content();?>
             </article>
         </section>
-
-        <!--<div class="border"></div>-->
-
-        <?php
-            $body = 'body';
-            if(have_rows($body)):
-        ?>
-        <section class="section section-no-bottom" style="display: none">
-            <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
-                    <?php while(have_rows($body)): the_row();?>
-                    <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
-                        <div class="new-card-copy new-card-copy-only">
-                            <h3><?php the_sub_field('title');?></h3>
-                            <p><?php the_sub_field('paragraph');?></p>
-                        </div>
-                    </div>
-                    <?php endwhile;?>
-                </div>
-            </article>
-        </section>
-        <?php endif;?>
-
 
 
 
@@ -105,6 +98,34 @@ get_header();?>
         <?php endif;?>
 
 
+
+        <section class="section section-interrupter section-interrupter-quote">
+            <figure class="interrupter-image">
+                <?php $qimage = get_field('quote_image'); ?>
+
+                <?php if( !empty($qimage) ):
+                    // vars
+                    $url = $qimage['url'];
+                    $title = $qimage['title'];
+                    $alt = $qimage['alt'];
+
+                    // thumbnail
+                    $size = 'square-small';
+                    $thumb = $qimage['sizes'][ $size ];
+                ?>
+
+                <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" />
+                <?php endif; ?>
+
+                <figcaption>
+                    <blockquote><?php $qtext = get_field('quote_text'); echo $qtext; ?></blockquote>
+
+                    <cite><?php $qcite = get_field('quote_cite'); echo $qcite; ?></cite>
+                </figcaption>
+            </figure>
+        </section>
+
+
         <!--hide this for now-->
         <?php
             $title = get_field('section_c');
@@ -133,12 +154,12 @@ get_header();?>
 
 
         <?php
-            $url = get_field('apply_url');
+            $apply = get_field('apply_now_link');
         ?>
-        <section class="section section-no-top">
-            <?php if($url)?>
+        <section class="section">
+            <?php if($apply)?>
             <div class="button-wrap button-wrap-center">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap-XXX button-grosse button-primary" title="">APPLY NOW</a>
+                <a href="<?php echo $apply ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
 

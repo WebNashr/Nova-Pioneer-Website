@@ -12,24 +12,27 @@ get_header();?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <!--<h1><?php the_title(); ?></h1>-->
                     <h1><?php the_field('page_title') ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
 
         <section class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>>
             <div class="container hero-container">
-                <!--<h2 class="media-heading ribbon">&nbsp;</h2>-->
-
                 <div class="main-callout-box">
                     <hr>
-                    <!--<h1 class="animated-title"><?php the_title(); ?></h1>-->
-                    <!--<h3>We're hiring!'</h3>-->
                     <h1 class="animated-title"><?php the_field('page_title') ?></h1>
 
                     <?php
-                        $apply = get_field('apply_now');
+                        $apply = get_field('apply_now_link');
                         if($apply):
                     ?>
                     <br>
@@ -40,21 +43,12 @@ get_header();?>
         </section>
 
 
-        <!--
-        <section class="section section-no-bottom section-page-intro">
-            <article class="article">
-                <?php the_content();?>
-            </article>
-        </section>
-        -->
-
-
         <?php
             $title = 'section_a';
             if(have_rows($title)):
         ?>
         <?php while(have_rows($title)): the_row();?>
-        <section class="section section-no-bottom section-learning-content-XXX" style="display: none;">
+        <section class="section section-no-bottom" style="display: none;">
             <div class="page-navigation-container">
                 <div class="navigation-wrap" style="max-width: unset;">
                     <div class="section-title">
@@ -91,38 +85,6 @@ get_header();?>
         <?php endif;?>
 
 
-        <?php
-            $intro = 'intro';
-            if(have_rows($intro)):
-            $i = 0;
-        ?>
-        <section class="section section-no-bottom" style="display: none;">
-            <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
-                    <?php while(have_rows($intro)): the_row();?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-plain new-card-item-centre new-card-item-quarter">
-                            <figure class="new-card-img" style="margin: 1.5rem auto 0;">
-                                <img src="<?php the_sub_field('icon'); ?>" alt="">
-                            </figure>
-
-                            <div class="new-card-copy">
-                                <!--
-                                <span class="new-card-number"><?php echo $i + 1;?></span>
-                                <h3><?php the_sub_field('heading'); ?></h3>
-                                <h6><?php the_sub_field('sub_heading'); ?></h6>
-                                -->
-
-                                <h3><?php the_sub_field('sub_heading'); ?></h3>
-                                <p><?php the_sub_field('paragraph'); ?></p>
-                            </div>
-                        </div>
-                    <?php $i++; ?>
-                    <?php endwhile?>
-                </div>
-            </article>
-        </section>
-        <?php endif;?>
-
 
         <?php
             $intro = 'intro';
@@ -131,9 +93,9 @@ get_header();?>
         ?>
         <section class="section section-no-bottom">
             <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
+                <div class="new-card-container">
                     <?php while(have_rows($intro)): the_row();?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-transparent new-card-item-plain new-card-item-centre new-card-item-quarter">
+                        <div class="new-card-item new-card-item-transparent new-card-item-plain new-card-item-centre new-card-item-quarter">
                             <figure class="new-card-img" style="margin: 1.5rem auto 0;">
                                 <img src="<?php the_sub_field('icon'); ?>" alt="">
                             </figure>
@@ -149,46 +111,6 @@ get_header();?>
             </article>
         </section>
         <?php endif;?>
-
-
-        <!--<section class="section">-->
-        <?php
-            $opp = 'opportunities';
-            if(have_rows($opp)):
-        ?>
-        <section class="section section-no-bottom-" style="display:none;">
-            <?php
-                $field = 'section_b';
-                if(have_rows($field)):
-            ?>
-            <?php while(have_rows($field)): the_row(); ?>
-            <h2><?php the_sub_field('heading');?></h2>
-            <h4><?php the_sub_field('sub_heading');?></h4>
-            <?php endwhile;?>
-            <?php endif;?>
-            <br>
-            <br>
-
-            <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
-                    <?php while(have_rows($opp)): the_row();?>
-                    <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
-                        <figure class="alternating-item-img">
-                            <img src="<?php echo the_sub_field('image'); ?>">
-                        </figure>
-
-                        <div class="alternating-item-copy">
-                            <h2><?php the_sub_field('heading');?></h2>
-                            <p><?php the_sub_field('paragraph_text');?></p>
-                            <a href="<?php the_sub_field('link_url');?>" title="" class="button button-small button-primary">Learn more</a>
-                        </div>
-                    </div>
-                    <?php endwhile;?>
-                </div>
-            </article>
-        </section>
-        <?php endif;?>
-
 
 
 
@@ -203,21 +125,19 @@ get_header();?>
             $opp = 'opportunities';
             if(have_rows($opp)):
         ?>
-        <section class="section section-no-top section-no-bottom-XXX">
+        <section class="section section-no-top">
             <article class="article">
                 <div class="opportunities">
                     <?php $i = 0; ?>
                     <?php while(have_rows($opp)): the_row();?>
-                    <!--<div class="opportunity-labels">-->
                         <input type="radio" name="opportunity" id="opportunity-<?php echo $i + 1;?>" hidden>
                         <label for="opportunity-<?php echo $i + 1;?>" class="opportunity-label"><?php the_sub_field('heading');?></label>
-                    <!--</div>-->
                     <?php $i++; ?>
                     <?php endwhile;?>
 
                     <?php $i = 0 ; ?>
                     <?php while(have_rows($opp)): the_row();?>
-                    <div class="opportunity opportunity-<?php echo $i + 1;?> alternating-item-xxx">
+                    <div class="opportunity opportunity-<?php echo $i + 1;?>">
                         <figure class="opportunity-img">
                             <?php $image = get_sub_field('image'); ?>
 
@@ -256,6 +176,7 @@ get_header();?>
         <?php endif;?>
 
 
+
         <?php
             $title = 'section_c';
             if(have_rows($title)):
@@ -274,9 +195,9 @@ get_header();?>
             $fields = 'what_were_looking_for';
             if(have_rows($fields)):
             ?>
-            <div class="card-container-XXX new-card-container">
+            <div class="new-card-container">
                 <?php while(have_rows($fields)): the_row();?>
-                <div class="card-XXX new-card-item new-card-item-coloured new-card-item-third">
+                <div class="new-card-item new-card-item-coloured new-card-item-third">
                     <div class="new-card-copy new-card-copy-only">
                         <h3><?php the_sub_field('heading');?></h3>
                         <p><?php the_sub_field('paragraph');?></p>
@@ -287,6 +208,7 @@ get_header();?>
             </div>
         </section>
         <?php endif;?>
+
 
 
         <?php
@@ -318,6 +240,7 @@ get_header();?>
                             <figure class="full-width-figure">
                                 <img src="<?php if(has_post_thumbnail()) { echo get_the_post_thumbnail_url(); } ?>">
                             </figure>
+
                             <blockquote>
                                 <svg aria-hidden="true">
                                     <use xlink:href
@@ -330,7 +253,6 @@ get_header();?>
 
                                 <p style="width:100%;">
                                     <cite>
-                                        <!-- <span><strong><?php echo "Name"; ?></strong>, </span> <?php echo "TITLE" ?> -->
                                         <span><a style="color:#efff00;" href="<?php echo get_permalink();?>">Link to full story</a></span>
                                     </cite>
                                 </p>
@@ -345,6 +267,7 @@ get_header();?>
         <?php endif;?>
 
 
+
         <section class="section section-no-top">
             <article class="article article-video-embed">
                 <div class="media youtube-video">
@@ -354,9 +277,9 @@ get_header();?>
         </section>
 
 
+
         <?php
-            $apply = get_field('apply_now');
-            //var_dump($apply);
+            $apply = get_field('apply_now_link');
             if($apply):
         ?>
         <section class="section section-no-top">

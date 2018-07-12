@@ -13,6 +13,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -22,6 +30,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -37,32 +53,6 @@ get_header();?>
                     <h2><?php the_content();?></h2>
                 </article>
         </section>
-
-
-        <?php
-            $info = 'info';
-            if(have_rows($info)):
-        ?>
-        <section class="section section-no-bottom-XXX" style="display: none;">
-            <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
-                    <?php while(have_rows($info)): the_row();?>
-                        <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
-                            <figure class="new-card-img">
-                                <img src="<?php echo the_sub_field('image'); ?>" alt="">
-                                <!--<img src="https://placeimg.com/480/320/any">-->
-                            </figure>
-
-                            <div class="new-card-copy">
-                                <h3><?php the_sub_field('title'); ?></h3>
-                                <p><?php the_sub_field('paragraph'); ?></p>
-                            </div>
-                        </div>
-                    <?php endwhile?>
-                </div>
-            </article>
-        </section>
-        <?php endif;?>
 
 
         <?php
@@ -124,7 +114,7 @@ get_header();?>
             <br>
 
             <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
+                <div class="new-card-container">
                     <?php while($featured_team->have_posts()): $featured_team->the_post();?>
                     <div class="new-card-item new-card-item-plain new-card-item-quarter">
                         <figure class="new-card-img">
@@ -149,12 +139,12 @@ get_header();?>
 
 
         <?php
-            $url = get_field('apply');
+            $apply = get_field('apply_now_link');
         ?>
         <section class="section">
-            <?php if($url)?>
+            <?php if($apply)?>
             <div class="button-wrap button-wrap-center">
-                <a href="<?php echo $url ?>" target="_blank" class="button button-wrap=XXX button-grosse button-primary" title="">APPLY NOW</a>
+                <a href="<?php echo $apply ?>" target="_blank" class="button button-grosse button-primary" title="">APPLY NOW</a>
             </div>
         </section>
     <?php endwhile; ?>

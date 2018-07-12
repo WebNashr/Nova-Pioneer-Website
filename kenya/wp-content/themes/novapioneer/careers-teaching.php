@@ -13,6 +13,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -22,6 +30,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_now_link');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -45,36 +61,11 @@ get_header();?>
             $body = 'body';
             if(have_rows($body)):
         ?>
-        <section class="section" style="display: none;">
-            <div class="card-container-XXX steps-container-XXX alternating-container">
-            <?php while(have_rows($body)): the_row()?>
-                <div class="card-XXX admission-step-XXX alternating-item">
-                    <figure class="alternating-item-img">
-                        <!--<img src="http://www.kipp.org/wp-content/uploads/2016/09/Careers-Tab-TeachingAtKIPP-720x600.jpg" alt="">-->
-                        <img src="<?php echo the_sub_field('image'); ?>">
-                    </figure>
-
-                    <div class="alternating-item-copy">
-                        <h1><?php the_sub_field('title') ?></h1>
-                        <p><?php the_sub_field('paragraph') ?></p>
-                        <blockquote><?php the_sub_field('quote') ?></blockquote>
-                    <div>
-                </div>
-            <?php endwhile;?>
-            </div>
-        </section>
-        <?php endif;?>
-
-
-        <?php
-            $body = 'body';
-            if(have_rows($body)):
-        ?>
-        <section class="section section-no-bottom-XXX">
+        <section class="section">
             <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container-XXX alternating-container">
+                <div class="alternating-container">
                     <?php while(have_rows($body)): the_row();?>
-                    <div class="card-XXX admission-step-XXX new-card-item-XXX alternating-item new-card-item-third-XXX">
+                    <div class="alternating-item">
                         <figure class="alternating-item-img">
                             <?php $image = get_sub_field('image'); ?>
 
@@ -102,7 +93,7 @@ get_header();?>
 
                         <div class="alternating-item-copy">
                             <h2><?php the_sub_field('title');?></h2>
-                            <p><?php the_sub_field('paragraph');?></p>
+                            <?php the_sub_field('paragraph');?>
                             <!--<blockquote><?php the_sub_field('quote') ?></blockquote>-->
                         </div>
                     </div>
@@ -144,7 +135,6 @@ get_header();?>
                 </div>
             <?php endif;?>
         </section>
-
 
 
         <!--hide this for now-->
@@ -195,7 +185,7 @@ get_header();?>
             <br>
 
             <article class="article">
-                <div class="card-container-XXX steps-container-XXX new-card-container">
+                <div class="new-card-container">
                     <?php while($featured_teacher->have_posts()): $featured_teacher->the_post(); ?>
                     <div class="new-card-item new-card-item-plain new-card-item-quarter">
                         <figure class="new-card-img">
@@ -226,28 +216,37 @@ get_header();?>
         ?>
         <section class="section">
             <section class="faqs-container">
-                 <article class="article article-inner article-inner-alt ">
-                     <h2 id="faqs">Frequently Asked Questions</h2>
-                     <?php if(have_rows($field)): $i = 0;?>
+                <article class="article article-inner article-inner-alt ">
+                    <h2 id="faqs">Frequently Asked Questions</h2>
+                    <?php if(have_rows($field)): $i = 0;?>
 
-                     <ul class="toggle-list">
-                            <?php while(have_rows($field)):  the_row();?>
-                                        <li class= '<?php if($i == 0){ echo 'show'; } ?>' >
-                                            <h3 class="toggle-list-title"><?php the_sub_field($sub_field_1);?></h3>
-                                            <div class="toggle-list-content">
-                                            <?php the_sub_field($sub_field_2);?>
-                                            </div>
-                                        </li>
-                                <?php $i += 1; ?>
-                            <?php  endwhile; wp_reset_postdata();?>
-                     </ul>
+                    <ul class="toggle-list">
+                        <?php while(have_rows($field)):  the_row();?>
+                                    <li class= '<?php if($i == 0){ echo 'show'; } ?>' >
+                                        <h3 class="toggle-list-title"><?php the_sub_field($sub_field_1);?></h3>
+                                        <div class="toggle-list-content">
+                                        <?php the_sub_field($sub_field_2);?>
+                                        </div>
+                                    </li>
+                            <?php $i += 1; ?>
+                        <?php  endwhile; wp_reset_postdata();?>
+                    </ul>
 
-                <?php endif; ?>
-                 </article>
-             </section>
-             </section>
+            <?php endif; ?>
+                </article>
+            </section>
+        </section>
 
 
+        <?php
+            $apply = get_field('apply_now_link');
+        ?>
+        <section class="section section-no-top">
+            <?php if($apply)?>
+            <div class="button-wrap button-wrap-center">
+                <a href="<?php echo $apply ?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">APPLY NOW</a>
+            </div>
+        </section>
 
     <?php endwhile; ?>
 <?php endif; ?>

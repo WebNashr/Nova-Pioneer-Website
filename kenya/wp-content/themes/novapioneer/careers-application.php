@@ -13,6 +13,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_to_jobs');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">See open jobs</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -23,6 +31,14 @@ get_header();?>
                 <div class="main-callout-box">
                     <hr>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
+
+                    <?php
+                        $apply = get_field('apply_to_jobs');
+                        if($apply):
+                    ?>
+                    <br>
+                    <a href="<?php echo $apply?>" target="_blank" class="button button-wrap button-grosse button-primary" title="">See open jobs</a>
+                    <?php endif;?>
                 </div>
             </div>
         </section>
@@ -36,14 +52,14 @@ get_header();?>
                     <h2><?php echo $field;?></h2>
                 <?php endif; ?>
 
-                <h2><?php the_content();?></h2>
+                <!--<h2><?php the_content();?></h2>-->
             </article>
         </section>
         <br>
 
         <section class="section section-no-top section-no-bottom">
             <article style="max-width: 1024px">
-                <p><?php the_field('introduction') ?></p>
+                <?php the_field('introduction') ?>
                 <br>
             </article>
         </section>
@@ -69,10 +85,10 @@ get_header();?>
             ?>
             <?php if(have_rows($interview_process)):?>
                 <article class="article">
-                    <div class="card-container-XXX steps-container-XXX new-card-container">
+                    <div class="new-card-container">
                         <?php $i = 0 ; ?>
                         <?php while(have_rows($interview_process)): the_row()?>
-                            <div class="card-XXX admission-step-XXX new-card-item new-card-item-coloured new-card-item-third">
+                            <div class="new-card-item new-card-item-coloured new-card-item-third">
                                 <div class="new-card-copy new-card-copy-only">
                                     <span class="new-card-number"><?php echo $i + 1;?></span>
                                     <h3><?php the_sub_field('title'); echo '';?></h3>
@@ -89,43 +105,6 @@ get_header();?>
 
         <section class="section">
             <article class="article article-interview">
-                <div class="interview-steps" style="display: none;">
-                    <div class="interview-step interview-step-1">
-                        <div class="interview-number">1</div>
-                        <h3 class="interview-title">title</h3>
-                        <p class="interview-description">descriptions</p>
-                        <div class="interview-notch"></div>
-                    </div>
-
-                    <div class="interview-step interview-step-2">
-                        <div class="interview-number">2</div>
-                        <h3 class="interview-title">title</h3>
-                        <p class="interview-description">descriptions</p>
-                        <div class="interview-notch"></div>
-                    </div>
-
-                    <div class="interview-step interview-step-3">
-                        <div class="interview-number">3</div>
-                        <h3 class="interview-title">title</h3>
-                        <p class="interview-description">descriptions</p>
-                        <div class="interview-notch"></div>
-                    </div>
-
-                    <div class="interview-step interview-step-4">
-                        <div class="interview-number">4</div>
-                        <h3 class="interview-title">title</h3>
-                        <p class="interview-description">descriptions</p>
-                        <div class="interview-notch"></div>
-                    </div>
-
-                    <div class="interview-step interview-step-5">
-                        <div class="interview-number">5</div>
-                        <h3 class="interview-title">title</h3>
-                        <p class="interview-description">descriptions</p>
-                        <div class="interview-notch"></div>
-                    </div>
-                </div>
-
                 <?php
                     $interview_process = 'interview_process';
                     $title = the_sub_field('title');
@@ -169,7 +148,7 @@ get_header();?>
             $nfield = get_field('note');
             $nfield2 = get_field('note_2');
         ?>
-        <section class="section section-no-top" style="display: nonex;">
+        <section class="section section-no-top">
             <?php if($nfield):?>
             <p><?php echo $nfield; ?></p>
             <?php endif;?>
@@ -177,6 +156,17 @@ get_header();?>
             <?php if($nfield2):?>
             <p><?php echo $nfield2; ?></p>
             <?php endif;?>
+        </section>
+
+
+        <?php
+            $apply = get_field('apply_to_jobs');
+        ?>
+        <section class="section section-no-top">
+            <?php if($apply)?>
+            <div class="button-wrap button-wrap-center">
+                <a href="<?php echo $apply ?>" target="_blank" class="button button-large button-primary" title="">See open jobs</a>
+            </div>
         </section>
 
 
