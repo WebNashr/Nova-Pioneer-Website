@@ -1,0 +1,8 @@
+# Ignore twig cache
+cache/twig
+
+.DS_Store
+.htaccess
+bower_components/
+node_modules/
+assets/
