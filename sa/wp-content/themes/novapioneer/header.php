@@ -79,7 +79,7 @@
     </noscript>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('body-south-africa'); ?>>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript>
