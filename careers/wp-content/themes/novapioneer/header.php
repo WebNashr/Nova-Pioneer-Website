@@ -530,7 +530,7 @@
         ?>
         <!-- end navigation -->
 
-        <a href="<?php echo site_url('/working-at-nova-pioneer/apply/'); ?>" class="button button-small button-primary header-apply">Join us</a>
+        <a href="<?php echo site_url('/apply/'); ?>" class="button button-small button-primary header-apply">Join us</a>
 
         <!-- open search form -->
         <!--<svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
