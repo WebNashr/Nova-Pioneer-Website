@@ -1,0 +1,34 @@
+<table class="widefat fixed striped" cellspacing="0">
+    <thead>
+        <tr>
+            <th class="manage-column column-name" scope="col" ><strong>Name</strong></th>
+            <th class="manage-column column-email" scope="col" ><strong>Email</strong></th>
+            <th class="manage-column column-attendance" scope="col" ><strong>Attendance</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if rsvps is defined and rsvps is not empty %}
+            {% for rsvp in rsvps %}
+                <tr> 
+                    <td class="format-standard level-0">
+                        {{ rsvp.name }}
+                        <div class="row-actions">
+                            <span class="trash">
+                            <a href="{{ rsvp.delete_url }}" 
+                                aria-label="Delete “{{ rsvp.name }}”" 
+                                class="submitdelete">Delete</a>
+                            </span>
+                        </div>
+                    </td>
+                    <td class="format-standard level-0">{{ rsvp.email }}</td>
+                    <td class="format-standard level-0">{{ rsvp.attendance }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="3">There are no RSVP's yet for this event.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+<br class="clear">

@@ -80,7 +80,7 @@
     </noscript>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('body-kenya'); ?>>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript>

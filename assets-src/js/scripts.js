@@ -15,9 +15,13 @@ if( ios ) {
 
 
         // 01. kill level 1 menu links
-        $(".menu > .menu-item > a").attr('href', '#');
-        $(".menu > .menu-item > a").attr('onClick', 'return false');
-        console.log("01. level 1 menu links killed. them and some well-deserving kittens!");
+        // $(".menu > .menu-item > a").attr('href', '#');
+        // $(".menu > .menu-item > a").attr('onClick', 'return false');
+        $(".body-kenya .menu > .menu-item > a").attr('href', '#');
+        $(".body-south-africa .menu > .menu-item > a").attr('href', '#');
+        $(".body-kenya .menu > .menu-item > a").attr('onClick', 'return false');
+        $(".body-south-africa .menu > .menu-item > a").attr('onClick', 'return false');
+        console.log("01. level 1 menu links killed... then and some truly well-deserving kittens!");
 
 
         // 02. keep the level 1 menu link style while hovering on its sub-menu
@@ -79,16 +83,16 @@ if( ios ) {
             console.log("07. trigger offset for Waypoints");
         });
 
-        
+
         // 07. make each tesimonial the same in height
         $(function() {
             $('.single-testimonial').css("height", "auto");
-            
+
             var testimonialHeight = 0;
             $('.single-testimonial').each(function () {
                 testimonialHeight = Math.max($(this).height(), testimonialHeight);
             });
-                    
+
             $('.single-testimonial').css("height", parseInt(testimonialHeight) + "px");
             console.log("testimonial height resized to " + testimonialHeight + "px");
         });
@@ -152,12 +156,12 @@ if( ios ) {
         // 1.. make each tesimonial the same in height
         $(function() {
             $('.single-testimonial').css("height", "auto");
-            
+
             var testimonialHeight = 0;
             $('.single-testimonial').each(function () {
                 testimonialHeight = Math.max($(this).height(), testimonialHeight);
             });
-                    
+
             $('.single-testimonial').css("height", parseInt(testimonialHeight) + "px");
             console.log("testimonial height resized to " + testimonialHeight + "px");
         });

@@ -219,18 +219,20 @@
   &.home-page-callout {
     background-image: none;
     @extend %column;
-    max-width: 775px;
+    // max-width: 775px;
     padding-bottom: 25vh;
     // @extend %column-6;
     // padding-right: calc(#{$space-tiny} * 1);
     h1 {
       max-width: auto;
       width: 100%;
+      max-width: 775px;
       @include font-size(23px);//28px
     }
     .country-selection {
       @extend %columns;
-      justify-content: space-between;
+    //   justify-content: space-between;
+      justify-content: flex-start;
       @include flex-direction(row);
 
       a {
@@ -256,6 +258,12 @@
         background-color: transparent;
         border: 1px solid $white;
     		// padding: $p calc(#{$p} * 3);
+
+        &:not(:first-of-type) {
+                margin-left: $p;
+            }
+
+
         @media screen
         and (min-device-width: 320px)
         and (max-device-width: 320px) {
@@ -266,6 +274,10 @@
         and (max-device-width: 420px) {
           $p: 12px;
             padding: $p calc(#{$p} * 1);
+
+            &:not(:first-of-type) {
+                margin-left: $p;
+            }
         }
         // @include break-point(mobile) {
         //   padding: $p calc(#{$p} * 2);
@@ -292,7 +304,7 @@
         @include flex-direction(row);
         // flex-flow: row;
         a {
-          width: 45%;
+        //   width: 45%;
         }
     	}
       @include break-point(laptop) {
