@@ -27,57 +27,23 @@
         </div>
     </nav>
 
-    <?php if (is_active_sidebar('main-footer') && !is_page_template('leadership-team-page.php')): ?>
-        <div class="main-footer-widget-area">
-            <?php dynamic_sidebar('main-footer'); ?>
-        </div>
-        <script>
-            'use strict';
-            $('#text-2').hide(); //Hides the title of the chat widget so that only the happyfox generated stuff apppears.
-        </script>
-    <?php endif; ?>
-
 </footer>
 
 
 <footer class="page-footer page-footer-aux">
     <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; <?php echo date('Y'); ?>
-        . All right reserved.</span>
+        . All rights reserved.</span>
 </footer>
-
 <!-- end footer -->
 
-<?php if (is_page_template('apply-online-page.php')): ?>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            $('.next').click(function () {
-                $('.current').removeClass('current').hide().next().show().addClass('current');
-                $('#progressbar li.active').next().addClass('active');
-
-                if ($('#progress')) {
-                }
-                ;
-
-            });
-
-            $('.previous').click(function () {
-                $('.current').removeClass('current').hide().prev().show().addClass('current');
-                $('#progressbar li.active').removeClass('active').prev().addClass('active');
-            });
-        });
-    </script>
-
-
-<?php endif; ?>
 <!-- slippry -->
 <script type="text/javascript">
 
     $(document).ready(function () {
         $('#slippry').slippry()
         console.log('ready changes')
-       
+
     });
 
 </script>
@@ -89,7 +55,7 @@
 </script>
 <!-- <script>
     $(document).ready(function () {
-  
+
 
     <script>
         // change placeholders of inputs on calendar search

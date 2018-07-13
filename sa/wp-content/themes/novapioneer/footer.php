@@ -42,7 +42,7 @@
 
 <footer class="page-footer page-footer-aux">
     <span class="footer-menu-aux-item footer-menu-aux-item-copyright" title="">Copyright &copy; <?php echo date('Y'); ?>
-        . All right reserved.</span>
+        . All rights reserved.</span>
 </footer>
 
 <!-- end footer -->
@@ -74,7 +74,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         jQuery('#slippry').slippry()
-       
+
     });
 </script>
 
