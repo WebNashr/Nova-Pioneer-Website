@@ -92,7 +92,7 @@
 <!-- page-modal -->
 <div class="modal">
     <div class="modal-logo">
-        <a href="www.novapioneer.com/" class="logo header-logo">
+        <a href="http://www.novapioneer.com/" class="logo header-logo">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  width="188.031px" height="203.368px" viewBox="0 0 188.031 203.368"
@@ -236,7 +236,7 @@
     <!-- </section> -->
 
     <section class="header-section header-section-main">
-        <a href="www.novapioneer.com/" class="logo header-logo">
+        <a href="http://www.novapioneer.com/" class="logo header-logo">
             <!-- mark and text -->
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
