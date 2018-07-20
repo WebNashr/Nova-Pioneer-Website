@@ -39,6 +39,26 @@
     @include break-point(desktop) {
 		margin-left: 5rem;
     }
+
+    .body-careers & {
+        @include break-point(laptop) {
+            width: auto;
+            margin-left: auto;
+        }
+
+        @include break-point(desktop) {
+            // width: calc(100% - 17.5rem);
+            // width: auto;
+            // margin-left: 4rem;
+            margin-left: auto;
+            // background: wheat;
+        }
+
+        @include break-point(largelaptop) {
+            // width: auto;
+            margin-left: auto;
+        }
+    }
 }
 
 
@@ -282,6 +302,20 @@
 		&:not(:first-of-type) {
 
 		}
+    }
+
+    .body-careers & {
+        @include break-point(laptop) {
+            @include font-size(17px);
+        }
+
+        @include break-point(desktop) {
+            @include font-size(17px);
+        }
+
+        @include break-point(largelaptop) {
+            @include font-size(17px);
+        }
     }
 }
 
