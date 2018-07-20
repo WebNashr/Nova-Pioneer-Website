@@ -183,6 +183,11 @@ header {
             max-width: 12rem;
             margin-top: 0.25rem;
         }
+
+        @include break-point(largelaptop) {
+            max-width: 12rem;
+            margin-top: 0.25rem;
+        }
     }
 }
 
