@@ -306,15 +306,15 @@
 
     .body-careers & {
         @include break-point(laptop) {
-            @include font-size(16px);
+            @include font-size(17px);
         }
 
         @include break-point(desktop) {
-            @include font-size(16px);
+            @include font-size(17px);
         }
 
         @include break-point(largelaptop) {
-            @include font-size(16px);
+            @include font-size(17px);
         }
     }
 }

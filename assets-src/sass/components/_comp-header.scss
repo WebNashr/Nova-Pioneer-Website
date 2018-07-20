@@ -180,12 +180,12 @@ header {
 
     .body-careers & {
         @include break-point(desktop) {
-            max-width: 12rem;
+            max-width: 13rem;
             margin-top: 0.25rem;
         }
 
         @include break-point(largelaptop) {
-            max-width: 12rem;
+            max-width: 13rem;
             margin-top: 0.25rem;
         }
     }
