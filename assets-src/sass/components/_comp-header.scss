@@ -177,6 +177,13 @@ header {
 		max-width: 14rem;
 		max-height: 64px;
     }
+
+    .body-careers & {
+        @include break-point(desktop) {
+            max-width: 12rem;
+            margin-top: 0.25rem;
+        }
+    }
 }
 
 
