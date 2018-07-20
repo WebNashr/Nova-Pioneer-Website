@@ -39,6 +39,15 @@
     @include break-point(desktop) {
 		margin-left: 5rem;
     }
+
+    .body-careers & {
+        @include break-point(desktop) {
+            width: calc(100% - 17.5rem);
+            // margin-left: 4rem;
+            margin-left: auto;
+            // background: wheat;
+        }
+    }
 }
 
 
