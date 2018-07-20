@@ -47,11 +47,16 @@
         }
 
         @include break-point(desktop) {
-            width: calc(100% - 17.5rem);
+            // width: calc(100% - 17.5rem);
             // width: auto;
             // margin-left: 4rem;
             margin-left: auto;
             // background: wheat;
+        }
+
+        @include break-point(largelaptop) {
+            // width: auto;
+            margin-left: auto;
         }
     }
 }
