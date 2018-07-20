@@ -41,9 +41,14 @@
     }
 
     .body-careers & {
-        @include break-point(desktop) {
-            // width: calc(100% - 17.5rem);
+        @include break-point(laptop) {
             width: auto;
+            margin-left: auto;
+        }
+
+        @include break-point(desktop) {
+            width: calc(100% - 17.5rem);
+            // width: auto;
             // margin-left: 4rem;
             margin-left: auto;
             // background: wheat;
