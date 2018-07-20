@@ -312,7 +312,7 @@ require_once __DIR__ . '/redirect.php';
                 <div class="country-selection">
                     <a href="/kenya" class="button button-large button-primary" title="">Kenya</a>
                     <a href="/sa" class="button button-large button-primary" title="">South Africa</a>
-                    <!--<a href="/careers" class="button button-large button-primary" title="">Careers</a>-->
+                    <a href="/careers" class="button button-large button-primary" title="">Careers</a>
                 </div>
             </div>
         </div>
