@@ -42,7 +42,7 @@ get_header(); ?>
 
         <section class="section" style="padding:auto 0;">
             <section>
-                <h2 style="text-align: center;">Our Kenya Schools</h2>
+                <h2 style="text-align: center;">Our Kenyan Schools</h2>
             </section>
 
             <div class="section-school-list">
