@@ -68,7 +68,7 @@ get_header();?>
                     <?php endforeach; ?> -->
 
                     <div class="button-wrap">
-                        <a href="http://novaacademies.applytojob.com/" target="_blank" class="button button-default button-primary" title="">View Open Positions</a>
+                        <a href="https://novaacademies.applytojob.com/" target="_blank" class="button button-default button-primary" title="">View Open Positions</a>
                     </div>
                 </div>
             </article>
