@@ -7,6 +7,7 @@
     <meta name="description"
           content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
     <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
     <?php wp_head(); ?>
 
     <!-- Google Tag Manager -->
