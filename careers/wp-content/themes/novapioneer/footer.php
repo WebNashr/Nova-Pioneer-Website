@@ -2,7 +2,7 @@
 
 <!-- start footer -->
 
-<?php //wp_footer(); ?>
+<?php wp_footer(); ?>
 
 <footer class="page-footer">
     <nav role="navigation" class="footer-menu">
