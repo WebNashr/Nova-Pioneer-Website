@@ -2,7 +2,7 @@
 
 <!-- start footer -->
 
-<?php wp_footer(); ?>
+<?php //wp_footer(); ?>
 
 <footer class="page-footer">
     <nav role="navigation" class="footer-menu">
@@ -62,7 +62,7 @@
         $('#tribe-bar-date').attr('placeholder', 'Month');
         $('#tribe-bar-search').attr('placeholder', 'e.g. PTA Meeting');
     </script>
-    <!-- <script>
+    <<script>
         $(document).ready(function () {
 
         var captionWaypoint = $('.caption').waypoint(function (direction) {
