@@ -1,5 +1,8 @@
 <?php
+
 namespace Fragen\Category_Colors;
+
+use Tribe__Events__Main;
 
 /**
  * Class Main
@@ -14,20 +17,21 @@ class Main {
 	public static $version;
 
 	public $text_colors = array(
-		'Black' => '#000',
-		'White' => '#fff',
-		'Gray'  => '#999'
+		'Default' => 'no_color',
+		'Black'   => '#000',
+		'White'   => '#fff',
+		'Gray'    => '#999',
 	);
 
 	public $font_weights = array(
 		'Bold'   => 'bold',
-		'Normal' => 'normal'
+		'Normal' => 'normal',
 	);
 
 	/**
 	 * Contains each term in an array structured as follows:
 	 *
-	 * 	[ id => [ slug, name ], ... ]
+	 *    [ id => [ slug, name ], ... ]
 	 *
 	 * @var array
 	 */
@@ -73,7 +77,7 @@ class Main {
 		// We need to wait until the taxonomy has been registered before building our list
 		add_action( 'init', array( $this, 'load_categories' ), 20 );
 
-		if ( is_admin() && ( ! defined( 'DOING_AJAX' ) ) ) {
+		if ( ( ! defined( 'DOING_AJAX' ) ) && is_admin() ) {
 			new Admin( $this );
 		}
 
@@ -100,10 +104,7 @@ class Main {
 			return false;
 		}
 
-		/**
-		 * Tribe__Events__Main not yet defined, so we can't use the class constant
-		 */
-		$all_terms = get_terms( 'tribe_events_cat', array( 'hide_empty' => false ) );
+		$all_terms = get_terms( Tribe__Events__Main::TAXONOMY, array( 'hide_empty' => false ) );
 		$terms     = apply_filters( 'teccc_get_terms', $all_terms );
 
 		/**
@@ -117,37 +118,71 @@ class Main {
 		 * Populate public variables.
 		 * Represent each term as an array [slug, name] indexed by term ID
 		 */
-		$term_lists = array( 'all_terms' => &$all_terms, 'terms' => &$terms );
+		$term_lists = array(
+			'all_terms' => &$all_terms,
+			'terms'     => &$terms,
+		);
 		foreach ( $term_lists as $list => $arr ) {
 			foreach ( $arr as $term ) {
 				$this->{$list}[ $term->term_id ] = array( $term->slug, preg_replace( '/\s/', '&nbsp;', $term->name ) );
 			}
 		}
 
-		if ( ! empty( $this->ignore_list ) ) {
-			foreach ( $this->ignore_list as $ignored ) {
-				$name = ucwords( preg_replace( '/-/', ' ', $ignored ) );
-				$this->ignored_terms[] = array( $ignored, preg_replace( '/\s/', '&nbsp;', $name ) );
+		$this->ignored_terms = $this->get_ignored_terms( $this->ignore_list );
+
+		$options              = get_option( 'teccc_options' );
+		$options['terms']     = $this->terms;
+		$options['all_terms'] = $this->all_terms;
+		update_option( 'teccc_options', $options );
+	}
+
+	/**
+	 * Create array of ignored terms from $ignore_list.
+	 *
+	 * @param array $ignore_list
+	 * @return void
+	 */
+	public function get_ignored_terms( $ignore_list ) {
+		$ignored_terms = array();
+		if ( ! empty( $ignore_list ) ) {
+			foreach ( $ignore_list as $ignored ) {
+				$name            = ucwords( str_replace( '-', ' ', $ignored ) );
+				$ignored_terms[] = array( $ignored, preg_replace( '/\s/', '&nbsp;', $name ) );
 			}
 		}
 
-		$options                 = get_option( 'teccc_options' );
-		$options['terms']        = $this->terms;
-		$options['all_terms']    = $this->all_terms;
-		update_option( 'teccc_options', $options );
+		return $ignored_terms;
+	}
+
+	/**
+	 * Setup missing term data in Main.
+	 *
+	 * @param array $options
+	 * @return void
+	 */
+	public function setup_terms( $options ) {
+		$this->all_terms = ! empty( $this->all_terms ) ? $this->all_terms : $options['all_terms'];
+		$hide            = isset( $options['hide'] ) ? $options['hide'] : array();
+		if ( empty( $this->ignore_list ) ) {
+			$this->ignore_list = array_merge( $this->ignore_list, (array) $hide );
+			$this->ignore_list = array_unique( $this->ignore_list );
+		}
+		$this->ignored_terms = ! empty( $this->ignored_terms )
+		? $this->ignored_terms
+		: $this->get_ignored_terms( $this->ignore_list );
 	}
 
 	/**
 	 * Add category terms via filter.
 	 */
 	public function add_terms() {
-		$args = array();
+		$args      = array();
 		$add_terms = apply_filters( 'teccc_add_terms', array() );
 		foreach ( (array) $add_terms as $add_term ) {
-			$args['name'] = ucwords( str_replace('-', ' ', $add_term ));
+			$args['name'] = ucwords( str_replace( '-', ' ', $add_term ) );
 			$args['slug'] = $add_term;
-			if ( ! term_exists( $args['name'], 'tribe_events_cat' ) ) {
-				wp_insert_term( $args['name'],'tribe_events_cat', $args );
+			if ( ! term_exists( $args['name'], Tribe__Events__Main::TAXONOMY ) ) {
+				wp_insert_term( $args['name'], Tribe__Events__Main::TAXONOMY, $args );
 			}
 		}
 	}
@@ -160,9 +195,9 @@ class Main {
 	public function delete_terms( $all_terms ) {
 		$delete_terms = apply_filters( 'teccc_delete_terms', array() );
 		foreach ( (array) $delete_terms as $delete_term ) {
-			foreach( $all_terms as $term ) {
+			foreach ( (array) $all_terms as $term ) {
 				if ( $delete_term === $term->slug ) {
-					wp_delete_term( $term->term_id, 'tribe_events_cat');
+					wp_delete_term( $term->term_id, Tribe__Events__Main::TAXONOMY );
 					break;
 				}
 			}
@@ -173,6 +208,7 @@ class Main {
 	 * Removes terms on the ignore list from the list of terms recognised by the plugin.
 	 *
 	 * @param $term_list
+	 *
 	 * @return array
 	 */
 	public function remove_terms( $term_list ) {
@@ -186,7 +222,7 @@ class Main {
 		$this->ignore_list = array_merge( $this->ignore_list, (array) $options['hide'] );
 		$this->ignore_list = array_unique( $this->ignore_list );
 
-		foreach ( $term_list as $src_id => $src_term ) {
+		foreach ( (array) $term_list as $src_id => $src_term ) {
 			if ( in_array( (int) $src_term->term_id, $this->ignore_list, true ) ) {
 				continue;
 			}
@@ -203,14 +239,14 @@ class Main {
 	 * Loads and returns the requested configuration array.
 	 *
 	 * @param $file
+	 *
 	 * @return array
 	 */
 	public function load_config( $file ) {
 		$config = $this->load_config_array_file( $file );
 
-		return (array) apply_filters( "teccc-config-$file", $config );
+		return (array) apply_filters( "teccc_config_{$file}", $config );
 	}
-
 
 	/**
 	 * Loads and returns an array of settings.
@@ -219,17 +255,17 @@ class Main {
 	 * to solely contain a PHP array definition.
 	 *
 	 * @param $file
+	 *
 	 * @return array
 	 */
 	protected function load_config_array_file( $file ) {
-		$path = TECCC_INCLUDES . "/$file.php";
-		if ( file_exists( $path ) )	{
-			return (array) include $path;
-		} else {
+		$path = TECCC_INCLUDES . "/{$file}.php";
+		if ( ! file_exists( $path ) ) {
 			return array();
 		}
-	}
 
+		return (array) include $path;
+	}
 
 	/**
 	 * Loads the specified view.
@@ -241,22 +277,23 @@ class Main {
 	 * If the optional array of $vars are supplied they will be extracted and
 	 * pulled into the same scope as the template.
 	 *
-	 * @param $template
-	 * @param array $vars
-	 * @param bool $render
+	 * @param       $template
+	 * @param array    $vars
+	 * @param bool     $render
+	 *
 	 * @return mixed
 	 */
 	public function view( $template, array $vars = null, $render = true ) {
-		$path = locate_template( "tribe-events/teccc/$template.php" );
+		$path = locate_template( "tribe-events/teccc/{$template}.php" );
 		if ( empty( $path ) ) {
-			$path = TECCC_VIEWS . "/$template.php";
+			$path = TECCC_VIEWS . "/{$template}.php";
 		}
 
 		if ( ! file_exists( $path ) ) {
 			return false;
 		}
 		if ( null !== $vars ) {
-			extract( $vars );
+			extract( $vars, EXTR_OVERWRITE );
 		}
 
 		if ( ! $render ) {
@@ -267,7 +304,6 @@ class Main {
 			return ob_get_clean();
 		}
 	}
-
 
 	/**
 	 * Expected to run on activation; populates the default options.
@@ -281,15 +317,16 @@ class Main {
 		}
 		if ( '1' === $tmp['chk_default_options_db'] || ! is_array( $tmp ) ) {
 			delete_option( 'teccc_options' );
-			for ( $i = 0; $i < $teccc->count; $i++ ) {
-				$arr[ $teccc->slugs[$i].'-text' ]                   = '#000';
-				$arr[ $teccc->slugs[$i].'-background' ]             = '#CFCFCF';
-				$arr[ $teccc->slugs[$i].'-border' ]                 = '#CFCFCF';
-				$arr[ $teccc->slugs[$i].'-border_transparent' ]     = '1';
-				$arr[ $teccc->slugs[$i].'-background_transparent' ] = '1';
-				$arr['hide'][ $teccc->slugs[$i] ]                   = null;
+			for ( $i = 0; $i < $teccc->count; $i ++ ) {
+				$arr[ $teccc->slugs[ $i ] . '-text' ]            = '#000';
+				$arr[ $teccc->slugs[ $i ] . '-background' ]      = '#CFCFCF';
+				$arr[ $teccc->slugs[ $i ] . '-border' ]          = '#CFCFCF';
+				$arr[ $teccc->slugs[ $i ] . '-border_none' ]     = '1';
+				$arr[ $teccc->slugs[ $i ] . '-background_none' ] = '1';
+				$arr['hide'][ $teccc->slugs[ $i ] ]              = null;
 			}
-			$arr['font_weight'] = 'bold';
+			$arr['font_weight']    = 'bold';
+			$arr['featured-event'] = '#0ea0d7';
 			update_option( 'teccc_options', $arr );
 		}
 	}
@@ -303,7 +340,7 @@ class Main {
 	 */
 	public static function plugin_get_version( $file ) {
 		if ( ! function_exists( 'get_plugins' ) ) {
-			require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 		$plugin_folder = get_plugins( '/' . plugin_basename( dirname( $file ) ) );
 		$plugin_file   = basename( $file );

@@ -10,8 +10,8 @@ var tribe_tickets_ticket_form = {};
 	var $quantity_fields;
 
 	my.init = function() {
-		$tickets_lists = $( '.tribe-events-tickets' );
-		$quantity_fields = $tickets_lists.find( '.quantity' ).find( '.qty' );
+		$tickets_lists = $( '.tribe-events-tickets, .tribe-events-tickets-tpp' );
+		$quantity_fields = $tickets_lists.find( '.quantity' ).find( '.qty, .edd-input' );
 		$quantity_fields.on( 'change', my.on_quantity_change );
 	};
 
@@ -28,6 +28,32 @@ var tribe_tickets_ticket_form = {};
 			my.global_stock_quantity_changed( $this, ticket_id );
 		} else {
 			my.normal_stock_quantity_changed( $this, ticket_id );
+		}
+
+		var $form = $this.closest( 'form' );
+
+		// Only disable / enable if is a Tribe Commerce Paypal form.
+		if ( ! $form.hasClass( 'tribe-tickets-tpp' ) ) {
+			return;
+		}
+
+		var new_quantity = parseInt( $this.val(), 10 );
+		new_quantity = isNaN( new_quantity ) ? 0 : new_quantity;
+
+		if ( new_quantity > 0 ) {
+			$form
+				.find( 'td[data-product-id]:not([data-product-id="' + ticket_id + '"])' )
+				.closest( 'tr' )
+				.find( 'input, button' )
+				.attr( 'disabled', 'disabled' )
+				.closest( 'tr' )
+				.addClass( 'tribe-tickets-purchase-disabled' );
+		} else {
+			$form
+				.find( 'input, button' )
+				.removeAttr( 'disabled' )
+				.closest( 'tr' )
+				.removeClass( 'tribe-tickets-purchase-disabled' );
 		}
 	};
 
@@ -76,6 +102,15 @@ var tribe_tickets_ticket_form = {};
 		var available_stock = my.get_single_stock( ticket_id );
 		var remaining;
 
+		if ( ! $.isNumeric( available_stock ) ) {
+			return;
+		}
+
+		// if the stock is unlimited then there is nothing to change
+		if ( - 1 === available_stock ) {
+			return;
+		}
+
 		// Keep in check (should be handled for us by numeric inputs in most browsers, but let's be safe)
 		if ( new_quantity > available_stock ) {
 			new_quantity = available_stock;
@@ -115,8 +150,10 @@ var tribe_tickets_ticket_form = {};
 
 			if ( 'capped' === ticket.mode ) {
 				// If x units of global stock have been requested, the effective cap is the actual cap less value x
-				var effective_cap       = Math.min( remaining, ticket.cap );
-				var requested_stock     = parseInt( $( '[data-product-id=' + ticket_id + ']' ).find( 'input' ).val(), 10 );
+				var effective_cap = Math.min( remaining, ticket.cap );
+				var qty_input = $( '[data-product-id=' + ticket_id + ']' ).find( 'input.tribe-ticket-quantity, .input.qty' );
+				var requested_stock = parseInt( qty_input.val(), 10 );
+				requested_stock = isNaN( requested_stock ) ? 0 : requested_stock;
 				var remaining_under_cap = ticket.cap - requested_stock;
 
 				// As with all other ticket types, capped tickets should not have a sub-zero count either
@@ -172,11 +209,11 @@ var tribe_tickets_ticket_form = {};
 		var ticket = tribe_tickets_stock_data.tickets[ ticket_id ];
 
 		// If we don't have any data for this ticket we can assume it doesn't use global stock
-		if ( "undefined" === tribe_tickets_stock_data.tickets[ ticket_id ] ) {
+		if ( "undefined" === typeof tribe_tickets_stock_data.tickets[ ticket_id ] ) {
 			return false;
 		}
 
-		return ticket[property];
+		return ticket[ property ];
 	};
 
 	/**
@@ -214,15 +251,23 @@ var tribe_tickets_ticket_form = {};
 	my.currently_requested_global_event_stock = function( event_id ) {
 		var total   = 0;
 		var tickets = my.get_tickets_of( event_id );
+		var $ticketStocks = $tickets_lists.find( '.available-stock' );
 
-		for ( var ticket_id in tickets ) {
-			switch ( tribe_tickets_stock_data.tickets[ticket_id].mode ) {
-				case 'global':
-				case 'capped':
-					total += parseInt( $tickets_lists.find( '[data-product-id=' + ticket_id + ']').find( '.qty').val(), 10 );
-				break;
+		$ticketStocks.each( function( i, ticket ) {
+			var $ticket = $( ticket );
+			var ticketID = $ticket.data( 'productId' );
+			var modes = [ 'global', 'capped' ];
+			var mode = tribe_tickets_stock_data.tickets[ ticketID ].mode;
+
+			if ( -1 === modes.indexOf( mode ) ) {
+				return;
 			}
-		}
+
+			var $quantity = $ticket.parents( 'tr' ).eq( 0 ).find( '.qty, .edd-input' );
+			var quantity = parseInt( $quantity.val(), 10 );
+
+			total += quantity;
+		} );
 
 		return total;
 	};

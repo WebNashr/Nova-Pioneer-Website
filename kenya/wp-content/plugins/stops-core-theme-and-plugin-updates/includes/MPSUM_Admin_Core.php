@@ -1,59 +1,56 @@
 <?php
 /**
- * Controls the main (general) tab
- *
  * Controls the main (general) tab and handles the saving of its options.
  *
- * @since 5.0.0
- *
  * @package WordPress
+ * @since 5.0.0
  */
 class MPSUM_Admin_Core {
 	/**
-	* Holds the slug to the admin panel page
-	*
-	* @since 5.0.0
-	* @access private
-	* @var string $slug
-	*/
+     * Holds the slug to the admin panel page
+     *
+     * @since 5.0.0
+     * @access private
+     * @var string $slug
+     */
 	private $slug = '';
 
 	/**
-	* Holds the tab name
-	*
-	* @since 5.0.0
-	* @access static
-	* @var string $tab
-	*/
+     * Holds the tab name
+     *
+     * @since 5.0.0
+     * @access static
+     * @var string $tab
+     */
 	private $tab = 'main';
 
 	/**
-	* Class constructor.
-	*
-	* Initialize the class
-	*
-	* @since 5.0.0
-	* @access public
-	*
-	* @param string $slug Slug to the admin panel page
-	*/
+     * Class constructor.
+     *
+     * Initialize the class
+     *
+     * @since 5.0.0
+     * @access public
+     *
+     * @param string $slug Slug to the admin panel page
+     */
 	public function __construct( $slug = '' ) {
 		$this->slug = $slug;
-		//Admin Tab Actions
+		// Admin Tab Actions
 		add_action( 'mpsum_admin_tab_main', array( $this, 'tab_output' ) );
 		add_action( 'admin_init', array( $this, 'maybe_save_options' ) );
 	}
 
 	/**
-	* Get tab defaults.
-	*
-	* Get default core plugin options.
-	*
-	* @since 5.0.0
-	* @access private
-	*
-	* @return array Associative array of default options
-	*/
+     * Get tab defaults.
+     *
+     * Get default core plugin options.
+     *
+     * @since 5.0.0
+     * @access static
+     *
+     * @return array Associative array of default options
+     */
 	public static function get_defaults() {
 
     	/**
@@ -64,43 +61,36 @@ class MPSUM_Admin_Core {
 		 * @param array    associative array of options
 		 */
 		return (array) apply_filters( 'mpsum_default_options', array(
-			'all_updates'                                  => 'on',
-			'core_updates'                                 => 'on',
-			'plugin_updates'                               => 'on',
-			'theme_updates'                                => 'on',
-			'translation_updates'                          => 'on',
-			'automatic_development_updates'                => 'off',
-			'automatic_major_updates'                      => 'off',
-			'automatic_minor_updates'                      => 'on',
-			'automatic_plugin_updates'                     => 'default',
-			'automatic_theme_updates'                      => 'default',
-			'automatic_translation_updates'                => 'on',
-			'notification_core_update_emails'              => 'on',
-			'misc_browser_nag'                             => 'on',
-			'misc_wp_footer'                               => 'on',
-			'notification_core_update_emails_plugins'      => 'on',
-			'notification_core_update_emails_themes'       => 'on',
-			'notification_core_update_emails_translations' => 'on',
-			'logs'                                         => 'off',
-			'email_addresses'                              => array(),
-			'ratings_nag'                                  => 'on',
-			'tracking_nag'                                 => 'on',
-			'tracking_enabled'                             => 'off',
-			'wizard'                                       => 'on'
+			'all_updates'                     => 'on',
+			'core_updates'                    => 'on',
+			'plugin_updates'                  => 'on',
+			'theme_updates'                   => 'on',
+			'translation_updates'             => 'on',
+			'automatic_development_updates'   => 'off',
+			'automatic_major_updates'         => 'off',
+			'automatic_minor_updates'         => 'on',
+			'automatic_plugin_updates'        => 'default',
+			'automatic_theme_updates'         => 'default',
+			'automatic_translation_updates'   => 'on',
+			'notification_core_update_emails' => 'on',
+			'misc_browser_nag'                => 'on',
+			'misc_wp_footer'                  => 'on',
+			'logs'                            => 'off',
+			'email_addresses'                 => array(),
+			'automatic_updates'               => 'unset',
 		) );
 	}
 
 	/**
-	* Determine whether the save the main options or not.
-	*
-	* Determine whether the save the main options or not.
-	*
-	* @since 5.0.0
-	* @access public
-	* @see __construct
-	* @internal Uses admin_init action
-	*
-	*/
+     * Determine whether to save the main options or not.
+     *
+     * Determine whether to save the main options or not.
+     *
+     * @since 5.0.0
+     * @access public
+     * @see __construct
+     * @internal Uses admin_init action
+     */
 	public function maybe_save_options() {
 		if ( !current_user_can( 'install_plugins' ) ) return;
 		if ( !isset( $_GET[ 'page' ] ) || $_GET[ 'page' ] != $this->slug ) return;
@@ -112,18 +102,18 @@ class MPSUM_Admin_Core {
 		$query_args = array();
 		$query_args[ 'updated' ] = "1";
 		$query_args[ 'tab' ] = 'main';
-		
-		 
 
-		//Save options
+
+
+		// Save options
 		$options = $_POST[ 'options' ];
 		if ( isset( $_POST[ 'reset' ] ) ) {
 			$options = self::get_defaults();
 		}
-		
+
 		$options_to_save = array();
-		
-		//Check for valid e-mail address
+
+		// Check for valid e-mail address
 		if ( isset( $options[ 'email_addresses' ] ) ) {
 			$email_addresses = explode( ',', $options[ 'email_addresses' ] );
 			$email_addresses_to_save = array();
@@ -138,37 +128,37 @@ class MPSUM_Admin_Core {
 						if ( ! empty( $email ) ) {
 							$email_addresses_to_save[] = $email;
 						}
-						
+
 					}
 				}
 			}
 			$options_to_save[ 'email_addresses' ] = $email_addresses_to_save;
 		}
-				
+
 		foreach( $options as $key => $value ) {
 			if ( 'email_addresses' == $key ) continue;
-			
+
 			$option_value = sanitize_text_field( $value );
 			$options_to_save[ sanitize_key( $key ) ] = $option_value;
 		}
 
 		MPSUM_Updates_Manager::update_options( $options_to_save, 'core' );
 
-		//Redirect back to settings screen
+		// Redirect back to settings screen
 		wp_redirect( esc_url_raw( add_query_arg( $query_args, MPSUM_Admin::get_url() ) ) );
 		exit;
 	}
 
 	/**
-	* Output the HTML interface for the main tab.
-	*
-	* Output the HTML interface for the main tab.
-	*
-	* @since 5.0.0
-	* @access public
-	* @see __construct
-	* @internal Uses the mpsum_admin_tab_main action
-	*/
+     * Output the HTML interface for the main tab.
+     *
+     * Output the HTML interface for the main tab.
+     *
+     * @since 5.0.0
+     * @access public
+     * @see __construct
+     * @internal Uses the mpsum_admin_tab_main action
+     */
 	public function tab_output() {
 		$options = MPSUM_Updates_Manager::get_options( 'core' );
 		$options = wp_parse_args( $options, self::get_defaults() );
@@ -178,7 +168,7 @@ class MPSUM_Admin_Core {
 			?>
 			<br />
 			<div class="updated"><p><strong><?php echo esc_html( $message ); ?></strong></p></div>
-			<?php 
+			<?php
 			if ( isset( $_GET[ 'bad_email' ] ) ) {
 				?>
 				<div class="error"><p><strong><?php echo esc_html__( 'The email address is not valid', 'stops-core-theme-and-plugin-updates' ); ?></strong></p></div>
@@ -189,7 +179,7 @@ class MPSUM_Admin_Core {
 		?>
         <form action="<?php echo esc_url( add_query_arg( array() ) ); ?>" method="post">
 		<?php
-		$logs = isset( $options[ 'logs' ] ) ? $options[ 'logs' ] : 'off';	
+		$logs = isset( $options[ 'logs' ] ) ? $options[ 'logs' ] : 'off';
 		?>
 		<input type="hidden" name="options[logs]" value="<?php echo esc_attr( $logs ); ?>" />
 		<h3><?php esc_html_e( 'Global Settings', 'stops-core-theme-and-plugin-updates' ); ?></h3>
@@ -299,13 +289,6 @@ class MPSUM_Admin_Core {
 					<input type="hidden" name="options[notification_core_update_emails_plugins]" value="on" />
 					<input type="hidden" name="options[notification_core_update_emails_themes]" value="on" />
                     <input type="hidden" name="options[notification_core_update_emails_translations]" value="on" />
-                    <?php /*
-                    <br />
-                    <input type="checkbox" name="options[notification_core_update_emails_plugins]" value="on" id="notification_core_update_emails_plugins_on" <?php checked( 'on', $options[ 'notification_core_update_emails_plugins' ] ); ?> />&nbsp;<label for="notification_core_update_emails_plugins_on">
-                    <?php esc_html_e( 'Core Plugin Emails', 'stops-core-theme-and-plugin-updates' ); ?></label><br />
-					<input type="checkbox" name="options[notification_core_update_emails_themes]" value="on" id="notification_core_update_emails_themes" <?php checked( 'on', $options[ 'notification_core_update_emails_themes' ] ); ?> />&nbsp;<label for="notification_core_update_emails_themes"><?php esc_html_e( 'Core Theme Emails', 'stops-core-theme-and-plugin-updates' ); ?></label><br />
-					<input type="checkbox" name="options[notification_core_update_emails_translations]" value="on" id="notification_core_update_emails_translations_on" <?php checked( 'on', $options[ 'notification_core_update_emails_translations' ] ); ?> />&nbsp;<label for="notification_core_update_emails_translations_on"><?php esc_html_e( 'Core Translation Emails', 'stops-core-theme-and-plugin-updates' ); ?></label>
-					<p class="description"><?php esc_html_e( 'Disable e-mails that are sent when your site has been upgraded automatically. These will not be functional until WordPress 4.5.', 'stops-core-theme-and-plugin-updates' ); ?></p>*/ ?>
 				</td>
 			</tr>
 			<tr>
@@ -327,7 +310,7 @@ class MPSUM_Admin_Core {
 						} else {
 							$email_addresses = '';
 						}
-					}	
+					}
 					?>
     				<input type="text" name="options[email_addresses]" value="<?php echo esc_attr( $email_addresses ); ?>" style="width: 50%" /><br />
     				<p class="description"><?php echo esc_html_e( 'Emails can be comma separated', 'stops-core-theme-and-plugin-updates' ); ?></p>

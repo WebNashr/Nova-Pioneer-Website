@@ -1,18 +1,18 @@
 <?php
 /**
-* Plugin Name:       The Events Calendar Category Colors
-* Plugin URI:        https://github.com/afragen/the-events-calendar-category-colors
-* Description:       This plugin adds event category background coloring to <a href="http://wordpress.org/plugins/the-events-calendar/">The Events Calendar</a> plugin.
-* Version:           4.6.8
-* Text Domain:       the-events-calendar-category-colors
-* Author:            Andy Fragen, Barry Hughes
-* Author URI:        http://thefragens.com
-* License:           GNU General Public License v2
-* License URI:       http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-* GitHub Plugin URI: https://github.com/afragen/the-events-calendar-category-colors
-* Requires PHP:      5.3
-* Requires WP:       3.8
-*/
+ * Plugin Name:       The Events Calendar Category Colors
+ * Plugin URI:        https://github.com/afragen/the-events-calendar-category-colors
+ * Description:       This plugin adds event category background coloring to <a href="http://wordpress.org/plugins/the-events-calendar/">The Events Calendar</a> plugin.
+ * Version:           5.3.0
+ * Text Domain:       the-events-calendar-category-colors
+ * Author:            Andy Fragen, Barry Hughes
+ * Author URI:        http://thefragens.com
+ * License:           GNU General Public License v2
+ * License URI:       http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * GitHub Plugin URI: https://github.com/afragen/the-events-calendar-category-colors
+ * Requires PHP:      5.3
+ * Requires WP:       3.8
+ */
 
 /*
  * Exit if called directly.
@@ -23,13 +23,14 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 if ( version_compare( '5.3.0', PHP_VERSION, '>=' ) ) {
-	?>
-	<div class="error notice is-dismissible">
-		<p>
-			<?php esc_html_e( 'The Events Calendar Category Colors cannot run on PHP versions older than 5.3.0. Please contact your hosting provider to update your site.', 'the-events-calendar-category-colors' ); ?>
-		</p>
-	</div>
-	<?php
+	echo '<div class="error notice is-dismissible"><p>';
+	printf(
+		/* translators: 1: minimum PHP version required, 2: Upgrade PHP URL */
+		wp_kses_post( __( 'The Events Calendar Category Colors cannot run on PHP versions older than %1$s. <a href="%2$s">Learn about upgrading your PHP.</a>', 'the-events-calendar-category-colors' ) ),
+		'5.3.0',
+		esc_url( __( 'https://wordpress.org/support/upgrade-php/' ) )
+	);
+	echo '</p></div>';
 
 	return false;
 }
@@ -41,7 +42,7 @@ define( 'TECCC_CLASSES', TECCC_DIR . '/src' );
 define( 'TECCC_INCLUDES', TECCC_DIR . '/includes' );
 define( 'TECCC_VIEWS', TECCC_DIR . '/views' );
 define( 'TECCC_RESOURCES', plugin_dir_url( __FILE__ ) . 'resources' );
-define( 'TECCC_LANG', basename( dirname( __FILE__ ) ) . '/languages' );
+define( 'TECCC_LANG', basename( __DIR__ ) . '/languages' );
 
 /**
  * Initialization of plugin.
@@ -62,7 +63,7 @@ function teccc_init() {
 	);
 
 	// Autoloading
-	require_once( TECCC_CLASSES . '/Autoloader.php' );
+	require_once TECCC_CLASSES . '/Autoloader.php';
 	$loader = 'Fragen\\Autoloader';
 	new $loader( $root, $compatibility );
 
