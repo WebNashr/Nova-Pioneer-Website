@@ -1,4 +1,5 @@
 <?php
+if ( !defined( 'ABSPATH' ) ) die( 'No direct access.' );
 /**
  * Easy Updates Manager Themes List Table class.
  *
@@ -27,11 +28,13 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		global $status, $page;
 
 		parent::__construct( array(
+			'singular' => 'theme',
 			'plural' => 'themes',
 			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
+			'ajax' => true
 		) );
-		
-		$this->tab = isset( $args[ 'tab' ] ) ? $args[ 'tab' ] : '';
+
+		$this->tab = isset( $_REQUEST[ 'tab' ] ) ? $_REQUEST[ 'tab' ] : 'themes';
 
 		$status = isset( $_REQUEST['theme_status'] ) ? $_REQUEST['theme_status'] : 'all';
 		if ( !in_array( $status, array( 'all', 'update_disabled', 'update_enabled', 'automatic' ) ) )
@@ -45,11 +48,21 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 			$this->site_id = isset( $_REQUEST['id'] ) ? intval( $_REQUEST['id'] ) : 0;
 	}
 
+	/**
+	 * Get table classes
+	 *
+	 * @return array
+	 */
 	protected function get_table_classes() {
 		// todo: remove and add CSS for .themes
 		return array( 'widefat', 'plugins' );
 	}
 
+	/**
+	 * Ajax user capability check
+	 *
+	 * @return boolean
+	 */
 	public function ajax_user_can() {
 		if ( $this->is_site_themes )
 			return current_user_can( 'manage_sites' );
@@ -57,12 +70,17 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 			return current_user_can( 'manage_network_themes' );
 	}
 
-	public function prepare_items() {		
+	/**
+	 * Prepares theme items to display
+	 *
+	 * Prepares theme items by setting pagination variables, order, filter
+	 */
+	public function prepare_items() {
 		global $totals, $status;
 		$order = 'DESC';
-		$page = isset( $_GET[ 'paged' ] ) ? absint( $_GET[ 'paged' ] ) : 1;
+		$page = $this->get_pagenum();
 		$orderby = 'Name';
-		
+
 		$themes = array(
 			/**
 			 * Filter the full array of WP_Theme objects to list in the Multisite
@@ -76,7 +94,7 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 			'update_enabled' => array(),
 			'update_disabled' => array(),
 			'automatic' => array()
-			
+
 		);
 
 
@@ -92,23 +110,23 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 					$themes[ 'automatic' ][ $theme ] = $theme_data;
 				}
 			}
-		}		
-		
+		}
+
 		$totals = array();
-		
-		foreach ( $themes as $type => $list ) 
+
+		foreach ( $themes as $type => $list )
 			$totals[ $type ] = count( $list );
-			
-		//Disable the automatic updates view
+
+		// Disable the automatic updates view
 		$core_options = MPSUM_Updates_Manager::get_options( 'core' );
 		if ( isset( $core_options[ 'automatic_theme_updates' ] ) && 'individual' !== $core_options[ 'automatic_theme_updates' ] ) {
 			unset( $totals[ 'automatic' ] );
 			$themes[ 'automatic' ] = array();
 		}
-			
+
 		if ( empty( $themes[ $status ] ) )
 			$status = 'all';
-			
+
 		$this->items = $themes[ $status ];
 		WP_Theme::sort_by_name( $this->items );
 
@@ -126,15 +144,14 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 				uasort( $this->items, array( $this, '_order_callback' ) );
 			}
 		}
-		$total_this_page = count( $themes[ 'all' ] );
-		
+
 		// Get themes per page
 		$user_id = get_current_user_id();
 		$themes_per_page = get_user_meta( $user_id, 'mpsum_items_per_page', true );
 		if ( ! is_numeric( $themes_per_page ) ) {
 			$themes_per_page = 100;
 		}
-		
+
 		$start = ( $page - 1 ) * $themes_per_page;
 
 		if ( $total_this_page > $themes_per_page )
@@ -143,12 +160,17 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		$this->set_pagination_args( array(
 			'total_items' => $total_this_page,
 			'per_page' => $themes_per_page,
+			'total_pages' => ceil( $total_this_page / $themes_per_page ),
+			'theme_status' => $status,
+			'tab' => isset( $this->tab ) ? $this->tab : ''
 		) );
 	}
 
 	/**
+	 * Search Callback
+	 *
 	 * @staticvar string $term
-	 * @param WP_Theme $theme
+	 * @param string $theme WP Theme
 	 * @return bool
 	 */
 	public function _search_callback( $theme ) {
@@ -171,12 +193,14 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		return false;
 	}
 
-	// Not used by any core columns.
 	/**
+	 * Order callback
+	 * Not used by any core columns.
+	 *
 	 * @global string $orderby
 	 * @global string $order
-	 * @param array $theme_a
-	 * @param array $theme_b
+	 * @param array $theme_a Theme A
+	 * @param array $theme_b Theme B
 	 * @return int
 	 */
 	public function _order_callback( $theme_a, $theme_b ) {
@@ -194,6 +218,11 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 			return ( $a < $b ) ? -1 : 1;
 	}
 
+	/**
+	 * No Items
+	 *
+	 * @return void
+	 */
 	public function no_items() {
 		if ( ! $this->has_items )
 			_e( 'No themes found.', 'stops-core-theme-and-plugin-updates'  );
@@ -201,6 +230,11 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 			_e( 'You do not appear to have any themes available at this time.', 'stops-core-theme-and-plugin-updates'  );
 	}
 
+	/**
+	 * Get columns
+	 *
+	 * @return array
+	 */
 	public function get_columns() {
 		global $status;
 
@@ -211,10 +245,20 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		);
 	}
 
+	/**
+	 * Get sortable columns
+	 *
+	 * @return array
+	 */
 	protected function get_sortable_columns() {
 		return array();
 	}
 
+	/**
+	 * Get views
+	 *
+	 * @return array
+	 */
 	protected function get_views() {
 		global $totals, $status;
 
@@ -245,8 +289,9 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 					'theme_status' => $type
 				);
 
-				$status_links[$type] = sprintf( "<a href='%s' %s>%s</a>",
+				$status_links[$type] = sprintf( "<a href='%s' data-theme_status='%s' %s>%s</a>",
 					add_query_arg( $query_args, $theme_url ),
+					$status,
 					( $type == $status ) ? ' class="current"' : '',
 					sprintf( $text, number_format_i18n( $count ) )
 				);
@@ -256,33 +301,45 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		return $status_links;
 	}
 
+	/**
+	 * Get bulk actions
+	 *
+	 * @return array
+	 */
 	protected function get_bulk_actions() {
 		global $status;
 
 		$actions = array();
-		        
-		$actions[ 'allow-update-selected' ] = esc_html__( 'Allow Updates', 'stops-core-theme-and-plugin-updates' );
-		$actions[ 'disallow-update-selected' ] = esc_html__( 'Disallow Updates', 'stops-core-theme-and-plugin-updates' );
+
+		$actions[ 'allow-update-selected' ] = esc_html__( 'Theme Updates On', 'stops-core-theme-and-plugin-updates' );
+		$actions[ 'disallow-update-selected' ] = esc_html__( 'Theme Updates Off', 'stops-core-theme-and-plugin-updates' );
 		$core_options = MPSUM_Updates_Manager::get_options( 'core' );
 		if ( isset( $core_options[ 'automatic_theme_updates' ] ) && 'individual' == $core_options[ 'automatic_theme_updates' ] ) {
-			$actions[ 'allow-automatic-selected' ] = esc_html__( 'Allow Automatic Updates', 'stops-core-theme-and-plugin-updates' );
-			$actions[ 'disallow-automatic-selected' ] = esc_html__( 'Disallow Automatic Updates', 'stops-core-theme-and-plugin-updates' );
+			$actions[ 'allow-automatic-selected' ] = esc_html__( 'Automatic Updates On', 'stops-core-theme-and-plugin-updates' );
+			$actions[ 'disallow-automatic-selected' ] = esc_html__( 'Automatic Updates Off', 'stops-core-theme-and-plugin-updates' );
 		}
-		
+
 		return $actions;
 	}
 
+	/**
+	 * Display rows
+	 *
+	 * @return void
+	 */
 	public function display_rows() {
 		foreach ( $this->items as $theme )
 			$this->single_row( $theme );
 	}
 
 	/**
+	 * Single row theme
+	 *
 	 * @global string $status
 	 * @global int $page
 	 * @global string $s
 	 * @global array $totals
-	 * @param WP_Theme $theme
+	 * @param array $theme The specified theme
 	 */
 	public function single_row( $theme ) {
 		$status = 'all';
@@ -309,11 +366,11 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		$theme_options = MPSUM_Updates_Manager::get_options( 'themes' );
 		if ( false !== $key = array_search( $stylesheet, $theme_options ) ) {
 			$class = 'inactive';
-		} 
+		}
 		echo "<tr id='$id' class='$class'>";
 
 		list( $columns, $hidden ) = $this->get_column_info();
-		
+
 		foreach ( $columns as $column_name => $column_display_name ) {
 			$style = '';
 			if ( in_array( $column_name, $hidden ) )
@@ -324,8 +381,83 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 					echo "<th scope='row' class='check-column'>$checkbox</th>";
 					break;
 				case 'name':
-					echo "<td class='theme-title'$style><strong>" . $theme->display('Name') . "</strong>";
-					echo $this->row_actions( $actions, true );
+					echo "<td class='theme-title'$style>";
+					echo "<img src='" . esc_url( $theme->get_screenshot() ) . "' width='85' height='64' class='updates-table-screenshot' alt='' />";
+					echo '<div class="eum-themes-name-actions">';
+					echo "<h3 class='eum-themes-name'>" . $theme->display('Name') . "</h3>";
+					echo '<div class="eum-themes-wrapper">';
+					printf( '<h4>%s</h4>', esc_html__( 'Theme Updates', 'stops-core-theme-and-plugin-updates' ) );
+
+					echo '<div class="toggle-wrapper toggle-wrapper-themes">';
+
+					$enable_class = $disable_class = '';
+					$checked = 'false';
+					$key = in_array( $stylesheet, $theme_options );
+					if ( ! $key ) {
+						$enable_class = 'eum-enabled eum-active';
+						$checked = 'true';
+					} else {
+						$disable_class = 'eum-disabled eum-active';
+					}
+
+					printf( '<input type="hidden" name="themes[%s]" value="%s">',
+						$stylesheet,
+						$checked
+					);
+
+					printf( '<button aria-label="%s" class="eum-toggle-button eum-enabled %s" data-checked="%s">%s</button>',
+						esc_attr__( 'Allow Updates', 'stops-core-theme-and-plugin-updates' ),
+						esc_attr( $enable_class ),
+						$stylesheet,
+						esc_html__( 'On', 'stops-core-theme-and-plugin-updates' )
+					);
+
+					printf( '<button aria-label="%s" class="eum-toggle-button eum-disabled %s" data-checked="%s">%s</button>',
+						esc_attr__( 'Disallow Updates', 'stops-core-theme-and-plugin-updates' ),
+						esc_attr( $disable_class ),
+						$stylesheet,
+						esc_html__( 'Off', 'stops-core-theme-and-plugin-updates' )
+					);
+
+					echo '</div></div>';
+
+					// Automatic Link
+					$theme_automatic_options = MPSUM_Updates_Manager::get_options( 'themes_automatic' );
+					$core_options = MPSUM_Updates_Manager::get_options( 'core' );
+					if ( isset( $core_options[ 'automatic_theme_updates' ] ) && 'individual' == $core_options[ 'automatic_theme_updates' ] ) {
+						printf( '<div class="eum-themes-automatic-wrapper" %s>', ( $key ) ? 'style="display: none;"' : '' );
+						printf( '<h4>%s</h4>', esc_html__( 'Automatic Updates', 'stops-core-theme-and-plugin-updates' ) );
+						echo '<div class="toggle-wrapper toggle-wrapper-themes-automatic">';
+						$enable_class = $disable_class = '';
+						if ( in_array( $stylesheet, $theme_automatic_options ) ) {
+							$enable_class = 'eum-active';
+							$checked = 'true';
+						} else {
+							$disable_class = 'eum-active';
+						}
+
+						printf( '<input type="hidden" name="themes_automatic[%s]" value="%s">',
+							$stylesheet,
+							$checked
+						);
+
+						printf( '<button aria-label="%s" class="eum-toggle-button eum-enabled %s" data-checked="%s">%s</button>',
+							esc_html__( 'Enable Automatic Updates', 'stops-core-theme-and-plugin-updates' ),
+							esc_attr( $enable_class ),
+							$stylesheet,
+							esc_html__( 'On', 'stops-core-theme-and-plugin-updates' )
+						);
+
+						printf( '<button aria-label="%s" class="eum-toggle-button eum-disabled %s" data-checked="%s">%s</button>',
+							esc_attr__( 'Enable Automatic Updates', 'stops-core-theme-and-plugin-updates' ),
+							esc_attr( $disable_class ),
+							$stylesheet,
+							esc_html__( 'Off', 'stops-core-theme-and-plugin-updates' )
+						);
+
+						echo '</div></div>';
+					}
+					echo '</div>';
 					echo "</td>";
 					break;
 				case 'description':
@@ -413,5 +545,56 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		 * @param string   $status     Status of the theme.
 		 */
 		do_action( "after_theme_row_$stylesheet", $stylesheet, $theme, $status );
+	}
+
+	/**
+	 * Captures response of ajax calls and returns it
+	 */
+	public function ajax_response() {
+
+		$this->prepare_items();
+		extract( $this->_args );
+		extract( $this->_pagination_args, EXTR_SKIP );
+
+		ob_start();
+		$this->views();
+		$views = ob_get_clean();
+
+		ob_start();
+		if ( !empty( $_REQUEST['no_placeholder'] ) ) {
+			$this->display_rows();
+		} else {
+			$this->display_rows_or_placeholder();
+		}
+		$rows = ob_get_clean();
+
+		ob_start();
+		$this->print_column_headers();
+		$headers = ob_get_clean();
+
+		ob_start();
+		$this->pagination( 'top' );
+		$pagination_top = ob_get_clean();
+
+		ob_start();
+		$this->pagination( 'bottom' );
+		$pagination_bottom = ob_get_clean();
+
+		$response['views'] = array( $views );
+		$response['rows'] = array( $rows );
+		$response['pagination']['top'] = $pagination_top;
+		$response['pagination']['bottom'] = $pagination_bottom;
+		$response['headers'] = $headers;
+
+		if ( isset( $total_items ) ) {
+			$response['total_items_i18n'] = sprintf( _n( '1 plugin', '%s plugins', $total_items ), number_format_i18n( $total_items ) );
+		}
+
+		if ( isset( $total_pages ) ) {
+			$response['total_pages'] = $total_pages;
+			$response['total_pages_i18n'] = number_format_i18n( $total_pages );
+		}
+
+		wp_send_json($response);
 	}
 }

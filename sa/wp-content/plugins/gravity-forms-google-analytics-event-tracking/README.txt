@@ -1,35 +1,41 @@
-=== Gravity Forms Google Analytics Event Tracking ===
-Contributors: nmarks, ronalfy, bigwing
-Tags: gravity forms, google analytics, google tag manager, event tracking
+=== Event Tracking for Gravity Forms ===
+Contributors: ronalfy, bigwing, nmarks, kzeni
+Tags: gravity forms, google analytics, google tag manager, matomo, piwik, event tracking
 Requires at least:4.0
-Tested up to: 4.7
-Stable tag: 2.0.3
+Tested up to: 4.9
+Stable tag: 2.2.4
+Requires PHP: 5.6
+Donate link: https://mediaron.com/give/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add Google Analytics Event Tracking to your Gravity Forms in less than 5 minutes! Requires PHP 5.3+.
+Easily add event tracking using Gravity Forms and your Google Analytics, Google Tag Manager, or Matomo (formerly Piwik) account.
 
 == Description ==
 
-This plugin provides an easy way to add Google Analytics event tracking to your Gravity Forms, allowing you to properly track form submissions as events/conversions within Google Analytics.
+This plugin provides an easy way to add event tracking to your Gravity Forms using Google Analytics, Google Tag Manager, or Matomo (formerly Piwik).
+
+https://www.youtube.com/watch?v=rHW3roCuNSI&t=2s
 
 Also supports:
 
 * Pagination events
 * JS only events
 * Google Tag Manager
+* Matomo (formerly Piwik)
 
 = Setup Guide =
-Looking for help setting things up? [Read Our Setup Guide](https://bigwing.com/nest/gravity-forms-event-tracking-google-analytics)
+Looking for help setting things up? [Read Our Setup Guide](https://mediaron.com/event-tracking-for-gravity-forms/)
 
 = Minimum Requirements =
-- PHP 5.3+
-- Gravity Forms 1.8.20+
+- Gravity Forms 2.0+
 - Google Analytics Universal Analytics
 - Google Tag Manager (optional)
+- Matomo (formerly Piwik) account (optional)
 
 = Features =
 - Submit events to Google Analytics using the Measurement Protocol, JavaScript, or using Google Tag Manager
+- Submit events using Matomo (formerly Piwik)
 - Add multiple event feeds with conditionals
 - Custom event categories, actions, labels and even values
 - Track form pagination events
@@ -37,22 +43,19 @@ Looking for help setting things up? [Read Our Setup Guide](https://bigwing.com/n
 
 For payment based forms, you can leave the value blank to convert using the total payment amount.
 
-<h3>Help Contribute</h3>
+Development happens on <a href="https://github.com/ronalfy/wordpress-gravity-forms-event-tracking/">GitHub</a>.
 
-* Leave a star rating
-* <a href="https://translate.wordpress.org/projects/wp-plugins/gravity-forms-google-analytics-event-tracking">Contribute a translation</a>
-* <a href="https://github.com/ronalfy/wordpress-gravity-forms-event-tracking">Contribute some code</a>
+> Please <a href="https://wordpress.org/support/plugin/gravity-forms-google-analytics-event-tracking/reviews/#new-post">Rate the Plugin</a> or <a href="https://mediaron.com/give/">Give Back</a> to show support.
 
 == Installation ==
 
 = Minimum Requirements =
-- PHP 5.3+
-- Gravity Forms 1.8.20+
+- Gravity Forms 2.0+
 
 = Using The WordPress Dashboard =
 
 1. Navigate to the 'Add New' in the plugins dashboard
-2. Search for gravity-forms-google-analytics-event-tracking
+2. Search for Event Tracking for Gravity Forms
 3. Click 'Install Now'
 4. Activate the plugin on the Plugin dashboard
 
@@ -76,15 +79,30 @@ For payment based forms, you can leave the value blank to convert using the tota
 
 = How do I track pagination? =
 
-<a href="https://bigwing.com/nest/gravity-forms-event-tracking-google-analytics/pagination/">Read our Guide on Pagination</a>.
+<a href="https://mediaron.com/event-tracking-for-gravity-forms/pagination/">Read our Guide on Pagination</a>.
 
 = How do I track using JavaScript only? =
 
-See <a href="https://bigwing.com/nest/gravity-forms-event-tracking-google-analytics/advanced/">Going Advanced</a>.
+https://www.youtube.com/watch?v=9749XKDOXLw
 
-= Does this work with Google Tag Manager =
 
-Yes. <a href="https://bigwing.com/nest/gravity-forms-event-tracking-google-analytics/google-tag-manager/">Read our Guide on Google Tag Manager</a>.
+See <a href="https://mediaron.com/event-tracking-for-gravity-forms/google-analytics-mode/">Going Advanced</a>.
+
+= Does this work with Google Tag Manager? =
+
+https://www.youtube.com/watch?v=a0Mg5Nw3lxc
+
+Yes. <a href="https://mediaron.com/event-tracking-for-gravity-forms/google-tag-manager/">Read our Guide on Google Tag Manager</a>.
+
+= Can I set values for my form conversions? =
+
+https://www.youtube.com/watch?v=GBFOE1QvQeI
+
+Yes, the video above shows you how. Please note that values can be integers only, so the result may be rounded up or down.
+
+= Can I set a value for pagination? =
+
+Yes, check out <a href="https://github.com/ronalfy/wordpress-gravity-forms-event-tracking#gform_pagination_event_action">our filters on GitHub</a>.
 
 = Are there any filters/hooks? =
 
@@ -92,11 +110,53 @@ Check out the documentation on [github](https://github.com/ronalfy/wordpress-gra
 
 == Screenshots ==
 
-1. The Gravity Forms setting screen where you setup your UA ID.
+1. The Gravity Forms setting screen where you setup your event tracking.
 2. The form settings feed list.
 3. The feed settings page
 
 == Changelog ==
+
+= 2.2.4 =
+* Released 2018-10-02
+* Adding support for custom trackers
+
+= 2.2.2 =
+* Released 2018-08-27
+* Adding support for gtag 
+
+= 2.2.1 =
+* Released 2018-08-23
+* Bug fix: Blank event values were being sent in Google Analytics mode, which resulted in failed conversions
+
+= 2.2.0 =
+* Released 2018-08-19
+* Bug fix: Non-integer values being sent to Google Analytics weren't tracking as conversions
+* Enhancement: Event values are now sent using the Measurement Protocol, Google Tag Manager, Matamo, and Google Analytics
+* Enhancement: Can now set event values to pagination <a href="https://github.com/ronalfy/wordpress-gravity-forms-event-tracking#gform_pagination_event_value">using filters</a>
+* Note: Google only accepts integer values, so total fields and such will be rounded up or down when viewing your conversion reports
+
+= 2.1.1 = 
+* Released 2018-06-22
+* Documentation update
+
+= 2.1.0 =
+* Released 2018-01-10
+* Enhancement: Added Matomo (formerly Piwik) support
+
+= 2.0.9 =
+* Released 2017-11-29
+* Bug fix: added host name to measurement protocol due to filters blocking the conversion.
+* Bug fix: fixed document location using the measurement protocol
+* Bug fix: changed measurement protocol server-to-server call to something less strict to prevent inadvertent blocking on some servers.
+
+= 2.0.7 =
+* Released 2017-11-03
+* Bug fix: events were not being sent using the measurement protocol on some installations
+
+= 2.0.5 =
+* Released 2017-10-17
+* Bug fix: events were not being sent using the measurement protocol
+* Bug fix: fixing various conflicts with PHP7.
 
 = 2.0.3 =
 * Released 2016-09-24
@@ -126,7 +186,7 @@ Check out the documentation on [github](https://github.com/ronalfy/wordpress-gra
 * Bug Fix: Plugin will now trigger events if a UA code is set in the feed but not in the settings
 * Enhancement: Document Path will now be set as part of event creation
 * Enhancement: Measurement protocol updated
-* Enhancement: Measurement protocol will not detect SSL and use the appropriate protocol 
+* Enhancement: Measurement protocol will not detect SSL and use the appropriate protocol
 
 = 1.6.5 =
 * Released 2015-12-11
@@ -195,23 +255,17 @@ Check out the documentation on [github](https://github.com/ronalfy/wordpress-gra
 
 == Upgrade Notice ==
 
-= 2.0.3 = 
-Numerous enhancements, including pagination tracking. See the Changelog for more information.
+= 2.2.4 =
+Adding support for custom trackers
 
-= 2.0.1 =
-Numerous enhancements, including pagination tracking. See the Changelog for more information.
+= 2.2.2 =
+Adding support for gtag
 
-= 1.7.3 =
-Bugfix - Some users were experiencing PHP fatal errors upon form submission. Reverting to previously used library.
+= 2.2.1 =
+Bug fix: Blank event values were being sent in Google Analytics mode, which resulted in failed conversions. Please double-check your conversions after you update.
 
-= 1.7.1 =
-Removing SSL requirement. Needs more testing.
+= 2.2.0 =
+Event values can now be sent using the Measurement Protocol, Google Analytics, Google Tag Manager, and Matomo. Please double-check your conversions after you update.
 
-= 1.7.0 =
-Updates to measurement protocol. Friendly notices for incompatible PHP versions and no UA codes.
-
-= 1.6.5 =
-Ability to add multiple UA codes in the feed settings
-
-= 1.6.4 =
-WordPress 4.3 compatibility and better internationalization. 
+= 2.1.0 =
+Enhancement: Added Matomo (formerly Piwik) support

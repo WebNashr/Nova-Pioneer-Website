@@ -61,7 +61,7 @@ abstract class Tribe__Tickets__Cache__Abstract_Cache implements Tribe__Tickets__
 				LEFT JOIN {$wpdb->posts} p
 				ON pm.meta_value = p.ID
 				WHERE p.post_type IN {$post_types}
-				AND pm.meta_key LIKE '_tribe_%_for_event'
+				AND pm.meta_key LIKE '\\_tribe\\_%\\_for\\_event'
 				AND pm.meta_value IS NOT NULL";
 
 		if ( class_exists( 'Tribe__Events__Main' ) ) { // if events are among the supported post types then exclude past events
@@ -74,11 +74,26 @@ abstract class Tribe__Tickets__Cache__Abstract_Cache implements Tribe__Tickets__
 			}
 		}
 
-		$ids = $wpdb->get_col( $query );
 
+		$ids = $wpdb->get_col( $query );
 		$ids = is_array( $ids ) ? $ids : array();
 
-		return $ids;
+		if ( empty( $ids ) ) {
+			return $ids;
+		}
+
+		/**
+		 * The above will fetch posts based on the meta data regardless of the status of the post, however post
+		 * under the status of `trash` or `auto-draft` shouldn't be in the list.
+		 */
+		$ids = implode( ',', $ids );
+		$query = "SELECT DISTINCT(ID) 
+				FROM {$wpdb->posts}
+				WHERE ID IN ({$ids})
+				AND post_status NOT IN ('auto-draft', 'trash')";
+
+		$ids = $wpdb->get_col( $query );
+		return is_array( $ids ) ? $ids : array();
 	}
 
 	/**
@@ -104,14 +119,15 @@ abstract class Tribe__Tickets__Cache__Abstract_Cache implements Tribe__Tickets__
 
 		$query = "SELECT DISTINCT(ID) FROM {$wpdb->posts}
 				WHERE post_type IN {$post_types}
-				AND post_status != 'auto-draft'";
+				AND post_status NOT IN ( 'auto-draft', 'trash' )";
 
 		$posts_with_tickets = $this->posts_with_ticket_types( null, true );
 
-		if ( ! empty( $posts_with_tickets ) ) {
-			$excluded = '(' . implode( ',', $posts_with_tickets ) . ')';
-			$query .= " AND ID NOT IN {$excluded}";
+		if ( ! empty( $posts_with_tickets ) && is_array( $posts_with_tickets ) ) {
+			$excluded = implode( ',', $posts_with_tickets );
+			$query .= " AND ID NOT IN ({$excluded})";
 		}
+
 		$ids = $wpdb->get_col( $query );
 
 		$ids = is_array( $ids ) ? $ids : array();

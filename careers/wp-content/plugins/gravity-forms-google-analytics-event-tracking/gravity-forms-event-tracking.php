@@ -2,15 +2,15 @@
 /**
  * Plugin Name:       Gravity Forms Event Tracking
  * Plugin URI:        https://wordpress.org/plugins/gravity-forms-google-analytics-event-tracking/
- * Description:       Add Google Analytics event tracking to your Gravity Forms with ease.
- * Version:           2.0.3
+ * Description:       Add event tracking to your Gravity Forms with ease using Google Analytics, Tag Manager, or Matomo (formerly Piwik).
+ * Version:           2.2.4
  * Author:            Ronald Huereca
  * Author URI:        https://mediaron.com
  * Text Domain:       gravity-forms-google-analytics-event-tracking
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages
- * Developer Credit:  Nathan Marks
+ * Developer Credit:  Nathan Marks, Kurt Zenisek
  */
 
 // If this file is called directly, abort.
@@ -47,9 +47,9 @@ class GFGAET {
 	 */
 	private function __construct() {
 		load_plugin_textdomain( 'gravity-forms-google-analytics-event-tracking', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-		
+
 		spl_autoload_register( array( $this, 'loader' ) );
-		
+
 		add_action( 'gform_loaded', array( $this, 'gforms_loaded' ) );
 	}
 
@@ -87,7 +87,7 @@ class GFGAET {
 	 * @return string plugin basename
 	 */
 	public static function get_plugin_basename() {
-		return plugin_basename( __FILE__ );	
+		return plugin_basename( __FILE__ );
 	}
 
 	/**
@@ -103,7 +103,7 @@ class GFGAET {
 		$dir = rtrim( plugin_dir_path(__FILE__), '/' );
 		if ( !empty( $path ) && is_string( $path) )
 			$dir .= '/' . ltrim( $path, '/' );
-		return $dir;		
+		return $dir;
 	}
 
 	/**
@@ -123,20 +123,20 @@ class GFGAET {
 
 		// Initialize pagination
 		add_action( 'gform_post_paging', array( $this, 'pagination'), 10, 3 );
-		
+
 		// Initialize whether Ajax is on or off
 		add_filter( 'gform_form_args', array( $this, 'maybe_ajax_only' ), 15, 1 );
 	}
-	
+
 	/**
 	 * Get the Google Analytics UA Code
-	 * 
+	 *
 	 * @since 2.0.0
 	 * @return string/bool Returns string UA code, false otherwise
 	 */
 	public static function get_ua_code() {
 		$gravity_forms_add_on_settings = get_option( 'gravityformsaddon_GFGAET_UA_settings', array() );
-		
+
 		$ua_id = isset( $gravity_forms_add_on_settings[ 'gravity_forms_event_tracking_ua' ] ) ? $gravity_forms_add_on_settings[ 'gravity_forms_event_tracking_ua' ] : false;
 
 		$ua_regex = "/^UA-[0-9]{5,}-[0-9]{1,}$/";
@@ -145,6 +145,20 @@ class GFGAET {
 			return $ua_id;
 		}
 		return false;
+	}
+	
+	/**
+	 * Get the Google Analytics Tracker
+	 *
+	 * @since 2.2.4
+	 * @return string Returns a custom tracker or empty string if not set
+	 */
+	public static function get_ua_tracker() {
+		$gravity_forms_add_on_settings = get_option( 'gravityformsaddon_GFGAET_UA_settings', array() );
+
+		$tracker = isset( $gravity_forms_add_on_settings[ 'gravity_forms_event_tracking_ua_tracker' ] ) ? trim($gravity_forms_add_on_settings[ 'gravity_forms_event_tracking_ua_tracker' ]) : '';
+
+		return $tracker;
 	}
 
 	/**
@@ -164,7 +178,7 @@ class GFGAET {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Checks whether Tag Manager only mode is activated for sending events.
 	 *
@@ -178,6 +192,39 @@ class GFGAET {
 			return false;
 		}
 		if ( 'gtm' == $ga_options[ 'mode' ] ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Check to see if Matomo (formerly Piwik) has been configured
+	 *
+	 * @since 2.1.0
+	 * @return string/bool Returns string UA code, false otherwise
+	 */
+	public static function is_matomo_configured() {
+		$gravity_forms_add_on_settings = get_option( 'gravityformsaddon_GFGAET_UA_settings', array() );
+		if( isset( $gravity_forms_add_on_settings[ 'gravity_forms_event_tracking_matomo_url' ] ) && isset( $gravity_forms_add_on_settings[ 'gravity_forms_event_tracking_matomo_siteid' ] ) ){ // Both the Matomo URL and Site ID have been specified
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	/**
+	 * Checks whether Matomo (formerly Piwik) JavaScript only mode is activated for sending events.
+	 *
+	 * @since 2.1.0
+	 *
+	 * @return bool true if Matomo JavaScript only, false if not
+	 */
+	public static function is_matomo_js_only() {
+		$gravity_forms_add_on_settings = get_option( 'gravityformsaddon_GFGAET_UA_settings', false );
+		if ( ! isset( $gravity_forms_add_on_settings[ 'matomo_mode' ] ) ) {
+			return false;
+		}
+		if ( 'matomo_js' == $gravity_forms_add_on_settings[ 'matomo_mode' ] ) {
 			return true;
 		}
 		return false;
@@ -228,7 +275,8 @@ class GFGAET {
 	public function pagination( $form, $source_page_number, $current_page_number ) {
 		$pagination = GFGAET_Pagination::get_instance();
 		$pagination->paginate( $form, $source_page_number, $current_page_number );
-	}	
+		$pagination->matomo_paginate( $form, $source_page_number, $current_page_number );
+	}
 }
 
 register_activation_hook( __FILE__, array( 'GFGAET', 'check_plugin' ) );

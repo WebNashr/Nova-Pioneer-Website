@@ -1,17 +1,17 @@
 === Easy Updates Manager ===
-Contributors: kidsguide, ronalfy, roary86, bigwing
+Contributors: davidanderson, kidsguide, ronalfy, roary86, bigwing, webulous
 Tags: updates manager, easy updates manager, disable updates manager, disable updates, update control, plugin updates, theme updates, core updates, automatic updates, multisite, logs
-Requires at least: 4.4
-Tested up to: 4.8.1
-Stable tag: 6.4.0
+Requires at least: 4.7
+Tested up to: 4.9
+Stable tag: 7.0.3
 License: GPLv2 or later
 
-Manage all your WordPress updates, including individual updates, automatic updates, logs, and loads more. Also works with WordPress Multisite.
+Manage all your WordPress updates, including individual updates, automatic updates, logs, and loads more. Also works very well with WordPress Multisite.
 
 == Description ==
 Easy Updates Manager is a light yet powerful plugin which enables you to manage all types of updates on your single site install or in WordPress Multisite. With loads of settings making endless possibilities for configuration, Easy Updates Manager is an obvious choice for anyone wanting to take control of their websites updates.
 
-[youtube https://www.youtube.com/watch?v=MmNrNAkCI0g&list=PL7YF6bIhLLz0HzndENZZAdoh2nJBefTeA]
+[youtube https://www.youtube.com/watch?v=UEcS3meVv6g&feature=youtu.be]
 
 = Features Include =
 <ul>
@@ -43,19 +43,11 @@ If you want to contribute to the translation, please go to https://translate.wor
 == Screenshots ==
 1. Single site install settings page location
 2. Multisite install settings page location
-3. Dashboard tab full
-4. Dashboard tab small
-5. Global settings in General tab
-6. Automatic Update settings in General tab
-7. Notification and Miscellaneous settings in Global tab
-8. Enable/Disable updates and automatic updates individually for plugins
-9. Enable/Disable updates and automatic updates individually for themes
-10. Advanced options tab
-11. Help tab
-12. Screen Options
-13. Enable Logs in Advanced options tab
-14. Disable or Clear logs
-15. Logs tab
+3. General Tab with main options
+4. Plugins tab with individual options allowed
+5. Logs feature
+6. Advanced Tab
+
 
 == Installation ==
 <strong>Installing Easy Updates Manager in your WordPress Dashboard</strong> (recommended)
@@ -91,15 +83,19 @@ Go to the General tab in our settings. You can enter a single email address, or 
 = Automatic Updates =
 
 Check out our video on how the automatic updating works in WordPress.
-[youtube https://www.youtube.com/watch?v=V8AWwBc6GrU]
+[youtube https://www.youtube.com/watch?v=Rgj2fAQlxrc]
 
 = How Do I Enable Logging? =
 
-[youtube https://www.youtube.com/watch?v=Z6dPPv8Wttc]
+[youtube https://www.youtube.com/watch?v=jTDgUo3CIrw]
 
 = Does Logging work with Jetpack Manage? =
 
 Not currently.
+
+= Does Easy Updates Manager work with third party plugins and themes? =
+
+Since third party providers use custom update mechanisms, we cannot guarantee that they will work with Easy Updates Manager.
 
 = Additional Information and FAQ =
 
@@ -107,59 +103,63 @@ For additional information and FAQs for Easy Updates Manager check out our <a hr
 
 == Changelog ==
 
+= 7.0.3 - 2018-06-26 = 
+
+* TWEAK: Disabling themes and plugins no longer disables translations.
+* TWEAK: Dashboard notices about other plugins of potential interest now only show on the Easy Updates Manager pages
+
+= 7.0.2 - 2018-06-18 =
+
+* TWEAK: Make all settings tabs work via ajax calls
+* TWEAK: Show and hide logs tab upon enable and disable
+* TWEAK: Add admin notices for insufficient php and wp versions
+* TWEAK: Remove flexbox mixin
+* TWEAK: Adding survey notice
+* TWEAK: Auto refresh page after force updates
+* TWEAK: Prevent users from excluding themselves
+
+= 7.0.1 - 2018-03-05 =
+
+* FIX: Enabling Log from Advanced tab does not use default options
+* FIX: Plugin settings page is not accessible for excluded users
+* TWEAK: Changed settings page to use admin-ajax.php instead of REST API
+* TWEAK: Reduced database queries for saving settings options
+* TWEAK: Removed the usage tracking code (which was always explicit opt-in)
+* TWEAK: Add Welcome dashboard and notices
+
+= 7.0.0 - 2018-01-28 =
+
+* Admin UI overhaul based on past data. It is now very obvious which settings are enabled. Thanks for all the feedback.
+
+= 6.4.8 =
+Released 2017-11-24
+
+* Fixing plugin and theme tab CSS issues.
+
+= 6.4.7 =
+Released 2017-11-24
+
+* Fixing theme tab style issue.
+
+= 6.4.6 =
+Released 2017-11-24
+
+* Added icons to the plugins and themes screen to align it with WordPress 4.9.
+
+= 6.4.4 =
+Released 2017-11-07
+
+* Removed wizard. It was annoying too many people. A better admin UI may help with this.
+* Bug fix: tracking could not be disabled if you enabled it, and Reset All Options. Tracking be disabled under the Advanced Tab.
+* Enhancement: Logs now show a From (version) and a To (version) to satisfy a user feature request and will hopefully make logs that more useful.
+
 = 6.4.0 =
 Released 2017-08-01
 
 * New wizard for new users of the plugin. Automatic updates are recommended by default.
 
-= 6.3.3 =
-Released 2017-07-26
-
-= 6.3.1 =
-Released 2017-07-06
-
-* Hot fix: Yoast SEO conflict with Babel Polyfill dependency resulting in empty EUM Dashboard. We have restructured our JavaScript build dependencies to minimize this occurring again. 
-* Bug fix: Allow white space after comma in email field. Props <a href="https://github.com/nicomollet">Nico Mollet</a>.
-
-= 6.3.0 =
-Released 2017-02-21
-
-* Enhancement: new React-powered Dashboard to make configuring the plugin as intuitive and easy as possible
-
-= 6.2.11 =
-Released 2017-02-13
-
-* Bug fix: Manual logs only logging one plugin update even if there are multiple
-
-= 6.2.9 =
-Released 2016-12-07
-
-* Bug fix: Manual logs not logging plugin or theme updates
-
-= 6.2.7 =
-Released 2016-12-01
-
-* Bug fix: Saving general settings disables logs
-* Logs now out of beta. Woo hoo!
-
-
 For past changelogs, please visit our <a href="https://github.com/easy-updates-manager/easy-updates-manager/releases">GitHub</a>.
 
 == Upgrade Notice ==
+* 7.0.3: Dashboard notices were appearing on pages where they were not intended to appear
 
-= 6.4.0 =
-
-New wizard for new users of the plugin. Automatic updates are recommended by default.
-
-= 6.3.0 =
-
-Enhancement: new React-powered Dashboard to make configuring the plugin as intuitive and easy as possible
-
-= 6.2.11 =
-Bug fix: Manual logs only logging one plugin update even if there are multiple
-
-= 6.2.9 =
-Bug fix: manual log updates not working with 4.7
-
-= 6.2.7 =
-Bug fix: logs disabled when general settings updated
