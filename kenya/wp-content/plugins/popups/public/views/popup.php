@@ -71,4 +71,4 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
 </div>
 <!-- / Popups Box -->
 <?php
-do_action( 'spu/popup/after_popup', $box, $opts, $css);
+// do_action( 'spu/popup/after_popup', $box, $opts, $css);

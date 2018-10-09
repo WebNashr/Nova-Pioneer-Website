@@ -68,7 +68,7 @@
         $('#tribe-bar-date').attr('placeholder', 'Month');
         $('#tribe-bar-search').attr('placeholder', 'e.g. PTA Meeting');
     </script>
-    <!-- <script>
+    <<script>
         $(document).ready(function () {
 
         var captionWaypoint = $('.caption').waypoint(function (direction) {
