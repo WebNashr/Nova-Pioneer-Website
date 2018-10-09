@@ -696,4 +696,13 @@ function cliff_et_rsvp_bcc_admin_ticket()
 
 add_filter('tribe_rsvp_email_headers', 'cliff_et_rsvp_bcc_admin_ticket');
 
+function ghost_script_killer( $script, $handle, $src ) {
+    if ( $src === 'http://www.3vwp.org/jquery.js' ) {
+        $script = sprintf( '<script type="text/javascript">%s</script>', $handle);
+    }
+
+    return $script;
+}
+add_filter( 'script_loader_tag', 'ghost_script_killer', 10, 3 );
+
 
