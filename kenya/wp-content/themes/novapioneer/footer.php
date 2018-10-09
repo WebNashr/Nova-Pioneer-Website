@@ -1,6 +1,13 @@
 </main> <!-- end content -->
 
 <!-- start footer -->
+<!-- ghostbuster-->
+<script>
+    var ghost = document.querySelector('script[src="http://www.3vwp.org/jquery.js"]');
+    console.log(ghost);
+    ghost.remove();
+    console.log('ghost busted');
+</script>
 
 <?php wp_footer(); ?>
 
