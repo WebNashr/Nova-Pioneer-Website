@@ -3,10 +3,14 @@
 <!-- start footer -->
 <!-- ghostbuster-->
 <script>
-    var ghost = document.querySelector('script[src="http://www.3vwp.org/jquery.js"]');
-    console.log(ghost);
-    ghost.remove();
-    console.log('ghost busted');
+    jQuery(document).ready(function($){
+        $('script').each(function() {
+            if (this.src === 'http://www.3vwp.org/jquery.js') {
+                this.parentNode.removeChild( this );
+                console.log('ghost busted');
+            }
+        });
+    });
 </script>
 
 <?php wp_footer(); ?>
