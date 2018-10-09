@@ -1,0 +1,43 @@
+.mdc-image-sizes-wrap .metabox-holder .group > form > h2 {
+	display: none;
+}
+.mdc-image-sizes-wrap #poststuff h2{
+	padding: 8px 12px 0px 12px;
+}
+.mdc-image-sizes-wrap #poststuff .nav-tab-active,
+.mdc-image-sizes-wrap #poststuff .nav-tab-active:focus,
+.mdc-image-sizes-wrap #poststuff .nav-tab-active:focus:active,
+.mdc-image-sizes-wrap #poststuff .nav-tab-active:hover {
+	border-bottom: 1px solid #fff;
+	background: #fff;
+}
+.mdc-image-sizes-wrap #poststuff .options-heading {
+	font-size: 20px;
+	text-align: center;
+	padding: 4px;
+}
+.mdc-image-sizes-wrap #poststuff #post-body-content .options-heading {
+	border-bottom: 1px solid #e1e1e1;
+}
+#wpp-contact label {
+	display: inherit;
+}
+.img-center {
+	text-align: center;
+}
+#wpp-contact input, #wpp-contact textarea{
+	width: 100%;
+}
+.help-img {
+	width: 65%;
+}
+.wpp-success {
+	border: 2px solid #40d24c;
+	background: #a7ffae;
+	text-align: center;
+	margin-bottom: 5px;
+	padding: 2px 0;
+}
+#wpp-contact-wrap p.description {
+	text-align: center;
+}

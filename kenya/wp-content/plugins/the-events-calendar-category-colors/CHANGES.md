@@ -1,5 +1,56 @@
 #### [unreleased]
 
+#### 5.3.0 / 2018-08-03
+* fixed widget CSS
+* move list CSS to `class Extras`
+* fixed week CSS
+* load stylesheet all the time, more efficient as external file
+* updated `class Main` to `use Tribe__Events__Main` can now use `Tribe__Events__Main::TAXONOMY`
+* refactor setup of ignored terms and term data
+* add `border-right` to featured events
+* updated validation code upon saving options
+* use `wp_upload_url()` to for stylesheet to accomodate user directory preferences
+* set SSL corrected URLs for `wp_upload_url()`, <https://core.trac.wordpress.org/ticket/25449>
+
+#### 5.2.2 / 2018-07-28
+* fixed to create CSS when files don't exist
+
+#### 5.2.1 / 2018-07-28
+* cleanup old CSS files
+
+#### 5.2.0 / 2018-07-28
+* write standard and minified CSS to files
+* load minified CSS when WP_DEBUG is false
+* improve minify code
+* update CSS selectors for list view
+* refactor CSS strings for inline format
+
+#### 5.1.0 / 2018-07-21
+* update for new tooltip title as `h3`
+* added some functions for adding deprecated CSS
+* added function `Extras::override_customizer()` for when _Customizer_ settings need to be overridden
+
+#### 5.0.1 / 2018-04-06
+* needed a space between CSS parameters, PhpStorm reformat code error
+
+#### 5.0.0 / 2018-03-19
+* add `Default` as text color option which removes CSS color tag
+* Settings will need to be re-saved due to the new settings options
+
+#### 4.7.0 / 2018-03-10
+* updated autoloader
+* no longer add CSS for transparency, allows for minimal overlapping styles
+
+#### 4.6.11 / 2017-12-17
+* simplify check for shortcodes
+
+#### 4.6.10 / 2017-11-23
+* fix regex to [correctly parse nested shortcodes](https://wordpress.org/support/topic/using-the-events-calendar-pro-shortcodes-within-visual-composer/)
+
+#### 4.6.9 / 2017-11-19
+* fixed PHP Notices when hide setting selected
+* update mobile CSS to override `display:none` in TEC mobile CSS
+
 #### 4.6.8 / 2017-07-28
 * fixed PHP Notice with more specific test of WP_POST
 * fixed text color for featured events [#79](https://github.com/afragen/the-events-calendar-category-colors/issues/79)
@@ -25,7 +76,7 @@
 * graceful failure if The Events Calendar is not active
 
 #### 4.6.2 / 2017-01-20
-* added CSS selector to override Customizer month view 
+* added CSS selector to override Customizer month view
 
 #### 4.6.1 / 2017-01-19
 * added filters and functions to provide WPML compatibility thanks @jvier for testing

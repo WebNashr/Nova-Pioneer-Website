@@ -238,9 +238,24 @@ if ( ! function_exists( 'tribe_tickets_buy_button' ) ) {
 					$button_anchor = '#buy-tickets';
 				}
 
-				$button = '<form method="get" action="' . esc_url( get_the_permalink( $event_id ) . $button_anchor ) . '">'
-					. '<button type="submit" name="tickets_process" class="tribe-button">' . $button_label . '</button>'
-					. '</form>';
+				$permalink = get_the_permalink( $event_id );
+				$query_string = parse_url( $permalink, PHP_URL_QUERY );
+				$query_params = empty( $query_string ) ? array() : (array) explode( '&', $query_string );
+
+				$button = '<form method="get" action="' . esc_url( $permalink . $button_anchor ) . '">';
+
+				// Add any query attribute as a hidden input as the action of the form is GET
+				foreach ( $query_params as $param ) {
+					$parts = explode( '=', $param );
+
+					// a query string must be 2 parts only a name and a value
+					if ( is_array( $parts ) && 2 === count( $parts ) ) {
+						list( $name, $value ) = $parts;
+						$button .= '<input type="hidden" name="' . esc_attr( $name ) . '" value="' . esc_attr( $value ) . '">';
+					}
+				}
+
+				$button	.= '<button type="submit" name="tickets_process" class="tribe-button">' . $button_label . '</button></form>';
 
 				$parts[ $type . '-button' ] = $html['button'] = $button;
 			}
@@ -337,17 +352,7 @@ if ( ! function_exists( 'tribe_events_ticket_is_on_sale' ) ) {
 			return true;
 		}
 
-		// Timestamps for comparison purposes
-		$now    = current_time( 'timestamp' );
-		$start  = strtotime( $ticket->start_date );
-		$finish = strtotime( $ticket->end_date );
-
-		// Are we within the applicable date range?
-		$has_started = ( empty( $ticket->start_date ) || ( $start && $now > $start ) );
-		$not_ended   = ( empty( $ticket->end_date ) || ( $finish && $now < $finish ) );
-
-		// Result
-		return ( $has_started && $not_ended );
+		return $ticket->date_in_range( 'now' );
 	}
 }//end if
 
@@ -379,63 +384,68 @@ if ( ! function_exists( 'tribe_tickets_get_ticket_stock_message' ) ) {
 	 * @return string
 	 */
 	function tribe_tickets_get_ticket_stock_message( Tribe__Tickets__Ticket_Object $ticket ) {
-
-		$stock        = $ticket->stock();
-		$sold         = $ticket->qty_sold();
-		$cancelled    = $ticket->qty_cancelled();
-		$pending      = $ticket->qty_pending();
 		$event        = Tribe__Tickets__Tickets::find_matching_event( $ticket );
 		$global_stock = new Tribe__Tickets__Global_Stock( $event->ID );
 
-		$is_global = Tribe__Tickets__Global_Stock::GLOBAL_STOCK_MODE === $ticket->global_stock_mode();
-		$is_capped = Tribe__Tickets__Global_Stock::CAPPED_STOCK_MODE === $ticket->global_stock_mode();
+		$stock        = $ticket->stock();
+		$available    = $ticket->available();
+		$sold         = (int) $ticket->qty_sold();
+
+		/**
+		 * Allows filtering the available number that will be displayed.
+		 *
+		 * @since 4.7
+		 *
+		 * @param int                           $available
+		 * @param Tribe__Tickets__Ticket_Object $ticket
+		 * @param int                           $sold
+		 * @param int                           $stock
+		 */
+		$available = apply_filters( 'tribe_tickets_stock_message_available_quantity', $available, $ticket, $sold, $stock );
+
+		$cancelled     = (int) $ticket->qty_cancelled();
+		$pending       = (int) $ticket->qty_pending();
+		$refunded      = (int) $ticket->qty_refunded();
+		$status        = '';
+		$status_counts = array();
+
+		$is_global = Tribe__Tickets__Global_Stock::GLOBAL_STOCK_MODE === $ticket->global_stock_mode() && $global_stock->is_enabled();
+		$is_capped = Tribe__Tickets__Global_Stock::CAPPED_STOCK_MODE === $ticket->global_stock_mode() && $global_stock->is_enabled();
 		$stock_cap = $ticket->global_stock_cap();
 
-		// If ticket sales are capped, do not suggest that more than the cap amount are available
-		if ( $is_capped && $stock > $stock_cap ) {
-			$stock = $stock_cap;
-		}
+		$event_cap  = tribe_tickets_get_capacity( $event->ID );
+		$ticket_cap = tribe_tickets_get_capacity( $ticket->ID );
 
-		// If it is a global-stock ticket but the global stock level has not yet been set for the event
-		// then return something better than just '0' as the available stock
-		if ( $is_global && 0 === $stock && ! $global_stock->is_enabled() ) {
-			$stock = '<i>' . __( 'global inventory', 'event-tickets' ) . '</i>';
-		}
-
-		$sold_label = __( 'Sold', 'event-tickets' );
+		$sold_label = __( 'issued', 'event-tickets' );
 		if ( 'Tribe__Tickets__RSVP' === $ticket->provider_class ) {
 			$sold_label = _x( 'RSVP\'d Going', 'separate going and remain RSVPs', 'event-tickets' );
 		}
 
-		// There may not be a fixed inventory - in which case just report the number actually sold so far
-		if ( empty( $stock ) && $stock !== 0 ) {
-			$message = sprintf( esc_html__( '%s %d', 'event-tickets' ), esc_html( $sold_label ), esc_html( $sold ) );
-		} // If we do have a fixed stock then we can provide more information
-		else {
-			$status = '';
-
-			if ( $is_global && 0 < $stock && $global_stock->is_enabled() ) {
-				$status_counts[] = sprintf( _x( '%1$d Remaining of the global stock', 'ticket global stock message (remaining stock)', 'event-tickets' ), (int) $stock );
+		// Base message
+		if ( 0 !== $sold ) {
+			if ( -1 === $available ) {
+				$status_counts[] = sprintf( esc_html__( '%s %d', 'event-tickets' ), esc_html( $sold_label ), esc_html( $sold ) );
+			} elseif ( $is_global ) {
+				$status_counts[] = sprintf( _x( '%1$d available of shared capacity', 'ticket shared capacity message (remaining stock)', 'event-tickets' ), tribe_tickets_get_readable_amount( $available ) );
 			} else {
-				$status_counts[] = sprintf( _x( '%1$d Remaining', 'ticket stock message (remaining stock)', 'event-tickets' ), (int) $stock );
+				// It's "own stock". We use the $stock value
+				$status_counts[] = sprintf( _x( '%1$d available', 'ticket stock message (remaining stock)', 'event-tickets' ), tribe_tickets_get_readable_amount( $available ) );
 			}
+		}
 
-			$status_counts[] = $pending < 1 ? false : sprintf( _x( '%1$d Awaiting Review', 'ticket stock message (pending stock)', 'event-tickets' ), (int) $pending );
-
-			$status_counts[] = empty( $cancelled ) ? false : sprintf( _x( '%1$d Cancelled', 'ticket stock message (cancelled stock)', 'event-tickets' ), (int) $cancelled );
-
+		if ( ! empty( $status_counts ) ) {
 			//remove empty values and prepare to display if values
 			$status_counts = array_diff( $status_counts, array( '' ) );
 			if ( array_filter( $status_counts ) ) {
 				$status = sprintf( ' (%1$s)', implode( ', ', $status_counts ) );
 			}
-
-			$message = sprintf( '%1$d %2$s%3$s', absint( $sold ), esc_html( $sold_label ), esc_html( $status ) );
 		}
+
+		$message = sprintf( '%1$d %2$s%3$s', absint( $sold ), esc_html( $sold_label ), esc_html( $status ) );
 
 		return $message;
 	}
-}//end if
+}
 
 /**
  * Returns or echoes a url to a file in the Event Tickets plugin resources directory
@@ -706,4 +716,258 @@ if ( ! function_exists( 'tribe_tickets_has_meta_fields' ) ) {
 	function tribe_tickets_has_meta_fields( $id, $context = null ) {
 		return tribe( 'tickets.data_api' )->ticket_has_meta_fields( $id, $context );
 	}
+}
+
+/**
+ * Updates a given Object Capacity
+ *
+ * @since  4.6.2
+ *
+ * @param  int  $object  Post We are trying to save capacity
+ *
+ * @return int|false
+ */
+function tribe_tickets_delete_capacity( $object ) {
+
+	if ( ! $object instanceof WP_Post ) {
+		$object = get_post( $object );
+	}
+
+	if ( ! $object instanceof WP_Post ) {
+		return false;
+	}
+
+	$deleted = delete_post_meta( $object->ID, tribe( 'tickets.handler' )->key_capacity );
+
+	if ( ! $deleted ) {
+		return $deleted;
+	}
+
+	// We only apply these when we are talking about event-like posts
+	if ( tribe_tickets_post_type_enabled( $object->post_type ) ) {
+		$shared_cap_object = new Tribe__Tickets__Global_Stock( $object->ID );
+		$shared_cap_object->disable();
+
+		// This is mostly to make sure
+		delete_post_meta( $object->ID, Tribe__Tickets__Global_Stock::GLOBAL_STOCK_LEVEL );
+		delete_post_meta( $object->ID, Tribe__Tickets__Global_Stock::TICKET_STOCK_MODE );
+		delete_post_meta( $object->ID, Tribe__Tickets__Global_Stock::TICKET_STOCK_CAP );
+	}
+
+	return $deleted;
+}
+
+/**
+ * Updates a given Object Capacity
+ *
+ * @since  4.6.2
+ *
+ * @param  int|WP_Post|Tribe__Tickets__Ticket_Object  $object   Post We are trying to save capacity
+ * @param  int  $capacty  How much we are trying to update the capacity to
+ *
+ * @return int|false
+ */
+function tribe_tickets_update_capacity( $object, $capacity ) {
+	if ( ! is_numeric( $capacity ) ) {
+		return false;
+	}
+
+	if ( ! $object instanceof WP_Post ) {
+		$object = get_post( $object );
+	}
+
+	if ( ! $object instanceof WP_Post ) {
+		return false;
+	}
+
+	// Do the actual Updating of the Meta value
+	return update_post_meta( $object->ID, tribe( 'tickets.handler' )->key_capacity, $capacity );
+}
+
+/**
+ * Returns the capacity for a given Post
+ *
+ * @since  4.6
+ *
+ * @param  int  $post  Post We are trying to fetch capacity
+ *
+ * @return int|null
+ */
+function tribe_tickets_get_capacity( $post ) {
+	// When not dealing with a Instance of Post try to set it up
+	if ( ! $post instanceof WP_Post ) {
+		$post = get_post( $post );
+	}
+
+	// Bail when it's not a post or ID is 0
+	if ( ! $post instanceof WP_Post || 0 === $post->ID ) {
+		return null;
+	}
+
+	$event_types = Tribe__Tickets__Main::instance()->post_types();
+	$key = tribe( 'tickets.handler' )->key_capacity;
+
+	// When we have a legacy ticket we migrate it
+	if ( ! in_array( $post->post_type, $event_types ) && tribe( 'tickets.version' )->is_legacy( $post->ID ) ) {
+		$legacy_capacity = tribe( 'tickets.handler' )->filter_capacity_support( null, $post->ID, $key );
+
+		// Cast as integer as it might be returned as numeric string on some cases
+		return (int) $legacy_capacity;
+	}
+
+	// Defaults to the ticket ID
+	$post_id = $post->ID;
+
+	// Return Null for when we don't have the Capacity Data
+	if ( ! metadata_exists( 'post', $post->ID, $key ) ) {
+		$mode = get_post_meta( $post->ID, Tribe__Tickets__Global_Stock::TICKET_STOCK_MODE, true );
+		$shared_modes = array( Tribe__Tickets__Global_Stock::CAPPED_STOCK_MODE, Tribe__Tickets__Global_Stock::GLOBAL_STOCK_MODE );
+
+		// When we are in a Ticket Post Type update where we get the value from Event
+		if (
+			! in_array( $post->post_type, $event_types )
+			&& in_array( $mode, $shared_modes )
+		) {
+			$event_id = tribe_tickets_get_event_ids( $post->ID );
+
+			// It will return an array of Events
+			if ( ! empty( $event_id ) ) {
+				$post_id = current( $event_id );
+			}
+		} else {
+			return null;
+		}
+	}
+
+	// Fetch the value
+	$value = get_post_meta( $post_id, $key, true );
+
+	// When dealing with an empty string we assume it's unlimited
+	if ( '' === $value ) {
+		$value = -1;
+	}
+
+	return (int) $value;
+}
+
+/**
+ * Turns a Stock, Remaining or Capacity into a Human Readable Format
+ *
+ * @since  4.6
+ *
+ * @param  string|int $number Which you are tring to convert
+ * @param  string     $mode   Mode this post is on
+ *
+ * @return string
+ */
+function tribe_tickets_get_readable_amount( $number, $mode = 'own', $display = false ) {
+	$html = array();
+
+	$show_parens = Tribe__Tickets__Global_Stock::GLOBAL_STOCK_MODE === $mode || Tribe__Tickets__Global_Stock::CAPPED_STOCK_MODE === $mode;
+	if ( $show_parens ) {
+		$html[] = '(';
+	}
+
+	if ( -1 === (int) $number || Tribe__Tickets__Ticket_Object::UNLIMITED_STOCK === $number ) {
+		$html[] = esc_html( tribe( 'tickets.handler' )->unlimited_term );
+	} else {
+		$html[] = esc_html( $number );
+	}
+
+	if ( $show_parens ) {
+		$html[] = ')';
+	}
+
+	$html = implode( '', $html );
+
+	if ( true === $display ) {
+		echo $html;
+	}
+
+	return $html;
+}
+
+/**
+ * Checks if the specified user (defaults to currently-logged-in user) belongs to any active
+ * WooCommerce Membership plans, *and* if the specified ticket (by ticket ID) has any active
+ * member discounts applied to it. It may not be the user's membership plan specifically, so this
+ * template tag *may* produce some false positives.
+ *
+ * @since 4.7.3
+ *
+ * @param int $ticket_id
+ * @param int $user_id
+ * @return boolean
+ */
+function tribe_tickets_ticket_in_wc_membership_for_user( $ticket_id, $user_id = 0 ) {
+
+	if (
+		! function_exists( 'wc_memberships_get_user_active_memberships' ) ||
+		! function_exists( 'wc_memberships_product_has_member_discount' )
+	) {
+		return false;
+	}
+
+	$user_id = 0 ? get_current_user_id() : $user_id;
+
+	$user_is_member             = wc_memberships_get_user_active_memberships( $user_id );
+	$ticket_has_member_discount = wc_memberships_product_has_member_discount( $ticket_id );
+
+	return $user_is_member && $ticket_has_member_discount;
+}
+
+/**
+ * Builds and returns the correct ticket repository.
+ *
+ * @since 4.8
+ *
+ * @param string $repository The slug of the repository to build/return.
+ *
+ * @return Tribe__Repository__Interface
+ */
+function tribe_tickets( $repository = 'default' ) {
+	$map = array(
+		'default' => 'tickets.ticket-repository',
+		'restv1'  => 'tickets.rest-v1.ticket-repository',
+	);
+
+	/**
+	 * Filters the map relating ticket repository slugs to service container bindings.
+	 *
+	 * @since 4.8
+	 *
+	 * @param array  $map        A map in the shape [ <repository_slug> => <service_name> ]
+	 * @param string $repository The currently requested implementation.
+	 */
+	$map = apply_filters( 'tribe_tickets_ticket_repository_map', $map, $repository );
+
+	return tribe( Tribe__Utils__Array::get( $map, $repository, $map['default'] ) );
+}
+
+/**
+ * Builds and returns the correct attendee repository.
+ *
+ * @since 4.8
+ *
+ * @param string $repository The slug of the repository to build/return.
+ *
+ * @return Tribe__Repository__Interface
+ */
+function tribe_attendees( $repository = 'default' ) {
+	$map = array(
+		'default' => 'tickets.attendee-repository',
+		'restv1'  => 'tickets.rest-v1.attendee-repository',
+	);
+
+	/**
+	 * Filters the map relating attendee repository slugs to service container bindings.
+	 *
+	 * @since 4.8
+	 *
+	 * @param array  $map        A map in the shape [ <repository_slug> => <service_name> ]
+	 * @param string $repository The currently requested implementation.
+	 */
+	$map = apply_filters( 'tribe_tickets_attendee_repository_map', $map, $repository );
+
+	return tribe( Tribe__Utils__Array::get( $map, $repository, $map['default'] ) );
 }

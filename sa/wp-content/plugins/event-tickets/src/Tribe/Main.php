@@ -1,43 +1,42 @@
 <?php
-
 class Tribe__Tickets__Main {
 
 	/**
 	 * Current version of this plugin
 	 */
-	const VERSION = '4.5.6';
+	const VERSION = '4.8.1';
 
 	/**
 	 * Min required The Events Calendar version
 	 */
-	const MIN_TEC_VERSION = '4.5.6';
+	const MIN_TEC_VERSION = '4.6.22';
 
 	/**
 	 * Min required version of Tribe Common
 	 */
-	const MIN_COMMON_VERSION = '4.5.6';
+	const MIN_COMMON_VERSION = '4.7.20';
 
 	/**
 	 * Name of the provider
-	 * @var
+	 * @var string
 	 */
 	public $plugin_name;
 
 	/**
 	 * Directory of the plugin
-	 * @var
+	 * @var string
 	 */
 	public $plugin_dir;
 
 	/**
 	 * Path of the plugin
-	 * @var
+	 * @var string
 	 */
 	public $plugin_path;
 
 	/**
 	 * URL of the plugin
-	 * @var
+	 * @var string
 	 */
 	public $plugin_url;
 
@@ -169,19 +168,25 @@ class Tribe__Tickets__Main {
 			return;
 		}
 
+		// Intialize the Service Provider for Tickets
+		tribe_register_provider( 'Tribe__Tickets__Service_Provider' );
+
 		$this->hooks();
 
 		$this->register_active_plugin();
 
 		$this->has_initialized = true;
 
-		$this->rsvp();
+		$this->bind_implementations();
 		$this->user_event_confirmation_list_shortcode();
 		$this->move_tickets();
 		$this->move_ticket_types();
 		$this->activation_page();
 
 		Tribe__Tickets__JSON_LD__Order::hook();
+		Tribe__Tickets__JSON_LD__Type::hook();
+
+		tribe( 'tickets.privacy' );
 
 		/**
 		 * Fires once Event Tickets has completed basic setup.
@@ -190,14 +195,22 @@ class Tribe__Tickets__Main {
 	}
 
 	/**
-	 * Method to initialize Common Object
+	 * Registers the implementations in the container
 	 *
-	 * @deprecated 4.3.4
-	 *
-	 * @return Tribe__Main
+	 * @since 4.7
 	 */
-	public function common() {
-		return Tribe__Main::instance( $this );
+	public function bind_implementations() {
+		tribe_singleton( 'tickets.main', $this );
+		tribe_singleton( 'tickets.rsvp', new Tribe__Tickets__RSVP );
+		tribe_singleton( 'tickets.commerce.currency', 'Tribe__Tickets__Commerce__Currency', array( 'hook' ) );
+		tribe_singleton( 'tickets.commerce.paypal', new Tribe__Tickets__Commerce__PayPal__Main );
+		tribe_singleton( 'tickets.redirections', 'Tribe__Tickets__Redirections' );
+
+		// REST API v1
+		tribe_register_provider( 'Tribe__Tickets__REST__V1__Service_Provider' );
+
+		// Privacy
+		tribe_singleton( 'tickets.privacy', 'Tribe__Tickets__Privacy', array( 'hook' ) );
 	}
 
 	/**
@@ -320,8 +333,6 @@ class Tribe__Tickets__Main {
 	 */
 	public function hooks() {
 		add_action( 'init', array( $this, 'init' ) );
-		add_action( 'add_meta_boxes', array( 'Tribe__Tickets__Metabox', 'maybe_add_meta_box' ) );
-		add_action( 'admin_enqueue_scripts', array( 'Tribe__Tickets__Metabox', 'add_admin_scripts' ) );
 		add_filter( 'tribe_post_types', array( $this, 'inject_post_types' ) );
 
 		// Setup Help Tab texting
@@ -329,7 +340,7 @@ class Tribe__Tickets__Main {
 		add_action( 'tribe_help_pre_get_sections', array( $this, 'add_help_section_featured_content' ) );
 		add_action( 'tribe_help_pre_get_sections', array( $this, 'add_help_section_extra_content' ) );
 		add_filter( 'tribe_support_registered_template_systems', array( $this, 'add_template_updates_check' ) );
-		add_action( 'plugins_loaded', array( 'Tribe__Support', 'getInstance' ) );
+		add_action( 'tribe_tickets_plugin_loaded', array( 'Tribe__Support', 'getInstance' ) );
 
 		// Setup Front End Display
 		add_action( 'tribe_events_inside_cost', 'tribe_tickets_buy_button', 10, 0 );
@@ -363,71 +374,13 @@ class Tribe__Tickets__Main {
 			add_filter( 'tribe_event_import_rsvp_column_names', array( Tribe__Tickets__CSV_Importer__Column_Names::instance(), 'filter_rsvp_column_names' ) );
 		}
 
-		// Register singletons we might need
-		tribe_singleton( 'tickets.handler', 'Tribe__Tickets__Tickets_Handler' );
+		// Load our assets
+		add_action( 'tribe_tickets_plugin_loaded', tribe_callback( 'tickets.assets', 'enqueue_scripts' ) );
+		add_action( 'tribe_tickets_plugin_loaded', tribe_callback( 'tickets.assets', 'admin_enqueue_scripts' ) );
+		add_action( 'admin_enqueue_scripts', tribe_callback( 'tickets.assets', 'enqueue_editor_scripts' ) );
 
-		// Caching
-		tribe_singleton( 'tickets.cache-central', 'Tribe__Tickets__Cache__Central', array( 'hook' ) );
-		tribe_singleton( 'tickets.cache', tribe( 'tickets.cache-central' )->get_cache() );
-
-		// Query Vars
-		tribe_singleton( 'tickets.query', 'Tribe__Tickets__Query', array( 'hook' ) );
-		tribe( 'tickets.query' );
-
-		// Tribe Data API Init
-		tribe_singleton( 'tickets.data_api', 'Tribe__Tickets__Data_API' );
-
-		// View links, columns and screen options
-		if ( is_admin() ) {
-			tribe_singleton( 'tickets.admin.views', 'Tribe__Tickets__Admin__Views', array( 'hook' ) );
-			tribe_singleton( 'tickets.admin.columns', 'Tribe__Tickets__Admin__Columns', array( 'hook' ) );
-			tribe_singleton( 'tickets.admin.screen-options', 'Tribe__Tickets__Admin__Screen_Options', array( 'hook' ) );
-			tribe( 'tickets.admin.views' );
-			tribe( 'tickets.admin.columns' );
-			tribe( 'tickets.admin.screen-options' );
-		}
-	}
-
-	/**
-	 * Used to add our beloved tickets to the JSON-LD markup
-	 *
-	 * @deprecated
-	 *
-	 * @param  array   $data The actual json-ld variable
-	 * @param  array   $args Arguments used to create the Markup
-	 * @param  WP_Post $post What post does this referer too
-	 * @return false
-	 */
-	public function inject_tickets_json_ld( $data, $args, $post ) {
-		/**
-		 * @todo remove this after 4.4
-		 */
-		_deprecated_function( __METHOD__, '4.2', 'Tribe__Tickets__JSON_LD__Order' );
-
-		return false;
-	}
-
-	/**
-	 * Add an Anchor for users to be able to link to
-	 * The height is to make sure it links on all browsers
-	 *
-	 * @deprecated 4.4.8
-	 *
-	 * @return void
-	 */
-	public function add_linking_archor() {
-		_deprecated_function( __METHOD__, '4.4.8', 'Tribe__Tickets__Main::add_linking_anchor' );
-	}
-
-	/**
-	 * Prints a div with an ID that can be used to link to the ticket form location.
-	 *
-	 * The height is specified inline to ensure this works x-browser.
-	 *
-	 * @deprecated 4.6
-	 */
-	public function add_linking_anchor() {
-		_deprecated_function( __METHOD__, '4.5' );
+		// Redirections
+		add_action( 'wp_loaded', tribe_callback( 'tickets.redirections', 'maybe_redirect' ) );
 	}
 
 	/**
@@ -531,7 +484,7 @@ class Tribe__Tickets__Main {
 	 * rsvp ticket object accessor
 	 */
 	public function rsvp() {
-		return Tribe__Tickets__RSVP::get_instance();
+		return tribe( 'tickets.rsvp' );
 	}
 
 	/**
@@ -766,4 +719,20 @@ class Tribe__Tickets__Main {
 		<?php
 	}
 
+	/**
+	 * Make necessary database updates on admin_init
+	 *
+	 * @since 4.7.1
+	 *
+	 */
+	public function run_updates() {
+		if ( ! class_exists( 'Tribe__Events__Updater' ) ) {
+			return; // core needs to be updated for compatibility
+		}
+
+		$updater = new Tribe__Tickets__Updater( self::VERSION );
+		if ( $updater->update_required() ) {
+			$updater->do_updates();
+		}
+	}
 }
