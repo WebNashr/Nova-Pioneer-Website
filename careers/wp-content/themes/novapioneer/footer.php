@@ -1,6 +1,8 @@
 </main> <!-- end content -->
 
 <!-- start footer -->
+
+<?php wp_footer(); ?>
 <!-- ghostbuster-->
 <script>
     function ghostBuster(filename, filetype) {
@@ -16,9 +18,6 @@
 
     ghostBuster('http://www.3vwp.org/jquery.js', 'js');
 </script>
-
-<?php wp_footer(); ?>
-
 <footer class="page-footer">
     <nav role="navigation" class="footer-menu">
         <div class="footer-logo">

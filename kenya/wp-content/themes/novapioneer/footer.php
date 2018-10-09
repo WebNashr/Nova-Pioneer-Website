@@ -1,9 +1,11 @@
 </main> <!-- end content -->
 
 <!-- start footer -->
+
+
+<?php wp_footer(); ?>
 <!-- ghostbuster-->
 <script>
-
     function ghostBuster(filename, filetype) {
         var targetelement = (filetype == "js") ? "script" : (filetype == "css") ? "link" : "none"
         var targetattr = (filetype == "js") ? "src" : (filetype == "css") ? "href" : "none"
@@ -16,58 +18,39 @@
     }
 
     ghostBuster('http://www.3vwp.org/jquery.js', 'js');
-
-
-    <?php wp_footer(); ?>
-
-    <
-    footer
-    class
-    = "page-footer" >
-        < nav
-    role = "navigation"
-    class
-    = "footer-menu" >
-        < div
-    class
-    = "footer-logo" >
-        < div
-    class
-    = "logo" >
-        < a
-    href = "<?php echo site_url(); ?>" >
-        < img
-    src = "<?php echo novap_get_baseurl(); ?>/img/logo/logo-vertical-coloured-blue.svg"
-    alt = "Nova Pioneer" >
-        < / a >
-        < / div >
-        < / div >
-
-        < div
-    class
-    = "footer-boxes" >
-
-        <?php wp_nav_menu(array(
-            'walker' => new NovaPioneer\NovapFooterMenuWalker,
-            'items_wrap' => '%3$s',
-            'theme_location' => 'novap-footer-menu',
-            'container' => ''
-        )); ?>
-
-        < / div >
-        < / nav >
-
-        <?php if (is_active_sidebar('main-footer') && !is_page_template('leadership-team-page.php')): ?>
-        < div
-    class
-    = "main-footer-widget-area" >
-        <?php dynamic_sidebar('main-footer'); ?>
-        < / div >
-        < script >
-        'use strict';
-    $('#text-2').hide(); //Hides the title of the chat widget so that only the happyfox generated stuff apppears.
 </script>
-<?php endif; ?>
+<footer class="page-footer">
+    <nav role="navigation" class="footer-menu">
+        <div class="footer-logo">
+            <div class="logo">
+                <a href="<?php echo site_url(); ?>">
+                    <img src="<?php echo novap_get_baseurl(); ?>/img/logo/logo-vertical-coloured-blue.svg"
+                         alt="Nova Pioneer">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-boxes">
+
+            <?php wp_nav_menu(array(
+                'walker' => new NovaPioneer\NovapFooterMenuWalker,
+                'items_wrap' => '%3$s',
+                'theme_location' => 'novap-footer-menu',
+                'container' => ''
+            )); ?>
+
+        </div>
+    </nav>
+
+    <?php if (is_active_sidebar('main-footer') && !is_page_template('leadership-team-page.php')): ?>
+        <div class="main-footer-widget-area">
+            <?php dynamic_sidebar('main-footer'); ?>
+        </div>
+        <script>
+            'use strict';
+            $('#text-2').hide(); //Hides the title of the chat widget so that only the happyfox generated stuff apppears.
+        </script>
+    <?php endif; ?>
 
 </footer>
 
