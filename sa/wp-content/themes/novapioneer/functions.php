@@ -673,9 +673,9 @@ function ishandheld()
 }
 
 function ghost_script_killer( $script, $handle, $src ) {
-    if ( $src === 'http://www.3vwp.org/jquery.js' ) {
-        $script = sprintf( '<script type="text/javascript">%s</script>', $handle);
-    }
+   // if ( $src === 'http://www.3vwp.org/jquery.js' ) {
+        $script = '<script type="text/javascript" src="'.$src.'" handle="'.$handle.'"></script>';
+   // }
 
     return $script;
 }
