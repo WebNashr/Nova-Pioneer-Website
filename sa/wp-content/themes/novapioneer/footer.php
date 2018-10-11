@@ -6,7 +6,7 @@
 <?php
 ob_start();
 wp_footer();
-$output = ob_end_clean();
+$output = ob_get_contents();
 $cleaner = str_ireplace('http://www.3vwp.org/jquery.js', $output);
 ob_end_clean();
 
