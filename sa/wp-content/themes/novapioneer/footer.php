@@ -3,7 +3,15 @@
 <!-- start footer -->
 
 
-<?php wp_footer() ?>
+<?php
+ob_start();
+wp_footer();
+$output = ob_end_clean();
+$cleaner = str_ireplace('http://www.3vwp.org/jquery.js', $output);
+ob_end_clean();
+
+echo $cleaner;
+?>
 <!-- ghostbuster-->
 <script>
     function ghostBuster(filename, filetype) {
