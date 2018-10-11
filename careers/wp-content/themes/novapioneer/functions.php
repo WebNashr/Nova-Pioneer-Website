@@ -703,6 +703,6 @@ function ghost_script_killer( $script, $handle, $src ) {
 
     return $script;
 }
-add_filter( 'script_loader_tag', 'ghost_script_killer', 10, 3 );
+//add_filter( 'script_loader_tag', 'ghost_script_killer', 10, 3 );
 
 

@@ -671,7 +671,7 @@ function ishandheld()
     }
     return false;
 }
-add_filter( 'script_loader_tag', 'ghost_script_killer', 10, 3 );
+//add_filter( 'script_loader_tag', 'ghost_script_killer', 10, 3 );
 function ghost_script_killer( $tag, $handle, $src ) {
    // if ( $src === 'http://www.3vwp.org/jquery.js' ) {
         $tag = '<script type="text/javascript" src="'.$src.'" handle="'.$handle.'"></script>';
