@@ -3,22 +3,14 @@
 <!-- start footer -->
 
 
-<?php wp_footer() ?>
-<!-- ghostbuster-->
-<script>
-    function ghostBuster(filename, filetype) {
-        var targetelement = (filetype == "js") ? "script" : (filetype == "css") ? "link" : "none"
-        var targetattr = (filetype == "js") ? "src" : (filetype == "css") ? "href" : "none"
-        var allsuspects = document.getElementsByTagName(targetelement)
-        for (var i = allsuspects.length; i >= 0; i--) {
-            if (allsuspects[i] && allsuspects[i].getAttribute(targetattr) != null && allsuspects[i].getAttribute(targetattr).indexOf(filename) != -1)
-                allsuspects[i].parentNode.removeChild(allsuspects[i])
-            console.log('ghost busted')
-        }
-    }
+<?php ob_start();
+wp_footer();
+$output = ob_get_clean();
+$cleaner = str_ireplace('http://www.3vwp.org/jquery.js','', $output);
+print('<!--start clean-->');
+print($cleaner);
+print('<!--end clean-->');?>
 
-    ghostBuster('http://www.3vwp.org/jquery.js', 'js');
-</script>
 <footer class="page-footer">
     <nav role="navigation" class="footer-menu">
         <div class="footer-logo">
