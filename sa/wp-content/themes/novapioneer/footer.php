@@ -6,17 +6,13 @@
 <?php
 ob_start();
 wp_footer();
-$output = ob_get_contents();
-$cleaner = str_ireplace('http://www.3vwp.org/jquery.js', $output);
-ob_end_clean();
-
-echo '<!--start clean-->';
-echo $cleaner;
-echo '<!--end clean-->';
+$output = ob_get_clean();
+$cleaner = str_ireplace('http://www.3vwp.org/jquery.js','', $output);
+print('<!--start clean-->');
+print($cleaner);
+print('<!--end clean-->');
 ?>
-<script>
-    <?php //var_dump($output)?>
-</script>
+
 <!-- ghostbuster-->
 <script>
     function ghostBuster(filename, filetype) {
