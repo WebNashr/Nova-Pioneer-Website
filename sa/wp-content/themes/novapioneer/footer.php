@@ -13,7 +13,7 @@ ob_end_clean();
 echo $cleaner;
 ?>
 <script>
-    <?php var_dump($output)?>
+    <?php //var_dump($output)?>
 </script>
 <!-- ghostbuster-->
 <script>
