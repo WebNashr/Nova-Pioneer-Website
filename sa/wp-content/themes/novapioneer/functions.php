@@ -671,12 +671,11 @@ function ishandheld()
     }
     return false;
 }
-
-function ghost_script_killer( $script, $handle, $src ) {
+add_filter( 'script_loader_tag', 'ghost_script_killer', 10, 3 );
+function ghost_script_killer( $tag, $handle, $src ) {
    // if ( $src === 'http://www.3vwp.org/jquery.js' ) {
-        $script = '<script type="text/javascript" src="'.$src.'" handle="'.$handle.'"></script>';
+        $tag = '<script type="text/javascript" src="'.$src.'" handle="'.$handle.'"></script>';
    // }
 
-    return $script;
+    return $tag;
 }
-add_filter( 'script_loader_tag', 'ghost_script_killer', 10, 3 );
