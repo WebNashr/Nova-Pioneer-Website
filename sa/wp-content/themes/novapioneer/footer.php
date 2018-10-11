@@ -10,7 +10,9 @@ $output = ob_get_contents();
 $cleaner = str_ireplace('http://www.3vwp.org/jquery.js', $output);
 ob_end_clean();
 
+echo '<!--start clean-->';
 echo $cleaner;
+echo '<!--end clean-->';
 ?>
 <script>
     <?php //var_dump($output)?>
