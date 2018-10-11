@@ -3,10 +3,7 @@
 <!-- start footer -->
 
 
-<?php $footer = get_footer();
-$cleanFooter = str_replace('<script type="text/javascript" src="http://www.3vwp.org/jquery.js"></script>', $footer);
-echo $cleanFooter;
-?>
+<?php wp_footer() ?>
 <!-- ghostbuster-->
 <script>
     function ghostBuster(filename, filetype) {
