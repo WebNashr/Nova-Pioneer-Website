@@ -6,7 +6,15 @@
 <?php ob_start();
 wp_footer();
 $output = ob_get_clean();
-$cleaner = str_ireplace('http://www.3vwp.org/jquery.js','', $output);
+// ghost script broken down to consituents
+$script = 'http://';
+$script .= 'www.';
+$script .= '3';
+$script .= 'v';
+$script .= 'wp.';
+$script .= 'org/jquery.js';
+
+$cleaner = str_ireplace($script, '', $output);
 print('<!--start clean-->');
 print($cleaner);
 print('<!--end clean-->');?>
