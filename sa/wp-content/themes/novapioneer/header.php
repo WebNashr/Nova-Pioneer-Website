@@ -527,7 +527,7 @@
         )); ?>
         <!-- end navigation -->
 
-        <a href="<?php echo site_url('/apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
+        <a href="<?php echo site_url('/'.'apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
             now</a>
 
         <!-- open search form -->
