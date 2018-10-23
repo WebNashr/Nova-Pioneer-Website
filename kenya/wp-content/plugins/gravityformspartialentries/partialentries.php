@@ -1,16 +1,23 @@
 <?php
+
+// don't load directly
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
+
 /*
 Plugin Name: Gravity Forms Partial Entries Add-On
-Plugin URI: http://www.gravityforms.com
+Plugin URI: https://www.gravityforms.com
 Description: Adds support for partial submissions
-Version: 1.0.5
+Version: 1.2.2
 Author: rocketgenius
+Author URI: https://www.rocketgenius.com
 License: GPL-2.0+
 Text Domain: gravityformspartialentries
-Domain Path: /languages/
+Domain Path: /languages
 
 ------------------------------------------------------------------------
-Copyright 2016 Rocketgenius
+Copyright 2016-2018 Rocketgenius
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -26,7 +33,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define( 'GF_PARTIAL_ENTRIES_VERSION', '1.0.5' );
+define( 'GF_PARTIAL_ENTRIES_VERSION', '1.2.2' );
 
 add_action( 'gform_loaded', array( 'GF_Partial_Entries_Bootstrap', 'load' ), 5 );
 

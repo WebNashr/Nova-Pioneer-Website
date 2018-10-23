@@ -55,6 +55,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 	protected $_capabilities_settings_page = 'gravityformspartialentries_settings';
 	protected $_capabilities_form_settings = 'gravityformspartialentries_form_settings';
 	protected $_capabilities_uninstall = 'gravityformspartialentries_uninstall';
+	protected $_enable_rg_autoupgrade = true;
 
 	private static $_instance = null;
 
@@ -373,7 +374,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 	 *
 	 * @param $form_id
 	 *
-	 * @return bool|string|void
+	 * @return bool|string
 	 */
 	function maybe_save_partial_entry( $form_id ) {
 
@@ -396,10 +397,12 @@ class GF_Partial_Entries extends GFFeedAddOn {
 		$partial_entry = $this->create_partial_entry( $form );
 
 		if ( empty( $partial_entry ) ) {
-			return;
+			return false;
 		}
 
 		if ( $partial_entry['partial_entry_percent'] == 0 ) {
+			$this->log_debug( __METHOD__ . '() Aborting; 0% completed.' );
+
 			return false;
 		}
 
@@ -484,7 +487,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 	 *
 	 * @param $form
 	 *
-	 * @return array The partial entry
+	 * @return array|false The partial entry
 	 */
 	public function create_partial_entry( $form ) {
 
@@ -495,6 +498,8 @@ class GF_Partial_Entries extends GFFeedAddOn {
 		$feed_settings = $this->get_feed_settings( $form_id );
 		$enabled       = rgar( $feed_settings, 'enable' );
 		if ( ! $enabled ) {
+			$this->log_debug( __METHOD__ . '() Aborting; Not enabled.' );
+
 			return false;
 		}
 
@@ -525,6 +530,8 @@ class GF_Partial_Entries extends GFFeedAddOn {
 		}
 
 		if ( $total_fields == 0 ) {
+			$this->log_debug( __METHOD__ . '() Aborting; No applicable fields to save.' );
+
 			return false;
 		}
 
@@ -594,6 +601,8 @@ class GF_Partial_Entries extends GFFeedAddOn {
 		$feed    = $this->get_feed( $feed_id );
 
 		if ( ! $this->is_feed_condition_met( $feed, $form, $entry ) ) {
+			$this->log_debug( __METHOD__ . '() Aborting; Condition not met.' );
+
 			return false;
 		}
 
@@ -686,12 +695,13 @@ class GF_Partial_Entries extends GFFeedAddOn {
 			if ( count( $entries ) > 0 ) {
 				$entry    = $entries[0];
 				$entry_id = absint( $entry['id'] );
-				$result = GFAPI::update_entry( array( 'id' => $entry_id ) );
+				$result = GFAPI::update_entry( array( 'id' => $entry_id, 'currency' => $entry['currency'] ) );
 				$this->log_debug( __METHOD__ . '() update result: ' . print_r( $result, true ) );
 				gform_delete_meta( $entry_id, 'partial_entry_id' );
 				gform_delete_meta( $entry_id, 'date_saved' );
 				gform_delete_meta( $entry_id, 'resume_url' );
 				gform_delete_meta( $entry_id, 'resume_token' );
+				add_filter( 'gform_use_post_value_for_conditional_logic_save_entry', '__return_true' );
 			}
 		}
 
@@ -820,15 +830,17 @@ class GF_Partial_Entries extends GFFeedAddOn {
 
 		if ( $include_counts ) {
 			global $wpdb;
-			$lead_table_name       = GFFormsModel::get_lead_table_name();
-			$lead_detail_meta_name = GFFormsModel::get_lead_meta_table_name();
+			$lead_table_name       = self::get_entry_table_name();
+			$lead_detail_meta_name = self::get_entry_meta_table_name();
+
+			$entry_id_column = version_compare( self::get_gravityforms_db_version(), '2.3-dev-1', '<' ) ? 'lead_id' : 'entry_id';
 
 			$sql            = $wpdb->prepare(
 				"SELECT
-                    (SELECT count(DISTINCT(l.id)) FROM $lead_table_name l INNER JOIN $lead_detail_meta_name m ON l.id=m.lead_id WHERE l.form_id=%d AND l.status='active' AND m.meta_key = 'partial_entry_percent' AND m.meta_value = '' ) as complete,
-                    (SELECT count(DISTINCT(l.id)) FROM $lead_table_name l INNER JOIN $lead_detail_meta_name m ON l.id=m.lead_id WHERE l.form_id=%d AND l.status='active' AND m.meta_key = 'partial_entry_percent' AND m.meta_value > 1 ) as partial
+                    (SELECT count(DISTINCT(l.id)) FROM $lead_table_name l LEFT JOIN $lead_detail_meta_name m ON l.id=m.{$entry_id_column} AND m.meta_key = 'partial_entry_percent' WHERE l.form_id=%d AND l.status='active' AND ( m.meta_value = '' OR m.meta_value IS NULL ) ) as complete,
+                    (SELECT count(DISTINCT(l.id)) FROM $lead_table_name l INNER JOIN $lead_detail_meta_name m ON l.id=m.{$entry_id_column} WHERE l.form_id=%d AND l.status='active' AND m.meta_key = 'partial_entry_percent' AND m.meta_value > 1 ) as partial
 					",
-				$form_id, $form_id, $form_id, $form_id, $form_id
+				$form_id, $form_id
 			);
 			$results        = $wpdb->get_results( $sql, ARRAY_A );
 			$complete_count = $results[0]['complete'];
@@ -1116,7 +1128,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 		$entry_meta['partial_entry_percent'] = array(
 			'label'  => __( 'Progress: all fields', 'gravityflow' ),
 			'filter' => array(
-				'operators' => array( '>' ),
+				'operators' => array( '>', 'is' ),
 				'choices'   => $percent_choices,
 			),
 		);
@@ -1124,7 +1136,7 @@ class GF_Partial_Entries extends GFFeedAddOn {
 		$entry_meta['required_fields_percent_complete'] = array(
 			'label'  => esc_html__( 'Progress: required fields', 'gravityflow' ),
 			'filter' => array(
-				'operators' => array( '>' ),
+				'operators' => array( '>', 'is' ),
 				'choices'   => $percent_choices,
 			),
 		);
@@ -1239,6 +1251,16 @@ class GF_Partial_Entries extends GFFeedAddOn {
 		);
 	}
 
+	/**
+	 * Callback for the gform_is_duplicate filter.
+	 *
+	 * @param $is_duplicate
+	 * @param $form_id
+	 * @param $field
+	 * @param $value
+	 *
+	 * @return bool
+	 */
 	public function filter_gform_is_duplicate( $is_duplicate, $form_id, $field, $value ) {
 
 		if ( empty( $_POST['partial_entry_id'] ) ) {
@@ -1294,5 +1316,45 @@ class GF_Partial_Entries extends GFFeedAddOn {
 		}
 
 		return $is_duplicate;
+	}
+
+	/**
+	 * Returns the table name for the entry headers.
+	 *
+	 * @since 1.0.8
+	 *
+	 * @return string
+	 */
+	public static function get_entry_table_name() {
+		return version_compare( self::get_gravityforms_db_version(), '2.3-dev-1', '<' ) ? GFFormsModel::get_lead_table_name() : GFFormsModel::get_entry_table_name();
+	}
+
+	/**
+	 * Returns the table name for the entry meta.
+	 *
+	 * @since 1.0.8
+	 *
+	 * @return string
+	 */
+	public static function get_entry_meta_table_name() {
+		return version_compare( self::get_gravityforms_db_version(), '2.3-dev-1', '<' ) ? GFFormsModel::get_lead_meta_table_name() : GFFormsModel::get_entry_meta_table_name();
+	}
+
+	/**
+	 * Returns the current version of the Gravity Forms database.
+	 *
+	 * @since 1.0.8
+	 *
+	 * @return string
+	 */
+	public static function get_gravityforms_db_version() {
+
+		if ( method_exists( 'GFFormsModel', 'get_database_version' ) ) {
+			$db_version = GFFormsModel::get_database_version();
+		} else {
+			$db_version = GFForms::$version;
+		}
+
+		return $db_version;
 	}
 }

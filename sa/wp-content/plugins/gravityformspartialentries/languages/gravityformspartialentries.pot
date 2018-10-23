@@ -1,13 +1,13 @@
-# Copyright 2009-2017 Rocketgenius, Inc.
+# Copyright 2009-2018 Rocketgenius, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms Partial Entries Add-On 1.0.5\n"
-"Report-Msgid-Bugs-To: http://www.gravtiyhelp.com\n"
-"POT-Creation-Date: 2017-06-29 15:31:20+00:00\n"
+"Project-Id-Version: Gravity Forms Partial Entries Add-On 1.2.2\n"
+"Report-Msgid-Bugs-To: https://www.gravtiyforms.com\n"
+"POT-Creation-Date: 2018-10-19 13:59:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Rocketgenius <customerservice@rocketgenius.com>\n"
 "Language-Team: Rocketgenius <customerservice@rocketgenius.com>\n"
 "X-Generator: Gravity Forms Build Server\n"
@@ -24,129 +24,129 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Textdomain-Support: yes\n"
 
-#: class-gf-partial-entries.php:180
+#: class-gf-partial-entries.php:181
 msgid "Fields"
 msgstr ""
 
-#: class-gf-partial-entries.php:181
+#: class-gf-partial-entries.php:182
 msgid "All Fields"
 msgstr ""
 
-#: class-gf-partial-entries.php:182
+#: class-gf-partial-entries.php:183
 msgid "Required Fields"
 msgstr ""
 
-#: class-gf-partial-entries.php:183 class-gf-partial-entries.php:314
+#: class-gf-partial-entries.php:184 class-gf-partial-entries.php:315
 msgid "Progress"
 msgstr ""
 
-#: class-gf-partial-entries.php:199 class-gf-partial-entries.php:203
+#: class-gf-partial-entries.php:200 class-gf-partial-entries.php:204
 msgid "Partial Entries"
 msgstr ""
 
-#: class-gf-partial-entries.php:208 class-gf-partial-entries.php:239
+#: class-gf-partial-entries.php:209 class-gf-partial-entries.php:240
 msgid "Enable"
 msgstr ""
 
-#: class-gf-partial-entries.php:224
+#: class-gf-partial-entries.php:225
 msgid "Warning Message"
 msgstr ""
 
-#: class-gf-partial-entries.php:228
+#: class-gf-partial-entries.php:229
 msgid ""
 "In the interest of transparency and out of respect for users' privacy this "
 "notice will appear at the top of the form below the description."
 msgstr ""
 
-#: class-gf-partial-entries.php:237
+#: class-gf-partial-entries.php:238
 msgid "Conditional Logic"
 msgstr ""
 
-#: class-gf-partial-entries.php:240
+#: class-gf-partial-entries.php:241
 msgid "Add/update partial entry if"
 msgstr ""
 
-#: class-gf-partial-entries.php:276
+#: class-gf-partial-entries.php:277
 msgid "all fields"
 msgstr ""
 
-#: class-gf-partial-entries.php:277
+#: class-gf-partial-entries.php:278
 msgid "required fields"
 msgstr ""
 
-#: class-gf-partial-entries.php:308
+#: class-gf-partial-entries.php:309
 msgid "Partial Entry ID"
 msgstr ""
 
-#: class-gf-partial-entries.php:329 class-gf-partial-entries.php:1125
+#: class-gf-partial-entries.php:330 class-gf-partial-entries.php:1137
 msgid "Progress: required fields"
 msgstr ""
 
-#: class-gf-partial-entries.php:338
+#: class-gf-partial-entries.php:339
 msgid "Save and Continue Token"
 msgstr ""
 
-#: class-gf-partial-entries.php:343
+#: class-gf-partial-entries.php:344
 msgid "Save and Continue URL"
 msgstr ""
 
-#: class-gf-partial-entries.php:348
+#: class-gf-partial-entries.php:349
 msgid "Saved"
 msgstr ""
 
-#: class-gf-partial-entries.php:653 class-gf-partial-entries.php:765
+#: class-gf-partial-entries.php:662 class-gf-partial-entries.php:775
 msgid "Open saved form"
 msgstr ""
 
-#: class-gf-partial-entries.php:759
+#: class-gf-partial-entries.php:769
 msgid "Progress: %s"
 msgstr ""
 
-#: class-gf-partial-entries.php:766
+#: class-gf-partial-entries.php:776
 msgid "Last Saved: %s "
 msgstr ""
 
-#: class-gf-partial-entries.php:917
+#: class-gf-partial-entries.php:929
 msgid "Default Filter"
 msgstr ""
 
-#: class-gf-partial-entries.php:918
+#: class-gf-partial-entries.php:930
 msgid "Number of entries per page:"
 msgstr ""
 
-#: class-gf-partial-entries.php:920
+#: class-gf-partial-entries.php:932
 msgid "Apply"
 msgstr ""
 
-#: class-gf-partial-entries.php:1080
+#: class-gf-partial-entries.php:1092
 msgid "Enable Condition"
 msgstr ""
 
-#: class-gf-partial-entries.php:1106
+#: class-gf-partial-entries.php:1118
 msgid "Process this feed if"
 msgstr ""
 
-#: class-gf-partial-entries.php:1117
+#: class-gf-partial-entries.php:1129
 msgid "Progress: all fields"
 msgstr ""
 
-#: class-gf-partial-entries.php:1179
+#: class-gf-partial-entries.php:1191
 msgid "Please note that your information is saved on our server as you enter it."
 msgstr ""
 
-#: class-gf-partial-entries.php:1209
+#: class-gf-partial-entries.php:1221
 msgid "File Uploads will not be included in the partial entries."
 msgstr ""
 
-#: class-gf-partial-entries.php:1217
+#: class-gf-partial-entries.php:1229
 msgid "The Credit Card field values will not be included in the partial entries."
 msgstr ""
 
-#: class-gf-partial-entries.php:1237
+#: class-gf-partial-entries.php:1249
 msgid "Partial Entries: Saved"
 msgstr ""
 
-#: class-gf-partial-entries.php:1238
+#: class-gf-partial-entries.php:1250
 msgid "Partial Entries: Updated"
 msgstr ""
 
@@ -155,7 +155,7 @@ msgid "Gravity Forms Partial Entries Add-On"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.gravityforms.com"
+msgid "https://www.gravityforms.com"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -166,17 +166,21 @@ msgstr ""
 msgid "rocketgenius"
 msgstr ""
 
-#: class-gf-partial-entries.php:284
+#. Author URI of the plugin/theme
+msgid "https://www.rocketgenius.com"
+msgstr ""
+
+#: class-gf-partial-entries.php:285
 msgctxt "Threshold setting"
 msgid "%s of %s"
 msgstr ""
 
-#: class-gf-partial-entries.php:842
+#: class-gf-partial-entries.php:854
 msgctxt "Entry List"
 msgid "Complete"
 msgstr ""
 
-#: class-gf-partial-entries.php:853
+#: class-gf-partial-entries.php:865
 msgctxt "Entry List"
 msgid "Partial"
 msgstr ""
