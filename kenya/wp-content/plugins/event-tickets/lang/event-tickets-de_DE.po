@@ -220,7 +220,7 @@ msgstr "Die Lagerverwaltung ist deaktiviert. Aktivieren Sie diese auf den Invent
 msgid "Current sale or member price. This can be managed via the product editor."
 msgstr "Aktueller Verkaufs-oder Mitgliedspreis. Dies kann über den Produkt-Editor verwaltet werden."
 
-#: src/admin-views/editor/fieldset/price.php:71
+#: src/admin-views/editor/fPayPal."price.php:71
 msgid "Sale/Member Price:"
 msgstr "Verkauf/Mitglieder-Preis:"
 
@@ -587,46 +587,66 @@ msgstr[1] "Zurückerstattet <span class=\"count\">(%s)</span>"
 #: src/Tribe/Commerce/PayPal/Stati.php:123
 msgctxt "A PayPal order status"
 msgid "Refunded"
-msgstr "Zurückerstattet"
+msgstrunlimited"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Stati.php:119
-msgid "Pending <span class=\"count\">(%s)</span>"
-msgid_plural "Pending <span class=\"count\">(%s)</span>"
-msgstr[0] "Ausstehend <span class=\"count\">(%s)</span>"
-msgstr[1] "Ausstehend <span class=\"count\">(%s)</span>"
+#: src/admin-views/editor/panel/ticket.php:190
+msgid "Save RSVP"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Stati.php:114
-msgctxt "A PayPal order status"
-msgid "Pending"
-msgstr "Ausstehend"
+#: src/admin-views/editor/panel/ticket.php:181
+msgid "Save ticket"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Stati.php:110
-msgid "Not completed <span class=\"count\">(%s)</span>"
-msgid_plural "Not completed <span class=\"count\">(%s)</span>"
-msgstr[0] "Nicht abgeschlossen <span class=\"count\">(%s)</span>"
-msgstr[1] "Nicht abgeschlossen <span class=\"count\">(%s)</span>"
+#: src/admin-views/editor/panel/ticket.php:99
+msgid "Ticket type name shows on the front end and emailed tickets"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Stati.php:105
-msgctxt "A PayPal order status"
-msgid "Not completed"
-msgstr "Nicht abgeschlossen"
+#: src/admin-views/editor/panel/ticket.php:97
+msgid "Ticket Type is a required field."
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Stati.php:101
-msgid "Completed <span class=\"count\">(%s)</span>"
-msgid_plural "Completed <span class=\"count\">(%s)</span>"
-msgstr[0] "Abgeschlossen <span class=\"count\">(%s)</span>"
-msgstr[1] "Abgeschlossen <span class=\"count\">(%s)</span>"
+#: src/admin-views/editor/panel/ticket.php:88
+msgid "Type:"
+msgstr "Typ:"
 
-#: src/Tribe/Commerce/PayPal/Stati.php:96
-msgctxt "A PayPal order status"
-msgid "Completed"
-msgstr "Abgeschlossen"
+#: src/admin-views/editor/panel/ticket.php:83
+msgid "Edit RSVP"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Oversell/Sell_Available.php:47
-msgid "Sell only available"
-msgstr "Nur verfügbare verkaufen"
+#: src/admin-views/editor/panel/ticket.php:75
+msgid "Add new RSVP"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Oversell/Sell_All.php:46
+#: src/admin-views/editor/panel/settings.php:80
+msgid "Save settings"
+msgstr ""
+
+#: src/admin-views/editor/panel/settings.php:43
+msgid "Select an image from your Media Library to display on emailed tickets. For best results, use a .jpg, .png, or .gif at least 1160px wide."
+msgstr ""
+
+#: src/admin-views/editor/panel/settings.php:41
+msgid "Ticket header image:"
+msgstr ""
+
+#: src/admin-views/editor/panel/list.php:74
+msgid "New RSVP"
+msgstr ""
+
+#: src/admin-views/editor/panel/list.php:72
+msgid "Add a new RSVP"
+msgstr ""
+
+#: src/admin-views/editor/panel/list.php:43
+msgid "View Attendees"
+msgstr ""
+
+#: src/admin-views/editor/panel/list.php:15
+msgid "You have unsaved changes to your tickets. Discard those changes?"
+msgstr ""
+
+#: src/adminsell/Sell_All.php:46
 msgid "Oversell all requested"
 msgstr "Über den vorhandenen Bestand hinaus verkaufen"
 
@@ -669,149 +689,173 @@ msgstr "Keine passenden Bestellungen gefunden."
 #: src/Tribe/Commerce/PayPal/Orders/Table.php:157
 msgid "Refunded with %s"
 msgstr "Rückerstattet mit %s"
+:14
+msgid "Giving you the best experience with our plugin is our top goal. Check out the resources below for a step-by-step introduction to your new features or head straight to the Events section in your admin to create your first ticket."
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Table.php:150
-msgid "%1$s"
-msgstr "%1$s"
+#: src/admin-views/admin-welcome-message.php:13
+msgid "Welcome to Event Tickets!"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Table.php:79
-msgid "Total"
-msgstr "Gesamt"
+#: src/admin-views/admin-welcome-message.php:5
+msgid "our support forums"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Table.php:76
-msgid "Status"
-msgstr "Status"
+#: src/Tribe/Tickets_Handler.php:84
+msgid "Unlimited"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Table.php:75 src/Tribe/Privacy.php:136
-#: src/Tribe/Privacy.php:211
-msgid "Date"
-msgstr "Datum"
+#: src/Tribe/Tickets.php:1125
+msgid "Set capacity for this ticket only"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Table.php:74
-msgid "Purchased"
-msgstr "Gekauft"
+#: src/Tribe/Tickets.php:1124
+msgid "Shared capacity with other tickets"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Table.php:71
-msgid "Order"
-msgstr "Bestellung"
+#: src/Tribe/Tickets.php:446
+msgid "Move Ticket"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Table.php:42
-msgid "Number of orders per page:"
-msgstr "Anzahl der Bestellungen pro Seite:"
+#: src/Tribe/Tickets.php:446
+msgid "Move RSVP"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Sales.php:259
-msgid "Not completed"
-msgstr "Nicht abgeschlossen"
+#: src/Tribe/Tickets.php:371
+msgid "Delete Ticket"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Sales.php:255
-msgid "Completed"
-msgstr "Abgeschlossen"
+#: src/Tribe/Tickets.php:371
+msgid "Delete RSVP"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Report.php:271
-msgid "Search Orders"
-msgstr "Bestellungen suchen"
+#: src/Tribe/Metabox.php:308
+msgid "Failed to Delete the Ticket, Refresh the Page to try again."
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Report.php:207
-msgctxt "Browser title"
-msgid "%s - PayPal Orders"
-msgstr "%s - PayPal Bestellungen"
+#: src/Tribe/Metabox.php:268 src/Tribe/Metabox.php:314
+#: src/Tribe/Metabox.php:351 src/Tribe/Metabox.php:387
+msgid "Commerce Module invalid"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Report.php:102
-#: src/Tribe/Commerce/PayPal/Orders/Report.php:151
-#: src/Tribe/Commerce/PayPal/Orders/Tab.php:33
-msgid "PayPal Orders"
-msgstr "PayPal Bestellungen"
+#: src/Tribe/Metabox.php:262
+msgid "Failed to Edit the Ticket, Refresh the Page to try again."
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Orders/Report.php:100
-msgid "See PayPal purchases for this %s"
-msgstr "Zeige PayPal Käufe für %s"
+#: src/Tribe/Metabox.php:252 src/Tribe/Metabox.php:304
+msgid "Invalid Ticket"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Notices.php:45
-msgid "set it here"
-msgstr "hier eintragen"
+#: src/Tribe/Metabox.php:217
+msgid "Failed to Add the Ticket"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Notices.php:43
-msgid "PayPal is using PDT data but you have not set the PDT identity token"
-msgstr "PayPal verwendet PDT-Daten, aber Sie haben das PDT-Identitätstoken nicht gesetzt."
+#: src/Tribe/Metabox.php:199
+msgid "Commerce Provider invalid"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:2091
-msgctxt "a PayPal ticket order status"
-msgid "Not Completed"
-msgstr "Nicht abgeschlossen"
+#: src/Tribe/Metabox.php:195
+msgid "Failed to Add the Ticket, Refresh the Page to try again."
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:2090
-msgctxt "a PayPal ticket order status"
-msgid "Denied"
-msgstr "Abgelehnt"
+#: src/Tribe/Metabox.php:185 src/Tribe/Metabox.php:246
+#: src/Tribe/Metabox.php:298
+msgid "Invalid parent Post"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:2089
-msgctxt "a PayPal ticket order status"
-msgid "Pending"
-msgstr "Ausstehend"
+#: src/Tribe/Metabox.php:106
+msgid "Invalid Post ID"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:2088
-msgctxt "a PayPal ticket order status"
-msgid "Refunded"
-msgstr "Zurückerstattet"
+#: src/Tribe/CSV_Importer/Column_Names.php:43
+msgid "Ticket Capacity"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:2087
-msgctxt "a PayPal ticket order status"
-msgid "Completed"
-msgstr "Abgeschlossen"
+#: common/src/admin-views/tribe-options-help.php:20
+msgid "Check out our %s for developers."
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:2086
-msgctxt "a PayPal ticket order status"
-msgid "Undefined"
-msgstr "Undefiniert"
+#: common/src/admin-views/tribe-options-help.php:18
+msgid "Want to dive deeper?"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:1662
-msgid "Report"
-msgstr "Report"
+#: common/src/admin-views/tribe-options-display.php:28
+msgid "The following three fields accept the date format options available to the PHP %1$s function. <a href=\"%2$s\" target=\"_blank\">Learn how to make your own date format here</a>."
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:1636
-msgid "Sales report"
-msgstr "Verkaufsreport"
+#: common/src/Tribe/Validate.php:545
+msgid "%s must be an email address."
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:448
-msgid "Orders"
-msgstr "Bestellungen"
+#: common/src/Tribe/Main.php:251
+msgid "Clear Selection."
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:423
-msgid "Tribe Commerce Ticket"
-msgstr "Tribe Commerce Karte"
+#: common/src/Tribe/Main.php:250
+msgid "Select all pages"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:422
-msgid "Tribe Commerce Tickets"
-msgstr "Tribe Commerce Karten"
+#: common/src/Tribe/Main.php:249
+msgid "All items on this page were selected. "
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Main.php:176
-msgctxt "ticket provider"
-msgid "Tribe Commerce"
-msgstr "Tribe Commerce"
+#: common/src/Tribe/Languages/Locations.php:252
+msgid "Sint Maarten"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Links.php:56
-msgid "Profile and Settings > My selling tools > Instant Payment Notification > Update"
-msgstr "Profil und Einstellungen > Meine Verkaufstools > Sofortige Zahlungsbenachrichtigung > Aktualisierung"
+#: common/src/Tribe/Languages/Locations.php:245
+msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Links.php:29
-msgid "Profile and Settings > My selling tools > Instant Payment Notification > IPN History Page"
-msgstr "Profil und Einstellungen > Meine Verkaufstools > Sofortige Zahlungsbenachrichtigung > IPN History-Seite"
+#: common/src/Tribe/Languages/Locations.php:238
+msgid "Saint Helena"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Handler/IPN.php:147
-#: src/Tribe/Commerce/PayPal/Handler/Invalid_PDT.php:74
-#: src/Tribe/Commerce/PayPal/Handler/PDT.php:136
-msgctxt "a PayPal configuration status"
-msgid "incomplete"
-msgstr "unvollständig"
+#: common/src/Tribe/Languages/Locations.php:237
+msgid "Saint Barth&eacute;lemy"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Handler/IPN.php:143
-msgctxt "a PayPal configuration status"
-msgid "complete"
-msgstr "vollständig"
+#: common/src/Tribe/Languages/Locations.php:113
+msgid "Cura&ccedil;ao"
+msgstr ""
 
-#: src/Tribe/Commerce/PayPal/Frontend/Tickets_Form.php:69
-msgid "Your PayPal Ticket has been received! Check your email for your PayPal Ticket confirmation."
-msgstr "Ihre PayPal Karte wurde empfangen! Prüfen Sie ihre E-Mail für ihre PayPal Karten Bestätigung."
+#: common/src/Tribe/Languages/Locations.php:103
+msgid "Collectivity of Saint Martin"
+msgstr ""
+
+#: common/src/Tribe/Languages/Locations.php:57
+msgid "&Aring;land Islands"
+msgstr ""
+
+#: common/src/Tribe/Documentation/Swagger/Term_Definition_Provider.php:57
+msgid "A list of links to the term own, archive and parent REST URL"
+msgstr ""
+
+#: src/views/tickets/rsvp.php:228 src/views/tickets/tpp.php:154
+msgid "You must have JavaScript activated to purchase tickets. Please enable JavaScript in your browser."
+msgstr ""
+
+#: src/template-tags/tickets.php:237
+msgctxt "list view buy now ticket button"
+msgid "Buy Now!"
+msgstr "Jetzt kaufen!"
+
+#: src/template-tags/tickets.php:234
+msgctxt "list view rsvp now ticket button"
+msgid "RSVP Now!"
+msgstr ""
+
+#: src/template-tags/tickets.php:223
+msgid "%s ticket left"
+msgid_plural "%s tickets left"
+msgstr[0] "%s Karte übrig"
+msgstr[1] "%s Karten übrig"
+
+#: src/template-tags/tickets.php:221
+msgid "%s spot left"
+msgid_plural "%s spots left"
+msgstr[0] "%s Platz verfügbar"
+msgstr[1]ngen! Prüfen Sie ihre E-Mail für ihre PayPal Karten Bestätigung."
 
 #: src/Tribe/Commerce/PayPal/Errors.php:34
 msgid "Your order is currently processing. Once completed, you'll receive your ticket(s) in an email."

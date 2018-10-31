@@ -120,6 +120,10 @@ class MPSUM_List_Table {
 			'screen' => null,
 		) );
 
+		if (!function_exists('convert_to_screen')) {
+			include_once ABSPATH . "wp-admin/includes/template.php";
+        }
+
 		$this->screen = convert_to_screen( $args['screen'] );
 
 		add_filter( "manage_{$this->screen->id}_columns", array( $this, 'get_columns' ), 0 );
@@ -708,14 +712,16 @@ class MPSUM_List_Table {
 
 		$total_items = $this->_pagination_args['total_items'];
 		$total_pages = $this->_pagination_args['total_pages'];
+		$tab = $this->_pagination_args['tab'];
+		$view = $this->_pagination_args['view'];
+		$current = $this->_pagination_args['paged'];
+
 		$infinite_scroll = false;
 		if ( isset( $this->_pagination_args['infinite_scroll'] ) ) {
 			$infinite_scroll = $this->_pagination_args['infinite_scroll'];
 		}
 
 		$output = '<span class="displaying-num">' . sprintf( _n( '%s item', '%s items', $total_items ), number_format_i18n( $total_items ) ) . '</span>';
-
-		$current = $this->get_pagenum();
 
 		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 
@@ -735,7 +741,7 @@ class MPSUM_List_Table {
 		if ( $current == 2 ) {
 			$disable_first = true;
 		}
- 		if ( $current == $total_pages ) {
+ 		if ( $current == $total_pages || 0 == $total_items ) {
 			$disable_last = true;
 			$disable_next = true;
  		}
@@ -747,7 +753,7 @@ class MPSUM_List_Table {
 			$page_links[] = '<span class="tablenav-pages-navspan" aria-hidden="true">&laquo;</span>';
 		} else {
 			$page_links[] = sprintf( "<a class='first-page' href='%s'><span class='screen-reader-text'>%s</span><span aria-hidden='true'>%s</span></a>",
-				esc_url( remove_query_arg( 'paged', $current_url ) ),
+				esc_url(add_query_arg(array('tab' => $tab, 'view' => $view, 'paged' => 1), $current_url)),
 				__( 'First page' ),
 				'&laquo;'
 			);
@@ -757,7 +763,7 @@ class MPSUM_List_Table {
 			$page_links[] = '<span class="tablenav-pages-navspan" aria-hidden="true">&lsaquo;</span>';
 		} else {
 			$page_links[] = sprintf( "<a class='prev-page' href='%s'><span class='screen-reader-text'>%s</span><span aria-hidden='true'>%s</span></a>",
-				esc_url( add_query_arg( 'paged', max( 1, $current-1 ), $current_url ) ),
+				esc_url(add_query_arg(array('paged' => max(1, $current-1), 'tab' => $tab, 'view' => $view), $current_url)),
 				__( 'Previous page' ),
 				'&lsaquo;'
 			);
@@ -767,20 +773,26 @@ class MPSUM_List_Table {
 			$html_current_page  = $current;
 			$total_pages_before = '<span class="screen-reader-text">' . __( 'Current Page' ) . '</span><span id="table-paging" class="paging-input">';
 		} else {
-			$html_current_page = sprintf( "%s<input class='current-page' id='current-page-selector' type='text' name='paged' value='%s' size='%d' aria-describedby='table-paging' />",
+			$html_current_page = sprintf("%s<input class='current-page' id='current-page-selector' type='text' name='paged' value='%s' size='%d' aria-describedby='table-paging' data-tab='%s' data-view='%s' />",
 				'<label for="current-page-selector" class="screen-reader-text">' . __( 'Current Page' ) . '</label>',
 				$current,
-				strlen( $total_pages )
+				strlen($total_pages),
+                $tab,
+                $view
 			);
 		}
 		$html_total_pages = sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( $total_pages ) );
+ 		if (0 == $total_items) {
+		    $html_current_page = 0;
+		    $html_total_pages = 0;
+        }
 		$page_links[] = $total_pages_before . sprintf( _x( '%1$s of %2$s', 'paging' ), $html_current_page, $html_total_pages ) . $total_pages_after;
 
 		if ( $disable_next ) {
 			$page_links[] = '<span class="tablenav-pages-navspan" aria-hidden="true">&rsaquo;</span>';
 		} else {
 			$page_links[] = sprintf( "<a class='next-page' href='%s'><span class='screen-reader-text'>%s</span><span aria-hidden='true'>%s</span></a>",
-				esc_url( add_query_arg( 'paged', min( $total_pages, $current+1 ), $current_url ) ),
+				esc_url(add_query_arg(array('paged' => min($total_pages, $current+1), 'tab' => $tab, 'view' => $view), $current_url)),
 				__( 'Next page' ),
 				'&rsaquo;'
 			);
@@ -790,7 +802,7 @@ class MPSUM_List_Table {
 			$page_links[] = '<span class="tablenav-pages-navspan" aria-hidden="true">&raquo;</span>';
 		} else {
 			$page_links[] = sprintf( "<a class='last-page' href='%s'><span class='screen-reader-text'>%s</span><span aria-hidden='true'>%s</span></a>",
-				esc_url( add_query_arg( 'paged', $total_pages, $current_url ) ),
+				esc_url(add_query_arg(array('paged' => $total_pages, 'tab' => $tab, 'view' => $view), $current_url)),
 				__( 'Last page' ),
 				'&raquo;'
 			);
@@ -924,6 +936,10 @@ class MPSUM_List_Table {
 
 			return $column_headers;
 		}
+
+        if (!function_exists('get_column_headers')) {
+	        include_once ABSPATH . "wp-admin/includes/screen.php";
+        }
 
 		$columns = get_column_headers( $this->screen );
 		$hidden = get_hidden_columns( $this->screen );

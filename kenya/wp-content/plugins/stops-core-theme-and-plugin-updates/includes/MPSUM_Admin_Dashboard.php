@@ -1,4 +1,5 @@
 <?php
+if (!defined('ABSPATH')) die('No direct access.');
 /**
  * Controls the main (general) tab and handles the saving of its options.
  *
@@ -52,9 +53,7 @@ class MPSUM_Admin_Dashboard {
      * @internal Uses the mpsum_admin_tab_main action
      */
 	public function tab_output() {
-		?>
-		<div class="eum-dashboard-app"></div>
-        <?php
+		Easy_Updates_Manager()->include_template('admin-tab-main.php');
 		return;
 	} //end tab_output_plugins
 }

@@ -160,7 +160,7 @@ class MPSUM_Disable_Updates {
 		add_filter( 'site_transient_update_plugins', array( $this, 'disable_plugin_notifications' ), 50 );
 		add_filter( 'site_transient_update_themes', array( $this, 'disable_theme_notifications' ), 50 );
 		add_filter( 'http_request_args', array( $this, 'http_request_args_remove_plugins_themes' ), 5, 2 );
-		
+
 	} //end constructor
 	
 	/**
@@ -336,7 +336,9 @@ class MPSUM_Disable_Updates {
      * @return array Updated Request array
      */
 	public function http_request_args_remove_plugins_themes( $r, $url ) {
-		if ( 0 !== strpos( $url, 'https://api.wordpress.org/plugins/update-check/1.1/' ) ) return $r;
+		if (!MPSUM_Utils::is_wp_api($url)) {
+			return $r;
+		}
 		
 		if ( isset( $r[ 'body' ][ 'plugins' ] ) ) {
 			$r_plugins = json_decode( $r[ 'body' ][ 'plugins' ], true );

@@ -19,14 +19,15 @@ class MPSUM_Admin_Ajax {
 	private static $instance = null;
 
 	/**
-     * Set a class instance.
-     *
-     * @access static
-     */
-	public static function run() {
+	 * Set a class instance.
+	 *
+	 * @access static
+	 */
+	public static function get_instance() {
 		if ( null == self::$instance ) {
 			self::$instance = new self;
 		}
+		return self::$instance;
 	}
 
 	/**
@@ -52,7 +53,7 @@ class MPSUM_Admin_Ajax {
 	 * Updates themes tab
 	 */
 	public function update_themes_tab() {
-	    $this->render_themes_tab();
+		$this->render_themes_tab();
 	}
 
 	/**
@@ -92,7 +93,7 @@ class MPSUM_Admin_Ajax {
 	 */
 	public function axios_ajax_handler() {
 
-		if (!current_user_can('install_plugins')) return;
+		if (!current_user_can('manage_options')) return;
 
 		parse_str(file_get_contents('php://input'), $data);
 		$sub_action = isset($data['sub_action']) ? $data['sub_action']: 'get_core_options';
@@ -120,7 +121,6 @@ class MPSUM_Admin_Ajax {
 	 */
 	public function ajax_handler() {
 
-		if (!current_user_can('activate_plugins')) return;
 		if (empty($_REQUEST)) return;
 
 		extract($_REQUEST);
@@ -192,7 +192,10 @@ class MPSUM_Admin_Ajax {
 		$options = MPSUM_Updates_Manager::get_options( 'core', true );
 		if ( empty( $options ) ) {
 			$options = MPSUM_Admin_Core::get_defaults();
+		} else {
+			$options = wp_parse_args($options, MPSUM_Admin_Core::get_defaults());
 		}
+		if (!$this->user_can_update()) return $options;
 
 		$id = sanitize_text_field( $id );
 		$value = sanitize_text_field( $value );
@@ -306,7 +309,6 @@ class MPSUM_Admin_Ajax {
 					$options[ 'logs' ] = 'on';
 				} else {
 					MPSUM_Logs::drop();
-					update_site_option( 'mpsum_log_table_version', 0 );
 					$options[ 'logs' ] = 'off';
 				}
 				break;
@@ -314,7 +316,6 @@ class MPSUM_Admin_Ajax {
 				if( 'on' == $value ) {
 					$options[ 'core_updates' ] = 'on';
 				} else {
-					MPSUM_Logs::drop();
 					$options[ 'core_updates' ] = 'off';
 				}
 				break;
@@ -322,7 +323,6 @@ class MPSUM_Admin_Ajax {
 				if( 'on' == $value ) {
 					$options[ 'plugin_updates' ] = 'on';
 				} else {
-					MPSUM_Logs::drop();
 					$options[ 'plugin_updates' ] = 'off';
 				}
 				break;
@@ -330,7 +330,6 @@ class MPSUM_Admin_Ajax {
 				if( 'on' == $value ) {
 					$options[ 'theme_updates' ] = 'on';
 				} else {
-					MPSUM_Logs::drop();
 					$options[ 'theme_updates' ] = 'off';
 				}
 				break;
@@ -338,7 +337,6 @@ class MPSUM_Admin_Ajax {
 				if( 'on' == $value ) {
 					$options[ 'translation_updates' ] = 'on';
 				} else {
-					MPSUM_Logs::drop();
 					$options[ 'translation_updates' ] = 'off';
 				}
 				break;
@@ -383,6 +381,29 @@ class MPSUM_Admin_Ajax {
 					$options[ 'email_addresses' ] = $emails;
 				}
 				break;
+			case 'update-notification-emails':
+				if ('weekly' === $value) {
+					$options['update_notification_updates'] = 'weekly';
+					wp_clear_scheduled_hook('eum_notification_updates_monthly');
+					if (false === wp_next_scheduled('eum_notification_updates_weekly')) {
+						wp_schedule_event(time() + 7 * 86400, 'eum_notification_updates_weekly', 'eum_notification_updates_weekly');
+					}
+
+				} elseif('monthly' === $value) {
+					$options['update_notification_updates'] = 'monthly';
+					wp_clear_scheduled_hook('eum_notification_updates_weekly');
+					if (false === wp_next_scheduled('eum_notification_updates_monthly')) {
+						wp_schedule_event(time() + 365.25 * 86400 / 12, 'eum_notification_updates_monthly', 'eum_notification_updates_monthly');
+					}
+				} else {
+					$options['update_notification_updates'] = 'off';
+					wp_clear_scheduled_hook('eum_notification_updates_weekly');
+					wp_clear_scheduled_hook('eum_notification_updates_monthly');
+				}
+				break;
+			case 'notification-emails-send_now':
+				MPSUM_Update_Notifications::get_instance()->maybe_send_update_notification_email();
+				break;
 		}
 		// Save options
 		MPSUM_Updates_Manager::update_options( $options, 'core' );
@@ -395,7 +416,7 @@ class MPSUM_Admin_Ajax {
 		if ( is_array( $options[ 'email_addresses' ] ) ) {
 			$options[ 'email_addresses' ] = implode( ',', $options[ 'email_addresses' ] );
 		} else {
-			$options[ 'email_addresses' ] = array();
+			$options[ 'email_addresses' ] = '';
 		}
 
 
@@ -404,10 +425,20 @@ class MPSUM_Admin_Ajax {
 			$options[ 'automatic_updates' ] = 'default';
 		}
 
+		// Check if update notification emails is set
+		if (!isset($options['update_notification_updates'])) {
+			$options['update_notification_updates'] = 'off';
+		}
+
 		// Add error to options for returning
 		if ( $email_errors ) {
-			$options[ 'errors' ] = true;
-			$options[ 'email_addresses' ] = $value;
+			$options['errors'] = true;
+			$options['email_addresses'] = $options[ 'email_addresses' ];
+			$options['success'] = false;
+		} else {
+			$options['errors'] = false;
+			$options['email_addresses'] = $options[ 'email_addresses' ];
+			$options['success'] = true;
 		}
 		return $options;
 	}
@@ -423,6 +454,8 @@ class MPSUM_Admin_Ajax {
 		$options = MPSUM_Updates_Manager::get_options( 'core', true );
 		if ( empty( $options ) ) {
 			$options = MPSUM_Admin_Core::get_defaults();
+		} else {
+			$options = wp_parse_args($options, MPSUM_Admin_Core::get_defaults());
 		}
 
 		// Set automatic updates defaults if none is selected
@@ -441,7 +474,12 @@ class MPSUM_Admin_Ajax {
 			}
 		}
 
-		if ( ! is_array( $options[ 'email_addresses' ] ) ) {
+		// Check if update notification emails is set
+		if (!isset($options['update_notification_updates'])) {
+			$options['update_notification_updates'] = 'off';
+		}
+
+		if ( isset($options['email_addresses']) && ! is_array( $options[ 'email_addresses' ] ) ) {
 			$options[ 'email_addresses' ] = array();
 		}
 		$options[ 'email_addresses' ] = implode( ',', $options[ 'email_addresses' ] );
@@ -454,14 +492,20 @@ class MPSUM_Admin_Ajax {
 	 * Save the plugin options based on the passed data.
 	 *
 	 * @param string $data Action to take action on
-	 *
-	 * @return array Array of plugin update options
 	 */
-	public function save_plugins_update_options( $data ) {
-
+	public function save_plugins_update_options_and_render($data) {
 		if ( !current_user_can( 'update_plugins' ) ) return;
-
 		parse_str($data, $updated_options);
+		$this->save_plugins_update_options($updated_options);
+		$this->render_plugins_tab();
+	}
+
+	/**
+	 * Saves plugin updated options
+	 *
+	 * @param array $updated_options - Updated options from the remote call
+	 */
+	public function save_plugins_update_options($updated_options) {
 		$plugins = isset( $updated_options['plugins'] ) ? (array) $updated_options['plugins'] : array();
 		$plugins_automatic = isset( $updated_options['plugins_automatic'] ) ? (array) $updated_options['plugins_automatic'] : array();
 		$plugin_options = MPSUM_Updates_Manager::get_options( 'plugins' );
@@ -493,9 +537,7 @@ class MPSUM_Admin_Ajax {
 			}
 		}
 
-		$options = $this->plugins_update_all_options($plugin_options, $plugin_automatic_options);
-		$this->render_plugins_tab();
-		return $options;
+		$this->plugins_update_all_options($plugin_options, $plugin_automatic_options);
 	}
 
 	/**
@@ -504,11 +546,19 @@ class MPSUM_Admin_Ajax {
 	 * @since 7.0.2
 	 * @param string $data Data from ajax call
 	 */
-	public function bulk_action_plugins_update_options( $data ) {
-
+	public function bulk_action_plugins_update_options_and_render($data) {
 		if ( !current_user_can( 'update_plugins' ) ) return;
-
 		parse_str( $data, $updated_options );
+		$this->bulk_action_plugins_update_options($updated_options);
+		$this->render_plugins_tab();
+	}
+
+	/**
+	 * Saves plugin options which are updated using bulk actions in UC
+	 *
+	 * @param array $updated_options - Updated options from the remote call
+	 */
+	public function bulk_action_plugins_update_options($updated_options) {
 		if ( isset( $updated_options['action'] ) && -1 != $updated_options['action'] ) {
 			$action = $updated_options['action'];
 		}
@@ -556,8 +606,7 @@ class MPSUM_Admin_Ajax {
 				return;
 		}
 
-		$options = $this->plugins_update_all_options($plugin_options, $plugin_automatic_options);
-		$this->render_plugins_tab();
+		$this->plugins_update_all_options($plugin_options, $plugin_automatic_options);
 	}
 
 	/**
@@ -582,14 +631,20 @@ class MPSUM_Admin_Ajax {
 	 * Save the theme options based on the passed data.
 	 *
 	 * @param string $data Action to take action on
-	 *
-	 * @return array Array of theme update options
 	 */
-	public function save_themes_update_options( $data ) {
-
+	public function save_themes_update_options_and_render($data) {
 		if ( !current_user_can( 'update_themes' ) ) return;
-
 		parse_str( $data, $updated_options );
+		$this->save_themes_update_options($updated_options);
+		$this->render_themes_tab();
+	}
+
+	/**
+	 * Saves theme updated options
+	 *
+	 * @param array $updated_options - Updated options from the remote call
+	 */
+	public function save_themes_update_options($updated_options) {
 		$themes = isset( $updated_options['themes'] ) ? (array) $updated_options['themes'] : array();
 		$themes_automatic = isset( $updated_options['themes_automatic'] ) ? (array) $updated_options['themes_automatic'] : array();
 		$theme_options = MPSUM_Updates_Manager::get_options( 'themes' );
@@ -620,9 +675,7 @@ class MPSUM_Admin_Ajax {
 			}
 		}
 
-		$options = $this->themes_update_all_options( $theme_options, $theme_automatic_options );
-		$this->render_themes_tab();
-		return $options;
+		$this->themes_update_all_options($theme_options, $theme_automatic_options);
 	}
 
 	/**
@@ -631,11 +684,19 @@ class MPSUM_Admin_Ajax {
 	 * @since 7.0.2
 	 * @param string $data Data from ajax call
 	 */
-	public function bulk_action_themes_update_options( $data ) {
+	public function bulk_action_themes_update_options_and_render($data) {
 		if ( !current_user_can( 'update_themes' ) ) return;
-
 		parse_str( $data, $updated_options );
+		$this->bulk_action_themes_update_options($updated_options);
+		$this->render_themes_tab();
+	}
 
+	/**
+	 * Saves plugin options which are updated using bulk actions in UC
+	 *
+	 * @param array $updated_options - Updated options from the remote call
+	 */
+	public function bulk_action_themes_update_options($updated_options) {
 		if ( isset( $updated_options['action'] ) && -1 != $updated_options['action'] ) {
 			$action = $updated_options['action'];
 		}
@@ -683,8 +744,7 @@ class MPSUM_Admin_Ajax {
 			default:
 				return;
 		}
-		$options = $this->themes_update_all_options( $theme_options, $theme_automatic_options );
-		$this->render_themes_tab();
+		$this->themes_update_all_options($theme_options, $theme_automatic_options);
 	}
 
 	/**
@@ -706,18 +766,6 @@ class MPSUM_Admin_Ajax {
 	}
 
 	/**
-	 * Checks for user permission
-	 *
-	 * @return bool - Returns true, if user has enough permissions else returns false
-	 */
-	public function permission_callback() {
-		if ( current_user_can( 'install_plugins' ) ) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
 	 * Saves excluded users in options
 	 *
 	 * @param array $data An array of excludes users and other data
@@ -725,8 +773,10 @@ class MPSUM_Admin_Ajax {
 	 * @return mixed|string Returns update message if successful
 	 */
 	public function save_excluded_users( $data ) {
+		if (!current_user_can('promote_users')) return;
 		parse_str( $data, $updated_options );
 		$users = $updated_options[ 'mpsum_excluded_users' ];
+		$advanced_options = MPSUM_Updates_Manager::get_options('advanced');
 		if ( !is_array( $users ) || empty( $users ) ) return;
 		$users_to_save = array();
 		foreach ( $users as $index => $user_id ) {
@@ -734,9 +784,136 @@ class MPSUM_Admin_Ajax {
 			if ( 0 === $user_id ) continue;
 			$users_to_save[] = $user_id;
 		}
-		MPSUM_Updates_Manager::update_options( $users_to_save, 'excluded_users' );
+		$advanced_options['excluded_users'] = $users_to_save;
+		MPSUM_Updates_Manager::update_options($advanced_options, 'advanced');
 		$message = __( 'The exclusion of users option has been updated.', 'stops-core-theme-and-plugin-updates' );
 		return $message;
+	}
+
+	/**
+	 * Checks what sites a plugin is isntalled for on multisite
+	 *
+	 * @param array $data An array with the filename of the plugin
+	 */
+	public function get_multisite_installs_from_plugin($data) {
+
+		$plugin_file = $data['plugin_file'];
+
+		// Load up constructor and fire transient checker
+		$instance = MPSUM_Check_Plugin_Install_Status::get_instance();
+
+		// Multisite transient with site data
+		$transient = get_site_transient('eum_all_sites_active_plugins');
+		if (empty($transient) || false === $transient || !is_array($transient)) {
+			wp_send_json(array('message' => __('This plugin is not installed on any sites.', 'stops-core-theme-and-plugin-updates')));
+		}
+
+		// Get sites
+		$sites = $instance->get_sites();
+
+		// Get all Plugins
+		$plugins = get_plugins();
+
+		// Get blank html
+		$html = '';
+
+		// Get HTML Placeeholder
+		$html_ul = '';
+
+		foreach($transient as $site_id => $plugins_installed) {
+			$site_name = '';
+			$site_url = '';
+			$plugins_stored = array();
+
+			foreach($sites as $site) {
+				if($site_id == $site->blog_id) {
+					$site_name = $site_id . ': ' . $site->domain . $site->path;
+					$site_url = get_admin_url($site->blog_id);
+					break;
+				}
+			}
+			foreach($plugins_installed as $plugin_file_installed) {
+				if ($plugin_file === $plugin_file_installed) {
+					$plugins_stored[] = $plugin_file_installed;
+				}	
+			}
+			if(!empty($plugins_stored)) {
+				$html .= sprintf('<li><a href="%s">%s</a></li>', esc_url($site_url), esc_html($site_name));
+			}
+		}
+		if(empty($html)) {
+			wp_send_json(array('message' => '<div class="mpsum-error mpsum-bold">' . __('This plugin is not installed on any sites. Consider removing it.', 'stops-core-theme-and-plugin-updates') . '</div>'));
+		} else {
+			$html_ul = '<ul>';
+			$html_ul .= $html;
+			$html_ul .= '</ul>';
+			$html = '<div class="mpsum-notice mpsum-bold">' . __('The following sites have this plugin installed', 'stops-core-theme-and-plugin-updates') . $html_ul . '</div>';
+			wp_send_json(array('message' => $html));
+		}
+	}
+
+	/**
+	 * Checks what sites a plugin is isntalled for on multisite
+	 *
+	 * @param array $data An array with the filename of the plugin
+	 */
+	public function get_multisite_installs_from_theme($data) {
+
+		$stylesheet = $data['stylesheet'];
+
+		// Load up constructor and fire transient checker
+		$instance = MPSUM_Check_Theme_Install_Status::get_instance();
+
+		// Multisite transient with site data
+		$transient = get_site_transient('eum_all_sites_active_themes');
+		if (empty($transient) || false === $transient || !is_array($transient)) {
+			wp_send_json(array('message' => __('This theme is not installed on any sites.', 'stops-core-theme-and-plugin-updates')));
+		}
+
+		// Get sites
+		$sites = $instance->get_sites();
+
+		// Get blank html
+		$html = '';
+
+		// Get HTML Placeeholder
+		$html_ul = '';
+
+		foreach($transient as $site_id => $theme_installed) {
+			$site_name = '';
+			$site_url = '';
+			$themes_stored = array();
+			foreach($sites as $site) {
+				if($site_id == $site->blog_id) {
+					$site_id = $site->blog_id;
+					$site_name = $site_id . ': ' . $site->domain . $site->path;
+					$site_url = get_admin_url($site->blog_id);
+					break;
+				}
+			}
+			$themes = wp_get_themes(array('allowed' => 'true', 'blog_id' => $site_id));
+			if(!empty($themes)) {
+				if(array_key_exists($stylesheet, $themes)) {
+					// Determine of theme is active on the site
+					global $wpdb;
+					switch_to_blog($site_id);
+					$option = get_option('stylesheet');
+					if ($stylesheet == $option) {
+						$html .= sprintf('<li><a href="%s">%s</a></li>', esc_url($site_url), esc_html($site_name));
+					}
+				}
+			}
+		}
+		restore_current_blog();
+		if(empty($html)) {
+			wp_send_json(array('message' => '<div class="mpsum-error mpsum-bold">' . __('This theme is not active on any sites. Consider removing it.', 'stops-core-theme-and-plugin-updates') . '</div>'));
+		} else {
+			$html_ul = '<ul>';
+			$html_ul .= $html;
+			$html_ul .= '</ul>';
+			$html = '<div class="mpsum-notice mpsum-bold">' . __('The following sites have this theme activated.', 'stops-core-theme-and-plugin-updates') . $html_ul . '</div>';
+			wp_send_json(array('message' => $html));
+		}
 	}
 
 	/**
@@ -745,18 +922,67 @@ class MPSUM_Admin_Ajax {
 	 * @return mixed|string Returns update message, if successful.
 	 */
 	public function reset_options () {
+		if (!current_user_can('delete_plugins')) return;
 		// Reset options
-		MPSUM_Updates_Manager::update_options( array() );
+		MPSUM_Updates_Manager::update_options(array());
 
 		// Remove table version
-		delete_site_option( 'mpsum_log_table_version' );
+		delete_site_option('mpsum_log_table_version');
+
+		// Remove Webhook
+		delete_site_option('easy_updates_manager_webhook');
+
+		// Remove whitelist
+		delete_site_option('easy_updates_manager_enable_notices');
+		delete_site_option('easy_updates_manager_name');
+		delete_site_option('easy_updates_manager_author');
+		delete_site_option('easy_updates_manager_url');
+
+		// Remove notices timeout
+		delete_site_option('easy_updates_manager_dismiss_dash_notice_until');
+		delete_site_option('easy_updates_manager_dismiss_eum_notice_until');
+		delete_site_option('easy_updates_manager_dismiss_page_notice_until');
+		delete_site_option('easy_updates_manager_dismiss_survey_notice_until');
+
+		// Update option to show options are reset
+		update_site_option('easy_updates_manager_reset', 'true');
+
+		// Remove multisite plugins and themes transient
+		delete_site_transient('eum_all_sites_active_plugins');
+		delete_site_transient('eum_all_sites_active_themes');
 
 		// Remove logs table
-		global $wpdb;
-		$tablename = $wpdb->base_prefix . 'eum_logs';
-		$sql = "drop table if exists $tablename";
-		$wpdb->query( $sql );
-		$message = __( 'The plugin settings have now been reset.', 'stops-core-theme-and-plugin-updates' );
+		MPSUM_Logs::drop();
+
+		// Remove Plugin Check Options and Transients
+		delete_site_transient('eum_plugins_removed_from_directory');
+		if (is_multisite()) {
+			$options_sql = "delete from {$wpdb->sitemeta} where meta_key like 'eum_plugin_removed_%'";
+			$wpdb->query($options_sql);
+		} else {
+			$options_sql = "delete from {$wpdb->options} where option_name like 'eum_plugin_removed_%'";
+			$wpdb->query($options_sql);
+		}
+
+        // Remove plugin safe mode options
+		if (is_multisite()) {
+			$safe_mode_sql = "delete from {$wpdb->sitemeta} where meta_key like '%eum_plugin_safe_mode_%'";
+			$wpdb->query($safe_mode_sql);
+		} else {
+			$safe_mode_sql = "delete from {$wpdb->options} where option_name like '%eum_plugin_safe_mode_%'";
+			$wpdb->query($safe_mode_sql);
+		}
+
+		// Remove active plugins option
+		delete_site_option('eum_active_pre_restore_plugins');
+		delete_site_option('eum_active_pre_restore_plugins_multisite');
+
+		// Remove transients when someone disables plugin, theme, or core updates
+		delete_site_transient('eum_core_checked');
+		delete_site_transient('eum_themes_checked');
+		delete_site_transient('eum_plugins_checked');
+
+		$message = __('The plugin settings have now been reset.', 'stops-core-theme-and-plugin-updates');
 		return $message;
 	}
 
@@ -766,8 +992,25 @@ class MPSUM_Admin_Ajax {
 	 * @return mixed|string Returns update initialized message, if successful.
 	 */
 	public function force_updates () {
+		if (!$this->user_can_update()) return;
 		$ran_immediately = false;
+		delete_site_transient('MPSUM_PLUGINS');
+		delete_site_transient('MPSUM_THEMES');
 		if (function_exists('wp_maybe_auto_update')) {
+			/**
+			 * Whether to delete the auto update lock file
+			 *
+			 * Whether to delete the auto update lock file.
+			 *
+			 * @since 8.0.1
+			 *
+			 * @param bool    Ignore deleting the lock file (default false)
+			 * @param string  The lock file expiration if exists
+			 */
+			$disable_lock = apply_filters( 'eum_force_updates_disable_lock', false, get_option('auto_updater.lock'));
+			if (true === $disable_lock) {
+				delete_option('auto_updater.lock');
+			}
 			wp_maybe_auto_update();
 			$ran_immediately = true;
 		} else {
@@ -778,8 +1021,6 @@ class MPSUM_Admin_Ajax {
 				wp_schedule_single_event(time(), 'wp_maybe_auto_update');
 			}
 		}
-		delete_site_transient('MPSUM_PLUGINS');
-		delete_site_transient('MPSUM_THEMES');
 		$result = array(
 			'message' => __('Force update checks have been initialized.', 'stops-core-theme-and-plugin-updates'),
 			'ran_immediately' => $ran_immediately,
@@ -799,7 +1040,7 @@ class MPSUM_Admin_Ajax {
 		$update_data = wp_get_update_data();
 		if ($update_data['counts']['total'] > 0) {
 			$update_data['admin_bar_link'] = sprintf('<a class="ab-item" href="%1$s" title="%2$s"><span class="ab-icon"></span><span class="ab-label">%3$s</span><span class="screen-reader-text">%2$s</span></a>', esc_url(self_admin_url('update-core.php')), $this->get_admin_bar_title($update_data), $update_data['counts']['total']);
-			$update_data['updates_link'] = sprintf('%1$s<span class="update-plugins count-%2$s"><span class="update-count">%2$s</span></span>', __('Updates', 'stops-core-theme-and-plugin-updates'), $update_data['counts']['total']);
+			$update_data['updates_link'] = sprintf('%1$s <span class="update-plugins count-%2$s"><span class="update-count">%2$s</span></span>', __('Updates', 'stops-core-theme-and-plugin-updates'), $update_data['counts']['total']);
 			$update_data['plugins_link'] = sprintf('%1$s <span class="update-plugins count-%2$s"><span class="plugin-count">%2$s</span></span>', __('Plugins', 'stops-core-theme-and-plugin-updates'), $update_data['counts']['plugins']);
 			$update_data['themes_link'] = sprintf('%1$s <span class="update-plugins count-%2$s"><span class="plugin-count">%2$s</span></span>', __('Themes', 'stops-core-theme-and-plugin-updates'), $update_data['counts']['themes']);
 		}
@@ -856,6 +1097,7 @@ class MPSUM_Admin_Ajax {
 	 * @return mixed|string Returns enabled message, if successful.
 	 */
 	public function enable_logs () {
+		if (!current_user_can('publish_posts')) return;
 		$options = MPSUM_Updates_Manager::get_options( 'core' );
 		if ( empty( $options ) ) {
 			$options = MPSUM_Admin_Core::get_defaults();
@@ -872,8 +1114,19 @@ class MPSUM_Admin_Ajax {
 	 * @return mixed|string Return logs emptied message, if successful.
 	 */
 	public function clear_logs () {
+		if (!current_user_can('delete_posts')) return;
 		MPSUM_Logs::clear();
 		$message = __( 'Logs have been emptied', 'stops-core-theme-and-plugin-updates' );
 		return $message;
+	}
+
+	/**
+	 * Decides whether current user can update core, plugin and themes
+	 *
+	 * @return bool Returns true if user can update otherwise returns false.
+	 */
+	private function user_can_update() {
+		if (!current_user_can('update_core') || !current_user_can('update_plugins') || !current_user_can('update_themes')) return false;
+		return true;
 	}
 }

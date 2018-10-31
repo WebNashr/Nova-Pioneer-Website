@@ -10,7 +10,9 @@ if ( !defined( 'ABSPATH' ) ) die( 'No direct access.' );
  */
 class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 
-	private $tab = '';
+	private $tab = 'plugins';
+	private $status = 'all';
+	private $page = '1';
 
 	/**
 	 * Constructor.
@@ -23,27 +25,35 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 	 * @param array $args An associative array of arguments.
 	 */
 	public function __construct( $args = array() ) {
-		global $status, $page;
 
 		parent::__construct( array(
 			'singular' => 'plugin',
 			'plural' => 'plugins',
-			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
+			'screen' => isset( $args['screen'] ) ? $args['screen'] : 'eum_plugins_tab',
 			'ajax' => true
 		) );
 
-		$this->tab = isset( $args[ 'tab' ] ) ? $args[ 'tab' ] : '';
+		// Get plugins transient
+		$this->plugins_transient = get_site_transient('update_plugins');
 
+		if (isset($_REQUEST['action']) && 'eum_ajax' === $_REQUEST['action']) {
+			$this->status = 'all';
+			if (isset($_REQUEST['view']) && in_array($_REQUEST['view'], array('update_disabled', 'update_enabled', 'automatic'))) {
+				$this->status = $_REQUEST['view'];
+			}
 
-		$status = 'all';
-		if ( isset( $_REQUEST['plugin_status'] ) && in_array( $_REQUEST['plugin_status'], array( 'update_disabled', 'update_enabled', 'automatic' ) ) ) {
-			$status = $_REQUEST['plugin_status'];
+			if (isset($_REQUEST['s']))
+				$_SERVER['REQUEST_URI'] = add_query_arg('s', wp_unslash($_REQUEST['s']));
+
+			$this->page = isset($_REQUEST['paged']) ? $_REQUEST['paged'] : '1';
+		} else {
+			$this->status = 'all';
+			if (isset($args['view']) && in_array($args['view'], array('update_disabled', 'update_enabled', 'automatic'))) {
+				$this->status = $args['view'];
+			}
+
+			$this->page = isset($args['paged']) ? $args['paged'] : '1';
 		}
-
-		if ( isset($_REQUEST['s']) )
-			$_SERVER['REQUEST_URI'] = add_query_arg('s', wp_unslash($_REQUEST['s']) );
-
-		$page = $this->get_pagenum();
 	}
 
 	/**
@@ -71,9 +81,8 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 	 */
 	public function prepare_items() {
 
-		global $orderby, $order, $totals, $status;
+		global $orderby, $order, $totals;
 		$order = 'DESC';
-		$page = $this->get_pagenum();
 		$orderby = 'Name';
 
 		/**
@@ -85,6 +94,10 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 		 *
 		 * @param array $plugins An array of plugins to display in the list table.
 		 */
+		if (!function_exists('get_plugins')) {
+			include_once ABSPATH . "wp-admin/includes/plugin.php";
+		}
+
 		$plugins = array(
 			'all' => apply_filters( 'all_plugins', get_plugins() ),
 			'update_enabled' => array(),
@@ -129,17 +142,17 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 			$plugins[ 'automatic' ] = array();
 		}
 
-		if ( empty( $plugins[ $status ] ) )
-			$status = 'all';
+		if ( empty( $plugins[ $this->status ] ) )
+			$this->status = 'all';
 
 		$this->items = array();
-		foreach ( $plugins[ $status ] as $plugin_file => $plugin_data ) {
+		foreach ( $plugins[ $this->status ] as $plugin_file => $plugin_data ) {
 			// Translate, Don't Apply Markup, Sanitize HTML
 			remove_action( "after_plugin_row_$plugin_file", 'wp_plugin_update_row', 10, 2 );
 			$this->items[$plugin_file] = _get_plugin_data_markup_translate( $plugin_file, $plugin_data, false, true );
 		}
 
-		$total_this_page = $totals[ $status ];
+		$total_this_page = $totals[ $this->status ];
 
 		// Get plugins per page
 		$user_id = get_current_user_id();
@@ -148,7 +161,7 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 			$plugins_per_page = 100;
 		}
 
-		$start = ( $page - 1 ) * $plugins_per_page;
+		$start = ( $this->page - 1 ) * $plugins_per_page;
 
 		if ( $total_this_page > $plugins_per_page )
 			$this->items = array_slice( $this->items, $start, $plugins_per_page );
@@ -158,8 +171,9 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 			'per_page' => $plugins_per_page,
 			'total_pages'	=> ceil( $total_this_page / $plugins_per_page ),
 			// Set plugin status value (useful for AJAX)
-			'plugin_status'	=> $status,
-			'tab' => isset($this->tab) ? $this->tab : ''
+			'view'	=> $this->status,
+			'tab' => $this->tab,
+			'paged' => $this->page
 		) );
 	}
 
@@ -279,11 +293,9 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 		 *
 		 * @return array
 		 */
-	public function get_columns() {
-		global $status;
-
+	public function get_columns() {		
 		return array(
-			'cb'          => !in_array( $status, array( 'mustuse', 'dropins' ) ) ? '<input type="checkbox" />' : '',
+			'cb'          => !in_array( $this->status, array( 'mustuse', 'dropins' ) ) ? '<input type="checkbox" />' : '',
 			'name'        => __( 'Plugin', 'stops-core-theme-and-plugin-updates' ),
 			'description' => __( 'Description', 'stops-core-theme-and-plugin-updates' ),
 		);
@@ -304,7 +316,7 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 	 * @return array
 	 */
 	protected function get_views() {
-		global $totals, $status;
+		global $totals;
 
 		$status_links = array();
 		foreach ( $totals as $type => $count ) {
@@ -329,13 +341,13 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 			if ( 'search' != $type ) {
 				$plugin_url = MPSUM_Admin::get_url();
 				$query_args = array(
-					'tab' => isset( $_REQUEST['tab'] ) ? $_REQUEST['tab'] : 'all',
-					'plugin_status' => $type
+					'tab' => $this->tab,
+					'view' => $type
 				);
-				$status_links[$type] = sprintf( "<a href='%s' data-plugin_status='%s' %s>%s</a>",
+				$status_links[$type] = sprintf( "<a href='%s' data-view='%s' %s>%s</a>",
 					add_query_arg( $query_args, $plugin_url ),
-					$status,
-					( $type == $status ) ? ' class="current"' : '',
+					$this->status,
+					( $type == $this->status ) ? ' class="current"' : '',
 					sprintf( $text, number_format_i18n( $count ) )
 					);
 			}
@@ -350,8 +362,6 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 	 * @return array
 	 */
 	protected function get_bulk_actions() {
-		global $status;
-
 		$actions = array();
 
 		$actions[ 'allow-update-selected' ] = esc_html__( 'Plugin Updates On', 'stops-core-theme-and-plugin-updates' );
@@ -368,14 +378,12 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 	/**
 	 * Bulk action
 	 *
-	 * @global string $status
 	 * @param string $which Specify which bulk action
 	 * @return null
 	 */
 	public function bulk_actions( $which = '' ) {
-		global $status;
 
-		if ( in_array( $status, array( 'mustuse', 'dropins' ) ) )
+		if ( in_array( $this->status, array( 'mustuse', 'dropins' ) ) )
 			return;
 
 		parent::bulk_actions( $which );
@@ -384,22 +392,20 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 	/**
 	 * Extra table Nav
 	 *
-	 * @global string $status
 	 * @param string $which Specify which table nav
 	 * @return null
 	 */
 	protected function extra_tablenav( $which ) {
-		global $status;
 
-		if ( ! in_array($status, array('recently_activated', 'mustuse', 'dropins') ) )
+		if ( ! in_array($this->status, array('recently_activated', 'mustuse', 'dropins') ) )
 			return;
 
 		echo '<div class="alignleft actions">';
 
-		if ( ! $this->screen->in_admin( 'network' ) && 'recently_activated' == $status ) {
+		if ( ! $this->screen->in_admin( 'network' ) && 'recently_activated' == $this->status ) {
 			submit_button( __( 'Clear List', 'stops-core-theme-and-plugin-updates' ), 'button', 'clear-recent-list', false );
 		}
-		elseif ( 'top' == $which && 'mustuse' == $status ) {
+		elseif ( 'top' == $which && 'mustuse' == $this->status ) {
 			echo '<p>' .
 				sprintf(
 					__( 'Files in the %s directory are executed automatically.', 'stops-core-theme-and-plugin-updates' ),
@@ -407,7 +413,7 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 				) .
 				'</p>';
 		}
-		elseif ( 'top' == $which && 'dropins' == $status ) {
+		elseif ( 'top' == $which && 'dropins' == $this->status ) {
 			echo '<p>' .
 				sprintf(
 					__( 'Drop-ins are advanced plugins in the %s directory that replace WordPress functionality when present.', 'stops-core-theme-and-plugin-updates' ),
@@ -437,9 +443,8 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 	 * @return void
 	 */
 	public function display_rows() {
-		global $status;
 
-		if ( is_multisite() && ! $this->screen->in_admin( 'network' ) && in_array( $status, array( 'mustuse', 'dropins' ) ) )
+		if ( is_multisite() && ! $this->screen->in_admin( 'network' ) && in_array( $this->status, array( 'mustuse', 'dropins' ) ) )
 			return;
 
 		foreach ( $this->items as $plugin_file => $plugin_data )
@@ -449,29 +454,27 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 	/**
 	 * Single row
 	 *
-	 * @global string $status
-	 * @global int $page
 	 * @global string $s
 	 * @global array $totals
 	 * @param array $item Single row item
 	 */
 	public function single_row( $item ) {
-		global $status, $page, $s, $totals;
+		global $s, $totals;
 
 		list( $plugin_file, $plugin_data ) = $item;
 		$context = 'all';
 		$screen = $this->screen;
 
 		/**
-		* Filter the action links that show up under each plugin row.
-		*
-		* @since 5.0.0
-		*
-		* @param string    Relative plugin file path
-		* @param array  $plugin_data An array of plugin data.
-		* @param string   $status     Status of the plugin.
-		*/
-		$actions = apply_filters( 'mpsum_plugin_action_links', array(), $plugin_file, $plugin_data, $status );
+		 * Filter the action links that show up under each plugin row.
+		 *
+		 * @since 5.0.0
+		 *
+		 * @param string    Relative plugin file path
+		 * @param array  $plugin_data An array of plugin data.
+		 * @param string   $this->status     Status of the plugin.
+		 */
+		$actions = apply_filters( 'mpsum_plugin_action_links', array(), $plugin_file, $plugin_data, $this->status );
 
 		$class = 'active';
 		$plugin_options = MPSUM_Updates_Manager::get_options( 'plugins' );
@@ -489,7 +492,7 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 
 		echo "<tr id='$id' class='$class'>";
 
-		list( $columns, $hidden ) = $this->get_column_info();
+		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
 
 		foreach ( $columns as $column_name => $column_display_name ) {
 			$style = '';
@@ -533,18 +536,18 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 						$checked
 					);
 
-					printf( '<button aria-label="%s" class="eum-toggle-button eum-enabled %s" data-checked="%s">%s</button>',
+					printf( '<button aria-label="%s" class="eum-toggle-button eum-enabled %s" data-checked="%s" value="on">%s</button>',
 						esc_attr__( 'Allow Updates', 'stops-core-theme-and-plugin-updates' ),
 						esc_attr( $enable_class ),
 						$plugin_slug,
-						esc_html__( 'On', 'stops-core-theme-and-plugin-updates' )
+						esc_html__( 'Allowed', 'stops-core-theme-and-plugin-updates' )
 					);
 
-					printf( '<button aria-label="%s" class="eum-toggle-button eum-disabled %s" data-checked="%s">%s</button>',
+					printf( '<button aria-label="%s" class="eum-toggle-button eum-disabled %s" data-checked="%s value="off">%s</button>',
 						esc_attr__( 'Disallow Updates', 'stops-core-theme-and-plugin-updates' ),
 						esc_attr( $disable_class ),
 						$plugin_slug,
-						esc_html__( 'Off', 'stops-core-theme-and-plugin-updates' )
+						esc_html__( 'Blocked', 'stops-core-theme-and-plugin-updates' )
 					);
 
 					echo '</div></div>';
@@ -570,14 +573,14 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 							$checked
 						);
 
-						printf( '<button aria-label="%s" class="eum-toggle-button eum-enabled %s" data-checked="%s">%s</button>',
+						printf( '<button aria-label="%s" class="eum-toggle-button eum-enabled %s" data-checked="%s" value="on">%s</button>',
 							esc_html__( 'Enable Automatic Updates', 'stops-core-theme-and-plugin-updates' ),
 							esc_attr( $enable_class ),
 							$plugin_slug,
 							esc_html__( 'On', 'stops-core-theme-and-plugin-updates' )
 						);
 
-						printf( '<button aria-label="%s" class="eum-toggle-button eum-disabled %s" data-checked="%s">%s</button>',
+						printf( '<button aria-label="%s" class="eum-toggle-button eum-disabled %s" data-checked="%s" value="off">%s</button>',
 							esc_attr__( 'Enable Automatic Updates', 'stops-core-theme-and-plugin-updates' ),
 							esc_attr( $disable_class ),
 							$plugin_slug,
@@ -606,9 +609,9 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 
 					// Details link using API info, if available
 					if ( isset( $plugin_data['slug'] ) && current_user_can( 'install_plugins' ) ) {
-						$plugin_meta[] = sprintf( '<a href="%s" class="thickbox" aria-label="%s" data-title="%s">%s</a>',
+						$plugin_meta[] = sprintf( '<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="%s">%s</a>',
 							esc_url( network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $plugin_data['slug'] .
-								'&TB_iframe=true&width=600&height=550' ) ),
+								'&eum_action=EUM_modal&TB_iframe=true&width=600&height=550' ) ),
 							esc_attr( sprintf( __( 'More information about %s', 'stops-core-theme-and-plugin-updates' ), $plugin_name ) ),
 							esc_attr( $plugin_name ),
 							__( 'View details', 'stops-core-theme-and-plugin-updates' )
@@ -620,6 +623,7 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 						);
 					}
 
+
 					/**
 					 * Filter the array of row meta for each plugin in the Plugins list table.
 					 *
@@ -630,13 +634,42 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 					 *                            author URI, and plugin URI.
 					 * @param string $plugin_file Path to the plugin file, relative to the plugins directory.
 					 * @param array  $plugin_data An array of plugin data.
-					 * @param string $status      Status of the plugin. Defaults are 'All', 'Active',
+					 * @param string $this->status      Status of the plugin. Defaults are 'All', 'Active',
 					 *                            'Inactive', 'Recently Activated', 'Upgrade', 'Must-Use',
 					 *                            'Drop-ins', 'Search'.
 					 */
-					$plugin_meta = apply_filters( 'plugin_row_meta', $plugin_meta, $plugin_file, $plugin_data, $status );
+					$plugin_meta = apply_filters( 'plugin_row_meta', $plugin_meta, $plugin_file, $plugin_data, $this->status );
 					echo implode( ' | ', $plugin_meta );
 
+					// Premium only - Check if plugin has been removed from the repo
+					if( MPSUM_Updates_Manager::get_instance()->is_premium()) {
+						MPSUM_Check_Plugins_Removed::get_instance()->check_if_plugin_removed($plugin_file);
+					}
+					
+					// Show active status for blogs
+					if (is_multisite()) {
+						if(is_plugin_active_for_network($plugin_file)) {
+							printf('<div class="mpsum-success mpsum-bold">%s</div>', esc_html__('This plugin is active for your network.', 'stops-core-theme-and-plugin-updates'));
+						} else {
+							printf('<div class="mpsum-notice mpsum-regular"><a href="#" data-plugin-file="%s" class="eum-list-plugins-action">%s</a><div class="eum-list-plugins"></div></div>', esc_attr($plugin_file), esc_html__('View all sites that have this plugin installed.', 'stops-core-theme-and-plugin-updates'));
+						}
+					} else {
+						if (is_plugin_active($plugin_file)) {
+							printf('<div class="mpsum-success mpsum-bold">%s</div>', esc_html__('This plugin is active for your site.', 'stops-core-theme-and-plugin-updates'));
+						} else {
+							printf('<div class="mpsum-error mpsum-bold">%s</div>', esc_html__('This plugin is inactive for your site. Consider removing it.', 'stops-core-theme-and-plugin-updates'));
+						}
+					}
+					
+					// Show safe mode options if enabled
+					if( MPSUM_Updates_Manager::get_instance()->is_premium()) {
+						$core_options = MPSUM_Updates_Manager::get_options('core');
+						if(isset($core_options['safe_mode']) && 'on' === $core_options['safe_mode']) {
+							$safe_mode_instance = MPSUM_Safe_Mode::get_instance();
+							$plugin_object = $safe_mode_instance->perform_api_check($plugin_file);
+							$safe_mode_instance->maybe_output_check_safe_mode($plugin_object); 
+						}
+					}
 					echo "</div></td>";
 					break;
 				default:
@@ -658,33 +691,5 @@ class MPSUM_Plugins_List_Table extends MPSUM_List_Table {
 
 		echo "</tr>";
 
-		/**
-		 * Fires after each row in the Plugins list table.
-		 *
-		 * @since 2.3.0
-		 *
-		 * @param string $plugin_file Path to the plugin file, relative to the plugins directory.
-		 * @param array  $plugin_data An array of plugin data.
-		 * @param string $status      Status of the plugin. Defaults are 'All', 'Active',
-		 *                            'Inactive', 'Recently Activated', 'Upgrade', 'Must-Use',
-		 *                            'Drop-ins', 'Search'.
-		 */
-		do_action( 'after_plugin_row', $plugin_file, $plugin_data, $status );
-
-		/**
-		 * Fires after each specific row in the Plugins list table.
-		 *
-		 * The dynamic portion of the hook name, `$plugin_file`, refers to the path
-		 * to the plugin file, relative to the plugins directory.
-		 *
-		 * @since 2.7.0
-		 *
-		 * @param string $plugin_file Path to the plugin file, relative to the plugins directory.
-		 * @param array  $plugin_data An array of plugin data.
-		 * @param string $status      Status of the plugin. Defaults are 'All', 'Active',
-		 *                            'Inactive', 'Recently Activated', 'Upgrade', 'Must-Use',
-		 *                            'Drop-ins', 'Search'.
-		 */
-		do_action( "after_plugin_row_$plugin_file", $plugin_file, $plugin_data, $status );
 	}
 }

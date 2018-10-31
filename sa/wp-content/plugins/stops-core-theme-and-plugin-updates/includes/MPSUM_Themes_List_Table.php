@@ -12,7 +12,9 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 
 	public $site_id;
 	public $is_site_themes;
-	private $tab = '';
+	private $tab = 'themes';
+	private $status = 'all';
+	private $page = '1';
 
 	/**
 	 * Constructor.
@@ -25,22 +27,26 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 	 * @param array $args An associative array of arguments.
 	 */
 	public function __construct( $args = array() ) {
-		global $status, $page;
-
 		parent::__construct( array(
 			'singular' => 'theme',
 			'plural' => 'themes',
-			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
+			'screen' => isset( $args['screen'] ) ? $args['screen'] : 'eum_themes_tab',
 			'ajax' => true
 		) );
 
-		$this->tab = isset( $_REQUEST[ 'tab' ] ) ? $_REQUEST[ 'tab' ] : 'themes';
+		if (isset($_REQUEST['action']) && 'eum_ajax' === $_REQUEST['action']) {
+			$this->status = isset($_REQUEST['view']) ? $_REQUEST['view'] : 'all';
+			if (!in_array($this->status, array('all', 'update_disabled', 'update_enabled', 'automatic')))
+				$this->status = 'all';
 
-		$status = isset( $_REQUEST['theme_status'] ) ? $_REQUEST['theme_status'] : 'all';
-		if ( !in_array( $status, array( 'all', 'update_disabled', 'update_enabled', 'automatic' ) ) )
-			$status = 'all';
+			$this->page = isset($_REQUEST['paged']) ? $_REQUEST['paged'] : '1';
+		} else {
+			$this->status = isset($args['view']) ? $args['view'] : 'all';
+			if (!in_array($this->status, array('all', 'update_disabled', 'update_enabled', 'automatic')))
+				$this->status = 'all';
 
-		$page = $this->get_pagenum();
+			$this->page = isset($args['paged']) ? $args['paged'] : 1;
+		}
 
 		$this->is_site_themes = ( 'site-themes-network' == $this->screen->id ) ? true : false;
 
@@ -76,9 +82,8 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 	 * Prepares theme items by setting pagination variables, order, filter
 	 */
 	public function prepare_items() {
-		global $totals, $status;
+		global $totals;
 		$order = 'DESC';
-		$page = $this->get_pagenum();
 		$orderby = 'Name';
 
 		$themes = array(
@@ -124,14 +129,14 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 			$themes[ 'automatic' ] = array();
 		}
 
-		if ( empty( $themes[ $status ] ) )
-			$status = 'all';
+		if ( empty( $themes[ $this->status ] ) )
+			$this->status = 'all';
 
-		$this->items = $themes[ $status ];
+		$this->items = $themes[ $this->status ];
 		WP_Theme::sort_by_name( $this->items );
 
 		$this->has_items = ! empty( $themes['all'] );
-		$total_this_page = $totals[ $status ];
+		$total_this_page = $totals[ $this->status ];
 
 		if ( $orderby ) {
 			$orderby = ucfirst( $orderby );
@@ -152,7 +157,7 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 			$themes_per_page = 100;
 		}
 
-		$start = ( $page - 1 ) * $themes_per_page;
+		$start = ( $this->page - 1 ) * $themes_per_page;
 
 		if ( $total_this_page > $themes_per_page )
 			$this->items = array_slice( $this->items, $start, $themes_per_page, true );
@@ -161,8 +166,9 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 			'total_items' => $total_this_page,
 			'per_page' => $themes_per_page,
 			'total_pages' => ceil( $total_this_page / $themes_per_page ),
-			'theme_status' => $status,
-			'tab' => isset( $this->tab ) ? $this->tab : ''
+			'view' => $this->status,
+			'tab' => $this->tab,
+			'paged' => $this->page
 		) );
 	}
 
@@ -236,8 +242,6 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 	 * @return array
 	 */
 	public function get_columns() {
-		global $status;
-
 		return array(
 			'cb'          => '<input type="checkbox" />',
 			'name'        => __( 'Theme', 'stops-core-theme-and-plugin-updates' ),
@@ -260,7 +264,7 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 	 * @return array
 	 */
 	protected function get_views() {
-		global $totals, $status;
+		global $totals;
 
 		$status_links = array();
 		foreach ( $totals as $type => $count ) {
@@ -286,13 +290,13 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 				$theme_url = MPSUM_Admin::get_url();
 				$query_args = array(
 					'tab' => $this->tab,
-					'theme_status' => $type
+					'view' => $type
 				);
 
-				$status_links[$type] = sprintf( "<a href='%s' data-theme_status='%s' %s>%s</a>",
+				$status_links[$type] = sprintf( "<a href='%s' data-view='%s' %s>%s</a>",
 					add_query_arg( $query_args, $theme_url ),
-					$status,
-					( $type == $status ) ? ' class="current"' : '',
+					$this->status,
+					( $type == $this->status ) ? ' class="current"' : '',
 					sprintf( $text, number_format_i18n( $count ) )
 				);
 			}
@@ -307,8 +311,6 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 	 * @return array
 	 */
 	protected function get_bulk_actions() {
-		global $status;
-
 		$actions = array();
 
 		$actions[ 'allow-update-selected' ] = esc_html__( 'Theme Updates On', 'stops-core-theme-and-plugin-updates' );
@@ -335,14 +337,10 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 	/**
 	 * Single row theme
 	 *
-	 * @global string $status
-	 * @global int $page
-	 * @global string $s
-	 * @global array $totals
-	 * @param array $theme The specified theme
+	 * @param object $theme The specified WP_Theme object
 	 */
 	public function single_row( $theme ) {
-		$status = 'all';
+		$this->status = 'all';
 		$stylesheet = $theme->get_stylesheet();
 		remove_action( "after_theme_row_$stylesheet", 'wp_theme_update_row', 10, 2 );
 		$theme_key = urlencode( $stylesheet );
@@ -354,7 +352,7 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		*
 		* @param array    Array of action links
 		* @param WP_Theme   $theme WP_Theme object
-		* @param string   $status     Status of the theme.
+		* @param string   $this->status     Status of the theme.
 		*/
 		$actions = apply_filters( 'mpsum_theme_action_links', array(), $theme, 'all' );
 
@@ -409,14 +407,14 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 						esc_attr__( 'Allow Updates', 'stops-core-theme-and-plugin-updates' ),
 						esc_attr( $enable_class ),
 						$stylesheet,
-						esc_html__( 'On', 'stops-core-theme-and-plugin-updates' )
+						esc_html__( 'Allowed', 'stops-core-theme-and-plugin-updates' )
 					);
 
 					printf( '<button aria-label="%s" class="eum-toggle-button eum-disabled %s" data-checked="%s">%s</button>',
 						esc_attr__( 'Disallow Updates', 'stops-core-theme-and-plugin-updates' ),
 						esc_attr( $disable_class ),
 						$stylesheet,
-						esc_html__( 'Off', 'stops-core-theme-and-plugin-updates' )
+						esc_html__( 'Blocked', 'stops-core-theme-and-plugin-updates' )
 					);
 
 					echo '</div></div>';
@@ -463,7 +461,7 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 				case 'description':
 					echo "<td class='column-description desc'$style>";
 					if ( $theme->errors() ) {
-						$pre = $status == 'broken' ? __( 'Broken Theme:', 'stops-core-theme-and-plugin-updates'  ) . ' ' : '';
+						$pre = $this->status == 'broken' ? __( 'Broken Theme:', 'stops-core-theme-and-plugin-updates'  ) . ' ' : '';
 						echo '<p><strong class="attention">' . $pre . $theme->errors()->get_error_message() . '</strong></p>';
 					}
 					echo "<div class='theme-description'><p>" . $theme->display( 'Description' ) . "</p></div>
@@ -490,10 +488,38 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 					 *                             theme URI.
 					 * @param string   $stylesheet Directory name of the theme.
 					 * @param WP_Theme $theme      WP_Theme object.
-					 * @param string   $status     Status of the theme.
+					 * @param string   $this->status     Status of the theme.
 					 */
-					$theme_meta = apply_filters( 'theme_row_meta', $theme_meta, $stylesheet, $theme, $status );
+					$theme_meta = apply_filters( 'theme_row_meta', $theme_meta, $stylesheet, $theme, $this->status );
 					echo implode( ' | ', $theme_meta );
+
+					// Show active status for blogs
+					if (is_multisite()) {
+						$themes = wp_get_themes( array( 'allowed' => true ) );
+						$is_allowed_theme[] = array();
+						foreach($themes as $style => $theme_data) {
+							if($style === $stylesheet) {
+								$is_allowed_theme[] = $stylesheet;
+							}
+						}
+						$is_allowed_stylesheet = false;
+						foreach( $is_allowed_theme as $allowed_stylesheet) {
+							if( $allowed_stylesheet === $stylesheet ) {
+								$is_allowed_stylesheet = true;
+							}
+						}
+						if($is_allowed_stylesheet) {
+							printf('<div class="mpsum-success mpsum-regular"><a href="#" data-theme-file="%s" class="eum-list-themes-action">%s</a><div class="eum-list-themes"></div></div>', esc_attr($stylesheet), esc_html__('View all sites that have this theme installed.', 'stops-core-theme-and-plugin-updates'));
+						} else {
+							printf('<div class="mpsum-notice mpsum-regular">%s<br /><a href="#" data-theme-file="%s" class="eum-list-themes-action">%s</a><div class="eum-list-themes"></div></div>', esc_html__('This theme is not allowed to be activated on your network of sites, but may be enabled for specific sites.', 'stops-core-theme-and-plugin-updates'), esc_attr($stylesheet), esc_html__('View all sites that have this theme installed.', 'stops-core-theme-and-plugin-updates'));
+						}
+					} else {
+						if(get_stylesheet() === $stylesheet) {
+							printf('<div class="mpsum-success mpsum-regular">%s</div>', esc_html__('This theme is active for your site.', 'stops-core-theme-and-plugin-updates'));
+						} else {
+							printf('<div class="mpsum-error mpsum-bold">%s</div>', esc_html__('This theme is inactive for your site.', 'stops-core-theme-and-plugin-updates'));
+						}
+					}
 
 					echo "</div></td>";
 					break;
@@ -527,9 +553,9 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		 *
 		 * @param string   $stylesheet Directory name of the theme.
 		 * @param WP_Theme $theme      Current WP_Theme object.
-		 * @param string   $status     Status of the theme.
+		 * @param string   $this->status     Status of the theme.
 		 */
-		do_action( 'after_theme_row', $stylesheet, $theme, $status );
+		do_action( 'after_theme_row', $stylesheet, $theme, $this->status );
 
 		/**
 		 * Fires after each specific row in the Multisite themes list table.
@@ -542,20 +568,18 @@ class MPSUM_Themes_List_Table extends MPSUM_List_Table {
 		 *
 		 * @param string   $stylesheet Directory name of the theme.
 		 * @param WP_Theme $theme      Current WP_Theme object.
-		 * @param string   $status     Status of the theme.
+		 * @param string   $this->status     Status of the theme.
 		 */
-		do_action( "after_theme_row_$stylesheet", $stylesheet, $theme, $status );
+		do_action( "after_theme_row_$stylesheet", $stylesheet, $theme, $this->status );
 	}
 
 	/**
 	 * Captures response of ajax calls and returns it
 	 */
 	public function ajax_response() {
-
 		$this->prepare_items();
 		extract( $this->_args );
 		extract( $this->_pagination_args, EXTR_SKIP );
-
 		ob_start();
 		$this->views();
 		$views = ob_get_clean();

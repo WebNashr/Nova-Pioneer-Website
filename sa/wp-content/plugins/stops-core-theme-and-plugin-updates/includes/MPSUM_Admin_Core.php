@@ -230,7 +230,7 @@ class MPSUM_Admin_Core {
 				<td>
 					<p><input type="radio" name="options[automatic_major_updates]" value="on" id="automatic_major_on" <?php checked( 'on', $options[ 'automatic_major_updates' ] ); ?> />&nbsp;<label for="automatic_major_on"><?php esc_html_e( 'Enabled', 'stops-core-theme-and-plugin-updates' ); ?></label></p>
 					<p><input type="radio" name="options[automatic_major_updates]" value="off" id="automatic_major_off" <?php checked( 'off', $options[ 'automatic_major_updates' ] ); ?> />&nbsp;<label for="automatic_major_off"><?php esc_html_e( 'Disabled', 'stops-core-theme-and-plugin-updates' ); ?></label></p>
-					<p class="description"><?php esc_html_e( 'Automatically update to major releases (e.g., 4.1, 4.2, 4.3).', 'stops-core-theme-and-plugin-updates' ); ?></p>
+					<p class="description"><?php esc_html_e( 'Automatically update to new major releases (e.g., 4.1, 4.2, 4.3).', 'stops-core-theme-and-plugin-updates' ); ?></p>
 				</td>
 			</tr>
 			<tr>
@@ -238,11 +238,11 @@ class MPSUM_Admin_Core {
 				<td>
 					<p><input type="radio" name="options[automatic_minor_updates]" value="on" id="automatic_minor_on" <?php checked( 'on', $options[ 'automatic_minor_updates' ] ); ?> />&nbsp;<label for="automatic_minor_on"><?php esc_html_e( 'Enabled', 'stops-core-theme-and-plugin-updates' ); ?></label><br />
 					<p><input type="radio" name="options[automatic_minor_updates]" value="off" id="automatic_minor_off" <?php checked( 'off', $options[ 'automatic_minor_updates' ] ); ?> />&nbsp;<label for="automatic_minor_off"><?php esc_html_e( 'Disabled', 'stops-core-theme-and-plugin-updates' ); ?></label>
-					<p class="description"><?php esc_html_e( 'Automatically update to minor releases (e.g., 4.1.1, 4.1.2, 4.1.3).', 'stops-core-theme-and-plugin-updates' ); ?></p>
+					<p class="description"><?php esc_html_e( 'Automatically update to new minor releases in your current series (e.g., 4.1.1, 4.1.2, 4.1.3).', 'stops-core-theme-and-plugin-updates' ); ?></p>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"><?php esc_html_e( 'Development Updates', 'stops-core-theme-and-plugin-updates' ); ?></th>
+				<th scope="row"><?php esc_html_e( 'Development Updates (Core)', 'stops-core-theme-and-plugin-updates' ); ?></th>
 				<td>
 					<p><input type="radio" name="options[automatic_development_updates]" value="on" id="automatic_dev_on" <?php checked( 'on', $options[ 'automatic_development_updates' ] ); ?> />&nbsp;<label for="automatic_dev_on"><?php esc_html_e( 'Enabled', 'stops-core-theme-and-plugin-updates' ); ?></label></p>
 					<p><input type="radio" name="options[automatic_development_updates]" value="off" id="automatic_dev_off" <?php checked( 'off', $options[ 'automatic_development_updates' ] ); ?> />&nbsp;<label for="automatic_dev_off"><?php esc_html_e( 'Disabled', 'stops-core-theme-and-plugin-updates' ); ?></label></p>
