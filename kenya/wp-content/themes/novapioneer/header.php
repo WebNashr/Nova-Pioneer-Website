@@ -531,6 +531,9 @@
         <a href="<?php echo site_url('/'.'apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
             now</a>
 
+        <a id="header_apply" href="<?php echo site_url('/'.'apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
+            now</a>
+
         <!-- open search form -->
         <svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
              viewBox="0 0 48 48">
@@ -575,6 +578,14 @@
 
 </header>
 <!-- end page-header -->
-
+<script type="text/javascript">
+    jQuery(document).ready(
+                function(){
+                    if(bowser.ios) {
+                    jQuery('#header_apply').css('z-index','2000');
+                        }
+                    }
+            );
+</script>
 <!-- start content -->
 <main role="main">
