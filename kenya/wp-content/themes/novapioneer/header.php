@@ -528,9 +528,6 @@
         )); ?>
         <!-- end navigation -->
 
-        <a href="<?php echo site_url('/'.'apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
-            now</a>
-
         <a id="header_apply" href="<?php echo site_url('/'.'apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
             now</a>
 
@@ -583,6 +580,8 @@
                 function(){
                     if(bowser.ios) {
                     jQuery('#header_apply').css('z-index','2000');
+                    jQuery('#header_apply').css('position','absolute');
+                    jQuery('#header_apply').css('right','0');
                         }
                     }
             );
