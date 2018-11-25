@@ -302,7 +302,7 @@
                                 <polygon fill="url(#SVGID_5_1)" points="4,74.316 4,141.745 25.506,166.145 25.506,86.729 46.606,74.614 93.689,47.434
                                     72.666,34.613       "/>
 
-                                <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.687" y1="-53.647"
+                                <linearGradient id="SVGID_6_1" gradientUnits="userSpaceOnUse" x1="191.687" y1="-53.647"
                                                 x2="52.3961" y2="-52.8733"
                                                 gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                     <stop offset="0" style="stop-color:#188EBF"/>
@@ -311,7 +311,7 @@
                                     <stop offset="1" style="stop-color:#1D3F75"/>
                                 </linearGradient>
 
-                                <polygon fill="url(#SVGID_6_)" points="46.602,154.157 113.616,193.866 172.35,161.176 184.338,130.154 115.268,168.629
+                                <polygon fill="url(#SVGID_6_1)" points="46.602,154.157 113.616,193.866 172.35,161.176 184.338,130.154 115.268,168.629
                                     93.689,156.165 46.602,128.993       "/>
                             </g>
 
@@ -502,7 +502,7 @@
                                 <polygon fill="url(#SVGID_5_2)" points="4,74.316 4,141.745 25.506,166.145 25.506,86.729 46.606,74.614 93.689,47.434
                                     72.666,34.613       "/>
 
-                                <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="191.6875" y1="-53.647"
+                                <linearGradient id="SVGID_6_2" gradientUnits="userSpaceOnUse" x1="191.6875" y1="-53.647"
                                                 x2="52.3966" y2="-52.8733"
                                                 gradientTransform="matrix(1 0 0 -1 -6 108.3682)">
                                     <stop offset="0" style="stop-color:#188EBF"/>
@@ -511,7 +511,7 @@
                                     <stop offset="1" style="stop-color:#1D3F75"/>
                                 </linearGradient>
 
-                                <polygon fill="url(#SVGID_6_)" points="46.602,154.157 113.616,193.866 172.35,161.176 184.338,130.154 115.268,168.629
+                                <polygon fill="url(#SVGID_6_2)" points="46.602,154.157 113.616,193.866 172.35,161.176 184.338,130.154 115.268,168.629
                                     93.689,156.165 46.602,128.993       "/>
                             </g>
                         </g>
