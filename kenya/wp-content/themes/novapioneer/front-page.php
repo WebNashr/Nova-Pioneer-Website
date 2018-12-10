@@ -139,7 +139,7 @@ get_header(); ?>
                 <div class="section-content-item section-content-item-half first-item">
                     <?php echo get_field('our_students_description'); ?>
                     <?php $our_students_video = get_field('our_students_video');
-                    if (get_field('type', $our_students_video->ID) == 'student'): ?>
+                    if (get_field('type', $our_students_video->ID) == ('student' || 'general' )):  ?>
                     <div class="testimonial pull-quote">
                         <?php
                         $vid_caption = get_field('video_caption', $our_students_video->ID);
