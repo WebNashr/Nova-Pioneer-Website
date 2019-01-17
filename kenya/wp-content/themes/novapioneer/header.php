@@ -54,12 +54,7 @@
 </head>
 
 <body <?php body_class('body-kenya'); ?>>
-    <noscript>
-        <div style="display:inline;">
-            <img height="1" width="1" style="border-style:none;" alt=""
-                 src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966928664/?guid=ON&script=0"/>
-        </div>
-    </noscript>
+
 
 <!-- Google Tag Manager (noscript) -->
 <noscript>
