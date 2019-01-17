@@ -46,7 +46,7 @@
 
         ga('create', 'UA-97642297-1', 'auto');
         ga('send', 'pageview');
-        gtag('config', 'AW-852162782');
+        
 
     </script>
     <!-- End Google Analytics -->
