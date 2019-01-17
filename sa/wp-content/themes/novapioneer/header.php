@@ -46,21 +46,7 @@
         gtag('config', 'AW-852162782');
 
     </script>
-    <script type="text/javascript">
-        /* <![CDATA[ */
-        var google_conversion_id = 966928664;
-        var google_custom_params = window.google_tag_params;
-        var google_remarketing_only = true;
-        /* ]]> */
-    </script>
-    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-    </script>
-    <noscript>
-        <div style="display:inline;">
-            <img height="1" width="1" style="border-style:none;" alt=""
-                 src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966928664/?guid=ON&script=0"/>
-        </div>
-    </noscript>
+
 </head>
 
 <body <?php body_class('body-south-africa'); ?>>
