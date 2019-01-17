@@ -50,15 +50,7 @@
 
     </script>
     <!-- End Google Analytics -->
-    <script type="text/javascript">
-        /* <![CDATA[ */
-        var google_conversion_id = 966928664;
-        var google_custom_params = window.google_tag_params;
-        var google_remarketing_only = true;
-        /* ]]> */
-    </script>
-    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-    </script>
+ 
 </head>
 
 <body <?php body_class('body-kenya'); ?>>
