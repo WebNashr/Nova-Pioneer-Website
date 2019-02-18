@@ -27,8 +27,7 @@
     <!-- End Google Tag Manager -->
 
 
-<!--    --><?php //if (novap_ga_tracking_id()): ?>
-<!--    --><?php //endif; ?>
+    <!-- Google Analytics -->
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -42,11 +41,10 @@
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-97642297-1', 'auto');
+        ga('create', 'UA-98612257-1', 'auto');
         ga('send', 'pageview');
-        
-
     </script>
+    <!-- End Google Analytics -->
 
 </head>
 
@@ -559,11 +557,11 @@
                     jQuery('#header_apply').css('position','absolute');
                     jQuery('#header_apply').css('right','20%');
                     jQuery('#header_apply').css('top','35%');
-                        }    
+                        }
 
-                    jQuery('#icons-search').css('position','absolute'); 
-                    jQuery('#icons-search').css('right','1%');  
-                    jQuery('.modal-control.open').css('margin-left','0');  
+                    jQuery('#icons-search').css('position','absolute');
+                    jQuery('#icons-search').css('right','1%');
+                    jQuery('.modal-control.open').css('margin-left','0');
                     }
             );
 </script>
