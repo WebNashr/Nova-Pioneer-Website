@@ -27,10 +27,6 @@
     <!-- End Google Tag Manager -->
 
 
-<!--    --><?php //if (novap_ga_tracking_id()): ?>
-<!--   -->
-<!---->
-<!--    --><?php //endif; ?>
     <!-- Google Analytics -->
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -47,11 +43,9 @@
 
         ga('create', 'UA-97642297-1', 'auto');
         ga('send', 'pageview');
-        
-
     </script>
     <!-- End Google Analytics -->
- 
+
 </head>
 
 <body <?php body_class('body-kenya'); ?>>
@@ -558,11 +552,11 @@
                     jQuery('#header_apply').css('position','absolute');
                     jQuery('#header_apply').css('right','20%');
                     jQuery('#header_apply').css('top','35%');
-                        }    
+                        }
 
-                    jQuery('#icons-search').css('position','absolute'); 
-                    jQuery('#icons-search').css('right','1%');  
-                    jQuery('.modal-control.open').css('margin-left','0');  
+                    jQuery('#icons-search').css('position','absolute');
+                    jQuery('#icons-search').css('right','1%');
+                    jQuery('.modal-control.open').css('margin-left','0');
                     }
             );
 </script>
