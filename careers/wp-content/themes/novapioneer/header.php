@@ -8,7 +8,7 @@
           content="<?php bloginfo('name'); ?> - <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
     <meta http-equiv="cleartype" content="on">
     <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
-    <meta name=“google-site-verification” content=“dxXfAuVAfmpb9RcBxI58DB_IIDMCFigXHQqrkIa33Rc” />
+    <meta name=“google-site-verification” content=“huLBselNmDG4BbrnezgzcSiYGcAcqIk9APf5TOi77OE” />
     <?php wp_head(); ?>
 
     <!-- Google Tag Manager -->
