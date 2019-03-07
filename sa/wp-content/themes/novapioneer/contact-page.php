@@ -14,7 +14,7 @@ get_header(); ?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1>Contact Us</h1>
+                    <div class="faux-h1">Contact Us</div>
                     <p>Developing innovators &amp; leaders who will shape the future</p>
                 </div>
             </div>
