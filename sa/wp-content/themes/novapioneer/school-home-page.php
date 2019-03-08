@@ -14,10 +14,10 @@ get_header(); ?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <?php if(!empty(get_field('hero_caption'))):?>
-                        <h1><?php the_field('hero_caption')?></h1>
+                        <div class="faux-h1"><?php the_field('hero_caption')?></div>
                     <?php else:?>
                         <hr>
-                        <h1>Learners are inspired become adaptive, independent thinkers</h1>
+                        <div class="faux-h1">Learners are inspired become adaptive, independent thinkers</div>
                     <?php endif?>
                 </div>
             </div>

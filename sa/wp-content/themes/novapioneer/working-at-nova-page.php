@@ -12,7 +12,7 @@ get_header(); ?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1>Working at Nova Pioneer</h1>
+                    <div class="faux-h1">Working at Nova Pioneer</div>
                     <p>Building the future of African talent and global education</p>
                 </div>
             </div>

@@ -12,7 +12,7 @@ get_header();?>
             <div class="container hero-container">
                 <div class="main-callout-box">
                     <hr>
-                    <h1><?php the_title(); ?></h1>
+                    <div class="faux-h1"><?php the_title(); ?></div>
                 </div>
             </div>
         </section>
