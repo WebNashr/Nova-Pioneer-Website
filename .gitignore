@@ -10,3 +10,9 @@ site-config.php
 # /assets/
 /node_modules/
 /bower_components/
+careers/robots.txt
+careers/wordfence-waf.php
+kenya/robots.txt
+kenya/wordfence-waf.php
+sa/robots.txt
+sa/wordfence-waf.php
