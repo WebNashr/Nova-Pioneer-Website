@@ -9,17 +9,17 @@ footer {
 
 
 .page-footer {
-	border-top: 1px solid $background-grey;
+	border-top: 1px solid $grey-md;
 	padding: calc(#{$space-tiny} * 2);
 	color: $white;
-	// background: $dark-blue;
+	// background: $blue-dk;
 		// background: $grey-lt;
 
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		padding: calc(#{$space-tiny} * 3);
     }
 
-    @include break-point(laptop) {
+    @media #{$mq-1366} {
 		padding: calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4);
     }
 }
@@ -52,12 +52,12 @@ footer {
 		color: $white;
 	}
 
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		bottom: 0;
 		padding: calc(#{$space-tiny} * 3)
 	}
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		bottom: -3rem;
 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
 	}
@@ -68,11 +68,11 @@ footer {
 	padding: calc(#{$space-tiny} * 2);
 	background: $white;
 
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		padding: calc(#{$space-tiny} * 3);
     }
 
-    @include break-point(laptop) {
+    @media #{$mq-1366} {
 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
     }
 }

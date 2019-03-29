@@ -1,0 +1,49 @@
+
+/* Links */
+/* ==================================================== */
+
+
+a {
+	text-decoration: none;
+	border: 0 none;
+	outline: 0 none;
+	cursor: pointer;
+	color: $green-blue;
+	color: $green-lt;
+	color: $blue-lt;
+
+	h1 &,
+	h2 &,
+	h3 &,
+	h4 &,
+	h5 &,
+	h6 & {
+		//color: $blue;
+	}
+
+	.article-body & {
+		/*color: $dark;*/
+	}
+
+	.section-navigation & {
+		// text-transform: none;
+		// @include font-size(16px);
+		// @include copy(semi);
+		// padding: calc(#{$space-tiny} * 1) 0;
+
+	 	&:hover {
+			// 	text-decoration: none;
+			// 	cursor: pointer;
+	 	}
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+		color: darken($green-blue, 10%);
+		color: $orange-dk;
+		color: $green-lt;
+		color: $orange-lt;
+	}
+}

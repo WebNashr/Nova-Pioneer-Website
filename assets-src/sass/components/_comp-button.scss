@@ -9,16 +9,12 @@
 
 
 	// Size
-	&-grosse {
-		@include button-size(grosse);
-	}
-
-    &-large {
-		@include button-size(large);
+	&-large {
+		@include button-size(small);
 	}
 
 	&-default {
-		@include button-size(default);
+		@include button-size(small);
 	}
 
 	&-small {
@@ -27,6 +23,26 @@
 
 	&-tiny {
 		@include button-size(tiny);
+	}
+
+    @media #{$mq-768} {
+        &-large {
+            @include button-size(small);
+        }
+
+        &-default {
+            @include button-size(small);
+        }
+	}
+
+    @media #{$mq-1024} {
+        &-large {
+            @include button-size(large);
+        }
+
+        &-default {
+            @include button-size(default);
+        }
 	}
 
 
@@ -70,40 +86,4 @@
 	}
 }
 
-.button-wrap {
-	@include flexbox();
-	margin-top: 0 !important;
-	justify-content: center;
-	// margin: 0 25%;
-	// @extend %column-2;
 
-	@include break-point(laptop) {
-		margin: 0 auto;
-		justify-content: flex-start;
-
-		.mission-vision & {
-			justify-content: center;
-		}
-		// justify-content: center;
-
-        &.button-wrap-centered {
-            justify-content: center;
-        }
-    }
-}
-.button-fees-dl {
-	padding: 7px calc(7px * 1.5) !important;
-	color: #fff !important;
-	float: right;
-	font-size: 14px!important;
-	background: #178dbe;
-	border-radius: 3px;
-	text-decoration: none;
-	text-transform: uppercase;
-	transition: all 0.2s ease;
-
-	// width: 100% !important;
-	// @include break-point(tablet) {
-	// 	width: auto !important;
-	// }
-}

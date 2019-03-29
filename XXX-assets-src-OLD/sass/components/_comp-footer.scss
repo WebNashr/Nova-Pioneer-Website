@@ -1,0 +1,78 @@
+
+/*  Footer */
+/* ==================================================== */
+
+
+footer {
+
+}
+
+
+.page-footer {
+	border-top: 1px solid $background-grey;
+	padding: calc(#{$space-tiny} * 2);
+	color: $white;
+	// background: $dark-blue;
+		// background: $grey-lt;
+
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 3);
+    }
+
+    @include break-point(laptop) {
+		padding: calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4);
+    }
+}
+
+.page-footer-home {
+	position: relative;
+	bottom: -1.125rem;
+	padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2);
+	color: $white;
+	background-color: transparent;
+	background-image: linear-gradient(
+		to top,
+		rgba(0, 0, 0, 0.75),
+		rgba(0, 0, 0, 0.65) 10%,
+		rgba(0, 0, 0, 0.6) 15%,
+		rgba(0, 0, 0, 0.5) 20%,
+		rgba(0, 0, 0, 0.45) 25%,
+		rgba(0, 0, 0, 0.35) 50%,
+		rgba(0, 0, 0, 0.30) 65%,
+		rgba(0, 0, 0, 0.25) 75%,
+		transparent 100%
+	);
+	border: none;
+
+	a {
+		color: $white;
+	}
+
+	.footer-menu-aux-item-copyright {
+		color: $white;
+	}
+
+	@include break-point(tablet) {
+		bottom: 0;
+		padding: calc(#{$space-tiny} * 3)
+	}
+
+	@include break-point(laptop) {
+		bottom: -3rem;
+		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
+	}
+}
+
+.page-footer-aux {
+	border: none;
+	padding: calc(#{$space-tiny} * 2);
+	background: $white;
+
+	@include break-point(tablet) {
+		padding: calc(#{$space-tiny} * 3);
+    }
+
+    @include break-point(laptop) {
+		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 4);
+    }
+}

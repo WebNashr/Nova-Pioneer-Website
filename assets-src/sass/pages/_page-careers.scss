@@ -28,19 +28,19 @@
 	// 	 h1 {
 	// 	 	@include copy(semi);
 	// 	 	@include font-size(36px);
-	// 	 	color: $green-blue;
+	// 	 	color: $blue-dk;
 	// 	 	text-shadow: none;
 	// 	 	margin-bottom: 1rem;
 	// 	 }
 
 	// 	 a {
 	// 	 	display: block;
-	// 	 	color: $blue;
+	// 	 	color: $blue-dk;
 	// 	 	line-height: 1.5;
 	// 	 	margin-bottom: 1rem;
 
 	// 	 	&:hover {
-	// 	 		color: $dark-blue;
+	// 	 		color: $blue-dk;
 	// 	 		text-decoration: underline;
 	// 	 	}
 	// 	 }
@@ -49,7 +49,7 @@
 
 	.inner-careers-container {
 	 	//@include flexbox();
-		// border-left: 1px $light-grey solid;
+		// border-left: 1px $grey-lt solid;
 		// padding-left: calc(#{$space-tiny} * 2);
 		// padding-right: 0;
 		//flex-basis: 80%;
@@ -74,16 +74,16 @@
 		h1 {
 			@include copy(bold);
 			@include font-size(26px);
-			color: $blue;
+			color: $blue-dk;
 		}
 
 	    a {
 	    	@include copy(bold);
 			@include font-size(26px);
-			color: $blue;
+			color: $blue-dk;
 
 				&:hover {
-					color: $dark-blue;
+					color: $blue-dk;
 				}
 	    }
 
@@ -91,7 +91,7 @@
 	    .job-location {
 	    // 	@include copy(bold);
 			// @include font-size(16px);
-	    // 	color: $green-blue;
+	    // 	color: $blue-dk;
 	    // 	padding: 0;
 	    // 	margin-bottom: 0.5rem;
 	    }
@@ -99,11 +99,11 @@
 	    .job-type{
 	    // 	@include copy(semi);
 			// @include font-size(14px);
-	    // 	color: lighten($dark-grey, 20%);
+	    // 	color: lighten($grey-dk, 20%);
 	    // 	margin-bottom: 0.5rem;
 	    	span {
 	    		@include copy(bold);
-	    		color: $dark-grey;
+	    		color: $grey-dk;
 	    	}
 	    }
 
@@ -119,7 +119,7 @@
 
 	    		&:hover {
 	    			text-decoration: underline;
-	    			color: $dark-blue;
+	    			color: $blue-dk;
 	    		}
 	    	}
 	    }
@@ -130,7 +130,7 @@
 	    // 	&:hover {
 	    // 		cursor: pointer;
 	    // 		border: 0;
-	    // 		background: $dark-blue;
+	    // 		background: $blue-dk;
 	    // 	}
 	    // }
 	    // .button-big {
@@ -141,12 +141,12 @@
 	    // 	&:hover {
 	    // 		cursor: pointer;
 	    // 		border: 0;
-	    // 		background: $dark-blue;
+	    // 		background: $blue-dk;
 	    // 	}
 	    // }
 	    ul {
 	    	list-style-type: disc;
-	    	color: $dark-grey;
+	    	color: $grey-dk;
 	    	margin-left: 1rem;
 	    	padding-top: calc(#{$space-tiny} * 1);
 	    	padding-bottom: calc(#{$space-tiny} * 1);
@@ -170,7 +170,7 @@
 			border: 1px solid $white;
 
 			&:hover {
-				border: 1px solid $blue;
+				border: 1px solid $blue-dk;
 			}
 		}
 	}
@@ -187,12 +187,12 @@
   	h2 {
   		@include font-size(20px);
 		@include copy(semi);
-		color: $dark-grey;
+		color: $grey-dk;
 		margin-bottom: 0.75rem;
   	}
 
     label {
-		color: $dark-grey;
+		color: $grey-dk;
 		@include copy(semi);
 	}
 
@@ -202,17 +202,17 @@
         border: 1px solid #ccc;
         margin-bottom: 10px;
         box-sizing: border-box;
-        color: darken($dark-grey, 10%);
+        color: darken($grey-dk, 10%);
         @include copy(regular);
     	@include font-size(21px);
 
     	&::placeholder {
-			color: lighten($dark-grey, 20%);
+			color: lighten($grey-dk, 20%);
 			opacity: 1;
 		}
 
 		&:focus {
-			border: 1px solid $blue;
+			border: 1px solid $blue-dk;
 		}
 
 		input[type=radio]{
@@ -230,21 +230,21 @@
     //     text-align: center;
     //     cursor: pointer;
     //     margin: 10px 5px;
-    //     background: lighten($blue, 20%);
+    //     background: lighten($blue-dk, 20%);
 	   //  height: auto;
 	   //  padding:0.4rem 2rem;
 	   //  @include copy(light);
     // 	@include font-size(21px);
 	   //  &:hover {
 	   //  	cursor: pointer;
-	   //      background: $blue;
+	   //      background: $blue-dk;
 	   //      border: none;
 
 	   //  }
 	   //  &.submit-button {
-	   //  	background: $blue;
+	   //  	background: $blue-dk;
 	   //  	&:hover {
-	   //  		background: $dark-blue;
+	   //  		background: $blue-dk;
 	   //  	}
 	   //  }
     // }

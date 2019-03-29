@@ -1,0 +1,368 @@
+
+/*  Header */
+/* ==================================================== */
+
+
+.menu {
+	@include flexbox();
+	// @include flex-wrap(nowrap);
+    // @include flex-direction(column);
+	@include flex-wrap(wrap);
+	@include flex-direction(row);
+    align-self: center;
+    display: none;
+	margin-left: 2rem;
+	list-style-type: none;
+	touch-action: manipulation;
+	touch-action: pan-x pan-y pan-left pan-right pan-up pan-down pinch-zoom;
+
+	.modal.modal-menu & {
+		@include flexbox();
+		align-self: unset;
+		margin-left: 0;
+		margin-bottom: 3rem;
+		// overflow-y: scroll;
+	}
+
+	@include break-point(laptop) {
+		@include flexbox();
+		// @include flex-direction(row);
+		@include flex-wrap(nowrap);
+		width: calc(100% - 25rem);
+    }
+
+    @include break-point(largelaptop) {
+		width: auto;
+		margin-left: 2.5rem;
+    }
+
+    @include break-point(desktop) {
+		margin-left: 5rem;
+    }
+
+    .body-careers & {
+        @include break-point(laptop) {
+            width: auto;
+            margin-left: auto;
+        }
+
+        @include break-point(desktop) {
+            // width: calc(100% - 17.5rem);
+            // width: auto;
+            // margin-left: 4rem;
+            margin-left: auto;
+            // background: wheat;
+        }
+
+        @include break-point(largelaptop) {
+            // width: auto;
+            margin-left: auto;
+        }
+    }
+}
+
+
+.sub-menu {
+	@include flex-direction(column);
+    @include flex-wrap(nowrap);
+
+    .page-header .menu > .menu-item:hover & {
+		@include flexbox();
+		opacity: 1;
+	}
+
+	.modal.modal-menu & {
+		@include flexbox();
+		// margin: 0.75rem 0 1rem;
+		margin: 0.125rem 0 0;
+	}
+}
+
+
+.page-header .sub-menu {
+	display: none;
+	position: absolute;
+	top: 32px; // looks like a Webkit magic number find FF fix
+    left: -12px;
+    width: 16vw;
+    padding: 0;
+	background: $blue-lt;
+	border: 1px solid $blue-lt;
+	box-shadow: 0px 8px 24px rgba(23, 141, 190, 0.35);
+    opacity: 0;
+    transition: $ease;
+    z-index: 9;
+}
+
+
+.menu-item {
+	@include copy(regular);
+	@include font-size(16px);
+	@include line-height(1);
+	position: relative;
+	margin-left: unset;
+	padding: 0;
+	text-indent: unset;
+	text-align: center;
+	// text-transform: capitalize;
+	letter-spacing: 0.5px;
+    transition: $ease;
+
+    .modal.modal-menu & {
+		@include font-size(20px);
+		width: 52%;
+		padding-right: 10px;
+		text-align: left;
+
+		&:not(:first-of-type) {
+			margin-top: 0;
+		}
+
+		&:nth-of-type(2n+2) {
+			width: 48%;
+			padding-right: 0;
+			// background: red;
+		}
+
+		&:nth-of-type(n+3) {
+			margin-top: 16px;
+			// background: cyan;
+
+			body.ios & {
+				margin-top: 14px;
+			}
+		}
+	}
+
+	a {
+		padding: 14px 0px 16px;
+		color: lighten($grey-mdk, 15%);
+
+		&.sub-menu-hovered {
+			color: $blue-lt;
+		}
+
+		.modal.modal-menu & {
+			@include font-size(16px);
+			@include line-height(1.25);
+			padding: 0 0 16px;
+			text-transform: uppercase;
+			color: $orange-lt;
+		}
+
+		&:hover {
+			color: $blue-lt;
+		}
+	}
+
+	.sub-menu & {
+		@include font-size(16px);
+		padding: 0;
+
+		.modal.modal-menu & {
+			@include font-size(16px);
+			width: 100%;
+
+			&:nth-of-type(2n+2) {
+				padding-right: 0;
+				background: unset;
+			}
+
+			&:nth-of-type(n+3) {
+				margin-top: unset;
+				background: unset;
+
+				body.ios & {
+					margin-top: unset;
+				}
+			}
+		}
+
+		&:before {
+		    font-size: unset;
+		    font-size: unset;
+		    margin-right: unset;
+		    vertical-align: unset;
+		    content: unset;
+		    color: unset;
+		}
+
+		&:not(:first-of-type) {
+			margin-top: 0;
+			margin-left: 0;
+		}
+
+		a {
+		    @include line-height(1.25);
+		    display: block;
+			color: lighten($grey-mdk, 15%);
+
+			.modal.modal-menu & {
+			    @include font-size(15px);
+				@include line-height(1.25);
+				padding: 4px 0;
+				text-transform: capitalize;
+				color: $white;
+
+				// body.ios & {
+				// 	@include font-size(15px);
+				// }
+			}
+		}
+	}
+
+	.page-header .sub-menu & {
+		&:not(:first-of-type) {
+			border-top: 1px solid lighten($blue-lt, 2%);
+		}
+
+		a {
+		    padding: 9px 16px;
+			color: $white;
+
+			&:hover {
+				color: $orange-lt;
+			}
+		}
+	}
+
+	.page-footer .sub-menu & {
+
+	}
+
+	&.current-page-ancestor > a,
+	&.current-menu-ancestor > a,
+	&.current-menu-parent > a,
+	&.current-page-parent > a {
+		color: $blue-lt;
+	}
+
+	&:before {
+		// @include font-size(20px);
+		// content: "\2022";
+		// margin-right: 1rem;
+		// vertical-align: middle;
+		// color: $orange-lt;
+		font-size: unset;
+		font-size: unset;
+		margin-right: unset;
+		vertical-align: unset;
+		content: unset;
+		color: unset;
+
+		.modal.modal-menu & {
+			font-size: unset;
+		    font-size: unset;
+		    margin-right: unset;
+		    vertical-align: unset;
+		    content: unset;
+		    color: unset;
+		}
+	}
+
+	&:not(:first-of-type) {
+		margin-top: 1.125rem;
+	}
+
+	&:first-of-type {
+		&:before {
+			font-size: unset;
+		    font-size: unset;
+		    margin-right: unset;
+		    vertical-align: unset;
+		    content: unset;
+		    color: unset;
+		}
+	}
+
+	// &:first-child a {
+	//     padding-top: 12px;
+	// }
+
+	// &:last-child a {
+	//     padding-bottom: 12px;
+	// }
+
+	// &:hover {
+
+	// }
+
+	@include break-point(laptop) {
+		text-align: left;
+
+		&:not(:first-of-type) {
+			margin-top: 0;
+			margin-left: 1rem;
+		}
+    }
+
+    @include break-point(largelaptop) {
+		@include font-size(18px);
+
+		&:not(:first-of-type) {
+
+		}
+    }
+
+    .body-careers & {
+        @include break-point(laptop) {
+            @include font-size(17px);
+        }
+
+        @include break-point(desktop) {
+            @include font-size(17px);
+        }
+
+        @include break-point(largelaptop) {
+            @include font-size(17px);
+        }
+    }
+}
+
+.menu-item-current {
+	a {
+		color: $green-lt;
+
+		&:hover {
+			color: $blue-lt;
+		}
+	}
+}
+
+.menu-item-divider {
+    display: none;
+    position: relative;
+	top: 6px;
+    width: 6px;
+    height: 6px;
+	align-self: center;
+	margin-left: unset;
+	margin-bottom: calc(#{$space-tiny} * 1);
+	background: $orange-lt;
+    border-radius: 50%;
+
+	.sub-menu & {
+		display: none;
+		width: 0;
+		height: 0;
+	}
+
+	@include break-point(laptop) {
+		display: inline-block;
+		align-self: unset;
+		margin-bottom: unset;
+		margin-left: calc(#{$space-tiny} * 1);
+    }
+}
+
+.menu-item:last-of-type ~ i.menu-item-divider {
+	display: none;
+	width: 0;
+	height: 0;
+}
+
+// body.logged-in {
+//     @include break-point(laptop) {
+// 		margin-top: 32px;
+//     }
+// }

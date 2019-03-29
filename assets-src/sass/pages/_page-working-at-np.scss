@@ -14,8 +14,8 @@
 // 	h1 {
 // 		max-width: 100%;
 // 		// @include font-size(30px);
-// 		// color: $green-blue;
-// 		@include break-point(tablet) {
+// 		// color: $blue-dk;
+// 		@media #{$mq-768} {
 // 			// @include font-size(40px);
 // 		}
 // 		// padding-right: calc(#{$space-tiny} * 2);
@@ -32,7 +32,7 @@
 // 		// @include font-size(18px);
 // 		// line-height: 1.65;
 // 		font-style: normal;
-// 		@include break-point(tablet) {
+// 		@media #{$mq-768} {
 // 			// @include font-size(21px);
 // 		}
 // 	}
@@ -44,12 +44,12 @@
 // 	}
 
 // 	b {
-// 		color: darken($green-blue, 20%);
+// 		color: darken($blue-dk, 20%);
 // 	}
 
 // 	ul {
 // 		margin:1rem 0 1.25rem 0;
-// 		color: $dark-grey;
+// 		color: $grey-dk;
 // 		@include font-size(18px);
 // 		list-style-type: disc;
 // 		line-height: 1.5;
@@ -66,12 +66,12 @@
 // 		}
 
 // 		b {
-// 			color: $dark-grey;
+// 			color: $grey-dk;
 // 		}
 // 	}
 // 	.contact-info {
 // 		padding-bottom: calc(#{$space-tiny} * 3);
-// 		@include break-point(laptop) {
+// 		@media #{$mq-1366} {
 // 			padding-bottom: 0;
 // 		}
 // 	}

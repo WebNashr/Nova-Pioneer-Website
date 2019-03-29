@@ -1,0 +1,65 @@
+
+/*  Structure */
+/* ==================================================== */
+
+
+/* Declare charset */
+@charset 'UTF-8';
+
+
+/* Box sizing */
+*,
+*:before,
+*:after {
+	@include box-sizing(border-box);
+}
+
+
+/* Base HTML */
+html {
+	@include copy(regular);
+	@include font-size(16px);
+	@include line-height(24px);
+	color: $dark-grey;
+	touch-action: manipulation;
+	touch-action: pan-x pan-y pan-left pan-right pan-up pan-down pinch-zoom;
+
+	@include break-point(tablet) {
+
+	}
+
+	@include break-point(laptop) {
+
+	}
+
+	@include break-point(desktop) {
+
+	}
+}
+
+
+/* Base body */
+body {
+	@include flexbox();
+	@include flex-direction(column);
+	position: relative;
+	background: $white;
+
+	&.modal-open {
+		overflow: hidden;
+	}
+}
+
+.body-home {
+	background-image: url('../../img/large-hero-home.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100vh;
+	overflow-y: hidden;
+}
+
+.body-container {
+	@include flexbox();
+	@include flex-direction(row);
+}

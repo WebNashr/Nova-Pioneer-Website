@@ -1,0 +1,198 @@
+// .meet-students-container {
+// 	@include flexbox();
+//     @include flex-direction(row);
+//     @include flex-wrap(wrap);
+//     padding: calc(#{$space-tiny} * 2);
+//     margin-top: 1.5rem;
+//     margin-bottom: 0;
+//   	//height: 100%;
+//     width: 100%;
+// 	header {
+// 		flex: 1 1 100%;
+//
+// 		h1 {
+// 			@include font-size(46px);
+// 			margin-bottom: 3rem;
+// 		}
+//     }
+//
+//      p {
+//      	@include font-size(20px);
+//      	line-height: 1.5;
+//      }
+//
+//
+//
+//      .section-nav {
+// 		@include flex-direction(column);
+// 		flex-basis:20%;
+// 		padding-right: calc(#{$space-tiny} * 2);
+// 		 h1 {
+// 		 	@include copy(semi);
+// 		 	@include font-size(36px);
+// 		 	color: $green-blue;
+// 		 	text-shadow: none;
+// 		 	margin-bottom: 1rem;
+// 		 }
+// 		 a {
+// 		 	display: block;
+// 		 	color: $blue;
+// 		 	line-height: 2;
+// 		 	&:hover {
+// 		 		color: $dark-blue;
+// 		 		text-decoration: underline;
+// 		 	}
+// 		 }
+//
+// 	}
+//
+//
+//     .student-quote {
+//     	@include copy(regular);
+//     	@include flexbox();
+// 	 	@include flex-direction(column);
+//
+//
+//     	//padding-left: calc(#{$space-tiny} * 2);
+//     	padding-right: calc(#{$space-tiny} * 4);
+//     	width: 50%;
+//     	header {
+// 			h2 {
+// 				@include font-size(24px);
+// 				@include copy(semi);
+// 				margin-bottom: 0.5rem;
+// 				color: $green-blue;
+// 			}
+// 			h3 {
+// 				@include font-size(18px);
+// 				@include copy(semi);
+// 				color: $dark-grey;
+// 			}
+// 	    }
+//     	blockquote {
+//     		@include font-size(21px);
+//     		width: 100%;
+//     		padding-top: 2rem;
+//     		background: none;
+//     	}
+//     	blockquote:before {
+// 			display: block;
+// 			content: "\201C";
+// 			font-size: 80px;
+// 			position: absolute;
+// 			left: 0;
+// 			top: -25px;
+// 			color: $light-grey;
+// 		}
+//
+//     }
+//     .student-media-container {
+//     	width: 60%;
+//     	position: relative;
+// 	    //padding-bottom: 56.25%;
+// 	    //padding-top: 30px;
+// 	    //margin-bottom: 1rem;
+// 	    height: 50vh;
+// 	    //height: 0;
+// 	    overflow: hidden;
+//
+//     }
+//     .student-media-container  iframe,
+// 	.student-media-container  object,
+// 	.student-media-container  embed {
+// 	    position: absolute;
+// 	    top: 0;
+// 	    left: 0;
+// 	    width: 100%;
+// 	    height: 100%;
+// 	}
+// 	.inner-container {
+// 	 	@include flexbox();
+// 	 	@include flex-direction(column);
+// 		border-left: 1px $light-grey solid;
+// 		padding-left: calc(#{$space-tiny} * 2);
+// 		padding-right: 0;
+// 		flex-basis: 80%;
+// 		height: auto;
+//
+// 	}
+// 	.student-container {
+// 	 	@include flexbox();
+// 		//flex-basis: 80%;
+// 		height: auto;
+// 		padding-bottom: calc(#{$space-tiny} * 2);
+// 		margin-bottom: 2rem;
+//
+// 	}
+// }
+//
+// #student-contact-form {
+//         //text-align: center;
+//         position: relative;
+//         width: 100%;
+//         margin: 0 auto;
+//         overflow: hidden;
+//
+//   	h2 {
+//   		@include font-size(20px);
+// 			@include copy(semi);
+// 			color: $dark-grey;
+// 			margin-bottom: 0.75rem;
+//   	}
+//
+//     label {
+// 		color: $dark-grey;
+// 		@include copy(semi);
+// 		}
+//
+//
+//     #student-contact-form input, #student-contact-form textarea {
+//       padding: 15px;
+//       border: 1px solid #ccc;
+//       margin-bottom: 10px;
+//       box-sizing: border-box;
+//       color: darken($dark-grey, 10%);
+//       @include copy(regular);
+//     	@include font-size(21px);
+//     	&::placeholder {
+// 			color: lighten($dark-grey, 20%);
+// 			opacity: 1;
+// 			}
+// 			&:focus {
+// 				border: 1px solid $blue;
+// 			}
+//
+// 			input[type=radio]{
+// 			  width: 28px;
+// 			  margin: 0;
+// 			  padding: 0;
+// 			  display: inline-block;
+// 			}
+//
+//     }
+//     // .action-button {
+//     //     width: auto;
+//     //     border: 0 none;
+//     //     color: $white;
+//     //     text-align: center;
+//     //     cursor: pointer;
+//     //     margin: 10px 5px;
+//     //     background: lighten($blue, 20%);
+// 	   //  height: auto;
+// 	   //  padding:0.4rem 2rem;
+// 	   //  @include copy(light);
+//     // 	@include font-size(21px);
+// 	   //  &:hover {
+// 	   //  	cursor: pointer;
+// 	   //      background: $blue;
+// 	   //      border: none;
+//
+// 	   //  }
+// 	   //  &.submit-button {
+// 	   //  	background: $blue;
+// 	   //  	&:hover {
+// 	   //  		background: $dark-blue;
+// 	   //  	}
+// 	   //  }
+//     // }
+//  }

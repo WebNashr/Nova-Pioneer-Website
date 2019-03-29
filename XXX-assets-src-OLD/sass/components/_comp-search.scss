@@ -1,0 +1,114 @@
+
+/*  Search */
+/* ==================================================== */
+
+
+.result {
+	padding-top: calc(#{$space-tiny} * 1);
+	padding-bottom: calc(#{$space-tiny} * 1);
+}
+
+.result-body {
+	margin: 0 auto;
+	width: 60%;
+	header {
+		h2 {
+			@include font-size(24px);
+	        @include copy(semi);
+		}
+		a {
+			color: $blue;
+			&:hover {
+				color: $dark-blue;
+			}
+		}
+
+	}
+
+}
+.search-container {
+	@include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    justify-content: space-around;
+    width: 100%;
+    padding: calc(#{$space-tiny} * 6) calc(#{$space-tiny} * 2) 0; 
+   	
+	.content-navigation-container {
+		@include flexbox();
+	    @include flex-direction(row);
+	    @include flex-wrap(wrap);
+	    padding: calc(#{$space-tiny} * 2);
+	}
+
+	.page-search {
+		@include flexbox();
+		@include flex-wrap(nowrap);
+	    @include flex-direction(row);
+		background: transparent;
+		background: transparent;
+		margin: auto;
+		flex-direction: unset;
+		flex-wrap: unset;
+		align-self: unset;
+		display: block;
+		width: 60%;
+	}
+}
+
+.page-search fieldset {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(row);
+}
+
+.page-search input[type="text"] {
+	width: calc(100% - 2.5rem);
+	padding: 0.5rem 1rem;
+	font-size: 2rem;
+	color: $blue;
+	background: transparent;
+	border: 0 none;
+	outline: 0 none;
+	border-bottom: 2px solid $blue;
+
+	&:hover,
+	&:focus {
+		border: 0 none;
+		outline: 0 none;
+		border-bottom: 2px solid $dark-blue;
+	}
+}
+
+.page-search input[type="submit"] {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	opacity: 0;
+	z-index: 9;
+}
+
+.page-search svg {
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-top: 4px;
+	margin-left: 4px;
+}
+
+.page-search svg circle,
+.page-search svg line {
+	stroke: darken($blue, 5%);
+	stroke-width: 2;
+}
+
+.page-search input[type="submit"]:hover ~ svg circle,
+.page-search input[type="submit"]:hover ~ svg line,
+.page-search input[type="text"]:hover ~ svg circle,
+.page-search input[type="text"]:hover ~ svg line,
+.page-search input[type="text"]:focus ~ svg circle,
+.page-search input[type="text"]:focus ~ svg line {
+	stroke: lighten($blue, 15%);
+}
+

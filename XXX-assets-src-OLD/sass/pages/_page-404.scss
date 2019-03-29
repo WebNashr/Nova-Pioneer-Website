@@ -1,0 +1,107 @@
+
+/*  404 */
+/* ==================================================== */
+
+
+.section-404 {
+	margin-bottom: calc(#{$space-tiny} * 3);
+}
+
+.header-404 {
+	text-align: center;
+}
+
+.header-404 h1 {
+	max-width: unset;
+	text-shadow: unset;
+	padding-bottom: calc(#{$space-tiny} * 2);
+}
+
+.header-404 p {
+	@include font-size(24px);
+}
+
+.header-404 a {
+	// color: $green-blue;
+
+	&:hover {
+		color: $green-blue-light;
+	}
+}
+
+.search-404 {
+	flex-direction: unset;
+	flex-wrap: unset;
+	align-self: unset;
+	display: block;
+	width: auto;
+	max-width: 32.5rem;
+	margin: 0 auto;
+	background: transparent;
+
+	&-non {
+		margin-top: 0;
+	}
+	
+	@include break-point(tablet) {
+		// margin: 4rem auto 0;
+	}
+}
+
+.search-404 fieldset {
+	@include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(row);
+}
+
+.search-404 input[type="text"] {
+	@include font-size(20px);
+	width: calc(100% - 2.5rem);
+	padding: 0.75rem 1rem;
+	// font-size: 2rem;
+	color: $blue;
+	background: transparent;
+	border: 0 none;
+	outline: 0 none;
+	border: 2px solid $blue;
+
+	&:hover,
+	&:focus {
+		border: 0 none;
+		outline: 0 none;
+		color: lighten($blue, 5%);
+		border: 2px solid lighten($blue, 5%);
+	}
+}
+
+.search-404 input[type="submit"] {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	opacity: 0;
+	z-index: 9;
+}
+
+.search-404 svg {
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-top: 8px;
+	margin-left: 16px;
+}
+
+.search-404 svg circle,
+.search-404 svg line {
+	stroke: $blue;
+	stroke-width: 1.5;
+}
+
+.search-404 input[type="submit"]:hover ~ svg circle,
+.search-404 input[type="submit"]:hover ~ svg line,
+.search-404 input[type="text"]:hover ~ svg circle,
+.search-404 input[type="text"]:hover ~ svg line,
+.search-404 input[type="text"]:focus ~ svg circle,
+.search-404 input[type="text"]:focus ~ svg line {
+	stroke: lighten($blue, 5%);
+}

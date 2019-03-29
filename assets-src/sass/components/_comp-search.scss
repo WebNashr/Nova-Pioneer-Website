@@ -17,9 +17,9 @@
 	        @include copy(semi);
 		}
 		a {
-			color: $blue;
+			color: $blue-dk;
 			&:hover {
-				color: $dark-blue;
+				color: $blue-dk;
 			}
 		}
 
@@ -66,17 +66,17 @@
 	width: calc(100% - 2.5rem);
 	padding: 0.5rem 1rem;
 	font-size: 2rem;
-	color: $blue;
+	color: $blue-dk;
 	background: transparent;
 	border: 0 none;
 	outline: 0 none;
-	border-bottom: 2px solid $blue;
+	border-bottom: 2px solid $blue-dk;
 
 	&:hover,
 	&:focus {
 		border: 0 none;
 		outline: 0 none;
-		border-bottom: 2px solid $dark-blue;
+		border-bottom: 2px solid $blue-dk;
 	}
 }
 
@@ -99,7 +99,7 @@
 
 .page-search svg circle,
 .page-search svg line {
-	stroke: darken($blue, 5%);
+	stroke: darken($blue-dk, 5%);
 	stroke-width: 2;
 }
 
@@ -109,6 +109,6 @@
 .page-search input[type="text"]:hover ~ svg line,
 .page-search input[type="text"]:focus ~ svg circle,
 .page-search input[type="text"]:focus ~ svg line {
-	stroke: lighten($blue, 15%);
+	stroke: lighten($blue-dk, 15%);
 }
 

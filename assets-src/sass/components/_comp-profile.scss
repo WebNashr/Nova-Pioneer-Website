@@ -29,7 +29,7 @@
 
 	}
 
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		padding-left: calc(#{$space-tiny} * 3);
 		padding-right: calc(#{$space-tiny} * 3);
 	}
@@ -58,7 +58,7 @@
 
 	// xx
 	// &:not(:first-of-type) {
-	// 	margin-top: $gut;
+	// 	margin-top: $space-mid;
 	// }
 
 	// &:last-child {
@@ -74,18 +74,18 @@
 		overflow: hidden;
 		margin-bottom: 1rem;
 
-		@include break-point(tablet) {
+		@media #{$mq-768} {
 			max-height: 315px;
 
 		}
 
-		@include break-point(laptop) {
+		@media #{$mq-1366} {
 			max-width: 196px;
 			max-height: 203px;
 			margin-bottom: 1rem;
 		}
 
-		// @include break-point(laptop) {
+		// @media #{$mq-1366} {
 		// 	max-width: 196px;
 		// 	max-height: 203px;
 		// 	margin-bottom: 1rem;
@@ -97,10 +97,10 @@
 	// 	.image-wrap {
 	// 		height: auto;
 		
-	// 		@include break-point(tablet) {
+	// 		@media #{$mq-768} {
 	// 			max-height: 321px;
 	// 		}
-	// 		@include break-point(laptop) {
+	// 		@media #{$mq-1366} {
 	// 			// max-height: 141px;
 	// 		}
 	// 		@media screen
@@ -109,7 +109,7 @@
 	// 			max-height: 141px;
 		
 	// 		}
-	// 		@include break-point(desktop) {
+	// 		@media #{$mq-1600} {
 	// 			max-height: 203px;
 	// 		}
 	// 		// @media screen
@@ -123,7 +123,7 @@
 
 	.slider-profiles & {
 		.image-wrap {
-			@include break-point(tablet) {
+			@media #{$mq-768} {
 				max-height: 321px;
 			}
 		}
@@ -137,16 +137,16 @@
 		&:not(:first-of-type) {
 			margin-top: 0;
 			margin-left: 1rem;
-			@include break-point(laptop) {
+			@media #{$mq-1366} {
 				margin-left: 3rem;
 			}
 		}
-		@include break-point(laptop) {
-			margin-left: $gut;
+		@media #{$mq-1366} {
+			margin-left: $space-mid;
 		}
 		.image-wrap {
 			height: auto;
-			@include break-point(tablet) {
+			@media #{$mq-768} {
 				// max-height: 321px;
 			}
 			@media screen
@@ -155,12 +155,12 @@
 				max-height: 321px;
 
 			}
-			@include break-point(laptop) {
+			@media #{$mq-1366} {
 				// max-height: 321px;
 				// max-height: 179px;
 				max-height: 141px;
 			}
-			@include break-point(largelaptop) {
+			@media #{$mq-1440} {
 				// max-height: 321px;
 				// max-height: 179px;
 				max-height: 180px;
@@ -177,7 +177,7 @@
 			// 	max-height: 141px;
 			//
 			// }
-			@include break-point(desktop) {
+			@media #{$mq-1600} {
 				max-height: 203px;
 			}
 		}
@@ -218,10 +218,10 @@
 	}
 
 	body.ios & {
-		margin-top: $gut;
+		margin-top: $space-mid;
 	}
 
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		// xx
 		// &:not(:first-of-type) {
 		// 	margin-top: 0;
@@ -232,13 +232,13 @@
         // }
 
         // &:nth-child(n+3) {
-        //     margin-top: $gut;
+        //     margin-top: $space-mid;
         // }
 		// xx
 
 		body.ios & {
 			&:nth-child(2n+3) {
-				margin-left: $gut;
+				margin-left: $space-mid;
 			}
 
 			&:nth-of-type(n+3) {
@@ -248,7 +248,7 @@
 	}
 
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		align-self: auto;
 
 		// xx
@@ -257,7 +257,7 @@
 		// }
 
 		// &:nth-child(2n+3) {
-        //     margin-left: $gut;
+        //     margin-left: $space-mid;
       	// }
 
         // &:nth-of-type(n+3) {
@@ -270,7 +270,7 @@
 		// }
 
         // &:nth-child(n+5) {
-        //     margin-top: $gut;
+        //     margin-top: $space-mid;
         // }
 
 		img {
@@ -285,7 +285,7 @@
 	// .profile {
 	// 	margin-left: 0;
 
-	// 	@include break-point(tablet) {
+	// 	@media #{$mq-768} {
 	// 		&:nth-child(2n+3){
 	// 			margin-left: 3rem;
 	// 		}
@@ -294,7 +294,7 @@
 	// 		}
 	// 	}
 
-	// 	@include break-point(laptop) {
+	// 	@media #{$mq-1366} {
 	// 		&:nth-child(2n+3){
 	// 			margin-left: 0;
 	// 		}
@@ -306,13 +306,13 @@
 	// xx
 
 	.profile {
-		@include break-point(tablet) {
+		@media #{$mq-768} {
 			&:nth-child(n+3) {
 				margin-top: 0;
 			}
 		}
 
-		@include break-point(laptop) {
+		@media #{$mq-1366} {
 			&:nth-child(n+3) {
 				margin-top: unset;
 			}
@@ -356,7 +356,7 @@
 	.profile {
 		// xx
 		// &:not(:first-of-type) {
-		// 	margin-left: $gut;
+		// 	margin-left: $space-mid;
 		// }
 
 		// &:last-of-type {
@@ -373,7 +373,7 @@
 			// max-width: calc((100% - calc(3rem * 1)) / 2);
 		}
 
-		@include break-point(mobile) {
+		@media #{$mq-767} {
 			// xx
 			// &:not(:first-of-type) {
 			// 	margin-left: 0;
@@ -381,22 +381,22 @@
 			// xx
 		}
 
-		@include break-point(tablet) {
+		@media #{$mq-768} {
 			.image-wrap {
 				max-height: 315px;
 			}
 
 			// xx
 			// &:nth-child(n+3) {
-			// //  margin-left: $gut;
+			// //  margin-left: $space-mid;
 			// }
 
 			// &:nth-child(2n+3) {
-			// 	margin-left: $gut;
+			// 	margin-left: $space-mid;
 			// }
 
 			// &:nth-child(odd) {
-			// 	margin-left: $gut;
+			// 	margin-left: $space-mid;
 			// }
 
 			// &:nth-child(even) {
@@ -412,7 +412,7 @@
 			// }
 		}
 
-		@include break-point(laptop) {
+		@media #{$mq-1366} {
 			.image-wrap {
 				max-height: 193px;
 			}
@@ -427,11 +427,11 @@
 			// }
 
 			// &:nth-child(n+3) {
-			// 	margin-left: $gut;
+			// 	margin-left: $space-mid;
 			// }
 
 			// &:nth-child(2n+3) {
-			// 	margin-left: $gut;
+			// 	margin-left: $space-mid;
 			// }
 
 			// // &:nth-child(4n+1) {
@@ -444,13 +444,13 @@
 			// xx
 		}
 
-		@include break-point(tablet) {
+		@media #{$mq-768} {
 			&:nth-child(n+3) {
 				margin-top: 0;
 			}
 		}
 
-		@include break-point(laptop) {
+		@media #{$mq-1366} {
 			&:nth-child(n+3) {
 				margin-top: unset;
 			}
@@ -460,7 +460,7 @@
 			}
 		}
 
-		@include break-point(monitor) {
+		@media #{$mq-1366} {
 			.image-wrap {
 				max-height: 200px;
 			}
@@ -468,11 +468,11 @@
 
 		// @media (min-width: 1024px) and (max-width: 1024px) {
 		// 	&:nth-child(2n+3) {
-		// 		margin-left: $gut;
+		// 		margin-left: $space-mid;
 		// 	}
 		// }
 
-		// @include break-point(desktop) {
+		// @media #{$mq-1600} {
 		// 	&:nth-child(2n+3) {
 	  //     margin-left: 0;
 	  //   }
@@ -486,17 +486,17 @@
 	// 	&:first-of-type {
 	// 		margin-left: 0;
 	// 	}
-	// 	@include break-point(tablet) {
+	// 	@media #{$mq-768} {
 	// 		&:first-of-type {
 	// 			margin-left: 0;
 	// 		}
 	// 	}
-	// 	@include break-point(laptop) {
+	// 	@media #{$mq-1366} {
 	// 		&:first-of-type {
 	// 			margin-left:3rem;
 	// 		}
 	// 	}
-	// 	@include break-point(monitor) {
+	// 	@media #{$mq-1366} {
 	// 		&:first-of-type {
 	// 			margin-left:3rem;
 	// 		}
@@ -506,20 +506,20 @@
 
 
 .profile-school {
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		&:not(:first-of-type) {
-			margin-top: calc(#{$gut} / 3);
+			margin-top: calc(#{$space-mid} / 3);
 			margin-left: 0;
 		}
 
 	    &:nth-child(n+3) {
-	        // margin-left: $gut;
+	        // margin-left: $space-mid;
 	    }
 	}
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		&:not(:first-of-type) {
-			// margin-left: $gut;
+			// margin-left: $space-mid;
 		}
 
 	    &:nth-child(n+3) {
@@ -533,12 +533,12 @@
 	// margin-top: 4rem;
 	margin-bottom: 1rem;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		margin-top: 0;
 		margin-bottom: 0.5rem;
 	}
 
-	@include break-point(desktop) {
+	@media #{$mq-1600} {
 		margin-top: 0;
 		margin-bottom: 0.5rem;
 	}
@@ -547,7 +547,7 @@
 
 .profile-name {
 	text-align: center;
-	color: $blue;
+	color: $blue-dk;
 	margin: 0;
 	padding: calc(#{$space-tiny} * 0.25) 0 calc(#{$space-tiny} * 0.35) 0;
 	line-height: 1;
@@ -557,16 +557,16 @@
 
 .profile-role {
 	text-align: center;
-	color: $dark-grey;
+	color: $grey-dk;
 	margin: 0.25rem 0 0;
 	padding: 0;
 	align-self: auto;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		align-self: center;
 	}
 
-	@include break-point(desktop) {
+	@media #{$mq-1600} {
 		padding: 0 calc(#{$space-tiny} * 0.25) calc(#{$space-tiny} * 0.5) 0;
 	}
 }
@@ -585,12 +585,12 @@
 		text-align: left;
 		line-height: 1.5;
 
-		@include break-point(laptop) {
+		@media #{$mq-1366} {
 			padding: 0 calc(#{$space-tiny} * 1.25) calc(#{$space-tiny} * 0.75) calc(#{$space-tiny} * 1.25);
 		}
 	}
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		max-width: unset;
 		margin-right: unset;
 		margin-left: unset;

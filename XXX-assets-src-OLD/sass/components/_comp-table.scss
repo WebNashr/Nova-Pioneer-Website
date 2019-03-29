@@ -1,0 +1,267 @@
+
+
+.schedule-container {
+	width: 100%;
+	@include copy(regular);
+	@include font-size(21px);
+	line-height: 1.5;
+	margin: auto;
+	padding: 0;
+	color: $dark-grey;
+}
+
+.fees-container {
+	// padding: 0 !important;
+	margin: 0 auto;
+	@include break-point(tablet) {
+		// padding: 0 calc(#{$space-tiny} * 3);
+		padding: 0;
+		margin-top: -2rem;
+		margin-bottom: 2rem;
+	}
+	@include break-point(desktop) {
+			max-width: 768px;
+		}
+
+
+// 	width: 100%;
+// 	@include copy(regular);
+// 	@include font-size(21px);
+// 	line-height: 1.5;
+// 	margin: auto;
+// 	margin-bottom: 1rem;
+// 	padding: 0;
+// 	padding-bottom: 1rem;
+// 	color: $blue;
+// 	&.last-table {
+// 		//margin-bottom: 0;
+// 	}
+	// max-width: 768px;
+	// margin: 0 auto;
+}
+
+.table-header {
+	@include font-size(28px);
+	@include copy(black);
+	margin-bottom: 1.5rem;
+	text-align: left;
+	color: $blue;
+}
+
+.table-desc {
+	font-size: 1rem;
+}
+
+.table-source-and-credit {
+	width: 100%;
+	overflow: hidden;
+}
+
+.table-source {
+	margin: 0;
+	float: left;
+	font-weight: bold;
+	font-size: 0.75em;
+}
+
+.table-source .pre-colon {
+	text-transform: uppercase;
+}
+
+
+table.schedule-table,
+table.fees-table {
+	// width: 80%;
+	width: 100%;
+	margin-bottom: 0.5em;
+	font-size: 1em;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: auto;
+}
+
+table.fees-table {
+	// width: 60%;
+	margin: 1.5rem 0 3rem 0;
+	min-width:470px;
+}
+
+table.fees-download p{
+	font-size: 1rem;
+}
+
+table.fees-download input {
+	padding:7px calc(7px * 1.5)!important;
+	color:#fff;
+	float: right;
+	font-size: 14px;
+	// font-size: 1rem;
+}
+
+table.schedule-table *,
+table.fees-table * {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-align: left;
+	color: $dark-grey;
+}
+
+table.schedule-table thead,
+table.fees-table thead, {
+	//border-bottom: 1px solid #ddd;
+	// background: $green-blue;
+	// background: $blue;
+	// background: $sky;
+	background: $sky-light;
+
+	// &.secondary {
+		// background: $sky-light;
+	// }
+}
+
+table.schedule-table tr,
+table.fees-table tr{
+	border-bottom: 1px solid #ddd;
+	color: $grey;
+
+	&:last-of-type {
+		border: 0 none;
+	}
+}
+
+table.schedule-table tr.highlight,
+table.fees-table tr.highlight {
+	background: $grey;
+}
+
+table.schedule-table.zebra tr:nth-child(even) {
+	//background: $grey;
+}
+
+table.schedule-table th,
+table.fees-table th {
+	@include copy(semi);
+	// @include copy(regular);
+	padding: calc(1rem * 0.5) calc(1rem * 1);
+	@include font-size(16px);
+	// @include font-size(18px);
+	@include line-height(1.25);
+	color: $white;
+	// text-transform: uppercase;
+	letter-spacing: 0.025rem;
+}
+
+table.schedule-table td,
+table.fees-table td {
+	//width: 15%;
+	padding: calc(#{$space-tiny} * 1);
+	@include font-size(16px);
+	@include line-height(1.25);
+
+	&.row-title {
+		@include copy(semi);
+		color: $green-blue;
+		// color: $sky;
+		// color: $blue;
+		//width: 20%;
+	}
+
+	&.cost {
+		width: 30%;
+	}
+}
+
+table.fees-table td {
+	&.row-title {
+		width: 25%;
+
+		&-alt {
+			width: unset;
+			min-width: 2rem;
+		}
+	}
+}
+
+table.schedule-table .highlight td,
+table.fees-table .highlight td  {
+	@include copy(bold);
+}
+
+table.schedule-table th.number,
+table.fees-table th.number,
+td.number {
+	text-align: right;
+}
+
+//media queries
+@media screen and (max-width: 600px) {
+	.schedule-container {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	table.schedule-table {
+		display: block;
+		width: 100%;
+	}
+	table.schedule-table tr.hide-mobile, table.schedule-table th.hide-mobile, table.schedule-table td.hide-mobile {
+		display: none;
+	}
+	table.schedule-table thead {
+		display: none;
+	}
+	table.schedule-table tbody {
+		display: block;
+		width: 100%;
+	}
+	table.schedule-table tr, table.schedule-table th, table.schedule-table td {
+		display: block;
+		padding: 0;
+	}
+	table.schedule-table tr {
+		border-bottom: none;
+		margin: 0 0 1em 0;
+		padding: 0.5em 0;
+	}
+	table.schedule-table tr.highlight {
+		background: none;
+	}
+	table.schedule-table.zebra tr:nth-child(even) {
+		background: none;
+	}
+	table.schedule-table.zebra td:nth-child(even) {
+		background: #efefef;
+	}
+	table.schedule-table tr:nth-child(even) {
+		background: none;
+	}
+	table.schedule-table td {
+		padding: 0.5em 0 0.25em 0;
+		border-bottom: 1px dotted #ccc;
+		text-align: right;
+	}
+	table.schedule-table td[data-title]:before {
+		content: attr(data-title);
+		font-weight: bold;
+		display: inline-block;
+		content: attr(data-title);
+		float: left;
+		margin-right: 0.5em;
+		font-size: 0.95em;
+	}
+	table.schedule-table td:last-child {
+		padding-right: 0;
+		border-bottom: 2px solid #ccc;
+	}
+	table.schedule-table td:empty {
+		display: none;
+	}
+	table.schedule-table .highlight td {
+		background: none;
+	}
+}

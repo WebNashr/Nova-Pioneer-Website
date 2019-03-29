@@ -1,0 +1,42 @@
+
+/*  Button Order */
+/* ==================================================== */
+
+
+@mixin button-order($button-order) {
+	/* Primary */
+	@if $button-order == 'primary' {
+		color: $white;
+		background: $blue-lt;
+	}
+
+	/* Primary alternative */
+	@else if $button-order == 'primary-alt' {
+		color: $blue-lt;
+		background: $white;
+	}
+
+	/* Secondary */
+	@else if $button-order == 'secondary' {
+		color: $white;
+		background: $green-lt;
+	}
+
+	/* Secondary alternative */
+	@else if $button-order == 'secondary-alt' {
+		color: $green-lt;
+		background: $white;
+	}
+
+	/* Disabled */
+	@else if $button-order == 'disabled' {
+		color: $grey-lt;
+		background: $grey-mdk;
+		cursor: none;
+	}
+}
+
+
+// div { @include button-order(primary); }
+
+

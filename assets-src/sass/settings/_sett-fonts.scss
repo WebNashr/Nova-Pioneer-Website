@@ -3,79 +3,58 @@
 /* ==================================================== */
 
 
-$font-url: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900';
+$font-url: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900';
 
 @if variable-exists(font-url) {
-  @import url($font-url);
+    @import url($font-url);
 }
-
-
-/* Title font */
-@mixin title($title) {
-	font-family: 'Montserrat', 'Arial', sans-serif;
-
-	/* Black */
-	@if $title == 'black' {
-		font-weight: bolder;
-		font-weight: 900;
-	}
-
-	/* Bold */
-	@if $title == 'bold' {
-		font-weight: bold;
-		font-weight: 700;
-	}
-
-	/* Regular */
-	@else if $title == 'regular' {
-		font-weight: normal;
-		font-weight: 400;
-	}
-
-	/* Light */
-	@else if $title == 'light' {
-		font-weight: lighter;
-		font-weight: 300;
-	}
-}
-
-
-// Usage:
-// div { @include title(regular); }
-
-
 
 /* Copy font */
 @mixin copy($copy) {
-	font-family: 'Arial', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 
 	/* Black */
-	@if $copy == 'black' {
-		font-weight: bolder;
+	@if $copy == 'extrablack' {
 		font-weight: 900;
 	}
 
 	/* Bold */
-	@if $copy == 'bold' {
-		font-weight: bold;
+	@else if $copy == 'bold' {
+		font-weight: 700;
+	}
+
+	/* Semi-bold */
+	@else if $copy == 'semi' {
 		font-weight: 600;
+	}
+
+    /* Medium */
+	@else if $copy == 'medium' {
+		font-weight: 500;
 	}
 
 	/* Regular */
 	@else if $copy == 'regular' {
-		font-weight: normal;
-		font-weight: 400;
+        font-weight: 500;
 	}
 
 	/* Light */
 	@else if $copy == 'light' {
-		font-weight: lighter;
 		font-weight: 300;
 	}
 }
 
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
 
 // Usage:
-// div { @include copy(regular); }
-
-
+// div { @include copy(regular); @include font-smoothing(on); }

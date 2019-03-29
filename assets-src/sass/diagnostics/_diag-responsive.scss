@@ -19,7 +19,7 @@ body {
 		z-index: index($indices, z9);
 	}
 
-	@include break-point(mobile) {
+	@media #{$mq-767} {
 		&:before {
 			content: 'mobile';
 			color: red;
@@ -27,7 +27,7 @@ body {
 		}
     }
 
-    @include break-point(tablet) {
+    @media #{$mq-768} {
 		&:before {
 			content: 'tablet';
 			color: orange;
@@ -35,7 +35,7 @@ body {
 		}
     }
 
-    @include break-point(laptop) {
+    @media #{$mq-1366} {
 		&:before {
 			content: 'laptop';
 			color: yellow;
@@ -43,7 +43,7 @@ body {
 		}
     }
 
-    @include break-point(largelaptop) {
+    @media #{$mq-1440} {
 		&:before {
 			content: 'large laptop';
 			color: blue;
@@ -51,7 +51,7 @@ body {
 		}
     }
 
-    @include break-point(desktop) {
+    @media #{$mq-1600} {
 		&:before {
 			content: 'desktop';
 			color: indigo;
@@ -59,7 +59,7 @@ body {
 		}
     }
 
-    @include break-point(monitor) {
+    @media #{$mq-1366} {
 		&:before {
 			content: 'monitor';
 			color: violet;

@@ -1,0 +1,35 @@
+
+/* Letter spacing */
+/* ==================================================== */
+
+
+@mixin letter-spacing($letter-space) {
+	/* Tiny spacing */
+	@if $letter-space == 'tiny' {
+		letter-spacing: calc(16px / 16);
+	}
+
+	/* Small spacing */
+	@elseif $letter-space == 'small' {
+		letter-spacing: calc(16px / 8);
+	}
+
+	/* Medium spacing */
+	@else if $letter-space == 'medium' {
+		letter-spacing: calc(16px / 4);
+	}
+
+	/* Large spacing */
+	@else if $letter-space == 'large' {
+		letter-spacing: calc(16px / 2);
+	}
+
+	/* No spacing */
+	@else if $letter-space == 'none' {
+		letter-spacing: calc(16px / 0);
+	}
+}
+
+
+// Usage:
+// div { @include letter-spacing(small); }

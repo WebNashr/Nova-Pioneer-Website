@@ -1,0 +1,273 @@
+
+/* Embeds */
+/* ==================================================== */
+
+
+%media-container {
+	position: relative;
+	// margin-bottom: 24px;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+
+	& > * { // iframe, object, embed, video, audio, etc
+	    position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+// div { @extend %media-container; }
+
+
+
+.media {
+	@extend %media-container;
+	&.youtube-video {
+		padding-top: 0px;
+		img {
+			padding-bottom: 0;
+			height: auto;
+			@include break-point(tablet) {
+				// height: 100%;
+				// align-self: center;
+			}
+		}
+	}
+	&.gallery{
+		padding-top: 0px;
+
+		@extend %columns;
+		@extend %column-8;
+	}
+}
+
+.image-slider-container {
+	clear: both;
+  // padding-top: calc(1rem * 4);
+	padding-bottom: 0;
+	margin-bottom: -4rem;
+	@extend %columns;
+	@extend %column-12;
+	@include break-point(tablet) {
+		margin-bottom: -5rem;
+	}
+	@media only screen and (min-width: 1024px) and (max-width: 1024px) { //1024px
+			margin-bottom: 0;
+	}
+	@media only screen and  (min-width: 1440px) and (max-width: 1440px) { //1024px
+			margin-bottom: 0;
+	}
+	.section-navigation {
+		@extend %column-2;
+		background: $dark-blue;
+		padding-top: calc(1rem * 3);
+		padding-left: calc(1rem * 4);
+		// height: 88.85%;
+		height: 80.75%;
+		min-width: 20%;
+		@include break-point(largelaptop) {
+			height: 80.75%;
+		}
+		@media only screen and  (min-width: 1024px) and (max-width: 1024px) { //1024px
+				height: 88.85%;
+		}
+		@media only screen and  (min-width: 1440px) and (max-width: 1440px) { //1024px
+				height: 88.85%;
+		}
+
+		.gallery-nav{
+			@include font-size(16px);
+			padding-bottom: calc(1rem * 2);
+		}
+	}
+
+	.section-content {
+		border-left: none;
+	}
+	.inner {
+		overflow: hidden;
+
+		// @include break-point(tablet) {
+		// 	max-height: 490px;
+		// }
+		// @include break-point(laptop) {
+		// 	max-height: 409px;
+		// }
+		// @include break-point(desktop) {
+		// 	max-height: 598px;
+		// }
+		// 	@include break-point(monitor) {
+		// 		max-height: 633px;
+		// 	}
+		img {
+			max-height: 576px;
+			@include break-point(tablet) {
+				max-height: 409px;
+			}
+			// @include break-point(laptop) {
+			// 	max-height: 409px;
+			// }
+			@include break-point(desktop) {
+				max-height: 576px;
+			}
+			// @include break-point(monitor) {
+			// 	max-height: 633px;
+			// }
+		}
+	}
+}
+
+.gallery-title {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+// .image-slider-container-alt {
+// 	clear: both;
+//   	padding-top: calc(1rem * 4);
+//
+// 	.section-content {
+// 		border-left: none;
+// 	}
+//
+// 	.section-navigation {
+// 		padding-left: calc(1rem * 2);
+// 		background: transparent;
+//
+// 		@include break-point(laptop) {
+// 	        padding-left: calc(1rem * 4);
+// 	    }
+//
+// 		.gallery-nav {
+// 			@include flexbox();
+// 		    @include flex-direction(row);
+// 		    @include flex-wrap(nowrap);
+// 		    @include font-size(16px);
+// 		    margin-top: 0;
+// 		    margin-bottom: 1.5rem;
+// 		}
+// 	}
+//
+// 	@include break-point(tablet) {
+//         .section-navigation {
+// 			h1 {
+// 				display: inline-block;
+// 				margin-right: 1.5rem;
+// 				margin-bottom: 1.5rem;
+// 			}
+// 		}
+//     }
+//
+//
+//     @include break-point(laptop) {
+//         .section-navigation {
+// 			padding-left: calc(1rem * 4);
+//
+// 			h1 {
+// 				display: block;
+// 				margin-right: unset;
+// 				margin-bottom: unset;
+// 			}
+//
+// 			.gallery-nav {
+// 		        @include flex-direction(column);
+// 		        @include flex-wrap(wrap);
+// 			}
+// 		}
+//     }
+// }
+
+
+
+/* Video */
+
+#video-container {
+	width: auto;
+	// max-height: 620px;
+	max-height: 100vh;
+	overflow: hidden;
+
+	video {
+		width: 100%;
+		height: auto;
+	}
+
+	#mute {
+		zoom: 1;
+		filter: alpha(opacity=45);
+		-webkit-opacity: 0.45;
+		-moz-opacity: 0.45;
+		-o-opacity: 0.45;
+		opacity: 0.45;
+	}
+}
+
+/* webkit specific CSS */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #video-container {
+		max-height: 620px;
+	}
+}
+
+
+
+#video-container:hover #mute {
+	filter: alpha(opacity=100);
+	-webkit-opacity: 0.45;
+	-moz-opacity: 0.45;
+	-o-opacity: 0.45;
+	opacity: 1;
+}
+
+.image-wrap {
+	margin-top: 2rem;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 1rem;
+	width: 100%;
+	height: 9rem;
+	background-position: center;
+	background-size: cover;
+	.article-inner-alt & {
+		margin-bottom: 0;
+		height: 12rem;
+		@include break-point(tablet) {
+			height: 20rem;
+		}
+	}
+	// .section-content-item-half & {
+	// 	margin-top: 1rem;
+	// 	margin-bottom: 1rem;
+	// 	height: 12rem;
+	// 	@include break-point(tablet) {
+	// 		margin-top: 0;
+	// 		height: 20rem;
+	// 	}
+	//
+	// }
+	.section-day-in-the-life & {
+		width: 100%;
+		margin-top: 1rem;
+		margin-bottom: 0;
+		height: 12rem;
+		@include break-point(tablet) {
+			width: 100%;
+			margin-bottom: 0;
+			height: 18rem;
+			// margin-top: 0;
+			// height: 20rem;
+		}
+		@include break-point(laptop) {
+			margin-top: 0;
+		}
+
+	}
+	@include break-point(tablet) {
+		// margin-top: 0;
+		height: 18rem;
+	}
+}

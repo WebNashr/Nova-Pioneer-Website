@@ -4,73 +4,37 @@
 
 
 p {
-	@include font-size(18px);
-	@include line-height(1.35);
-	position: relative;
-	// color: $dark-grey;
+	@include copy(regular);
+    @extend %text-grey-dk;
+    line-height: var(--body-line-height);
 
-	&:not(:first-of-type) {
-
+	&:not(:first-of-type),
+    p + p {
+        margin-top: var(--text-regular);
 	}
 
-	&:only-of-type {
-
+    h1 + &,
+    h2 + &,
+    h3 + &,
+    h4 + &,
+    h5 + &,
+    h6 + & {
+        margin-top: var(--text-regular);
 	}
 
-	&:not(:first-of-type) {
+    @media #{$mq-1600} {
+        max-width: 85%;
+    }
 
-	}
+    @media #{$mq-1920} {
+        font-size: calc(var(--text-base-size) * 1.4);
+        font-size: calc(var(--text-base-size) * var(--text-scale-ratio));
+    }
 
-	.toggle-list &,
-	.general-content > .toggle-list & {
-		// @include font-size(18px);
-	}
-
-	.learning-approach & {
-		// @include font-size(16px);
-		padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 1);
-		text-align: center;
-		@include break-point(tablet) {
-			text-align: left;
-		}
-	}
-
-	&.article-excerpt {
-		@include font-size(25px);
-		// @include line-height(1.25);
-		margin-top: calc(#{$space-tiny} * 1.25);
-	}
-
-	@include break-point(tablet) {
-
-	}
-
-	@include break-point(laptop) {
-
-	}
-
-	@include break-point(desktop) {
-
-	}
+    @media #{$mq-2560} {
+        font-size: calc(var(--text-base-size) * 1.5);
+        font-size: calc(var(--text-base-size) * var(--text-scale-ratio));
+    }
 }
 
-p + p {
-	margin-top: calc(#{$space-tiny} * 2);
-}
 
-// .article-excerpt {
-// 	@include font-size(24px);
-// 	@include line-height(1.25);
-// }
-
-h2 + p {
-	margin-top: calc(#{$space-tiny} * 1);
-}
-
-header + p {
-	margin-top: calc(#{$space-tiny} * 0.5);
-}
-
-// .article-inner p + p {
-// 	// margin-top: 0;
-// }

@@ -1,0 +1,24 @@
+
+/* Small */
+/* ==================================================== */
+
+
+small {
+	@include font-size(14px);
+	@include line-height(18px);
+	display: block;
+
+	@include break-point(tablet) {
+
+	}
+
+	@include break-point(laptop) {
+
+	}
+
+	@include break-point(desktop) {
+
+	}
+}
+
+

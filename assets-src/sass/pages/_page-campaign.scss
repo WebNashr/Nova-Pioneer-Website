@@ -7,7 +7,7 @@
 	height: auto;
 	color: $white;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		height: 80vh;
 	}
 }
@@ -18,7 +18,7 @@
 	background-repeat: no-repeat;
 	background-size: 100%;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		background-size: cover;
 	}
 }
@@ -107,12 +107,12 @@
 		background: $green-lt;
 	}
 
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		width: 45%;
 		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3);
 	}
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		width: 45%;
 		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4);
 
@@ -157,7 +157,7 @@
 	@include flex-direction(column);
 	@include flex-wrap(wrap);
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		@include flex-direction(row);
 	}
 }
@@ -187,21 +187,21 @@
 		// //display: block;
 		// width: 100%;
 		// padding: 0.75rem 1rem;
-		// //color: $grey;
+		// //color: $grey-md;
 		// background: $white;
 		// appearance: none;
 		// border: 0 none;
 		// outline: 0 none;
-		// border: 1px solid $sky;
+		// border: 1px solid $blue-lt;
 		// border-radius: 2px;
 
 		&:hover {
-			color: $sky;
+			color: $blue-lt;
 			border: 1px solid $green-dk;
 		}
 
 		&:focus {
-			color: $blue;
+			color: $blue-dk;
 			border: 1px solid $blue-dk;
 		}
 
@@ -230,7 +230,7 @@
 		width: 100%;
 	}
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		width: 30%;
 		margin-top: unset;
 		margin-left: auto;
@@ -258,7 +258,7 @@
 		line-height: 1.35;
 	}
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		@include flex-direction(row);
 		width: 65%;
 		margin-right: auto;
@@ -277,7 +277,7 @@
 		border: 0;
 	}
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		width: 45%;
 		height: 100%;
 		margin: 0 2rem 0 0;
@@ -288,7 +288,7 @@
 	width: 100%;
 	margin: 0;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		width: unset;
 	}
 }
@@ -326,7 +326,7 @@ h3.campaign-school-location {
 	width: 100%;
 	margin-top: 2rem;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		width: unset;
 	}
 }
@@ -336,7 +336,7 @@ h3.campaign-school-location {
 	@include flex-direction(column);
 	@include flex-wrap(nowrap);
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		@include flex-direction(row);
 		@include flex-wrap(nowrap);
 	}
@@ -353,7 +353,7 @@ h3.campaign-school-location {
 	color: $blue-dk;
 	background: $orange-lt;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		width: 30%;
 		padding: 2rem 0 2rem 4rem;
 		// text-align: left;
@@ -370,7 +370,7 @@ h3.campaign-school-location {
     padding: 2rem 4rem 2rem 3rem;
 	background: $blue-dk;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		@include flex-direction(row);
 		align-items: center;
 		width: 70%;
@@ -395,7 +395,7 @@ h3.campaign-school-location {
 		margin-left: 0;
 	}
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		a {
 			font-size: 1rem;
 		}

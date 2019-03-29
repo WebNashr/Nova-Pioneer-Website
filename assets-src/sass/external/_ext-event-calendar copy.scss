@@ -87,13 +87,13 @@
       &[type=text] {
 
         &:hover {
-      		color: $sky;
+      		color: $blue-lt;
       		border: 1px solid $green-lt;
       	}
 
       	&:focus {
           outline: none;
-      		color: $blue;
+      		color: $blue-dk;
       		border: 1px solid $blue-dk;
       	}
       }
@@ -101,17 +101,17 @@
     	@include letter-spacing(tiny);
     	width: 100%;
     	padding: 0.75rem 1rem;
-    	//color: $grey;
+    	//color: $grey-md;
     	background: $white;
     	appearance: none;
     	border: 0 none;
     	outline: 0 none;
-    	border: 1px solid $sky;
+    	border: 1px solid $blue-lt;
     	border-radius: 2px;
 
 
     	&::placeholder {
-    		color: $dark-grey;
+    		color: $grey-dk;
     		opacity: 1;
     	}
     }
@@ -121,15 +121,15 @@
       margin-top: 0.9rem;
       .tribe-events-button {
         padding: 1rem 0;
-        @extend %text-align-center;
-      	@extend %text-transform-upper;
+        text-align: center;
+      	text-transform: uppercase;
       	@include copy(regular);
       	@include line-height(1);
       	// @include letter-spacing(small);
       	@include border-radius(3px);
       	@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
-      	@include border(0, solid, transparent);
-      	@include outline(0, solid, transparent);
+      	border: 0 solid transparent;
+      	outline: 0 solid transparent;
       	display: inline-block;
       	text-decoration: none;
       	text-transform: uppercase;
@@ -182,15 +182,15 @@
   }
   .tribe-events-button {
     padding: 1rem 0.75rem;
-    @extend %text-align-center;
-    @extend %text-transform-upper;
+    text-align: center;
+    text-transform: uppercase;
     @include copy(regular);
     @include line-height(1);
     // @include letter-spacing(small);
     @include border-radius(3px);
     @include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
-    @include border(0, solid, transparent);
-    @include outline(0, solid, transparent);
+    border: 0 solid transparent;
+    outline: 0 solid transparent;
     display: inline-block;
     text-decoration: none;
     text-transform: uppercase;
@@ -214,10 +214,10 @@
 // calendar table
 .tribe-events-calendar  {
   table {
-    border: 1px solid darken($grey, 20%);
+    border: 1px solid darken($grey-md, 20%);
   }
   th {
-    background: darken($grey, 20%);
+    background: darken($grey-md, 20%);
     color: $grey-mdk;
   }
 
@@ -287,7 +287,7 @@
     .tribe-events-cost {
       @include font-size(14px);
       @include copy(bold);
-      color: lighten($blue, 10%);
+      color: lighten($blue-dk, 10%);
     }
   }
 }
@@ -304,7 +304,7 @@
 
     	&:not(:first-of-type) {
     		padding-top: 1.25rem;
-    		border-top: 1px solid darken($grey, 10%);
+    		border-top: 1px solid darken($grey-md, 10%);
     	}
     }
 
@@ -316,7 +316,7 @@
     		padding: 5px;
     		text-align: center;
     		color: $white;
-    		background: $green-blue;
+    		background: $blue-dk;
     		border-radius: 50%;
     	}
 
@@ -324,7 +324,7 @@
     		@include copy(regular);
 			@include font-size(13px);
 			text-align: center;
-			color: $green-blue;
+			color: $blue-dk;
     	}
     }
 
@@ -344,7 +344,7 @@
     	@include font-size(14px);
     }
 
-    @include break-point(laptop) {
+    @media #{$mq-1366} {
 	    padding-bottom: calc(#{$space-tiny} * 1);
 
 	    .event-item {
@@ -371,7 +371,7 @@
 	    }
     }
 
-    @include break-point(largelaptop) {
+    @media #{$mq-1440} {
 	    .event-item {
 	    	@include flex-direction(row);
 	    }
@@ -438,7 +438,7 @@
 	height: auto;
 	padding: 10px;
 	box-sizing: border-box;
-	border: 1px solid lighten($light-grey, 30%);
+	border: 1px solid lighten($grey-lt, 30%);
 	margin-right: -1px;
 	margin-bottom: -1px;
 
@@ -450,7 +450,7 @@
 		color: transparent;
 	}
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		width: 14.342%;
 		min-height: 196px;
 		padding: 5px;
@@ -460,9 +460,9 @@
 #calendar ul.weekdays {
 	display: none;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 	    height: 40px;
-		background: $green-blue;
+		background: $blue-dk;
 		width: 99.8%;
     }
 }
@@ -483,7 +483,7 @@
     @include flex-wrap(nowrap);
 	height: auto;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		@include flex-direction(column);
 		min-height: 196px;
     }
@@ -497,8 +497,8 @@
 	text-align: center;
 	margin-bottom: 5px;
 	padding: 4px;
-	background: darken($grey, 5%);
-	color: $green-blue;
+	background: darken($grey-md, 5%);
+	color: $blue-dk;
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
@@ -514,11 +514,11 @@
 	margin-left: 1rem;
 	margin-bottom: 5px;
 	line-height: 14px;
-	background: lighten($green-blue, 35%);
-	color: $dark-grey;
+	background: lighten($blue-dk, 35%);
+	color: $grey-dk;
 	text-decoration: none;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		clear: both;
 		margin-top: 8px;
 		margin-left: 0;
@@ -526,7 +526,7 @@
 }
 
 #calendar .event-desc {
-	color: darken($dark-grey, 5%);
+	color: darken($grey-dk, 5%);
 	margin: 3px 0 7px 0;
 	text-decoration: none;
 	@include copy(semi);
@@ -536,7 +536,7 @@
 #calendar .other-month {
 	display: none;
 
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 	    background: #f5f5f5;
 		color: #666;
     }

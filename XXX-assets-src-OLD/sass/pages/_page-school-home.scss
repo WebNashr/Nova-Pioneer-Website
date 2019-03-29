@@ -1,0 +1,59 @@
+// .school-description-container {
+// 	@extend %columns;
+// 	@extend %column-12;
+// 	margin: 8rem auto 0 auto;
+// 	clear: both;
+//   padding: calc(1rem * 4);
+// 	padding-bottom: 0;
+// 	.school-name {
+// 		@extend %columns;
+// 		@extend %column;
+// 		@extend %column-3;
+// 		//background: darken($grey, 50%);
+//
+// 		border-top: 1px solid $green-blue;
+// 		border-bottom: 1px solid $green-blue;
+// 		padding: calc(#{$space-tiny} * 1);
+// 		h1 {
+// 			color: $green-blue;
+// 			@include font-size(24px);
+// 			@include copy(semi);
+// 			line-height: 1.25;
+// 			text-align: center;
+// 		}
+// 	}
+// 	.description-inner-wrap {
+// 		@extend %columns;
+// 		@extend %column;
+// 		@extend %column-9;
+//   	justify-content: space-between;
+//   	padding: 1rem 2rem;
+//   	align-items: center;
+// 		//margin-left: 0 !important;
+//   	//background: $background-grey;
+// 		border-top: 1px solid darken($grey, 10%);
+// 		border-bottom: 1px solid darken($grey, 10%);
+// 		.detail-separator {
+// 				content: " ";
+//     		padding: 0 1rem;
+// 				&:after {
+// 					content: "|";
+// 					@include copy(light);
+// 					text-align: center;
+// 					color: darken($grey, 20%);
+// 				}
+// 			}
+// 		}
+// 	.school-detail{
+// 		color: $dark-grey;
+// 		@include font-size(18px);
+// 		@include copy(semi);
+// 		text-align: center;
+//
+// 		&:last-child:after {
+// 			content: none;
+// 		}
+//
+//
+// 	}
+// }

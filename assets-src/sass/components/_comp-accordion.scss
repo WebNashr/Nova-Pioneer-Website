@@ -1,7 +1,7 @@
 .faqs-container {
     padding:0 calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2);
 
-    @include break-point(tablet) {
+    @media #{$mq-768} {
       padding:0 calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
     }
 }
@@ -30,7 +30,7 @@ ul.toggle-list > li {
     }
 
     &:not(:first-of-type) {
-        border-top: 1px solid darken($grey, 2.5%);
+        border-top: 1px solid darken($grey-md, 2.5%);
     }
 
     &:last-child {
@@ -83,7 +83,7 @@ ul.toggle-list.toggle-list-plus > li {
     }
 
     li.faq:hover & {
-        color: $green-blue;
+        color: $blue-dk;
     }
 
     .show & {

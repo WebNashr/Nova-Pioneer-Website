@@ -8,7 +8,7 @@
     min-width: 148px;
     margin-top: -2rem;
     margin-left: auto;
-    @include break-point(tablet) {
+    @media #{$mq-768} {
       margin-top: 0;
     }
 }
@@ -168,11 +168,11 @@
     margin-top: 0;
   }
 
-  @include break-point(tablet) {
+  @media #{$mq-768} {
 		padding-right: 4rem !important;
     // margin-top: 8px;
 	}
-  @include break-point(laptop) {
+  @media #{$mq-1366} {
     // margin-top: 0;
 		padding-right: 6.5rem !important;
 	}

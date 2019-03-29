@@ -4,7 +4,7 @@
 
 
 /* Declare charset */
-@charset 'UTF-8';
+// @charset 'UTF-8';
 
 
 /* Box sizing */
@@ -12,54 +12,207 @@
 *:before,
 *:after {
 	@include box-sizing(border-box);
+    zoom: 100%;
+}
+
+
+$space: 12;
+
+:root {
+    @include copy(regular);
+    font-size: 15px;
+    zoom: 100%;
+
+    // set base values
+    // you can manage typography editing only these 2 variables
+    --text-base-size: 1em;
+    $text-base-size: 1em;
+    --text-scale-ratio: 1.225;
+    $text-scale-ratio: 1.225;
+    --text-scale-ratio: 1.175;
+    $text-scale-ratio: 1.175;
+
+    // line-height
+    --body-line-height: 1.5;
+    $body-line-height: 1.5;
+    --heading-line-height: 1.1;
+    $heading-line-height: 1.1;
+
+    // type scale
+    --text-tiny: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+    --text-small: calc(1em / var(--text-scale-ratio));
+    --text-regular: calc(1em * var(--text-scale-ratio));
+    --text-medium: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-large: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-huge: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-extra: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+
+    // line-height
+    --body-line-height: 1.5;
+    $body-line-height: 1.5;
+    --heading-line-height: 1;
+    $heading-line-height: 1;
+
+    // spacing
+    @while $space > 0 {
+        --space-#{$space}: #{1 * pow($text-scale-ratio,$space)}em;
+        $space: $space - 1;
+    }
+}
+
+
+@media #{$mq-768} {
+    :root{
+        font-size: 16px;
+
+        --text-scale-ratio: 1.275;
+        $text-scale-ratio: 1.275;
+
+        @while $space > 0 {
+            --space-#{$space}: #{1 * pow($text-scale-ratio,$space)}em;
+            $space: $space - 1;
+        }
+    }
+}
+
+@media #{$mq-1024} {
+    :root {
+        --text-scale-ratio: 1.3;
+        $text-scale-ratio: 1.3;
+
+        @while $space > 0 {
+            --space-#{$space}: #{1 * pow($text-scale-ratio,$space)}em;
+            $space: $space - 1;
+        }
+    }
+}
+
+@media #{$mq-1280} {
+    :root {
+        --text-scale-ratio: 1.3125;
+        $text-scale-ratio: 1.3125;
+
+        @while $space > 0 {
+            --space-#{$space}: #{1 * pow($text-scale-ratio,$space)}em;
+            $space: $space - 1;
+        }
+    }
+}
+
+@media #{$mq-1366} {
+    :root {
+        // --text-scale-ratio: 1.325;
+        // $text-scale-ratio: 1.325;
+        --text-scale-ratio: 1.3125;
+        $text-scale-ratio: 1.3125;
+
+        @while $space > 0 {
+            --space-#{$space}: #{1 * pow($text-scale-ratio,$space)}em;
+            $space: $space - 1;
+        }
+    }
+}
+
+@media #{$mq-1440} {
+    :root {
+        --text-scale-ratio: 1.345;
+        $text-scale-ratio: 1.345;
+
+        @while $space > 0 {
+            --space-#{$space}: #{1 * pow($text-scale-ratio,$space)}em;
+            $space: $space - 1;
+        }
+    }
+}
+
+@media #{$mq-1600} {
+    :root {
+        // --text-scale-ratio: 1.4;
+        // $text-scale-ratio: 1.4;
+        --text-scale-ratio: 1.35;
+        $text-scale-ratio: 1.35;
+
+        @while $space > 0 {
+            --space-#{$space}: #{1 * pow($text-scale-ratio,$space)}em;
+            $space: $space - 1;
+        }
+    }
+}
+
+@media #{$mq-2560} {
+    :root {
+        // --text-scale-ratio: 1.5;
+        // $text-scale-ratio: 1.5;
+        // --text-scale-ratio: 1.3;
+        // $text-scale-ratio: 1.3;
+        --text-scale-ratio: 1.25;
+        $text-scale-ratio: 1.25;
+
+        @while $space > 0 {
+            --space-#{$space}: #{1 * pow($text-scale-ratio,$space)}em;
+            $space: $space - 1;
+        }
+    }
+}
+
+@media #{$mq-retina} {
+    :root {
+        // --text-scale-ratio: 1.325;
+        // $text-scale-ratio: 1.325;
+        // --text-scale-ratio: 1.2;
+        // $text-scale-ratio: 1.2;
+        // --text-scale-ratio: 1.15;
+        // $text-scale-ratio: 1.15;
+
+        // @while $space > 0 {
+        //     --space-#{$space}: #{1 * pow($text-scale-ratio,$space)}em;
+        //     $space: $space - 1;
+        // }
+    }
+}
+
+
+html,
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    font-weight: 400;
+}
+
+/**
+ * Firefox specific rule
+ */
+
+@-moz-document url-prefix() {
+    body {
+
+    }
 }
 
 
 /* Base HTML */
 html {
-	@include copy(regular);
-	@include font-size(16px);
-	@include line-height(24px);
-	color: $dark-grey;
-	touch-action: manipulation;
-	touch-action: pan-x pan-y pan-left pan-right pan-up pan-down pinch-zoom;
 
-	@include break-point(tablet) {
-
-	}
-
-	@include break-point(laptop) {
-
-	}
-
-	@include break-point(desktop) {
-
-	}
 }
 
 
 /* Base body */
 body {
-	@include flexbox();
-	@include flex-direction(column);
-	position: relative;
-	background: $white;
+    @include flexbox();
+	@include flex-wrap(nowrap);
+    @include flex-direction(column);
+    position: relative;
+    min-height: 100vh;
+    font-size: var(--text-base-size);
+    line-height: var(--body-line-height);
+    background: $white;
 
-	&.modal-open {
+    &.body-no-scroll {
 		overflow: hidden;
 	}
 }
 
-.body-home {
-	background-image: url('../../img/large-hero-home.jpg');
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	height: 100vh;
-	overflow-y: hidden;
-}
-
-.body-container {
-	@include flexbox();
-	@include flex-direction(row);
-}

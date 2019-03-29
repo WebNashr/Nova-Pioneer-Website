@@ -7,19 +7,19 @@
 	line-height: 1.5;
 	margin: auto;
 	padding: 0;
-	color: $dark-grey;
+	color: $grey-dk;
 }
 
 .fees-container {
 	// padding: 0 !important;
 	margin: 0 auto;
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		// padding: 0 calc(#{$space-tiny} * 3);
 		padding: 0;
 		margin-top: -2rem;
 		margin-bottom: 2rem;
 	}
-	@include break-point(desktop) {
+	@media #{$mq-1600} {
 			max-width: 768px;
 		}
 
@@ -32,7 +32,7 @@
 // 	margin-bottom: 1rem;
 // 	padding: 0;
 // 	padding-bottom: 1rem;
-// 	color: $blue;
+// 	color: $blue-dk;
 // 	&.last-table {
 // 		//margin-bottom: 0;
 // 	}
@@ -45,7 +45,7 @@
 	@include copy(black);
 	margin-bottom: 1.5rem;
 	text-align: left;
-	color: $blue;
+	color: $blue-dk;
 }
 
 .table-desc {
@@ -109,26 +109,26 @@ table.fees-table * {
 	font: inherit;
 	vertical-align: baseline;
 	text-align: left;
-	color: $dark-grey;
+	color: $grey-dk;
 }
 
 table.schedule-table thead,
 table.fees-table thead, {
 	//border-bottom: 1px solid #ddd;
-	// background: $green-blue;
-	// background: $blue;
-	// background: $sky;
-	background: $sky-light;
+	// background: $blue-dk;
+	// background: $blue-dk;
+	// background: $blue-lt;
+	background: $blue-lt;
 
 	// &.secondary {
-		// background: $sky-light;
+		// background: $blue-lt;
 	// }
 }
 
 table.schedule-table tr,
 table.fees-table tr{
 	border-bottom: 1px solid #ddd;
-	color: $grey;
+	color: $grey-md;
 
 	&:last-of-type {
 		border: 0 none;
@@ -137,11 +137,11 @@ table.fees-table tr{
 
 table.schedule-table tr.highlight,
 table.fees-table tr.highlight {
-	background: $grey;
+	background: $grey-md;
 }
 
 table.schedule-table.zebra tr:nth-child(even) {
-	//background: $grey;
+	//background: $grey-md;
 }
 
 table.schedule-table th,
@@ -166,9 +166,9 @@ table.fees-table td {
 
 	&.row-title {
 		@include copy(semi);
-		color: $green-blue;
-		// color: $sky;
-		// color: $blue;
+		color: $blue-dk;
+		// color: $blue-lt;
+		// color: $blue-dk;
 		//width: 20%;
 	}
 

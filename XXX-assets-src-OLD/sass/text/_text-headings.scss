@@ -1,0 +1,264 @@
+
+/* Headings */
+/* ==================================================== */
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include line-height(1.25);
+	clear: both;
+	display: block;
+}
+
+
+h1 {
+	@include title(bold);
+}
+
+
+h2,
+h3 {
+	@include title(medium);
+}
+
+
+h4,
+h5,
+h6 {
+	@include title(bold);
+}
+
+
+h1 {
+	@include font-size(48px);
+	color: $blue-dk;
+
+	.header-404 &,
+	.article-header & {
+		@include font-size(42px);
+		max-width: 1024px;
+		padding-bottom: calc(#{$space-tiny} * 2.75);
+
+		&.nav-bar-below {
+
+			padding-bottom: calc(#{$space-tiny} * 1);
+		}
+	}
+
+	.hero-half.stuck & {
+		font-size: 2.5rem;
+		text-shadow: unset;
+	}
+
+	.section-school-list-select & {
+		margin-top: -0.5rem;
+		margin-bottom: 0;
+		// margin-left: 0.83em;//chrome fix
+		line-height: 1;
+		text-align: center;
+
+		@include break-point(tablet) {
+			margin-top: 0;
+			margin-left: 0;
+			line-height: 1.5;
+		}
+
+		@include break-point(laptop) {
+			margin-top: 0;
+			margin-bottom: 0.5rem;
+			margin-left: 0;
+			line-height: 0.65;
+		}
+
+		@include break-point(desktop) {
+			margin-top: 0;
+			margin-left: 0;
+			line-height: 0.75;
+		}
+	}
+}
+
+
+h2 {
+	@include font-size(32px);
+	color: lighten($blue, 10%);
+
+	.search-results & {
+
+	}
+
+	.article & {
+		&.centered-title {
+			text-align: center;
+		}
+	}
+
+	.article-aside & {
+		margin-top: 0;
+		margin-bottom: calc(#{$space-tiny} * 1);
+	}
+
+	.education-stage & {
+		margin-bottom: calc(#{$space-tiny} * 1);
+		//center headings on mobile
+		text-align: center;
+
+		@include break-point(laptop) {
+			text-align: left;
+		}
+	}
+
+	.section-navigation & {
+		margin-top: 0;
+		margin-bottom: 1rem;
+		//center headings on mobile
+		text-align: center;
+		@include break-point(tablet) {
+			text-align: center;
+		}
+
+		@include break-point(laptop) {
+			//align headings on desktop
+			text-align: left;
+			margin-top: -0.25rem;
+			margin-bottom: 0.25rem;
+		}
+
+		&.current {
+
+		}
+
+		// @include break-point(tablet) {
+		// 	margin-bottom: 1rem;
+		// }
+
+		@include break-point(laptop) {
+			margin-bottom: calc(#{$space-tiny} * 1);
+		}
+	}
+
+
+	&.full-width-heading  {
+
+	 	margin-top: 1.250rem ;
+		//center headings on mobile
+		text-align: center;
+
+		@include break-point(tablet) {
+			margin-top: 2rem;
+			//align headings on desktop
+			text-align: left;
+		}
+
+		@include break-point(laptop) {
+			margin-top: 0;
+			text-align: left;
+		}
+
+		@include break-point(desktop) {
+			margin-top: 0;
+			text-align: center;
+		}
+	}
+}
+
+
+h3 {
+	@include font-size(24px);
+	color: lighten($blue, 10%);
+
+	.content-box & {
+		max-width: 728px;
+	}
+
+	.section-history & {
+		max-width: 728px;
+		margin: 0.5rem 0px 1.25rem;
+	}
+
+	.toggle-list & {
+	}
+
+	.article-aside & {
+		margin-top: 0;
+	}
+
+	.job-details-header & {
+		margin-bottom: calc(#{$space-tiny} * 1.5);
+	}
+}
+
+
+h4 {
+	@include font-size(20px);
+
+	.content-box & {
+		max-width: 598px;
+	}
+
+	.section-history & {
+		font-size: 1.25rem;
+	}
+	.recent-reports & {
+
+	}
+
+	.person & {
+		margin-bottom: calc(#{$space-tiny} * 1);
+	}
+
+	.admission-step & {
+		margin-bottom: calc(#{$space-tiny} * 1);
+		@include break-point(laptop) {
+			@include font-size(18px);
+			margin-bottom: calc(#{$space-tiny} * 0.75);
+		}
+		@include break-point(monitor) {
+			@include font-size(20px);
+			margin-bottom: calc(#{$space-tiny} * 1);
+
+		}
+
+	}
+}
+
+
+h5 {
+	@include font-size(18px);
+
+	.recent-reports & {
+		margin-bottom: 1rem;
+	}
+
+	.person & {
+		margin-bottom: 0.25rem;
+	}
+	.learning-approach & {
+		@include font-size(17px);
+		color: $blue-dk;
+		text-align: center;
+		margin-bottom: calc(#{$space-tiny} * 0.5);
+		@include break-point(monitor) {
+			@include font-size(18px);
+		}
+	}
+	// .learning-approach & {
+	// 	color: lighten($blue, 10%);
+	// 	text-align: center;
+	// 	// margin-bottom: calc(#{$space-tiny} * 1);
+	// }
+}
+
+
+h6 {
+	@include font-size(16px);
+
+	.job-details-header & {
+		margin-top: calc(#{$space-tiny} * 0.35);
+		margin-bottom: 0;
+	}
+}

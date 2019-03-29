@@ -6,7 +6,7 @@
       // padding-top: 0;
       // padding-bottom: calc(1rem * 4);
       margin-top: 0;
-      @include break-point(tablet) {
+      @media #{$mq-768} {
         // margin-top: -4rem;
       }
     }
@@ -22,17 +22,23 @@
 
 		h1 {
 	    	margin: 0 auto;
-        @include font-size(32px);
-        line-height: 1.25;
-	    	color: $white;
-	    	text-align: center;
-	    	max-width: 100%;
-        text-shadow: 1px 1px darken($dark-grey, 50%);
-        @include break-point(tablet) {
-          @include font-size(40px);
-          line-height: 1.5;
-        }
+            @include font-size(32px);
+            line-height: 1.25;
+            color: $white;
+            text-align: center;
+            max-width: 100%;
+            text-shadow: 1px 1px darken($grey-dk, 50%);
+
+            @media #{$mq-768} {
+                @include font-size(40px);
+                line-height: 1.5;
+            }
 		}
+
+        .faux-h1 {
+            @extend h1;
+        }
+
 		p {
 	    	@include font-size(21px);
 	    	@include copy(semi);
@@ -41,14 +47,14 @@
 	    	padding: calc(#{$space-tiny} * 1)  calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 2)  calc(#{$space-tiny} * 0.5)  ;
 	    	padding-top: calc(#{$space-tiny} * 1);
 	    	text-align: center;
-        text-shadow: 1px 1px darken($dark-grey, 50%);
+        text-shadow: 1px 1px darken($grey-dk, 50%);
 
         &.call-to-action {
           text-shadow: none;
           margin: 0;
           padding: 0;
         }
-        @include break-point(tablet) {
+        @media #{$mq-768} {
           @include font-size(28px);
   	    	@include copy(semi);
           line-height: 1.5;
@@ -59,10 +65,10 @@
 			//display: block;
 			//color: $white;
 			@include font-size(16px);
-			//color: $grey;
+			//color: $grey-md;
 			text-align: center;
 			&:hover {
-				//color: $green-blue;
+				//color: $blue-dk;
 				//cursor: pointer;
 
 			}
@@ -78,7 +84,7 @@
 		.notice-content {
       padding: calc(#{$space-tiny} * 1);
       padding-bottom: calc(1rem * 2);
-      @include break-point(tablet) {
+      @media #{$mq-768} {
         padding: calc(#{$space-tiny} * 3);
         padding-bottom: calc(1rem * 3);
       }
@@ -120,7 +126,7 @@
     	// }
     	// h2 {
     	// 	@include font-size(14px);
-    	// 	color: $dark-grey;
+    	// 	color: $grey-dk;
     	// 	text-align: center;
     	// 	@include copy(regular);
 	    // 	margin: auto;
@@ -141,15 +147,15 @@
     	    margin-top: 0.75rem;
     	}
 
-      	@include break-point(laptop) {
+      	@media #{$mq-1366} {
 			margin-top: 0;
 
 			&:not(:first-of-type) {
-				margin-left: $gut;
+				margin-left: $space-mid;
 			}
 		}
 
-      @include break-point(desktop) {
+      @media #{$mq-1600} {
 			margin-top: 0;
       @include flex-direction(column);
       // width: inherit;
@@ -168,10 +174,10 @@
       	    width: 100%;
       			border-top: 1px solid #d4d9d7;
       	}
-      	@include break-point(tablet) {
+      	@media #{$mq-768} {
       		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) ;
       	}
-      	@include break-point(laptop) {
+      	@media #{$mq-1366} {
       		padding: calc(#{$space-tiny} * 2) 0;
           display: block;
       	}
@@ -183,7 +189,7 @@
     @extend %column;
     text-align: center;
     padding:  0 calc(#{$space-tiny} * 0.5);
-    // background-color: $grey;
+    // background-color: $grey-md;
     // width: 45%;
 		width: 100%;
     margin: 0 auto;
@@ -192,7 +198,7 @@
     &:first-of-type {
       margin-bottom: 1.5rem;
       // padding-bottom: calc(#{$space-tiny} * 3);
-      // border-bottom: 1px solid darken($grey, 10%);
+      // border-bottom: 1px solid darken($grey-md, 10%);
     }
 
     &:not(:first-of-type) {
@@ -201,11 +207,11 @@
 		&:last-child {
 			margin-bottom: 0;
       // margin-left: 0;
-      @include break-point(laptop) {
+      @media #{$mq-1366} {
         margin-left: 0;
       }
 		}
-    @include break-point(laptop) {
+    @media #{$mq-1366} {
       width: 100%;
 			margin-left: unset;
 			margin: 0 auto;
@@ -221,16 +227,16 @@
     justify-content: space-around;
     align-items: center;
 		width: 100%;
-		//background: lighten($blue, 20%);
+		//background: lighten($blue-dk, 20%);
     padding: calc(#{$space-tiny} * 1) 0;
-    background: $dark-blue;
-		color: $grey;
+    background: $blue-dk;
+		color: $grey-md;
 		p {
 			@include font-size(16px);
       @include copy(regular);
 			padding: calc(#{$space-tiny} * 1);
 			line-height: 1;
-			color: $grey;
+			color: $grey-md;
 			text-align: center;
       text-shadow: none;
 		}
@@ -242,10 +248,10 @@
 			display: block;
       padding: calc(#{$space-tiny} * 0.5) 0;
 			&:hover {
-        color: $green-blue;
+        color: $blue-dk;
 
 			}
-      @include break-point(tablet) {
+      @media #{$mq-768} {
         display: inline;
        }
 		}
@@ -259,7 +265,7 @@
 
       }
     }
-    @include break-point(laptop) {
+    @media #{$mq-1366} {
   		padding: 0;
   	}
 
@@ -279,13 +285,13 @@
 // 		// @extend %columns;
 // 		// @extend %column;
 // 		@extend %column-3;
-// 		//background: darken($grey, 50%);
+// 		//background: darken($grey-md, 50%);
 //
-// 		// border-top: 1px solid lighten($blue, 10%);
-// 		// border-bottom: 1px solid lighten($blue, 10%);
+// 		// border-top: 1px solid lighten($blue-dk, 10%);
+// 		// border-bottom: 1px solid lighten($blue-dk, 10%);
 // 		padding: calc(#{$space-tiny} * 1);
-//     border-top: 1px solid darken($grey, 10%);
-// 		border-bottom: 1px solid darken($grey, 10%);
+//     border-top: 1px solid darken($grey-md, 10%);
+// 		border-bottom: 1px solid darken($grey-md, 10%);
 // 		h1 {
 // 			@include font-size(24px);
 // 			text-align: center;
@@ -300,10 +306,10 @@
 //   	justify-content: space-between;
 //   	padding: 1rem 2rem;
 //   	align-items: center;
-//     border-top: 1px solid darken($grey, 10%);
-// 		border-bottom: 1px solid darken($grey, 10%);
+//     border-top: 1px solid darken($grey-md, 10%);
+// 		border-bottom: 1px solid darken($grey-md, 10%);
 // 		//margin-left: 0 !important;
-//   	//background: $background-grey;
+//   	//background: $grey-md;
 //
 // 		.detail-separator {
 // 				content: " ";
@@ -313,16 +319,16 @@
 // 					content: "—";
 // 					@include copy(light);
 // 					text-align: center;
-// 					color: darken($grey, 20%);
+// 					color: darken($grey-md, 20%);
 //
-//           @include break-point(laptop) {
+//           @media #{$mq-1366} {
 //         		content: "|";
 //         	}
 // 				}
 // 			}
 // 		}
 //   	.school-detail{
-//   		color: $dark-grey;
+//   		color: $grey-dk;
 //   		@include font-size(14px);
 //   		@include copy(regular);
 //   		text-align: center;
@@ -340,7 +346,7 @@
 //   	    margin-top: 1rem;
 //   	    position: relative;
 //   	    &:hover {
-//   	        background: $dark-blue;
+//   	        background: $blue-dk;
 //   	        border: none;
 //   	        transition: background 0.3s ease;
 //

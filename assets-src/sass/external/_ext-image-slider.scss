@@ -68,21 +68,21 @@
 	margin: -8.5% 0 0 80.5%;
 	width: 15%;
 	height: 50px;
-	// @include break-point(tablet) {
+	// @media #{$mq-768} {
 	// 	margin: -8.5% 0 0 80.5%;
 	// }
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		margin: -10% 0 0 80.5%;
 
 	}
-	@include break-point(largelaptop) {
+	@media #{$mq-1440} {
 		margin: -10% 0 0 80.5%;
 	}
-	@include break-point(desktop) {
+	@media #{$mq-1600} {
 		margin: -6.5% 0 0 80.5%;
 		width: 13%;
 	}
-	// @include break-point(monitor) {
+	// @media #{$mq-1366} {
 	// 	margin: -10	% 0 0 80.5%;
 	// }
 
@@ -106,12 +106,12 @@
 	display: inline-block;
 	width: 10px;
 	height: 10px;
-	background: $blue;
+	background: $blue-dk;
 }
 
 #active label:hover {
 	background: #ccc;
-	border-color: $dark-grey !important;
+	border-color: $grey-dk !important;
 }
 
 #controls label:hover {
@@ -128,8 +128,8 @@
 	margin: 0 10px 0 0;
 	display: inline;
 
-	background-color: $blue;
-	@include break-point(tablet) {
+	background-color: $blue-dk;
+	@media #{$mq-768} {
 		display: block
 	}
 }
@@ -144,12 +144,12 @@
 	margin: 0 0 0 17px;
 	display: inline;
 	margin-left: -5rem;
-	background-color:$blue;
-	@include break-point(tablet) {
+	background-color:$blue-dk;
+	@media #{$mq-768} {
 		display: block;
 		margin-left:0;
 	}
-	@include break-point(desktop) {
+	@media #{$mq-1600} {
 		display: block;
 		// margin-left:4rem;
 	}
@@ -169,7 +169,7 @@
 	transition: $ease;
 	color: $white;
 	opacity: 0;
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		width: 33.3333%;
 	}
 }
@@ -180,12 +180,12 @@
 	@include copy(regular);
 	padding: calc(#{$space-tiny} * 1);
 	color: $white;
-	background: $blue;
+	background: $blue-dk;
 	opacity: 0.9;
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		@include font-size(16px);
 	}
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		@include font-size(18px);
 	}
 }

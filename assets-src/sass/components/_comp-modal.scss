@@ -147,12 +147,12 @@
 
         &.open-search {
           margin-left: -1rem;
-          @include break-point(laptop) {
+          @media #{$mq-1366} {
             margin-left: calc(#{$space-tiny} * 1);
           }
         }
 
-        @include break-point(laptop) {
+        @media #{$mq-1366} {
           margin-left: calc(#{$space-tiny} * 1);
         }
     }
@@ -178,7 +178,7 @@
         }
     }
 
-    @include break-point(laptop) {
+    @media #{$mq-1366} {
         &.open-menu {
             display: none;
         }
@@ -206,7 +206,7 @@
      margin-top: -7.7rem;
      margin-left: auto;
      height: 30px;
-     @include break-point(tablet) {
+     @media #{$mq-768} {
        margin-top: -6rem;
      }
    }

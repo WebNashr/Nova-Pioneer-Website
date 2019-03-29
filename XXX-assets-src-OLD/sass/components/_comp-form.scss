@@ -1,0 +1,1273 @@
+
+/*  Forms */
+/* ==================================================== */
+
+
+form {
+	@extend %clearfix;
+	@include copy(regular);
+	position: relative;
+	width: 100%;
+	display: block;
+	background: transparent;
+
+	.modal & {
+		align-self: center;
+	    margin: auto;
+    	width: 85%;//75%;
+	    max-width: 768px;
+	}
+}
+
+
+
+fieldset {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	font-size: 1rem;
+	background: transparent;
+	border: 0 none;
+	@extend %clearfix;
+
+	.modal & {
+		position: relative;
+	}
+
+	&:not(:first-of-type) {
+		margin-top: calc(#{$space-tiny} * 1.75);
+
+		&.column-3 {
+		}
+	}
+}
+
+
+label {
+	display: block;
+	margin: 0 0 0.751rem;
+	padding: 0;
+	@include font-size(18px);
+	@include font-size(16px);
+	@include line-height(1.1);
+	text-transform: capitalize;
+	color: $grey;
+	color: lighten($blue, 2.5%);
+
+	&.radio-check {
+		display: inline;
+		font-weight: normal;
+	}
+
+	span {
+		color: $blue;
+		// font-weight: bold;
+		font-size: 1.25rem;
+	}
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea,
+select {
+	@include font-size(16px);
+	@include letter-spacing(tiny);
+	position: relative;
+	//display: block;
+	width: 100%;
+	padding: 0.75rem 1rem;
+	//color: $grey;
+	background: $white;
+	appearance: none;
+	border: 0 none;
+	outline: 0 none;
+	border: 1px solid $sky;
+	border-radius: 2px;
+
+	&:hover {
+		color: $sky;
+		border: 1px solid $green-dk;
+	}
+
+	&:focus {
+		color: $blue;
+		border: 1px solid $blue-dk;
+	}
+
+	&::placeholder,
+	&::-webkit-input-placeholder {
+		color: $grey-md;
+		opacity: 1;
+	}
+}
+
+input[type="text"] {
+	.modal & {
+		@include copy(light);
+		@include font-size(28px);
+		width: calc(100% - 56px);
+		padding: 1.25rem 1.5rem;
+		border: 0 none;
+		outline: 0 none;
+	}
+}
+
+
+textarea {
+	height: 10rem;
+}
+
+
+select {
+	min-width: 25%;
+	// width: auto;
+	margin: 0;
+	border-radius: 3px;
+}
+
+
+option {
+	padding: 0.25rem 0 0;
+	border: 0 none;
+	outline: 0 none;
+}
+
+
+fieldset.radio ul {
+	@extend %clearfix;
+	margin-top: 0.25rem;
+	list-style-type: none;
+}
+
+
+fieldset.radio ul li {
+	float: left;
+	margin: 0 2rem 0.25rem 0;
+}
+
+
+fieldset.radio ul li:last-child {
+	margin: 0;
+}
+
+
+p.form-help {
+	@include font-size(15px);
+	display: inline-block;
+	margin: 0.125rem 0 0.25rem;
+	color: #999;
+}
+
+p.form-data {
+	@include font-size(18px);
+	display: inline-block;
+	margin: 0.125rem 0 0.75rem;
+}
+
+
+input[type="submit"] {
+	appearance: none;
+	@include border(0, solid, transparant);
+	@include outline(0, solid, transparant);
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+	}
+
+	&:active {
+	}
+
+	.modal & {
+		position: absolute;
+	    top: calc(#{$space-tiny} * 0);
+	    right: 0;
+	    width: 40px;
+	    height: 72px;
+	    opacity: 0;
+	    z-index: 9;
+	}
+}
+
+
+.search-icon {
+	.modal & {
+		position: absolute;
+		top: calc(#{$space-tiny} * 1);
+		right: 0;
+		align-self: center;
+		width: 40px;
+		text-align: center;
+		background: transparent;
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		z-index: 8;
+
+		svg {
+			width: 32px;
+			margin: auto;
+		}
+
+		path {
+	        fill: $white;
+	    }
+	}
+}
+
+
+img.ajax-loader {
+	max-height: 16px;
+	max-width: 16px;
+	display: none;
+}
+
+
+
+
+
+//table filter
+.table-container {
+	padding-top: 0 ;
+	padding-bottom: 0;
+	// width: 100%;
+	@include break-point(tablet) {
+		padding-top: 0;
+		margin-top: -2rem;
+	}
+	@include break-point(laptop) {
+		padding-top: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1);
+		// width: 768px;
+	}
+
+}
+.payment-container {
+	padding:  0;
+	.fees-container {
+		padding: 0 calc(#{$space-tiny} *3);
+		margin-bottom: 3rem;
+
+		@media only screen
+			and (min-device-width: 320px)
+			and (max-device-width: 360px)
+			{
+				max-width: 310px;
+				overflow-x: auto;
+				padding: 0 calc(#{$space-tiny} *2);
+
+			}
+			
+		@media only screen
+			and (min-device-width: 365px)
+			and (max-device-width: 375px)
+			{
+				max-width: 370px;
+				overflow-x: auto;
+				padding: 0 calc(#{$space-tiny} *2);
+			}
+
+		@media only screen
+			and (min-device-width: 380px)
+			and (max-device-width: 400px)
+			{
+				max-width: 390px;
+				overflow-x: auto;
+				padding: 0 calc(#{$space-tiny} *2);
+			}
+
+		@media only screen
+			and (min-device-width: 410px)
+			and (max-device-width: 425px)
+			{
+				max-width: 420px;
+				overflow-x: auto;
+				padding: 0 calc(#{$space-tiny} *2);
+			}
+
+		@include break-point(tablet) {
+			max-width: 768px;
+			margin-bottom: 2rem;
+
+			// body.ios & {
+			// 	max-width: unset;
+			// 	padding: 1rem;
+			// 	background: tan;
+			// }
+		}
+
+		@include break-point(laptop) {
+			padding:  0;
+			margin-bottom: 3rem;
+		}
+
+		table {
+			width: 100%;
+		    border-collapse: collapse;
+		    border-spacing: 0;
+		}
+
+		body.ios & {
+			max-width: unset;
+
+			// @include break-point(tablet) {
+			// 	max-width: unset;
+			// 	padding: 1rem;
+			// 	background: tan;
+			// }
+		}
+
+	}
+	@include break-point(mobile) {
+		padding:  0;
+	}
+
+	table {
+		// max-width: 400px;
+		border-collapse: collapse;
+    	border-spacing: 0;
+		width: 100%;
+		overflow-x: auto;
+	}
+}
+.table-filter {
+	@include flexbox();
+	@include flex-direction(row);
+	@include flex-wrap(wrap);
+	justify-content: space-between;
+	// width: 100%;
+	@extend %column-12;
+	align-items: baseline;
+	padding: calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2) 0;
+	@include break-point(mobile) {
+		padding-top: 0;
+	}
+	@include break-point(tablet) {
+		padding: 0 0 calc(#{$space-tiny} * 2) 0;
+	}
+	@include break-point(desktop) {
+		padding: calc(#{$space-tiny} * 1) 0 calc(#{$space-tiny} * 2) 0;
+	}
+	.selector {
+		position: relative;
+		// width: 100%;
+		// @extend %column-4;
+		display: inline;
+		// flex: 2;
+		// margin-right: 1.125rem;
+		margin-right: 0;
+		margin-left: 0;
+		// flex: 2;
+		// margin-bottom: 1rem;
+		@include break-point(mobile) {
+			width: 100%;
+			margin-top: 1rem;
+			margin-right: 0;
+		}
+		@include break-point(tablet) {
+			width: 25%;
+			margin-right: 0;
+		}
+
+		@include break-point(laptop) {
+			margin-right: 1.125rem;
+			// display: inline-block;
+			// width: auto;
+		}
+
+		@include break-point(desktop) {
+			// width: auto;
+		}
+		&:last-of-type{
+			margin-bottom: 1rem;
+		}
+
+	 	&:after {
+			top: 45%;
+			left: 85%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(0, 0, 0, 0);
+			border-top-color: $sky;
+			border-width: 0.5rem;
+			// margin-top: -0.2rem;
+			z-index: 2;
+			@include break-point(mobile) {
+				width: auto;
+				left: 90%;
+			}
+
+			// @include break-point(tablet) {
+			// 	width: auto;
+			// 	left: 96%;
+			// }
+			@include break-point(desktop) {
+				width: auto;
+				left: 81%;
+			}
+			@include break-point(monitor) {
+				width: auto;
+				left: 81%;
+			}
+			// @include break-point(largelaptop) {
+			// 	// top:-27%;
+			// 	left: 86%;
+			// 	position: relative;
+			// }
+			// @include break-point(desktop) {
+			// 	top:0;
+			// 	width: 100%;
+			// 	// left: 90%;
+			// }
+		}
+
+		.dropdown {
+			// @extend %column-5;
+			// @extend %column-5;
+			// @extend %column-12;
+			color: lighten($dark-grey, 10%);
+			//display: inline-block;
+			width: 100%;
+			padding: calc(#{$space-tiny} * 0.6);
+			padding-right: calc(#{$space-tiny} * 3);
+
+			// padding-right: calc(#{$space-tiny} * 3);
+			@include break-point(mobile) {
+				padding-right: calc(#{$space-tiny} * 1);
+				display: block;
+				width: 100%;
+			}
+
+			@include break-point(desktop) {
+				width: 100%;
+				// max-width: 185px;
+			}
+
+			option{
+				padding-right: calc(#{$space-tiny} * 3);
+				color: $sky;
+
+				&:first-child {
+					padding-left: calc(#{$space-tiny} * 1);
+				}
+
+				&:not(:checked) {
+					// color: lighten($dark-grey, 10%);
+				}
+			}
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+	}
+
+	.button {
+		margin-top: 0;
+		// flex: 1;
+
+		@include break-point(tablet) {
+			margin-top: 1rem;
+		}
+	}
+}
+
+
+
+
+//---Gravity form overrides----
+// .gform_body {
+//
+// }
+//stay updated/subscription form
+.section-subscribe {
+	padding-top: calc(#{$space-tiny} * 2);
+	padding-bottom: calc(#{$space-tiny} * 2);
+	// background: darken($grey-lt, 5%);
+	background: lighten($background-grey, 5%);
+	p {
+		padding-bottom: calc(#{$space-tiny} * 1);
+		max-width: 100%;
+		@media only screen and (max-width: 360px) {
+			width: 100%;
+		}
+		// @include break-point(tablet) {
+		// 	 max-width: 86%;
+		// }
+	}
+	.subscribe-form-container {
+		width: calc(100% + 15px);
+		// @include break-point(laptop) {
+		// 	 width: calc(100% + 15px);
+		// }
+		li {
+			margin-left:0;
+			text-indent: 0;
+
+			&:before {
+				content: none !important;
+			}
+		}
+
+		.gfield_checkbox {
+			margin-top: 0;
+			li {
+				display: inline-block;
+				label {
+					margin-right: 16px;
+
+				}
+				input[type=checkbox] {
+					margin-top: 0 !important;
+				}
+				&:before {
+					content: none !important;
+				}
+			}
+		}
+		.ginput_container_radio {
+			margin-top: 6px !important;
+			margin-left: 0 !important;
+		}
+		.gfield_radio {
+			margin-top: 0;
+			margin-left: 0 !important;
+			li {
+				display: inline-block;
+				label {
+					margin-right: 16px;
+					display: inline;
+					&:before {
+						content: none !important;
+					}
+				}
+				input[type=checkbox] {
+					margin-top: 0 !important;
+					&:before {
+						content: none !important;
+					}
+				}
+				input[type=radio] {
+					margin-top: 0 !important;
+					&:before {
+						content: none !important;
+					}
+				}
+			}
+		}
+	}
+	.ginput_container_checkbox{
+		margin-top: 6px !important;
+	}
+	.gform_wrapper {
+		// @extend %columns;
+		// display: flex;
+		// flex-direction: row;
+		clear: both;
+		width:95%;
+		margin-top: -0.5rem;
+		// align-items: center;
+		@include break-point(tablet) {
+				width: 100%;
+		}
+
+		.gform_body {
+			// margin-top: -3rem;
+			// max-width: 100% !important;
+			// width:75%;
+			width: 100%;
+			margin-bottom: 1rem;
+
+			ul li.field_description_below div.ginput_container_radio {
+				margin-top: -0.5rem;
+				margin-left: 1rem;
+			}
+			ul.gform_fields li.gfield {
+				margin-bottom: 1rem;
+			}
+		}
+		input[type="text"] {
+
+			// line-height: 1 !important;
+			text-transform:capitalize;
+			@include break-point(tablet) {
+				// line-height: 2 !important;
+			}
+		}
+		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+			padding: 0.75rem 1rem !important;
+			line-height: 1 !important;
+		}
+		textarea.large {
+			height: 100px !important;;
+			@include break-point(laptop) {
+				height: 150px !important;;
+			}
+		}
+		.gf_simple_horizontal_wrapper.gf_browser_chrome ul.gform_fields li.gfield span.name_first,
+		.gf_simple_horizontal_wrapper.gf_browser_chrome ul.gform_fields li.gfield span.name_middle,
+		.gf_simple_horizontal_wrapper.gf_browser_chrome ul.gform_fields li.gfield span.name_last {
+		  padding-top: 0 !important;
+		}
+
+		.gf_simple_horizontal_wrapper .field_sublabel_hidden_label .ginput_complex.ginput_container input[type=text],
+		.gf_simple_horizontal_wrapper .field_sublabel_hidden_label .ginput_complex.ginput_container select {
+		  margin-bottom: 0 !important;
+		}
+
+		.gf_simple_horizontal_wrapper li.hidden_label input {
+		  margin-top: 0 !important;
+		}
+
+		body .gf_simple_horizontal_wrapper .top_label div.ginput_container {
+		  margin-top: 0 !important;
+		}
+
+		.gf_simple_horizontal div.gform_footer.top_label {
+		  width: auto !important;
+		  vertical-align: top !important;
+			display: block;
+
+			@include break-point(desktop) {
+				display: inline-block;
+			}
+		}
+		.top_label .gfield_label {
+			line-height: 0 !important;
+			@include break-point(laptop) {
+				line-height: 1 !important;
+			}
+		}
+		.gf_simple_horizontal div.gform_body {
+		  width: auto !important;
+
+		}
+		.gf_simple_horizontal_wrapper {
+			display: none;
+		}
+		.ginput_container {
+			// width: 370px;
+
+		}
+		.ginput_container_email {
+			width: 600px;
+			input[type="text"]{
+				width:100%;
+
+				@include break-point(tablet) {
+						width: 600px;
+				}
+				@include break-point(laptop) {
+						width: 600px;
+				}
+			}
+			@media only screen and (max-width: 360px) {
+				width: 300px;
+				input[type="text"]{
+					// width:80%;
+				}
+			}
+			@include break-point(laptop) {
+					width: 330px;
+			}
+
+		}
+		.ginput_container_select {
+			// width: 600px;
+			width: 100%;
+			@media only screen and (max-width: 360px) {
+				// width: 300px;
+
+			}
+			@include break-point(laptop) {
+					// width: 330px;
+			}
+
+			.gfield_select {
+				// width: 50%;
+				// margin-top: 0.75rem !important;
+				position: relative;
+				padding: 0.575rem 1rem !important;
+				background: $white url(../../img/icons/drop-down-arrow.svg) no-repeat;
+				background-size: 20px;
+    		background-position: right 10px center;
+				padding-left: 24px;
+				@media only screen and (max-width: 360px) {
+					width: 100%;
+				}
+				@include break-point(laptop) {
+						width: 90%;
+				}
+			}
+		}
+		//
+		input[type="text"] {
+			width: 100%;
+			padding: 0.75rem 1rem !important;
+			@include break-point(laptop) {
+					width: 90%;
+			}
+		}
+
+		.gform_footer {
+		  // padding-top: 0;
+			// margin-top: -2.85rem;
+			input[type=submit] {
+			//  float:right;
+			//  position: relative;
+			//  margin-top: 0.85rem;
+			//  margin-left: 0.35rem;
+			//  margin-right: 23%;
+			}
+		}
+		.button  {
+			// @extend %column-2;
+			// width:10%;
+			@extend %text-align-center;
+			@extend %text-transform-upper;
+			@include copy(regular);
+			@include line-height(1);
+			// @include letter-spacing(small);
+			@include border-radius(3px);
+			@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+			@include border(0, solid, transparent);
+			@include outline(0, solid, transparent);
+			color: $white;
+			background: $blue-lt;
+			$p: 12px;
+			@include font-size(14px);
+			@include letter-spacing(small);
+			padding: $p calc(#{$p} * 1.25);
+			display: inline-block;
+			text-decoration: none;
+			text-transform: uppercase;
+			appearance: none;
+			cursor: pointer;
+			transition: $ease;
+
+			&:hover {
+				color: $white;
+				background: $orange-lt;
+			}
+		}
+		.ginput_container_email {
+			width: 100%;
+		}
+		// .ginput_container_textarea {
+		// 	width: 50%;
+		//
+		// }
+		.large .gfield_select {
+			margin-top: 0;
+		}
+		.top_label .gfield_label {
+			color: $blue-dk;
+			line-height: 1;
+			@include font-size(18px);
+		}
+		.field_sublabel_below .ginput_complex.ginput_container label{
+			margin-top: 10px;
+			@include font-size(16px);
+
+		}
+		ul.gform_fields {
+
+			li{
+				text-indent: 0;
+				// margin-left: 2rem !important;
+				.gfield {
+
+
+				}
+			}
+		}
+		@include break-point(mobile) {
+			.gform_body {
+				width: 100%;
+
+			}
+			.subscribe-form-container {
+				margin-left: -0.5rem;
+			}
+		}
+		@include break-point(laptop) {
+			.gform_body {
+				width: 97%;
+			}
+		}
+	}
+	// @extend %columns;
+	// align-items: center;
+	@include break-point(desktop) {
+		padding-top: calc(#{$space-tiny} * 3);
+		padding-bottom: calc(#{$space-tiny} * 3);
+	}
+		header {
+			@extend %column-5;
+				// padding-bottom: calc(#{$space-tiny} * 2);
+
+			p {
+				@include font-size(21px);
+			}
+		}
+}
+
+
+//meet the students form
+.contact-student{
+	.section-content-item-half {
+		max-width:100%;
+
+		padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 2);
+		padding-left: 0;
+		@include break-point(laptop) {
+			max-width:30%;
+		}
+	}
+	.gform_body {
+		margin-top: -1rem;
+		padding:calc(#{$space-tiny} * 2);
+		li {
+			margin-left:0;
+			text-indent: 0;
+
+			&:before {
+				content: none !important;
+			}
+		}
+		.gfield.gfield_html{
+			margin-top: 2rem;
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+		@media only screen and (max-width: 360px) {
+			margin-top: 0;
+			padding-left:0;
+			padding-right:0;
+			// padding-left: calc(#{$space-tiny} * 2);
+		}
+		@include break-point(mobile) {
+			padding:calc(#{$space-tiny} * 2) 0 calc(#{$space-tiny} * 2) 0;
+			width: 99% !important;
+		}
+		@include break-point(tablet) {
+			padding: calc(#{$space-tiny} * 1) 0;
+		}
+		@include break-point(laptop) {
+			padding: 0;
+		}
+	}
+	.gform_wrapper {
+		margin-top: 0;
+		label {
+			&:before {
+					content: none !important;
+				}
+		}
+		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+			margin-top: 0;
+			width: 100%;
+			@media only screen and (max-width: 360px) {
+				width: 100%;
+			}
+
+			@include break-point(laptop) {
+				max-width:100%;
+			}
+		}
+		input[type="text"],
+		input[type="email"]{
+			// width: 25% !important;
+			// @extend %column-4;
+			width: 100%;
+			padding: 0.75rem 1rem !important;
+		}
+		select {
+			// @extend %column-4;
+			// width: 20% !important;
+			width: 100%;
+			padding: 0.5rem 1rem !important;
+		}
+		.medium {
+			width: 100%;
+			@media only screen and (max-width: 360px) {
+				width: 100%;
+			}
+			@include break-point(laptop) {
+				max-width:100%;
+			}
+		}
+		.button  {
+			// @extend %column-2;
+			width:10%;
+			@extend %text-align-center;
+			@extend %text-transform-upper;
+			@include copy(regular);
+			@include line-height(1);
+			// @include letter-spacing(small);
+			@include border-radius(3px);
+			@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+			@include border(0, solid, transparent);
+			@include outline(0, solid, transparent);
+			color: $white;
+			background: $blue-lt;
+			$p: 14px;
+			@include font-size(14px);
+			@include letter-spacing(small);
+			padding: $p calc(#{$p} * 1.5);
+			display: inline-block;
+			text-decoration: none;
+			text-transform: uppercase;
+			appearance: none;
+			cursor: pointer;
+			transition: $ease;
+			&:hover {
+				color: $white;
+				background: $orange-lt;
+			}
+		}
+		.gform_footer {
+			margin-top: 0;
+			// margin-left: -1.75rem;
+			@include break-point(tablet) {
+				// margin-left: -1.75rem;
+			}
+		}
+			@media only screen and (max-width: 360px) {
+				// padding-left: 1.75rem;;
+			}
+			@include break-point(tablet) {
+				margin-top: 1rem;
+				margin-left: -3rem;
+			}
+			@include break-point(laptop) {
+				margin-top: 1rem;
+				margin-left: -3rem;
+			}
+
+	}
+
+}
+
+
+// apply online  form
+.student-application {
+	h2 {
+		text-align: center;
+		padding: calc(1rem * 2) 0 calc(1rem * 1) 0;
+		&:first-of-type {
+			padding: calc(1rem * 2) 0 calc(1rem * 2) 0;
+		}
+		// @include break-point(laptop) {
+		// 	text-align: left;
+		// }
+	}
+	h3 {
+		@include font-size(18px);
+		color: $blue-dk;
+	}
+	.page-title {
+		padding-bottom: calc(1rem * 2.75);
+    font-size: 42px;
+    font-size: 2.625rem;
+    line-height: 1.25;
+	}
+
+	form {
+		margin-left: 1rem;
+		h2 {
+			padding-top: calc(1rem * 1.5);
+			padding-bottom: 0;
+			@include font-size(26px);
+			&:first-of-type {
+				padding-bottom: 0;
+			}
+		}
+	}
+	.gform_page_fields {
+		// margin-left: 2rem;
+		input[type="text"] {
+			// display: none !important;
+			text-transform:capitalize;
+		}
+		ul {
+			li {
+				margin-left:0;
+				text-indent: 0;
+
+				&:before {
+					content: none !important;
+				}
+			}
+		}
+	}
+	.gform_wrapper {
+		margin-top: 0;
+		input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+			margin-top: 0;
+			// width: 180%;
+			@media only screen and (max-width: 360px) {
+				width: 100%;
+			}
+			@include break-point(laptop) {
+				max-width:100%;
+			}
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"]
+		 {
+			// width: 25% !important;
+			// @extend %column-4;
+			width: 100%;
+			padding: 0.75rem 1rem !important;
+		}
+		.top_label {
+			.gfield_label {
+				// margin-left: 0;
+			}
+		}
+		select {
+			// @extend %column-4;
+			// width: 20% !important;
+			width: 100%;
+			padding: 0.5rem 1rem !important;
+		}
+		ul.gfield_radio li {
+			overflow: visible;
+			label {
+				margin-top: 0.3rem;
+				margin-left: 0.5rem;
+				&:before {
+					content: none !important;
+				}
+			}
+		}
+		.ginput_complex.ginput_container, {
+			// margin-left: 2rem;
+		}
+		.ginput_container_select {
+
+
+			.gfield_select {
+				// width: 50%;
+				// margin-top: 0.75rem !important;
+				position: relative;
+				padding: 0.575rem 2.5rem 0.575rem 1rem !important;
+				background: $white url(../../img/icons/drop-down-arrow.svg) no-repeat;
+				background-size: 20px;
+    		background-position: right 10px center;
+				padding-left: 24px;
+				@media only screen and (max-width: 360px) {
+					width: 100%;
+				}
+				&::placeholder {
+					color: $grey-md;
+					opacity: 1;
+				}
+				// @include break-point(laptop) {
+				// 		width: 90%;
+				// }
+			}
+		}
+		.gf_page_steps {
+			padding-bottom: 1rem;
+			border-bottom: 1px solid $grey-lt;
+			.gf_step_label {
+				@include copy(bold);
+				@include font-size(14px);
+			}
+			.gf_step_active {
+				span.gf_step_number {
+					background: $green-lt;
+					border-radius: 50%;
+					width: 30px;
+					line-height: 30px;
+					padding-left: 10px;
+					color: $white;
+				}
+			}
+		}
+		.gf_step span.gf_step_number {
+			background: none;
+			border-radius: 50%;
+			width: 30px;
+			line-height: 30px;
+			padding-left: 10px;
+			color: $dark-grey;
+			// &:before {
+			// 	width: 44px;
+			//  height: auto;
+			//  @include font-size(20px);
+			//  @include copy(bold);
+			//  margin: 0 0 8px;
+			//  padding: 0;
+			//  text-align: center;
+			//  vertical-align: middle;
+			//  line-height: 44px;
+			//  color: lighten($dark-grey, 20%);
+			//  background: $green-lt;
+			//  border-radius: 50%;
+			//  border: 0 none;
+			// }
+		}
+
+
+		.medium {
+			// width: 180%;
+			@media only screen and (max-width: 360px) {
+				width: 100%;
+			}
+			@include break-point(laptop) {
+				max-width:100%;
+			}
+		}
+		.button  {
+			width:10%;
+			@extend %text-align-center;
+			@extend %text-transform-upper;
+			@include copy(regular);
+			@include line-height(1);
+			@include border-radius(3px);
+			@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+			@include border(0, solid, transparent);
+			@include outline(0, solid, transparent);
+			color: $white;
+			background: $blue-lt;
+			$p: 14px;
+			@include font-size(14px);
+			@include letter-spacing(small);
+			padding: $p calc(#{$p} * 1.5);
+			display: inline-block;
+			text-decoration: none;
+			text-transform: uppercase;
+			appearance: none;
+			cursor: pointer;
+			transition: $ease;
+			&:hover {
+				color: $white;
+				background: $orange-lt;
+			}
+		}
+		.gform_footer {
+			margin-top: 0;
+			margin-left: 2rem;
+
+		}
+		.gform_page_footer {
+			margin-top: 2rem;
+			border-top: 1px solid $grey-lt;
+		}
+		.gfield_error {
+			margin-left: -2rem !important;
+    	padding-left: 2rem;
+		}
+		.gform_confirmation_wrapper {
+			display: none;
+			@include font-size(21px);
+			line-height: 1.25;
+			color: $blue-lt;
+
+		}
+		.ginput_container_radio {
+			.gfield_radio {
+				margin-top:-1rem;
+			}
+
+		}
+		.gform_confirmation_wrapper  {
+			.gform_confirmation_message {
+				@include font-size(21px);
+				@include copy(bold);
+			}
+		}
+
+			// @media only screen and (max-width: 360px) {
+			// 	padding-left: 1.75rem;;
+			// }
+			// @include break-point(tablet) {
+			// 	margin-top: 1rem;
+			// 	margin-left: -1rem;
+			// }
+
+	}
+}
+
+
+//subscriber pop-up form
+.spu-content {
+	.gform_wrapper {
+		.gform_body {
+
+			p {
+				@include font-size(14px);
+				padding: calc(#{$space-tiny} * 1) 0 0 0;
+				color: $grey-mdk;
+				line-height: 1.5;
+			}
+			ul.gform_fields {
+				li {
+					margin-left:0;
+					text-indent: 0;
+
+					&:before {
+						content: none !important;
+					}
+				}
+
+				.gfield_label {
+					color: $blue-dk;
+				}
+			}
+			.ginput_container_radio {
+				margin-top: 0;
+			}
+		}
+		.gform_footer {
+			// padding: 0;
+		}
+		.ginput_complex.ginput_container label{
+			// margin: 8px 0 9px 1px;
+			margin-top: 8px;
+			&:before {
+				content: none !important;
+			}
+		}
+	}
+	.button  {
+		width:10%;
+		@extend %text-align-center;
+		@extend %text-transform-upper;
+		@include copy(regular);
+		@include line-height(1);
+		@include border-radius(3px);
+		@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+		@include border(0, solid, transparent);
+		@include outline(0, solid, transparent);
+		color: $white;
+		background: $blue-lt;
+		$p: 14px;
+		@include font-size(14px);
+		@include letter-spacing(small);
+		padding: $p calc(#{$p} * 1.5);
+		display: inline-block;
+		text-decoration: none;
+		text-transform: uppercase;
+		appearance: none;
+		cursor: pointer;
+		transition: $ease;
+		&:hover {
+			color: $white;
+			background: $orange-lt;
+		}
+	}
+}

@@ -1,0 +1,427 @@
+
+/* Campaign Page */
+/* ==================================================== */
+
+
+.campaign-hero {
+	height: auto;
+	color: $white;
+
+	@include break-point(laptop) {
+		height: 80vh;
+	}
+}
+
+.campaign-hero .container {
+	width: 100%;
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: 100%;
+
+	@include break-point(laptop) {
+		background-size: cover;
+	}
+}
+
+.campaign-hero .container .intro {
+	@include flexbox();
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
+    justify-content: flex-end;
+	width: 100%;
+    height: 100%;
+	margin: 0;
+	padding: calc(#{$space-tiny} * 2);
+
+	a.header-logo {
+		align-self: flex-start;
+		max-width: 240px;
+		max-height: 72px;
+	    margin-bottom: 2rem;
+	}
+
+	svg {
+		width: 100%;
+		height: auto;
+
+		.logo-text * {
+			fill: $white;
+		}
+	}
+            
+    h1 {
+    	@include font-size(28px);
+		margin: 0 0 1.5rem;
+		line-height: 1.3;
+		text-shadow: none;
+		color: $orange-lt;
+	}
+
+	p {
+		@include font-size(16px);
+		display: block;
+		margin-right: 0;
+		margin-bottom: 0;
+		text-shadow: none;
+		color: $white;
+
+		&:not(:first-of-type) {
+			margin-top: calc(#{$space-tiny} * 1);
+		}
+	}
+
+	.school-features {
+		@include flexbox();
+		@include flex-direction(column);
+		@include flex-wrap(nowrap);
+    	align-items: left;
+		padding: 0;
+	}
+
+	.feature-icon {
+		width: 24px;
+    	min-height: unset;
+
+		&:before {
+			content: "\00a0";
+		}
+		&.boys-school-icon {
+			background-image: url(../../img/icons/boys-school-campaign-icon.svg);
+		}
+		&.curriculum-icon {
+			background-image: url(../../img/icons/curriculum-campaign-icon.svg);
+		}
+		&.Boarding-icon {
+			background-image: url(../../img/icons/boarding-campaign-icon.svg);
+		}
+		&.Day-icon {
+			background-image: url(../../img/icons/day-campaign-icon.svg);
+		}
+		&.grade-icon {
+			background-image: url(../../img/icons/grade-campaign-icon.svg);
+		}
+	}
+
+	.campaign-school-apply {
+		margin-right: auto;
+		background: $green-lt;
+	}
+
+	@include break-point(tablet) {
+		width: 45%;
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3);
+	}
+
+	@include break-point(laptop) {
+		width: 45%;
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 4);
+
+		a.header-logo {
+			max-width: 400px;
+			max-height: unset;
+	    	margin-bottom: auto;
+		}
+
+		h1 {
+			@include font-size(48px);
+		}
+
+		p {
+			@include font-size(24px);
+			text-indent: 8px;
+
+			&:not(:first-of-type) {
+				margin-top: calc(#{$space-tiny} * 1.5);
+			}
+		}
+
+		.feature-icon {
+			width: 40px;
+			min-height: 34px;
+		}
+	}
+}
+
+
+
+
+
+.section-campaign-main {
+	* {
+		box-sizing: border-box;
+	}
+}
+
+.section-campaign-main article {
+	@include flexbox();
+	@include flex-direction(column);
+	@include flex-wrap(wrap);
+
+	@include break-point(laptop) {
+		@include flex-direction(row);
+	}
+}
+
+.campaign-lead {
+	@include flexbox();
+    @include flex-direction(column);
+    @include flex-wrap(wrap);
+	width: 100%;
+	margin-top: 2.5rem;
+	padding: 2rem 0 0;
+	border-top: 1px solid $grey-lt;
+
+	fieldset {
+		
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="tel"],
+	textarea,
+	select {
+		// @include font-size(16px);
+		// @include letter-spacing(tiny);
+		// position: relative;
+		// //display: block;
+		// width: 100%;
+		// padding: 0.75rem 1rem;
+		// //color: $grey;
+		// background: $white;
+		// appearance: none;
+		// border: 0 none;
+		// outline: 0 none;
+		// border: 1px solid $sky;
+		// border-radius: 2px;
+
+		&:hover {
+			color: $sky;
+			border: 1px solid $green-dk;
+		}
+
+		&:focus {
+			color: $blue;
+			border: 1px solid $blue-dk;
+		}
+
+		&::placeholder {
+			color: $grey-lt;
+			opacity: 1;
+		}
+
+		&::-webkit-input-placeholder {
+			color: $grey-lt;
+			opacity: 1;
+		}
+	}
+
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	p {
+		font-size: 1rem;
+		font-weight: 300;
+		color: #888;
+	}
+
+	#campaign-button {
+		width: 100%;
+	}
+
+	@include break-point(laptop) {
+		width: 30%;
+		margin-top: unset;
+		margin-left: auto;
+		padding: 0;
+		border-top:unset;
+
+		#campaign-button {
+			width: unset;
+		}
+	}
+}
+
+
+.campaign-school {
+	@include flexbox();
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	align-items: flex-start;
+	width: 100%;
+	// margin-right: auto;
+	padding: 0;
+
+	* + * {
+		margin-top: 1rem;
+		line-height: 1.35;
+	}
+
+	@include break-point(laptop) {
+		@include flex-direction(row);
+		width: 65%;
+		margin-right: auto;
+	}
+}
+
+.campaign-school-map {
+	width: 100%;
+	height: 45vw;
+	margin: 0 0 2rem;
+
+	iframe,
+	embed {
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+
+	@include break-point(laptop) {
+		width: 45%;
+		height: 100%;
+		margin: 0 2rem 0 0;
+	}
+}
+
+.campaign-school-info {
+	width: 100%;
+	margin: 0;
+
+	@include break-point(laptop) {
+		width: unset;
+	}
+}
+
+h3.campaign-school-location {
+	text-transform: uppercase;
+	color: $orange-lt;
+}
+
+.campaign-school-description p {
+	font-size: 1rem;
+    font-weight: 300;
+    color: #888;
+}
+
+.campaign-school-fees {
+	font-size: 1.125rem;
+    font-weight: 300;
+    color: #888;
+
+	.term-1 {
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #787878;
+	}
+}
+
+.campaign-school-link {
+	display: inline-block;
+	margin-top: 1rem;
+	font-weight: 700;
+}
+
+.campaign-school-apply {
+	width: 100%;
+	margin-top: 2rem;
+
+	@include break-point(laptop) {
+		width: unset;
+	}
+}
+
+.campaign-contacts {
+	@include flexbox();
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+
+	@include break-point(laptop) {
+		@include flex-direction(row);
+		@include flex-wrap(nowrap);
+	}
+}
+
+.contact-header {
+	width: 100%;
+	padding: 2rem 3rem;
+	font-size: 1.5rem;
+	line-height: 1;
+	font-weight: 700;
+	// text-align: center;
+	text-transform: uppercase;
+	color: $blue-dk;
+	background: $orange-lt;
+
+	@include break-point(laptop) {
+		width: 30%;
+		padding: 2rem 0 2rem 4rem;
+		// text-align: left;
+	}
+}
+
+.campaign-contacts-proper {
+	@include flexbox();
+	@include flex-direction(column);
+	@include flex-wrap(nowrap);
+	justify-content: flex-start;
+	// align-items: center;
+	width: 100%;
+    padding: 2rem 4rem 2rem 3rem;
+	background: $blue-dk;
+
+	@include break-point(laptop) {
+		@include flex-direction(row);
+		align-items: center;
+		width: 70%;
+    	padding: 2rem 4rem 2rem 3rem;
+	}
+}
+
+.contact {
+	margin-top: 0;
+	line-height: 1;
+	color: $blue-lt;
+
+	a {
+		font-size: 0.975rem;
+		line-height: 1;
+		font-weight: 300;
+		color: $orange-lt;
+	}
+
+	&:not(:first-of-type) {
+		margin-top: 1.125rem;
+		margin-left: 0;
+	}
+
+	@include break-point(laptop) {
+		a {
+			font-size: 1rem;
+		}
+		
+		&:not(:first-of-type) {
+			margin-top: 0;
+			margin-left: 2.5rem;
+		}
+	}
+}
+
+
+
+
+.section-campaign-footer {
+	article {
+		@include flexbox();
+		@include flex-direction(row);
+		@include flex-wrap(wrap);
+	}
+
+	.campaign-contacts {
+		@include flexbox();
+		@include flex-direction(row);
+		@include flex-wrap(wrap);
+	}
+}
+
+

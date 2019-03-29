@@ -22,10 +22,10 @@
 }
 
 .header-404 a {
-	// color: $green-blue;
+	// color: $blue-dk;
 
 	&:hover {
-		color: $green-blue-light;
+		color: $blue-dk;
 	}
 }
 
@@ -42,8 +42,8 @@
 	&-non {
 		margin-top: 0;
 	}
-	
-	@include break-point(tablet) {
+
+	@media #{$mq-768} {
 		// margin: 4rem auto 0;
 	}
 }
@@ -59,18 +59,18 @@
 	width: calc(100% - 2.5rem);
 	padding: 0.75rem 1rem;
 	// font-size: 2rem;
-	color: $blue;
+	color: $blue-dk;
 	background: transparent;
 	border: 0 none;
 	outline: 0 none;
-	border: 2px solid $blue;
+	border: 2px solid $blue-dk;
 
 	&:hover,
 	&:focus {
 		border: 0 none;
 		outline: 0 none;
-		color: lighten($blue, 5%);
-		border: 2px solid lighten($blue, 5%);
+		color: lighten($blue-dk, 5%);
+		border: 2px solid lighten($blue-dk, 5%);
 	}
 }
 
@@ -93,7 +93,7 @@
 
 .search-404 svg circle,
 .search-404 svg line {
-	stroke: $blue;
+	stroke: $blue-dk;
 	stroke-width: 1.5;
 }
 
@@ -103,5 +103,5 @@
 .search-404 input[type="text"]:hover ~ svg line,
 .search-404 input[type="text"]:focus ~ svg circle,
 .search-404 input[type="text"]:focus ~ svg line {
-	stroke: lighten($blue, 5%);
+	stroke: lighten($blue-dk, 5%);
 }

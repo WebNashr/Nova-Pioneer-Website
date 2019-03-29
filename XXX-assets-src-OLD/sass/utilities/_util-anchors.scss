@@ -1,0 +1,23 @@
+
+/* Links */
+/* ==================================================== */
+
+
+%links {
+	@include border(0);
+	@include outline(0);
+	display: inline;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+	}
+}
+
+
+// Usage:
+// div { @extend %links; }
+

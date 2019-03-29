@@ -6,17 +6,27 @@
 %wrapper {
 	@extend %clearfix;
 	width: 100%;
+    padding: 0 $space-32;
+    padding: 0 var(--space-1);
 
-    @include break-point(tablet) {
-
+    @media #{$mq-768} {
+        padding: 0 $space-48;
+        padding: 0 var(--space-3);
     }
 
-    @include break-point(laptop) {
-
+    @media #{$mq-1024} {
+        padding: 0 $space-68;
+        padding: 0 var(--space-5);
     }
 
-    @include break-point(desktop) {
+    @media #{$mq-1366} {
+        padding: 0 $space-68;
+        padding: 0 var(--space-6);
+    }
 
+    @media #{$mq-1600} {
+        padding: 0 $space-68;
+        padding: 0 var(--space-7);
     }
 }
 

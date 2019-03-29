@@ -14,7 +14,7 @@
 		max-width: 400px;
 		clear: both;
 		margin: 0;
-		@include break-point(tablet) {
+		@media #{$mq-768} {
 			padding-bottom: calc(#{$space-tiny} * 1);
 			margin: 0 6rem 0 0;
 		}
@@ -31,15 +31,15 @@
 
 		.section-title {
 			padding: calc(#{$space-tiny} * 1);
-	    // border-top: 1px solid lighten($light-grey, 32%);
-			// border-bottom: 1px solid lighten($light-grey, 32%);
+	    // border-top: 1px solid lighten($grey-lt, 32%);
+			// border-bottom: 1px solid lighten($grey-lt, 32%);
 
 		}
 		.section-heading {
 			padding: calc(#{$space-tiny} * 1);
 			padding-left: 0;
-	    // border-top: 1px solid lighten($light-grey, 32%);
-			// border-bottom: 1px solid lighten($light-grey, 32%);
+	    // border-top: 1px solid lighten($grey-lt, 32%);
+			// border-bottom: 1px solid lighten($grey-lt, 32%);
 
 		}
 		.links-inner-wrap {
@@ -49,11 +49,11 @@
 			padding: 1rem;
 			align-items: center;
 			justify-content: center;
-			// border-bottom: 1px solid lighten($light-grey, 32%);
+			// border-bottom: 1px solid lighten($grey-lt, 32%);
 		}
 
 
-		@include break-point(tablet) {
+		@media #{$mq-768} {
 	    .navigation-wrap {
 				@include flex-direction(row);
 		    @include flex-wrap(nowrap);
@@ -63,7 +63,7 @@
 				@include flex-direction(row);
 		    @include flex-wrap(nowrap);
 		    padding: 1rem;
-				// border-top: 1px solid darken($grey, 10%);
+				// border-top: 1px solid darken($grey-md, 10%);
 				.button-filter {
 					&:first-of-type {
 						margin-right: 1rem;
@@ -81,7 +81,7 @@
 			}
 	    }
 
-	    @include break-point(laptop) {
+	    @media #{$mq-1366} {
 	    .navigation-wrap {
 				max-width: 400px;
 			}
@@ -107,7 +107,7 @@
 		padding-bottom: 0;
 		margin-bottom: -1rem;
 		z-index: 115;
-			@include break-point(laptop) {
+			@media #{$mq-1366} {
 			.navigation-wrap {
 				max-width: inherit;
 			}
@@ -135,8 +135,8 @@
 
 	.section-title {
 		padding: calc(#{$space-tiny} * 1);
-   	 	border-top: 1px solid lighten($light-grey, 32%);
-		border-bottom: 1px solid lighten($light-grey, 32%);
+   	 	border-top: 1px solid lighten($grey-lt, 32%);
+		border-bottom: 1px solid lighten($grey-lt, 32%);
 
 		// h1 {
 		// 	@include font-size(24px);
@@ -152,9 +152,9 @@
 
 	.section-heading {
 		padding: calc(#{$space-tiny} * 1);
-    	border-top: 1px solid lighten($light-grey, 32%);
-		border-bottom: 1px solid lighten($light-grey, 32%);
-		@include break-point(tablet) {
+    	border-top: 1px solid lighten($grey-lt, 32%);
+		border-bottom: 1px solid lighten($grey-lt, 32%);
+		@media #{$mq-768} {
 			padding-left: 0;
 		}
 
@@ -166,7 +166,7 @@
 		padding: 1rem;
 		align-items: center;
 		justify-content: center;
-		border-bottom: 1px solid lighten($light-grey, 32%);
+		border-bottom: 1px solid lighten($grey-lt, 32%);
 
 		.link-separator {
 			display: none;
@@ -177,13 +177,13 @@
 				content: "|";
 				@include copy(light);
 				text-align: center;
-				color: darken($grey, 20%);
+				color: darken($grey-md, 20%);
 			}
 		}
 	}
 
 	.anchor-link {
-		color: $dark-grey;
+		color: $grey-dk;
 		@include font-size(18px);
 		@include copy(regular);
 		text-align: center;
@@ -196,7 +196,7 @@
 			width: 100%;
 			margin-top: 0.5rem;
 			padding-top: 0.5rem;
-			border-top: 1px solid lighten($light-grey, 32%);
+			border-top: 1px solid lighten($grey-lt, 32%);
 		}
 
 		.button {
@@ -207,14 +207,14 @@
 		    position: relative;
 
 		    &:hover {
-		        background: $dark-blue;
+		        background: $blue-dk;
 		        border: none;
 		        transition: background 0.3s ease;
 		    }
 		}
 	}
 
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		padding-bottom: 0;
 
     	.navigation-wrap {
@@ -226,7 +226,7 @@
 			@include flex-direction(row);
 			@include flex-wrap(nowrap);
 			padding: 1rem;
-			border-top: 1px solid darken($grey, 10%);
+			border-top: 1px solid darken($grey-md, 10%);
 
 			// .section-content-item:not(:first-of-type) {
 			// 	margin-left: 1rem;
@@ -276,7 +276,7 @@
 		}
 	}
 
-    @include break-point(laptop) {
+    @media #{$mq-1366} {
     	.navigation-wrap {
 			max-width: 768px;
 		}
@@ -309,7 +309,7 @@
 //         margin-top: 2rem;
 //     }
 //
-//     @include break-point(tablet) {
+//     @media #{$mq-768} {
 //         &:not(:first-of-type) {
 // 	        margin-top: unset;
 // 	    }
@@ -319,7 +319,7 @@
 // 	    }
 // 	}
 //
-// 	@include break-point(laptop) {
+// 	@media #{$mq-1366} {
 //         &:not(:first-of-type) {
 // 	        // margin-top: unset;
 // 	    }

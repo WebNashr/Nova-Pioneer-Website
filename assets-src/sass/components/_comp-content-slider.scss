@@ -7,7 +7,7 @@
   width: 100%;
 
   // padding: 0 calc(#{$space-tiny} * 1) !important;
-  @include break-point(tablet) {
+  @media #{$mq-768} {
       // padding: 0 calc(#{$space-tiny} * 3) !important;
   }
   #content-slider {
@@ -47,13 +47,13 @@
           // width: 300px !important;
 
         }
-      @include break-point(tablet) {
+      @media #{$mq-768} {
         // min-width: 175px;
         // margin-bottom: 4rem;
         // margin-left: 47px;
         // margin-left: -50px;
       }
-      @include break-point(laptop) {
+      @media #{$mq-1366} {
 
         // margin-left: 8px;
 
@@ -84,12 +84,12 @@
         and (max-device-width: 2560px) {
             // margin-left: 20px;
       }
-      // @include break-point(desktop) {
+      // @media #{$mq-1600} {
       //
       //   margin-left: 9px;
       //
       // }
-      // @include break-point(monitor) {
+      // @media #{$mq-1366} {
       //   margin-left: 30px;
       //
       // }
@@ -102,7 +102,7 @@
   }
   .team-slider{
     .lSAction > a {
-      @include break-point(laptop) {
+      @media #{$mq-1366} {
         top: 25%;
       }
     }
@@ -124,10 +124,10 @@
   }
   &.testimonials {
     padding: calc(#{$space-tiny} * 3) 0;
-    @include break-point(tablet) {
+    @media #{$mq-768} {
       padding: 0 calc(#{$space-tiny} * 1);
     }
-    @include break-point(desktop) {
+    @media #{$mq-1600} {
       padding: 0 calc(#{$space-tiny} * 3);
     }
   }
@@ -141,7 +141,7 @@
   .item{
             margin-bottom: 60px;
         }
-  @include break-point(monitor) {
+  @media #{$mq-1366} {
     width:100%;
     margin: 0 auto;
   }
@@ -313,13 +313,13 @@
     opacity: 0.5;
     -webkit-transition: opacity 0.35s linear 0s;
     transition: opacity 0.35s linear 0s;
-    // @include break-point(mobile) {
+    // @media #{$mq-767} {
     //   top: 15%;
     // }
-    @include break-point(tablet) {
+    @media #{$mq-768} {
       top: 25%;
     }
-    @include break-point(laptop) {
+    @media #{$mq-1366} {
       top: 50%;
     }
 }

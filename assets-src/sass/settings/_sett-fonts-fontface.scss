@@ -1,0 +1,89 @@
+
+/* Typefaces */
+/* ==================================================== */
+
+
+@font-face {
+    font-family: 'Montserrat900';
+    font-weight: normal;
+    src: url('../type/Montserrat-Black.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Montserrat700';
+    font-weight: normal;
+    src: url('../type/Montserrat-Bold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Montserrat600';
+    font-weight: normal;
+    src: url('../type/Montserrat-SemiBold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Montserrat500';
+    font-weight: normal;
+    src: url('../type/Montserrat-Medium.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Montserrat400';
+    font-weight: normal;
+    src: url('../type/Montserrat-Regular.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Montserrat300';
+    font-weight: normal;
+    src: url('../type/Montserrat-Light.ttf') format('truetype')
+}
+
+
+/* Copy font */
+@mixin copy($copy) {
+	/* Black */
+	@if $copy == 'extrablack' {
+        font-family: 'Montserrat900', sans-serif;
+	}
+
+	/* Bold */
+	@else if $copy == 'bold' {
+        font-family: 'Montserrat700', sans-serif;
+	}
+
+	/* Semi-bold */
+	@else if $copy == 'semi' {
+        font-family: 'Montserrat600', sans-serif;
+	}
+
+    /* Medium */
+	@else if $copy == 'medium' {
+        font-family: 'Montserrat500', sans-serif;
+	}
+
+	/* Regular */
+	@else if $copy == 'regular' {
+        font-family: 'Montserrat400', sans-serif;
+	}
+
+	/* Light */
+	@else if $copy == 'light' {
+        font-family: 'Montserrat300', sans-serif;
+	}
+}
+
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+
+// Usage:
+// div { @include copy(regular); @include font-smoothing(on); }

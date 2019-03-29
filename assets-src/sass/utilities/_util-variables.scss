@@ -4,20 +4,27 @@
 
 
 /* Ease */
-$ease: all 0.200s ease;
+$ease: all 0.5s ease;
 
 
 
 /* Space */
 $space-large: 1rem * 4;
-
+$space-2-5: 1rem * 2.5;
 $space-mid: 1rem * 2;
-
 $space-small: 1rem * 1.5;
-
 $space-tiny: 1rem * 1;
-
 $space-itty: 1rem * 0.5;
 
+$space-98: 98px;
+$space-68: 68px;
+$space-48: 48px;
+$space-32: 32px;
+$space-24: 24px;
+$space-16: 16px;
 
-$root-size: 16px;
+
+
+/* shadows */
+$shadow-soft: 0 0 50px rgba(35, 31, 32, 0.1);
+$shadow-hard: 0 4px 16px 0 rgba(0, 0, 0, 0.2);

@@ -20,14 +20,14 @@
 		margin-left: 0 !important;
 		padding-left: 0;
 
-		@include break-point(laptop) {
+		@media #{$mq-1366} {
 			max-width: 70%;
 			// float: left;
 			// margin-left: 3rem !important;
 				padding-left: 4rem;
 		}
 		
-		@include break-point(desktop) {
+		@media #{$mq-1600} {
 			// float: left;
 			// margin-left: 3rem !important;
 		}
@@ -63,11 +63,11 @@
 	          border-color: $orange-lt;
 	        }
 	      }
-				// @include break-point(tablet) {
+				// @media #{$mq-768} {
 				// 	// float: left;
 				// 	width: 15%;
 				// }
-				@include break-point(laptop) {
+				@media #{$mq-1366} {
 					// float: none;
 					// width: 50%;
 					width: 33%;
@@ -75,7 +75,7 @@
 				}
 			}
 		}
-		// @include break-point(laptop) {
+		// @media #{$mq-1366} {
 		// 	margin-left: 4rem;
 		// }
 	}
@@ -170,11 +170,11 @@
 	// margin-bottom: -4rem;
 	@extend %columns;
 	@extend %column-12;
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		// margin-bottom: -5rem;
 		// padding-right: calc(1rem * 2);
 	}
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		// margin-bottom: -5rem;
 		padding-right: calc(1rem * 2);
 	}
@@ -192,7 +192,7 @@
 		// height: 88.85%;
 		// height: 80.75%;
 		min-width: 20%;
-		@include break-point(largelaptop) {
+		@media #{$mq-1440} {
 			// height: 80.75%;
 		}
 		@media only screen and (min-width: 1024px) and (max-width: 1024px) { //1024px
@@ -224,7 +224,7 @@
 	// padding-left: calc(#{$space-tiny} * 0.5);
 	@include font-size(16px);
 	@include line-height(1.5);
-	color: $dark-grey;
+	color: $grey-dk;
 	// border-left: 4px solid transparent;
 
 	&:not(:first-of-type) {
@@ -232,8 +232,8 @@
 	}
 
 	&.gallery-selected {
-		color: $green-blue;
-		border-color: $blue;
+		color: $blue-dk;
+		border-color: $blue-dk;
 	}
 }
 
@@ -252,11 +252,11 @@
 	@extend %columns;
 	@extend %column-12;
 	max-height: 488px;
-	// @include break-point(tablet) {
+	// @media #{$mq-768} {
 	// 	max-height: 488px;
 	// }
 	// margin-bottom: -13rem;
-	@include break-point(laptop) {
+	@media #{$mq-1366} {
 		// max-height: 788px;
 		margin-bottom: -2.5rem;
 		max-height: 453px;
@@ -293,11 +293,11 @@
 		// max-height: 90%;
 		height: 100%;
 		min-width: 20%;
-		@include break-point(laptop) {
+		@media #{$mq-1366} {
 			height: 89%;
 
 		}
-		@include break-point(desktop) {
+		@media #{$mq-1600} {
 			height: 100%;
 		}
 		@media only screen and  (min-width: 1440px) and (max-width: 1440px) { //1440px
@@ -342,7 +342,7 @@
 .gallery-select {
 	@include font-size(14px);
 	@include line-height(1.5);
-	color: $green-blue;
+	color: $blue-dk;
 	padding: 0 !important;
 	// border-left: 4px solid transparent;
 
@@ -352,10 +352,10 @@
 
 	&.gallery-selected {
 		color: $white;
-		border-color: $blue;
+		border-color: $blue-dk;
 
 		.image-slider-container-alt & {
-			color: $blue;
+			color: $blue-dk;
 		}
 	}
 }
@@ -400,12 +400,12 @@
 	@include flex-wrap(nowrap);
 	width: 7rem;
 	margin: auto;
-	border: 1px 1px 1px 0px solid $grey;
+	border: 1px 1px 1px 0px solid $grey-md;
 }
 
 .gallery-control {
 	width: 33.3333%;
 	@include font-size(16px);
 	text-align: center;
-	border-left: 1px solid $grey;
+	border-left: 1px solid $grey-md;
 }

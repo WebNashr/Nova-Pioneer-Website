@@ -1,0 +1,124 @@
+
+/* Lists */
+/* ==================================================== */
+
+
+ul,
+ol {
+	// @extend %list-style-none;
+	width: 100%;
+
+	// .article-inner & {
+	// 	list-style: unset;
+	// 	line-height: 1.75;
+	// 	text-indent: 1rem;
+	// 	color: $dark-grey;
+	// }
+}
+
+li {
+	margin-left: 1.8rem;
+	list-style-type: none;
+	text-indent: -1.8rem;
+
+	&:before {
+		@include font-size(32px);
+		margin-right: 1rem;
+		vertical-align: middle;
+		content: "\2022";
+		color: $orange-lt;
+	}
+	.sy-list {
+
+		&:before {
+			content: none !important;
+		}
+	}
+	.content-slider-container & {
+		&:before {
+			content: none !important;
+		}
+	}
+}
+
+
+// ul {
+// 	margin: 0 0 1.25rem 0;
+// 	text-indent: -1.255rem;
+
+// 	li {
+// 		list-style-type: none;
+
+// 		&:before {
+// 			@include font-size(16px);
+// 			padding-right: 0.75rem;
+// 			content: "\2022";
+// 			color: $green-blue;
+// 		}
+// 	}
+
+// 	ul {
+// 		margin: 0 0 0 1.125rem;
+
+// 		li {
+// 			@include font-size(14px);
+// 			margin: 0 0 0 1.125rem;
+
+// 			&:before {
+// 				@include copy(bold);
+// 				padding-right: 0.5rem;
+// 				content: "\2013";
+// 			}
+// 		}
+// 	}
+// }
+
+// ol {
+// 	margin: 0 0 1.25rem 0;
+// 	text-indent: 0.125rem;
+// 	counter-reset: number-counter;
+
+// 	li {
+// 		list-style-type: none;
+
+// 		&:before {
+// 			@include copy(bold);
+// 			@include font-size(16px);
+// 			padding-right: 0.75rem;
+// 			content: counter(number-counter) ".";
+// 			counter-increment: number-counter;
+// 			color: $green-blue;
+// 		}
+// 	}
+// }
+
+.school-description {
+	padding-bottom: calc(#{$space-tiny} * 1.5);
+
+	ul {
+		margin-bottom: 0;
+		padding: 0  calc(#{$space-tiny} * 1.5);
+		text-indent: -1.255rem;
+		color: $dark-grey;
+	}
+
+	li {
+		margin-top: 1rem;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+
+	@include break-point(laptop) {
+		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
+	}
+
+	strong {
+		@include copy(bold);
+	}
+
+	@include break-point(laptop) {
+
+	}
+}

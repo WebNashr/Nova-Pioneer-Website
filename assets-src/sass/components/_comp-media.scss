@@ -31,7 +31,7 @@
 		img {
 			padding-bottom: 0;
 			height: auto;
-			@include break-point(tablet) {
+			@media #{$mq-768} {
 				// height: 100%;
 				// align-self: center;
 			}
@@ -52,7 +52,7 @@
 	margin-bottom: -4rem;
 	@extend %columns;
 	@extend %column-12;
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		margin-bottom: -5rem;
 	}
 	@media only screen and (min-width: 1024px) and (max-width: 1024px) { //1024px
@@ -63,13 +63,13 @@
 	}
 	.section-navigation {
 		@extend %column-2;
-		background: $dark-blue;
+		background: $blue-dk;
 		padding-top: calc(1rem * 3);
 		padding-left: calc(1rem * 4);
 		// height: 88.85%;
 		height: 80.75%;
 		min-width: 20%;
-		@include break-point(largelaptop) {
+		@media #{$mq-1440} {
 			height: 80.75%;
 		}
 		@media only screen and  (min-width: 1024px) and (max-width: 1024px) { //1024px
@@ -91,30 +91,30 @@
 	.inner {
 		overflow: hidden;
 
-		// @include break-point(tablet) {
+		// @media #{$mq-768} {
 		// 	max-height: 490px;
 		// }
-		// @include break-point(laptop) {
+		// @media #{$mq-1366} {
 		// 	max-height: 409px;
 		// }
-		// @include break-point(desktop) {
+		// @media #{$mq-1600} {
 		// 	max-height: 598px;
 		// }
-		// 	@include break-point(monitor) {
+		// 	@media #{$mq-1366} {
 		// 		max-height: 633px;
 		// 	}
 		img {
 			max-height: 576px;
-			@include break-point(tablet) {
+			@media #{$mq-768} {
 				max-height: 409px;
 			}
-			// @include break-point(laptop) {
+			// @media #{$mq-1366} {
 			// 	max-height: 409px;
 			// }
-			@include break-point(desktop) {
+			@media #{$mq-1600} {
 				max-height: 576px;
 			}
-			// @include break-point(monitor) {
+			// @media #{$mq-1366} {
 			// 	max-height: 633px;
 			// }
 		}
@@ -138,7 +138,7 @@
 // 		padding-left: calc(1rem * 2);
 // 		background: transparent;
 //
-// 		@include break-point(laptop) {
+// 		@media #{$mq-1366} {
 // 	        padding-left: calc(1rem * 4);
 // 	    }
 //
@@ -152,7 +152,7 @@
 // 		}
 // 	}
 //
-// 	@include break-point(tablet) {
+// 	@media #{$mq-768} {
 //         .section-navigation {
 // 			h1 {
 // 				display: inline-block;
@@ -163,7 +163,7 @@
 //     }
 //
 //
-//     @include break-point(laptop) {
+//     @media #{$mq-1366} {
 //         .section-navigation {
 // 			padding-left: calc(1rem * 4);
 //
@@ -235,7 +235,7 @@
 	.article-inner-alt & {
 		margin-bottom: 0;
 		height: 12rem;
-		@include break-point(tablet) {
+		@media #{$mq-768} {
 			height: 20rem;
 		}
 	}
@@ -243,7 +243,7 @@
 	// 	margin-top: 1rem;
 	// 	margin-bottom: 1rem;
 	// 	height: 12rem;
-	// 	@include break-point(tablet) {
+	// 	@media #{$mq-768} {
 	// 		margin-top: 0;
 	// 		height: 20rem;
 	// 	}
@@ -254,19 +254,19 @@
 		margin-top: 1rem;
 		margin-bottom: 0;
 		height: 12rem;
-		@include break-point(tablet) {
+		@media #{$mq-768} {
 			width: 100%;
 			margin-bottom: 0;
 			height: 18rem;
 			// margin-top: 0;
 			// height: 20rem;
 		}
-		@include break-point(laptop) {
+		@media #{$mq-1366} {
 			margin-top: 0;
 		}
 
 	}
-	@include break-point(tablet) {
+	@media #{$mq-768} {
 		// margin-top: 0;
 		height: 18rem;
 	}
