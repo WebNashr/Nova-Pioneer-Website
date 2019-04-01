@@ -45,6 +45,11 @@
     </script>
     <!-- End Google Analytics -->
 
+    <!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick-theme.css"/>
+
 </head>
 
 <body <?php body_class('body-kenya'); ?>>

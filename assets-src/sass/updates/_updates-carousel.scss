@@ -1,0 +1,66 @@
+
+/* carousel */
+/* ==================================================== */
+
+
+.updates-2019 {
+    .section-carousel {
+        width: 100%;
+        height: auto;
+        max-height: 697px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    // .slick-next {
+    //     right: 0;
+    //     display: none;
+    // }
+
+    // .slick-prev {
+    //     left: 0;
+    //     display: none;
+    // }
+
+    .slick-dots {
+        bottom: 0;
+    }
+
+    .section-carousel-slide {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .section-carousel-slide figcaption {
+        position: absolute;
+        bottom: 30%;
+        max-width: 45%;
+        margin: auto 4rem 0 4rem
+    }
+
+    .section-carousel-slide figcaption h1 {
+        @include title(black);
+        @include font-size(64px);
+        @include line-height(84px);
+        @extend %text-white;
+        margin-bottom: 2rem;
+
+        span.plain {
+            @extend %text-orange-lt;
+        }
+
+        span.highlighted {
+            @extend %text-orange-lt;
+        }
+    }
+
+    .section-carousel-slide figcaption p {
+        @include title(regular);
+        @include font-size(24px);
+        @include line-height(36px);
+        @extend %text-white;
+    }
+}
+

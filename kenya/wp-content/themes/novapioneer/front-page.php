@@ -39,6 +39,50 @@ get_header(); ?>
         </section>
 
 
+        <!--<section class="section section-carousel">
+            <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
+            <?php
+                $link = '#';
+                $target = '';
+                if ($hero_slide->has_link) {
+                    $link = $hero_slide->link;
+                    $target = 'target="_blank"';
+                }
+            ?>
+            <a class="section-carousel-slide" href="<?php echo $link ?>" <?php echo $target ?>>
+                <img src="<?php echo $hero_slide->image; ?>">
+
+                <figcaption>
+                    <h1 class="extrabold"><?php echo $hero_slide->title; ?> <span class="highlighted"><?php echo $hero_slide->title_highlight; ?></span></h1>
+                    <p class="subheading"><?php echo $hero_slide->subtitle; ?></p>
+                </figcaption>
+            </a>
+            <?php endforeach; ?>
+        </section>-->
+
+
+        <section class="section section-carousel">
+            <?php if( have_rows('hero_slides') ): ?>
+            <?php while( have_rows('hero_slides') ): the_row();  ?>
+            <a class="section-carousel-slide" href="<?php echo $link ?>" <?php echo $target ?>>
+                <?php
+                    $image = get_sub_field('image');
+                    $size = '16-9-banner';
+                    if( $image ) {
+                    echo wp_get_attachment_image( $image, $size );
+                    }
+                ?>
+
+                <figcaption>
+                    <h1 class="extrabold"><?php the_sub_field('title'); ?> <span class="highlighted"><?php the_sub_field('title_highlight'); ?></span></h1>
+                    <p class="subheading"><?php the_sub_field('subtitle'); ?></p>
+                </figcaption>
+            </a>
+            <?php endwhile; ?>
+            <?php endif; ?>
+        </section>
+
+
         <div class="trigger"></div>
 
 
@@ -398,6 +442,15 @@ get_header(); ?>
                 startWayPoint()
             })
             startWayPoint()
+
+            $('.section-carousel').slick({
+                dots: true,
+                arrows: false,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear'
+            });
         });
     })(jQuery);
 </script>

@@ -7,6 +7,11 @@
     .button {
         @extend %text-white;
         border-radius: 3px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+
+        &:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+        }
     }
 
     .button-small {

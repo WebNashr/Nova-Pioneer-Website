@@ -3,68 +3,76 @@
 /* ==================================================== */
 
 
-@media print {
-	* {
-		background: transparent !important;
-		color: black !important;
-		text-shadow: none !important;
-		filter: none !important;
-		-ms-filter: none !important;
-	}
+// .updates-2019 {
+    .footer-box-main-item {
+        @include title(bold);
+        @include font-size(16px);
+        @include line-height(20px);
+        @extend %text-blue-dk;
+        margin-bottom: 16px;
+        letter-spacing: 3px;
+        opacity: 1;
+    }
 
-	a,
-	a:visited {
-		text-decoration: underline;
-	}
+    .footer-box-main-item:hover {
+        @extend %text-orange-lt;
+    }
 
-	a[href]:after {
-		content: " (" attr(href) ")";
-	}
+    .footer-box .sub-menu .footer-box-item {
+        @include title(light);
+        @include font-size(14px);
+        @include line-height(34px);
+        @extend %text-grey-mdk;
+    }
 
-	abbr[title]:after {
-		content: " (" attr(title) ")";
-	}
+    .footer-box .sub-menu .footer-box-item:hover {
+        @extend %text-blue-lt;
+    }
 
-	.ir a:after,
-	a[href^="javascript:"]:after,
-	a[href^="#"]:after {
-		content: "";
-	}
+    .footer-social {
+        margin-top: 48px;
+    }
 
-	pre,
-	blockquote {
-		border: 1px solid #999;
-		page-break-inside: avoid;
-	}
+    .footer-social a {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(nowrap);
 
-	thead {
-		display: table-header-group;
-	}
+        &:not(:first-of-type) {
+            margin-top: 12px;
+        }
+    }
 
-	tr,
-	img {
-		page-break-inside: avoid;
-	}
+    .footer-social svg {
+        order: 1;
+    }
 
-	img {
-		max-width: 100% !important;
-	}
+    .footer-social path {
+        fill: $blue-dk;
+    }
 
-	@page {
-		margin: 0.5cm;
-	}
+    .footer-social .social-text {
+        @include title(light);
+        @include font-size(14px);
+        @include line-height(24px);
+        @extend %text-grey-mdk;
+        margin-left: 1rem;
+        order: 2;
+    }
 
-	p,
-	h2,
-	h3 {
-		orphans: 3;
-		widows: 3;
-	}
+    .footer-menu-aux-item-copyright {
+        @include title(light);
+        @include font-size(10px);
+        @include line-height(16px);
+        @extend %text-grey-mdk;
+        margin-top: 48px;
+        margin-left: 0;
+        text-align: left;
+    }
 
-	h2,
-	h3 {
-		page-break-after: avoid;
-	}
-}
+    .footer-menu-aux-item-copyright:hover {
+        @extend %text-grey-mdk;
+    }
+// }
 
 
