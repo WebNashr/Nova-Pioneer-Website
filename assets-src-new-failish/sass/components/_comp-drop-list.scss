@@ -1,0 +1,180 @@
+
+/*  Drop list */
+/* ==================================================== */
+
+
+.drop-list {
+    align-self: center;
+    min-width: 148px;
+    margin-top: -2rem;
+    margin-left: auto;
+    @media #{$mq-768} {
+      margin-top: 0;
+    }
+}
+
+.drop-list-container {
+	@include font-size(13px);
+	@include line-height(1);
+	@include flexbox();
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
+    align-self: center;
+    position: absolute;
+	width: 100%;
+	max-width: 148px;
+  &:hover {
+		// color: $grey-dk;
+		// @include box-shadow(-1px, 3px, 12px, 8px, rgba(0, 0, 0, 0.25));
+	}
+}
+
+.drop-list-item {
+	&:not(:first-of-type) {
+		 margin-top: 12px;
+	}
+
+	&:hover {
+		// color: $grey-dk;
+		// @include box-shadow(0, 0, 12px, 8px, rgba(0, 0, 0, 0.25));
+	}
+}
+
+.drop-list-selected {
+	display: block;
+}
+
+.drop-list-option {
+	display: none;
+}
+
+.drop-list-container:hover {
+
+}
+
+.drop-list-container:hover .drop-list-option {
+	display: block;
+}
+
+// .drop-list-container:hover .drop-list-selected {
+// 	color: $white;
+// 	background: $green-lt;
+// }
+.drop-list-container:hover {
+	color: $white;
+	// background: $green-lt;
+}
+.country-switch-container {
+  @include flexbox();
+  @include flex-direction(row);
+  @include flex-wrap(nowrap);
+  // align-self: center;
+  position: absolute;
+  width: 100%;
+  // max-width: 128px;
+  // max-height: 148px;
+  border: none !important;
+  background: none;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  justify-content: flex-end;
+  margin-right: 3rem;
+	// padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
+  padding: 0 !important;
+  padding-right: 1rem !important;
+  .drop-list {
+    margin-top: 0;
+  }
+  a {
+    color: $white !important;
+  }
+  .arrow-icon {
+    fill: #fff;
+  }
+  svg {
+    color: $orange-lt !important;
+    fill: $orange-lt!important;
+    path {
+      fill: $orange-lt !important;
+    }
+  }
+  .drop-list-container {
+    position: relative;
+    // background: $blue-dk;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background: $blue-dk url(../../img/icons/drop-down-arrow-white.svg) no-repeat;
+    background-size: 13px;
+    background-position: right 8px center;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    max-width: 120px;
+    border-top: none;
+    border-right: 1px $white solid;
+    border-bottom: 1px $white solid;
+    border-left: 1px $white solid;
+
+    &:hover {
+      background: $blue-dk url(../../img/icons/drop-down-arrow-green.svg) no-repeat;
+      background-size: 13px;
+      background-position: top 8px right 8px;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+      %country-chosen {
+        // border-bottom-right-radius: 0;
+    		// border-bottom-left-radius: 0;
+      }
+    }
+  }
+  // .drop-list-container:hover .drop-list-selected {
+  // 	color: $white;
+  // 	background: $green-lt;
+  // }
+  .drop-list-option {
+    background: $blue-dk;
+    &:hover {
+      background: $green-lt;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+  }
+  .country {
+    padding-left: 0.35rem;
+  }
+  .country:not(:first-child) {
+    margin-left: 0;
+    padding-left: 0.35rem;
+  }
+  .drop-list-item {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    .drop-list-selected {
+      background: $blue-dk;
+    }
+    &:hover {
+      .drop-list-option {
+        background: $green-lt;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
+      .drop-list-selected {
+        background: $blue-dk;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
+    }
+  }
+  .drop-list-item:not(:first-of-type) {
+    margin-top: 0;
+  }
+
+  @media #{$mq-768} {
+		padding-right: 4rem !important;
+    // margin-top: 8px;
+	}
+  @media #{$mq-1366} {
+    // margin-top: 0;
+		padding-right: 6.5rem !important;
+	}
+
+}

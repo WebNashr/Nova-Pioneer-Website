@@ -8,7 +8,7 @@ select.application-content{
 	h1 {
 		max-width: 100%;
 		margin-bottom: 2rem;
-		color: $blue-dk;
+		color: $green-blue;
 		padding-right: calc(#{$space-tiny} * 2);
 		padding-left: calc(#{$space-tiny} * 2);
 
@@ -39,11 +39,11 @@ select.application-content{
 	}
 
 	b {
-		color: darken($blue-dk, 20%);
+		color: darken($green-blue, 20%);
 	}
 
 	ul {
-		color: $grey-dk;
+		color: $dark-grey;
 		@include font-size(18px);
 		list-style-type: disc;
 		line-height: 1.5;
@@ -58,7 +58,7 @@ select.application-content{
 			}
 		}
 		b {
-			color: $grey-dk;
+			color: $dark-grey;
 		}
 	}
 }
@@ -72,11 +72,11 @@ select.application-content{
 //     @include flex-direction(row);
 //    	justify-content: center;
 //    	 h2 {
-//    	 	color: $blue-dk;
+//    	 	color: $green-blue;
 //    	 	text-align: center;
 //    	 }
 //    	 h3 {
-//    	 	color: $blue-dk;
+//    	 	color: $green-blue;
 //    	 	@include font-size(21px);
 // 		@include copy(semi);
 // 		line-height: 1.5;
@@ -97,11 +97,11 @@ select.application-content{
 		width: 100%;
 		// margin-bottom: 1rem;
 
-		@media #{$mq-767} {
+		@include break-point(mobile) {
 			width: 100%;
 		}
 
-		@media #{$mq-1600} {
+		@include break-point(desktop) {
 			width: auto;
 		}
 
@@ -115,42 +115,42 @@ select.application-content{
 				position: absolute;
 				pointer-events: none;
 				border-color: rgba(0, 0, 0, 0);
-				border-top-color: $blue-lt;
+				border-top-color: $sky;
 				border-width: 0.65rem;
 				margin-top: -0.2rem;
 				z-index: 2;
-				@media #{$mq-768} {
+				@include break-point(tablet) {
 					width: auto;
 					left: 95%;
 				}
-				@media #{$mq-1600} {
+				@include break-point(desktop) {
 					width: auto;
 					left: 95%;
 				}
 			}
 
 		.dropdown {
-			color: lighten($grey-dk, 10%);
+			color: lighten($dark-grey, 10%);
 			//display: inline-block;
 			width: 100%;
 			padding-right: calc(#{$space-tiny} * 3);
-			@media #{$mq-767} {
+			@include break-point(mobile) {
 				display: block;
 				width: 100%;
 			}
-			@media #{$mq-1600} {
+			@include break-point(desktop) {
 				width: 100%;
 			}
 
 			option {
 				padding-right: calc(#{$space-tiny} * 3);
 				padding-left: calc(#{$space-tiny} * 1);
-				color: $blue-lt;
+				color: $sky;
 				&:first-child {
 					padding-left: calc(#{$space-tiny} * 1);
 				}
 				&:not(:checked) {
-					// color: lighten($grey-dk, 10%);
+					// color: lighten($dark-grey, 10%);
 				}
 			}
 
@@ -162,10 +162,10 @@ select.application-content{
 
 	#submit {
 		margin-left: 0;
-		@media #{$mq-768} {
+		@include break-point(tablet) {
 				margin-left: 0;
 		}
-		@media #{$mq-1600} {
+		@include break-point(desktop) {
 			margin-left: 1.5rem;
 		}
 	}
@@ -176,18 +176,18 @@ select.application-content{
 #application-form .field3 {
     display: block;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         display: none;
     }
 }
 
 label {
-	color: $grey-dk;
+	color: $dark-grey;
 	@include copy(semi);
 }
 
 select {
-	color: lighten($grey-dk, 10%);
+	color: lighten($dark-grey, 10%);
 }
 
 #application-form input[text="text"],
@@ -198,7 +198,7 @@ select {
     margin-bottom: 10px;
     //width: 100%;
     box-sizing: border-box;
-    color: darken($grey-dk, 10%);
+    color: darken($dark-grey, 10%);
     @include copy(regular);
 	@include font-size(21px);
 
@@ -209,7 +209,7 @@ select {
 	overflow: hidden;
 
 	&:placeholder {
-		color: lighten($grey-dk, 20%);
+		color: lighten($dark-grey, 20%);
 		opacity: 1;
 	}
 }
@@ -228,17 +228,17 @@ select {
 	margin-bottom: 10px;
 	//width: 100%;
 	box-sizing: border-box;
-	color: darken($grey-dk, 10%);
+	color: darken($dark-grey, 10%);
 	@include copy(regular);
 	@include font-size(21px);
 
 	&:placeholder {
-		color: lighten($grey-dk, 20%);
+		color: lighten($dark-grey, 20%);
 		opacity: 1;
 	}
 
 	&:focus {
-		border: 1px solid $blue-dk;
+		border: 1px solid $blue;
 	}
 
 
@@ -256,7 +256,7 @@ select {
 #application-form label[for="next"] {
     display: none;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         display: block;
     }
 }
@@ -272,7 +272,7 @@ select {
 //   cursor: pointer;
 //   //padding: 10px 5px;
 //   margin: 10px 5px;
-//   background: lighten($blue-dk, 20%);
+//   background: lighten($blue, 20%);
 //
 //   height: auto;
 //   padding:0.4rem 2rem;
@@ -280,15 +280,15 @@ select {
 // 	@include font-size(21px);
 //
 //     &:hover {
-//         background: $blue-dk;
+//         background: $blue;
 //         border: none;
 //     }
 //
 //     &.submit-button {
-//     	background: $blue-dk;
+//     	background: $blue;
 //
 //     	&:hover {
-//     		background: $blue-dk;
+//     		background: $dark-blue;
 //     	}
 //     }
 // }
@@ -309,18 +309,18 @@ select {
 	overflow: hidden;
 	counter-reset: step;
 	// &:hover {
-	//     background: $blue-dk;
+	//     background: $blue;
 	//     border: none;
 	//
 	// }
 	// &.submit-button {
-	// 	background: $blue-dk;
+	// 	background: $blue;
 	// 	&:hover {
-	// 		background: $blue-dk;
+	// 		background: $dark-blue;
 	// 	}
 	// }
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		display: block;
 	}
 }
@@ -329,7 +329,7 @@ select {
 //     list-style-type: none;
 //     @include font-size(14px);
 //     @include copy(bold);
-//     color: lighten($grey-dk, 20%);
+//     color: lighten($dark-grey, 20%);
 //     width: 30%;
 //     float: left;
 //     position: relative;
@@ -346,7 +346,7 @@ select {
     margin: 0;
     text-align: left;
     list-style-type: none;
-    color: lighten($grey-dk, 20%);
+    color: lighten($dark-grey, 20%);
     border: 0 none;
 
     &:not(:first-of-type) {
@@ -370,7 +370,7 @@ select {
     text-align: center;
     vertical-align: middle;
     line-height: 44px;
-    color: lighten($grey-dk, 20%);
+    color: lighten($dark-grey, 20%);
     background: $white;
     border-radius: 50%;
     border: 0 none;
@@ -404,5 +404,5 @@ select {
     height: auto;
     // padding: 0.35rem;
     color: $white;
-    background: $blue-dk;
+    background: $green-blue;
 }

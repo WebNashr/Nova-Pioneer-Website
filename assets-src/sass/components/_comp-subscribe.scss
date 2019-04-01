@@ -6,7 +6,7 @@
 .section-subscribe {
 	padding-top: calc(#{$space-tiny} * 4);
 	padding-bottom: calc(#{$space-tiny} * 4);
-	background: $grey-md;
+	background: $grey;
 
 	header {
 		//flex: 0 1 100%;
@@ -69,7 +69,7 @@
 			@extend %column;
 			@extend %column-4;
 			color: $white;
-			background: $blue-dk;
+			background: $blue;
 		    //align-self: flex-end;
 		    height: auto;
 		    padding:0.4rem 1rem;
@@ -77,7 +77,7 @@
 	    	@include font-size(21px);
 		    
 		    &:hover {
-		        background: $blue-dk;
+		        background: $dark-blue;
 		        border: none;
 
 		    }

@@ -22,10 +22,10 @@
 }
 
 .header-404 a {
-	// color: $blue-dk;
+	// color: $green-blue;
 
 	&:hover {
-		color: $blue-dk;
+		color: $green-blue-light;
 	}
 }
 
@@ -42,8 +42,8 @@
 	&-non {
 		margin-top: 0;
 	}
-
-	@media #{$mq-768} {
+	
+	@include break-point(tablet) {
 		// margin: 4rem auto 0;
 	}
 }
@@ -59,18 +59,18 @@
 	width: calc(100% - 2.5rem);
 	padding: 0.75rem 1rem;
 	// font-size: 2rem;
-	color: $blue-dk;
+	color: $blue;
 	background: transparent;
 	border: 0 none;
 	outline: 0 none;
-	border: 2px solid $blue-dk;
+	border: 2px solid $blue;
 
 	&:hover,
 	&:focus {
 		border: 0 none;
 		outline: 0 none;
-		color: lighten($blue-dk, 5%);
-		border: 2px solid lighten($blue-dk, 5%);
+		color: lighten($blue, 5%);
+		border: 2px solid lighten($blue, 5%);
 	}
 }
 
@@ -93,7 +93,7 @@
 
 .search-404 svg circle,
 .search-404 svg line {
-	stroke: $blue-dk;
+	stroke: $blue;
 	stroke-width: 1.5;
 }
 
@@ -103,5 +103,5 @@
 .search-404 input[type="text"]:hover ~ svg line,
 .search-404 input[type="text"]:focus ~ svg circle,
 .search-404 input[type="text"]:focus ~ svg line {
-	stroke: lighten($blue-dk, 5%);
+	stroke: lighten($blue, 5%);
 }

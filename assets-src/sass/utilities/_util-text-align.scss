@@ -1,0 +1,23 @@
+
+/* Text alignment */
+/* ==================================================== */
+
+
+/* Left */
+%text-align-left {
+	text-align: left;
+}
+
+/* Right */
+%text-align-right {
+	text-align: right;
+}
+
+/* Center */
+%text-align-center {
+	text-align: center;
+}
+
+
+// Usage:
+// div { @extend %text-align-left; }

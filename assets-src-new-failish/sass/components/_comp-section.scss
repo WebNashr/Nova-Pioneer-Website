@@ -1,0 +1,85 @@
+
+/*  Page section */
+/* ==================================================== */
+
+
+.section {
+	clear: both;
+	// padding: calc(#{$space-tiny} * 2);
+    padding: var(--space-2);
+
+    &.section-no-top {
+        padding-top: 0;
+    }
+
+    &.section-no-right {
+        padding-right: 0;
+    }
+
+    &.section-no-bottom {
+        padding-bottom: 0;
+    }
+
+    &.section-no-left {
+        padding-left: 0;
+    }
+
+    &.section-no-any {
+        padding: 0;
+    }
+
+    &.section-centered {
+        text-align: center;
+    }
+
+    &.section-divider {
+        width: 120px;
+        height: 24px;
+        margin: 0 auto;
+        text-align: center;
+        background: red;
+    }
+
+	// &.full-width {
+	// 	padding-right: 0;
+	// 	padding-left: 0;
+	// }
+
+    // &.school-fees {
+	// 	margin-top: -3rem;
+	// 	padding-bottom: 1rem;
+	// }
+
+	// &.even-section {
+	// 	background: lighten($grey-md, 5%);
+	// }
+
+	// &.call-to-action {
+	// 	padding: 0 calc(#{$space-tiny} * 2);
+	// }
+
+	// &.gallery-section {
+	// 	padding: calc(#{$space-tiny} * 2) 0 0 0;
+	// 	background: lighten($grey-md, 5%);
+	// }
+
+
+	@media #{$mq-768} {
+		// padding: calc(#{$space-tiny} * 3);
+        padding: var(--space-3);
+    }
+
+    @media #{$mq-1366} {
+		// padding: calc(#{$space-tiny} * 4);
+        padding: var(--space-6);
+
+        &.section-admissions {
+            padding: var(--space-3);
+        }
+    }
+}
+
+
+/* import section variants */
+// @import "comp-section-hero";
+

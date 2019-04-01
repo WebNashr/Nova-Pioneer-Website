@@ -1,0 +1,101 @@
+
+/*  Media-queries */
+/* ==================================================== */
+
+
+// Breakpoints
+$bp-767: 767px; //47.9375em; // 767px
+$bp-768: 768px; //48em; // 768px
+$bp-1024: 1024px; //64em; // 1024px
+$bp-1280: 1280px; //80em; // 1280px
+$bp-1366: 1366px; //85.375em; // 1366px
+$bp-1440: 1440px; //90em; // 1440px
+$bp-1600: 1600px; //100em; // 1600px
+$bp-1920: 1920px; //120em; // 1920px
+$bp-2560: 2560px; //160em; // 2560px
+
+
+// Media Queries
+$mq-767: "(max-width: #{$bp-767}) and (min-resolution: 96dpi)";
+$mq-767-r: "
+(min-width: #{$bp-767}) and (min--moz-device-pixel-ratio: 2),
+(min-width: #{$bp-767}) and (-o-min-device-pixel-ratio: 2/1),
+(min-width: #{$bp-767}) and (min-device-pixel-ratio: 2),
+(min-width: #{$bp-767}) and (min-resolution: 192dpi),
+(min-width: #{$bp-767}) and (min-resolution: 2dppx)";
+
+
+$mq-768: "(min-width: #{$bp-768}) and (min-resolution: 96dpi)";
+$mq-768-r: "
+(min-width: #{$bp-768}) and (min--moz-device-pixel-ratio: 2),
+(min-width: #{$bp-768}) and (-o-min-device-pixel-ratio: 2/1),
+(min-width: #{$bp-768}) and (min-device-pixel-ratio: 2),
+(min-width: #{$bp-768}) and (min-resolution: 192dpi),
+(min-width: #{$bp-768}) and (min-resolution: 2dppx)";
+
+
+$mq-1024: "(min-width: #{$bp-1024}) and (min-resolution: 96dpi)";
+$mq-1024-r: "
+(min-width: #{$bp-1024}) and (min--moz-device-pixel-ratio: 2),
+(min-width: #{$bp-1024}) and (-o-min-device-pixel-ratio: 2/1),
+(min-width: #{$bp-1024}) and (min-device-pixel-ratio: 2),
+(min-width: #{$bp-1024}) and (min-resolution: 192dpi),
+(min-width: #{$bp-1024}) and (min-resolution: 2dppx)";
+
+
+$mq-1280: "(min-width: #{$bp-1280}) and (min-resolution: 96dpi)";
+$mq-1280-r: "
+(min-width: #{$bp-1280}) and (min--moz-device-pixel-ratio: 2),
+(min-width: #{$bp-1280}) and (-o-min-device-pixel-ratio: 2/1),
+(min-width: #{$bp-1280}) and (min-device-pixel-ratio: 2),
+(min-width: #{$bp-1280}) and (min-resolution: 192dpi),
+(min-width: #{$bp-1280}) and (min-resolution: 2dppx)";
+
+$mq-1366: "(min-width: #{$bp-1366}) and (min-resolution: 96dpi)";
+$mq-1366-r: "
+(min-width: #{$bp-1366}) and (min--moz-device-pixel-ratio: 2),
+(min-width: #{$bp-1366}) and (-o-min-device-pixel-ratio: 2/1),
+(min-width: #{$bp-1366}) and (min-device-pixel-ratio: 2),
+(min-width: #{$bp-1366}) and (min-resolution: 192dpi),
+(min-width: #{$bp-1366}) and (min-resolution: 2dppx)";
+
+$mq-1440: "(min-width: #{$bp-1440}) and (min-resolution: 96dpi)";
+$mq-1440-r: "
+(min-width: #{$bp-1440}) and (min--moz-device-pixel-ratio: 2),
+(min-width: #{$bp-1440}) and (-o-min-device-pixel-ratio: 2/1),
+(min-width: #{$bp-1440}) and (min-device-pixel-ratio: 2),
+(min-width: #{$bp-1440}) and (min-resolution: 192dpi),
+(min-width: #{$bp-1440}) and (min-resolution: 2dppx)";
+
+$mq-1600: "(min-width: #{$bp-1600}) and (min-resolution: 96dpi)";
+$mq-1600-r: "
+(min-width: #{$bp-1600}) and (min--moz-device-pixel-ratio: 2),
+(min-width: #{$bp-1600}) and (-o-min-device-pixel-ratio: 2/1),
+(min-width: #{$bp-1600}) and (min-device-pixel-ratio: 2),
+(min-width: #{$bp-1600}) and (min-resolution: 192dpi),
+(min-width: #{$bp-1600}) and (min-resolution: 2dppx)";
+
+$mq-1920: "(min-width: #{$bp-1920}) and (min-resolution: 96dpi)";
+$mq-1920-r: "
+(min-width: #{$bp-1920}) and (min--moz-device-pixel-ratio: 2),
+(min-width: #{$bp-1920}) and (-o-min-device-pixel-ratio: 2/1),
+(min-width: #{$bp-1920}) and (min-device-pixel-ratio: 2),
+(min-width: #{$bp-1920}) and (min-resolution: 192dpi),
+(min-width: #{$bp-1920}) and (min-resolution: 2dppx)";
+
+$mq-2560: "(min-width: #{$bp-2560}) and (min-resolution: 96dpi)";
+$mq-2560-r: "
+(min-width: #{$bp-2560}) and (min--moz-device-pixel-ratio: 2),
+(min-width: #{$bp-2560}) and (-o-min-device-pixel-ratio: 2/1),
+(min-width: #{$bp-2560}) and (min-device-pixel-ratio: 2),
+(min-width: #{$bp-2560}) and (min-resolution: 192dpi),
+(min-width: #{$bp-2560}) and (min-resolution: 2dppx)";
+
+$mq-retina: "only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx)";
+
+

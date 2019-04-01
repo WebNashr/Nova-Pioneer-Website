@@ -1,0 +1,131 @@
+
+/* Headings */
+/* ==================================================== */
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	display: inline-block;
+    @include line-height(1.15);
+
+    p + &,
+    ul + &,
+    .job-header + &,
+    .responsibilities + & {
+        margin-top: var(--space-2)
+    }
+
+    &.black {
+        @extend %text-black !optional;
+    }
+
+    &.white {
+        @extend %text-white !optional;
+    }
+
+    &.blue {
+        @extend %text-blue !optional;
+    }
+
+    @media #{$mq-768} {
+        line-height: var(--heading-line-height);
+
+        p + &,
+        ul + &,
+        .job-header + &,
+        .responsibilities + & {
+            margin-top: var(--space-3)
+        }
+	}
+
+	@media #{$mq-1024} {
+        p + &,
+        ul + &,
+        .job-header + &,
+        .responsibilities + & {
+            margin-top: var(--space-4)
+        }
+	}
+}
+
+
+h1 {
+    @include copy(bold);
+}
+
+h1,
+.text-extra {
+    font-size: var(--text-extra);
+
+    @media #{$mq-767} {
+        @include font-size(32px);
+	}
+}
+
+
+h2 {
+    @include copy(bold);
+}
+
+h2,
+.text-huge {
+    font-size: var(--text-huge);
+
+    @media #{$mq-767} {
+        @include font-size(28px);
+	}
+}
+
+
+h3 {
+    @include copy(bold);
+}
+
+h3,
+.text-large {
+    font-size: var(--text-large);
+}
+
+
+h4 {
+    @include copy(medium);
+}
+
+h4,
+.text-meduim {
+    font-size: var(--text-meduim);
+
+    @media #{$mq-767} {
+        @include font-size(20px);
+	}
+}
+
+
+h5 {
+    @include copy(medium);
+}
+
+h5,
+.text-small {
+    font-size: var(--text-small);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+
+h6 {
+    @include copy(medium);
+}
+
+h6,
+.text-tiny {
+    font-size: var(--text-tiny);
+}
+
+
+

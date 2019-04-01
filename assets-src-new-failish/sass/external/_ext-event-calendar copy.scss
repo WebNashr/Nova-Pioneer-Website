@@ -1,0 +1,543 @@
+// .datepicker {
+//   top:550px !important;
+// }
+.country-colour-codes {
+  @extend %column;
+  @include copy(regular);
+  @include font-size(16px);
+  @include line-height(1);
+  color: $grey-mdk;
+  p {
+    @include font-size(15px);
+    @include line-height(2);
+    &:first-of-type{
+      margin: 0.5rem 0;
+
+    }
+  }
+  p+p{
+    margin-top: 0;
+  }
+  .kenya,
+  .south-africa
+   {
+    &:before {
+  		@include font-size(90px);
+  		margin-right: 0.5rem;
+      margin-left: -0.25rem;
+      line-height: 0;
+  		vertical-align: middle;
+  		content: "\2022";
+
+  	}
+  }
+  .kenya {
+    &:before {
+      color: lighten($green-lt, 15%);
+
+    }
+  }
+  .south-africa {
+    &:before {
+      color: lighten($orange-lt, 10%);
+    }
+  }
+
+}
+#tribe-events {
+  #tribe-bar-form {
+    background: $white;
+  }
+  .tribe-bar-submit {
+    margin-left: 0;
+  }
+  #tribe-bar-views {
+    left: 70%;
+     .tribe-bar-views-list {
+       .tribe-bar-views-option a {
+         background: none;
+        //  padding-top: 0.65rem;
+         padding-bottom: 0;
+         color: $blue-lt;
+         &:hover {
+           color: $blue-dk;
+         }
+       }
+       li {
+         &::before {
+           content: none;
+         }
+       }
+       span[class^=tribe-icon-] {
+         padding-top: 7px;
+         padding-bottom: 5px;
+         padding-left: 60px;
+
+       }
+       span[class^=tribe-icon-list] {
+        //  padding-top: 2px;
+
+       }
+     }
+  }
+  .tribe-bar-filters {
+
+    input {
+      border: 0 none;
+      &[type=text] {
+
+        &:hover {
+      		color: $blue-lt;
+      		border: 1px solid $green-lt;
+      	}
+
+      	&:focus {
+          outline: none;
+      		color: $blue-dk;
+      		border: 1px solid $blue-dk;
+      	}
+      }
+      @include font-size(16px);
+    	@include letter-spacing(tiny);
+    	width: 100%;
+    	padding: 0.75rem 1rem;
+    	//color: $grey-md;
+    	background: $white;
+    	appearance: none;
+    	border: 0 none;
+    	outline: 0 none;
+    	border: 1px solid $blue-lt;
+    	border-radius: 2px;
+
+
+    	&::placeholder {
+    		color: $grey-dk;
+    		opacity: 1;
+    	}
+    }
+    .tribe-bar-submit {
+      // padding-top: 35px;
+      padding-bottom: 0;
+      margin-top: 0.9rem;
+      .tribe-events-button {
+        padding: 1rem 0;
+        text-align: center;
+      	text-transform: uppercase;
+      	@include copy(regular);
+      	@include line-height(1);
+      	// @include letter-spacing(small);
+      	@include border-radius(3px);
+      	@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+      	border: 0 solid transparent;
+      	outline: 0 solid transparent;
+      	display: inline-block;
+      	text-decoration: none;
+      	text-transform: uppercase;
+      	appearance: none;
+      	cursor: pointer;
+      	transition: $ease;
+        background-color: $blue-lt;
+        &:hover {
+          color: $grey-dk;
+          background-color: $orange-lt;
+        }
+      }
+
+            // padding-top: 20px;
+      // padding-bottom: 0;
+    }
+  }
+  .tribe-bar-views-inner {
+    padding-top: 31px;
+    background: none;
+  }
+
+  .tribe-events-notices {
+    ul {
+      list-style-type: none;
+      li {
+        text-indent: 0;
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+  .tribe-events-sub-nav {
+    margin-top: 1rem;
+    li {
+      text-indent: 0;
+      &::before {
+        content: none;
+      }
+    }
+    .tribe-events-nav-next {
+      li {
+        text-indent: 0;
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+  .tribe-events-button {
+    padding: 1rem 0.75rem;
+    text-align: center;
+    text-transform: uppercase;
+    @include copy(regular);
+    @include line-height(1);
+    // @include letter-spacing(small);
+    @include border-radius(3px);
+    @include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+    border: 0 solid transparent;
+    outline: 0 solid transparent;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    appearance: none;
+    cursor: pointer;
+    transition: $ease;
+    background-color: $blue-lt;
+    margin-top: 0;
+    &:hover {
+      background-color: $orange-lt;
+    }
+  }
+  h3.tribe-events-month-event-title {
+      font-size: 100%;
+      @include copy(regular);
+      font-size: 1rem !important;
+      line-height: 1.25;
+  }
+}
+
+// calendar table
+.tribe-events-calendar  {
+  table {
+    border: 1px solid darken($grey-md, 20%);
+  }
+  th {
+    background: darken($grey-md, 20%);
+    color: $grey-mdk;
+  }
+
+  div[id*=tribe-events-daynum-] a {
+    @include copy(regular);
+    @include font-size(13px);
+  }
+
+}
+
+//Event details
+.event-details-container {
+  @extend %column;
+	@extend %column-10;
+  .tribe-events-notices {
+    background: none;
+    border: none;
+    text-shadow: none;
+    padding: 0;
+    color: darken($grey-lt, 50%);
+    // font-style: italic;
+  }
+  .tribe-events-event-image {
+    margin-bottom: 1rem;
+  }
+  .tribe-events-schedule {
+    h2{
+      @include font-size(16px);
+    }
+  }
+  .type-tribe_events {
+    padding-top: 0;
+  }
+  .tribe-events-sub-nav {
+    margin-top: 1.25rem;
+  }
+  .tribe-events-cal-links {
+    padding: calc(#{$space-tiny} * 1) 0;
+  }
+  .tribe-events-event-meta {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    background: none;
+    border: none;
+  }
+  .tribe-events-meta-group {
+    padding-left: 0;
+    .tribe-venue-location {
+      @include copy(regular);
+      .tribe-events-gmap {
+        display: block;
+      }
+    }
+  }
+
+  dl {
+    dt {
+      display: inline;
+    }
+    dd {
+      @include copy(bold);
+      margin-top: -0.35rem;
+
+    }
+  }
+  .tribe-events-schedule {
+    .tribe-events-cost {
+      @include font-size(14px);
+      @include copy(bold);
+      color: lighten($blue-dk, 10%);
+    }
+  }
+}
+
+
+.even-list-container {
+  display: none;
+    padding-top: calc(#{$space-tiny} * 1);
+
+    .event-item {
+    	@include flexbox();
+    	@include flex-direction(row);
+    	margin-bottom: 1.5rem;
+
+    	&:not(:first-of-type) {
+    		padding-top: 1.25rem;
+    		border-top: 1px solid darken($grey-md, 10%);
+    	}
+    }
+
+    .event-day {
+    	.date {
+    		width: 36px;
+    		height: 36px;
+    		margin: 0 auto 0.25rem;
+    		padding: 5px;
+    		text-align: center;
+    		color: $white;
+    		background: $blue-dk;
+    		border-radius: 50%;
+    	}
+
+    	.month {
+    		@include copy(regular);
+			@include font-size(13px);
+			text-align: center;
+			color: $blue-dk;
+    	}
+    }
+
+    .event-details {
+	    flex: 2;
+	    padding-right: calc(#{$space-tiny} * 1);
+	    padding-left: calc(#{$space-tiny} * 1);
+    }
+
+    h6 {
+    	// @include copy(bold);
+		// @include font-size(16px);
+		margin: 0;
+    }
+
+    p {
+    	@include font-size(14px);
+    }
+
+    @media #{$mq-1366} {
+	    padding-bottom: calc(#{$space-tiny} * 1);
+
+	    .event-item {
+	    	@include flex-direction(column);
+	    }
+
+	    .event-day {
+	    	.date {
+	    		width: 45px;
+	    		height: 45px;
+	    		margin: 0 0 0.25rem;
+	    		padding: 11px;
+	    	}
+
+	    	.month {
+	    		text-align: left;
+	    	}
+	    }
+
+	    .event-details {
+		    margin-top: 0.25rem;
+		    padding-right: calc(#{$space-tiny} * 0);
+		    padding-left: calc(#{$space-tiny} * 0);
+	    }
+    }
+
+    @media #{$mq-1440} {
+	    .event-item {
+	    	@include flex-direction(row);
+	    }
+
+	    .event-day {
+	    	flex: 1;
+
+	    	.date {
+	    		margin: 0 auto 0.25rem;
+	    	}
+
+	    	.month {
+				text-align: center;
+	    	}
+	    }
+
+	    .event-details {
+		    flex: 2;
+	    	margin-top: unset;
+	    	padding-right: calc(#{$space-tiny} * 1);
+		    padding-left: calc(#{$space-tiny} * 1);
+	    }
+
+	    h6 {
+			margin: 0 0 0.5rem;
+	    }
+    }
+}
+
+
+
+#calendar-wrap {
+	width: 100%;
+
+	header h3{
+		// @include font-size(24px);
+		text-align: left;
+		text-transform: uppercase;
+		margin: 16px 0 0;
+		padding-bottom: calc(#{$space-tiny} * 0.75);
+	}
+}
+
+#calendar {
+	width: auto;
+}
+
+#calendar a {
+	color: #8e352e;
+	text-decoration: none;
+}
+
+#calendar ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+#calendar li {
+	display: block;
+	float: left;
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid lighten($grey-lt, 30%);
+	margin-right: -1px;
+	margin-bottom: -1px;
+
+	&:before {
+		display: none;
+		content: ' ';
+		padding: 0;
+		font-size: 0px;
+		color: transparent;
+	}
+
+	@media #{$mq-1366} {
+		width: 14.342%;
+		min-height: 196px;
+		padding: 5px;
+    }
+}
+
+#calendar ul.weekdays {
+	display: none;
+
+	@media #{$mq-1366} {
+	    height: 40px;
+		background: $blue-dk;
+		width: 99.8%;
+    }
+}
+
+#calendar ul.weekdays li {
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 20px;
+	border: none !important;
+	padding: 10px 6px;
+	color: #fff;
+	font-size: 13px;
+}
+
+#calendar .days li {
+	@include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+	height: auto;
+
+	@media #{$mq-1366} {
+		@include flex-direction(column);
+		min-height: 196px;
+    }
+}
+
+#calendar .days li:hover {
+	background: #d3d3d3;
+}
+
+#calendar .date {
+	text-align: center;
+	margin-bottom: 5px;
+	padding: 4px;
+	background: darken($grey-md, 5%);
+	color: $blue-dk;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+#calendar .event {
+	display: block;
+	@include copy(regular);
+	@include font-size(13px);
+	border-radius: 4px;
+	padding: 5px;
+	margin-top: 0px;
+	margin-left: 1rem;
+	margin-bottom: 5px;
+	line-height: 14px;
+	background: lighten($blue-dk, 35%);
+	color: $grey-dk;
+	text-decoration: none;
+
+	@media #{$mq-1366} {
+		clear: both;
+		margin-top: 8px;
+		margin-left: 0;
+    }
+}
+
+#calendar .event-desc {
+	color: darken($grey-dk, 5%);
+	margin: 3px 0 7px 0;
+	text-decoration: none;
+	@include copy(semi);
+	line-height: 1.25;
+}
+
+#calendar .other-month {
+	display: none;
+
+	@media #{$mq-1366} {
+	    background: #f5f5f5;
+		color: #666;
+    }
+}

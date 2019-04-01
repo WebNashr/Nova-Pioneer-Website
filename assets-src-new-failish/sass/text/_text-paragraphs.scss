@@ -1,0 +1,40 @@
+
+/* Paragraphs */
+/* ==================================================== */
+
+
+p {
+	@include copy(regular);
+    @extend %text-grey-dk;
+    line-height: var(--body-line-height);
+
+	&:not(:first-of-type),
+    p + p {
+        margin-top: var(--text-regular);
+	}
+
+    h1 + &,
+    h2 + &,
+    h3 + &,
+    h4 + &,
+    h5 + &,
+    h6 + & {
+        margin-top: var(--text-regular);
+	}
+
+    @media #{$mq-1600} {
+        max-width: 85%;
+    }
+
+    @media #{$mq-1920} {
+        font-size: calc(var(--text-base-size) * 1.4);
+        font-size: calc(var(--text-base-size) * var(--text-scale-ratio));
+    }
+
+    @media #{$mq-2560} {
+        font-size: calc(var(--text-base-size) * 1.5);
+        font-size: calc(var(--text-base-size) * var(--text-scale-ratio));
+    }
+}
+
+

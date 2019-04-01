@@ -398,10 +398,10 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
       }
     }
   }
-  @media #{$mq-768} {
+  @include break-point(tablet) {
     height: 50%;
   }
-  @media #{$mq-1366} {
+  @include break-point(laptop) {
     // height: 40%;
   }
   @media screen
@@ -436,18 +436,18 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
         text-decoration: underline;
       }
     }
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 			// top: -15em;
       // left: 45%;
 		}
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 			// top: -25em;
       // left: 45%;
 		}
     @media only (min-width: 1366px) and (max-width: 1440px) {
   			// top: -23em;
   	}
-    @media #{$mq-1600} {
+    @include break-point(desktop) {
 			// top: -26em;
 		}
     @media screen
@@ -556,18 +556,18 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
           text-decoration: underline;
         }
       }
-      @media #{$mq-768} {
+      @include break-point(tablet) {
   			// top: -15em;
         // left: 45%;
   		}
-      @media #{$mq-1366} {
+      @include break-point(laptop) {
   			// top: -25em;
         // left: 45%;
   		}
       @media only (min-width: 1366px) and (max-width: 1440px) {
     			// top: -23em;
     	}
-      @media #{$mq-1600} {
+      @include break-point(desktop) {
   			// top: -26em;
   		}
       @media screen
@@ -579,10 +579,10 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
     }
   }
   .sy-controls {
-    @media #{$mq-768} {
+    @include break-point(tablet) {
       height: 90%;
     }
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
       height: 60%;
     }
     // @media screen
@@ -613,7 +613,7 @@ $arrows_url: '../../img/slippry/arrows.svg' !default;
         transition: opacity 0.32s;
         border-bottom: 4px solid transparent;
         &.active {
-          border-color: $blue-dk;
+          border-color: $blue;
           opacity: 1;
         }
       }

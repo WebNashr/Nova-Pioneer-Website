@@ -1,0 +1,60 @@
+
+/* Typefaces */
+/* ==================================================== */
+
+
+$font-url: 'https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900';
+
+@if variable-exists(font-url) {
+    @import url($font-url);
+}
+
+/* Copy font */
+@mixin copy($copy) {
+	font-family: 'Montserrat', sans-serif;
+
+	/* Black */
+	@if $copy == 'extrablack' {
+		font-weight: 900;
+	}
+
+	/* Bold */
+	@else if $copy == 'bold' {
+		font-weight: 700;
+	}
+
+	/* Semi-bold */
+	@else if $copy == 'semi' {
+		font-weight: 600;
+	}
+
+    /* Medium */
+	@else if $copy == 'medium' {
+		font-weight: 500;
+	}
+
+	/* Regular */
+	@else if $copy == 'regular' {
+        font-weight: 500;
+	}
+
+	/* Light */
+	@else if $copy == 'light' {
+		font-weight: 300;
+	}
+}
+
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+
+// Usage:
+// div { @include copy(regular); @include font-smoothing(on); }

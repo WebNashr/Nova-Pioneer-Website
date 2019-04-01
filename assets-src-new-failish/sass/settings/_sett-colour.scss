@@ -1,0 +1,74 @@
+
+/* Colours */
+/* ==================================================== */
+
+
+$blue-dk: #1E3A77;
+
+$blue-lt: #008dc1;
+
+$green-dk: #009847;
+
+$green-lt: #43c743;
+
+$orange-dk: #ff8100;
+
+$orange-lt: #ffd100;
+
+$raspberry: #ff005e;
+
+$red: #ff0000;
+
+$black: #0a0a0a;
+
+$white: #ffffff;
+
+$grey-dk: #262626;
+
+$grey-mdk: #4a4a4a;
+
+$grey-md: #9b9b9b;
+
+$grey-lt: #e8e8e8;
+
+$grey-ft: #f1f1f1;
+
+$grey-gh: #fafbfa;
+
+
+
+@each $colour-name, $colour-value in
+    (blue-dk, $blue-dk),
+    (blue-lt, $blue-lt),
+    (green-dk, $green-dk),
+    (green-lt, $green-lt),
+    (orange-dk, $orange-dk),
+    (orange-lt, $orange-lt),
+    (raspberry, $raspberry),
+    (red, $red),
+    (black, $black),
+    (white, $white),
+    (grey-dk, $grey-dk),
+    (grey-mdk, $grey-mdk),
+    (grey-md, $grey-md),
+    (grey-lt, $grey-lt),
+    (grey-ft, $grey-ft),
+    (grey-gh, $grey-gh) {
+
+    %text-#{$colour-name} {
+        color: #{$colour-value};
+    }
+
+    .text-#{$colour-name} {
+        color: #{$colour-value};
+    }
+
+    %bg-#{$colour-name} {
+        background: #{$colour-value};
+    }
+
+    .bg-#{$colour-name} {
+        background: #{$colour-value};
+    }
+}
+

@@ -3,8 +3,377 @@
 /* ==================================================== */
 
 
-blockquote {
+.testimonial {
+	@extend %columns;
+	@extend %column;
+	@extend %column-12;
+	justify-content: center;
+	background: lighten($background-grey, 5%);
+	padding: calc(#{$space-tiny} * 1.5) 0;
 
+	&.full-width-quote {
+		background: $blue-lt;
+		// background: lighten($orange-lt,30%);
+		// min-height: 300px;
+		margin: 0 0 0 0;
+		padding: 0 0;
+		cite {
+			padding-left: 0;
+		}
+		@include break-point(tablet) {
+			// margin: -4rem 0 0 0;
+			padding: calc(#{$space-tiny} * 3) 0;
+		}
+
+		@include break-point(desktop) {
+			// margin: -5rem 0 0 0;
+		}
+
+
+
+		&.home-page-quote,
+		&.bottom-quote {
+			margin-top: 0;
+			margin-bottom: 0;
+			// padding-top: calc(#{$space-tiny} * 4);
+			// padding-bottom: calc(#{$space-tiny} * 4);
+			blockquote{
+				padding-right: calc(#{$space-tiny} * 3);
+				p {
+					@include font-size(21px);
+				}
+
+				@include break-point(laptop) {
+					margin-left: 3rem;
+					padding-right: 0;
+				}
+				@include break-point(desktop) {
+					margin-left: -1rem;
+				}
+			}
+		}
+
+		blockquote {
+			color: darken($grey, 50%);
+			padding-top: 0;
+			p {
+				margin-top: 0;
+				padding: 0 calc(#{$space-tiny} * 2);
+				@include font-size(21px);
+				@include break-point(tablet) {
+					padding-right: calc(#{$space-tiny} * 3);
+				}
+			}
+
+			cite {
+				&:before {
+					border-top: 1px solid darken($grey, 25%);
+
+				}
+			}
+			@include break-point(laptop) {
+				padding-top: calc(#{$space-tiny} * 2);
+				padding-left: calc(#{$space-tiny} * 5);
+			}
+			@include break-point(desktop) {
+				padding-top: 0;
+				padding-left: 0;
+			}
+		}
+
+		@include break-point(desktop) {
+			// padding: calc(#{$space-tiny} * 5) 0;
+		}
+
+		  #testimonial-slider {
+				@extend %column;
+				@extend %column-12;
+
+			.single-testimonial {
+				@extend %columns;
+				width: inherit;
+				width: 300px;
+				margin-left: 0;
+				// margin-left: -320px;
+				// width:800px;
+				// justify-content: center;
+				// @extend %column;
+
+				@media only screen and (min-device-width: 320px) and (max-device-width: 360px) {
+					// margin-left: -284px;
+				}
+
+				@media only screen and (min-device-width: 365px) and (max-device-width: 375px) {
+					// width: 360px;
+					// margin-left: -304px;
+				}
+
+				@media only screen and (min-device-width: 380px) and (max-device-width: 400px) {
+					// width: 360px;
+					// margin-left: -10px;
+				}
+
+				@media only screen and (min-device-width: 410px) and (max-device-width: 425px) {
+					// width: 360px;
+					// margin-left: -223px;
+				}
+
+				@include break-point(tablet) {
+					// width: 606px;
+					// margin-left: -278px;
+				}
+
+				@include break-point(laptop) {
+					height: 100%;
+					// max-width: 795px;
+					margin-left: 10px;
+					padding: 0 calc(#{$space-tiny} * 3);
+				}
+
+				@include break-point(desktop) {
+					width: 1000px;
+					// margin-left: 0.75rem;
+				}
+
+				@include break-point(monitor) {
+					// width: 1150px;
+					// margin-left: 1.5rem;
+				}
+
+				@media only screen and (min-device-width: 1920px) and (max-device-width: 2560px) {
+					// margin-left: 1.5em;
+					margin-left: 20px;
+				}
+
+				// @media only screen
+				//  	and (min-device-width: 1366px)
+				//   and (max-device-width: 1440px)
+				//   {
+				// 		margin-left: 1.5em;
+				// 	}
+				// @media only screen
+				//  	and (min-device-width: 1600px)
+				//   and (max-device-width: 2560px)
+				//   {
+				// 		margin-left: 2.5em;
+				// 	}
+
+
+			blockquote {
+				@extend %column;
+				// max-width: 800px;
+				padding: 0 0 0 calc(#{$space-tiny} * 2) ;
+				margin: 0 auto;
+				text-indent: 0.25rem;
+				svg {
+					color: $white;
+					fill: $orange-dk;
+				}
+				p {
+					color: lighten($grey-md, 10%);
+				}
+				cite{
+					color: lighten($grey-md, 10%);
+				}
+
+			}
+
+			figure {
+				align-self: flex-start;
+				@extend %column-3;
+				max-width: 175px;
+				// display: none;
+
+				img {
+					width: 175px;
+					height: 175px;
+					border-radius: 50%;
+				}
+
+				@extend %columns;
+				@extend %column-3;
+
+				&.full-width-figure {
+					// @extend %column-2;
+					align-self: center;
+					@include break-point(laptop) {
+						align-self: flex-start;;
+					}
+				}
+
+			}
+			}
+		}
+	}
+
+	&.pull-quote {
+		background: none;
+		padding: calc(#{$space-tiny} * 2) 0;
+
+		@include break-point(laptop) {
+			padding: calc(#{$space-tiny} * 2) 0;
+
+			&:first-child {
+				padding-top: 0;
+			}
+
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+
+		blockquote {
+			@include font-size(21px);
+			padding-left: 0;
+			width: 100%;
+
+			p {
+				@include font-size(20px);
+				width: 100%;
+				padding-top: 0;
+				padding-left: calc(#{$space-tiny} * 3);
+				margin-top: -2.75rem;
+				margin-left: 0;
+				color: lighten($dark-grey, 15%);
+				line-height: 1.5;
+
+				@include break-point(tablet) {
+					// padding-left: 0;
+					padding-left: calc(#{$space-tiny} * 3);
+				}
+
+				@include break-point(laptop) {
+					padding: 0 0;
+					padding-left: calc(#{$space-tiny} * 1.5);
+					margin-top: 0;
+					margin-left: 0;
+					width: 90%;
+				}
+			}
+
+			svg {
+				width: 25px;
+				height: 25px;
+				fill: lighten($blue, 10%);
+				margin-top: 0.25rem;
+			}
+		}
+
+
+		blockquote:before {
+			@include font-size(70px);
+			top: -30px;
+		}
+
+		&.article-quote {
+			margin-top: 0;
+			padding-top: calc(#{$space-tiny} * 2) !important;
+			padding-bottom: calc(#{$space-tiny} * 1) !important;
+
+			cite {
+				margin-top: 0;
+			}
+		}
+	}
+
+	.spacing-to-center {
+		@extend %columns;
+		@extend %column-2;
+		content: " "
+	}
+
+	figure {
+		align-self: center;
+
+		img {
+			width: 175px;
+			height: 175px;
+			border-radius: 50%;
+		}
+
+		@extend %columns;
+		@extend %column-3;
+
+		&.full-width-figure {
+			@extend %column-2;
+			align-self: center;
+		}
+	}
+
+	blockquote {
+		@extend %columns;
+		@extend %column-5;
+		@include font-size(24px);
+		@include copy(regular);
+		color: lighten($dark-grey, 15%);
+		font-style: italic;
+		line-height: 1.5;
+		font-family: Georgia, 'Gentium Basic', serif;
+		width: auto;
+		padding-left: calc(#{$space-tiny} * 3);
+		position: relative;
+
+		.center-quote {
+			width: 650px;
+		}
+
+		svg {
+			width: 30px;
+			height: 30px;
+			fill: lighten($blue, 10%);
+			margin-bottom: 1rem;
+		}
+
+		@include break-point(laptop) {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+
+	blockquote cite {
+		color: $dark-grey;
+		@include font-size(14px);
+		@include copy(regular);
+		font-style: normal;
+		display: block;
+		padding-top: calc(#{$space-tiny} * 1);
+		padding-left: calc(#{$space-tiny} * 3);
+
+		span {
+			// @include copy(bold);
+			strong {
+				@include copy(bold);
+			}
+		}
+
+		&.school-page-quote {
+			padding-left: calc(#{$space-tiny} * 1.5);
+		}
+
+		&:before {
+			display: block;
+			padding-bottom: calc(#{$space-tiny} * 0.5);
+			content:"";
+			border-top: 1px solid darken($grey, 15%);
+			width: 30%;
+			padding-top: calc(#{$space-tiny} * 0.5);
+		}
+	}
+
+	@include break-point(tablet) {
+		// margin: -4rem 0 0 0;
+	}
+
+	@include break-point(laptop) {
+		// padding: calc(#{$space-tiny} * 2) 0;
+		
+		&.pull-quote {
+			background: none;
+			// padding: calc(#{$space-tiny} * 2) 0;
+			margin-left: 0;
+		}
+	}
+	@include break-point(monitor) {
+		// padding: calc(#{$space-tiny} * 3) 0 ;
+	}
 }
-
-

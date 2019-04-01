@@ -5,11 +5,19 @@
 
 %container {
 	@extend %clearfix;
+	max-width: 1160px;
 	margin: auto;
 
-    .page-content & {
-        position: relative;
-        width: 100%;
+    @include break-point(tablet) {
+
+    }
+
+    @include break-point(laptop) {
+
+    }
+
+    @include break-point(desktop) {
+
     }
 }
 

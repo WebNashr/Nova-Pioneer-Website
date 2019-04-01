@@ -10,7 +10,7 @@
 	}
 
 	/* Small spacing */
-	@else if $letter-space == 'small' {
+	@elseif $letter-space == 'small' {
 		letter-spacing: calc(16px / 8);
 	}
 

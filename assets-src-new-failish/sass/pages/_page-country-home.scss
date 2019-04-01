@@ -1,0 +1,16 @@
+
+.school-button {
+    @include button-size(large);
+    ////@include button-style(solid);
+    //@include button-state(normal);
+    @include copy(semi);
+    @include font-size(21px);
+    margin-top: -0.35rem;
+    width: 100%;
+    &:hover {
+        background: $blue-dk;
+        border: none;
+        transition: background 0.3s ease;
+
+    }
+}

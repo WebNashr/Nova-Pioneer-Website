@@ -9,7 +9,7 @@ main {
 
 .main-home {
     width: 100%;
-    background: lighten($grey-md, 8%);
+    background: lighten($background-grey, 8%);
     
     .page-home & {
 		margin-top: 100vh;

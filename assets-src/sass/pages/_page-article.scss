@@ -4,10 +4,10 @@
 
 
 .article-header {
-	// border-bottom: 1px solid lighten($grey-lt, 32%);
+	// border-bottom: 1px solid lighten($light-grey, 32%);
 }
 .timeline-header {
-	border-bottom: 1px solid lighten($grey-lt, 32%);
+	border-bottom: 1px solid lighten($light-grey, 32%);
 	margin-bottom: 3rem;
 }
 
@@ -24,13 +24,13 @@
 	@include flexbox();
     @include flex-direction(column);
     @include flex-wrap(nowrap);
-    border-top: 1px solid lighten($grey-lt, 32%);
+    border-top: 1px solid lighten($light-grey, 32%);
 
     .section-learning-content & {
     	border: 0 none;
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         @include flex-direction(row);
         @include flex-wrap(wrap);
     }
@@ -40,7 +40,7 @@
 	flex: 2;
 	max-width: 100%;
 	padding: calc(#{$space-tiny} * 1) 0;
-	border-bottom: 1px solid lighten($grey-lt, 32%);
+	border-bottom: 1px solid lighten($light-grey, 32%);
 
 	.downloads {
 		// padding-right: calc(#{$space-tiny} * 1.5);
@@ -49,11 +49,11 @@
 			// @include font-size(18px);
 			// line-height: 1.25;
 
-			@media #{$mq-768} {
+			@include break-point(tablet) {
 				display: inline-block;
 		    }
 
-		    @media #{$mq-1366} {
+		    @include break-point(laptop) {
 				display: block;
 		    }
 		}
@@ -66,18 +66,18 @@
 		&:not(:first-of-type) {
 			margin-top: calc(#{$space-tiny} * 1.5);
 			padding-top: calc(#{$space-tiny} * 0.25);
-			border-top: 1px solid lighten($grey-lt, 32%);
+			border-top: 1px solid lighten($light-grey, 32%);
 		}
 	}
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 		.button {
 			float: right;
 			margin-top: 1rem;
 		}
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		max-width: 14rem;
 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 0.5) 0 0;
 		border-bottom: unset;
@@ -95,11 +95,11 @@
 		padding-top: calc(#{$space-tiny} * 0.125);
 	}
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		&:not(:first-of-type) {
 			margin-top: calc(#{$space-tiny} * 1.5);
 			padding-top: calc(#{$space-tiny} * 1.5);
-			border-top: 1px solid lighten($grey-lt, 32%);
+			border-top: 1px solid lighten($light-grey, 32%);
 		}
     }
 }
@@ -111,10 +111,10 @@
 	margin-bottom: 0.5rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: $grey-dk;
+	color: $dark-grey;
 	color: $blue-dk;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		display: block;
     }
 }
@@ -123,9 +123,9 @@
 	@include font-size(13px);
 	display: inline;
 	margin-left: 0.75rem;
-	color: $grey-dk;
+	color: $dark-grey;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		display: block;
 		margin-left: unset;
     }
@@ -135,9 +135,9 @@
 	@include font-size(13px);
 	display: inline;
 	margin-left: 0.75rem;
-	color: $blue-dk;
+	color: $green-blue;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		display: block;
 		margin-left: unset;
     }
@@ -157,26 +157,26 @@
 		.button {
 			margin-left: 0;//10%;
 			width:auto; //78%;
-			// @media #{$mq-768} {
+			// @include break-point(tablet) {
 			// 	margin-left: 30%;
 			// 	width: 40%;
 		  // }
-			// @media #{$mq-1366} {
+			// @include break-point(laptop) {
 			// 	margin-left: 0;
 			// 	width: auto;
 		  // }
 		}
 	}
 
-	@media #{$mq-768} {
+	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 0);
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		max-width: calc(100% - 16rem);
 		margin-left: calc(#{$space-tiny} * 2);
 		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 0) calc(#{$space-tiny} * 0) calc(#{$space-tiny} * 3);
-		border-left: 1px solid lighten($grey-lt, 32%);
+		border-left: 1px solid lighten($light-grey, 32%);
 
 			&-alt {
 			    max-width: 768px;
@@ -191,7 +191,7 @@
 			}
     }
 
-    @media #{$mq-1440} {
+    @include break-point(largelaptop) {
 		padding-right: calc(#{$space-tiny} * 9);
 
 		&-alt {
@@ -230,7 +230,7 @@
 
 .article-img {
 	padding: 0.5rem;
-	border: 1px solid lighten($grey-lt, 30%);
+	border: 1px solid lighten($light-grey, 30%);
 }
 
 // .article-inner blockquote,

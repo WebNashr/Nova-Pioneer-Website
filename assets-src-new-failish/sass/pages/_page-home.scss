@@ -1,0 +1,291 @@
+
+/*  Home Page */
+/* ==================================================== */
+.country-select-container {
+    @extend %column;
+  	@extend %columns;
+  	@extend %column-12;
+    margin: auto;
+    padding: 0 !important;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &.kenya {
+      background-image: url('../../img/country-image-ke-wide.jpg');
+    }
+    &.south-africa {
+      background-image: url('../../img/country-image-sa-wide.jpg');
+      margin-top: -6rem;
+
+      @media #{$mq-768} {
+        margin-top: -4rem;
+      }
+
+      @media #{$mq-1366} {
+        margin-top: -6rem;
+      }
+    }
+
+    @media #{$mq-768} {
+
+    }
+}
+
+.country-select {
+  background: rgba(19,59,85,1);
+  background: linear-gradient(
+    to right,
+    rgba(19,59,85,1) 0%,
+    rgba(19,59,85,0.9) 50%,
+    rgba(19,59,85,0.8) 75%,
+    rgba(19,59,85,0.5) 90%,
+    rgba(19,59,85,0.0) 100%
+  );
+
+
+  z-index: 2;
+  @extend %columns;
+  @extend %column-5;
+
+  // background-color: $blue-dk;
+  padding: calc(#{$space-tiny} * 2);
+  // margin-left: 2rem;
+  // justify-content: flex-start;
+  .country-flag {
+    // @extend %column;
+    // @extend %column-1;
+    align-self: flex-start;
+    margin-left: 2rem;
+
+    @media #{$mq-1366} {
+      // align-self: center;
+      margin-left: 0;
+    }
+
+    img {
+      max-width: 60px;
+      border-radius: 50%;
+      border: 2px solid $white;
+
+      @media #{$mq-1366} {
+        max-width: 85px;
+      }
+    }
+  }
+  .country-description {
+    align-self: center;
+    margin-left: 2rem !important;
+    @extend %column;
+    @extend %column-5;
+    p {
+      color: $white;
+      padding: 0 calc(#{$space-tiny} * 8) calc(#{$space-tiny} * 1) 0;
+      text-shadow: 1px 1px darken($grey-dk, 50%);
+      @media #{$mq-768} {
+        padding: 0 calc(#{$space-tiny} * 8) calc(#{$space-tiny} * 1) 0;
+      }
+
+      @media #{$mq-1366} {
+        padding: 0 0 calc(#{$space-tiny} * 1) 0;
+      }
+    }
+    .button {
+      border: 1px $blue-dk solid;
+      &:hover {
+        border: 1px $white solid;
+      }
+    }
+  }
+  .country-name {
+    // @include copy(bold);
+    // @include font-size(36px);
+    text-transform: uppercase;
+    text-shadow: 1px 1px darken($grey-dk, 50%);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: $white;
+  }
+
+}
+.country-image {
+  @extend %columns;
+  @extend %column-7;
+  content: " ";
+
+  // background-image: linear-gradient(
+  //   to right,
+  //   rgba(0, 0, 0, 0.75),
+  //   rgba(0, 0, 0, 0.65) 10%,
+  //   rgba(0, 0, 0, 0.6) 15%,
+  //   rgba(0, 0, 0, 0.5) 20%,
+  //   rgba(0, 0, 0, 0.45) 25%,
+  //   rgba(0, 0, 0, 0.35) 50%,
+  //   rgba(0, 0, 0, 0.30) 65%,
+  //   rgba(0, 0, 0, 0.25) 75%,
+  //   transparent 100%
+  // );
+}
+// .country-select {
+//
+//     @extend %column;
+//     @extend %column-4;
+//     justify-content: flex-start;
+//     align-items: center;
+//     img {
+//       border-radius: 50%;
+//       max-width: 70%;
+//       margin-top: 3rem;
+//       border: 4px solid darken($grey-md, 5%);
+//       @media #{$mq-1366} {
+//         max-width: 250px;
+//         margin-top: 0;
+//       }
+//     }
+//     .country-image {
+//       text-align: center;
+//       // margin-left: 3em;//chrome fix
+//
+//       @media #{$mq-768} {
+//         margin-left: 3em;
+//       }
+//       @media #{$mq-1366} {
+//         margin-left: 0;
+//       }
+//
+//     }
+//     .country-description {
+//       padding-top: calc(#{$space-tiny} * 0.5);
+//
+//        p {
+//           padding: calc(#{$space-tiny} * 1);
+//           @include font-size(18px);
+//           @include copy(regular);
+//           text-align: center;
+//           line-height: 1.35;
+//        }
+//     }
+//     &.last {
+//       margin-left: 0;
+//       @media #{$mq-1366} {
+//         margin-left: 10rem;
+//       }
+//     }
+//
+// }
+.country-button {
+    @include button-size(large);
+    // ////@include button-style(solid);
+    //@include button-state(normal);
+    @include copy(bold);
+    @include font-size(36px);
+    @extend %columns;
+    align-items: center;
+    //width: 100%;
+    color: $white;
+    background: $blue-dk;
+    border-radius: 5px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    a {
+      color: $white;
+      text-align: center;
+    }
+    &:hover {
+        background: $blue-dk;
+        color: $white;
+        border: none;
+        transition: background 0.3s ease;
+    }
+}
+.south-africa-flag{
+    // @include flexbox();
+    // @include flex-direction(row);
+    // @include flex-wrap(nowrap);
+    @extend %columns;
+    align-items: center;
+
+    &:before {
+        content:url('../../img/sa-flag-round.png');
+        padding-right: 0;
+        margin-bottom: 1rem;
+        @media #{$mq-1366} {
+          margin-bottom: 0;
+          padding-right: calc(#{$space-tiny} * 1.5);
+        }
+
+     }
+}
+.kenya-flag{
+    // @include flexbox();
+    // @include flex-direction(row);
+    // @include flex-wrap(nowrap);
+    @extend %columns;
+    align-items: center;
+
+    &:before {
+        content:url('../../img/kenya-flag-round.png');
+        padding-right: 0;
+        margin-bottom: 1rem;
+        @media #{$mq-1366} {
+          margin-bottom: 0;
+          padding-right: calc(#{$space-tiny} * 1.5);
+        }
+
+     }
+}
+// .country-thumbnails{
+//     //background: $grey-md;
+//     width: 90%;
+//     @include flexbox();
+//     @include flex-direction(row);
+//     @include flex-wrap(wrap);
+//     overflow: hidden;
+//     justify-content: center;
+//     background: $white;
+//     padding: calc(#{$space-tiny} * 1);
+//     position: relative;
+//     top: -0.5rem;
+//     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.25);
+//
+//     .first-column {
+//         flex: 1;
+//
+//     }
+//     .second-column {
+//         @include flex-direction(column);
+//         flex: 1;
+//     }
+//     .country-thumb-1, {
+//         @include flex-order(1);
+//         //flex: 1;
+//         //margin-top: 0.5rem;
+//         margin-bottom: 0;
+//         //width: 100%;
+//         //padding-left: 7%;
+//         &:first-child {
+//             margin-bottom: 0.65rem;
+//         }
+//         &:last-child {
+//
+//
+//         }
+//         img {
+//             width: 100%;
+//         }
+//     }
+//
+//     .country-thumb-2 {
+//         @include flex-order(2);
+//         flex: 1;
+//         margin-top: 0;
+//         margin-bottom: 0;
+//         width: 100%;
+//         padding-left: 8%;
+//         img {
+//             width: 98%;
+//
+//         }
+//     }
+//
+// }

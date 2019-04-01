@@ -4,10 +4,20 @@
 
 
 small {
+	@include font-size(14px);
+	@include line-height(18px);
 	display: block;
 
-    p + & {
-        margin-top: var(--text-regular);
+	@include break-point(tablet) {
+
+	}
+
+	@include break-point(laptop) {
+
+	}
+
+	@include break-point(desktop) {
+
 	}
 }
 

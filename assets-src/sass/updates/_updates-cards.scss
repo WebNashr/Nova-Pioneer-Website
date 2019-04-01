@@ -1,0 +1,29 @@
+
+/* cards */
+/* ==================================================== */
+
+
+.updates-2019 {
+    .section-admissions .card-container {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        margin: auto;
+        @extend %column-12;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .section-admissions .card {
+
+    }
+
+    .card figure {
+        img {
+            margin: 0 auto 1.5rem auto;
+            width: auto;
+        }
+    }
+}
+
+

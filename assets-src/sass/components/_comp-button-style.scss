@@ -4,15 +4,15 @@
 
 
 %button-style {
-	// //@extend %text-align-center;
-	// //@extend %text-transform-upper;
+	@extend %text-align-center;
+	@extend %text-transform-upper;
 	@include copy(regular);
 	@include line-height(1);
 	// @include letter-spacing(small);
-	@include border-radius(2.5px);
+	@include border-radius(3px);
 	@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
-	// border: 0 none;
-	// outline: 0 none;
+	@include border(0, solid, transparant);
+	@include outline(0, solid, transparant);
 	display: inline-block;
 	text-decoration: none;
 	text-transform: uppercase;

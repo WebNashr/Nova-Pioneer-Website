@@ -7,14 +7,25 @@
 
 @import "settings/index"; // high-level structural settings
 
-@import "external/index"; // 3rd party stylesheets
-
 @import "text/index"; // text formatting
 
 @import "components/index"; // reusable, low-level elements
 
 @import "pages/index"; // basic layout and page-specific settings
 
+// @import "themes/index";  // specific, pretty, and contextual display settings
+
+@import "external/index"; // 3rd party stylesheets
+
+// @import "diagnostics/index"; // sniffing tools, flares, etc.
+
 @import "hacks/index"; // polyfils, magic numbers, browser fixes, and vendor overrides
 
 @import "end/index"; // print media query
+
+
+
+// ===== some new styles overwriting old things =====
+// this should be used temporarily until we can rewrite a new syle system
+
+@import "updates/index"; // print media query

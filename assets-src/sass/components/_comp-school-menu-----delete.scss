@@ -1,0 +1,62 @@
+.school-menu-container {
+    background: $dark-blue;
+    width: 100%;
+    z-index: index($indices, z3);
+    //@include flexbox();
+    //@include flex-direction(row);
+} 
+.school-logo {
+    background: darken($dark-blue, 5%);
+    padding: calc(#{$space-tiny} * 1);
+    @include font-size(21px);
+    @include copy(light);
+    position: absolute;
+    width: 15%;
+    text-align: center;
+    //flex: 1 1 100%;
+    color: $white;
+}
+.school-menu {
+    flex: 1 1 100%;
+    //@include flexbox();
+	//@include flex-direction(column);
+	//@include flex-wrap(nowrap);
+    //justify-content: flex-end;
+    //align-content: stretch;
+    //text-align: center;
+    margin-left: 18%;
+    width:72%;
+    padding: 0.5rem; 
+    //@include flex-direction(row);
+    //justify-content: center;
+
+}
+.school-menu-item {
+    //@include flex(1, auto, 0);
+    align-self: center;
+
+    text-align: left;
+    text-decoration: none;
+ 
+    color: lighten($blue, 5%);
+
+    align-self: flex-start;
+    &:hover {
+        color: $blue;
+    }
+    .school-page-header & {
+        //margin-right: auto;
+        margin-right: 2rem;
+        @include font-size(13px);
+        @include copy(bold);
+        color: $grey;
+        letter-spacing: 0.005rem;
+        //padding-top: calc(#{$space-tiny} * 1); 
+        line-height: 1.1;
+        color: darken($grey, 50%);
+
+        &:first-child {
+
+        }
+    }
+}

@@ -16,7 +16,7 @@
 }
 
 .section-page-intro h2 {
-    // @include copy(light);
+    // @include title(light);
     @include font-size(28px);
     max-width: 95vw;
 
@@ -24,7 +24,7 @@
         font-size: inherit;
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         max-width: 75vw;
     }
 }
@@ -32,7 +32,7 @@
 .section-page-intro p {
     max-width: 95vw;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         max-width: 75vw;
     }
 }
@@ -43,7 +43,7 @@
     @extend %columns;
     width: 100%;
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         @include flexbox();
 	    @include flex-direction(row);
         @include flex-wrap(wrap);
@@ -65,7 +65,7 @@
     span.new-card-number {
         @include font-size(36px);
         @include line-height(1);
-        @include copy(bold);
+        @include title(bold);
         display: block;
         width: 64px;
         height: 64px;
@@ -96,7 +96,7 @@
     }
 
     p {
-        @include copy(medium);
+        @include title(medium);
         @include font-size(16px);
         @include line-height(1.35);
         display: block;
@@ -240,7 +240,7 @@
     }
 
     h2 {
-        @include copy(regular);
+        @include title(regular);
         @include font-size(22px);
         @include line-height(1.5);
         margin-bottom: calc(#{$space-tiny} * 0.5);
@@ -252,7 +252,7 @@
     }
 
     p {
-        @include copy(medium);
+        @include title(medium);
         @include font-size(15px);
         @include line-height(1.5);
         display: block;
@@ -342,7 +342,7 @@
 		}
     }
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
         width: calc(calc(100% - 48px) / 2);
         cursor: pointer;
 
@@ -388,7 +388,7 @@
         margin-top: calc(#{$space-tiny} * 2);
     }
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         width: calc(calc(100% - 48px) / 2);
 
         // override mobile
@@ -405,7 +405,7 @@
 		}
 	}
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
         width: calc(calc(100% - 96px) / 3);
 
         // override mobile, tablet
@@ -436,7 +436,7 @@
         margin-top: calc(#{$space-tiny} * 2);
     }
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         width: calc(calc(100% - 48px) / 2);
 
         // override mobile
@@ -453,7 +453,7 @@
 		}
 	}
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
         width: calc(calc(100% - 144px) / 4);
 
         // override mobile, tablet
@@ -480,7 +480,7 @@
 }
 
 .new-card-copy-caption {
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         position: absolute;
         bottom: 0;
         width: 100%;
@@ -506,7 +506,7 @@
 }
 
 .new-card-button {
-    @include copy(medium);
+    @include title(medium);
     @include font-size(16px);
     margin-top: 2rem;
     color: $blue-lt;
@@ -521,13 +521,13 @@
     @extend %columns;
     width: 100%;
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         @include flexbox();
 	    @include flex-direction(row);
         @include flex-wrap(wrap);
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 
     }
 }
@@ -579,7 +579,7 @@
         }
     }
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         @include flexbox();
 	    @include flex-direction(row);
         @include flex-wrap(wrap);
@@ -589,7 +589,7 @@
         }
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         &:not(:first-child) {
             margin-top: calc(#{$space-tiny} * 6);
         }
@@ -602,7 +602,7 @@
     width: 100%;
     overflow: hidden;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         width: 47.5%;
 
         .alternating-item:nth-child(even) & {
@@ -640,7 +640,7 @@
         background: rgba($raspberry, 0.875);
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         position: absolute;
         top: 0;
         left: -9999px;
@@ -652,7 +652,7 @@
     order: 2;
     padding: calc(#{$space-tiny} * 1.5);
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         width: 52.5%;
         padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2.5);
 
@@ -750,11 +750,11 @@
         color: $white;
     }
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         padding: 2.5rem;
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         padding: 0.75rem 2.5rem 0.75rem 2.5rem;
     }
 }
@@ -804,11 +804,11 @@
     margin-bottom: 1.5rem;
     overflow: hidden;
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         margin-bottom: 2rem;
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         margin-bottom: 3rem;
     }
 }
@@ -869,7 +869,7 @@
     box-shadow: unset;
     margin-bottom: 2rem;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         @include flex-direction(row);
         align-items: center;
         margin-bottom: 2rem;
@@ -881,7 +881,7 @@
     margin: 0 auto 2rem;
     border-radius: 50%;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         margin: unset;
         margin-bottom: 2rem;
     }
@@ -899,7 +899,7 @@
     content: '';
     z-index: -1;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         margin-top: -2rem;
         margin-right: -2rem;
     }
@@ -910,7 +910,7 @@
     bottom: -1rem;
     left: -1rem;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         bottom: -2rem;
         left: -2rem;
     }
@@ -923,7 +923,7 @@
     width: 100%;
     text-align: center;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         width: calc(100% - 250px);
         margin-left: 3rem;
         text-align: left;
@@ -945,7 +945,7 @@
 .interrupter-number {
     @include font-size(40px);
     @include line-height(1);
-    @include copy(bold);
+    @include title(bold);
     display: block;
     width: 5rem;
     height: 5rem;
@@ -956,7 +956,7 @@
     box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         @include font-size(64px);
         width: 8rem;
         height: 8rem;
@@ -973,7 +973,7 @@
     background: $white;
     box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         margin: -2rem 0 5rem 9rem;
         padding: 3rem 4rem;
     }
@@ -987,7 +987,7 @@
 	@include flex-direction(column);
     text-transform: unset;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		@include flex-direction(row);
     }
 }
@@ -996,7 +996,7 @@
     position: relative;
     padding: 0;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		padding: 0 0 0 2rem;
     }
 }
@@ -1007,7 +1007,7 @@
     @include flex-direction(row);
     width: 100%;
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         @include flexbox();
 	    @include flex-direction(row);
         @include flex-wrap(wrap);
@@ -1067,7 +1067,7 @@
         }
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		min-height: unset;
 
         &:not(:first-of-type) {
@@ -1123,7 +1123,7 @@
 .interview-number {
     @include font-size(32px);
     @include line-height(1);
-    @include copy(regular);
+    @include title(regular);
     display: block;
     width: 64px;
     height: 64px;
@@ -1144,7 +1144,7 @@
     margin: 1.5rem 0 0;
     border-radius: 8px;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		max-width: 480px;
         margin: 1.5rem 2rem 0 1.5rem;
     }
@@ -1162,7 +1162,7 @@
 
 .interview-description {
     display: block;
-    @include copy(medium);
+    @include title(medium);
     @include font-size(14px);
     @include line-height(1.5);
     padding: 1rem;
@@ -1186,7 +1186,7 @@
 
 @for $step from 1 through 5 {
     input[id="interview-step-#{$step}"]:checked ~ label[for="interview-step-#{$step}"] .interview-number {
-        @include copy(bold);
+        @include title(bold);
         @include font-size(32px);
         width: 64px;
         height: 64px;
@@ -1197,8 +1197,8 @@
             margin-left: 0;
         }
 
-        @media #{$mq-1366} {
-            @include copy(bold);
+        @include break-point(laptop) {
+            @include title(bold);
             @include font-size(52px);
             width: 140px;
             height: 140px;
@@ -1218,7 +1218,7 @@
         display: block;
         background: $grey-lt;
 
-        @media #{$mq-1366} {
+        @include break-point(laptop) {
             position: unset;
             top: unset;
             left: unset;
@@ -1233,7 +1233,7 @@
 
 
 label.opportunity-label {
-    @include copy(medium);
+    @include title(medium);
     @include font-size(14px);
     @include line-height(1);
     position: relative;
@@ -1257,7 +1257,7 @@ label.opportunity-label {
         background: lighten($grey-lt, 2%);
 	}
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 	    @include font-size(15px);
         display: inline-block;
         margin-bottom: 0;
@@ -1330,7 +1330,7 @@ label.opportunity-label {
         }
     }
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 	    @include flex-direction(row);
         @include flex-wrap(wrap);
     }
@@ -1341,7 +1341,7 @@ label.opportunity-label {
     display: block;
     width: 100%;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         width: 50%;
 
         .opportunity:nth-child(even) & {
@@ -1360,7 +1360,7 @@ label.opportunity-label {
         color: $white;
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         width: 50%;
         padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3.5);
     }
@@ -1380,7 +1380,7 @@ input[id="opportunity-1"]:checked ~ label[for="opportunity-1"] {
 	color: $white;
     background: $orange-lt;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         &::after {
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
@@ -1393,7 +1393,7 @@ input[id="opportunity-2"]:checked ~ label[for="opportunity-2"] {
     color: $white;
     background: $raspberry;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         &::after {
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
@@ -1406,7 +1406,7 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     color: $white;
     background: $blue-lt;
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         &::after {
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
@@ -1421,12 +1421,12 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     width: 100%;
     margin: 0 auto;
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         width: 90%;
         max-width: 1024px;
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         max-width: 1280px;
     }
 }
@@ -1485,14 +1485,14 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
         }
     }
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         img {
             width: 220px;
             margin: 0 auto calc(#{$space-tiny} * 2);
         }
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         @include flexbox();
 	    @include flex-direction(row);
         align-items: center;
@@ -1528,11 +1528,11 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
 .article-profile h1 {
     @include font-size(32px);
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 	    @include font-size(40px);
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		@include font-size(48px);
     }
 }
@@ -1543,13 +1543,13 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     @include flex-wrap(nowrap);
     margin-bottom: calc(#{$space-tiny} * 2);
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 	    @include flex-direction(row);
         align-items: flex-end;
         margin-bottom: calc(#{$space-tiny} * 3);
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		margin-bottom: calc(#{$space-tiny} * 7);
     }
 }
@@ -1558,11 +1558,11 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     width: 100%;
     box-shadow: 0 0px 16px 8px rgba(0, 0, 0, 0.1);
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 	    width: 180px;
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		width: 320px;
     }
 }
@@ -1573,7 +1573,7 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     background: $green-lt;
     z-index: -1;
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
         width: calc(100% - 180px + 3rem);
         height: auto;
         min-height: 100%;
@@ -1581,7 +1581,7 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
         padding: 3rem 3rem 3rem 6rem;
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		position: absolute;
         right: 3rem;
         top: 3rem;
@@ -1600,11 +1600,11 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     font-style: italic;
     color: $white;
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 	    @include font-size(20px);
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		@include font-size(24px);
     }
 }
@@ -1617,7 +1617,7 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
     font-style: normal;
     color: $white;
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 	    @include font-size(16px);
         margin-top: 1.5rem;
     }
@@ -1633,7 +1633,7 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
         margin-bottom: 0.5rem;
     }
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 	    &:not(:last-of-type) {
             margin-bottom: 2rem;
         }
@@ -1643,7 +1643,7 @@ input[id="opportunity-3"]:checked ~ label[for="opportunity-3"] {
         }
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		&:not(:last-of-type) {
             margin-bottom: 3rem;
         }

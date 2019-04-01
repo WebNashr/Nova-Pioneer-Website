@@ -14,7 +14,7 @@
 
 	.inner-event-container {
 	 	//@include flexbox();
-		border-left: 1px $grey-lt solid;
+		border-left: 1px $light-grey solid;
 		padding-left: calc(#{$space-tiny} * 2);
 		padding-right: 0;
 		flex-basis: 80%;
@@ -41,10 +41,10 @@
 	    a {
 	    	@include copy(bold);
 			@include font-size(26px);
-			color: $blue-dk;
+			color: $blue;
 
 			&:hover {
-				color: $blue-dk;
+				color: $dark-blue;
 			}
 	    }
 
@@ -55,14 +55,14 @@
 	    .date {
 	    	@include copy(bold);
 			@include font-size(16px);
-	    	color: $blue-dk;
+	    	color: $green-blue;
 	    	margin-bottom: 0.5rem;
 	    }
 
 	    .time{
 	    	@include copy(bold);
 			@include font-size(14px);
-	    	color: $grey-dk;
+	    	color: $dark-grey;
 	    	margin-bottom: 0.5rem;
 	    }
 
@@ -74,7 +74,7 @@
 
 	    		&:hover {
 	    			text-decoration: underline;
-	    			color: $blue-dk;
+	    			color: $dark-blue;
 	    		}
 	    	}
 	    }
@@ -91,7 +91,7 @@
 			border: 1px solid $white;
 
 			&:hover {
-				border: 1px solid $blue-dk;
+				border: 1px solid $blue;
 			}
 		}
 	}
@@ -137,14 +137,14 @@
 		.date {
 			// @include copy(bold);
 			// @include font-size(16px);
-			// color: $blue-dk;
+			// color: $green-blue;
 			// margin-bottom: 0.5rem;
 		}
 
 		.time{
 			// @include copy(bold);
 			// @include font-size(14px);
-			// color: $grey-dk;
+			// color: $dark-grey;
 			// margin-bottom: 0.5rem;
 		}
 
@@ -161,7 +161,7 @@
 			border: 1px solid $white;
 
 			&:hover {
-				border: 1px solid $blue-dk;
+				border: 1px solid $green-blue;
 			}
 		}
 	}

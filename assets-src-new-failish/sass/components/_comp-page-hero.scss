@@ -1,0 +1,144 @@
+
+
+.section-hero {
+    @include flexbox();
+    @include flex-direction(row);
+    min-height: 50vh;
+    background-image: url('../../img/large-hero-home.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-top: calc(#{$space-tiny} * 1);
+    padding-bottom: calc(#{$space-tiny} * 1);
+    justify-content: center;
+
+    &.country-home{
+        background-image: url('../../img/large-hero-country.jpg');
+    }
+
+    &.school-home{
+        background-image: url('../../img/large-hero-school.jpg');
+    }
+
+    &.learning-home{
+        background-image: url('../../img/large-hero-learning.jpg');
+    }
+
+    &.leadership-team{
+        background-image: url('../../img/large-hero-leadership.jpg');
+    }
+
+    &.working-at-np{
+        background-image: url('../../img/large-hero-working-at-np.jpg');
+    }
+
+    &.about-np{
+        background-image: url('../../img/large-hero-about-np.jpg');
+    }
+
+    &.admission-process-hero{
+        background-image: url('../../img/large-hero-admission-process.jpg');
+    }
+
+    &.contacts-hero{
+        background-image: url('../../img/large-hero-contacts.jpg');
+    }
+
+    &.corporate-hero{
+        background-image: url('../../img/large-hero-corporate.jpg');
+    }
+
+    &.events-hero{
+        background-image: url('../../img/large-hero-events.jpg');
+    }
+
+
+    @media #{$mq-768} {
+
+    }
+
+    @media #{$mq-1366} {
+
+    }
+
+    @media #{$mq-1600} {
+
+    }
+}
+
+// .hero-container {
+//      h2 {
+//         @include font-size(40px);
+//         @include copy(semi);
+//         color: $blue-dk;
+//     }
+// }
+
+// .hero-heading {
+//     @include flexbox();
+//     @include flex-direction(column);
+//     @include flex-wrap(nowrap);
+//     margin-bottom: 1rem;
+
+//     h1 {
+//         color: $white;
+//         text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+//         text-align: center;
+//         margin: auto;
+//         text-transform: uppercase;
+//         max-width: 800px;
+//     }
+
+//     @media #{$mq-768} {
+
+//     }
+
+//     @media #{$mq-1366} {
+//         @include flex-direction(row);
+//         margin-bottom: 4rem;
+//     }
+
+//     @media #{$mq-1600} {
+
+//     }
+// }
+
+// .main-callout-box {
+//     @extend %column;
+//     @extend %column-6;
+//     position: relative;
+//     background: $white;
+//     border: 1px solid darken($grey-md, 10%);
+//     //background: darken($grey-md, 50%);
+//     text-align: center;
+//     //max-width: 500px;
+//     padding: calc(#{$space-tiny} * 2);
+//     margin: auto;
+//     top: 12rem;
+//     box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.25);
+//     z-index: index($indices, z2);
+
+//     h1 {
+//         @include font-size(26px);
+//     }
+
+//     p {
+//         @include font-size(21px);
+//         @include copy(regular);
+//         color: $grey-lt;
+//         line-height: 1.5;
+//         padding-top: calc(#{$space-tiny} * 1);
+//     }
+
+//     a {
+//         display: block;
+//         @include font-size(21px);
+//         color: lighten($blue-dk, 20%);
+//         text-decoration: none;
+//         padding-top: 1rem;
+//         &:hover {
+//             color: $blue-dk;
+//             text-decoration: none;
+//         }
+//     }
+// }

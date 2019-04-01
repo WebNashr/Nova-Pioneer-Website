@@ -1,0 +1,18 @@
+
+/*  Main */
+/* ==================================================== */
+
+
+main {
+	width: 100%;
+}
+
+.main-home {
+    width: 100%;
+    background: lighten($grey-md, 8%);
+    
+    .page-home & {
+		margin-top: 100vh;
+		z-index: 9;
+	}
+}

@@ -1,0 +1,50 @@
+
+/*  Media */
+/* ==================================================== */
+
+
+figure {
+	position: relative;
+}
+
+
+figcaption {
+	display: block;
+
+	@media #{$mq-768} {
+
+	}
+
+	@media #{$mq-1366} {
+
+	}
+
+	@media #{$mq-1600} {
+
+	}
+}
+
+
+img {
+	width: 100%;
+	height: auto;
+
+	.learning-approach & {
+		margin: 0 auto 1.5rem auto;
+		width: 35%;
+	}
+
+	@media #{$mq-768} {
+
+	}
+
+	@media #{$mq-1366} {
+
+	}
+
+	@media #{$mq-1600} {
+
+	}
+}
+
+

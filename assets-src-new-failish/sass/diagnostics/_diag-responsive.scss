@@ -1,0 +1,71 @@
+
+/*  Page section */
+/* ==================================================== */
+
+
+body {
+	&:before {
+		@include copy(regular);
+		@include font-size(12px);
+		@include line-height(1);
+		position: fixed;
+		bottom: 0.75rem;
+		left: 0.75rem;
+		padding: 0.2rem 0.2rem 0.25rem 0.25rem;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		background: black;
+		border: 0.125rem solid black;
+		z-index: index($indices, z9);
+	}
+
+	@media #{$mq-767} {
+		&:before {
+			content: 'mobile';
+			color: red;
+			border-color: red;
+		}
+    }
+
+    @media #{$mq-768} {
+		&:before {
+			content: 'tablet';
+			color: orange;
+			border-color: orange;
+		}
+    }
+
+    @media #{$mq-1366} {
+		&:before {
+			content: 'laptop';
+			color: yellow;
+			border-color: yellow;
+		}
+    }
+
+    @media #{$mq-1440} {
+		&:before {
+			content: 'large laptop';
+			color: blue;
+			border-color: blue;
+		}
+    }
+
+    @media #{$mq-1600} {
+		&:before {
+			content: 'desktop';
+			color: indigo;
+			border-color: indigo;
+		}
+    }
+
+    @media #{$mq-1366} {
+		&:before {
+			content: 'monitor';
+			color: violet;
+			border-color: violet;
+		}
+    }
+}
+
+

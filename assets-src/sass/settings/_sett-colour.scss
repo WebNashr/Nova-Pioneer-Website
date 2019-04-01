@@ -1,11 +1,43 @@
 
-/* Colours */
+/* NP Brand Colours */
 /* ==================================================== */
 
 
-$white: #ffffff;
+$blue: rgba(19, 59, 85, 1.0000);
 
-$black: #0a0a0a;
+$dark-blue: rgba(7, 33, 52, 1.0000);
+
+$green-blue: rgba(90, 168, 165, 1.0000);
+
+$green-blue-light: rgba(109, 200, 193, 1.0000);
+
+$light-grey: rgba(149, 149, 149, 1.0000);
+
+$grey: rgba(239, 241, 240, 1.0000);
+
+$dark-grey: rgba(93, 93, 93, 1.0000);
+
+$white: rgba(255, 255, 255, 1.0000);
+
+$black: rgba(0, 0, 0, 1.0000);
+
+$background-grey: rgba(225, 225, 225, 1.0000);
+
+// $background-grey: rgba(221, 221, 221, 1.0000);
+
+$flare: red;
+
+$sky: rgba(53, 126, 174, 1.0000);
+
+$sky-light: lighten($sky, 15%);
+
+$raspberry: rgba(246, 0, 104, 1.0000);
+
+
+
+
+
+// new colours!!!
 
 $blue-dk: rgba(30, 63, 117, 1.0000);
 
@@ -19,8 +51,6 @@ $orange-dk: rgba(245, 138, 31, 1.0000);
 
 $orange-lt: rgba(255, 206, 1, 1.0000);
 
-$pink: rgba(245, 138, 31, 1.0000);
-
 $grey-dk: rgba(26, 26, 26, 1.0000);
 
 $grey-mdk: rgba(95, 95, 95, 1.0000);
@@ -28,56 +58,3 @@ $grey-mdk: rgba(95, 95, 95, 1.0000);
 $grey-md: rgba(191, 193, 191, 1.0000);
 
 $grey-lt: rgba(239, 241, 240, 1.0000);
-
-$grey-gh: rgba(239, 241, 240, 1.0000);
-
-$red: rgba(245, 138, 31, 1.0000);
-
-$flare: red;
-
-$sky: rgba(53, 126, 174, 1.0000);
-
-$sky-light: lighten($sky, 15%);
-
-$raspberry: rgba(246, 0, 104, 1.0000);
-
-
-
-@each $colour-name, $colour-value in
-    (black, $black),
-    (white, $white),
-    (blue-dk, $blue-dk),
-    (blue-lt, $blue-lt),
-    (green-dk, $green-dk),
-    (green-lt, $green-lt),
-    (orange-dk, $orange-dk),
-    (orange-lt, $orange-lt),
-    (pink, $pink),
-    (grey-dk, $grey-dk),
-    (grey-mdk, $grey-mdk),
-    (grey-md, $grey-md),
-    (grey-lt, $grey-lt),
-    (grey-gh, $grey-gh),
-    (flare, $flare),
-    (sky, $sky),
-    (sky-light, $sky-light),
-    (raspberry, $raspberry) {
-
-    %text-#{$colour-name} {
-        color: #{$colour-value};
-    }
-
-    .text-#{$colour-name} {
-        color: #{$colour-value};
-    }
-
-
-    %bg-#{$colour-name} {
-        background: #{$colour-value};
-    }
-
-    .bg-#{$colour-name} {
-        background: #{$colour-value};
-    }
-}
-

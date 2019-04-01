@@ -1,0 +1,29 @@
+
+/* Wrapper */
+/* ==================================================== */
+
+
+%wrapper {
+	@extend %clearfix;
+	width: 100%;
+    padding: 0 var(--space-1);
+
+    @media #{$mq-768} {
+        padding: 0 var(--space-3);
+    }
+
+    @media #{$mq-1024} {
+        padding: 0 var(--space-5);
+    }
+
+    @media #{$mq-1366} {
+        padding: 0 var(--space-6);
+    }
+
+    @media #{$mq-1600} {
+        padding: 0 var(--space-7);
+    }
+}
+
+// Usage:
+// div { @extend %wrapper; }

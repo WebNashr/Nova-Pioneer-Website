@@ -1,0 +1,64 @@
+
+/* Cards */
+/* ==================================================== */
+
+
+.card-container {
+	@include flexbox();
+	@include flex-direction(row);
+	@include flex-wrap(wrap);
+    // @extend %column-12;
+	justify-content: space-around;
+    width: 100%;
+	margin: auto;
+}
+
+
+.card {
+	// margin-bottom: var(--space-3);
+
+	// &:last-of-type{
+	// 	margin-bottom: 0;
+	// }
+}
+
+.card figure {
+    width: auto;
+}
+
+.card img {
+	width: auto;
+}
+
+
+/* import card variants */
+// @import "comp-card-fives";
+// @import "comp-card-fours";
+// @import "comp-card-threes";
+// @import "comp-card-twos";
+// @import "comp-card-threes";
+// @import "comp-card-fours";
+
+
+.card-admissions {
+	@extend %columns-5;
+    background: $grey-lt;
+    padding: var(--space-1);
+    border-radius: 8px;
+}
+
+
+.card-schools {
+	@extend %columns-3;
+}
+
+
+.card-people {
+	@extend %columns-4;
+}
+
+
+.card-contacts {
+	@extend %columns-3;
+}
+

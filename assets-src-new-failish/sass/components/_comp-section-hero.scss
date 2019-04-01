@@ -1,0 +1,31 @@
+/*  Hero */
+/* ==================================================== */
+
+.section-hero {
+    @include flexbox();
+    @include flex-direction(column);
+    justify-content: center;
+    position: relative;
+    height: calc(calc(9 / 16) * 100vw);
+
+    img {
+        border-radius: 12px;
+    }
+
+
+    @media #{$mq-768} {
+
+    }
+
+    @media #{$mq-1366} {
+        height: 82vh;
+    }
+}
+
+.hero-container {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    background-color: transparent;
+}
+

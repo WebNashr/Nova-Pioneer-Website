@@ -1,0 +1,17 @@
+
+/* Container */
+/* ==================================================== */
+
+
+%container {
+	@extend %clearfix;
+	margin: auto;
+
+    .page-content & {
+        position: relative;
+        width: 100%;
+    }
+}
+
+// Usage:
+// div { @extend %container; }

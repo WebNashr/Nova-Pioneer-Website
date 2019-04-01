@@ -1,0 +1,96 @@
+
+/* footer */
+/* ==================================================== */
+
+
+.updates-2019 {
+    .button {
+        @extend %text-white;
+        border-radius: 3px;
+    }
+
+    .button-small {
+        $p: 13px;
+        @include font-size(13px);
+        @include letter-spacing(tiny);
+        padding: $p calc(#{$p} * 1.75);
+        letter-spacing: 1px;
+        border-radius: 3px;
+    }
+
+    .button-default {
+        $p: 14px;
+        @include font-size(14px);
+        @include letter-spacing(small);
+        padding: $p calc(#{$p} * 1.75);
+        letter-spacing: 2px;
+        border-radius: 4px;
+    }
+
+    .button-large {
+        $p: 19px;
+        @include font-size(19px);
+        @include letter-spacing(small);
+        padding: $p calc(#{$p} * 1.75);
+        letter-spacing: 3px;
+        border-radius: 6px;
+    }
+
+    .button-blue-dk {
+        @extend %bg-blue-dk;
+
+        &:hover {
+            @extend %bg-green-lt;
+        }
+    }
+
+    .button-green-dk {
+        @extend %bg-green-dk;
+
+        &:hover {
+            @extend %bg-blue-dk;
+        }
+    }
+
+    .button-orange-dk {
+        @extend %bg-orange-dk;
+
+        &:hover {
+            @extend %bg-blue-dk;
+        }
+    }
+
+    .button-raspberry {
+        @extend %bg-raspberry;
+
+        &:hover {
+            @extend %bg-blue-dk;
+        }
+    }
+
+    .button-blue-lt {
+        @extend %bg-blue-lt;
+
+        &:hover {
+            @extend %bg-blue-dk;
+        }
+    }
+
+    .button-green-lt {
+        @extend %bg-green-lt;
+
+        &:hover {
+            @extend %bg-blue-dk;
+        }
+    }
+
+    .button-orange-lt {
+        @extend %bg-orange-lt;
+
+        &:hover {
+            @extend %bg-blue-dk;
+        }
+    }
+}
+
+

@@ -27,7 +27,7 @@
 		position: relative;
 	}
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
         height: 70vh;
 
 		&.small-screens {
@@ -92,7 +92,7 @@
 	 		@include font-size(14px);
 	 		@include copy(regular);
 
-			@media #{$mq-1600} {
+			@include break-point(desktop) {
 				@include font-size(18px);
 			}
 	 	}
@@ -100,30 +100,30 @@
 	 	a {
 	 		display: block;
 	 		@include font-size(14px);
-	 		color: lighten($blue-dk, 20%);
+	 		color: lighten($blue, 20%);
 	 		padding-top: 0.25rem;
 
 	 		&:hover {
 	 			color: $orange-lt;
 	 		}
 			 
-			@media #{$mq-1600} {
+			@include break-point(desktop) {
 				padding-top: 0.75rem;
 				@include font-size(16px);
 			}
 	 	}
 
-		@media #{$mq-768} {
+		@include break-point(tablet) {
 			max-width: 200px;
 		}
 
-		@media #{$mq-1366} {
+		@include break-point(laptop) {
 			max-width: 200px;
 			padding: calc(#{$space-tiny} * 1);
 			left: 0;
 		}
 
-		@media #{$mq-1600} {
+		@include break-point(desktop) {
 			padding: calc(#{$space-tiny} * 1.5);
 			max-width: 270px;
 		}
@@ -146,11 +146,11 @@
 			align-self: center;
 			width: 100%;
 			max-width: 100%;
-			background: $blue-dk;
+			background: $blue;
 		}
 	}
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 		.small-screens & {
 			.full-image-caption {
 				position: absolute;
@@ -167,7 +167,7 @@
 		}
     }
 	
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		&.parallax {
 			background-attachment: fixed;
 		}
@@ -181,7 +181,7 @@
 	height: auto;
 	margin-top: 4rem;
   	margin-bottom: 0;
-  	background: $grey-md;
+  	background: $grey;
 
 	.section-nav {
 		@include flex-direction(column);
@@ -191,15 +191,15 @@
 		h1 {
 			@include copy(semi);
 			@include font-size(36px);
-			color: $blue-dk;
+			color: $green-blue;
 			text-shadow: none;
 		}
 
 		a {
-			color: $blue-dk;
+			color: $blue;
 
 			&:hover {
-				color: $blue-dk;
+				color: $dark-blue;
 				text-decoration: underline;
 			}
 		}
@@ -208,7 +208,7 @@
 	.inner-container {
 	 	@include flexbox();
 	 	@include flex-direction(column);
-		border-left: 1px $grey-lt solid;
+		border-left: 1px $light-grey solid;
 		padding-left: calc(#{$space-tiny} * 2);
 		padding-right: 0;
 		height: 99%;
@@ -254,18 +254,18 @@
 			border-radius: 0;
 			appearance: normal;
 			padding: 0.6rem 1rem;
-			//color: $blue-dk;
-			color: lighten($grey-dk, 10%);
+			//color: $blue;
+			color: lighten($dark-grey, 10%);
 
 			option {
-				color: $blue-dk;
+				color: $blue;
 				
 				&:checked {
-					color: $blue-dk;
+					color: $blue;
 				}
 
 				&:not(:checked) {
-					color: lighten($grey-dk, 10%);
+					color: lighten($dark-grey, 10%);
 				}
 			}
 		}
@@ -273,7 +273,7 @@
 		.submit-button {
 			@include flex(1, 1, auto);
 			color: $white;
-			background: $blue-dk;
+			background: $blue;
 			//align-self: flex-end;
 			height: auto;
 			padding:0.4rem 1rem;
@@ -281,7 +281,7 @@
 			@include font-size(21px);
 
 			&:hover {
-				background: $blue-dk;
+				background: $dark-blue;
 				border: none;
 			}
 		}

@@ -18,14 +18,14 @@
     letter-spacing: 0.05rem;
     text-align: center;
     text-transform: capitalize;
-    color: $grey-lt;
+    color: $light-grey;
     cursor: pointer;    
 
     // &.prev,
     // &.next {
     //     &:hover {
     //         color: $white;
-    //         background: $blue-dk;
+    //         background: $blue;
     //     }
     // }
 
@@ -34,16 +34,16 @@
         height: 2rem;
         padding: 10px 0 0;
         color: $white;
-        background: $blue-dk;
+        background: $green-blue;
         border-radius: 50%;
     }
 
     &:hover {
-        color: $blue-dk;
+        color: $blue;
 
         &.current {
             color: $white;
-            background: $blue-dk;
+            background: $green-blue;
         }
     }
 }

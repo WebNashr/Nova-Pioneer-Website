@@ -1,0 +1,14 @@
+
+/* Small */
+/* ==================================================== */
+
+
+small {
+	display: block;
+
+    p + & {
+        margin-top: var(--text-regular);
+	}
+}
+
+

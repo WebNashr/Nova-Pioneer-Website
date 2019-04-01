@@ -18,7 +18,7 @@
 		background: $blue-dk;
 	}
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		&:not(:first-of-type) {
     		margin-left: calc(#{$space-tiny} * 2);
     	}
@@ -59,7 +59,7 @@
 
 // 	.inner-container {
 // 	 	@include flexbox();
-// 		border-left: 1px $grey-lt solid;
+// 		border-left: 1px $light-grey solid;
 // 		padding-left: calc(#{$space-tiny} * 2);
 // 		padding-right: 0;
 // 		flex-basis: 80%;
@@ -77,7 +77,7 @@
 // 		width: auto;
 // 		@include font-size(21px);
 // 		line-height: 2;
-// 		color: $grey-dk;
+// 		color: $dark-grey;
 // 		margin-bottom: 2rem;
 
 // 		.phone-contact-one,

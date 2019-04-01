@@ -7,7 +7,7 @@
   width: 100%;
 
   // padding: 0 calc(#{$space-tiny} * 1) !important;
-  @media #{$mq-768} {
+  @include break-point(tablet) {
       // padding: 0 calc(#{$space-tiny} * 3) !important;
   }
   #content-slider {
@@ -47,13 +47,13 @@
           // width: 300px !important;
 
         }
-      @media #{$mq-768} {
+      @include break-point(tablet) {
         // min-width: 175px;
         // margin-bottom: 4rem;
         // margin-left: 47px;
         // margin-left: -50px;
       }
-      @media #{$mq-1366} {
+      @include break-point(laptop) {
 
         // margin-left: 8px;
 
@@ -84,12 +84,12 @@
         and (max-device-width: 2560px) {
             // margin-left: 20px;
       }
-      // @media #{$mq-1600} {
+      // @include break-point(desktop) {
       //
       //   margin-left: 9px;
       //
       // }
-      // @media #{$mq-1366} {
+      // @include break-point(monitor) {
       //   margin-left: 30px;
       //
       // }
@@ -102,7 +102,7 @@
   }
   .team-slider{
     .lSAction > a {
-      @media #{$mq-1366} {
+      @include break-point(laptop) {
         top: 25%;
       }
     }
@@ -124,10 +124,10 @@
   }
   &.testimonials {
     padding: calc(#{$space-tiny} * 3) 0;
-    @media #{$mq-768} {
+    @include break-point(tablet) {
       padding: 0 calc(#{$space-tiny} * 1);
     }
-    @media #{$mq-1600} {
+    @include break-point(desktop) {
       padding: 0 calc(#{$space-tiny} * 3);
     }
   }
@@ -141,7 +141,7 @@
   .item{
             margin-bottom: 60px;
         }
-  @media #{$mq-1366} {
+  @include break-point(monitor) {
     width:100%;
     margin: 0 auto;
   }
@@ -313,13 +313,13 @@
     opacity: 0.5;
     -webkit-transition: opacity 0.35s linear 0s;
     transition: opacity 0.35s linear 0s;
-    // @media #{$mq-767} {
+    // @include break-point(mobile) {
     //   top: 15%;
     // }
-    @media #{$mq-768} {
+    @include break-point(tablet) {
       top: 25%;
     }
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
       top: 50%;
     }
 }

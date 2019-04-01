@@ -1,0 +1,92 @@
+
+/* country */
+/* ==================================================== */
+
+
+.section-school-list-select {
+    @extend %bg-white;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+
+    &:hover {
+        @extend %bg-grey-gh;
+        border: none;
+
+        p {
+            @extend %text-grey-mdk;
+            padding: 0;
+        }
+    }
+}
+
+.section-school-list-select img {
+    margin-bottom: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.section-school-list-select .school-summary {
+    padding: 2rem;
+}
+
+.section-school-list-select p {
+    @include font-size(14px);
+    @include line-height(24px);
+    @extend %text-grey-dk;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.section-school-list-select .button {
+    margin: 0;
+}
+
+
+.section-video-side {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    @extend %columns;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.video-side-embed {
+    @extend %column-8;
+
+    iframe,
+    embed {
+        border-radius: 8px;
+    }
+
+    .section-video-side-left & {
+        order: 1;
+    }
+
+    .section-video-side-right & {
+        order: 2;
+    }
+}
+
+.video-side-text {
+    @extend %column-4;
+
+    .section-video-side-left & {
+        order: 2;
+        margin-left: 3rem;
+    }
+
+    .section-video-side-right & {
+        order: 1;
+        margin-right: 3rem;
+    }
+
+    h3 {
+        // @extend %text-blue-dk;
+    }
+}
+
+
+

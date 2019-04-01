@@ -1,0 +1,268 @@
+
+/*  Flex-box grid */
+/* ==================================================== */
+
+
+$system: 12;
+// $gutter: $space-2-5;
+$gutter: var(--space-3);
+
+
+@mixin grid-settings($cols, $gut: null, $split: null) {
+    flex-grow: $cols;
+    $void: calc(#{$gutter} * #{$gut});
+    $sum: calc(100% - #{$void});
+    width: calc(#{$sum} / #{$split});
+    max-width: calc(#{$sum} / #{$split});
+}
+
+
+%columns {
+    @include flexbox();
+    @include flex-direction(column);
+    clear: both;
+    margin: 0;
+
+    &.columns-wrap {
+        @include flex-wrap(wrap);
+    }
+
+    &.columns-nowrap {
+        @include flex-wrap(nowrap);
+    }
+
+    &:not(:first-of-type) {
+        margin-top: 3rem;
+    }
+
+    @media #{$mq-1024} {
+        @include flex-direction(row);
+    }
+}
+
+%column {
+    flex: 1 1 auto;
+
+    &:not(:first-of-type) {
+        margin-top: $gutter;
+    }
+
+    @media #{$mq-1024} {
+        &:not(:first-of-type) {
+            margin-left: $gutter;
+        }
+    }
+}
+
+
+%column-1 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(1,11,12);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+    }
+}
+
+%column-2 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(2,5,6);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+
+        &:nth-child(6n+7) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+7) {
+            margin-top: $gutter;
+        }
+    }
+}
+
+%column-3 {
+    @extend %column;
+    @include grid-settings(12,0);
+
+    @media #{$mq-1024} {
+        @include grid-settings(3,3,4);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+
+        &:nth-child(4n+5) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+5) {
+            margin-top: $gutter;
+        }
+    }
+}
+
+%column-4 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(4,2,3);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+
+        &:nth-child(3n+4) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+4) {
+            margin-top: $gutter;
+        }
+    }
+}
+
+%column-5 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(5,2,2);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+    }
+}
+
+%column-6 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(2,1,2);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+
+        &:nth-child(2n+3) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: $gutter;
+        }
+    }
+}
+
+%column-7 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(7,1);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+    }
+}
+
+%column-8 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(8,1);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+    }
+}
+
+%column-9 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(9,1);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+    }
+}
+
+%column-10 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(10,1);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+    }
+}
+
+%column-11 {
+    @extend %column;
+
+    @media #{$mq-1024} {
+        @include grid-settings(11,1);
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+    }
+}
+
+%column-12 {
+    @extend %column;
+    margin-left: 0;
+
+    @media #{$mq-1024} {
+        @include grid-settings(12,0);
+        margin-left: 0;
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+        }
+
+        &:not(:first-of-type) {
+            margin-left: 0;
+        }
+    }
+}
+
+
+
+.columns {
+    @extend %columns;
+
+    &.columns-clear {
+        margin-top: 0;
+    }
+}
+
+.column {
+    @extend %column;
+}
+
+@for $col from 1 through 12 {
+    .column-#{$col} {
+        @extend %column-#{$col};
+    }
+}
+
+.column-hide {
+    display: none;
+
+    @media #{$mq-1024} {
+        display: block
+	}
+}
+

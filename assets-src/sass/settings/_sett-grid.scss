@@ -3,98 +3,100 @@
 /* ==================================================== */
 
 
-$system: 12;
-$gutter: $space-2-5;
-
-
-@mixin grid-settings($cols, $gut: null, $split: null) {
-    flex-grow: $cols;
-    $void: calc(#{$gutter} * #{$gut});
-    $sum: calc(100% - #{$void});
-    width: calc(#{$sum} / #{$split});
-    max-width: calc(#{$sum} / #{$split});
-}
+$gut: 3rem;
 
 
 %columns {
     @include flexbox();
     @include flex-direction(column);
-    clear: both;
-    margin: 0;
+    @include flex-wrap(nowrap);
 
-    &.columns-wrap {
-        @include flex-wrap(wrap);
-    }
-
-    &.columns-nowrap {
-        @include flex-wrap(nowrap);
-    }
-
-    &:not(:first-of-type) {
-        margin-top: 3rem;
-    }
-
-    @media #{$mq-1024} {
+    @include break-point(laptop) {
         @include flex-direction(row);
+        @include flex-wrap(wrap);
     }
 }
 
 %column {
-    flex: 1 1 auto;
-
-    &:not(:first-of-type) {
-        margin-top: $gutter;
-    }
-
-    @media #{$mq-1024} {
+    @include break-point(tablet) {
         &:not(:first-of-type) {
-            margin-left: $gutter;
+            margin-left: $gut;
         }
     }
 }
 
 
 %column-1 {
-    @extend %column;
+    // flex: 1;
 
-    @media #{$mq-1024} {
-        @include grid-settings(1,11,12);
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
+    @include break-point(laptop) {
+        flex: 1;
     }
 }
 
 %column-2 {
-    @extend %column;
+    // flex: 2;
 
-    @media #{$mq-1024} {
-        @include grid-settings(2,5,6);
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
-
+    @include break-point(laptop) {
+        flex: 2;
+        flex-basis: calc((100% - calc(3rem * 5)) / 6);
+        max-width: calc((100% - calc(3rem * 5)) / 6);
+        
         &:nth-child(6n+7) {
             margin-left: 0;
         }
 
         &:nth-child(n+7) {
-            margin-top: $gutter;
+            margin-top: $gut;
         }
     }
 }
 
 %column-3 {
-    @extend %column;
-    @include grid-settings(12,0);
+    // flex: 3;
 
-    @media #{$mq-1024} {
-        @include grid-settings(3,3,4);
+    @include break-point(tablet) {
+        flex: 6;
+        flex-basis: calc((100% - calc(3rem * 1)) / 2);
+        max-width: calc((100% - calc(3rem * 1)) / 2);
+        
+        &:nth-child(2n+3) {
+            margin-left: 0;
+        }
 
-        &:not(:first-of-type) {
-            margin-top: unset;
+        &:nth-child(n+3) {
+            margin-top: $gut;
+        }
+
+        body.ios & {
+            flex: unset;
+            flex-basis: unset;
+            width: 100%;
+            max-width: calc((100% - calc(3rem * 1)) / 2);
+            margin-top: 2rem;
+            margin-left: 0;
+
+            &:nth-child(2n+3) {
+                margin-left: 0;
+            }
+
+            &:nth-child(n+3) {
+                margin-top: 2rem;
+            }
+        }
+    }
+
+    @include break-point(laptop) {
+        flex: 3;
+        flex-basis: calc((100% - calc(3rem * 3)) / 4);
+        max-width: calc((100% - calc(3rem * 3)) / 4);
+        
+        &:nth-child(2n+3) {
+            margin-left: $gut;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 0;
         }
 
         &:nth-child(4n+5) {
@@ -102,19 +104,56 @@ $gutter: $space-2-5;
         }
 
         &:nth-child(n+5) {
-            margin-top: $gutter;
+            margin-top: $gut;
         }
     }
 }
 
 %column-4 {
-    @extend %column;
+    // flex: 4;
 
-    @media #{$mq-1024} {
-        @include grid-settings(4,2,3);
+    @include break-point(tablet) {
+        flex: 6;
+        flex-basis: calc((100% - calc(3rem * 1)) / 2);
+        max-width: calc((100% - calc(3rem * 1)) / 2);
+        
+        &:nth-child(2n+3) {
+            margin-left: 0;
+        }
 
-        &:not(:first-of-type) {
-            margin-top: unset;
+        &:nth-child(n+3) {
+            margin-top: $gut;
+        }
+
+        body.ios & {
+            flex: unset;
+            flex-basis: unset;
+            width: 100%;
+            max-width: calc((100% - calc(3rem * 1)) / 2);
+            margin-top: 2rem;
+            margin-left: 0;
+
+            &:nth-child(2n+3) {
+                margin-left: 0;
+            }
+
+            &:nth-child(n+3) {
+                margin-top: 2rem;
+            }
+        }
+    }
+
+    @include break-point(laptop) {
+        flex: 4;
+        flex-basis: calc((100% - calc(3rem * 2)) / 3);
+        max-width: calc((100% - calc(3rem * 2)) / 3);
+
+        &:nth-child(2n+3) {
+            margin-left: $gut;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 0;
         }
 
         &:nth-child(3n+4) {
@@ -122,146 +161,128 @@ $gutter: $space-2-5;
         }
 
         &:nth-child(n+4) {
-            margin-top: $gutter;
+            margin-top: $gut;
         }
     }
 }
 
 %column-5 {
-    @extend %column;
+    // flex: 5;
 
-    @media #{$mq-1024} {
-        @include grid-settings(5,2,2);
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
+    @include break-point(laptop) {
+        flex: 5;
     }
 }
 
 %column-6 {
-    @extend %column;
+    // flex: 6;
 
-    @media #{$mq-1024} {
-        @include grid-settings(2,1,2);
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
-
+    @include break-point(laptop) {
+        flex: 6;
+        flex-basis: calc((100% - calc(3rem * 1)) / 2);
+        max-width: calc((100% - calc(3rem * 1)) / 2);
+        
         &:nth-child(2n+3) {
             margin-left: 0;
         }
 
         &:nth-child(n+3) {
-            margin-top: $gutter;
+            margin-top: $gut;
         }
     }
 }
 
 %column-7 {
-    @extend %column;
+    // flex: 7;
 
-    @media #{$mq-1024} {
-        @include grid-settings(7,1);
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
+    @include break-point(laptop) {
+        flex: 7;
     }
 }
 
 %column-8 {
-    @extend %column;
+    // flex: 8;
 
-    @media #{$mq-1024} {
-        @include grid-settings(8,1);
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
+    @include break-point(laptop) {
+        flex: 8;
     }
 }
 
 %column-9 {
-    @extend %column;
+    // flex: 9;
 
-    @media #{$mq-1024} {
-        @include grid-settings(9,1);
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
+    @include break-point(laptop) {
+        flex: 9;
     }
 }
 
 %column-10 {
-    @extend %column;
+    // flex: 10;
 
-    @media #{$mq-1024} {
-        @include grid-settings(10,1);
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
+    @include break-point(laptop) {
+        flex: 10;
     }
 }
 
 %column-11 {
-    @extend %column;
+    // flex: 11;
 
-    @media #{$mq-1024} {
-        @include grid-settings(11,1);
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
+    @include break-point(laptop) {
+        flex: 11;
     }
 }
 
 %column-12 {
-    @extend %column;
-    margin-left: 0;
+    // flex: 12;
 
-    @media #{$mq-1024} {
-        @include grid-settings(12,0);
-        margin-left: 0;
-
-        &:not(:first-of-type) {
-            margin-top: unset;
-        }
-
-        &:not(:first-of-type) {
-            margin-left: 0;
-        }
+    @include break-point(laptop) {
+        flex: 12;
     }
 }
 
 
 
-.columns {
-    @extend %columns;
 
-    &.columns-clear {
-        margin-top: 0;
-    }
-}
+// body.ios {
+// 	%column-4 {
+//         // flex: 4;
+//         background: cyan;
 
-.column {
-    @extend %column;
-}
+//         @include break-point(tablet) {
+//             background: wheat;
+//             flex: 6;
+//             flex-basis: calc((100% - calc(3rem * 1)) / 2);
+//             max-width: calc((100% - calc(3rem * 1)) / 2);
+            
+//             &:nth-child(2n+3) {
+//                 margin-left: 0;
+//             }
 
-@for $col from 1 through 12 {
-    .column-#{$col} {
-        @extend %column-#{$col};
-    }
-}
+//             &:nth-child(n+3) {
+//                 margin-top: $gut;
+//             }
+//         }
 
-.column-hide {
-    display: none;
+//         @include break-point(laptop) {
+//             flex: 4;
+//             flex-basis: calc((100% - calc(3rem * 2)) / 3);
+//             max-width: calc((100% - calc(3rem * 2)) / 3);
 
-    @media #{$mq-1024} {
-        display: block
-	}
-}
+//             &:nth-child(2n+3) {
+//                 margin-left: $gut;
+//             }
 
+//             &:nth-child(n+3) {
+//                 margin-top: 0;
+//             }
+
+//             &:nth-child(3n+4) {
+//                 margin-left: 0;
+//             }
+
+//             &:nth-child(n+4) {
+//                 margin-top: $gut;
+//             }
+//         }
+//     }
+// }

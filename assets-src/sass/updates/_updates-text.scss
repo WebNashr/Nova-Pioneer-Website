@@ -1,0 +1,83 @@
+
+/* text */
+/* ==================================================== */
+
+
+.updates-2019 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include line-height(1.25);
+    @extend %text-blue-dk;
+	clear: both;
+	display: block;
+}
+
+
+h1 {
+	@include title(bold); //should be semibold
+    @include font-size(56px);
+    @include line-height(64px);
+}
+
+
+h2 {
+	@include title(bold);
+    @include font-size(36px);
+    @include line-height(44px);
+}
+
+
+h3 {
+    @include title(bold);
+	@include font-size(32px);
+    @include line-height(36px);
+}
+
+
+h4 {
+    @include title(bold);
+	@include font-size(24px);
+    @include line-height(32px);
+}
+
+
+h5 {
+    @include title(bold);
+	@include font-size(16px);
+    @include line-height(24px);
+}
+
+
+h6 {
+    @include title(medium);
+	@include font-size(14px);
+    @include line-height(24px);
+    text-transform: uppercase;
+}
+
+
+p {
+	@include font-size(16px);
+	@include line-height(1.35);
+    @include line-height(24px);
+    @extend %text-grey-md;
+	position: relative;
+
+	@include break-point(tablet) {
+
+	}
+
+	@include break-point(laptop) {
+
+	}
+
+	@include break-point(desktop) {
+
+	}
+}
+}
+

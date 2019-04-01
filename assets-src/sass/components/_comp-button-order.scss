@@ -7,61 +7,35 @@
 	/* Primary */
 	@if $button-order == 'primary' {
 		color: $white;
-		background: $blue-dk;
-
-        &:hover {
-            color: $white;
-		    // background: $grey-dk;
-            background: $blue-dk;
-        }
+		background: $blue-lt;
 	}
 
 	/* Primary alternative */
 	@else if $button-order == 'primary-alt' {
-		color: $blue-dk;
+		color: $blue-lt;
 		background: $white;
-
-        &:hover {
-            color: $white;
-		    // background: $grey-dk;
-            background: $blue-dk;
-        }
 	}
 
 	/* Secondary */
 	@else if $button-order == 'secondary' {
 		color: $white;
-		background: $black;
-
-        &:hover {
-            color: $white;
-		    background: $blue-dk;
-        }
+		background: $green-lt;
 	}
 
 	/* Secondary alternative */
 	@else if $button-order == 'secondary-alt' {
-		color: $white;
-		background: $grey-md;
-
-        &:hover {
-            color: $white;
-		    background: $blue-dk;
-        }
+		color: $green-lt;
+		background: $white;
 	}
 
 	/* Disabled */
 	@else if $button-order == 'disabled' {
-		color: $grey-md;
-		background: $grey-lt;
+		color: $grey-lt;
+		background: $grey-mdk;
 		cursor: none;
-
-        &:hover {
-            color: $grey-md;
-		    background: $grey-lt;
-        }
 	}
 }
+
 
 // div { @include button-order(primary); }
 

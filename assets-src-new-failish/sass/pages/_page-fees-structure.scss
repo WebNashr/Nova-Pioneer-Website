@@ -1,0 +1,73 @@
+.fees-content{
+	margin: 2rem auto 2rem auto;
+	width: 60%;
+	padding-bottom: 1rem;
+	//margin-top: -2rem;
+	h1 {
+		max-width: 100%;
+		margin-bottom: 2rem;
+		color: $blue-dk;
+		padding-right: calc(#{$space-tiny} * 2);
+		padding-left: calc(#{$space-tiny} * 2);
+		&.page-title {
+			text-align: center;
+		}
+	}
+	h2 {
+		padding-right: calc(#{$space-tiny} * 2);
+		padding-left: calc(#{$space-tiny} * 2);
+	}
+	p {
+		@include copy(regular);
+		@include font-size(21px);
+		line-height: 1.65;
+		margin-bottom: 2rem;
+		padding-right: calc(#{$space-tiny} * 2);
+		padding-left: calc(#{$space-tiny} * 2);
+ 
+	}
+	.intro-paragraph{
+		@include font-size(26px);
+		@include copy(light);
+		//line-height: 1.5;
+	}
+	a {
+		color: $blue-dk;
+		&:hover {
+			color: $blue-dk;
+		}
+	}
+	b {
+		color: darken($blue-dk, 20%);
+	}
+	ul {
+		color: $grey-dk;
+		@include font-size(18px);
+		list-style-type: disc;
+		line-height: 1.5;
+		margin-top: -1rem;
+		padding-right: calc(#{$space-tiny} * 4);
+		padding-left: calc(#{$space-tiny} * 4);
+
+		li {
+			margin-bottom: 1rem;
+			&:last-child {
+				margin-bottom: 2rem;
+			}
+		}
+		b {
+			color: $grey-dk;
+		}
+	}
+
+}
+
+.faqs-fees-container {
+	margin-bottom: 0;
+	padding-top: 0;
+}
+
+// .download-document {
+// 	margin: -2rem 0 4rem 0;
+// }
+

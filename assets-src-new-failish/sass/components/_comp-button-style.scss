@@ -1,0 +1,26 @@
+
+/*  Button Style */
+/* ==================================================== */
+
+
+%button-style {
+	// //@extend %text-align-center;
+	// //@extend %text-transform-upper;
+	@include copy(regular);
+	@include line-height(1);
+	// @include letter-spacing(small);
+	@include border-radius(2.5px);
+	@include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
+	// border: 0 none;
+	// outline: 0 none;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	appearance: none;
+	cursor: pointer;
+	transition: $ease;
+}
+
+// div { @extend %button-style; }
+
+

@@ -42,10 +42,10 @@
   //   margin-left: 0;
   //   width: 45%;
   //   line-height: 1.25;
-  //   @media #{$mq-768} {
+  //   @include break-point(tablet) {
   //     width: 17%;
   //   }
-  //   @media #{$mq-1366} {
+  //   @include break-point(laptop) {
   //     margin-left: 43%;
   //     width: auto;
   //   }
@@ -54,19 +54,19 @@
     margin-top: 0.5rem;
     width: 60%;
     line-height: 1.25;
-    @media #{$mq-767} {
+    @include break-point(mobile) {
       width: 60%;
     }
-    @media #{$mq-768} {
+    @include break-point(tablet) {
       // width: 35%;
     }
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
       width: auto;
     }
   }
 
   &:hover{
-    // color: $blue-dk;
+    // color: $blue;
   }
 }
 
@@ -83,10 +83,10 @@
         margin-left: 25%;
       }
 
-		@media #{$mq-768} {
+		@include break-point(tablet) {
       margin-left: 42%;
     }
-		@media #{$mq-1366} {
+		@include break-point(laptop) {
       margin-left: 43%;
     }
 	}

@@ -1,0 +1,68 @@
+
+/*  Button Order */
+/* ==================================================== */
+
+
+@mixin button-order($button-order) {
+	/* Primary */
+	@if $button-order == 'primary' {
+		color: $white;
+		background: $blue-dk;
+
+        &:hover {
+            color: $white;
+		    // background: $grey-dk;
+            background: $blue-dk;
+        }
+	}
+
+	/* Primary alternative */
+	@else if $button-order == 'primary-alt' {
+		color: $blue-dk;
+		background: $white;
+
+        &:hover {
+            color: $white;
+		    // background: $grey-dk;
+            background: $blue-dk;
+        }
+	}
+
+	/* Secondary */
+	@else if $button-order == 'secondary' {
+		color: $white;
+		background: $black;
+
+        &:hover {
+            color: $white;
+		    background: $blue-dk;
+        }
+	}
+
+	/* Secondary alternative */
+	@else if $button-order == 'secondary-alt' {
+		color: $white;
+		background: $grey-md;
+
+        &:hover {
+            color: $white;
+		    background: $blue-dk;
+        }
+	}
+
+	/* Disabled */
+	@else if $button-order == 'disabled' {
+		color: $grey-md;
+		background: $grey-lt;
+		cursor: none;
+
+        &:hover {
+            color: $grey-md;
+		    background: $grey-lt;
+        }
+	}
+}
+
+// div { @include button-order(primary); }
+
+

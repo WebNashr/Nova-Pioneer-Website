@@ -12,18 +12,18 @@
 	margin-left: 2rem;
 	list-style-type: none;
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		@include flex-direction(row);
 		display: flex;
 		width: calc(100% - 25rem);
     }
 
-    @media #{$mq-1440} {
+    @include break-point(largelaptop) {
 		width: auto;
 		margin-left: 2.5rem;
     }
 
-    @media #{$mq-1600} {
+    @include break-point(desktop) {
 		margin-left: 5rem;
     }
 
@@ -200,7 +200,7 @@
 
 	// }
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		text-align: left;
 
 		&:not(:first-of-type) {
@@ -209,7 +209,7 @@
 		}
     }
 
-    @media #{$mq-1440} {
+    @include break-point(largelaptop) {
 		@include font-size(18px);
 
 		// &:not(:first-of-type) {

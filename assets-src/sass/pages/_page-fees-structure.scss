@@ -6,7 +6,7 @@
 	h1 {
 		max-width: 100%;
 		margin-bottom: 2rem;
-		color: $blue-dk;
+		color: $green-blue;
 		padding-right: calc(#{$space-tiny} * 2);
 		padding-left: calc(#{$space-tiny} * 2);
 		&.page-title {
@@ -32,16 +32,16 @@
 		//line-height: 1.5;
 	}
 	a {
-		color: $blue-dk;
+		color: $blue;
 		&:hover {
-			color: $blue-dk;
+			color: $dark-blue;
 		}
 	}
 	b {
-		color: darken($blue-dk, 20%);
+		color: darken($green-blue, 20%);
 	}
 	ul {
-		color: $grey-dk;
+		color: $dark-grey;
 		@include font-size(18px);
 		list-style-type: disc;
 		line-height: 1.5;
@@ -56,7 +56,7 @@
 			}
 		}
 		b {
-			color: $grey-dk;
+			color: $dark-grey;
 		}
 	}
 

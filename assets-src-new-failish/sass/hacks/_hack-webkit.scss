@@ -1,0 +1,50 @@
+
+/*  Webkit hacks */
+/* ==================================================== */
+
+
+.header-search input[type="text"].open {
+    .chrome & {
+    	padding: 0.72rem;
+    }
+}
+
+.header-search .search-icon.open,
+.header-search .search-toggle {
+    .chrome & {
+    	height: 43px;
+    }
+}
+
+.article-inner p + p {
+    .chrome & {
+    	margin-top: calc(1rem * 1.5);
+    }
+}
+
+.modal .header-section,
+.non-hero .modal .header-section {
+    .chrome & {
+    	min-height: 72vh;
+   }
+}
+
+.modal .school-name {
+    .chrome & {
+	    margin: 2rem 0 1.5rem;
+	}
+}
+
+.search-404 input[type="text"] {
+    .chrome & {
+	    width: calc(100% - 3.5rem);
+	}
+}
+
+.search-404 svg {
+    .chrome & {
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	}
+}

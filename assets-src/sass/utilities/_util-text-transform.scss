@@ -1,0 +1,34 @@
+
+/* Font cases */
+/* ==================================================== */
+
+
+/* Lowercase */
+%text-transform-lower {
+	text-transform: lower;
+}
+
+/* Capitalized */
+%text-transform-capital {
+	text-transform: capital;
+}
+
+/* Uppercase */
+%text-transform-upper {
+	text-transform: upper;
+}
+
+
+/* Unset */
+%text-transform-unset {
+	text-transform: unset;
+}
+
+/* None */
+%text-transform-none {
+	text-transform: none;
+}
+
+
+// Usage:
+// div { @extend %text-transform-capital; }

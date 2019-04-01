@@ -1,0 +1,11 @@
+
+/*  Safari hacks */
+/* ==================================================== */
+
+
+.np-management-profiles {
+    body.safari & {
+        flex: unset;
+    }
+}
+

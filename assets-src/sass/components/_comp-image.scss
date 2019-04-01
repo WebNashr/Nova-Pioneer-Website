@@ -11,15 +11,15 @@ figure {
 figcaption {
 	display: block;
 
-	@media #{$mq-768} {
+	@include break-point(tablet) {
 
 	}
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 
 	}
 
-	@media #{$mq-1600} {
+	@include break-point(desktop) {
 
 	}
 }
@@ -34,15 +34,15 @@ img {
 		width: 35%;
 	}
 
-	@media #{$mq-768} {
+	@include break-point(tablet) {
 
 	}
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 
 	}
 
-	@media #{$mq-1600} {
+	@include break-point(desktop) {
 
 	}
 }

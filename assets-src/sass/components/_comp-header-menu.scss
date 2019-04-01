@@ -24,29 +24,29 @@
 		// overflow-y: scroll;
 	}
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		@include flexbox();
 		// @include flex-direction(row);
 		@include flex-wrap(nowrap);
 		width: calc(100% - 25rem);
     }
 
-    @media #{$mq-1440} {
+    @include break-point(largelaptop) {
 		width: auto;
 		margin-left: 2.5rem;
     }
 
-    @media #{$mq-1600} {
+    @include break-point(desktop) {
 		margin-left: 5rem;
     }
 
     .body-careers & {
-        @media #{$mq-1366} {
+        @include break-point(laptop) {
             width: auto;
             margin-left: auto;
         }
 
-        @media #{$mq-1600} {
+        @include break-point(desktop) {
             // width: calc(100% - 17.5rem);
             // width: auto;
             // margin-left: 4rem;
@@ -54,7 +54,7 @@
             // background: wheat;
         }
 
-        @media #{$mq-1440} {
+        @include break-point(largelaptop) {
             // width: auto;
             margin-left: auto;
         }
@@ -287,7 +287,7 @@
 
 	// }
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		text-align: left;
 
 		&:not(:first-of-type) {
@@ -296,7 +296,7 @@
 		}
     }
 
-    @media #{$mq-1440} {
+    @include break-point(largelaptop) {
 		@include font-size(18px);
 
 		&:not(:first-of-type) {
@@ -305,15 +305,15 @@
     }
 
     .body-careers & {
-        @media #{$mq-1366} {
+        @include break-point(laptop) {
             @include font-size(17px);
         }
 
-        @media #{$mq-1600} {
+        @include break-point(desktop) {
             @include font-size(17px);
         }
 
-        @media #{$mq-1440} {
+        @include break-point(largelaptop) {
             @include font-size(17px);
         }
     }
@@ -347,7 +347,7 @@
 		height: 0;
 	}
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		display: inline-block;
 		align-self: unset;
 		margin-bottom: unset;
@@ -362,7 +362,7 @@
 }
 
 // body.logged-in {
-//     @media #{$mq-1366} {
+//     @include break-point(laptop) {
 // 		margin-top: 32px;
 //     }
 // }

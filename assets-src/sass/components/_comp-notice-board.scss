@@ -6,7 +6,7 @@
       // padding-top: 0;
       // padding-bottom: calc(1rem * 4);
       margin-top: 0;
-      @media #{$mq-768} {
+      @include break-point(tablet) {
         // margin-top: -4rem;
       }
     }
@@ -27,9 +27,9 @@
             color: $white;
             text-align: center;
             max-width: 100%;
-            text-shadow: 1px 1px darken($grey-dk, 50%);
+            text-shadow: 1px 1px darken($dark-grey, 50%);
 
-            @media #{$mq-768} {
+            @include break-point(tablet) {
                 @include font-size(40px);
                 line-height: 1.5;
             }
@@ -47,14 +47,14 @@
 	    	padding: calc(#{$space-tiny} * 1)  calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 2)  calc(#{$space-tiny} * 0.5)  ;
 	    	padding-top: calc(#{$space-tiny} * 1);
 	    	text-align: center;
-        text-shadow: 1px 1px darken($grey-dk, 50%);
+        text-shadow: 1px 1px darken($dark-grey, 50%);
 
         &.call-to-action {
           text-shadow: none;
           margin: 0;
           padding: 0;
         }
-        @media #{$mq-768} {
+        @include break-point(tablet) {
           @include font-size(28px);
   	    	@include copy(semi);
           line-height: 1.5;
@@ -65,10 +65,10 @@
 			//display: block;
 			//color: $white;
 			@include font-size(16px);
-			//color: $grey-md;
+			//color: $grey;
 			text-align: center;
 			&:hover {
-				//color: $blue-dk;
+				//color: $green-blue;
 				//cursor: pointer;
 
 			}
@@ -84,7 +84,7 @@
 		.notice-content {
       padding: calc(#{$space-tiny} * 1);
       padding-bottom: calc(1rem * 2);
-      @media #{$mq-768} {
+      @include break-point(tablet) {
         padding: calc(#{$space-tiny} * 3);
         padding-bottom: calc(1rem * 3);
       }
@@ -126,7 +126,7 @@
     	// }
     	// h2 {
     	// 	@include font-size(14px);
-    	// 	color: $grey-dk;
+    	// 	color: $dark-grey;
     	// 	text-align: center;
     	// 	@include copy(regular);
 	    // 	margin: auto;
@@ -147,15 +147,15 @@
     	    margin-top: 0.75rem;
     	}
 
-      	@media #{$mq-1366} {
+      	@include break-point(laptop) {
 			margin-top: 0;
 
 			&:not(:first-of-type) {
-				margin-left: $space-mid;
+				margin-left: $gut;
 			}
 		}
 
-      @media #{$mq-1600} {
+      @include break-point(desktop) {
 			margin-top: 0;
       @include flex-direction(column);
       // width: inherit;
@@ -174,10 +174,10 @@
       	    width: 100%;
       			border-top: 1px solid #d4d9d7;
       	}
-      	@media #{$mq-768} {
+      	@include break-point(tablet) {
       		padding: calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 2) ;
       	}
-      	@media #{$mq-1366} {
+      	@include break-point(laptop) {
       		padding: calc(#{$space-tiny} * 2) 0;
           display: block;
       	}
@@ -189,7 +189,7 @@
     @extend %column;
     text-align: center;
     padding:  0 calc(#{$space-tiny} * 0.5);
-    // background-color: $grey-md;
+    // background-color: $grey;
     // width: 45%;
 		width: 100%;
     margin: 0 auto;
@@ -198,7 +198,7 @@
     &:first-of-type {
       margin-bottom: 1.5rem;
       // padding-bottom: calc(#{$space-tiny} * 3);
-      // border-bottom: 1px solid darken($grey-md, 10%);
+      // border-bottom: 1px solid darken($grey, 10%);
     }
 
     &:not(:first-of-type) {
@@ -207,11 +207,11 @@
 		&:last-child {
 			margin-bottom: 0;
       // margin-left: 0;
-      @media #{$mq-1366} {
+      @include break-point(laptop) {
         margin-left: 0;
       }
 		}
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
       width: 100%;
 			margin-left: unset;
 			margin: 0 auto;
@@ -227,16 +227,16 @@
     justify-content: space-around;
     align-items: center;
 		width: 100%;
-		//background: lighten($blue-dk, 20%);
+		//background: lighten($blue, 20%);
     padding: calc(#{$space-tiny} * 1) 0;
-    background: $blue-dk;
-		color: $grey-md;
+    background: $dark-blue;
+		color: $grey;
 		p {
 			@include font-size(16px);
       @include copy(regular);
 			padding: calc(#{$space-tiny} * 1);
 			line-height: 1;
-			color: $grey-md;
+			color: $grey;
 			text-align: center;
       text-shadow: none;
 		}
@@ -248,10 +248,10 @@
 			display: block;
       padding: calc(#{$space-tiny} * 0.5) 0;
 			&:hover {
-        color: $blue-dk;
+        color: $green-blue;
 
 			}
-      @media #{$mq-768} {
+      @include break-point(tablet) {
         display: inline;
        }
 		}
@@ -265,7 +265,7 @@
 
       }
     }
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
   		padding: 0;
   	}
 
@@ -285,13 +285,13 @@
 // 		// @extend %columns;
 // 		// @extend %column;
 // 		@extend %column-3;
-// 		//background: darken($grey-md, 50%);
+// 		//background: darken($grey, 50%);
 //
-// 		// border-top: 1px solid lighten($blue-dk, 10%);
-// 		// border-bottom: 1px solid lighten($blue-dk, 10%);
+// 		// border-top: 1px solid lighten($blue, 10%);
+// 		// border-bottom: 1px solid lighten($blue, 10%);
 // 		padding: calc(#{$space-tiny} * 1);
-//     border-top: 1px solid darken($grey-md, 10%);
-// 		border-bottom: 1px solid darken($grey-md, 10%);
+//     border-top: 1px solid darken($grey, 10%);
+// 		border-bottom: 1px solid darken($grey, 10%);
 // 		h1 {
 // 			@include font-size(24px);
 // 			text-align: center;
@@ -306,10 +306,10 @@
 //   	justify-content: space-between;
 //   	padding: 1rem 2rem;
 //   	align-items: center;
-//     border-top: 1px solid darken($grey-md, 10%);
-// 		border-bottom: 1px solid darken($grey-md, 10%);
+//     border-top: 1px solid darken($grey, 10%);
+// 		border-bottom: 1px solid darken($grey, 10%);
 // 		//margin-left: 0 !important;
-//   	//background: $grey-md;
+//   	//background: $background-grey;
 //
 // 		.detail-separator {
 // 				content: " ";
@@ -319,16 +319,16 @@
 // 					content: "—";
 // 					@include copy(light);
 // 					text-align: center;
-// 					color: darken($grey-md, 20%);
+// 					color: darken($grey, 20%);
 //
-//           @media #{$mq-1366} {
+//           @include break-point(laptop) {
 //         		content: "|";
 //         	}
 // 				}
 // 			}
 // 		}
 //   	.school-detail{
-//   		color: $grey-dk;
+//   		color: $dark-grey;
 //   		@include font-size(14px);
 //   		@include copy(regular);
 //   		text-align: center;
@@ -346,7 +346,7 @@
 //   	    margin-top: 1rem;
 //   	    position: relative;
 //   	    &:hover {
-//   	        background: $blue-dk;
+//   	        background: $dark-blue;
 //   	        border: none;
 //   	        transition: background 0.3s ease;
 //

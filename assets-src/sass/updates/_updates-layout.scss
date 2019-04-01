@@ -1,0 +1,12 @@
+
+/* layout */
+/* ==================================================== */
+
+
+.divider-rose {
+    @include flexbox();
+    justify-content: center;
+    margin: 92px auto;
+}
+
+

@@ -1,0 +1,95 @@
+
+/*  Buttons */
+/* ==================================================== */
+
+
+@import "comp-button-style";
+@import "comp-button-size";
+@import "comp-button-order";
+@import "comp-button-state";
+
+
+.button {
+	// Style
+	@extend %button-style;
+
+
+	// Size
+	&-large {
+		@include button-size(small);
+	}
+
+	&-default {
+		@include button-size(small);
+	}
+
+	&-small {
+		@include button-size(small);
+	}
+
+	&-tiny {
+		@include button-size(tiny);
+	}
+
+    @media #{$mq-768} {
+        &-large {
+            @include button-size(small);
+        }
+
+        &-default {
+            @include button-size(small);
+        }
+	}
+
+    @media #{$mq-1024} {
+        &-large {
+            @include button-size(large);
+        }
+
+        &-default {
+            @include button-size(default);
+        }
+	}
+
+
+	// State
+	&:hover {
+		@include button-state(hover);
+	}
+
+	&:focus {
+		@include button-state(focus);
+	}
+
+	&:active {
+		@include button-state(active);
+	}
+
+
+	// Order
+	&-primary {
+		@include button-order(primary);
+	}
+
+	&-primary-alt {
+		@include button-order(primary-alt);
+	}
+
+	&-secondary {
+		@include button-order(secondary);
+	}
+
+	&-secondary-alt {
+		@include button-order(secondary-alt);
+	}
+
+	&-disabled {
+		@include button-order(disabled);
+
+		&:hover {
+			@include button-order(disabled);
+		}
+	}
+}
+
+

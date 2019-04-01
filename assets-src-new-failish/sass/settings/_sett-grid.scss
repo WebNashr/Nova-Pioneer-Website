@@ -1,0 +1,182 @@
+
+/*  Flex-box grid */
+/* ==================================================== */
+
+
+$system: 12;
+// $gutter: var(--space-3);
+// $gutter-total: calc(#{$columns - 1} * #{$gutter});
+// $col-total: calc(100% - #{$gutter-total});
+
+
+%columns {
+    @include flexbox();
+    @include flex-direction(column);
+    clear: both;
+    margin: 0;
+
+    &.columns-wrap {
+        @include flex-wrap(wrap);
+    }
+
+    &.columns-nowrap {
+        @include flex-wrap(nowrap);
+    }
+
+    &:not(:first-of-type) {
+        margin-top: var(--space-3);
+    }
+
+    @media #{$mq-1024} {
+        @include flex-direction(row);
+    }
+}
+
+%column {
+    flex: 1 1 auto;
+}
+
+
+// make 1 column
+%columns-1 {
+    $columns: 1;
+    $gutter: var(--space-3);
+    $gutter-total: calc(#{$columns - 1} * #{$gutter});
+    $col-total: calc(100% - #{$gutter-total});
+
+    @extend %column;
+
+    &:not(:first-of-type) {
+        margin-top: $gutter;
+    }
+
+    @media #{$mq-1024} {
+        width: calc(#{$col-total} / #{$columns});
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+            margin-left: $gutter;
+        }
+    }
+}
+
+
+// make 2 columns
+%columns-2 {
+    $columns: 2;
+    $gutter: var(--space-3);
+    $gutter-total: calc(#{$columns - 1} * #{$gutter});
+    $col-total: calc(100% - #{$gutter-total});
+
+    @extend %column;
+
+    &:not(:first-of-type) {
+        margin-top: $gutter;
+    }
+
+    @media #{$mq-1024} {
+        width: calc(#{$col-total} / #{$columns});
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+            margin-left: $gutter;
+        }
+    }
+}
+
+
+// make 3 columns
+%columns-3 {
+    $columns: 3;
+    $gutter: var(--space-3);
+    $gutter-total: calc(#{$columns - 1} * #{$gutter});
+    $col-total: calc(100% - #{$gutter-total});
+
+    @extend %column;
+
+    &:not(:first-of-type) {
+        margin-top: $gutter;
+    }
+
+    @media #{$mq-1024} {
+        width: calc(#{$col-total} / #{$columns});
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+            margin-left: $gutter;
+        }
+    }
+}
+
+
+// make 4 columns
+%columns-4 {
+    $columns: 4;
+    $gutter: var(--space-3);
+    $gutter-total: calc(#{$columns - 1} * #{$gutter});
+    $col-total: calc(100% - #{$gutter-total});
+
+    @extend %column;
+
+    &:not(:first-of-type) {
+        margin-top: $gutter;
+    }
+
+    @media #{$mq-1024} {
+        width: calc(#{$col-total} / #{$columns});
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+            margin-left: $gutter;
+        }
+    }
+}
+
+
+// make 5 columns
+%columns-5 {
+    $columns: 5;
+    $gutter: var(--space-1);
+    $gutter-total: calc(#{$columns - 1} * #{$gutter});
+    $col-total: calc(100% - #{$gutter-total});
+
+    @extend %column;
+
+    &:not(:first-of-type) {
+        margin-top: $gutter;
+    }
+
+    @media #{$mq-1024} {
+        width: calc(#{$col-total} / #{$columns});
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+            margin-left: $gutter;
+        }
+    }
+}
+
+
+// make 6 columns
+%columns-6 {
+    $columns: 6;
+    $gutter: var(--space-3);
+    $gutter-total: calc(#{$columns - 1} * #{$gutter});
+    $col-total: calc(100% - #{$gutter-total});
+
+    @extend %column;
+
+    &:not(:first-of-type) {
+        margin-top: $gutter;
+    }
+
+    @media #{$mq-1024} {
+        width: calc(#{$col-total} / #{$columns});
+
+        &:not(:first-of-type) {
+            margin-top: unset;
+            margin-left: $gutter;
+        }
+    }
+}
+

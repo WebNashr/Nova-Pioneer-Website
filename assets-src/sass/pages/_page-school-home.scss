@@ -9,13 +9,13 @@
 // 		@extend %columns;
 // 		@extend %column;
 // 		@extend %column-3;
-// 		//background: darken($grey-md, 50%);
+// 		//background: darken($grey, 50%);
 //
-// 		border-top: 1px solid $blue-dk;
-// 		border-bottom: 1px solid $blue-dk;
+// 		border-top: 1px solid $green-blue;
+// 		border-bottom: 1px solid $green-blue;
 // 		padding: calc(#{$space-tiny} * 1);
 // 		h1 {
-// 			color: $blue-dk;
+// 			color: $green-blue;
 // 			@include font-size(24px);
 // 			@include copy(semi);
 // 			line-height: 1.25;
@@ -30,9 +30,9 @@
 //   	padding: 1rem 2rem;
 //   	align-items: center;
 // 		//margin-left: 0 !important;
-//   	//background: $grey-md;
-// 		border-top: 1px solid darken($grey-md, 10%);
-// 		border-bottom: 1px solid darken($grey-md, 10%);
+//   	//background: $background-grey;
+// 		border-top: 1px solid darken($grey, 10%);
+// 		border-bottom: 1px solid darken($grey, 10%);
 // 		.detail-separator {
 // 				content: " ";
 //     		padding: 0 1rem;
@@ -40,12 +40,12 @@
 // 					content: "|";
 // 					@include copy(light);
 // 					text-align: center;
-// 					color: darken($grey-md, 20%);
+// 					color: darken($grey, 20%);
 // 				}
 // 			}
 // 		}
 // 	.school-detail{
-// 		color: $grey-dk;
+// 		color: $dark-grey;
 // 		@include font-size(18px);
 // 		@include copy(semi);
 // 		text-align: center;

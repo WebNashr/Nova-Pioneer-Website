@@ -28,7 +28,7 @@ header {
 		// position: relative;
 	}
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		position: fixed;
     }
 }
@@ -52,7 +52,7 @@ header {
 		@include flex-direction(column);
 	}
 
-	@media #{$mq-768} {
+	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 0.5) calc(#{$space-tiny} * 4);
 		// padding: 0 calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 1.5);
 
@@ -83,7 +83,7 @@ header {
 		transparent 100%
 	);
 
-	@media #{$mq-768} {
+	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 4);
 		margin-top: -1rem;
 	}
@@ -95,7 +95,7 @@ header {
 	padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 0);
 	// background: $grey-lt;
 
-	@media #{$mq-768} {
+	@include break-point(tablet) {
 		padding: calc(#{$space-tiny} * 1) calc(#{$space-tiny} * 4) calc(#{$space-tiny} * 0);
 	}
 }
@@ -139,7 +139,7 @@ header {
 		// margin-bottom: 2rem;
     }
 
-    @media #{$mq-768} {
+    @include break-point(tablet) {
 		max-width: 4rem;
 		max-height: 4rem;
 
@@ -149,7 +149,7 @@ header {
 	    // }
     }
 
-    @media #{$mq-1366} {
+    @include break-point(laptop) {
 		// max-width: 14rem;
 		max-width: 12.5rem;
 		max-height: 64px;
@@ -172,19 +172,19 @@ header {
 		}
     }
 
-    @media #{$mq-1440} {
+    @include break-point(largelaptop) {
 		// max-width: 18rem;
 		max-width: 14rem;
 		max-height: 64px;
     }
 
     .body-careers & {
-        @media #{$mq-1600} {
+        @include break-point(desktop) {
             max-width: 13rem;
             margin-top: 0.25rem;
         }
 
-        @media #{$mq-1440} {
+        @include break-point(largelaptop) {
             max-width: 13rem;
             margin-top: 0.25rem;
         }
@@ -208,7 +208,7 @@ header {
 	    margin: calc(#{$space-tiny} * 1.5) 0 0;
 	}
 
-	@media #{$mq-1366} {
+	@include break-point(laptop) {
 		margin-right: 0;
 		// padding: 13px calc(13px * 1.5);
 		@include button-size(small);

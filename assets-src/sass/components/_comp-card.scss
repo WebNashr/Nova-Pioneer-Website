@@ -45,7 +45,7 @@
 		text-align: center;
 		@include copy(semi);
     	@include font-size(28px);
-    	color: $blue-dk;
+    	color: $green-blue;
 	}
 
 	p {
@@ -64,7 +64,7 @@
 		.member-name {
             @include copy(semi);
             @include font-size(26px);
-            color: $blue-dk;
+            color: $green-blue;
             text-shadow: none;
             text-align: center;
 		}
@@ -74,7 +74,7 @@
 	// 	width: unset;
 	// 	@extend %column-3;
 
-    //    	@media #{$mq-1366} {
+    //    	@include break-point(laptop) {
 	// 		&:not(:first-of-type) {
 	//     		margin-left: calc(#{$space-tiny} * 2);
 	//     	}

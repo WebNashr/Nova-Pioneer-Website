@@ -1,0 +1,132 @@
+.faqs-container {
+    padding:0 calc(#{$space-tiny} * 2) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 2);
+
+    @media #{$mq-768} {
+      padding:0 calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3) calc(#{$space-tiny} * 3);
+    }
+}
+
+ul.toggle-list {
+    .general-content & {
+        margin-bottom: 0;
+    }
+}
+
+ul.toggle-list > li {
+    width: 100%;
+    margin: 0;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    text-indent: -0.25rem;
+    padding-left: 0.25rem !important;
+
+
+    .general-content & {
+        margin-bottom: 0;
+    }
+
+    &:first-of-type {
+        padding-top: 0.5rem;
+    }
+
+    &:not(:first-of-type) {
+        border-top: 1px solid darken($grey-md, 2.5%);
+    }
+
+    &:last-child {
+        .general-content & {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    &:before {
+        @include font-size(16px);
+        position: relative;
+        top: -4px;
+        display: inline-block;
+        width: 0.5rem;
+        margin-right: 1rem;
+        padding: unset;
+        content: "▲";
+    }
+
+    &.show {
+        &:before {
+            content: "▼";
+            color: $blue-lt;
+        }
+    }
+}
+
+ul.toggle-list.toggle-list-plus > li {
+    &:before {
+        @include font-size(32px);
+        content: "+";
+    }
+
+    &.show {
+        &:before {
+            content: "−";
+            color: $blue-lt;
+        }
+    }
+}
+
+.toggle-list-title {
+    @include copy(regular);
+    display: inline;
+    width: calc(100% - 1.5rem);
+
+    li:hover & {
+        color: $blue-lt;
+    }
+
+    li.faq:hover & {
+        color: $blue-dk;
+    }
+
+    .show & {
+        color: $blue-lt;
+    }
+}
+
+// .toggle-list-icon {
+//     text-align: center;
+//     position: relative;
+//     margin-right: 0.5rem;
+//     // color: $mid;
+//     top: 4px;
+
+//     li.faq:hover & {
+//         // color: $orange;
+//     }
+
+//     li:hover & {
+//         // color: $orange;
+//     }
+// }
+
+.toggle-list-content {
+    display: none;
+    margin-top: 1rem;
+    text-indent: 0;
+    // @include copy(regular);
+
+    .show & {
+        display: block;
+        margin-top: 1rem;
+    }
+}
+
+li {
+    .toggle-list-content & {
+        margin-left: 3.25rem;
+    }
+}
+
+li::before {
+    .toggle-list-content & {
+        color: $blue-lt;
+    }
+}

@@ -7,7 +7,7 @@
 //     &.ios {
 //         background: wheat;
 
-//         @media #{$mq-768} {
+//         @include break-point(tablet) {
 //             background: cyan;
 //         }
 //     }
@@ -21,17 +21,17 @@
 //         background-size: 100%;
 //         background-attachment: initial;
 
-//         @media #{$mq-767} {
+//         @include break-point(mobile) {
 //             min-height: 232px;
 // 		    min-height: calc(calc(649 / 1200) * 100vw);
 //         }
 
-//         @media #{$mq-768} {
+//         @include break-point(tablet) {
 //             min-height: 520px;
 //             min-height: 50vh;
 //         }
 
-//         @media #{$mq-1366} {
+//         @include break-point(laptop) {
 //             height: 100vh;
 //             min-height: 100vh;
 //             background-size: cover;
