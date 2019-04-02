@@ -177,6 +177,7 @@
     @extend %text-white;
     @extend %bg-grey-lt;
     border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 }
 
 .card-admissions-large:nth-of-type(2) .admissions-number {
@@ -200,9 +201,8 @@
     @include title(medium);
     // @include font-size(18px);
     @include font-size(16px);
-    @include line-height(24px);
+    @include line-height(20px);
     @extend %text-white;
-    line-height: 1;
     margin: auto auto 0 0;
 }
 
@@ -214,30 +214,34 @@
 
 .card-admissions-large .admissions-description p {
     @include title(light);
-    @include font-size(14px);
-    @include line-height(20px);
+    @include font-size(13px);
+    @include line-height(18px);
     color: $white;
 }
 
 
 .card-admissions-large:not(:first-of-type):hover {
+    .admissions-number {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+    }
+
     .admissions-description {
         display: block;
     }
 
-    &:nth-of-type(1) figcaption {
+    &:nth-of-type(2) figcaption {
         @extend %bg-blue-lt;
     }
 
-    &:nth-of-type(2) figcaption {
+    &:nth-of-type(3) figcaption {
         @extend %bg-green-lt;
     }
 
-    &:nth-of-type(3) figcaption {
+    &:nth-of-type(4) figcaption {
         @extend %bg-orange-lt;
     }
 
-    &:nth-of-type(4) figcaption {
+    &:nth-of-type(5) figcaption {
         @extend %bg-raspberry;
     }
 }
