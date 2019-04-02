@@ -38,9 +38,10 @@
 .section-school-list-select p {
     @include font-size(14px);
     @include line-height(24px);
-    @extend %text-grey-dk;
+    // @extend %text-grey-dk;
     margin-bottom: 0;
     padding: 0;
+    color: $grey-dk;
 }
 
 .section-school-list-select .button {

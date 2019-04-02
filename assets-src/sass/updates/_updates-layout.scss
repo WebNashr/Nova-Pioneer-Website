@@ -10,3 +10,21 @@
 }
 
 
+.section-signpost {
+    // @extend %column-8;
+    width: 80%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.section-signpost p {
+    @include title(regular);
+    @include font-size(18px);
+    @include line-height(24px);
+    // @extend %text-grey-dk;
+    margin: 2rem 0 3rem;
+    color: $grey-dk;
+}
