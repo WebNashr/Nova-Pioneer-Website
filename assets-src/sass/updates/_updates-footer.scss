@@ -4,6 +4,11 @@
 
 
 // .updates-2019 {
+    .page-footer {
+        padding-top: 0;
+        border-top: none;
+    }
+
     .footer-box-main-item {
         @include title(bold);
         @include font-size(16px);

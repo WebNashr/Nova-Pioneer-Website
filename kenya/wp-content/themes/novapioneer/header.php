@@ -505,11 +505,13 @@
 
         <div id="icons-search">
             <!-- open search form -->
-            <svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+            <!--<svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
                 viewBox="0 0 48 48">
                 <path
                     d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
-            </svg>
+            </svg>-->
+
+            <svg class="modal-control open open-search" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>search</title><path d="M16.464 15.05l4.243 4.243a1 1 0 0 1-1.414 1.414l-4.904-4.904a1 1 0 0 1 0-1.414 5.5 5.5 0 1 0-2.404 1.407 1 1 0 1 1 .54 1.926 7.5 7.5 0 1 1 3.94-2.672z" fill="#000" fill-rule="nonzero"/></svg>
 
             <!-- open small menu -->
             <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
@@ -551,18 +553,18 @@
 <!-- end page-header -->
 <script type="text/javascript">
     jQuery(document).ready(
-                function(){
-                    if(bowser.ios) {
-                    jQuery('#header_apply').css('position','absolute');
-                    jQuery('#header_apply').css('right','20%');
-                    jQuery('#header_apply').css('top','35%');
-                        }
+        function(){
+            if(bowser.ios) {
+                jQuery('#header_apply').css('position','absolute');
+                jQuery('#header_apply').css('right','20%');
+                jQuery('#header_apply').css('top','35%');
+            }
 
-                    jQuery('#icons-search').css('position','absolute');
-                    jQuery('#icons-search').css('right','1%');
-                    jQuery('.modal-control.open').css('margin-left','0');
-                    }
-            );
+            // jQuery('#icons-search').css('position','absolute');
+            // jQuery('#icons-search').css('right','1%');
+            jQuery('.modal-control.open').css('margin-left','0');
+        }
+    );
 </script>
 <!-- start content -->
 <main role="main">
