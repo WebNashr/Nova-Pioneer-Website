@@ -105,7 +105,7 @@
                 <?php $n = 0; ?>
                 <?php foreach (get_field('faqs') as $faq): $faq = (object)$faq; ?>
                     <li class="<?php if ($n <= 0): echo 'show'; endif; ?>">
-                        <h3 class="toggle-list-title"><?php echo $faq->question; ?></h3>
+                        <div class="toggle-list-title"><?php echo $faq->question; ?></div>
 
                         <div class="toggle-list-content">
                             <?php echo $faq->response; ?>

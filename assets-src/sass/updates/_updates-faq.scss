@@ -3,10 +3,54 @@
 /* ==================================================== */
 
 
-.divider-rose {
-    @include flexbox();
-    justify-content: center;
-    margin: 92px auto;
+.updates-2019 {
+    .section-faq {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    h2#faqs {
+        text-align: center;
+    }
+
+	ul.toggle-list {
+        margin-top: 0;
+    }
+
+    .toggle-list-title {
+        @include title(bold);
+        font-weight: 500;
+        @include font-size(18px);
+        @include line-height(24px);
+        color: $grey-mdk;
+    }
+
+    .toggle-list-content p {
+        @include title(light);
+        @include font-size(14px);
+        @include line-height(24px);
+        color: $grey-mdk;
+    }
+
+    ul.toggle-list > li::before {
+        color: $blue-dk;
+    }
+
+    ul.toggle-list > li.show::before {
+        color: $orange-lt;
+    }
+
+    ul.toggle-list > li {
+        padding: 2rem 0;
+    }
+
+    ul.toggle-list > li:not(:first-of-type) {
+        margin-top: 0;
+    }
+
+    ul.toggle-list > li.show .toggle-list-title {
+        color: $blue-lt;
+    }
 }
 
 
