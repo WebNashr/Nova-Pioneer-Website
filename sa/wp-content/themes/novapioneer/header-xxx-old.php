@@ -477,36 +477,17 @@
         )); ?>
         <!-- end navigation -->
 
-        <a id="header_apply" href="<?php echo site_url('/'.'apply-online/'); ?>" class="button button-small button-primary header-apply">Apply now</a>
+        <a id="header_apply" href="<?php echo site_url('/'.'apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
+            now</a>
 
-        <section class="header-section country-switch-container">
-            <div class="drop-list-container">
-                <a href="<?php echo novap_get_baseurl(); ?>/sa"
-                class="country country-sa drop-list-item drop-list-selected">
-                    <span class="flag-icon flag-icon-za"></span>
-                    <span class="text">South Africa</span>
-                </a>
-
-                <a href="<?php echo novap_get_baseurl(); ?>/kenya"
-                class="country country-ke drop-list-item drop-list-option">
-                    <span class="flag-icon flag-icon-ke"></span>
-                    <span class="text">Kenya</span>
-                </a>
-            </div>
-            <script>
-                $('body').addClass('body-ke');
-            </script>
-        </section>
+        <!-- open search form -->
 
         <div id="icons-search">
-            <!-- open search form -->
-            <!--<svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+            <svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
                 viewBox="0 0 48 48">
                 <path
                     d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
-            </svg>-->
-
-            <svg class="modal-control open open-search" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>search</title><path d="M16.464 15.05l4.243 4.243a1 1 0 0 1-1.414 1.414l-4.904-4.904a1 1 0 0 1 0-1.414 5.5 5.5 0 1 0-2.404 1.407 1 1 0 1 1 .54 1.926 7.5 7.5 0 1 1 3.94-2.672z" fill="#000" fill-rule="nonzero"/></svg>
+            </svg>
 
             <!-- open small menu -->
             <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
@@ -521,8 +502,18 @@
             <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
         </svg>
     </div>
+    <section class="header-section country-switch-container">
+        <!-- <div class="drop-list-container">
+                <a href="<?php echo novap_get_baseurl(); ?>sa" class="country country-sa drop-list-item drop-list-selected">
+                    <span class="flag-icon flag-icon-za"></span>
+                    <span class="text">South Africa</span>
+                </a>
 
-    <!--<section class="header-section country-switch-container">
+                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke country-chosen drop-list-item drop-list-option">
+                    <span class="flag-icon flag-icon-ke"></span>
+                    <span class="text">Kenya</span>
+                </a>
+            </div> -->
         <div class="drop-list-container">
             <a href="<?php echo novap_get_baseurl(); ?>/sa"
                class="country country-sa drop-list-item drop-list-selected">
@@ -539,7 +530,7 @@
         <script>
             $('body').addClass('body-ke');
         </script>
-    </section>-->
+    </section>
 </header>
 <script type="text/javascript">
     jQuery(document).ready(

@@ -9,14 +9,6 @@
 <?php if( have_posts() ): ?>
 <?php while( have_posts() ): the_post(); ?>
 <div class="updates-2019">
-    <!--<section class="section section-hero">
-        <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-large')[0]; ?>" alt="">
-
-        <div class="container hero-container">
-            <h1 class="animated-title"><?php the_title(); ?></h1>
-        </div>
-    </section>-->
-
     <section class="section section-banner">
         <figure class="">
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
@@ -24,7 +16,6 @@
             <figcaption>
                 <h1 class=""><?php the_field('alternate_title'); ?></h1>
                 <?php the_field('alternate_description'); ?>
-                <!--<p>kashg fjw vkwrkvu gwrvkwbkvb kwvk gwiu bwkv wiug bwe jbkwjkb og ougb wb kashg fjw vkwrkvu gwrvkwbkvb kwvk gwiu bwkv wiug bwe jbkwjkb og ougb wb kashg fjw vkwrkvu gwrvkwbkvb kwvk gwiu bwkv wiug bwe jbkwjkb og ougb wb</p>-->
             </figcaption>
         </figure>
     </section>
