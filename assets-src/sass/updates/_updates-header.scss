@@ -19,7 +19,7 @@
 
 .page-template-front-page .header-section.stuck .logo-text polygon,
 .page-template-front-page .header-section.stuck .logo-text path,
-.page-template-front-page .logo-text rect {
+.page-template-front-page .header-section.stuck .logo-text rect {
 	fill: $blue-dk;
 }
 
@@ -48,5 +48,11 @@
 
 .header-apply {
 	@extend .button-green-lt;
+}
+
+.icon-search {
+    @include flexbox();
+	align-content: center;
+	margin-left: 2rem;
 }
 

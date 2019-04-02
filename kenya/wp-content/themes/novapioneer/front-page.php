@@ -234,7 +234,7 @@ get_header(); ?>
                 <br>
                 <?php the_field('primary_school_description'); ?>
                 <br>
-                <a href="" class="button button-small button-yellow" title="">Apply now</a>
+                <a href="" class="button button-small button-green-lt" title="">Apply now</a>
             </div>
         </section>
 
@@ -266,7 +266,7 @@ get_header(); ?>
                 <br>
                 <?php the_field('secondary_school_description'); ?>
                 <br>
-                <a href="" class="button button-small button-yellow" title="">Apply now</a>
+                <a href="" class="button button-small button-orange-lt" title="">Apply now</a>
             </div>
         </section>
 
