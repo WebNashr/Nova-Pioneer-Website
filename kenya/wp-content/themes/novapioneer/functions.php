@@ -58,6 +58,7 @@ function novap_setup()
     // add_image_size( 'another-size-alt', 440, 180, true, array('center', 'center') ); // cropped and centered
 
     add_image_size('16-9-banner', 1440, 809, true, array('center', 'center')); // hero, banner, type-2 gallery images
+    add_image_size('16-9-hero', 1280, 552, true, array('center', 'center')); // hero, banner, type-2 gallery images
     add_image_size('16-9-inline', 833, 468, true, array('center', 'center')); // inline landscape images
     add_image_size('16-9-tall', 609, 812, true, array('center', 'center')); // skyscraper, type-1 gallery images
     add_image_size('16-9-triplet', 386, 217, true, array('center', 'center')); // gridded card, carousel card images

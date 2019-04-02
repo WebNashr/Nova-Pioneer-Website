@@ -17,12 +17,14 @@
         </div>
     </section>-->
 
-    <section class="section section-no-top">
-        <figure class=""  <?php if (has_post_thumbnail()): echo 'style="height: 500px;display: flex;flex-direction: column;border-radius: 8px; background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-banner')[0] . ');"'; endif; ?>>
-            <!--img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-banner')[0]; ?>" alt=""-->
-            <figcaption style="margin-top: auto;background: white;padding: var(--space-2);padding-left: 0;width: 92%;border-radius: 0 12px 0 0;margin-bottom: calc(-1 * var(--space-6));">
-                <h1 class=""><?php the_title(); ?></h1>
-                <p>kashg fjw vkwrkvu gwrvkwbkvb kwvk gwiu bwkv wiug bwe jbkwjkb og ougb wb kashg fjw vkwrkvu gwrvkwbkvb kwvk gwiu bwkv wiug bwe jbkwjkb og ougb wb kashg fjw vkwrkvu gwrvkwbkvb kwvk gwiu bwkv wiug bwe jbkwjkb og ougb wb</p>
+    <section class="section section-banner">
+        <figure class="">
+            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
+
+            <figcaption>
+                <h1 class=""><?php the_field('alternate_title'); ?></h1>
+                <?php the_field('alternate_description'); ?>
+                <!--<p>kashg fjw vkwrkvu gwrvkwbkvb kwvk gwiu bwkv wiug bwe jbkwjkb og ougb wb kashg fjw vkwrkvu gwrvkwbkvb kwvk gwiu bwkv wiug bwe jbkwjkb og ougb wb kashg fjw vkwrkvu gwrvkwbkvb kwvk gwiu bwkv wiug bwe jbkwjkb og ougb wb</p>-->
             </figcaption>
         </figure>
     </section>
@@ -99,7 +101,7 @@
 
     <section class="section section-faq faqs-container">
         <article class="article article-inner article-inner-alt ">
-            <h2 id="xxx-faqs">Frequently Asked Questions</h2>
+            <h2 id="faqs">Frequently Asked Questions</h2>
 
             <ul class="toggle-list">
                 <?php $n = 0; ?>

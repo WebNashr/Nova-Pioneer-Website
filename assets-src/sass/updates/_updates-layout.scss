@@ -28,3 +28,48 @@
     margin: 2rem 0 3rem;
     color: $grey-dk;
 }
+
+
+
+.section-banner {
+    margin-bottom: calc(92px + 1.5rem);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.section-banner figure {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    position: relative;
+}
+
+.section-banner img {
+    height: 552px;
+    border-radius: 8px;
+}
+
+.section-banner figcaption {
+    margin-top: auto;
+    background: $white;
+    padding: 1.5rem;
+    padding-left: 0;
+    width: 92%;
+    border-radius: 0 12px 0 0;
+    position: absolute;
+    bottom: -3.25rem;
+}
+
+.section-banner h1 {
+    @include font-size(48px);
+    @include line-height(56px);
+    max-width: 1024px;
+    margin-bottom: 1rem;
+}
+
+.section-banner p {
+    max-width: 1024px;
+}
+
+

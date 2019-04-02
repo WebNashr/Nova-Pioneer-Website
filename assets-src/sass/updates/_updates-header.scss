@@ -3,6 +3,11 @@
 /* ==================================================== */
 
 
+.page-template-admissions-process .page-header {
+	position: relative;
+    margin-bottom: 2rem;
+}
+
 .page-template-front-page .header-section {
 	background: transparent;
 }
@@ -50,7 +55,8 @@
 	@extend .button-green-lt;
 }
 
-.page-template-front-page .country-switch-container {
+.page-template-front-page .country-switch-container,
+.page-template-admissions-process .country-switch-container {
 	width: auto;
 	position: relative;
 	margin-left: 2rem;
@@ -58,7 +64,8 @@
 	margin-right: 0;
 }
 
-.page-template-front-page .country .text {
+.page-template-front-page .country .text,
+.page-template-admissions-process .text {
 	background: 0 0;
 	display: none;
 }
