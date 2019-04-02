@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Template Name: Country-XXX Home Page
+ * Template Name: Country-XXX Home Page - old
  */
 get_header(); ?>
 
