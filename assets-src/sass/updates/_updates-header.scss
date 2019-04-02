@@ -50,7 +50,20 @@
 	@extend .button-green-lt;
 }
 
-.icon-search {
+.page-template-front-page .country-switch-container {
+	width: auto;
+	position: relative;
+	margin-left: 2rem;
+	padding: 0 !important;
+	margin-right: 0;
+}
+
+.page-template-front-page .country .text {
+	background: 0 0;
+	display: none;
+}
+
+#icon-search {
     @include flexbox();
 	align-content: center;
 	margin-left: 2rem;

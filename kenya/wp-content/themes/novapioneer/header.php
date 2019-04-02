@@ -503,6 +503,24 @@
         <a id="header_apply" href="<?php echo site_url('/'.'apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
             now</a>
 
+        <section class="header-section country-switch-container">
+            <div class="drop-list-container">
+                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke drop-list-item drop-list-selected">
+                    <span class="flag-icon flag-icon-ke"></span>
+                    <span class="text">Kenya</span>
+                </a>
+
+                <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa drop-list-item drop-list-option">
+                    <span class="flag-icon flag-icon-za"></span>
+                    <span class="text">South Africa</span>
+                </a>
+            </div>
+
+            <script>
+                $('body').addClass('body-ke');
+            </script>
+        </section>
+
         <div id="icons-search">
             <!-- open search form -->
             <!--<svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
@@ -528,8 +546,7 @@
         </svg>
     </div>
 
-    <section class="header-section country-switch-container">
-
+    <!--<section class="header-section country-switch-container">
         <div class="drop-list-container">
             <a href="<?php echo novap_get_baseurl(); ?>/kenya"
                class="country country-ke drop-list-item drop-list-selected">
@@ -543,11 +560,10 @@
             </a>
         </div>
 
-
         <script>
             $('body').addClass('body-ke');
         </script>
-    </section>
+    </section>-->
 
 </header>
 <!-- end page-header -->
