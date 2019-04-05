@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Global Leadership Team - old
+ * Template Name: Global Leadership Team bbnb
  */
 
 get_header();?>
@@ -27,6 +27,17 @@ get_header();?>
                     <h1 class="animated-title"><?php the_title(); ?></h1>
                 </div>
             </div>
+        </section>
+
+        <section class="section section-banner">
+            <figure class="">
+            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-hero')[0]; ?>" alt="">
+
+                <figcaption>
+                    <h1 class=""><?php the_field('alternate_title'); ?></h1>
+                    <?php the_field('alternate_description'); ?>
+                </figcaption>
+            </figure>
         </section>
 
 

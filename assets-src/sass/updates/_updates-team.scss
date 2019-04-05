@@ -1,0 +1,95 @@
+
+/* team */
+/* ==================================================== */
+
+
+.section-heading {
+	margin-bottom: 3rem;
+    text-align: center;
+}
+
+
+.section-team {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.section-team-container {
+    @extend %columns;
+    align-items: center;
+}
+
+.section-team-member {
+    @extend %column;
+    @extend %column-3;
+    text-align: center;
+
+    img {
+        margin-bottom: 1.5rem;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .team-member-name {
+        @include title(medium);
+        @include font-size(20px);
+        @include line-height(24px);
+        margin: 0 0 1rem;
+        color: $blue-dk;
+    }
+
+    .team-member-role {
+        @include title(regular);
+        @include font-size(12px);
+        @include line-height(12px);
+        text-transform: uppercase;
+        color: $grey-mdk;
+    }
+}
+
+.section-hiring {
+    @extend %columns;
+    align-items: stretch;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.section-hiring-item {
+    @extend %column;
+    @extend %column-4;
+    @include flexbox();
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
+    align-items: stretch;
+    background: peach;
+
+    img {
+        border-radius: 8px;
+    }
+
+    &:nth-of-type(1) img {
+        margin-top: auto;
+    }
+
+    &:nth-of-type(3) img {
+        margin-bottom: auto;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        @include title(light);
+        @include font-size(14px);
+        @include line-height(24px);
+        margin: 0 0 1.5rem;
+        color: $grey-mdk;
+    }
+
+    .button {
+        margin-right: auto;
+    }
+}
+

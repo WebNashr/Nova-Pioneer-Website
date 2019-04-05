@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Global Leadership Team
+ * Template Name: Global Leadership Team - OLD
  */
 
 get_header(); ?>

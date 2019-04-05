@@ -3,10 +3,11 @@
 /* ==================================================== */
 
 
-$font-url: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900';
+// $font-url: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900';
+$font-url: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900';
 
 @if variable-exists(font-url) {
-  @import url($font-url);
+    @import url($font-url);
 }
 
 
@@ -20,10 +21,28 @@ $font-url: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900';
 		font-weight: 900;
 	}
 
-	/* Bold */
+	/* Extra Bold */
+	@if $title == 'extra' {
+		font-weight: extra;
+		font-weight: 800;
+	}
+
+    /* Bold */
 	@if $title == 'bold' {
 		font-weight: bold;
 		font-weight: 700;
+	}
+
+    /* Semi-Bold */
+	@if $title == 'semi' {
+		font-weight: semi;
+		font-weight: 600;
+	}
+
+    /* Medium */
+	@if $title == 'medium' {
+		font-weight: medium;
+		font-weight: 500;
 	}
 
 	/* Regular */
