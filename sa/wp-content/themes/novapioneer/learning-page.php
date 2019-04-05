@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Learning Page
+ * Template Name: Learning Page - old
  *
  */
 
