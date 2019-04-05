@@ -1,0 +1,183 @@
+
+/* learning */
+/* ==================================================== */
+
+
+// .section-heading {
+// 	margin-bottom: 3rem;
+//     text-align: center;
+// }
+
+
+// .section-team {
+//     padding-top: 0;
+//     padding-bottom: 0;
+// }
+
+// .section-team-container {
+//     @extend %columns;
+//     align-items: center;
+// }
+
+
+.section-learning-jump {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.section-learning-jump-container {
+    @include flexbox();
+    display: inline-flex;
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid $grey-lt;
+    border-bottom: 1px solid $grey-lt;
+
+    svg.roselet {
+        width: 48px;
+    }
+
+    .jump-title {
+        @include title(medium);
+        @include font-size(16px);
+        @include line-height(1);
+        @extend %text-blue-dk;
+        margin-left: 1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .jump-links {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(nowrap);
+    }
+
+    .jump-link-actual {
+        @include title(regular);
+        @include font-size(16px);
+        @include line-height(1);
+        @extend %text-blue-lt;
+
+        // &:not(:first-of-type) {
+            margin-left: 3rem;
+        // }
+    }
+}
+
+
+
+.section-learning-themes {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    @extend %columns;
+    padding-bottom: 0;
+}
+
+.section-learning-themes figure {
+    @extend %column;
+    @extend %column-3;
+    @include flexbox();
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
+    text-align: left;
+}
+
+.section-learning-themes img {
+    width: 150px;
+    margin: 0 0 1rem;
+}
+
+.section-learning-themes h5 {
+    @extend %text-raspberry;
+    margin: 0 0 1rem;
+}
+
+.section-learning-themes p {
+    @extend %text-grey-mdk;
+}
+
+
+
+.section-education-stage {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding: 0;
+}
+
+.section-education-stage article {
+	max-width: 768px;
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+
+    .media {
+        margin-top: 3rem;
+    }
+
+    iframe,
+    embed {
+        border-radius: 8px;
+    }
+
+    .button {
+        margin-top: 1.5rem;
+        margin-right: auto;
+    }
+}
+
+.section-education-testimonial {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    @extend %columns;
+    align-items: top;
+    margin-top: 2rem;
+
+    img {
+        @extend %column-3;
+        width: 120px;
+        height: auto;
+        margin-right: 2rem;
+        border-radius: 50%;
+    }
+
+    .testimonial-text {
+        @extend %column-9;
+        @include flexbox();
+        @include flex-direction(column);
+        @include flex-wrap(nowrap);
+        margin: 0;
+    }
+
+    blockquote {
+        @include title(medium);
+        @include font-size(16px);
+        @include line-height(24px);
+        @extend %text-blue-dk;
+        margin: 0 0 1rem;
+    }
+
+    cite {
+        @include title(light);
+        @include font-size(16px);
+        @include line-height(24px);
+        @extend %text-grey-mdk;
+        margin: 0;
+        font-style: normal;
+    }
+
+    .cite-by {
+        @include title(medium);
+        @extend %text-raspberry;
+    }
+
+    .cite-role {
+        @extend %text-grey-mdk;
+    }
+}
+
