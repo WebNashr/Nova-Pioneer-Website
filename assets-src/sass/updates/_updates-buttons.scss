@@ -18,7 +18,8 @@
         $p: 13px;
         @include font-size(13px);
         @include letter-spacing(tiny);
-        padding: $p calc(#{$p} * 1.75);
+        // padding: $p calc(#{$p} * 1.975);
+        padding: $p calc(#{$p} * 2);
         letter-spacing: 1px;
         border-radius: 3px;
     }
@@ -27,7 +28,8 @@
         $p: 14px;
         @include font-size(14px);
         @include letter-spacing(small);
-        padding: $p calc(#{$p} * 1.75);
+        // padding: $p calc(#{$p} * 1.975);
+        padding: $p calc(#{$p} * 2);
         letter-spacing: 2px;
         border-radius: 4px;
     }
@@ -36,7 +38,8 @@
         $p: 19px;
         @include font-size(19px);
         @include letter-spacing(small);
-        padding: $p calc(#{$p} * 1.75);
+        // padding: $p calc(#{$p} * 1.75);
+        padding: $p calc(#{$p} * 3);
         letter-spacing: 3px;
         border-radius: 6px;
     }

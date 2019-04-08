@@ -1,0 +1,147 @@
+
+/*  Gravity Forms */
+/* ==================================================== */
+
+
+.gform_wrapper {
+	margin: 0;
+}
+
+.gform_wrapper form {
+	text-align: left;
+}
+
+.gform_wrapper .gform_body {
+	width: 100%;
+}
+
+.gform_wrapper ul.gform_fields {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @extend %columns;
+    margin: 0;
+    list-style-type: none;
+}
+
+body .gform_wrapper ul li {
+    margin: 0;
+    padding: 0;
+	text-indent: unset;
+
+    &::before {
+        font-size: unset;
+        font-size: unset;
+        margin-right: unset;
+        content: "";
+        color: transparent;
+    }
+}
+
+body .gform_wrapper ul li.gfield {
+    @extend %column;
+    @extend %column-6;
+}
+
+body .gform_wrapper ul li.gfield.gravity-textarea {
+    @extend %column;
+    @extend %column-12;
+    max-width: 100%;
+    margin-left: 0;
+}
+
+.gform_wrapper label.gfield_label {
+    @include title(regular);
+    @include font-size(16px);
+    @include line-height(24px);
+    @extend %text-grey-mdk;
+    margin: 0 0 8px;
+    text-transform: initial;
+}
+
+.gform_wrapper .gfield_required {
+	color: $flare;
+	margin-left: 4px;
+}
+
+body .gform_wrapper .top_label div.ginput_container {
+	// margin-top: 8px;
+}
+
+div.ginput_container_name span {
+	// display: -moz-inline-stack;
+	// display: inline-block;
+	// vertical-align: top;
+	// padding-right: 16px;
+	// margin-right: -4px;
+}
+
+.gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]) {
+	// font-size: inherit;
+	// font-family: inherit;
+	// padding: 5px 4px;
+	// letter-spacing: normal;
+}
+
+.gform_wrapper input[type="text"],
+.gform_wrapper input[type="email"],
+.gform_wrapper input[type="password"],
+.gform_wrapper input[type="tel"],
+.gform_wrapper select,
+.gform_wrapper textarea {
+    @include title(light);
+    @include font-size(16px);
+    @include line-height(24px);
+    padding: 20px 24px;
+    letter-spacing: calc(1px / 4);
+    color: $grey-md;
+	border: none;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+
+    &:focus {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.gform_wrapper textarea,
+.gform_wrapper textarea.large {
+	width: 100%;
+    max-height: 240px;
+    resize: none;
+}
+
+.ginput_counter {
+    @include title(light);
+    @include font-size(12px);
+    @include line-height(16px);
+    @extend %text-grey-md;
+	margin-top: 8px;
+}
+
+.gform_wrapper select option {
+	display: block;
+    color: $grey-mdk;
+}
+
+.gform_wrapper .gform_footer {
+	width: 100%;
+	margin: 32px 0 0;
+	clear: both;
+}
+
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type="submit"],
+.gform_wrapper .gform_page_footer input.button,
+.gform_wrapper .gform_page_footer input[type="submit"] {
+    @extend .button;
+    @extend .button-large;
+    @extend .button-raspberry;
+}
+
+
+
+
+
+
+
