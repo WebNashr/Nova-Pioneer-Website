@@ -50,6 +50,11 @@ body .gform_wrapper ul li.gfield.gravity-textarea {
     margin-left: 0;
 }
 
+body .gform_wrapper ul li.gfield.enrolment-primary,
+body .gform_wrapper ul li.gfield.enrolment-secondary {
+    margin-left: 0;
+}
+
 .gform_wrapper label.gfield_label {
     @include title(regular);
     @include font-size(16px);
@@ -100,6 +105,7 @@ div.ginput_container_name span {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 
     &:focus {
+        color: $blue-dk;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 }
@@ -124,9 +130,17 @@ div.ginput_container_name span {
     color: $grey-mdk;
 }
 
+.gform_wrapper .hidden_sub_label {
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+}
+
 .gform_wrapper .gform_footer {
 	width: 100%;
-	margin: 32px 0 0;
+	margin: 3rem 0 0;
 	clear: both;
 }
 

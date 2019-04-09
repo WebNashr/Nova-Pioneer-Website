@@ -1,11 +1,14 @@
-<section class="section section-newsletter">
+
+<section class="section section-newsletter" style="background-image: url('<?php echo novap_get_baseurl(); ?>img/logo/logo-mark-white.svg');">
     <header class="section-newsletter-heading">
-        <h2>Stay Updated</h2>
+        <h2><?php if(function_exists('dc_dcb_dev_content_block'))echo do_shortcode('[dcb name=newsletter-heading]'); ?></h2>
         
-        <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
+        <p><?php if(function_exists('dc_dcb_dev_content_block'))echo do_shortcode('[dcb name=newsletter-description]'); ?></p>
 
         <figure>
-            <img src="" alt="">
+            <img src="<?php echo novap_get_baseurl(); ?>img/newsletter-square.jpg" alt="">
+            <?php //if(function_exists('dc_dcb_dev_content_block'))echo do_shortcode('[dcb name=newsletter-image]'); ?>
+            <figcaption></figcaption>
         </figure>
     </header>
 

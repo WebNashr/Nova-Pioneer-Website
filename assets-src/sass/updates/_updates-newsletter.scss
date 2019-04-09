@@ -4,14 +4,19 @@
 
 
 .section-newsletter {
-    @extend %bg-grey-gh;
     @extend %columns;
+    padding-top: 92px;
+    padding-bottom: 92px;
+	background-position: top 3rem right 3rem;
+	background-repeat: no-repeat;
+	background-size: 400px;
+	background-color: $grey-gh;
 }
 
 
 .section-newsletter-heading {
     @extend %column;
-    @extend %column-3;
+    @extend %column-4;
 
     h2 {
 
@@ -21,14 +26,32 @@
         
     }
 
-    img {
+    figure {
+        width: 100%;
+        height: auto;
+        min-height: 350px;
+        margin-top: 2rem;
+    }
 
+    img {
+        position: absolute;
+        top: 1.75rem;
+        left: 1.75rem;
+        width: 350px;
+        height: auto;
+        border-radius: 4px;
+    }
+    figcaption {
+        width: 350px;
+        height: 350px;
+        background: $raspberry;
+        border-radius: 4px;
     }
 }
 
 .section-newsletter-form {
     @extend %column;
-    @extend %column-9;
+    @extend %column-8;
     margin-left: 61px;
 }
 

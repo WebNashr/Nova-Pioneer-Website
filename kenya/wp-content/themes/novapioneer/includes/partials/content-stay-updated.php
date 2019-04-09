@@ -1,11 +1,14 @@
-<section class="section section-newsletter">
+
+<section class="section section-newsletter" style="background-image: url('<?php echo novap_get_baseurl(); ?>img/logo/logo-mark-white.svg');">
     <header class="section-newsletter-heading">
-        <h2>Get in touch</h2>
+        <h2><?php if(function_exists('dc_dcb_dev_content_block'))echo do_shortcode('[dcb name=newsletter-heading]'); ?></h2>
         
-        <p>Want to know more about our school, fees and extracurricular? Send us your contact details and someone from our brand and admissions office will get in touch.</p>
+        <p><?php if(function_exists('dc_dcb_dev_content_block'))echo do_shortcode('[dcb name=newsletter-description]'); ?></p>
 
         <figure>
-            <img src="" alt="">
+            <img src="<?php echo novap_get_baseurl(); ?>img/newsletter-square.jpg" alt="">
+            <?php //if(function_exists('dc_dcb_dev_content_block'))echo do_shortcode('[dcb name=newsletter-image]'); ?>
+            <figcaption></figcaption>
         </figure>
     </header>
 
