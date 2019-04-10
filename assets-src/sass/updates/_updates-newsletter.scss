@@ -23,7 +23,10 @@
     }
         
     p {
-        
+        @include title(regular);
+        @include font-size(14px);
+        @include line-height(24px);
+        color: $grey-mdk;
     }
 
     figure {
