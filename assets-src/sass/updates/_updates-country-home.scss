@@ -38,10 +38,42 @@
 .section-school-list-select p {
     @include font-size(14px);
     @include line-height(24px);
-    // @extend %text-grey-dk;
-    margin-bottom: 0;
+    margin: 0;
     padding: 0;
     color: $grey-dk;
+
+    &:not(:first-of-type) {
+        margin-top: 16px;
+    }
+}
+
+.section-school-list-select p.school-contact {
+    @include font-size(13px);
+    color: $grey-mdk;
+}
+
+.section-school-list-select .icon-heading {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.section-school-list-select span.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+.section-school-list-select svg path {
+    fill: $blue-dk;
+}
+
+.section-school-list-select span.icon-label {
+    margin: 4px 0 0;
+    padding: 0;
+    color: $blue-dk;
 }
 
 .section-school-list-select .button {
