@@ -61,6 +61,38 @@
     bottom: -3.25rem;
 }
 
+.section-banner figcaption.flex-row {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+	align-items: center;
+
+    .banner-social {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(nowrap);
+        align-items: center;
+        margin-left: auto;
+    }
+
+    span {
+        @include title(regular);
+        @include font-size(16px);
+        @include line-height(1);
+        margin: 0;
+        color: $grey-mdk;
+    }
+
+    a {
+        margin-left: 16px;
+        line-height: 1;
+    }
+
+    path {
+        fill: $blue-dk;
+    }
+}
+
 .section-banner h1 {
     @include font-size(48px);
     @include line-height(56px);
