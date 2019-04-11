@@ -61,7 +61,7 @@
     @include flex-direction(row);
     @include flex-wrap(nowrap);
     align-items: center;
-    margin-bottom: 4px;
+    margin-bottom: 0; // 4px;
 }
 
 .section-school-list-select span.icon {
