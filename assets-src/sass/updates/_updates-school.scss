@@ -1,0 +1,32 @@
+
+/* school */
+/* ==================================================== */
+
+
+.section-school-team {
+    @extend %columns;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.section-school-team-heading {
+    @extend %column;
+    @extend %column-4;
+}
+
+.section-school-team-container {
+    @extend %column;
+    @extend %column-8;
+    margin-left: 61px;
+}
+
+.section-school-team-container-inner {
+    @extend %columns;
+}
+
+.section-school-team-container .section-team-member {
+    @extend %column;
+    @extend %column-4;
+}
+
+

@@ -135,3 +135,71 @@
 }
 
 
+
+
+
+.section-school-profile {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background: $grey-gh;
+}
+
+.section-school-profile-items {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+	align-items: center;
+}
+
+.section-school-profile-item {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+	align-items: center;
+    // align-items: flex-end;
+
+    &:not(:last-of-type) {
+        margin-right: 3rem;
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    span {
+        @include title(regular);
+        @include font-size(14px); // (16px);
+        @include line-height(1);
+        margin: 0 0 0 12px;
+        color: $grey-mdk;
+    }
+}
+
+.section-school-profile-item-open-days {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+	align-items: center;
+    margin-left: auto;
+
+    span {
+        margin-right: 0.5rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: $raspberry;
+    }
+
+    path {
+        fill: $blue-dk;
+    }
+}
+
+.section-school-profile-item .profile-item-icon {
+    
+}
+
+.section-school-profile-item p {
+    
+}
+

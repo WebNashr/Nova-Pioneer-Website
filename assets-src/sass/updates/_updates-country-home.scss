@@ -98,9 +98,13 @@
 .video-side-embed {
     @extend %column-8;
 
+    .media {
+        border-radius: 13px; // 8px;
+    }
+
     iframe,
     embed {
-        border-radius: 8px;
+        // border-radius: 8px;
     }
 
     .section-video-side-left & {
