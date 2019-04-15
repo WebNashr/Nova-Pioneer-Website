@@ -820,7 +820,22 @@ get_header(); ?>
     </div>
     
 
-    <section class="section section-tesimonial">testimonial</section>
+    <section class="section section-school-tesimonials">
+        <?php foreach (get_field('testimonials') as $testimonial): $testimonial = (object)$testimonial; ?>
+        <div class="section-school-testimonials-item">
+            <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, '1-1-square'); ?>">
+
+            <div class="testimonial-text">
+                <blockquote><?php echo $testimonial->post_content; ?></blockquote>
+
+                <cite>
+                    <span class="cite-by"><?php echo get_field('reviewer_name', $testimonial->ID); ?></span>, 
+                    <span class="cite-role"><?php echo get_field('reviewer_title', $testimonial->ID); ?></span>
+                </cite>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </section>
 
 
     <div class="divider-rose">
@@ -863,102 +878,21 @@ get_header(); ?>
 </div>
 
 
-<!-- slippry -->
+<!-- slick -->
 <script type="text/javascript">
-    jQuery(document).ready(function () {
-        // jQuery('#slippry').slippry();
-        var thumbs = jQuery('#slippry-gallery').slippry({
-            // general elements & wrapper
-            slippryWrapper: '<div class="section-gallery" />',
-            // options
-            transition: 'horizontal',
-            pager: true,
-            auto: true,
-            responsive: true,
-            loop: true,
-            adaptiveHeight: false,
-            speed: 800,
-            onSlideBefore: function (el, index_old, index_new) {
-                jQuery('.thumbs a img').removeClass('active');
-                jQuery('img', jQuery('.thumbs a')[index_new]).addClass('active');
-            }
+    (function ($) {
+        $(document).ready(function () {
+            $('.section-school-tesimonials').slick({
+                dots: true,
+                arrows: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear'
+            });
         });
-
-        jQuery('.thumbs a').click(function () {
-            thumbs.goToSlide($(this).data('slide'));
-            return false;
-        });
-    });
+    })(jQuery);
 </script>
-<!-- <script type="text/javascript">
 
-    jQuery(document).ready(function(){
-      jQuery('#slippry').slippry()
-    });
 
-</script> -->
-<!-- <script type="text/javascript">
-  $(document).ready(function () {
-    jQuery(document).ready(function(){
-      jQuery('#slippry').slippry()
-    });
-  });
-</script> -->
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#testimonial-slider").lightSlider({
-            item: 1,
-            autoWidth: false,
-            slideMove: 1, // slidemove will be 1 if loop is true
-            // slideMargin: 300, //500
-
-            addClass: '',
-            mode: "slide",
-            useCSS: true,
-            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-            easing: 'linear', //'for jquery animation',////
-
-            speed: 400, //ms'
-            auto: false,
-            loop: true,
-            // slideEndAnimation: true,
-            pause: 2000,
-
-            keyPress: false,
-            controls: true,
-            prevHtml: '',
-            nextHtml: '',
-            addClass: 'content-slider',
-
-            // currentPagerPosition: 'middle',
-
-            enableTouch: true,
-            enableDrag: true,
-            freeMove: true,
-            // swipeThreshold: 40,
-            responsive: [
-                // {
-                //     breakpoint: 1024,
-                //     settings: {
-                //         slideMargin: 500,
-                //     }
-                // },
-                //   {
-                //       breakpoint: 800,
-                //       settings: {
-                //           slideMargin: 500,
-                //       }
-                //   },
-
-                {
-                    breakpoint: 320,
-                    settings: {
-                        slideMargin: 245,
-                    }
-                }
-            ]
-
-        });
-    });
-</script>
 <?php get_footer(); ?>

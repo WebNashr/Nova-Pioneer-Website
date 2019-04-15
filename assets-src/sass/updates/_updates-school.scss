@@ -197,3 +197,122 @@
     }
 }
 
+
+
+
+
+section.section.section-school-tesimonials.slick-slider {
+    @extend %columns;
+    max-width: 1024px;
+    margin: 0 auto 1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding: 0 0 3rem;
+    // background: $grey-gh;
+}
+
+.section-school-testimonials-item.slick-slide {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    align-items: center;
+    @extend %columns;
+    padding: 24px;
+
+    img {
+        @extend %column-3;
+        width: 120px;
+        height: auto;
+        margin-right: 2rem;
+        border-radius: 50%;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .testimonial-text {
+        @extend %column-9;
+        @include flexbox();
+        @include flex-direction(column);
+        @include flex-wrap(nowrap);
+        margin: 0;
+    }
+
+    blockquote,
+    blockquote p {
+        @include title(medium);
+        @include font-size(16px);
+        @include line-height(24px);
+        color: $blue-dk;
+        margin: 0 0 1rem;
+    }
+
+    cite {
+        @include title(light);
+        @include font-size(16px);
+        @include line-height(24px);
+        @extend %text-grey-mdk;
+        margin: 0;
+        font-style: normal;
+    }
+
+    .cite-by {
+        @include title(medium);
+        @extend %text-raspberry;
+    }
+
+    .cite-role {
+        @extend %text-grey-mdk;
+    }
+}
+
+section.section.section-school-tesimonials.slick-slider .slick-dots {
+    bottom: 0;
+
+    li {
+        text-indent: 0;
+        text-indent: 0;
+        border: 0;
+        outline: 0;
+        width: auto;
+        height: auto;
+    }
+
+    li:before {
+        content: '';
+    }
+
+    li button {
+        width: 24px;
+        height: auto;
+    }
+
+    li button:before {
+        font-size: 32px;
+        color: $grey-md;
+        opacity: 1;
+    }
+
+    li.slick-active button:before {
+        color: $blue-lt;
+    }
+}
+
+section.section.section-school-tesimonials.slick-slider .slick-prev,
+section.section.section-school-tesimonials.slick-slider .slick-next {
+    width: 24px;
+    height: 24px;
+    margin-top: -24px;
+}
+
+
+section.section.section-school-tesimonials.slick-slider .slick-prev {
+    background: url('../../img/icons/line/arrow-left-1.svg')
+}
+
+section.section.section-school-tesimonials.slick-slider .slick-next {
+    background: url('../../img/icons/line/arrow-right-1.svg')
+}
+
+
+
+
+
