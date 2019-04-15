@@ -30,3 +30,98 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+.section-school-admissions {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+	align-items: center;
+    @extend %columns;
+    padding-top: 0;
+    padding-bottom: 0;
+    // padding-top: 92px;
+    // padding-bottom: 92px;
+	// background-position: top 3rem right 3rem;
+	// background-repeat: no-repeat;
+	// background-size: 400px;
+	// background-color: $grey-gh;
+}
+
+
+.section-school-admissions-heading {
+    @extend %column;
+    @extend %column-4;
+
+    figure {
+        width: 100%;
+        height: auto;
+        min-height: 350px;
+        // margin-top: 2rem;
+    }
+
+    img {
+        position: absolute;
+        top: 1.75rem;
+        left: 1.75rem;
+        width: 350px;
+        height: auto;
+        background: $grey-gh;
+        border-radius: 4px;
+    }
+    
+    figcaption {
+        width: 350px;
+        height: 350px;
+        background: $green-lt;
+        border-radius: 4px;
+    }
+
+    cite {
+        @include title(light);
+        @include font-size(16px);
+        @include line-height(24px);
+        @extend %text-grey-mdk;
+        display: block;
+        margin-top: 3rem;
+        font-style: normal;
+    }
+
+    .cite-by {
+        @include title(medium);
+        @extend %text-blue-dk;
+    }
+
+    .cite-role {
+        @extend %text-grey-mdk;
+    }
+}
+
+.section-school-admissions-body {
+    @extend %column;
+    @extend %column-8;
+    margin-left: 61px;
+
+    h2 {
+
+    }
+        
+    p {
+        @include title(regular);
+        @include font-size(16px);
+        @include line-height(24px);
+        color: $grey-mdk;
+    }
+}
+
+
+

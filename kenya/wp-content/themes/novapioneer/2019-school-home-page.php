@@ -692,7 +692,33 @@ get_header(); ?>
     </div>
     
 
-    <section class="section section-tesimonial">admissions</section>
+    <section class="section section-school-admissions">
+        <header class="section-school-admissions-heading">
+            <figure>
+                <?php if(get_field('school_admissions_person_image')):?>
+                <?php
+                    $img_id = get_field('school_admissions_person_image');
+                    $image = wp_get_attachment_image_src(get_field('school_admissions_person_image'), '1-1-square');
+                ?>
+                <img src="<?php echo esc_url( $image[0] ); ?>" alt="">
+                <?php endif;?>
+
+                <figcaption></figcaption>
+            </figure>
+
+            <cite>
+                <span class="cite-by"><?php the_field('school_admissions_person_name'); ?></span>, 
+                <span class="cite-role"><?php the_field('school_admissions_person_role'); ?></span>
+            </cite>
+        </header>
+
+        <div class="section-school-admissions-body">
+            <h2><?php the_field('school_admissions_title'); ?></h2>
+            <?php the_field('school_admissions_description'); ?>
+            <br>
+            <a class="button button-large button-green-lt" href="<?php the_field('school_admissions_link'); ?>" title="<?php the_field('school_admissions_button'); ?>"><?php the_field('school_admissions_button'); ?></a>
+        </div>
+    </section>
     
 
     <div class="divider-rose">
