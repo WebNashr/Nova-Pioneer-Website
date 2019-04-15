@@ -316,3 +316,54 @@ section.section.section-school-tesimonials.slick-slider .slick-next {
 
 
 
+
+
+.section-school-extras {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    h2 {
+
+    }
+}
+
+.section-school-extras-inner {
+    // @extend %columns;
+    // align-items: center;
+}
+
+.section-school-extras-inner-item {
+    // @extend %column;
+    // @extend %column-4;
+    // text-align: center;
+    padding: 0 1.5rem;
+
+    img {
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    figcaption {
+
+    }
+
+    h4 {
+        margin-bottom: 1.5rem;
+    }
+    
+    p {
+
+    }
+
+    a {
+        @include title(medium);
+        color: $blue-lt;
+    }
+}
+
+
+
+
+
+

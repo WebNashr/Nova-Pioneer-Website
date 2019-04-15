@@ -8,7 +8,7 @@ get_header(); ?>
 <?php if (have_posts()): ?>
 <?php while (have_posts()): the_post(); ?>
 <div class="updates-2019">
-    <section class="section section-bannerx section-banner-full">
+    <section class="section section-banner-full">
         <figure class="">
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
 
@@ -652,7 +652,33 @@ get_header(); ?>
     </div>
     
 
-    <section class="section section-tesimonial">extra</section>
+    <section class="section section-school-extras">
+        <h2 class="section-heading">What else do you need to know?</h2>
+
+        <div class="section-school-extras-inner">
+            <?php if( have_rows('school_extras') ): ?>
+            <?php while( have_rows('school_extras') ): the_row();  ?>
+            <figure class="section-school-extras-inner-item">
+                <?php
+                    $image = get_sub_field('image');
+                    $size = '16-9-triplet';
+                    if( $image ) {
+                        echo wp_get_attachment_image( $image, $size );
+                    }
+                ?>
+                
+                <figcaption>
+                    <h4><?php the_sub_field('title'); ?></h4>
+                    <p>
+                        <?php the_sub_field('description'); ?>
+                        <a href="<?php the_sub_field('link_url'); ?>"><?php the_sub_field('link_text'); ?></a>
+                    </p>
+                </figcaption>
+            </figure>
+            <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+    </section>
     
 
     <div class="divider-rose">
@@ -882,6 +908,14 @@ get_header(); ?>
 <script type="text/javascript">
     (function ($) {
         $(document).ready(function () {
+            $('.section-school-extras-inner').slick({
+                dots: true,
+                arrows: true,
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3
+            });
+
             $('.section-school-tesimonials').slick({
                 dots: true,
                 arrows: true,
