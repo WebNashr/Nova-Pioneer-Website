@@ -738,7 +738,69 @@ get_header(); ?>
     </div>
     
 
-    <section class="section section-tesimonial">contact</section>
+    <section class="section section-school-contact-us">
+        <header class="section-school-contact-us-heading">
+            <h2><?php the_field('school_contact_us_title'); ?></h2>
+
+            <div class="school-summary">
+                        <h4><?php echo $school->post_title; ?></h4>
+                        <br>
+
+                        <p class="school-contact">
+                            <span class="icon-heading">
+                                <span class="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>map</title><path d="M14.535 19.885L9 17.118l-5.553 2.776A1 1 0 0 1 2 19V8a1 1 0 0 1 .553-.894l5.982-2.991a.996.996 0 0 1 .93 0L15 6.882l5.553-2.776A1 1 0 0 1 22 5v11a1 1 0 0 1-.553.894l-5.982 2.991a.996.996 0 0 1-.93 0zM14 17.382V11a1 1 0 0 1 2 0v6.382l4-2V6.618l-4.553 2.276a1 1 0 0 1-.894 0L10 6.618V13a1 1 0 0 1-2 0V6.618l-4 2v8.764l4.553-2.276a1 1 0 0 1 .894 0L14 17.382z" fill="#000" fill-rule="nonzero"/></svg>
+                                </span>
+                                <span class="icon-label">Address</span>
+                            </span>
+                            <?php echo get_field('physical_address', $school->ID); ?>
+                        </p>
+
+                        <p class="school-contact">
+                            <span class="icon-heading">
+                                <span class="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>phone-1</title><path d="M15.938 14.743l-1.379 1.378a.998.998 0 1 1-1.412-1.412l1.757-1.756a.998.998 0 0 1 .902-.273l4.391.878a.998.998 0 0 1 .803.98v5.267a.998.998 0 0 1-.767.971c-3.387.806-8.222-.523-12.355-4.655-4.134-4.131-5.46-8.966-4.654-12.354A.998.998 0 0 1 4.196 3h5.27c.475 0 .885.336.979.803l.878 4.39a.998.998 0 0 1-.273.901l-1.233 1.232a10.469 10.469 0 0 0 2.195 2.68.998.998 0 1 1-1.31 1.507 12.16 12.16 0 0 1-.63-.588 12.654 12.654 0 0 1-2.379-3.337.998.998 0 0 1 .188-1.15L9.26 8.06l-.613-3.063H5.036c-.292 2.69.942 6.403 4.253 9.712 3.312 3.31 7.025 4.546 9.714 4.255v-3.608l-3.065-.613z" fill="#000" fill-rule="nonzero"/></svg>
+                                </span>
+                                <span class="icon-label">Reception</span>
+                            </span>
+                            <?php echo get_field('main_phone_number', $school->ID); ?>
+                        </p>
+
+                        <p class="school-contact">
+                            <span class="icon-heading">
+                                <span class="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>phone-1</title><path d="M15.938 14.743l-1.379 1.378a.998.998 0 1 1-1.412-1.412l1.757-1.756a.998.998 0 0 1 .902-.273l4.391.878a.998.998 0 0 1 .803.98v5.267a.998.998 0 0 1-.767.971c-3.387.806-8.222-.523-12.355-4.655-4.134-4.131-5.46-8.966-4.654-12.354A.998.998 0 0 1 4.196 3h5.27c.475 0 .885.336.979.803l.878 4.39a.998.998 0 0 1-.273.901l-1.233 1.232a10.469 10.469 0 0 0 2.195 2.68.998.998 0 1 1-1.31 1.507 12.16 12.16 0 0 1-.63-.588 12.654 12.654 0 0 1-2.379-3.337.998.998 0 0 1 .188-1.15L9.26 8.06l-.613-3.063H5.036c-.292 2.69.942 6.403 4.253 9.712 3.312 3.31 7.025 4.546 9.714 4.255v-3.608l-3.065-.613z" fill="#000" fill-rule="nonzero"/></svg>
+                                </span>
+                                <span class="icon-label">Admissions</span>
+                            </span>
+                            <?php echo get_field('admission_enquiries_number', $school->ID); ?>
+                        </p>
+
+                        <p class="school-contact">
+                            <span class="icon-heading">
+                                <span class="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>mail</title><path d="M20 7.83A3.008 3.008 0 0 1 18.17 6H5a1 1 0 1 1 0-2h13.17A3.001 3.001 0 1 1 22 7.83V19a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1.53-.848l7.453 4.658 5.462-3.642a1 1 0 0 1 1.11 1.664l-6 4a1 1 0 0 1-1.085.016L4 9.804V18h16V7.83zM21 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="#000" fill-rule="nonzero"/></svg>
+                                </span>
+                                <span class="icon-label">Email</span>
+                            </span>
+                            <?php echo get_field('email_address', $school->ID); ?>
+                        </p>
+                    </div>
+        </header>
+
+        <div class="section-school-contact-us-map">
+            <?php $locations = array();
+            if (get_field('map_embed_code')) {
+                $cood = explode(",", get_field('map_embed_code'));
+                array_push($locations, array(
+                    "latitude" => (float)$cood[0],
+                    "longitude" => (float)$cood[1],
+                    "info_text" => "Novapioneer " . get_the_title()
+                ));
+                novap_render_google_map($locations);
+            } ?>
+        </div>
+    </section>
 
 
     <div class="divider-rose">
