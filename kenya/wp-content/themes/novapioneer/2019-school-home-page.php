@@ -6,384 +6,220 @@
 get_header(); ?>
 
 <?php if (have_posts()): ?>
+<?php while (have_posts()): the_post(); ?>
+<div class="updates-2019">
+    <section class="section section-bannerx section-banner-full">
+        <figure class="">
+            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
 
-    <?php while (have_posts()): the_post(); ?>
-
-        <section class="section-hero-ios">
-            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
-            <div class="container hero-container">
-                <div class="main-callout-box">
-                    <?php if (!empty(get_field('hero_caption'))): ?>
-                        <div class="faux-h1"><?php the_field('hero_caption') ?></div>
-                    <?php else: ?>
-                        <hr>
-                        <div class="faux-h1">Learners are inspired become adaptive, independent thinkers</div>
-                    <?php endif ?>
-                </div>
-            </div>
-        </section>
-
-        <section
-            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
-            data-enllax-ratio="0.1">
-            <div class="container hero-container">
-                <div class="main-callout-box">
-                    <?php if (!empty(get_field('hero_caption'))): ?>
-                        <h1><?php the_field('hero_caption') ?></h1>
-                    <?php else: ?>
-                        <hr>
-                        <h1 class="animated-title">Learners are inspired become adaptive, independent thinkers</h1>
-                    <?php endif ?>
-                </div>
-            </div>
-        </section>
-
-        <div class="trigger"></div>
-
-        <section class="section section-pair school-features-container">
-            <div class="section-navigation">
-                <h3><?php the_title(); ?></h3>
-            </div>
-
-            <div class="section-content">
-                <?php $school_icon = get_field('booarding_or_day_school');
-                if (strpos(strtolower($school_icon), 'day') !== false) {
-                    $icon = 'day-icon';
-
-                } else {
-                    $icon = 'boarding-icon';
-                }
-                ?>
-                <div class="section-content-item school-features">
-                    <div class="feature-item"><span class="feature-icon boys-school-icon"></span>
-                        <p><?php echo get_field('school_gender'); ?></p></div>
-                    <div class="feature-item"><span class="feature-icon curriculum-icon"></span>
-                        <p><?php echo get_field('school_curriculumn'); ?></p></div>
-                    <div class="feature-item"><span class="feature-icon <?php echo $icon ?>"></span>
-                        <p><?php echo get_field('booarding_or_day_school'); ?></p></div>
-                    <div class="feature-item"><span class="feature-icon grade-icon"></span>
-                        <p><?php echo get_field('school_grades'); ?></p></div>
-                    <!-- <?php echo get_field('summary_intro'); ?> -->
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <a name="contacts"></a>
-            <div class="general-notices-container school-notices">
-                <div class="large-notice-container"
-                     style="background-image: url(<?php echo get_field('admission_photo'); ?>);">
-                    <div class="large-notice">
-                        <!-- <div class="bar-notice">
-                            <div class="contact">
-                                <p>General Enquiries Call: <a
-                                        href="tel:<?php echo get_field('general_enquiries_number'); ?>"><?php echo get_field('general_enquiries_number'); ?> </a>
-                                </p>
-                            </div>
-                            <div class="contact">
-                                <p>Admission Enquiries Call: <a
-                                        href="tel:<?php echo get_field('admission_enquiries_number'); ?>"><?php echo get_field('admission_enquiries_number'); ?> </a>
-                                </p>
-                            </div>
-                            <div class="contact">
-                                <p>Email Us: <a
-                                        href="mailto:<?php echo get_field('school_email'); ?>"><?php echo get_field('school_email'); ?></a>
-                                </p>
-                            </div>
-                        </div> -->
-                        <div class="notice-content">
-                            <h1>Learn About Our Admission Process</h1>
-                            <?php echo get_field('admission_call_to_action'); ?>
-                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process') ?>"
-                                                         class="button button-small button-secondary">Admission
-                                    Process</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="small-notice-container"><?php
-                    $taxonomies = wp_get_post_terms(get_the_ID(), 'school', array("fields" => "all"));
-                    foreach ($taxonomies as $tax) {
-                        $taxies[] = $tax->slug;
-                    }
-                    ?>
-
-                    <?php echo get_nova_events($taxies); ?>
-
-                    <div class="small-notice">
-                        <h4>Download Our Fees Structure</h4>
-                        <p>PDF document</p>
-                        <a download href="<?php echo get_field('fees_structure'); ?>"
-                           class="button button-small button-secondary">Download</a>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="small-notice">
-                        <h4>Our Calendar</h4>
-                        <p><?php echo date('F Y'); ?> School Events</p>
-                        <a href="<?php echo site_url('/calendar'); ?>" class="button button-small button-secondary"
-                        >Calendar</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="section section-pair even-section section-our-students">
-            <div class="section-navigation">
-                <h2>Our Students</h2>
-                <div class="button-wrap">
-                    <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
-                       title="">Meet the Students</a>
-                </div>
-            </div>
-
-            <div class="section-content">
-                <div class="section-content-item section-content-item-half first-item">
-                    <?php $our_students_video = get_field('our_students_video'); ?>
-                    <?php if (get_field('type', $our_students_video->ID) == ('student' || 'general' )): ?>
-                    <div class="testimonial pull-quote">
-
-                        <?php
-                        $vid_caption = get_field('video_caption', $our_students_video->ID);
-                        $student_name = get_field('student_name', $our_students_video->ID);
-                        $video = get_field('video', $our_students_video->ID);
-
-                        ?>
-                        <blockquote>
-                            <svg aria-hidden="true">
-                                <use
-                                    xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                            </svg>
-                            <?php echo $vid_caption; ?>
-                            <cite class="school-page-quote"><span><strong> <?php echo $student_name; ?></strong>,</span>
-                                Nova Pioneer Student</cite>
-                        </blockquote>
-
-                    </div>
-
-                </div>
-                <div class="section-content-item section-content-item-half">
-                    <div class="media youtube-video">
-                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
-                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
-                        } else {
-                            echo $video;
-                        } ?>
-                    </div>
-                </div>
+            <figcaption class="flex-row">
+                <div class="figcaption-holder">
+                <?php if (!empty(get_field('alternate_title'))): ?>
+                    <h1><?php the_field('alternate_title') ?></h1>
+                    <p><?php the_field('alternate_description'); ?></p>
+                <?php else: ?>
+                    <h1>Learners are inspired become adaptive, independent thinkers</h1>
+                    <p>Learners are inspired become adaptive, independent thinkers sentence text here</p>
                 <?php endif ?>
-            </div>
-        </section>
-
-        <section class="section section-pair">
-            <div class="section-navigation">
-                <h2>School Leadership</h2>
-                <div class="button-wrap">
-                    <a href="<?php echo get_permalink(); ?>our-team" class="button button-small button-primary"
-                       title="">View
-                        the team</a>
                 </div>
+            </figcaption>
+        </figure>
+    </section>
+
+
+    <!--<div class="trigger"></div>-->
+
+
+    <section class="section section-pair school-features-container">
+        <div class="section-navigation">
+            <h3><?php the_title(); ?></h3>
+        </div>
+
+        <div class="section-content">
+            <?php $school_icon = get_field('booarding_or_day_school');
+            if (strpos(strtolower($school_icon), 'day') !== false) {
+                $icon = 'day-icon';
+
+            } else {
+                $icon = 'boarding-icon';
+            }
+            ?>
+            <div class="section-content-item school-features">
+                <div class="feature-item"><span class="feature-icon boys-school-icon"></span>
+                    <p><?php echo get_field('school_gender'); ?></p></div>
+                <div class="feature-item"><span class="feature-icon curriculum-icon"></span>
+                    <p><?php echo get_field('school_curriculumn'); ?></p></div>
+                <div class="feature-item"><span class="feature-icon <?php echo $icon ?>"></span>
+                    <p><?php echo get_field('booarding_or_day_school'); ?></p></div>
+                <div class="feature-item"><span class="feature-icon grade-icon"></span>
+                    <p><?php echo get_field('school_grades'); ?></p></div>
+                <!-- <?php echo get_field('summary_intro'); ?> -->
             </div>
-
-            <div class="section-content">
-                <div class="section-content-item section-content-item-half">
-                    <?php
-                    $leadership_team_description = get_field('leadership_team_description');
-                    // Get the paragraphs in $leadership_team_description for implementing the read-more functionality
-                    preg_match_all('|<p>(.+?)</p>|', $leadership_team_description, $matches);
-                    $leadership_team_description_paragraphs = $matches[1];
-                    ?>
-                    <p><?php echo array_shift($leadership_team_description_paragraphs); ?></p>
-                        <span class="read-more-target">
-                            <?php foreach ($leadership_team_description_paragraphs as $paragraph): ?>
-                                <p><?php echo $paragraph; ?></p>
-                            <?php endforeach; ?>
-                        </span>
-
-                </div>
-
-                <?php $leadership_team_members = get_field('leadership_team_members');
-                $x = 0; ?>
-                <?php foreach ($leadership_team_members as $member): if ($x >= 2): break; endif; ?>
-                    <div class="section-content-item section-content-item-quarter profile school-team">
-                        <div class="image-wrap">
-                            <img
-                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'square-small')[0]; ?>"
-                                alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
-                                class="profile-img">
-                        </div>
-                        <h3 class="profile-name"><a href="<?php echo get_permalink($member->ID); ?>"
-                                                    class="profile-name"
-                                                    title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
-                        </h3>
-                        <h5 class="profile-role"><?php echo get_field('title', $member->ID); ?></h5>
-                    </div>
-                    <? $x++; ?>
-                <?php endforeach; ?>
-            </div>
-        </section>
-        <section class="section section-content-plain gallery-wrap">
-            <h2>Gallery</h2>
-
-            <div class="section full-width">
-                <div class="section-gallery">
-                    <div class="thumbnail-container">
-                        <div class="thumb-box">
-                            <ul class="thumbs">
-                                <?php $th = 1;
-                                $images = get_field('gallery');
-                                foreach ($images as $thumb): ?>
-                                    <li><a href="#slide<?php echo $th ?>" data-slide="<?php echo $th ?>"><img
-                                                src="<?php echo $thumb['sizes']['square-small'] ?>"> </a></li>
-                                    <?php $th++; endforeach; ?>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="photo-container">
-                        <ul id="slippry-gallery">
-                            <?php $im = 1;
-                            foreach ($images as $image): ?>
-                                <li>
-                                    <a href="#slide<?php echo $im ?>">
-                                        <!--<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['caption'] ?>">-->
-                                        <img src="<?php echo $image['sizes']['16-9-large'] ?>"
-                                             alt="<?php echo $image['caption'] ?>">
-                                    </a>
-                                </li>
-                                <?php $im++; endforeach; ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            </div>
-        </section>
+        </div>
+    </section>
 
 
-        <!-- <a name="gallery"></a>
-        <section class="section gallery-section">
-            <div class="article"><h2 class=" gallery-title">School Gallery</h2></div>
+    <section class="section section-tesimonial">students</section>
+    
 
-            <div class="slider-container school-gallery">
-                <div class="section-content-item-full">
-                    <div class="media gallery">
-                        <ul id="slippry">
-                            <?php $image_count = 0; ?>
-                            <?php foreach (get_field('gallery') as $image): $image = (object)$image;
-            $image_count++; ?>
-                                <li>
-                                    <a href="#slide<?php echo $image_count; ?>">
-                                        <img src="<?php echo $image->url; ?>" alt="<?php echo $image->caption; ?>"/>
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <div class="divider-rose">
+        <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
+            <g id="divider" transform="translate(0 -0.359)">
+                <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
+                <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
+                    <g id="white" transform="translate(0.59 0.36)">
+                    <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
+                    </g>
+                </g>
+                <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
+                <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
+                </g>
+            </g>
+        </svg>
+    </div>
+    
 
-        </section> -->
+    <section class="section section-tesimonial">school team</section>
+    
 
-        <aside>
-            <div class=" testimonial full-width-quote ">
-                <div class=" section content-slider-container testimonials">
-                    <ul id="testimonial-slider" class="content-slider">
-                        <?php foreach (get_field('testimonials') as $testimonial): $testimonial = (object)$testimonial; ?>
-                            <li class="single-testimonial">
-                                <figure class="full-width-figure">
-                                    <img
-                                        src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'square-small'); ?>">
-                                </figure>
-                                <blockquote>
-                                    <svg aria-hidden="true">
-                                        <use xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
-                                    </svg>
+    <div class="divider-rose">
+        <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
+            <g id="divider" transform="translate(0 -0.359)">
+                <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
+                <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
+                    <g id="white" transform="translate(0.59 0.36)">
+                    <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
+                    </g>
+                </g>
+                <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
+                <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
+                </g>
+            </g>
+        </svg>
+    </div>
+    
 
-                                    <?php echo $testimonial->post_content; ?>
+    <section class="section section-tesimonial">extra</section>
+    
 
-                                    <p>
-                                        <cite>
-                                            <span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
-                                        </cite>
-                                    </p>
-                                </blockquote>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-        </aside>
+    <div class="divider-rose">
+        <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
+            <g id="divider" transform="translate(0 -0.359)">
+                <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
+                <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
+                    <g id="white" transform="translate(0.59 0.36)">
+                    <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
+                    </g>
+                </g>
+                <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
+                <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
+                </g>
+            </g>
+        </svg>
+    </div>
+    
+
+    <section class="section section-tesimonial">gallery</section>
+    
+
+    <div class="divider-rose">
+        <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
+            <g id="divider" transform="translate(0 -0.359)">
+                <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
+                <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
+                    <g id="white" transform="translate(0.59 0.36)">
+                    <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
+                    </g>
+                </g>
+                <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
+                <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
+                </g>
+            </g>
+        </svg>
+    </div>
+    
+
+    <section class="section section-tesimonial">admissions</section>
+    
+
+    <div class="divider-rose">
+        <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
+            <g id="divider" transform="translate(0 -0.359)">
+                <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
+                <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
+                    <g id="white" transform="translate(0.59 0.36)">
+                    <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
+                    </g>
+                </g>
+                <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
+                <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
+                </g>
+            </g>
+        </svg>
+    </div>
+    
+
+    <section class="section section-tesimonial">contact</section>
 
 
-        <section class="section section-pair even-section">
-            <div class="section-navigation">
-                <h2>A Day in the Life</h2>
-                <div class="button-wrap">
-                    <a href="<?php echo get_field('day_in_the_life_link'); ?>"
-                       class="button button-small button-primary">Learn
-                        More</a>
-                </div>
-            </div>
+    <div class="divider-rose">
+        <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
+            <g id="divider" transform="translate(0 -0.359)">
+                <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
+                <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
+                    <g id="white" transform="translate(0.59 0.36)">
+                    <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
+                    </g>
+                </g>
+                <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
+                <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
+                </g>
+            </g>
+        </svg>
+    </div>
+    
 
-            <div class="section-content section-day-in-the-life">
-                <div class="section-content-item section-content-item-half first-item">
-                    <?php echo get_field('day_in_the_life_description'); ?>
-                </div>
-                <div class="section-content-item section-content-item-half">
-                    <div class="image-wrap"
-                    <img class=""style="background-image: url(<?php echo get_field('day_in_the_life_picture'); ?>);" alt="">
-                </div>
-                <!-- <figure><img src="<?php echo get_field('day_in_the_life_picture'); ?>"/></figure> -->
-            </div>
+    <section class="section section-tesimonial">testimonial</section>
 
 
-            </div>
-        </section>
-
-        <section class="section section-pair section-school-location">
-            <div class="section-navigation">
-                <h2>Contact Us</h2>
-            </div>
-
-            <div class="section-content">
-                <div class="section-content-item section-content-item-half">
-                    <div class="school-maps-container">
-                        <?php $locations = array();
-                        if (get_field('map_embed_code')) {
-                            $cood = explode(",", get_field('map_embed_code'));
-                            array_push($locations, array(
-                                "latitude" => (float)$cood[0],
-                                "longitude" => (float)$cood[1],
-                                "info_text" => "Novapioneer " . get_the_title()
-                            ));
-                            novap_render_google_map($locations);
-                        } ?>
-                    </div>
-                </div>
-
-                <div class="section-content-item section-content-item-half">
-                    <div class="contact-info">
-                        <span class="phone-contact-one">Call us: <a
-                                href="tel:<?php echo get_field('main_phone_number'); ?> "><?php echo get_field('main_phone_number'); ?> </a></span>
-                        <span class="phone-contact-two">Admission :  <a
-                                href="tel:<?php echo get_field('admission_enquiries_number'); ?> "><?php echo get_field('admission_enquiries_number'); ?> </a></span>
-                        <span class="phone-contact-three">Current Parents : <a
-                                href="tel:<?php echo get_field('current_parents_contact__number'); ?>"> <?php echo get_field('current_parents_contact__number'); ?> </a> </span>
-                        <span class="email-contact">Email us: <a
-                                href="mailto:<?php echo get_field('email_address'); ?>"><?php echo get_field('email_address'); ?></a></span>
-                    </div>
-
-                    <div class="contact-info">
-                        <?php echo get_field('physical_address'); ?>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="divider-rose">
+        <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
+            <g id="divider" transform="translate(0 -0.359)">
+                <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
+                <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
+                    <g id="white" transform="translate(0.59 0.36)">
+                    <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
+                    </g>
+                </g>
+                <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
+                <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
+                </g>
+            </g>
+        </svg>
+    </div>
 
     <?php endwhile; ?>
+
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
-<?php endif; ?>
+
+    <?php endif; ?>
+
+    <div class="divider-rose">
+        <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
+            <g id="divider" transform="translate(0 -0.359)">
+                <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
+                <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
+                    <g id="white" transform="translate(0.59 0.36)">
+                    <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
+                    </g>
+                </g>
+                <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
+                <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
+                </g>
+            </g>
+        </svg>
+    </div>
+</div>
 
 
 <!-- slippry -->
