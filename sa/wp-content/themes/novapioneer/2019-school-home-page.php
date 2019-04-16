@@ -18,8 +18,8 @@ get_header(); ?>
                     <h1><?php the_field('alternate_title') ?></h1>
                     <p><?php the_field('alternate_description'); ?></p>
                 <?php else: ?>
-                    <h1>Learners are inspired become adaptive, independent thinkers</h1>
-                    <p>Learners are inspired become adaptive, independent thinkers sentence text here</p>
+                    <h1><?php the_title(); ?></h1>
+                    <p>Learners are inspired become adaptive, independent thinkers</p>
                 <?php endif ?>
                 </div>
             </figcaption>
