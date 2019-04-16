@@ -5,6 +5,11 @@
 
 main {
     margin-top: 1rem;
+
+    .page-template-front-page &,
+    .page-template-2019-school-home-page & {
+        margin-top: 0;
+    }
 }
 
 .header-section {
@@ -14,6 +19,11 @@ main {
 @media only screen and (min-width: 1024px) {
     .page-header {
         position: relative;
+
+        .page-template-front-page &,
+        .page-template-2019-school-home-page & {
+            position: fixed;
+        }
     }
 
     .menu-item-divider{
@@ -52,17 +62,23 @@ main {
 	background: $white;
 }
 
-.page-template-front-page .logo-text polygon,
-.page-template-front-page .logo-text path,
-.page-template-front-page .logo-text rect {
-	fill: $white;
+.page-template-front-page,
+.page-template-2019-school-home-page {
+    .logo-text polygon,
+    .logo-text path,
+    .logo-text rect {
+        fill: $white;
+    }
 }
 
-.page-template-front-page .header-section.stuck .logo-text polygon,
-.page-template-front-page .header-section.stuck .logo-text path,
-.page-template-front-page .header-section.stuck .logo-text rect {
-	fill: $blue-dk;
-}
+// .page-template-front-page,
+// .page-template-2019-school-home-page {
+//     .logo-text polygon,
+//     .logo-text path,
+//     .logo-text rect {
+//         fill: $blue-dk;
+//     }
+// }
 
 .menu {
 	margin-left: 4.5rem;
@@ -91,13 +107,29 @@ main {
     @include font-size(14px);
     @include line-height(24px);
     color: $grey-mdk;
+
+    &:hover {
+        color: $blue-lt;
+    }
+
+    .page-template-front-page &,
+    .page-template-2019-school-home-page & {
+        color: $white;
+    }
 }
 
 .menu-item.current-menu-ancestor>a,
 .menu-item.current-menu-parent>a,
 .menu-item.current-page-ancestor>a,
 .menu-item.current-page-parent>a {
+    @include title(medium);
     color: $grey-dk;
+    // color: $raspberry;
+
+    .page-template-front-page &,
+    .page-template-2019-school-home-page & {
+        color: $blue-lt;
+    }
 }
 
 
@@ -143,6 +175,15 @@ main {
 
     &:hover {
         fill: $orange-lt;
+    }
+
+    .page-template-front-page &,
+    .page-template-2019-school-home-page & {
+        fill: $white;
+
+        &:hover {
+            fill: $orange-lt;
+        }
     }
 }
 
