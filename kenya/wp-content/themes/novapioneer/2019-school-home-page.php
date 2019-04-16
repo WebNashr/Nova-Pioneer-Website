@@ -653,7 +653,7 @@ get_header(); ?>
     
 
     <section class="section section-school-extras">
-        <h2 class="section-heading">What else do you need to know?</h2>
+        <h2 class="section-heading"><?php the_field('school_extras_title'); ?></h2>
 
         <section class="section section-school-extras-inner">
             <?php if( have_rows('school_extras') ): ?>
@@ -699,7 +699,7 @@ get_header(); ?>
     
 
     <section class="section section-school-gallery">
-        <h2 class="section-heading">Gallery</h2>
+        <h2 class="section-heading"><?php the_field('school_gallery_title'); ?></h2>
 
         <section class="section section-school-gallery-show">
             <?php $images = get_field('gallery'); ?>
@@ -959,7 +959,7 @@ get_header(); ?>
                 arrows: true,
                 infinite: true,
                 speed: 500,
-                fade: true,
+                fade: false,
                 cssEase: 'linear'
             });
         });
