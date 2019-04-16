@@ -133,6 +133,7 @@ main {
 }
 
 
+
 .page-template-front-page .header-section.stuck .menu-item a {
 	@extend %text-blue-dk;
 }
@@ -140,6 +141,30 @@ main {
 .page-template-front-page .menu-item-divider {
 	display: none;
 }
+
+
+
+.page-header .menu>.menu-item:hover .sub-menu {
+    top: 28px;
+    background: $white;
+    border: none;
+    padding: 8px 0;
+    border-radius: 4px;
+}
+
+.page-header .sub-menu .menu-item:not(:first-of-type) {
+    border-top: none;
+}
+
+.page-header .sub-menu .menu-item a {
+    color: $grey-mdk;
+    padding: 12px 16px 9px;
+}
+
+.page-header .sub-menu .menu-item a:hover {
+    color: $green-lt;
+}
+
 
 .header-apply {
 	@extend .button;
