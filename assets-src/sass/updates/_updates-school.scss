@@ -267,7 +267,8 @@ section.section.section-school-tesimonials.slick-slider {
 
 
 section.section.section-school-tesimonials.slick-slider .slick-dots,
-section.section.section-school-extras-inner.slick-slider .slick-dots {
+section.section.section-school-extras-inner.slick-slider .slick-dots,
+section.section.section-school-gallery-show.slick-slider .slick-dots {
     bottom: 0;
 
     li {
@@ -296,6 +297,17 @@ section.section.section-school-extras-inner.slick-slider .slick-dots {
 
     li.slick-active button:before {
         color: $blue-lt;
+    }
+}
+
+section.section.section-school-gallery-show.slick-slider .slick-dots {
+    bottom: 1rem;
+    li button:before {
+        color: $white;
+    }
+
+    li.slick-active button:before {
+        color: $orange-lt;
     }
 }
 
@@ -330,6 +342,45 @@ section.section.section-school-extras-inner.slick-slider .slick-next {
 
 
 
+section.section.section-school-gallery-show.slick-slider .slick-prev,
+section.section.section-school-gallery-show.slick-slider .slick-next {
+    width: 36px;
+    height: 36px;
+    margin: unset;
+    top: unset;
+    right: unset;
+    // bottom: 4rem;
+    bottom: 0.75rem;
+    left: unset;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $blue-lt;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    z-index: 99;
+
+    &:before {
+        color: transparent;
+        opacity: 0;
+    }
+}
+
+section.section.section-school-gallery-show.slick-slider .slick-prev {
+    right: 10rem;
+    background-image: url('../../img/icons/line/arrow-left-1.svg')
+}
+
+section.section.section-school-gallery-show.slick-slider .slick-next {
+    right: 6rem;
+    background-image: url('../../img/icons/line/arrow-right-1.svg')
+}
+
+
+
+
+
+
+
 .section-school-extras {
     padding-top: 0;
     padding-bottom: 0;
@@ -340,15 +391,10 @@ section.section.section-school-extras-inner.slick-slider .slick-next {
 }
 
 section.section.section-school-extras-inner.slick-slider {
-    // @extend %columns;
-    // align-items: center;
     padding: 0 0 5rem;
 }
 
 .section-school-extras-inner-item {
-    // @extend %column;
-    // @extend %column-4;
-    // text-align: center;
     padding: 0 1.5rem;
 
     img {
@@ -372,6 +418,59 @@ section.section.section-school-extras-inner.slick-slider {
     a {
         @include title(medium);
         color: $blue-lt;
+    }
+}
+
+
+
+.section-school-gallery-show.slick-dotted.slick-slider {
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+
+    figure {
+        padding: 0;
+    }
+
+    img {
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 8px 16px rgba($orange-lt, 0.08);
+    }
+}
+
+.section-school-gallery-thumbs {
+    // margin: 3rem 0 0;
+    // margin: 3rem auto 0;
+    margin: 1rem auto 0;
+    padding: 0;
+    overflow: hidden;
+
+    figure {
+        // padding: 0 1rem;
+        // padding: 0 30.5px;
+        padding: 24px 30.5px;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+
+        &.slick-current {
+            img {
+                border: 6px solid $orange-lt;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            }
+        }
+    }
+
+    img {
+        border-radius: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            // box-shadow: 0 8px 16px rgba($orange-lt, 0.08);
+        }
     }
 }
 

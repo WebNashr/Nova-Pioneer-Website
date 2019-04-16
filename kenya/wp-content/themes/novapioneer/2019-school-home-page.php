@@ -698,7 +698,23 @@ get_header(); ?>
     </div>
     
 
-    <section class="section section-tesimonial">gallery</section>
+    <section class="section section-school-gallery section-school-gallery-show">
+        <?php $images = get_field('gallery'); ?>
+        <?php foreach ($images as $image): ?>
+        <figure>
+        <img src="<?php echo $image['sizes']['16-9-hero'] ?>" alt="<?php echo $image['caption'] ?>">
+        </figure>
+        <?php endforeach; ?>
+    </section>
+
+    <section class="section section-school-gallery section-school-gallery-thumbs">
+        <?php $images = get_field('gallery'); ?>
+        <?php foreach ($images as $image): ?>
+        <figure>
+        <img src="<?php echo $image['sizes']['1-1-square'] ?>" alt="<?php echo $image['caption'] ?>">
+        </figure>
+        <?php endforeach; ?>
+    </section>
     
 
     <div class="divider-rose">
@@ -914,6 +930,24 @@ get_header(); ?>
                 infinite: true,
                 slidesToShow: 3,
                 slidesToScroll: 3
+            });
+
+            $('.section-school-gallery-show').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: true,
+                fade: true,
+                asNavFor: '.section-school-gallery-thumbs'
+            });
+
+            $('.section-school-gallery-thumbs').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                asNavFor: '.section-school-gallery-show',
+                dots: false,
+                centerMode: true,
+                focusOnSelect: true
             });
 
             $('.section-school-tesimonials').slick({
