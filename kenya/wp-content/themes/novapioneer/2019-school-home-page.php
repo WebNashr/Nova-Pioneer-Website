@@ -698,22 +698,26 @@ get_header(); ?>
     </div>
     
 
-    <section class="section section-school-gallery section-school-gallery-show">
-        <?php $images = get_field('gallery'); ?>
-        <?php foreach ($images as $image): ?>
-        <figure>
-        <img src="<?php echo $image['sizes']['16-9-hero'] ?>" alt="<?php echo $image['caption'] ?>">
-        </figure>
-        <?php endforeach; ?>
-    </section>
+    <section class="section section-school-gallery">
+        <h2 class="section-heading">Gallery</h2>
 
-    <section class="section section-school-gallery section-school-gallery-thumbs">
-        <?php $images = get_field('gallery'); ?>
-        <?php foreach ($images as $image): ?>
-        <figure>
-        <img src="<?php echo $image['sizes']['1-1-square'] ?>" alt="<?php echo $image['caption'] ?>">
-        </figure>
-        <?php endforeach; ?>
+        <section class="section section-school-gallery-show">
+            <?php $images = get_field('gallery'); ?>
+            <?php foreach ($images as $image): ?>
+            <figure>
+            <img src="<?php echo $image['sizes']['16-9-hero'] ?>" alt="<?php echo $image['caption'] ?>">
+            </figure>
+            <?php endforeach; ?>
+        </section>
+
+        <section class="section section-school-gallery-thumbs">
+            <?php $images = get_field('gallery'); ?>
+            <?php foreach ($images as $image): ?>
+            <figure>
+            <img src="<?php echo $image['sizes']['1-1-square'] ?>" alt="<?php echo $image['caption'] ?>">
+            </figure>
+            <?php endforeach; ?>
+        </section>
     </section>
     
 
