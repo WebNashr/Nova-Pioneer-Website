@@ -3,6 +3,41 @@
 /* ==================================================== */
 
 
+main {
+    margin-top: 1rem;
+}
+
+.header-section {
+    align-items: center;
+}
+
+@media only screen and (min-width: 1024px) {
+    .page-header {
+        position: relative;
+    }
+
+    .menu-item-divider{
+        display: none;
+    }
+
+    .header-apply {
+        color: $white;
+        background: $green-lt;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+        $p: 14px;
+        @include font-size(14px);
+        @include letter-spacing(small);
+        padding: $p calc(#{$p} * 2);
+        letter-spacing: 2px;
+        border-radius: 4px;
+
+        &:hover {
+            background: $blue-dk;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+        }
+    }
+}
+
 .page-template-admissions-process .page-header {
 	position: relative;
     margin-bottom: 2rem;
@@ -37,12 +72,34 @@
 	margin-left: 2rem;
 }
 
-.page-template-front-page .menu-item a {
-    @include title(regular);
-    @include font-size(16px);
-    @include line-height(24px);
-    @extend %text-white;
+.menu-item.current-menu-ancestor:after,
+.menu-item.current-menu-parent:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -2px;
+    display: block;
+    width: 32px;
+    height: 6px;
+    margin: 0;
+    background: $green-lt;
+    border-radius: 6px;
 }
+
+.menu-item a {
+    @include title(regular);
+    @include font-size(14px);
+    @include line-height(24px);
+    color: $grey-mdk;
+}
+
+.menu-item.current-menu-ancestor>a,
+.menu-item.current-menu-parent>a,
+.menu-item.current-page-ancestor>a,
+.menu-item.current-page-parent>a {
+    color: $grey-dk;
+}
+
 
 .page-template-front-page .header-section.stuck .menu-item a {
 	@extend %text-blue-dk;
@@ -53,7 +110,10 @@
 }
 
 .header-apply {
-	@extend .button-green-lt;
+	@extend .button;
+    @extend .button-default;
+    @extend .button-green-lt;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
 .page-template-front-page .country-switch-container,
@@ -76,4 +136,52 @@
 	align-content: center;
 	margin-left: 2rem;
 }
+
+.modal-control.menu path,
+.modal-control.open path {
+    fill: $grey-mdk;
+
+    &:hover {
+        fill: $orange-lt;
+    }
+}
+
+
+
+.location-switch {
+    width: 36px;
+    // overflow: hidden;
+    height: 36px;
+    margin-left: 32px;
+}
+
+.location-switch-container {
+    a.drop-list-selected,
+    a.drop-list-option {
+        width: 36px;
+        height: 36px;
+        overflow: hidden;
+        border-radius: 50% !important;
+        padding: 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    svg {
+        width: 150%;
+        height: 100%;
+        margin-left: -25%;
+        padding: 0 !important;
+    }
+}
+
+.location-switch-container:hover .drop-list-option {
+    display: block;
+    margin: 0.75rem 0 0;
+}
+
+.location-switch-container .drop-list-selected:hover,
+.location-switch-container .drop-list-option:hover {
+    box-shadow: 0 8px 16px rgba($blue-dk, 0.4);
+}
+
 

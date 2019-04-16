@@ -99,7 +99,7 @@ if( ios ) {
 
 
         // 08. sticky header
-        $('.trigger-XXX').waypoint(function (direction) {
+        $('.trigger').waypoint(function (direction) {
             if (direction == 'down') {
                 $('.header-section-main').addClass('stuck');
                 $('.menu-item-main').addClass('stuck');
