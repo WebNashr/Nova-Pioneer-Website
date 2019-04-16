@@ -362,24 +362,6 @@
 
         <a id="header_apply" href="<?php echo site_url('/'.'apply-online/'); ?>" class="header-apply">Apply now</a>
 
-        <!--<section class="header-section country-switch-container">
-            <div class="drop-list-container">
-                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke drop-list-item drop-list-selected">
-                    <span class="flag-icon flag-icon-ke"></span>
-                    <span class="text">Kenya</span>
-                </a>
-
-                <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa drop-list-item drop-list-option">
-                    <span class="flag-icon flag-icon-za"></span>
-                    <span class="text">South Africa</span>
-                </a>
-            </div>
-
-            <script>
-                $('body').addClass('body-ke');
-            </script>
-        </section>-->
-
         <section class="location-switch">
             <div class="location-switch-container">
                 <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke drop-list-item drop-list-selected">
