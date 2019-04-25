@@ -116,7 +116,7 @@ get_header(); ?>
                     <a
                         href="<?php echo get_permalink($school->ID); ?>"
                         title="<?php echo $school->post_title; ?>"
-                        class="section-school-list-select"
+                        class="section-school-list-select country-list-item"
                     >
 
                         <img
