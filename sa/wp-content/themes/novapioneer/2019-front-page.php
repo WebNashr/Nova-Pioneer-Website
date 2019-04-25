@@ -104,9 +104,11 @@ get_header(); ?>
 
 
         <section class="section section-schools" style="padding:auto 0;">
-            <section>
+            <!--<section>
                 <h2 style="text-align: center;">Our South African schools</h2>
-            </section>
+            </section>-->
+
+            <h2><?php the_field('schools_list_title'); ?></h2>
 
             <div class="section-school-list">
                 <?php $schools = get_field('schools'); ?>
