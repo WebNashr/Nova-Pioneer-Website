@@ -20,9 +20,38 @@
 }
 
 .section-team-member {
-    @extend %column;
-    @extend %column-3;
+    $gut-team: 107px;
+    // @extend %column;
+    // @extend %column-3;
     text-align: center;
+
+    @include break-point(tablet) {
+        &:not(:first-of-type) {
+            margin-left: $gut-team;
+        }
+    }
+
+    @include break-point(laptop) {
+        flex: 3;
+        flex-basis: calc((100% - calc(#{$gut-team} * 3)) / 4);
+        max-width: calc((100% - calc(#{$gut-team} * 3)) / 4);
+        
+        &:nth-child(2n+3) {
+            margin-left: $gut-team;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 0;
+        }
+
+        &:nth-child(4n+5) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+5) {
+            margin-top: $gut;
+        }
+    }
 
     img {
         margin-bottom: 1.5rem;
