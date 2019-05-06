@@ -9,7 +9,9 @@ get_header(); ?>
 <?php while( have_posts() ): the_post(); ?>
 <div class="updates-2019">
 
-        <section class="section section-banner">
+        <div class="trigger"></div>
+        
+        <section class="section section-banner trigger-offset">
             <figure class="">
                 <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-hero')[0]; ?>" alt="">
 
@@ -21,7 +23,7 @@ get_header(); ?>
         </section>
 
 
-        <div class="trigger"></div>
+        <!--<div class="trigger"></div>-->
 
 
         <div class="divider-rose">

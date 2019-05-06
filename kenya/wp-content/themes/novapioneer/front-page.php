@@ -10,6 +10,8 @@ get_header(); ?>
 <?php if (have_posts()): ?>
     <?php while (have_posts()): the_post(); ?>
 
+        <div class="trigger" style="position: absolute; top: 90px; z-index: 9999;"></div>
+
         <section class="section country-hero" style="display: none;">
             <div class="container hero-container">
                 <ul id="hero-slider">
@@ -83,7 +85,7 @@ get_header(); ?>
         </section>
 
 
-        <div class="trigger"></div>
+        <!--<div class="trigger"></div>-->
 
 
         <div class="divider-rose">

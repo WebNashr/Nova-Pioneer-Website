@@ -77,11 +77,11 @@ if( ios ) {
 
 
         // 07. trigger offset
-        $(function () {
-            var headerHeight = $('.page-header').outerHeight();
-            $('.trigger-offset').css("margin-top", parseInt(headerHeight) + "px");
-            console.log("07. trigger offset for Waypoints");
-        });
+        // $(function () {
+        //     var headerHeight = $('.page-header').outerHeight();
+        //     $('.trigger-offset').css("margin-top", parseInt(headerHeight) + "px");
+        //     console.log("07. trigger offset for Waypoints");
+        // });
 
 
         // 07. make each tesimonial the same in height
@@ -99,12 +99,15 @@ if( ios ) {
 
 
         // 08. sticky header
-        $('.trigger-XXX').waypoint(function (direction) {
+        $('.trigger').waypoint(function (direction) {
+            var headerHeight = $('.page-header').outerHeight();
+
             if (direction == 'down') {
                 $('.header-section-main').addClass('stuck');
                 $('.menu-item-main').addClass('stuck');
                 $('.header-logo').addClass('stuck');
                 $('.page-header').addClass('stuck');
+                $('.trigger-offset').css("margin-top", parseInt(headerHeight) + "px");
                 console.log("08. sticky header was made unstuck");
             }
             if (direction == 'up') {
@@ -112,11 +115,18 @@ if( ios ) {
                 $('.menu-item-main').removeClass('stuck');
                 $('.header-logo').removeClass('stuck');
                 $('.page-header').removeClass('stuck');
+                $('.trigger-offset').css("margin-top", "unset");
                 console.log("08. sticky header got, er... stuck");
             }
         },
         {
-            offset: '72.5%'
+            // offset: '72.5%'
+            // offset: "80px"
+            // offset: function(){
+            //     return parseInt(headerHeight) + "px";
+            // }
+            // offset: parseInt(headerHeight)
+            offset: 80
         });
 
 

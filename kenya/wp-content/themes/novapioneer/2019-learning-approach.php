@@ -10,6 +10,8 @@ get_header(); ?>
 <div class="updates-2019">
 <?php if( have_posts() ): ?>
 <?php while( have_posts() ): the_post(); ?>
+    <div class="trigger"></div>
+
         <?php
             $introduction = get_field('introduction');
             $intro_cards = get_field('intro_cards');
@@ -29,7 +31,7 @@ get_header(); ?>
         </section>
 
 
-        <div class="trigger"></div>
+        <!--<div class="trigger"></div>-->
 
 
         <section class="section section-learning-jump">

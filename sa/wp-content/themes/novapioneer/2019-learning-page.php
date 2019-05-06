@@ -8,6 +8,8 @@ get_header(); ?>
 
 
 <div class="updates-2019">
+    <div class="trigger"></div>
+
 <?php if( have_posts() ): ?>
 <?php while( have_posts() ): the_post(); ?>
         <?php
@@ -29,7 +31,7 @@ get_header(); ?>
         </section>
 
 
-        <div class="trigger"></div>
+        <!--<div class="trigger"></div>-->
 
 
         <section class="section section-learning-jump">

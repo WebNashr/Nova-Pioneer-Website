@@ -8,6 +8,8 @@ get_header(); ?>
 <?php if (have_posts()): ?>
 <?php while (have_posts()): the_post(); ?>
 <div class="updates-2019">
+    <div class="trigger" style="position: absolute; top: 90px; z-index: 9999;"></div>
+    
     <section class="section section-banner-full">
         <figure class="">
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
