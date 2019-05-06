@@ -35,6 +35,7 @@
         flex: 3;
         flex-basis: calc((100% - calc(#{$gut-team} * 3)) / 4);
         max-width: calc((100% - calc(#{$gut-team} * 3)) / 4);
+        padding: 0 24px;
         
         &:nth-child(2n+3) {
             margin-left: $gut-team;

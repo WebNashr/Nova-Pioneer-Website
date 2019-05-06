@@ -46,9 +46,9 @@
             @extend %text-white;
         }
 
-        // .button {
-        //     @extend .bg-orange-lt;
-        // }
+        .button {
+            @extend .bg-orange-lt;
+        }
     }
 }
 
