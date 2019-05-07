@@ -51,7 +51,7 @@ get_header(); ?>
                     <img
                         class="school-photo"
                         src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-triplet')[0]; ?>"
-                        alt="<?php echo $school->post_title; ?>"
+                        alt="<?php echo $school->school_highlight_image; ?>"
                     >
 
                     <div class="school-summary">

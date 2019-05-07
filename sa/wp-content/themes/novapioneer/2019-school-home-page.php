@@ -12,7 +12,15 @@ get_header(); ?>
     
     <section class="section section-banner-full">
         <figure class="">
-            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
+            <!--<img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">-->
+
+            <?php if(get_field('school_banner_image')):?>
+            <?php
+                $img_id = get_field('school_banner_image');
+                $image = wp_get_attachment_image_src(get_field('school_banner_image'), '16-9-hero');
+            ?>
+            <img src="<?php echo esc_url( $image[0] ); ?>" alt="duck">
+            <?php endif;?>
 
             <figcaption class="flex-row">
                 <div class="figcaption-holder">
