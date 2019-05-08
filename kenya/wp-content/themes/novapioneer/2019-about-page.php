@@ -91,76 +91,82 @@ get_header(); ?>
             </svg>
         </div>
 
-        <section class="section" id="readmoreScroll">
-            <article class="article article-inner article-inner-alt mission-vision">
-                <h2 class="centered-title">Our Story</h2>
+        <section class="section section-about-statements">
+            <?php if(get_field('our_story')):?>
+            <figure class="section-about-statements-item">
+                <?php
+                    $image = get_sub_field('our_story_image');
+                    $size = '16-9-triplet';
+                    if( $image ) {
+                        echo wp_get_attachment_image( $image, $size );
+                    }
+                ?>
 
-                <!-- <input type="checkbox" class="read-more-state" id="post-121"/>-->
-                <div class="read-more-wrap">
-                    <p><?php $counter_s = 0;
-                        echo array_shift($our_story_paragraphs); ?></p>
-                    <span class="read-more-target-js" data-collapse="story">
-                           <?php foreach ($our_story_paragraphs as $s_paragraph): $counter_s++ ?>
-                               <p><?php echo $s_paragraph; ?></p>
-                           <?php endforeach; ?>
-                </span></div>
-                <?php if ($counter_s > 0): ?>
-                  <div class="button-wrap">
-                    <button class="read-more-trigger-js button button-tiny button-primary" <?php if (wpmd_is_device()) {
-                        echo ' style="z-index:115"';} ?> data-collapse="story">
-                        Read More
-                    </button>
-                  </div>
-                <?php endif; ?>
-                <h2 class="centered-title">Our Vision</h2>
-                <?php echo $our_vision; ?>
+                <?php
+                    $img_id = get_field('our_story_image');
+                    $image = wp_get_attachment_image_src(get_field('our_story_image'), '16-9-triplet');
+                ?>
+                <img src="<?php echo esc_url( $image[0] ); ?>" alt="">
 
-                <h2 class="centered-title" id="mission-scroll">Our Mission</h2>
-                <!-- <input type="checkbox" class="read-more-state" id="post-<?php echo get_the_ID(); ?>"/>-->
-                <div class="read-more-wrap">
-                    <p><?php $counter_m = 0;
-                        echo array_shift($our_mission_paragraphs); ?></p>
-                  <span class="read-more-target-js" data-collapse="mission">
-                      <?php foreach ($our_mission_paragraphs as $paragraph): $counter_m++; ?>
-                          <p><?php echo $paragraph; ?></p>
-                      <?php endforeach; ?>
-                  </span>
-                </div>
-                <?php if ($counter_m > 0): ?>
-                  <div class="button-wrap">
-                    <button class="read-more-trigger-js button button-tiny button-primary" <?php if (wpmd_is_device()) {
-                        echo ' style="z-index:115"';} ?> data-collapse="mission">
-                        Read More
-                    </button>
-                  </div>
-                <?php endif ?>
+                <figcaption>
+                    <h4><?php the_field('our_story_title'); ?></h4>
+                    <?php the_field('our_story'); ?>
+                    <br>
+                    <a href="<?php the_field('our_story_link'); ?>"><?php the_field('our_story_link_text'); ?></a>
+                </figcaption>
+            </figure>
+            <?php endif;?>
 
+            <?php if(get_field('our_mission')):?>
+            <figure class="section-about-statements-item">
+                <?php
+                    $image = get_sub_field('our_mission_image');
+                    $size = '16-9-triplet';
+                    if( $image ) {
+                        echo wp_get_attachment_image( $image, $size );
+                    }
+                ?>
 
-            </article>
-        </section>
+                <?php
+                    $img_id = get_field('our_mission_image');
+                    $image = wp_get_attachment_image_src(get_field('our_mission_image'), '16-9-triplet');
+                ?>
+                <img src="<?php echo esc_url( $image[0] ); ?>" alt="">
+                
+                <figcaption>
+                    <h4><?php the_field('our_mission_title'); ?></h4>
+                    <?php the_field('our_mission'); ?>
+                    <br>
+                    <a href="<?php the_field('our_mission_link'); ?>"><?php the_field('our_mission_link_text'); ?></a>
+                </figcaption>
+            </figure>
+            <?php endif;?>
 
-        <section class="section section-school-extras">
-            <h2 class="section-heading"><?php the_field('school_extras_title'); ?></h2>
+            <?php if(get_field('our_vision')):?>
+            <figure class="section-about-statements-item">
+                <?php
+                    $image = get_sub_field('our_vision_image');
+                    $size = '16-9-triplet';
+                    if( $image ) {
+                        echo wp_get_attachment_image( $image, $size );
+                    }
+                ?>
 
-            <section class="section section-school-extras-inner">
-                <figure class="section-school-extras-inner-item">
-                    <?php
-                        $image = get_sub_field('image');
-                        $size = '16-9-triplet';
-                        if( $image ) {
-                            echo wp_get_attachment_image( $image, $size );
-                        }
-                    ?>
-                    
-                    <figcaption>
-                        <h4><?php the_sub_field('title'); ?></h4>
-                        <p>
-                            <?php get_field('our_story'); ?>
-                            <a href="<?php the_sub_field('link_url'); ?>"><?php the_sub_field('link_text'); ?></a>
-                        </p>
-                    </figcaption>
-                </figure>
-            </section>
+                <?php
+                    $img_id = get_field('our_vision_image');
+                    $image = wp_get_attachment_image_src(get_field('our_vision_image'), '16-9-triplet');
+                ?>
+                <img src="<?php echo esc_url( $image[0] ); ?>" alt="">
+                
+                
+                <figcaption>
+                    <h4><?php the_field('our_vision_title'); ?></h4>
+                    <?php the_field('our_vision'); ?>
+                    <br>
+                    <a href="<?php the_field('our_vision_link'); ?>"><?php the_field('our_vision_link_text'); ?></a>
+                </figcaption>
+            </figure>
+            <?php endif;?>
         </section>
 
 

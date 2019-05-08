@@ -1,0 +1,85 @@
+
+/* team */
+/* ==================================================== */
+
+
+.section-about-statements {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    // @include flexbox();
+    // @include flex-direction(row);
+    // @include flex-wrap(wrap);
+    // margin: auto;
+    // @extend %column-12;
+    // justify-content: space-around;
+    // align-items: center;
+    @extend %columns;
+}
+
+// section.section.section-about-statements {
+//     padding: 0 0 5rem;
+// }
+
+.section-about-statements-item {
+    $gut-state: 61px;
+    // @extend %column;
+    // @extend %column-3;
+    // text-align: center;
+
+    @include break-point(tablet) {
+        &:not(:first-of-type) {
+            margin-left: $gut-state;
+        }
+    }
+
+    @include break-point(laptop) {
+        flex: 4;
+        flex-basis: calc((100% - calc(#{$gut-state} * 2)) / 3);
+        max-width: calc((100% - calc(#{$gut-state} * 2)) / 3);
+
+        &:nth-child(2n+3) {
+            margin-left: $gut-state;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 0;
+        }
+
+        &:nth-child(3n+4) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+4) {
+            margin-top: $gut-state;
+        }
+    }
+
+    // padding: 0 1.5rem;
+
+    img {
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    figcaption {
+
+    }
+
+    h4 {
+        margin-bottom: 1rem;
+    }
+    
+    p {
+
+    }
+
+    a {
+        @include title(medium);
+        display: block;
+        margin-top: 0.5rem;
+        color: $blue-lt;
+    }
+}
+
