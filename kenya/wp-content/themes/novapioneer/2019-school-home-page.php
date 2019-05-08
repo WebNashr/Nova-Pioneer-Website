@@ -750,7 +750,7 @@ get_header(); ?>
             <?php $images = get_field('gallery'); ?>
             <?php foreach ($images as $image): ?>
             <figure>
-            <img src="<?php echo $image['sizes']['16-9-hero'] ?>" alt="<?php echo $image['caption'] ?>">
+                <img src="<?php echo $image['sizes']['16-9-hero'] ?>" alt="<?php echo $image['caption'] ?>">
             </figure>
             <?php endforeach; ?>
         </section>
@@ -759,7 +759,7 @@ get_header(); ?>
             <?php $images = get_field('gallery'); ?>
             <?php foreach ($images as $image): ?>
             <figure>
-            <img src="<?php echo $image['sizes']['1-1-square'] ?>" alt="<?php echo $image['caption'] ?>">
+                <img src="<?php echo $image['sizes']['1-1-square'] ?>" alt="<?php echo $image['caption'] ?>">
             </figure>
             <?php endforeach; ?>
         </section>

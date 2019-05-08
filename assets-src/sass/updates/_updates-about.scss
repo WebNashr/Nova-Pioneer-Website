@@ -6,26 +6,11 @@
 .section-about-statements {
     padding-top: 0;
     padding-bottom: 0;
-
-    // @include flexbox();
-    // @include flex-direction(row);
-    // @include flex-wrap(wrap);
-    // margin: auto;
-    // @extend %column-12;
-    // justify-content: space-around;
-    // align-items: center;
     @extend %columns;
 }
 
-// section.section.section-about-statements {
-//     padding: 0 0 5rem;
-// }
-
 .section-about-statements-item {
     $gut-state: 61px;
-    // @extend %column;
-    // @extend %column-3;
-    // text-align: center;
 
     @include break-point(tablet) {
         &:not(:first-of-type) {
@@ -55,8 +40,6 @@
         }
     }
 
-    // padding: 0 1.5rem;
-
     img {
         margin-bottom: 1.5rem;
         border-radius: 8px;
@@ -80,6 +63,70 @@
         display: block;
         margin-top: 0.5rem;
         color: $blue-lt;
+    }
+}
+
+
+
+.section-culture-gallery-inner {
+    // @extend %columns;
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+}
+
+.section-culture-gallery-show.slick-dotted.slick-slider {
+    width: calc(50% - (61px / 2));
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding: 0;
+    overflow: hidden;
+
+    figure {
+        padding: 0;
+    }
+
+    img {
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 8px 16px rgba($orange-lt, 0.08);
+    }
+}
+
+.section-culture-gallery-thumbs {
+    width: calc(50% - (61px / 2));
+    // margin: 3rem 0 0;
+    // margin: 3rem auto 0;
+    // margin: 1rem auto 0;
+    margin: 0 0 0 auto;
+    padding: 0;
+    overflow: hidden;
+
+    figure {
+        // padding: 0 1rem;
+        // padding: 0 30.5px;
+        // padding: 24px 30.5px;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+
+        &.slick-current {
+            img {
+                border: 6px solid $orange-lt;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            }
+        }
+    }
+
+    img {
+        border-radius: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            // box-shadow: 0 8px 16px rgba($orange-lt, 0.08);
+        }
     }
 }
 

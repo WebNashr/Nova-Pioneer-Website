@@ -11,41 +11,6 @@ get_header(); ?>
 
         <div class="trigger"></div>
 
-        <?php $our_vision = get_field('our_vision');
-            $our_mission = get_field('our_mission');
-            $our_culture = get_field('our_culture');
-            $our_story = get_field('our_story');
-
-            // Get the paragraphs in $our_mission for implementing the read-more functionality
-            preg_match_all('|<p>(.+?)</p>|', $our_mission, $matches);
-            $our_mission_paragraphs = $matches[1];
-            preg_match_all('|<p>(.+?)</p>|', $our_story, $s_matches);
-            $our_story_paragraphs = $s_matches[1];
-        ?>
-
-
-        <!--<section class="section-hero-ios">
-            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-large')[0]; ?>">
-            <div class="container hero-container">
-                <div class="main-callout-box">
-                    <hr>
-                    <div class="faux-h1"><?php the_title(); ?></div>
-                </div>
-            </div>
-        </section>
-
-        <section
-            class="section section-hero" <?php if (has_post_thumbnail()): echo 'style="background-image: url(' . wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail')[0] . ');"'; endif; ?>
-            data-enllax-ratio="0.1">
-            <div class="container hero-container">
-                <div class="main-callout-box">
-                    <hr>
-                    <h1 class="animated-title"><?php the_title(); ?></h1>
-                </div>
-            </div>
-        </section>-->
-
-
         <section class="section section-banner trigger-offset">
             <figure class="">
                 <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-hero')[0]; ?>" alt="">
@@ -56,10 +21,6 @@ get_header(); ?>
                 </figcaption>
             </figure>
         </section>
-
-
-
-        <!--<div class="trigger"></div>-->
 
         <section class="section section-video-side section-video-side-left">
             <div class="video-side-embed">
@@ -111,7 +72,6 @@ get_header(); ?>
                 <figcaption>
                     <h4><?php the_field('our_story_title'); ?></h4>
                     <?php the_field('our_story'); ?>
-                    <br>
                     <a href="<?php the_field('our_story_link'); ?>"><?php the_field('our_story_link_text'); ?></a>
                 </figcaption>
             </figure>
@@ -136,7 +96,6 @@ get_header(); ?>
                 <figcaption>
                     <h4><?php the_field('our_mission_title'); ?></h4>
                     <?php the_field('our_mission'); ?>
-                    <br>
                     <a href="<?php the_field('our_mission_link'); ?>"><?php the_field('our_mission_link_text'); ?></a>
                 </figcaption>
             </figure>
@@ -162,39 +121,11 @@ get_header(); ?>
                 <figcaption>
                     <h4><?php the_field('our_vision_title'); ?></h4>
                     <?php the_field('our_vision'); ?>
-                    <br>
                     <a href="<?php the_field('our_vision_link'); ?>"><?php the_field('our_vision_link_text'); ?></a>
                 </figcaption>
             </figure>
             <?php endif;?>
         </section>
-
-
-        <!--<section class="full-width-image-container small-screens">
-            <figure class="full-width-image">
-                <?php if(get_field('our_culture_banner_image')): ?>
-                    <img src="<?php the_field('our_culture_banner_image'); ?>" />
-                <?php endif; ?>
-
-                <div class="section-content full-image-caption">
-                    <figcaption>
-                        <p><?php echo get_field('our_culture_banner_image_caption'); ?></p>
-                    </figcaption>
-                </div>
-            </figure>
-        </section>
-
-        <section class="full-width-image-container large-screens" data-enllax-type="foreground">
-            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
-                    style="background-image: url(<?php echo get_field('our_culture_banner_image'); ?>);"
-                    data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
-                <div class="section-content full-image-caption animated caption slideInLeft">
-                    <figcaption>
-                        <?php echo get_field('our_culture_banner_image_caption'); ?>
-                    </figcaption>
-                </div>
-            </figure>
-        </section>-->
 
         <div class="divider-rose">
             <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
@@ -212,29 +143,32 @@ get_header(); ?>
             </svg>
         </div>
 
-        <section class="section">
-            <article class="article article-inner article-inner-alt">
-                <h2 class="centered-title">Our Culture</h2>
+        <section class="section section-culture-gallery">
+            <h2 class="section-heading"><?php //the_field('school_gallery_title'); ?>Our culture</h2>
 
-                <?php echo $our_culture; ?>
-
-            </article>
-        </section>
-
-        <section class="section">
-            <div class="section-content section-content-plain principles-container">
-
-                <?php $number = 1; ?>
+            <div class="section-culture-gallery-inner">
+            <section class="section section-culture-gallery-show">
                 <?php foreach (get_field('culture_principles') as $principle): $principle = (object)$principle; ?>
-                    <div
-                        class="section-content-item section-content-item-third principle-card card-<?php echo $number; ?>">
-                        <h2 class="number"><?php echo $number; ?></h2>
-                        <h3><?php echo $principle->title; ?></h3>
-                        <div class="small-divider"></div>
-                        <?php echo $principle->description; ?>
-                    </div>
-                    <?php $number++; ?>
+                <figure>
+                    <img
+                        src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($principle->ID), '1-1-square')[0]; ?>"
+                        alt="<?php echo $principle->title; ?>">
+                </figure>
                 <?php endforeach; ?>
+                <?php wp_reset_query(); ?>
+            </section>
+
+            <section class="section section-culture-gallery-thumbs">
+                <?php foreach (get_field('culture_principles') as $principle): $principle = (object)$principle; ?>
+                <figure>
+                    <!--<img
+                        src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($principle->ID), '1-1-square')[0]; ?>"
+                        alt="<?php echo $principle->title; ?>">-->
+                    <h3><?php echo $principle->title; ?></h3>
+                    <?php echo $principle->description; ?>
+                </figure>
+                <?php endforeach; ?>
+            </section>
             </div>
         </section>
 
@@ -312,6 +246,32 @@ get_header(); ?>
 
         });
     })
+</script>
+
+
+<!-- slick -->
+<script type="text/javascript">
+    (function ($) {
+        $(document).ready(function () {
+            $('.section-culture-gallery-show').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: true,
+                fade: true,
+                asNavFor: '.section-culture-gallery-thumbs'
+            });
+
+            $('.section-culture-gallery-thumbs').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                asNavFor: '.section-culture-gallery-show',
+                dots: false,
+                centerMode: true,
+                focusOnSelect: true
+            });
+        });
+    })(jQuery);
 </script>
 
 
