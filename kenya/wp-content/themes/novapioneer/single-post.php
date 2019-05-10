@@ -8,14 +8,14 @@ get_header(); ?>
 <?php if(have_posts()): ?>
 <?php while(have_posts()): the_post(); ?>
 <div class="updates-2019">
-    <div class="trigger"></div>
+    <!--<div class="trigger"></div>-->
 
     <section class="section section-banner trigger-offset">
         <figure class="">
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-hero')[0]; ?>" alt="">
 
             <figcaption>
-                <h6>Blog <span>/</span> <span>admissions</span></h6>
+                <h6>Blog <span class="slash">/</span> <span class="categorically">admissions</span></h6>
                 <h1 class=""><?php the_field('alternate_title'); ?></h1>
                 <?php the_field('alternate_description'); ?>
             </figcaption>
@@ -36,22 +36,24 @@ get_header(); ?>
                     </div>
                 </div>
 
+                <?php if( have_rows('key_points') ): ?>
                 <div class="article-meta-points">
-                    <?php if( have_rows('key_points') ): ?>
                     <ul>
                         <?php while( have_rows('key_points') ): the_row();  ?>
                         <li><?php the_sub_field('point'); ?></li>
                         <?php endwhile; ?>
                     </ul>
-                    <?php endif; ?>
                 </div>
+                <?php endif; ?>
             </aside>
 
             <div class="article-body">
                 <?php the_content(); ?>
             </div>
 
-            <aside class="article-share">share-y stuff</aside>
+            <aside class="article-share">
+                <div>share-y stuff</div>
+            </aside>
         </article>
     </section>
 

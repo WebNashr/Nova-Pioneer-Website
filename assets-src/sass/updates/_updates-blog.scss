@@ -1,0 +1,121 @@
+
+/* blog */
+/* ==================================================== */
+
+
+.section-blog {
+    padding-top: 0;
+    padding-bottom: 0;
+    @extend %columns;
+}
+
+.section-blog-item {
+    $gut-state: 61px;
+
+    @include break-point(tablet) {
+        &:not(:first-of-type) {
+            margin-left: $gut-state;
+        }
+    }
+
+    @include break-point(laptop) {
+        flex: 4;
+        flex-basis: calc((100% - calc(#{$gut-state} * 2)) / 3);
+        max-width: calc((100% - calc(#{$gut-state} * 2)) / 3);
+
+        &:nth-child(2n+3) {
+            margin-left: $gut-state;
+        }
+
+        &:nth-child(n+3) {
+            margin-top: 0;
+        }
+
+        &:nth-child(3n+4) {
+            margin-left: 0;
+        }
+
+        &:nth-child(n+4) {
+            margin-top: $gut-state;
+        }
+    }
+
+    img {
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    figcaption {
+
+    }
+
+    h6 {
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+
+        a {
+            color: $raspberry;
+
+            &:hover {
+                color: $green-lt;
+            }
+        }
+    }
+
+    h4 {
+        margin-bottom: 1rem;
+
+        a {
+            color: $blue-dk;
+
+            &:hover {
+                color: $blue-lt;
+            }
+        }
+    }
+    
+    p {
+        @include title(light);
+        @include font-size(14px);
+        @include line-height(1.55);
+        margin-bottom: 1.5rem;
+        color: $grey-mdk;
+    }
+
+    .byline {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(nowrap);
+        align-items: center;
+    }
+    
+    .byline-img {
+        width: 36px;
+        margin-right: 1rem;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            margin: 0;
+            border-radius: 50%;
+            box-shadow: none;
+        }
+    }
+    
+    .byline-name {
+        @include title(light);
+        @include font-size(14px);
+        @include line-height(1.55);
+        color: $grey-mdk;
+    }
+    
+    a {
+        @include title(medium);
+        display: block;
+        margin-top: 0.5rem;
+        color: $blue-lt;
+    }
+}
+
+

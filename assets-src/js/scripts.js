@@ -182,7 +182,7 @@ if( ios ) {
 
 
 (function ($) {
-// 10. Full width caption animation
+    // 10. Full width caption animation
     console.log(' two ready')
     $(function () {
         var captionWaypoint = $('.caption').waypoint(function (direction) {
@@ -198,7 +198,7 @@ if( ios ) {
     });
 
 
-// 11. Animated Hero title
+    // 11. Animated Hero title
     $(function () {
         var inview = new Waypoint.Inview({
             element: $('.animated-title')[0],
@@ -214,7 +214,7 @@ if( ios ) {
 
 
 
-// 12. escape modal with ESC
+    // 12. escape modal with ESC
     $(document).keydown(function (e) {
         if (e.keyCode == 27) {
             $(".modal").toggleClass("show");
@@ -224,7 +224,7 @@ if( ios ) {
     });
 
 
-// parallax effect
+    // parallax effect
     $(function () {
         $(window).enllax();
     });

@@ -1,0 +1,39 @@
+
+/* blog */
+/* ==================================================== */
+
+
+ul.page-numbers {
+    display: inline-flex;
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    list-style-type: none;
+    // margin-top: calc(#{$space-tiny} * 3);
+    // margin-top: var(--space-4);
+
+    li {
+        margin: 0;
+        text-indent: 0;
+
+        &:before {
+            content: '';
+        }
+    }
+
+    span,
+    a {
+        @include font-size(16px);
+        @include line-height(24px);
+        margin-right: calc(#{$space-tiny} * 1);
+        cursor: pointer;
+    }
+
+    &:hover {
+        a {
+            @extend %text-grey-md;
+        }
+    }
+}
+
+

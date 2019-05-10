@@ -63,6 +63,13 @@
         &:first-of-type {
             margin-left: 16px;
         }
+
+        .page-template-2019-blog-archive-page & {
+            position: relative;
+            top: 2px;
+            margin-left: 0.5rem;
+            margin-right: 1rem;
+        }
     }
 
     path {
@@ -75,6 +82,12 @@
     @include line-height(56px);
     max-width: 1024px;
     margin-bottom: 1rem;
+
+    .page-template-2019-blog-archive-page & {
+        display: inline;
+        margin-right: auto;
+        margin-bottom: 0;
+    }
 }
 
 .section-banner p {

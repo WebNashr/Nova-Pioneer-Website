@@ -8,6 +8,35 @@
     padding-bottom: 0;
 }
 
+.single-post .section-banner {
+    margin-bottom: 6rem;
+
+    figcaption {
+        bottom: -4rem;
+    }
+}
+
+.single-post .updates-2019 h6 {
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    font-weight: medium;
+    font-weight: 500;
+    font-size: 14px;
+    font-size: .875rem;
+    text-transform: uppercase;
+
+    .slash {
+        font-size: 1.25rem;
+        position: relative;
+        top: 2px;
+        margin: 0 0px;
+    }
+
+    .categorically {
+        color: $raspberry;
+    }
+}
+
 .section-article .article {
     // @extend %columns;
     @include flexbox();
@@ -41,9 +70,9 @@
     @include flex-direction(row);
     @include flex-wrap(nowrap);
     align-items: center;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid $grey-lt;
+    // margin-bottom: 2rem;
+    // padding-bottom: 2rem;
+    // border-bottom: 1px solid $grey-lt;
 
     figure {
         width: 64px;
@@ -65,9 +94,14 @@
 }
 
 .article-meta-points {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid $grey-lt;
+
     ul li,
     ol li {
         @include title(light);
+        @include font-size(14px);
         margin-top: 0.5rem;
 
         &:before {
@@ -86,6 +120,9 @@
 .article-share {
     // @extend %column;
     // @extend %column-3;
+    @include flexbox();
+    justify-content: flex-end;
+    align-items: flex-start;
     margin-left: $gut;
 
     @include break-point(tablet) {
@@ -100,7 +137,10 @@
         max-width: calc((100% - calc(3rem * 3)) / 4);
     }
 
-    background: $grey-gh;
+    div {
+        padding: 16px;
+        background: $grey-gh;
+    }
 }
 
 .article-body {
@@ -140,9 +180,9 @@
     figcaption.wp-caption-text {
         @include title(light);
         @include font-size(12px);
-        @include line-height(24px);
+        @include line-height(16px);
         display: block;
-        padding: 1rem 0;
+        padding: 1rem 2.5rem;
         text-align: center;
         color: $grey-md;
         border-bottom: 1px solid $grey-gh;
