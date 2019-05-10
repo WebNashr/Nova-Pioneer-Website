@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Blog Archive Page
+ * Template Name: Blog Home Page
  */
 get_header(); ?>
 
@@ -35,18 +35,24 @@ get_header(); ?>
 
             $args = array(
                 'post_type' => 'post',
-                // 'category_name' => 'dismissive',
+                'category_name' => 'dismissive',
                 'post_status'=>'publish',
                 'orderby' => 'date',
                 'order' => 'DESC',
-                'showposts' => 12,
-                'posts_per_page' => 12,
+                'showposts' => 3,
+                'posts_per_page' => 3,
                 'paged'=> $paged
             );
 
             $loop = new WP_Query($args);
         ?>
         <?php if ($loop->have_posts()): ?>
+
+        <header>
+            <h4>Dismissive</h4>
+            <a href="">more</a>
+        </header>
+
         <section class="section section-blog">
             <?php while ($loop->have_posts()) : $loop->the_post(); ?>
             <figure class="section-blog-item">
@@ -81,30 +87,135 @@ get_header(); ?>
             <?php wp_reset_postdata(); ?>
             <?php endwhile; ?>
         </section>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
 
-        <!--pagination-->
+
         <?php
-            $total_pages = $loop->max_num_pages;
-            if ($total_pages > 1) {
-                $current_page = max(1, get_query_var( 'paged' ));
-                echo paginate_links( array(
-                    'base' => get_pagenum_link( 1 ) . '%_%',
-                    'format' => 'page/%#%',
-                    'current' => $current_page,
-                    'total' => $total_pages,
-                    'prev_text' => __('PREVIOUS'),
-                    'next_text' => __('NEXT'),
-                    'type' => 'list'
-                ) );
-            }
-        ?>
+            $paged = (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1;
 
-        <?php else: ?>
-        <section class="no-content">
-            <h4>There are no blog articles at the moment.</h4>
+            $args = array(
+                'post_type' => 'post',
+                'category_name' => 'admissions',
+                'post_status'=>'publish',
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'showposts' => 3,
+                'posts_per_page' => 3,
+                'paged'=> $paged
+            );
+
+            $loop = new WP_Query($args);
+        ?>
+        <?php if ($loop->have_posts()): ?>
+
+        <header>
+            <h4>Admissions</h4>
+            <a href="">more</a>
+        </header>
+
+        <section class="section section-blog">
+            <?php while ($loop->have_posts()) : $loop->the_post(); ?>
+            <figure class="section-blog-item">
+                <a href="<?php echo get_permalink(); ?>">
+                    <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-triplet')[0]; ?>">
+                </a>
+
+                <figcaption>
+                    <?php $categories = get_the_category(); ?>
+                    <?php foreach($categories as $category): ?>
+                    <h6>
+                        <a href="<?php echo get_category_link( $category->cat_ID ); ?>" title=""><?php echo $category->name; ?></a>
+                    </h6>
+                    <?php endforeach; ?>
+
+                    <h4>
+                        <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+                    </h4>
+
+                    <?php the_excerpt(); ?>
+                    <!--<a href="<?php echo get_permalink(); ?>">read more</a>-->
+
+                    <figure class="byline">
+                        <div class="byline-img">
+                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 36 ); ?>
+                        </div>
+
+                        <div class="byline-name">By <?php the_author() ?></div>
+                    </figure>
+                </figcaption>
+            </figure>
+            <?php wp_reset_postdata(); ?>
+            <?php endwhile; ?>
         </section>
         <?php endif; ?>
         <?php wp_reset_postdata(); ?>
+
+
+        <?php
+            $paged = (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1;
+
+            $args = array(
+                'post_type' => 'post',
+                'category_name' => 'uncategorized',
+                'post_status'=>'publish',
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'showposts' => 3,
+                'posts_per_page' => 3,
+                'paged'=> $paged
+            );
+
+            $loop = new WP_Query($args);
+        ?>
+        <?php if ($loop->have_posts()): ?>
+
+        <header>
+            <h4>Uncategorized</h4>
+            <a href="">more</a>
+        </header>
+
+        <section class="section section-blog">
+            <?php while ($loop->have_posts()) : $loop->the_post(); ?>
+            <figure class="section-blog-item">
+                <a href="<?php echo get_permalink(); ?>">
+                    <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-triplet')[0]; ?>">
+                </a>
+
+                <figcaption>
+                    <?php $categories = get_the_category(); ?>
+                    <?php foreach($categories as $category): ?>
+                    <h6>
+                        <a href="<?php echo get_category_link( $category->cat_ID ); ?>" title=""><?php echo $category->name; ?></a>
+                    </h6>
+                    <?php endforeach; ?>
+
+                    <h4>
+                        <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+                    </h4>
+
+                    <?php the_excerpt(); ?>
+                    <!--<a href="<?php echo get_permalink(); ?>">read more</a>-->
+
+                    <figure class="byline">
+                        <div class="byline-img">
+                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 36 ); ?>
+                        </div>
+
+                        <div class="byline-name">By <?php the_author() ?></div>
+                    </figure>
+                </figcaption>
+            </figure>
+            <?php wp_reset_postdata(); ?>
+            <?php endwhile; ?>
+        </section>
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
+
+
+
+
+
 
         <div class="divider-rose">
             <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
