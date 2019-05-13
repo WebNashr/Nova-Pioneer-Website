@@ -31,23 +31,25 @@ get_header(); ?>
 
 
     <?php
-        $paged = (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1;
+        // $paged = (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1;
 
-        $args = array(
-            'post_type' => 'post',
-            'post_status'=>'publish',
-            'orderby' => 'date',
-            'order' => 'DESC',
-            'showposts' => 12,
-            'posts_per_page' => 12,
-            'paged'=> $paged
-        );
+        // $args = array(
+        //     'post_type' => 'post',
+        //     'post_status'=>'publish',
+        //     'orderby' => 'date',
+        //     'order' => 'DESC',
+        //     'showposts' => 12,
+        //     'posts_per_page' => 12,
+        //     'paged'=> $paged
+        // );
 
-        $loop = new WP_Query($args);
+        // $loop = new WP_Query($args);
     ?>
-    <?php if ($loop->have_posts()): ?>
+    <?php //if ($loop->have_posts()): ?>
+    <?php if (have_posts()): ?>
     <section class="section section-blog">
-        <?php while ($loop->have_posts()) : $loop->the_post(); ?>
+        <?php //while ($loop->have_posts()) : $loop->the_post(); ?>
+        <?php while (have_posts()) : the_post(); ?>
         <figure class="section-blog-item">
             <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
                 <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-triplet')[0]; ?>">
