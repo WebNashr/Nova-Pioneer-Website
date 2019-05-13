@@ -5,58 +5,158 @@
 get_header(); ?>
 
 
-<?php if( have_posts() ): ?>
-<?php while( have_posts() ): the_post(); ?>
+<?php //if( have_posts() ): ?>
+<?php //while( have_posts() ): the_post(); ?>
 <div class="updates-2019">
 
         <div class="trigger"></div>
 
-        <section class="section section-banner trigger-offset">
-            <figure class="">
-                <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-hero')[0]; ?>" alt="">
+        <section class="section section-blog-category trigger-offset">
+            <h1 class=""><?php the_field('alternate_title'); ?></h1>
 
-                <figcaption class="flex-row">
-                    <h1 class=""><?php the_field('alternate_title'); ?></h1>
-                    
-                    <div class="banner-social">
-                        <span>Back to Blog</span>
+            <a href="" title="">
+                All blog articles
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-right-1</title><path d="M17.586 11l-5.293-5.293a1 1 0 1 1 1.414-1.414l7 7c.63.63.184 1.707-.707 1.707H4a1 1 0 0 1 0-2h13.586zm-.75 3.253a1 1 0 1 1 1.328 1.494l-4.5 4a1 1 0 1 1-1.328-1.494l4.5-4z" fill="#000" fill-rule="nonzero"/></svg>
+            </a>
+        </section>
 
-                        <a href="" title="">
-                            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-right-1</title><path d="M17.586 11l-5.293-5.293a1 1 0 1 1 1.414-1.414l7 7c.63.63.184 1.707-.707 1.707H4a1 1 0 0 1 0-2h13.586zm-.75 3.253a1 1 0 1 1 1.328 1.494l-4.5 4a1 1 0 1 1-1.328-1.494l4.5-4z" fill="#000" fill-rule="nonzero"/></svg>
-                        </a>
-                    </div>
-                </figcaption>
-            </figure>
+        <section class="section section-blog-featured">
+            <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'featured_post',
+                            'compare' => '=',
+                            'value' => '1'
+                        ),
+                    ),
+                    'post_status'=>'publish',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                    'offset' => 0,
+                    'showposts' => 1,
+                    'posts_per_page' => 1
+                );
+
+                $featured_aside_loop = new WP_Query($args);
+            ?>
+            <?php if ($featured_aside_loop->have_posts()): ?>
+            <?php while ($featured_aside_loop->have_posts()) : $featured_aside_loop->the_post(); ?>
+            <a class="section-blog-featured-main" href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
+                <figure class="">
+                    <img class="featured-img" src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-hero')[0]; ?>" alt="<?php the_title(); ?>">
+
+                    <figcaption class="">
+                        <?php $categories = get_the_category(); ?>
+                        <?php foreach($categories as $category): ?>
+                        <h6><?php echo $category->name; ?></h6>
+                        <?php endforeach; ?> 
+                        
+                        <h2 class=""><?php the_title(); ?></h2>
+
+                        <?php the_excerpt(); ?>
+
+                        <div class="byline">
+                            <div class="byline-img">
+                                <?php echo get_avatar( get_the_author_meta( 'ID' ), 36 ); ?>
+                            </div>
+
+                            <div class="byline-name">By <?php the_author() ?></div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </a>
+            <?php wp_reset_postdata(); ?>
+            <?php endwhile; ?>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
+
+            
+            <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'featured_post',
+                            'compare' => '=',
+                            'value' => '1'
+                        ),
+                    ),
+                    'post_status'=>'publish',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                    'offset' => 1,
+                    'showposts' => 4,
+                    'posts_per_page' => 4
+                );
+
+                $featured_aside_loop = new WP_Query($args);
+            ?>
+            <?php if ($featured_aside_loop->have_posts()): ?>
+            <div class="section-blog-featured-list">
+                <?php while ($featured_aside_loop->have_posts()) : $featured_aside_loop->the_post(); ?>
+                <a class="section-blog-featured-list-item" href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
+                    <figure>
+                        <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '1-1-square')[0]; ?>" alt="">
+                        
+                        <figcaption class="">
+                            <?php $categories = get_the_category(); ?>
+                            <?php foreach($categories as $category): ?>
+                            <h6><?php echo $category->name; ?></h6>
+                            <?php endforeach; ?>
+
+                            <h5 class=""><?php the_title(); ?></h5>
+                        </figcaption>
+                    </figure>
+                </a>
+                <?php wp_reset_postdata(); ?>
+                <?php endwhile; ?>
+            </div>
+            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
         </section>
 
 
-        <?php
-            $paged = (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1;
 
+
+
+
+
+        <?php
             $args = array(
                 'post_type' => 'post',
-                'category_name' => 'dismissive',
                 'post_status'=>'publish',
+                'meta_query' => array(
+                    array(
+                        'key' => 'featured_post',
+                        'compare' => '=',
+                        'value' => '0'
+                    ),
+                ),
                 'orderby' => 'date',
                 'order' => 'DESC',
                 'showposts' => 3,
-                'posts_per_page' => 3,
-                'paged'=> $paged
+                'posts_per_page' => 3
             );
 
-            $loop = new WP_Query($args);
+            $blog_latest_loop = new WP_Query($args);
         ?>
-        <?php if ($loop->have_posts()): ?>
+        <?php if ($blog_latest_loop->have_posts()): ?>
 
-        <header>
-            <h4>Dismissive</h4>
-            <a href="">more</a>
-        </header>
+        <section class="section section-blog-category">
+            <h4>Latest</h4>
+
+            <a href="" title="">
+                All latest articles
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-right-1</title><path d="M17.586 11l-5.293-5.293a1 1 0 1 1 1.414-1.414l7 7c.63.63.184 1.707-.707 1.707H4a1 1 0 0 1 0-2h13.586zm-.75 3.253a1 1 0 1 1 1.328 1.494l-4.5 4a1 1 0 1 1-1.328-1.494l4.5-4z" fill="#000" fill-rule="nonzero"/></svg>
+            </a>
+        </section>
 
         <section class="section section-blog">
-            <?php while ($loop->have_posts()) : $loop->the_post(); ?>
+            <?php while ($blog_latest_loop->have_posts()) : $blog_latest_loop->the_post(); ?>
             <figure class="section-blog-item">
-                <a href="<?php echo get_permalink(); ?>">
+                <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
                     <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-triplet')[0]; ?>">
                 </a>
 
@@ -69,11 +169,11 @@ get_header(); ?>
                     <?php endforeach; ?>
 
                     <h4>
-                        <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+                        <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                     </h4>
 
                     <?php the_excerpt(); ?>
-                    <!--<a href="<?php echo get_permalink(); ?>">read more</a>-->
+                    <!--<a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">read more</a>-->
 
                     <figure class="byline">
                         <div class="byline-img">
@@ -91,33 +191,44 @@ get_header(); ?>
         <?php wp_reset_postdata(); ?>
 
 
-        <?php
-            $paged = (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1;
 
+
+
+        <?php
             $args = array(
                 'post_type' => 'post',
-                'category_name' => 'admissions',
                 'post_status'=>'publish',
-                'orderby' => 'date',
+                // 'meta_query' => array(
+                //     array(
+                //         'key' => 'featured_post',
+                //         'compare' => '=',
+                //         'value' => '0'
+                //     ),
+                // ),
+                'meta_key' => 'popular_posts',
+                'orderby' => 'meta_value_num',
                 'order' => 'DESC',
                 'showposts' => 3,
-                'posts_per_page' => 3,
-                'paged'=> $paged
+                'posts_per_page' => 3
             );
 
-            $loop = new WP_Query($args);
+            $blog_popular_loop = new WP_Query($args);
         ?>
-        <?php if ($loop->have_posts()): ?>
+        <?php if ($blog_popular_loop->have_posts()): ?>
 
-        <header>
-            <h4>Admissions</h4>
-            <a href="">more</a>
-        </header>
+        <section class="section section-blog-category">
+            <h4>Popular</h4>
+
+            <a href="" title="">
+                All popular articles
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-right-1</title><path d="M17.586 11l-5.293-5.293a1 1 0 1 1 1.414-1.414l7 7c.63.63.184 1.707-.707 1.707H4a1 1 0 0 1 0-2h13.586zm-.75 3.253a1 1 0 1 1 1.328 1.494l-4.5 4a1 1 0 1 1-1.328-1.494l4.5-4z" fill="#000" fill-rule="nonzero"/></svg>
+            </a>
+        </section>
 
         <section class="section section-blog">
-            <?php while ($loop->have_posts()) : $loop->the_post(); ?>
+            <?php while ($blog_popular_loop->have_posts()) : $blog_popular_loop->the_post(); ?>
             <figure class="section-blog-item">
-                <a href="<?php echo get_permalink(); ?>">
+                <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
                     <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-triplet')[0]; ?>">
                 </a>
 
@@ -130,11 +241,11 @@ get_header(); ?>
                     <?php endforeach; ?>
 
                     <h4>
-                        <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+                        <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                     </h4>
 
                     <?php the_excerpt(); ?>
-                    <!--<a href="<?php echo get_permalink(); ?>">read more</a>-->
+                    <!--<a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">read more</a>-->
 
                     <figure class="byline">
                         <div class="byline-img">
@@ -152,33 +263,45 @@ get_header(); ?>
         <?php wp_reset_postdata(); ?>
 
 
-        <?php
-            $paged = (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1;
 
+
+
+
+        <?php
             $args = array(
                 'post_type' => 'post',
-                'category_name' => 'uncategorized',
+                'category_name' => 'news-events',
                 'post_status'=>'publish',
+                'meta_query' => array(
+                    array(
+                        'key' => 'featured_post',
+                        'compare' => '=',
+                        'value' => '0'
+                    ),
+                ),
                 'orderby' => 'date',
                 'order' => 'DESC',
                 'showposts' => 3,
-                'posts_per_page' => 3,
-                'paged'=> $paged
+                'posts_per_page' => 3
             );
 
             $loop = new WP_Query($args);
         ?>
         <?php if ($loop->have_posts()): ?>
 
-        <header>
-            <h4>Uncategorized</h4>
-            <a href="">more</a>
-        </header>
+        <section class="section section-blog-category">
+            <h4>News &amp; events</h4>
+
+            <a href="<?php echo novap_get_baseurl(); ?>/kenya/news-events" title="">
+                All news and events
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-right-1</title><path d="M17.586 11l-5.293-5.293a1 1 0 1 1 1.414-1.414l7 7c.63.63.184 1.707-.707 1.707H4a1 1 0 0 1 0-2h13.586zm-.75 3.253a1 1 0 1 1 1.328 1.494l-4.5 4a1 1 0 1 1-1.328-1.494l4.5-4z" fill="#000" fill-rule="nonzero"/></svg>
+            </a>
+        </section>
 
         <section class="section section-blog">
             <?php while ($loop->have_posts()) : $loop->the_post(); ?>
             <figure class="section-blog-item">
-                <a href="<?php echo get_permalink(); ?>">
+                <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
                     <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-triplet')[0]; ?>">
                 </a>
 
@@ -191,11 +314,11 @@ get_header(); ?>
                     <?php endforeach; ?>
 
                     <h4>
-                        <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+                        <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                     </h4>
 
                     <?php the_excerpt(); ?>
-                    <!--<a href="<?php echo get_permalink(); ?>">read more</a>-->
+                    <!--<a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">read more</a>-->
 
                     <figure class="byline">
                         <div class="byline-img">
@@ -233,11 +356,11 @@ get_header(); ?>
             </svg>
         </div>
 
-        <?php endwhile; ?>
+        <?php //endwhile; ?>
 
         <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
 
-        <?php endif; ?>
+        <?php //endif; ?>
 
         <div class="divider-rose">
             <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">

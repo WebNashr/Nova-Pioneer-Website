@@ -8,21 +8,31 @@ get_header(); ?>
 <?php if(have_posts()): ?>
 <?php while(have_posts()): the_post(); ?>
 <div class="updates-2019">
-    <!--<div class="trigger"></div>-->
+    <div class="trigger"></div>
 
     <section class="section section-banner trigger-offset">
         <figure class="">
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-hero')[0]; ?>" alt="">
 
             <figcaption>
-                <h6>Blog <span class="slash">/</span> <span class="categorically">admissions</span></h6>
+                <h6>
+                    Blog
+                    <?php $categories = get_the_category(); ?>
+                    <?php foreach($categories as $category): ?>
+                    <span class="slash">/</span>
+                    <span class="categorically">
+                        <a href="<?php echo get_category_link( $category->cat_ID ); ?>"><?php echo $category->name; ?></a>
+                    </span>
+                    <?php endforeach; ?>
+                </h6>                
+
                 <h1 class=""><?php the_field('alternate_title'); ?></h1>
                 <?php the_field('alternate_description'); ?>
             </figcaption>
         </figure>
     </section>
 
-    <section class="section section-article trigger-offset-xxx">
+    <section class="section section-article">
         <article class="article">
             <aside class="article-meta">
                 <div class="article-meta-author">
@@ -52,7 +62,11 @@ get_header(); ?>
             </div>
 
             <aside class="article-share">
-                <div>share-y stuff</div>
+                <div class="share-container">
+                    <header>Share</header>
+
+                    <?php post_share_buttons(); ?>
+                </div>
             </aside>
         </article>
     </section>

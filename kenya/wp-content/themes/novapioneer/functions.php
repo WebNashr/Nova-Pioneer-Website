@@ -197,7 +197,7 @@ function novap_body_class($classes)
     /** Add non-hero class **/
     $post_types = array(
         'tribe_events',
-        'post',
+        // 'post',
         'articles'
     );
 
@@ -714,5 +714,67 @@ function ghost_script_killer( $script, $handle, $src ) {
     return $script;
 }
 //add_filter( 'script_loader_tag', 'ghost_script_killer', 10, 3 );
+
+
+
+
+
+// DIY Popular Posts @ https://digwp.com/2016/03/diy-popular-posts/
+function shapeSpace_popular_posts($post_id) {
+	$count_key = 'popular_posts';
+	$count = get_post_meta($post_id, $count_key, true);
+	if ($count == '') {
+		$count = 0;
+		delete_post_meta($post_id, $count_key);
+		add_post_meta($post_id, $count_key, '0');
+	} else {
+		$count++;
+		update_post_meta($post_id, $count_key, $count);
+	}
+}
+function shapeSpace_track_posts($post_id) {
+	if (!is_single()) return;
+	if (empty($post_id)) {
+		global $post;
+		$post_id = $post->ID;
+	}
+	shapeSpace_popular_posts($post_id);
+}
+add_action('wp_head', 'shapeSpace_track_posts');
+
+
+
+
+function post_share_buttons() {
+    // Get current page URL
+    $currentURL = get_permalink();
+
+    // Shorten url using bitly, refer to phpvendor/bitly-api/fsd-bitly.php
+    // $short_url = shorten_url($currentURL);
+    $short_url = $currentURL;
+
+    // Get current page title
+    $currentPageTitle = str_replace(' ', '%20', get_the_title());
+
+    $twitterURL = 'https://twitter.com/intent/tweet?text=' . $currentPageTitle . '&amp;url=' . $short_url . '&amp;via=novapioneer_ke';
+    $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u=' . $currentURL;
+    $linkedInURL = 'https://www.linkedin.com/cws/share?url=' . $currentURL;
+
+    $share_output = "<div class='share-icons'>";
+    $share_output .= "<a class='share-icon' onclick=\"window.open('" . $facebookURL . "',null,'height=500,width=700,top=100,left=450')\">
+    <svg width='32' height='32' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><title>facebook</title><path d='M12 13h-1a1 1 0 0 1 0-2h1V8a1 1 0 0 1 1-1h3a1 1 0 0 1 0 2h-2v2h2a1 1 0 0 1 0 2h-2v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-3a1 1 0 0 1 0-2h2V5H5v14h7v-6z' fill='#000' fill-rule='nonzero'/></svg>
+    </a>";
+    
+    $share_output .= "<a class='share-icon' onclick=\"window.open('" . $twitterURL . "',null,'height=500,width=700,top=100,left=450')\">
+    <svg width='32' height='32' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><title>twitter</title><path d='M20.03 4.388a.922.922 0 0 0 .31-.177.998.998 0 0 1 1.41.095c.364.417.321 1.05-.095 1.414a2.914 2.914 0 0 1-.969.561c-.6.209-1.206.227-1.768.138a2.854 2.854 0 0 1-.284-.058 1 1 0 0 1-.52-.339c-.826-1.026-1.803-1.27-3.17-.767-1.283.473-1.795 1.534-1.553 3.498.074.6-.395 1.128-.998 1.125-3.215-.02-6.162-1.444-8.803-4.22a1.004 1.004 0 0 1 .033-1.418.998.998 0 0 1 1.414.034c1.974 2.076 4.067 3.24 6.3 3.528.033-2.184 1.009-3.724 2.916-4.428 2.02-.745 3.805-.375 5.155 1.085.213.015.432-.005.622-.071zM8.442 18.996c3.7 0 6.987-1.578 9.14-5.173.79-1.317 1.232-2.845 1.326-4.6a1 1 0 1 1 1.997.107c-.111 2.072-.646 3.919-1.608 5.525C16.753 19.103 12.799 21 8.442 21c-2.293 0-4.315-.631-6.033-1.894-.819-.6-.326-1.9.684-1.806 1.463.138 3.151-.354 5.067-1.516a.999.999 0 0 1 1.373.339c.286.474.135 1.09-.338 1.376-.924.56-1.822.994-2.693 1.298a9.155 9.155 0 0 0 1.94.199zM3.197 8.708A.999.999 0 1 1 5.04 7.93c.218.52.568.896 1.08 1.158.492.251.687.855.437 1.348a.999.999 0 0 1-1.345.437 4.21 4.21 0 0 1-2.015-2.166zm.92 3.985a1.003 1.003 0 0 1 .352-1.373.999.999 0 0 1 1.37.352c.393.665.789 1.006 1.178 1.097a1.002 1.002 0 0 1-.45 1.952c-.986-.228-1.8-.928-2.45-2.028z' fill='#000' fill-rule='nonzero'/></svg>
+    </a>";
+    
+    $share_output .= "<a class='share-icon' onclick=\"window.open('" . $linkedInURL . "',null,'height=500,width=700,top=100,left=450')\">
+    <svg width='32' height='32' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><title>linkedin</title><path d='M12.707 10.292A3 3 0 0 1 17 13v3a1 1 0 0 1-2 0v-3a1 1 0 0 0-2 0v3a1 1 0 0 1-2 0v-5a1 1 0 0 1 1.707-.708zM5 19h11a1 1 0 0 1 0 2H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v16a1 1 0 0 1-2 0V5H5v14zm2-8a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0v-5zm1-2a1 1 0 1 1 0-2 1 1 0 0 1 0 2z' fill='#000' fill-rule='nonzero'/></svg>
+    </a>";
+    $share_output .= "</div>";
+
+    echo $share_output;
+}
 
 

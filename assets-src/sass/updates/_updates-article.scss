@@ -22,7 +22,6 @@
     font-weight: medium;
     font-weight: 500;
     font-size: 14px;
-    font-size: .875rem;
     text-transform: uppercase;
 
     .slash {
@@ -32,8 +31,14 @@
         margin: 0 0px;
     }
 
-    .categorically {
+    .categorically,
+    .categorically a {
+        display: inline;
         color: $raspberry;
+
+        &:hover {
+            color: $orange-lt;
+        }
     }
 }
 
@@ -137,9 +142,49 @@
         max-width: calc((100% - calc(3rem * 3)) / 4);
     }
 
-    div {
-        padding: 16px;
+    .share-container {
+        text-align: center;
         background: $grey-gh;
+        border-radius: 5px;
+    }
+
+    header {
+        @include title(semibold);
+        @include font-size(12px);
+        @include line-height(1);
+        padding: 10px 9px;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 2px;
+        color: $white;
+        background: $raspberry;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .share-icons {
+        @include flexbox();
+        @include flex-direction(column);
+        @include flex-wrap(nowrap);
+        padding-bottom: 16px;
+
+        a {
+            @include flexbox();
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0 0;
+        }
+
+        svg {
+            width: 32px;
+        }
+
+        svg path {
+            fill: $blue-dk;
+        }
+
+        a:hover svg path {
+            fill: $raspberry;
+        }
     }
 }
 
