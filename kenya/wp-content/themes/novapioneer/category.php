@@ -10,33 +10,24 @@ get_header(); ?>
 <div class="updates-2019">
     <div class="trigger"></div>
 
-    <!--<section class="section section-banner trigger-offset">
-        <figure class="">
-            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-hero')[0]; ?>" alt="">
-
-            <figcaption class="flex-row">
-                <h1 class=""><?php single_cat_title( '', false ); ?></h1>
-                
-                <div class="banner-social">
-                    <span>Back to Blog</span>
-
-                    <a href="" title="">
-                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-right-1</title><path d="M17.586 11l-5.293-5.293a1 1 0 1 1 1.414-1.414l7 7c.63.63.184 1.707-.707 1.707H4a1 1 0 0 1 0-2h13.586zm-.75 3.253a1 1 0 1 1 1.328 1.494l-4.5 4a1 1 0 1 1-1.328-1.494l4.5-4z" fill="#000" fill-rule="nonzero"/></svg>
-                    </a>
-                </div>
-            </figcaption>
-        </figure>
-    </section>-->
-
-
+    <?php if( have_posts() ): ?>
     <section class="section section-blog-category trigger-offset">
-        <h1 class="">Blog / <?php single_cat_title( '', false ); ?></h1>
+        <h1 class="">
+            Blog / 
+            <span class="blog-category">
+                <?php
+                    $category = get_the_category();
+                    echo $category[0]->cat_name;
+                ?>
+            </span>
+        </h1>
 
         <a href="<?php echo novap_get_baseurl(); ?>/kenya/blog" title="Back to Blog">
             Back to Blog
             <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-right-1</title><path d="M17.586 11l-5.293-5.293a1 1 0 1 1 1.414-1.414l7 7c.63.63.184 1.707-.707 1.707H4a1 1 0 0 1 0-2h13.586zm-.75 3.253a1 1 0 1 1 1.328 1.494l-4.5 4a1 1 0 1 1-1.328-1.494l4.5-4z" fill="#000" fill-rule="nonzero"/></svg>
         </a>
     </section>
+    <?php endif; ?>
 
 
     <?php
@@ -152,68 +143,7 @@ get_header(); ?>
     </div>
 </div>
 
-<script>
-    jQuery(document).ready(function ($) {
-        var readmoreCounter = 1;
-        jQuery('.read-more-target-js p').hide();
-        jQuery(".read-more-trigger-js").click(function (e) {
-            console.log('default prevented');
-            e.preventDefault();
-            var collapse = $(this).data('collapse')
-            readmoreCounter += 1 - 1;
-            console.log(readmoreCounter++)
-            var offset = 75; //Offset of 75px
-            if (readmoreCounter % 2 === 0) {
-                //  do some stuff if you want
-                $(this).text('Read Less');
-
-            }
-            else {
-                $(this).text('Read More');
-                if (collapse == 'mission') {
-                    jQuery('html, body').animate({
-                        scrollTop: $('#mission-scroll').offset().top - offset
-                    }, 2000);
-                } else {
-                    jQuery('html, body').animate({
-                        scrollTop: $('#readmoreScroll').offset().top - offset
-                    }, 2000);
-                }
-
-            }
-            $('[data-collapse="' + collapse + '"] p').slideToggle("slow", function () {
-
-            });
-
-        });
-    })
-</script>
-
-
-<!-- slick -->
-<script type="text/javascript">
-    (function ($) {
-        $(document).ready(function () {
-            $('.section-culture-gallery-show').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true,
-                dots: true,
-                fade: true,
-                asNavFor: '.section-culture-gallery-thumbs'
-            });
-
-            $('.section-culture-gallery-thumbs').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                asNavFor: '.section-culture-gallery-show',
-                dots: false,
-                centerMode: true,
-                focusOnSelect: true
-            });
-        });
-    })(jQuery);
-</script>
-
 
 <?php get_footer(); ?>
+
+
