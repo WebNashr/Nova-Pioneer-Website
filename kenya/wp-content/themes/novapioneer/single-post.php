@@ -24,7 +24,7 @@ get_header(); ?>
                         <a href="<?php echo get_category_link( $category->cat_ID ); ?>"><?php echo $category->name; ?></a>
                     </span>
                     <?php endforeach; ?>
-                </h6>                
+                </h6>
 
                 <h1 class=""><?php the_field('alternate_title'); ?></h1>
                 <?php the_field('alternate_description'); ?>

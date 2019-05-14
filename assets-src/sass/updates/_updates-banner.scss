@@ -86,12 +86,16 @@
     .page-template-2019-blog-archive-page & {
         display: inline;
         margin-right: auto;
-        margin-bottom: 0;
+        // margin-bottom: 0;
     }
 }
 
 .section-banner p {
+    @include title(light);
+    @include font-size(16px);
+    @include line-height(1.55);
     max-width: 1024px;
+    color: $grey-mdk;
 }
 
 
