@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120.4" height="109.9" viewBox="0 0 120.4 109.9">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="120.4" height="109.9" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="event-date_copy" data-name="event-date copy" clip-path="url(#clip-path)">
+    <rect id="grey_bg" data-name="grey bg" width="120.4" height="103.6" rx="5.6" transform="translate(0 6.3)" fill="#f1f1f1"/>
+    <path id="blue_bg" data-name="blue bg" d="M5.6,0H114.8a5.6,5.6,0,0,1,5.6,5.6V29.4a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.6A5.6,5.6,0,0,1,5.6,0Z" transform="translate(0 6)" fill="#1e3a77"/>
+    <path id="notch_right" data-name="notch right" d="M5.6,0h0a5.6,5.6,0,0,1,5.6,5.6V32a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.6A5.6,5.6,0,0,1,5.6,0Z" transform="translate(88.2)" fill="#1e3a77"/>
+    <path id="notch_left" data-name="notch left" d="M5.6,0h0a5.6,5.6,0,0,1,5.6,5.6V32a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.6A5.6,5.6,0,0,1,5.6,0Z" transform="translate(21)" fill="#1e3a77"/>
+    <text id="extra" transform="translate(60.2 94.6)" fill="#1e3a77" font-size="9.8" font-family="Montserrat-Regular, Montserrat"><tspan x="-35.741" y="0">multiple times</tspan></text>
+    <text id="month" transform="translate(60 25)" fill="#ffd100" font-size="9.8" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="-31.786" y="0" letter-spacing="0.143em">FEBRUAR</tspan><tspan y="0">Y</tspan></text>
+    <text id="date" transform="translate(60.2 82.8)" fill="#1e3a77" font-size="33.6" font-family="Montserrat-ExtraBold, Montserrat" font-weight="800" letter-spacing="0.06em"><tspan x="-14.944" y="0">11</tspan></text>
+  </g>
+</svg>
