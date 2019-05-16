@@ -43,9 +43,14 @@
         @include font-size(16px);
         @include line-height(20px);
         @extend %text-blue-dk;
+        margin-top: 0;
         margin-bottom: 16px;
         letter-spacing: 3px;
         opacity: 1;
+
+        &:after {
+            display: none;
+        }
     }
 
     .footer-box-main-item:hover {
@@ -57,6 +62,10 @@
         @include font-size(14px);
         @include line-height(34px);
         @extend %text-grey-mdk;
+
+        &:after {
+            display: none;
+        }
     }
 
     .footer-box .sub-menu .footer-box-item:hover {

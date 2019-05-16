@@ -110,8 +110,8 @@ main {
 	margin-left: 2rem;
 }
 
-.menu-item.current-menu-ancestor:after,
-.menu-item.current-menu-parent:after {
+header .menu-item.current-menu-ancestor:after,
+header .menu-item.current-menu-parent:after {
     content: '';
     position: absolute;
     // bottom: -10px;
