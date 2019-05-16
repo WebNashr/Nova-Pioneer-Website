@@ -42,7 +42,7 @@ get_header(); ?>
 
     <!--<div class="trigger"></div>-->
 
-    <section class="section section-schools" style="padding:auto 0;">
+    <section class="section section-schools">
         <div class="section-school-list">
             <?php $schools = get_field('schools'); ?>
             <?php foreach ($schools as $school): $school = (object)$school; ?>
