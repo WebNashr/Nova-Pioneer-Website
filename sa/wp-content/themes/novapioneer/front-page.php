@@ -11,57 +11,6 @@ get_header(); ?>
     <?php while (have_posts()): the_post(); ?>
         <div class="trigger" style="position: absolute; top: 90px; z-index: 9999;"></div>
 
-        <section class="section country-hero" style="display: none;">
-            <div class="container hero-container">
-                <ul id="hero-slider">
-                    <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
-                        <?php $link = '#';
-                          $target = '';
-                        if ($hero_slide->has_link) {
-                            $link = $hero_slide->link;
-                            $target = 'target="_blank"';
-                        } ?>
-                        <li>
-                            <a href="<?php echo $link ?>" <?php echo $target ?>>
-                                <img src="<?php echo $hero_slide->image; ?>">
-                                <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
-                                <!--<img src="<?php echo $hero_slide->image['sizes']['16-9-large'] ?>" alt="<?php echo $image['caption'] ?>">-->
-                                <div class="callout-box">
-                                    <div class="animated-headings">
-                                        <h1 class="hero-title"><?php echo $hero_slide->title; ?></h1>
-                                        <h2 class="hero-subtitle"><?php echo $hero_slide->subtitle; ?></h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        </section>
-
-
-        <!--<section class="section section-carousel">
-            <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
-            <?php
-                $link = '#';
-                $target = '';
-                if ($hero_slide->has_link) {
-                    $link = $hero_slide->link;
-                    $target = 'target="_blank"';
-                }
-            ?>
-            <a class="section-carousel-slide" href="<?php echo $link ?>" <?php echo $target ?>>
-                <img src="<?php echo $hero_slide->image; ?>">
-
-                <figcaption>
-                    <h1 class="extrabold"><?php echo $hero_slide->title; ?> <span class="highlighted"><?php echo $hero_slide->title_highlight; ?></span></h1>
-                    <p class="subheading"><?php echo $hero_slide->subtitle; ?></p>
-                </figcaption>
-            </a>
-            <?php endforeach; ?>
-        </section>-->
-
-
         <section class="section section-carousel">
             <?php if( have_rows('hero_slides') ): ?>
             <?php while( have_rows('hero_slides') ): the_row();  ?>
@@ -84,10 +33,7 @@ get_header(); ?>
         </section>
 
 
-        <!--<div class="trigger"></div>-->
-
-
-        <div class="divider-rose">
+        <!--<div class="divider-rose">
             <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
                 <g id="divider" transform="translate(0 -0.359)">
                     <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
@@ -101,10 +47,10 @@ get_header(); ?>
                     </g>
                 </g>
             </svg>
-        </div>
+        </div>-->
 
 
-        <section class="section section-schools" style="padding:auto 0;">
+        <section class="section section-schools">
             <!--<section>
                 <h2 style="text-align: center;">Our South African schools</h2>
             </section>-->
