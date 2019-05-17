@@ -17,6 +17,7 @@ get_header(); ?>
 
             <figcaption class="">
                 <h1 class="">Open Days</h1>
+                <p><?php the_field('alternate_description'); ?></p>
             </figcaption>
         </figure>
     </section>
@@ -24,7 +25,8 @@ get_header(); ?>
 
     <?php
         $args = array(
-            'post_type' => 'post',
+            // 'post_type' => 'post',
+            'post_type' => 'eventbrite_events',
             'post_status'=>'publish',
             'orderby' => 'date',
             'order' => 'DESC',
@@ -55,7 +57,7 @@ get_header(); ?>
                     <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                 </h4>
 
-                <?php the_excerpt(); ?>
+                <?php //the_excerpt(); ?>
             </figcaption>
         </figure>
         <?php wp_reset_postdata(); ?>

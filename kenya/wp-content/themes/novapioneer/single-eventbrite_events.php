@@ -52,49 +52,19 @@ get_header(); ?>
 
 <?php if ( date( 'Y-m-d', $start_date_str ) == date( 'Y-m-d', $end_date_str ) ) { ?>
 <div class="article-meta-generic article-meta-generic-date">
-    <!--<div><?php echo date( 'F', $start_date_str ); ?></div>
-    <div><?php esc_html_e( 'Date', 'import-eventbrite-events' ); ?></div>
-    <div>single date</div>-->
-
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120.4" height="109.9" viewBox="0 0 120.4 109.9">
-        <defs>
-            <clipPath id="clip-path">
-            <rect width="120.4" height="109.9" fill="none"/>
-            </clipPath>
-        </defs>
-        <g id="event-date_copy" data-name="event-date copy" clip-path="url(#clip-path)">
-            <rect id="grey_bg" data-name="grey bg" width="120.4" height="103.6" rx="5.6" transform="translate(0 6.3)" fill="#f1f1f1"/>
-            <path id="blue_bg" data-name="blue bg" d="M5.6,0H114.8a5.6,5.6,0,0,1,5.6,5.6V29.4a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.6A5.6,5.6,0,0,1,5.6,0Z" transform="translate(0 6)" fill="#1e3a77"/>
-            <path id="notch_right" data-name="notch right" d="M5.6,0h0a5.6,5.6,0,0,1,5.6,5.6V32a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.6A5.6,5.6,0,0,1,5.6,0Z" transform="translate(88.2)" fill="#1e3a77"/>
-            <path id="notch_left" data-name="notch left" d="M5.6,0h0a5.6,5.6,0,0,1,5.6,5.6V32a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.6A5.6,5.6,0,0,1,5.6,0Z" transform="translate(21)" fill="#1e3a77"/>
-            <text id="extra" transform="translate(60.2 94.6)" fill="#1e3a77" font-size="9.8" font-family="Montserrat-Regular, Montserrat"><tspan x="-35.741" y="0">single date</tspan></text>
-            <text id="month" transform="translate(60 25)" fill="#ffd100" font-size="9.8" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="-31.786" y="0" letter-spacing="0.143em"><?php echo date( 'F', $start_date_str ); ?></tspan></text>
-            <text id="date" transform="translate(60.2 82.8)" fill="#1e3a77" font-size="33.6" font-family="Montserrat-ExtraBold, Montserrat" font-weight="800" letter-spacing="0.06em"><?php esc_html_e( 'Date', 'import-eventbrite-events' ); ?></text>
-        </g>
-    </svg>
+    <div class="article-meta-calendarette">
+        <div class="calendarette-month"><?php echo date( 'F', $start_date_str ); ?></div>
+        <div class="calendarette-date"><?php esc_html_e( 'Date', 'import-eventbrite-events' ); ?></div>
+        <div class="calendarette-days">single date</div>
+    </div>
 </div>
 <?php } else { ?>
 <div class="article-meta-generic article-meta-generic-date">
-    <!--<div><?php echo date( 'F', $start_date_str ); ?></div>
-    <div>M</div>
-    <div>multiple dates</div>-->
-
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120.4" height="109.9" viewBox="0 0 120.4 109.9">
-        <defs>
-            <clipPath id="clip-path">
-            <rect width="120.4" height="109.9" fill="none"/>
-            </clipPath>
-        </defs>
-        <g id="event-date_copy" data-name="event-date copy" clip-path="url(#clip-path)">
-            <rect id="grey_bg" data-name="grey bg" width="120.4" height="103.6" rx="5.6" transform="translate(0 6.3)" fill="#f1f1f1"/>
-            <path id="blue_bg" data-name="blue bg" d="M5.6,0H114.8a5.6,5.6,0,0,1,5.6,5.6V29.4a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.6A5.6,5.6,0,0,1,5.6,0Z" transform="translate(0 6)" fill="#1e3a77"/>
-            <path id="notch_right" data-name="notch right" d="M5.6,0h0a5.6,5.6,0,0,1,5.6,5.6V32a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.6A5.6,5.6,0,0,1,5.6,0Z" transform="translate(88.2)" fill="#1e3a77"/>
-            <path id="notch_left" data-name="notch left" d="M5.6,0h0a5.6,5.6,0,0,1,5.6,5.6V32a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5.6A5.6,5.6,0,0,1,5.6,0Z" transform="translate(21)" fill="#1e3a77"/>
-            <text id="extra" transform="translate(60.2 94.6)" fill="#1e3a77" font-size="9.8" font-family="Montserrat-Regular, Montserrat"><tspan x="-35.741" y="0">multiple times</tspan></text>
-            <text id="month" transform="translate(60 25)" fill="#ffd100" font-size="9.8" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="-31.786" y="0" letter-spacing="0.143em"><?php echo date( 'F', $start_date_str ); ?></tspan></text>
-            <text id="date" transform="translate(60.2 82.8)" fill="#1e3a77" font-size="33.6" font-family="Montserrat-ExtraBold, Montserrat" font-weight="800" letter-spacing="0.06em"><tspan x="-14.944" y="0">M</tspan></text>
-        </g>
-    </svg>
+    <div class="article-meta-calendarette">
+        <div class="calendarette-month"><?php echo date( 'F', $start_date_str ); ?></div>
+        <div class="calendarette-date">M</div>
+        <div class="calendarette-days">multiple dates</div>
+    </div>
 </div>
 <?php } ?>
 
@@ -102,37 +72,37 @@ get_header(); ?>
 
 <?php if ( date( 'Y-m-d', $start_date_str ) == date( 'Y-m-d', $end_date_str ) ) { ?>
 <div class="article-meta-generic article-meta-generic-fee">
-    <p class="school-contact">
+    <div class="open-day-event-meta">
         <span class="icon-heading">
             <span class="icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>phone-1</title><path d="M15.938 14.743l-1.379 1.378a.998.998 0 1 1-1.412-1.412l1.757-1.756a.998.998 0 0 1 .902-.273l4.391.878a.998.998 0 0 1 .803.98v5.267a.998.998 0 0 1-.767.971c-3.387.806-8.222-.523-12.355-4.655-4.134-4.131-5.46-8.966-4.654-12.354A.998.998 0 0 1 4.196 3h5.27c.475 0 .885.336.979.803l.878 4.39a.998.998 0 0 1-.273.901l-1.233 1.232a10.469 10.469 0 0 0 2.195 2.68.998.998 0 1 1-1.31 1.507 12.16 12.16 0 0 1-.63-.588 12.654 12.654 0 0 1-2.379-3.337.998.998 0 0 1 .188-1.15L9.26 8.06l-.613-3.063H5.036c-.292 2.69.942 6.403 4.253 9.712 3.312 3.31 7.025 4.546 9.714 4.255v-3.608l-3.065-.613z" fill="#000" fill-rule="nonzero"></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>clock</title><path d="M11 10V3a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12a9.997 9.997 0 0 1 5.242-8.798 1 1 0 0 1 .953 1.759A8 8 0 1 0 13 4.062V12a1 1 0 0 1-1.6.8l-4-3a1 1 0 1 1 1.2-1.6L11 10z" fill="#000" fill-rule="nonzero"/></svg>
             </span>
             <span class="icon-label"><?php esc_html_e( 'Date', 'import-eventbrite-events' ); ?>, <?php esc_html_e( 'Time', 'import-eventbrite-events' ); ?></span>
         </span>
-        <br>
+
         <small>
             <?php echo $start_date_formated; ?>
             <br>
             <?php echo $start_time . ' - ' . $end_time; ?>
         </small>
-    </p>
+    </div>
 </div>
 <?php } else { ?>
 <div class="article-meta-generic article-meta-generic-fee">
-    <p class="school-contact">
+    <div class="open-day-event-meta">
         <span class="icon-heading">
             <span class="icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>phone-1</title><path d="M15.938 14.743l-1.379 1.378a.998.998 0 1 1-1.412-1.412l1.757-1.756a.998.998 0 0 1 .902-.273l4.391.878a.998.998 0 0 1 .803.98v5.267a.998.998 0 0 1-.767.971c-3.387.806-8.222-.523-12.355-4.655-4.134-4.131-5.46-8.966-4.654-12.354A.998.998 0 0 1 4.196 3h5.27c.475 0 .885.336.979.803l.878 4.39a.998.998 0 0 1-.273.901l-1.233 1.232a10.469 10.469 0 0 0 2.195 2.68.998.998 0 1 1-1.31 1.507 12.16 12.16 0 0 1-.63-.588 12.654 12.654 0 0 1-2.379-3.337.998.998 0 0 1 .188-1.15L9.26 8.06l-.613-3.063H5.036c-.292 2.69.942 6.403 4.253 9.712 3.312 3.31 7.025 4.546 9.714 4.255v-3.608l-3.065-.613z" fill="#000" fill-rule="nonzero"></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>clock</title><path d="M11 10V3a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12a9.997 9.997 0 0 1 5.242-8.798 1 1 0 0 1 .953 1.759A8 8 0 1 0 13 4.062V12a1 1 0 0 1-1.6.8l-4-3a1 1 0 1 1 1.2-1.6L11 10z" fill="#000" fill-rule="nonzero"/></svg>
             </span>
             <span class="icon-label"><?php esc_html_e( 'Start', 'import-eventbrite-events' ); ?>, <?php esc_html_e( 'End', 'import-eventbrite-events' ); ?></span>
         </span>
-        <br>
+
         <small>
             <?php echo $start_date_formated . ' - ' . $start_time; ?>,
             <br>
             <?php echo $end_date_formated . ' - ' . $end_time; ?>
         </small>
-    </p>
+    </div>
 </div>
 <?php } ?>
 
@@ -151,52 +121,52 @@ get_header(); ?>
 ?>
 <?php if ( $venue_name != '' && ( $venue_address != '' || $venue['city'] != '' ) ) { ?>
 <div class="article-meta-generic article-meta-generic-address">
-    <p class="school-contact">
+    <div class="open-day-event-meta">
         <span class="icon-heading">
             <span class="icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>map</title><path d="M14.535 19.885L9 17.118l-5.553 2.776A1 1 0 0 1 2 19V8a1 1 0 0 1 .553-.894l5.982-2.991a.996.996 0 0 1 .93 0L15 6.882l5.553-2.776A1 1 0 0 1 22 5v11a1 1 0 0 1-.553.894l-5.982 2.991a.996.996 0 0 1-.93 0zM14 17.382V11a1 1 0 0 1 2 0v6.382l4-2V6.618l-4.553 2.276a1 1 0 0 1-.894 0L10 6.618V13a1 1 0 0 1-2 0V6.618l-4 2v8.764l4.553-2.276a1 1 0 0 1 .894 0L14 17.382z" fill="#000" fill-rule="nonzero"></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>map</title><path d="M14.535 19.885L9 17.118l-5.553 2.776A1 1 0 0 1 2 19V8a1 1 0 0 1 .553-.894l5.982-2.991a.996.996 0 0 1 .93 0L15 6.882l5.553-2.776A1 1 0 0 1 22 5v11a1 1 0 0 1-.553.894l-5.982 2.991a.996.996 0 0 1-.93 0zM14 17.382V11a1 1 0 0 1 2 0v6.382l4-2V6.618l-4.553 2.276a1 1 0 0 1-.894 0L10 6.618V13a1 1 0 0 1-2 0V6.618l-4 2v8.764l4.553-2.276a1 1 0 0 1 .894 0L14 17.382z" fill="#000" fill-rule="nonzero"/></svg>
             </span>
             <span class="icon-label">Address</span>
         </span>
-        <br>
+
         <?php echo '<small>' . $venue_address . '</small>'; ?>
-    </p>
+    </div>
 </div>
 <?php } ?>
 
 
 
 <div class="article-meta-generic article-meta-generic-fee">
-    <p class="school-contact">
+    <div class="open-day-event-meta">
         <span class="icon-heading">
             <span class="icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>phone-1</title><path d="M15.938 14.743l-1.379 1.378a.998.998 0 1 1-1.412-1.412l1.757-1.756a.998.998 0 0 1 .902-.273l4.391.878a.998.998 0 0 1 .803.98v5.267a.998.998 0 0 1-.767.971c-3.387.806-8.222-.523-12.355-4.655-4.134-4.131-5.46-8.966-4.654-12.354A.998.998 0 0 1 4.196 3h5.27c.475 0 .885.336.979.803l.878 4.39a.998.998 0 0 1-.273.901l-1.233 1.232a10.469 10.469 0 0 0 2.195 2.68.998.998 0 1 1-1.31 1.507 12.16 12.16 0 0 1-.63-.588 12.654 12.654 0 0 1-2.379-3.337.998.998 0 0 1 .188-1.15L9.26 8.06l-.613-3.063H5.036c-.292 2.69.942 6.403 4.253 9.712 3.312 3.31 7.025 4.546 9.714 4.255v-3.608l-3.065-.613z" fill="#000" fill-rule="nonzero"></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>tag</title><path d="M9.293 14.707a1 1 0 0 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414l10-10A1 1 0 0 1 14 3h7a1 1 0 0 1 1 1v7a1 1 0 0 1-.293.707l-4.5 4.5a1 1 0 0 1-1.414-1.414L20 10.586V5h-5.586l-9 9L11 19.586 12.586 18l-3.293-3.293zM17 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" fill="#000" fill-rule="nonzero"/></svg>
             </span>
             <span class="icon-label">Assessment fee</span>
         </span>
-        <br>
+
         <small>Free</small>
-    </p>
+    </div>
 </div>
 
 
 
 <div class="article-meta-generic article-meta-generic-map">
-    <p class="school-contact">
+    <div class="open-day-event-meta">
         <span class="icon-heading">
             <span class="icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>phone-1</title><path d="M15.938 14.743l-1.379 1.378a.998.998 0 1 1-1.412-1.412l1.757-1.756a.998.998 0 0 1 .902-.273l4.391.878a.998.998 0 0 1 .803.98v5.267a.998.998 0 0 1-.767.971c-3.387.806-8.222-.523-12.355-4.655-4.134-4.131-5.46-8.966-4.654-12.354A.998.998 0 0 1 4.196 3h5.27c.475 0 .885.336.979.803l.878 4.39a.998.998 0 0 1-.273.901l-1.233 1.232a10.469 10.469 0 0 0 2.195 2.68.998.998 0 1 1-1.31 1.507 12.16 12.16 0 0 1-.63-.588 12.654 12.654 0 0 1-2.379-3.337.998.998 0 0 1 .188-1.15L9.26 8.06l-.613-3.063H5.036c-.292 2.69.942 6.403 4.253 9.712 3.312 3.31 7.025 4.546 9.714 4.255v-3.608l-3.065-.613z" fill="#000" fill-rule="nonzero"></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>globe</title><path d="M14.894 14a18.728 18.728 0 0 0 0-4H9.106A18.728 18.728 0 0 0 9 12v1a1 1 0 0 1-2 0v-1c0-.683.032-1.353.093-2H4.252A8.014 8.014 0 0 0 4 12c0 1.478.4 2.893 1.143 4.124a3 3 0 1 1-1.62 1.183A9.958 9.958 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a1 1 0 0 1 0-2c.966 0 1.99-1.593 2.557-4H11a1 1 0 0 1 0-2h3.894zm4.854 0c.164-.64.252-1.31.252-2s-.088-1.36-.252-2h-2.84c.06.647.092 1.317.092 2s-.032 1.353-.093 2h2.841zm-.818 2H16.61c-.245 1.192-.6 2.267-1.05 3.166A8.036 8.036 0 0 0 18.93 16zm-4.373-8C13.99 5.593 12.966 4 12 4s-1.99 1.593-2.557 4h5.114zM7.389 8c.245-1.192.6-2.267 1.05-3.166A8.036 8.036 0 0 0 5.07 8H7.39zm11.54 0a8.036 8.036 0 0 0-3.368-3.166c.45.9.805 1.974 1.05 3.166h2.319zM6 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="#000" fill-rule="nonzero"/></svg>
             </span>
-            <span class="icon-label"><a class="" href="" title="Register" target="_blank" style="display: inline;">View map</a></span>
+            <span class="icon-label"><a class="" href="" title="Register" target="_blank">View map</a></span>
         </span>
-    </p>
+    </div>
 </div>
 
 
 
 <?php if ( $website != '' ) { ?>
 <div class="article-meta-generic article-meta-generic-register">
-    <a class="button button-default button-orange-lt" href="<?php echo esc_url( $website ); ?>" title="Register" target="_blank">Register</a>
+    <a class="button button-default button-raspberry" href="<?php echo esc_url( $website ); ?>" title="Register" target="_blank">Register</a>
 </div>
 <?php } ?>
             </aside>

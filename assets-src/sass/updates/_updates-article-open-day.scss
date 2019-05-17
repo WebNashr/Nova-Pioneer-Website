@@ -129,10 +129,116 @@
 
 .article-meta-generic {
     &:not(:first-of-type) {
-        margin-top: 2rem;
-        padding-top: 2rem;
-        border-top: 1px solid $grey-lt;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid $grey-gh;
     }
+}
+
+.open-day-event-meta {
+    // @include font-size(13px);
+    // color: $grey-mdk;
+    // background: lime;
+}
+
+.article-meta-calendarette {
+    @include flexbox();
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
+    width: 120px;
+    text-align: center;
+    background: $grey-gh;
+    border-radius: 8px;
+
+    .calendarette-month {
+        @include title(bold);
+        @include font-size(10px);
+        position: relative;
+        padding: 4px 0 2px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: $orange-lt;
+        background: $blue-dk;
+        border-radius: 8px 8px 0 0;
+
+        &:before,
+        &:after {
+            position: absolute;
+            top: -8px;
+            width: 12px;
+            height: 12px;
+            content: '';
+            background: $blue-dk;
+            border-radius: 5px 5px 0 0;
+        }
+
+        &:before {
+            left: 20%;
+        }
+
+        &:after {
+            right: 20%;
+        }
+    }
+
+    .calendarette-date {
+        @include title(bold);
+        @include font-size(36px);
+        @include line-height(1);
+        padding: 12px 0 8px;
+        color: $blue-dk;
+    }
+
+    .calendarette-days {
+        @include title(regular);
+        @include font-size(10px);
+        @include line-height(1);
+        padding: 0 0 16px;
+        color: $blue-dk;
+    }
+}
+
+.open-day-event-meta .icon-heading {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    align-items: center;
+    margin-bottom: 0; // 4px;
+}
+
+.open-day-event-meta span.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+.open-day-event-meta svg path {
+    fill: $blue-dk;
+}
+
+.open-day-event-meta span.icon-label {
+    @include title(regular);
+    @include font-size(13px);
+    margin: 4px 0 0;
+    padding: 0;
+    color: $blue-dk;
+}
+
+.open-day-event-meta span.icon-label a {
+    display: inline-block;
+    color: $blue-dk;
+}
+
+.open-day-event-meta small {
+    @include title(light);
+    @include font-size(13px);
+    margin: 4px 0 0;
+    padding: 0;
+    color: $grey-mdk;
+}
+
+.open-day-event-meta .button {
+    margin: 0;
 }
 
 .article-share {
