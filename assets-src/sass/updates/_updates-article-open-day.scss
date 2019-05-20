@@ -225,6 +225,7 @@
 }
 
 .open-day-event-meta span.icon-label a {
+    @include title(regular);
     display: inline-block;
     color: $blue-dk;
 }
