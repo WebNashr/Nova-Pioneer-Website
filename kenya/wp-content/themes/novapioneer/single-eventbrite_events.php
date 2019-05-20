@@ -15,6 +15,7 @@ get_header(); ?>
         $event_id = get_the_ID();
     }
 
+    // some date variables
     $start_date_str      = get_post_meta( $event_id, 'start_ts', true );
     $end_date_str        = get_post_meta( $event_id, 'end_ts', true );
     $start_date_formated = date_i18n( 'F j', $start_date_str );
@@ -22,6 +23,17 @@ get_header(); ?>
     $start_time          = date_i18n( 'h:i a', $start_date_str );
     $end_time            = date_i18n( 'h:i a', $end_date_str );
     $website             = get_post_meta( $event_id, 'iee_event_link', true );
+
+    // some venue variables
+    $venue_name       = get_post_meta( $event_id, 'venue_name', true );
+    $venue_address    = get_post_meta( $event_id, 'venue_address', true );
+    $venue['city']    = get_post_meta( $event_id, 'venue_city', true );
+    $venue['state']   = get_post_meta( $event_id, 'venue_state', true );
+    $venue['country'] = get_post_meta( $event_id, 'venue_country', true );
+    $venue['zipcode'] = get_post_meta( $event_id, 'venue_zipcode', true );
+    $venue['lat']     = get_post_meta( $event_id, 'venue_lat', true );
+    $venue['lon']     = get_post_meta( $event_id, 'venue_lon', true );
+    $venue_url        = esc_url( get_post_meta( $event_id, 'venue_url', true ) );
 ?>
 
 <?php if(have_posts()): ?>
@@ -54,7 +66,7 @@ get_header(); ?>
 <div class="article-meta-generic article-meta-generic-date">
     <div class="article-meta-calendarette">
         <div class="calendarette-month"><?php echo date( 'F', $start_date_str ); ?></div>
-        <div class="calendarette-date"><?php esc_html_e( 'Date', 'import-eventbrite-events' ); ?></div>
+        <div class="calendarette-date"><?php echo date( 'j', $start_date_str ); ?></div>
         <div class="calendarette-days">single date</div>
     </div>
 </div>
@@ -108,17 +120,6 @@ get_header(); ?>
 
 
 
-<?php
-    $venue_name       = get_post_meta( $event_id, 'venue_name', true );
-    $venue_address    = get_post_meta( $event_id, 'venue_address', true );
-    $venue['city']    = get_post_meta( $event_id, 'venue_city', true );
-    $venue['state']   = get_post_meta( $event_id, 'venue_state', true );
-    $venue['country'] = get_post_meta( $event_id, 'venue_country', true );
-    $venue['zipcode'] = get_post_meta( $event_id, 'venue_zipcode', true );
-    $venue['lat']     = get_post_meta( $event_id, 'venue_lat', true );
-    $venue['lon']     = get_post_meta( $event_id, 'venue_lon', true );
-    $venue_url        = esc_url( get_post_meta( $event_id, 'venue_url', true ) );
-?>
 <?php if ( $venue_name != '' && ( $venue_address != '' || $venue['city'] != '' ) ) { ?>
 <div class="article-meta-generic article-meta-generic-address">
     <div class="open-day-event-meta">

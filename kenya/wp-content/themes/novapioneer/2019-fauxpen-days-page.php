@@ -28,6 +28,13 @@ get_header(); ?>
             // 'post_type' => 'post',
             'post_type' => 'eventbrite_events',
             'post_status'=>'publish',
+            'meta_query' => array(
+                // array(
+                //     'key' => 'featured_post',
+                //     'compare' => '=',
+                //     'value' => '0'
+                // ),
+            ),
             'orderby' => 'date',
             'order' => 'DESC',
             'showposts' => 15,
@@ -40,25 +47,81 @@ get_header(); ?>
 
     <section class="section section-blog section-open-days">
         <?php while ($blog_latest_loop->have_posts()) : $blog_latest_loop->the_post(); ?>
+
+        <?php $start_date = get_post_meta($post->ID, 'event_start_date', true); ?>
+        <?php $start_hour = get_post_meta($post->ID, 'event_start_hour', true); ?>
+        <?php $start_minute = get_post_meta($post->ID, 'event_start_minute', true); ?>
+        <?php $start_meridian = get_post_meta($post->ID, 'event_start_meridian', true); ?>
+
+        <?php $end_date = get_post_meta($post->ID, 'event_end_date', true); ?>
+        <?php $end_hour = get_post_meta($post->ID, 'event_end_hour', true); ?>
+        <?php $end_minute = get_post_meta($post->ID, 'event_end_minute', true); ?>
+
+        <?php $fee = get_post_meta($post->ID, 'venue_lon', true); ?>
+
+        <?php $date_st = date_create($start_date); ?>
+        <?php $date_en = date_create($end_date); ?>
+
         <figure class="section-open-day-item">
             <a class="open-day-img" href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
                 <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-triplet')[0]; ?>">
             </a>
 
             <figcaption>
-                <?php $categories = get_the_category(); ?>
-                <?php foreach($categories as $category): ?>
-                <h6>
-                    <a href="<?php echo get_category_link( $category->cat_ID ); ?>" title=""><?php echo $category->name; ?></a>
-                </h6>
-                <?php endforeach; ?>
-
                 <h4>
                     <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                 </h4>
 
-                <?php //the_excerpt(); ?>
+                <div class="event-list-item-meta">
+                    <div class="open-day-event-meta">
+                        <span class="icon-heading">
+                            <span class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>clock</title><path d="M11 10V3a1 1 0 0 1 1-1c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12a9.997 9.997 0 0 1 5.242-8.798 1 1 0 0 1 .953 1.759A8 8 0 1 0 13 4.062V12a1 1 0 0 1-1.6.8l-4-3a1 1 0 1 1 1.2-1.6L11 10z" fill="#000" fill-rule="nonzero"/></svg>
+                            </span>
+                            <span class="icon-label">Start</span>
+                        </span>
+
+                        <?php if ($start_hour) { ?>
+                        <small>
+                                <? echo $start_hour; ?>:<? echo $start_minute; ?><? echo $start_meridian; ?>
+                        </small>
+                        <?php } else { ?>
+                        <small>
+                            <? echo $start_hour; ?>:<? echo $start_minute; ?><? echo $start_meridian; ?>
+                        </small>
+                        <?php } ?>
+                    </div>
+
+                    <div class="open-day-event-meta">
+                        <span class="icon-heading">
+                            <span class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>tag</title><path d="M9.293 14.707a1 1 0 0 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414l10-10A1 1 0 0 1 14 3h7a1 1 0 0 1 1 1v7a1 1 0 0 1-.293.707l-4.5 4.5a1 1 0 0 1-1.414-1.414L20 10.586V5h-5.586l-9 9L11 19.586 12.586 18l-3.293-3.293zM17 9a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" fill="#000" fill-rule="nonzero"/></svg>
+                            </span>
+                            <span class="icon-label">Assessment fee</span>
+                        </span>
+
+                        <small><? echo 'Free'; //$mood; ?></small>
+                    </div>
+                </div>
             </figcaption>
+
+            <?php if (date_format($date_st, 'Y-m-d') == date_format($date_en, 'Y-m-d')) { ?>
+            <div class="article-meta-generic article-meta-generic-date">
+                <div class="article-meta-calendarette">
+                    <div class="calendarette-month"><? echo date_format($date_st, 'F'); ?></div>
+                    <div class="calendarette-date"><? echo date_format($date_st, 'j'); ?></div>
+                    <div class="calendarette-days">single date</div>
+                </div>
+            </div>
+            <?php } else { ?>
+            <div class="article-meta-generic article-meta-generic-date">
+                <div class="article-meta-calendarette">
+                    <div class="calendarette-month"><? echo date_format($date_st, 'F'); ?></div>
+                    <div class="calendarette-date">M</div>
+                    <div class="calendarette-days">multiple dates</div>
+                </div>
+            </div>
+            <?php } ?>
         </figure>
         <?php wp_reset_postdata(); ?>
         <?php endwhile; ?>
