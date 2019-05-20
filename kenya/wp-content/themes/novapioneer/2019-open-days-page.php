@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Fauxpen Days Page
+ * Template Name: Open Days Page
  */
 get_header(); ?>
 
