@@ -87,8 +87,8 @@ get_header(); ?>
                     'orderby' => 'date',
                     'order' => 'DESC',
                     'offset' => 1,
-                    'showposts' => 4,
-                    'posts_per_page' => 4
+                    'showposts' => 3,
+                    'posts_per_page' => 3
                 );
 
                 $featured_aside_loop = new WP_Query($args);
