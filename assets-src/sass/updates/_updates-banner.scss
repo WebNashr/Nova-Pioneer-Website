@@ -133,21 +133,26 @@
 
 .section-banner-full figcaption div {
     margin-top: auto;
-    margin-bottom: auto;
+    // margin-bottom: auto;
+    margin-bottom: 5rem;
 }
 
 .section-banner-full h1 {
     @include title(black);
-    @include font-size(64px);
-    @include line-height(84px);
+    // @include font-size(64px);
+    // @include line-height(84px);
+    @include font-size(56px);
+    @include line-height(68px);
     margin-bottom: 2rem;
     color: $white;
 }
 
 .section-banner-full p {
     @include title(regular);
-    @include font-size(24px);
-    @include line-height(36px);
+    // @include font-size(24px);
+    // @include line-height(36px);
+    @include font-size(20px);
+    @include line-height(28px);
     color: $white;
 }
 

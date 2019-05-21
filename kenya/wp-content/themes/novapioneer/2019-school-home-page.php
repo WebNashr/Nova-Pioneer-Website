@@ -17,7 +17,7 @@ get_header(); ?>
             <?php if(get_field('school_banner_image')):?>
             <?php
                 $img_id = get_field('school_banner_image');
-                $image = wp_get_attachment_image_src(get_field('school_banner_image'), '16-9-hero');
+                $image = wp_get_attachment_image_src(get_field('school_banner_image'), '16-9-heroette');
             ?>
             <img src="<?php echo esc_url( $image[0] ); ?>" alt="duck">
             <?php endif;?>
