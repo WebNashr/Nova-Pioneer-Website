@@ -68,6 +68,23 @@
 
 
 
+
+.section-culture-gallery {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    & > h2 {
+        margin-bottom: 1rem;
+    }
+
+    & > p {
+        @include title(light);
+        max-width: 1024px;
+        margin: 0 auto 2.5rem;
+        text-align: center;
+    }
+}
+
 .section-culture-gallery-inner {
     // @extend %columns;
     @include flexbox();
@@ -75,67 +92,23 @@
     @include flex-wrap(nowrap);
 }
 
-.section-culture-gallery-show.slick-dotted.slick-slider {
-    width: calc(50% - (61px / 2));
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+.section-culture-gallery-inner-ghost {
+    content: none;
+    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
     padding: 0;
-    overflow: hidden;
-
-    figure {
-        padding: 0;
-    }
-
-    img {
-        border-radius: 16px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-        box-shadow: 0 8px 16px rgba($orange-lt, 0.08);
-    }
+    opacity: 0;
+    color: transparent;
+    background: transparent;
+    border: 0;
+    outline: 0;
 }
 
-.section-culture-gallery-thumbs {
-    width: calc(50% - (61px / 2));
-    // margin: 3rem 0 0;
-    // margin: 3rem auto 0;
-    // margin: 1rem auto 0;
-    margin: 0 0 0 auto;
-    padding: 0;
-    overflow: hidden;
-
-    figure {
-        // padding: 0 1rem;
-        // padding: 0 30.5px;
-        // padding: 24px 30.5px;
-        border: 0;
-        outline: 0;
-        cursor: pointer;
-
-        &.slick-current {
-            img {
-                border: 6px solid $orange-lt;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-            }
-        }
-    }
-
-    img {
-        border-radius: 16px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-
-        &:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-            // box-shadow: 0 8px 16px rgba($orange-lt, 0.08);
-        }
-    }
-}
-
-
-.section-culture-gallery-strike.slick-dotted.slick-slider {
-    // width: calc(50% - (61px / 2));
+.section-culture-gallery-actual.slick-dotted.slick-slider {
     margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
     padding: 0;
     overflow: hidden;
 
@@ -144,6 +117,8 @@
         @include flex-direction(row);
         @include flex-wrap(nowrap);
         padding: 0;
+        border: 0;
+        outline: 0;
     }
 
     img {
@@ -151,8 +126,7 @@
         height: auto;
         height: inherit;
         border-radius: 16px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-        box-shadow: 0 8px 16px rgba($orange-lt, 0.08);
+        box-shadow: none;
     }
 
     figcaption {
@@ -165,33 +139,29 @@
 
     .principle-text {
         margin-bottom: auto;
-        // background: wheat;
-    }
-
-    h6,
-    h3 {
-        margin-bottom: 1rem;
     }
 
     h6 {
+        margin-bottom: 1rem;
         margin-top: 2rem;
         letter-spacing: 2px;
+        color: $blue-lt;
     }
 
-    // .principle-thumbs {
-    //     margin-top: 2rem;
-    //     margin-top: auto;
-    //     height: 92px;
-    //     background: red;
-    // }
+    h3 {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        @include title(light);
+    }
 
     .slick-dots {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
         width: calc(50% - (61px / 2));
         margin-left: calc(50% - (61px / 2) + 61px);
-        // background: #ff0;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         margin-bottom: 2rem;
 
         li:before,
@@ -211,9 +181,8 @@
         }
     
         li {
-            $gut-dot: 61px;
-            // width: 64px;
-            // height: 64px;
+            $gut-dot: 36px;
+
             width: calc(100%/3);
             margin: 0;
             display: block;
@@ -240,14 +209,38 @@
         }
 
         img {
-            // width: 100%;
-            // height: 100%;
-            width: 92px;
-            height: 92px;
+            width: 102px;
+            height: 102px;
+            border-radius: 16px;
+            border: 6px solid transparent;
+            box-shadow: 0 4px 8px rgba($grey-lt, 0.08);
         }
 
-        h4 {
-            margin-top: 1rem;
+        h5 {
+            @include title(medium);
+            margin-top: 0.25rem;
+        }
+
+        li:hover {
+            img {
+                border-color: lighten($grey-gh, 5%);
+                box-shadow: 0 4px 8px rgba($grey-lt, 0.08);
+            }
+
+            h5 {
+                color: $blue-lt;
+            }
+        }
+
+        li.slick-active {
+            img {
+                border-color: $orange-lt;
+                box-shadow: 0 4px 8px rgba($orange-lt, 0.08);
+            }
+
+            h5 {
+                color: $blue-dk;
+            }
         }
     }
 }

@@ -144,54 +144,11 @@ get_header(); ?>
     </div>
 
     <section class="section section-culture-gallery">
-        <h2 class="section-heading"><?php //the_field('school_gallery_title'); ?>Our culture</h2>
-        <p><?php the_field('our_vision'); ?></p>
+        <h2 class="section-heading"><?php the_field('our_culture_title'); ?></h2>
+        <?php the_field('our_culture'); ?>
 
         <div class="section-culture-gallery-inner">
-            <section class="section section-culture-gallery-show-XXX" style="display: none;">
-                <?php foreach (get_field('culture_principles') as $principle): $principle = (object)$principle; ?>
-                <figure>
-                    <img
-                        src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($principle->ID), '1-1-square')[0]; ?>"
-                        alt="<?php echo $principle->title; ?>">
-                </figure>
-                <?php endforeach; ?>
-                <?php wp_reset_query(); ?>
-            </section>
-
-            <section class="section section-culture-gallery-thumbs-XXX" style="display: none;">
-                <?php foreach (get_field('culture_principles') as $principle): $principle = (object)$principle; ?>
-                <figure>
-                    <!--<img
-                        src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($principle->ID), '1-1-square')[0]; ?>"
-                        alt="<?php echo $principle->title; ?>">-->
-                    <h3><?php echo $principle->title; ?></h3>
-                    <?php echo $principle->description; ?>
-                </figure>
-                <?php endforeach; ?>
-            </section>
-
-            <section class="section section-culture-gallery-strike">
-                <?php foreach (get_field('culture_principles') as $principle): $principle = (object)$principle; ?>
-                <!--<figure>
-                    <img
-                        src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($principle->ID), '1-1-square')[0]; ?>"
-                        alt="<?php echo $principle->title; ?>">
-
-                    <figcaption>
-                        <div class="principle-text">
-                            <h6><?php echo $principle->number; ?></h6>
-                            <h3><?php echo $principle->title; ?></h3>
-                            <?php echo $principle->description; ?>
-                        </div>
-
-                        <div class="principle-thumbs"></div>
-                    </figcaption>
-                </figure>-->
-                <?php endforeach; ?>
-                <?php //wp_reset_query(); ?>
-
-
+            <section class="section section-culture-gallery-actual">
                 <?php if( have_rows('culture_principles') ): ?>
                 <?php while( have_rows('culture_principles') ): the_row();  ?>
                 <figure>
@@ -209,20 +166,14 @@ get_header(); ?>
                             <h3><?php the_sub_field('title'); ?></h3>
                             <?php the_sub_field('description'); ?>
                         </div>
-
-                        <div class="principle-thumbs">
-
-                        </div>
                     </figcaption>
                 </figure>
                 <?php endwhile; ?>
                 <?php endif; ?>
             </section>
-
-            
         </div>
 
-        <div class="section-culture-gallery-inner section-culture-gallery-inner-ghost" style="display: none;">
+        <div class="section-culture-gallery-inner-ghost" style="display: none;">
             <section class="section section-culture-gallery-ghost">
                 <?php if( have_rows('culture_principles') ): ?>
                 <?php while( have_rows('culture_principles') ): the_row();  ?>
@@ -344,7 +295,7 @@ get_header(); ?>
                 focusOnSelect: true
             });
 
-            $('.section-culture-gallery-strike').slick({
+            $('.section-culture-gallery-actual').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 arrows: true,
@@ -359,22 +310,22 @@ get_header(); ?>
                 arrows: false,
                 dots: false,
                 fade: false
-                // asNavFor: '.section-culture-gallery-strike'
+                // asNavFor: '.section-culture-gallery-actual'
             });
 
-            $('.section-culture-gallery-ghost figure[data-slick-index=0] img').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(1)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=1] img').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(2)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=2] img').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(3)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=3] img').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(4)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=4] img').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(5)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=5] img').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(6)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=0] img').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(1)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=1] img').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(2)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=2] img').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(3)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=3] img').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(4)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=4] img').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(5)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=5] img').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(6)');
 
-            $('.section-culture-gallery-ghost figure[data-slick-index=0] h5').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(1)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=1] h5').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(2)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=2] h5').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(3)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=3] h5').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(4)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=4] h5').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(5)');
-            $('.section-culture-gallery-ghost figure[data-slick-index=5] h5').appendTo('.section-culture-gallery-strike .slick-dots li:nth-of-type(6)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=0] h5').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(1)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=1] h5').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(2)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=2] h5').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(3)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=3] h5').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(4)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=4] h5').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(5)');
+            $('.section-culture-gallery-ghost figure[data-slick-index=5] h5').appendTo('.section-culture-gallery-actual .slick-dots li:nth-of-type(6)');
         });
     })(jQuery);
 </script>
