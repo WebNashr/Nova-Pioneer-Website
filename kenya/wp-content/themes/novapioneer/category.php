@@ -38,7 +38,7 @@ get_header(); ?>
     flex-wrap: nowrap;
     align-items: center;
 ">
-                <h1 class="">
+                <h1 class="" style="margin-bottom: 0;">
                     Blog / 
                     <span class="blog-category">
                         <?php
