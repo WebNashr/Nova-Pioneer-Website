@@ -11,7 +11,7 @@ get_header(); ?>
     <div class="trigger"></div>
 
     <?php if( have_posts() ): ?>
-    <section class="section section-blog-category trigger-offset">
+    <section class="section section-blog-category trigger-offset" style="display: none;">
         <h1 class="">
             Blog / 
             <span class="blog-category">
@@ -26,6 +26,46 @@ get_header(); ?>
             Back to Blog
             <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-right-1</title><path d="M17.586 11l-5.293-5.293a1 1 0 1 1 1.414-1.414l7 7c.63.63.184 1.707-.707 1.707H4a1 1 0 0 1 0-2h13.586zm-.75 3.253a1 1 0 1 1 1.328 1.494l-4.5 4a1 1 0 1 1-1.328-1.494l4.5-4z" fill="#000" fill-rule="nonzero"/></svg>
         </a>
+    </section>
+
+    <section class="section section-banner">
+        <figure class="">
+            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
+
+            <figcaption class="" style="
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+">
+                <h1 class="">
+                    Blog / 
+                    <span class="blog-category">
+                        <?php
+                            $category = get_the_category();
+                            echo $category[0]->cat_name;
+                        ?>
+                    </span>
+                </h1>
+                
+                <div class="banner-social">
+                    <a style="
+    margin-left: auto;
+    color: grey;
+    font-weight: 100;
+    font-size: 14px;
+    color: #4a4a4a;
+" href="<?php echo novap_get_baseurl(); ?>/kenya/blog" title="Back to Blog">
+                        Back to Blog
+                        <svg style="
+    top: 7px;
+    position: relative;
+    margin-left: 8px;
+" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-right-1</title><path style="fill: #1e3f75;"d="M17.586 11l-5.293-5.293a1 1 0 1 1 1.414-1.414l7 7c.63.63.184 1.707-.707 1.707H4a1 1 0 0 1 0-2h13.586zm-.75 3.253a1 1 0 1 1 1.328 1.494l-4.5 4a1 1 0 1 1-1.328-1.494l4.5-4z" fill="#000" fill-rule="nonzero"/></svg>
+                    </a>
+                </div>
+            </figcaption>
+        </figure>
     </section>
     <?php endif; ?>
 
