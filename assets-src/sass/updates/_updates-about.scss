@@ -130,3 +130,120 @@
     }
 }
 
+
+.section-culture-gallery-strike.slick-dotted.slick-slider {
+    // width: calc(50% - (61px / 2));
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding: 0;
+    overflow: hidden;
+
+    figure {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(nowrap);
+        padding: 0;
+    }
+
+    img {
+        width: calc(50% - (61px / 2));
+        height: auto;
+        height: inherit;
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 8px 16px rgba($orange-lt, 0.08);
+    }
+
+    figcaption {
+        @include flexbox();
+        @include flex-direction(column);
+        @include flex-wrap(nowrap);
+        width: calc(50% - (61px / 2));
+        margin-left: auto;
+    }
+
+    .principle-text {
+        margin-bottom: auto;
+        // background: wheat;
+    }
+
+    h6,
+    h3 {
+        margin-bottom: 1rem;
+    }
+
+    // .principle-thumbs {
+    //     margin-top: 2rem;
+    //     margin-top: auto;
+    //     height: 92px;
+    //     background: red;
+    // }
+
+    .slick-dots {
+        width: calc(50% - (61px / 2));
+        margin-left: calc(50% - (61px / 2) + 61px);
+        // background: #ff0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+
+        li:before,
+        button {
+            content: none;
+            display: none;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            color: transparent;
+            background: transparent;
+            border: 0;
+            outline: 0;
+        }
+    
+        li {
+            $gut-dot: 61px;
+            // width: 64px;
+            // height: 64px;
+            width: calc(100%/3);
+            margin: 0;
+            display: block;
+            overflow: unset;
+            height: auto;
+            text-align: left;
+            text-indent: 0;
+
+            // &:nth-child(2n+3) {
+            //     margin-left: $gut-dot;
+            // }
+
+            &:nth-child(n+3) {
+                margin-top: 0;
+            }
+
+            &:nth-child(3n+4) {
+                margin-left: 0;
+            }
+
+            &:nth-child(n+4) {
+                margin-top: $gut-dot;
+            }
+        }
+
+        img {
+            // width: 100%;
+            // height: 100%;
+            width: 92px;
+            height: 92px;
+        }
+
+        h4 {
+            margin-top: 1rem;
+        }
+    }
+}
+
