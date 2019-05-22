@@ -44,8 +44,8 @@ get_header(); ?>
             <div class="article-body">
                 <?php the_content(); ?>
 
-                <?php if(get_field('profile_quote')): ?>
-                    <blockquote><?php the_field('profile_quote'); ?></blockquote>
+                <?php if(get_field('quote')): ?>
+                    <blockquote><?php the_field('quote'); ?></blockquote>
                 <?php endif; ?>
             </div>
 
