@@ -62,7 +62,6 @@
             <section class="section section-landing-banner section-banner-full-xxx">
                 <!-- page-header -->
                 <header class="page-header page-header-home" id="header-container">
-                    <section class="header-section header-section-home">
                         <a href="/" class="logo header-logo">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -284,16 +283,18 @@
                                     </svg>
                         </a>
 
-                        <div class="drop-list">
-                            <div class="drop-list-container">
-                                <a href="#" class="button     button-small button-primary     button-large button-orange-lt drop-list-item drop-list-selected">Apply now</a>
+                        <div class="header-button-list">
+                            <div class="header-button-list-container">
+                                <a href="#" class="button button-default button-orange-lt header-button-list-item header-button-list-selected">
+                                    Apply now
+                                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>arrow-down-1</title><path d="M13 17.586l5.293-5.293a1 1 0 0 1 1.414 1.414l-7 7c-.63.63-1.707.184-1.707-.707V4a1 1 0 0 1 2 0v13.586zm-3.253-.75a1 1 0 1 1-1.494 1.328l-4-4.5a1 1 0 1 1 1.494-1.328l4 4.5z" fill="#000" fill-rule="nonzero"/></svg>
+                                </a>
 
-                                <a href="/sa/apply-online/" class="button     button-small button-primary     button-large button-blue-lt drop-list-item drop-list-option">South Africa</a>
+                                <a href="/sa/apply-online/" class="button button-default button-blue-lt header-button-list-item header-button-list-option">South Africa</a>
 
-                                <a href="/kenya/apply-online/" class="button     button-small button-primary     button-large button-blue-lt drop-list-item drop-list-option">Kenya</a>
+                                <a href="/kenya/apply-online/" class="button button-default button-blue-lt header-button-list-item header-button-list-option">Kenya</a>
                             </div>
                         </div>
-                    </section>
                 </header>
                 <!-- end page-header -->
 

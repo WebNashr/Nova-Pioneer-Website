@@ -20,11 +20,69 @@
     position: relative;
     height: 80vh;
     margin: 0;
-    padding: 0;
+    padding: 1rem 4rem 0;
     background-image: url('../../img/landing-page-background.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+.section-landing-banner header {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    // align-items: center;
+}
+
+.section-landing-banner .header-button-list {
+    position: relative;
+    min-width: 185px;
+    margin-left: auto;
+}
+
+.section-landing-banner .header-button-list-container {
+    @include flexbox();
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 185px;
+}
+
+.section-landing-banner .header-button-list-item {
+    display: none;
+}
+
+.section-landing-banner .header-button-list-selected {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    align-items: center;
+    order: 1;
+    
+    svg {
+        margin-left: auto; //4px;
+        width: 16px;
+    }
+
+    path {
+        fill: $white;
+    }
+}
+
+.section-landing-banner .header-button-list-option {
+    order: 2;
+
+    &:not(:first-of-type) {
+		margin-top: 1rem;
+	}
+}
+
+.section-landing-banner .header-button-list-container:hover .header-button-list-option {
+    display: block;
+    @extend .button-green-lt;
 }
 
 .section-landing-banner figcaption {
@@ -191,6 +249,8 @@
     margin: 0 auto;
     border-radius: 13px;
 }
+
+
 
 
 
