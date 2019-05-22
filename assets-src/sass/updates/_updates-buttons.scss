@@ -99,6 +99,15 @@
             @extend %bg-blue-dk;
         }
     }
+
+    .button-ghost {
+        border: 2px solid $white;
+
+        &:hover {
+            color: $green-lt;
+            background: $white;
+        }
+    }
 }
 
 

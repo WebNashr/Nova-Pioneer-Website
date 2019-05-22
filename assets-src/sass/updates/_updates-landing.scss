@@ -1,0 +1,130 @@
+
+/* landing */
+/* ==================================================== */
+
+
+.body-home {
+	background-image: unset;
+	background-size: unset;
+	background-position: unset;
+	background-repeat: unset;
+	height: unset;
+	overflow-y: unset;
+}
+
+.body-home main {
+	margin: unset;
+}
+
+.section-landing-banner {
+    position: relative;
+    height: 80vh;
+    margin: 0;
+    padding: 0;
+    background-image: url('../../img/landing-page-background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.section-landing-banner figcaption {
+    @include flexbox();
+    @include flex-direction(column);
+    @include flex-wrap(nowrap);
+    position: absolute;
+    bottom: 4rem;
+    left: 4rem;
+    max-width: 55%;
+    margin: 0;
+    padding: 0;
+}
+
+.section-landing-banner h2,
+.section-landing-banner h1,
+.section-landing-banner p {
+    color: $white;
+}
+
+.section-landing-banner h2 {
+    @include title(medium);
+    @include font-size(24px);
+    @include line-height(1);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.section-landing-banner h1 {
+    @include title(extra);
+    @include font-size(64px);
+    @include line-height(74px);
+    margin-bottom: 1rem;
+}
+
+.section-landing-banner p {
+    @include title(light);
+    @include font-size(20px);
+    @include line-height(1.5);
+    margin-bottom: 4rem;
+}
+
+.section-landing-banner .location-choice {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    align-items: center;
+    margin-right: auto;
+}
+
+.section-landing-banner .location-choice .button {
+    &:not(:first-of-type) {
+        margin-left: 2rem;
+    }
+}
+
+
+
+
+
+.section-landing-locations {
+    // @include flexbox();
+    // @include flex-direction(column);
+    // @include flex-wrap(nowrap);
+    // margin: 0;
+    // padding: 0;
+    // background-color: $blue-dk;
+    // background-image: url('../../img/logo/logo-mark-white.svg');
+    // background-size: 200px;
+    // background-position: center center;
+    // background-repeat: no-repeat;
+}
+
+.section-landing-locations div {
+    @include flexbox();
+    @include flex-direction(row);
+    @include flex-wrap(nowrap);
+    margin: 0;
+    padding: 3rem;
+    background-color: $blue-dk;
+    background-image: url('../../img/logo/logo-mark-white.svg');
+    background-size: 200px;
+    background-position: 48px 32px;
+    background-repeat: no-repeat;
+    background-blend-mode: soft-light;
+    border-radius: 8px;
+}
+
+.section-landing-locations h2 {
+    color: $white;
+}
+
+.section-landing-locations .button {
+    margin-left: auto;
+
+    &:not(:first-of-type) {
+        margin-left: 2rem;
+    }
+}
+
+
+
