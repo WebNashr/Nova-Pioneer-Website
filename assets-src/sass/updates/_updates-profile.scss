@@ -1,0 +1,146 @@
+
+/* profile */
+/* ==================================================== */
+
+
+.section-profile-header {
+    padding-top: 1rem; //0
+    padding-bottom: 1rem; //0
+
+    h6 {
+        letter-spacing: 2px;
+        color: $raspberry;
+    }
+
+    & > div {
+        @include flexbox();
+        @include flex-direction(row);
+        @include flex-wrap(nowrap);
+        align-items: center;
+    }
+
+    h1 {
+        margin: 0 auto 0 0;
+    }
+
+    a {
+        @include title(regular);
+        @include font-size(14px);
+        @include line-height(1);
+        margin: 0 0 0 auto;
+        color: $grey-mdk;
+    }
+
+    svg {
+        position: relative;
+        top: 6px;
+        margin-left: 8px;
+    }
+
+    path {
+        fill: $blue-dk;
+    }
+}
+
+.section-article-profile {
+    margin-top: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+// inherits .article-meta {} rules from blog article
+.article-meta {
+    img {
+        border-radius: 50%;
+    }
+
+    h5 {
+        @include title(medium);
+        margin-top: 1rem;
+        text-align: center;
+        color: $grey-mdk;
+    }
+}
+
+
+.article-share {
+    // @extend %column;
+    // @extend %column-3;
+    @include flexbox();
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-left: $gut;
+
+    @include break-point(tablet) {
+        flex: 6;
+        flex-basis: calc((100% - calc(3rem * 1)) / 2);
+        max-width: calc((100% - calc(3rem * 1)) / 2);
+    }
+
+    @include break-point(laptop) {
+        flex: 3;
+        flex-basis: calc((100% - calc(3rem * 3)) / 4);
+        max-width: calc((100% - calc(3rem * 3)) / 4);
+    }
+
+    .share-container {
+        text-align: center;
+        background: $grey-gh;
+        border-radius: 5px;
+    }
+
+    header {
+        @include title(semibold);
+        @include font-size(12px);
+        @include line-height(1);
+        padding: 10px 9px;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 2px;
+        color: $white;
+        background: $raspberry;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .share-icons {
+        @include flexbox();
+        @include flex-direction(column);
+        @include flex-wrap(nowrap);
+        padding-bottom: 16px;
+
+        a {
+            @include flexbox();
+            align-items: center;
+            justify-content: center;
+            padding: 12px 0 0;
+        }
+
+        svg {
+            width: 32px;
+        }
+
+        svg path {
+            fill: $blue-dk;
+        }
+
+        a:hover svg path {
+            fill: $raspberry;
+        }
+    }
+}
+
+
+// inherits .article-body {} rules from blog article
+.article-body blockquote {
+    @include title(medium);
+    @include font-size(24px);
+    @include line-height(1.15);
+    display: block;
+    margin-top: 2rem;
+    padding-left: 1.25rem;
+    color: $blue-dk;
+    border-left: 12px solid $orange-lt;
+}
+
+
