@@ -330,7 +330,27 @@
                 </div>
             </section>-->
 
-            <section class="section section-landing-about"></section>
+            <section class="section section-landing-about">
+                <figure>
+                    <img src="img/large-bgd-about-np.jpg" alt="">
+
+                    <figcaption>
+                        <h3>About us</h3>
+
+                        <p>Nova Pioneer Education Group is a Pan-African independent school network offering preschool through secondary education for students from ages 3 through 19. We prepare the next generation of leaders and innovators through world-class teaching methods with an emphasis on 21st century skills.</p>
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="img/large-bgd-working-at-np.jpg" alt="">
+
+                    <figcaption>
+                        <h3>Why Nova Pioneer?</h3>
+
+                        <p>Nova Pioneer Education Group is a Pan-African independent school network offering preschool through secondary education for students from ages 3 through 19. We prepare the next generation of leaders and innovators through world-class teaching methods with an emphasis on 21st century skills.</p>
+                    </figcaption>
+                </figure>
+            </section>
 
             <section class="section section-landing-locations">
                 <div>
@@ -343,7 +363,7 @@
             </section>
 
             <section class="section section-landing-approach">
-                <h2>Secondary</h2>
+                <h2>Discover our approach</h2>
 
                 <div class="media youtube-video">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/QcJA8Vwowa0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>

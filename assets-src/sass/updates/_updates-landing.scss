@@ -86,18 +86,66 @@
 
 
 
-.section-landing-locations {
-    // @include flexbox();
-    // @include flex-direction(column);
-    // @include flex-wrap(nowrap);
-    // margin: 0;
-    // padding: 0;
-    // background-color: $blue-dk;
-    // background-image: url('../../img/logo/logo-mark-white.svg');
-    // background-size: 200px;
-    // background-position: center center;
-    // background-repeat: no-repeat;
+.section-landing-about {
+    @extend %columns;
+    padding-top: 92px; // 0;
+    padding-bottom: 0;
+
+    figure {
+        $gut: 61px;
+
+        height: calc(100% - 4rem);
+
+        @include break-point(laptop) {
+            flex: 6;
+            flex-basis: calc((100% - calc(#{$gut} * 1)) / 2);
+            max-width: calc((100% - calc(#{$gut} * 1)) / 2);
+            
+            &:nth-child(2n+2) {
+                margin-left: $gut;
+            }
+            
+            &:nth-child(2n+3) {
+                margin-left: 0;
+            }
+
+            &:nth-child(n+3) {
+                margin-top: $gut;
+            }
+        }
+    }
+
+    img {
+        border-radius: 13px 13px 0 13px;
+    }
+
+    figcaption {
+        position: relative;
+        width: calc(100% - 3rem);
+        margin-top: -4rem;
+        margin-left: auto;
+        padding: 2rem 3rem;
+        background: $white;
+        border-radius: 13px 0 13px 13px;
+    }
+
+    h3 {
+        margin-bottom: 1rem;
+    }
+
+    p {
+        @include title(light);
+        @include font-size(16px);
+        @include line-height(1.5);
+    }
 }
+
+
+
+
+
+
+.section-landing-locations {}
 
 .section-landing-locations div {
     @include flexbox();
@@ -124,6 +172,24 @@
     &:not(:first-of-type) {
         margin-left: 2rem;
     }
+}
+
+
+
+.section-landing-approach {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.section-landing-approach h2 {
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.section-landing-approach .media {
+    // max-width: 1024px;
+    margin: 0 auto;
+    border-radius: 13px;
 }
 
 
