@@ -1,0 +1,21 @@
+{% extends "emails/base.html" %}
+
+{% block title %} 
+    {{title}}
+{% endblock %}
+
+{% block content %} 
+    <article class="email">
+        <header>
+            <h1>{{title}}</h1>
+        </header>
+        <section class="email_content">
+            <p>Dear Admin,</p>
+            <p>
+                An RSVP for the {{event_name}} event on the {{event_date}} has been received from {{rsvp_name}}
+                < <a mailto="{{rsvp_email}}">{{rsvp_email}}</a> >
+            </p>
+            <p><strong>This is an automatic notification from the novapioneer website.</strong></p>
+        </section>
+    </article>
+{% endblock %}

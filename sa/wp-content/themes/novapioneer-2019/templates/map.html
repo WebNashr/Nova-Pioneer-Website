@@ -1,0 +1,104 @@
+<script>
+    console.log('safari map sa resize')
+    var map;
+    var locations_data = '{{locations}}';
+    var locations = JSON.parse(locations_data.replace(/&quot;/ig, '"'));
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: new google.maps.LatLng(locations[0].latitude, locations[0].longitude),
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                position: google.maps.ControlPosition.TOP_CENTER
+            },
+            zoomControl: true,
+            zoomControlOptions: {position: google.maps.ControlPosition.LEFT_TOP},
+            scaleControl: true,
+            streetViewControl: true,
+            streetViewControlOptions: {position: google.maps.ControlPosition.RIGHT_CENTER},
+            fullscreenControl: true
+
+
+        });
+
+        var markers = [];
+
+        locations.forEach(function (location) {
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(location.latitude, location.longitude)
+            });
+
+            markers.push(marker);
+
+            if ((location.info_text !== undefined) && (location.info_text !== null) && (location.info_text !== '')) {
+                var infoWindow = new google.maps.InfoWindow({
+                    content: location.info_text
+                });
+
+                google.maps.event.addListener(marker, 'click', function (e) {
+                    infoWindow.open(map, this);
+                });
+            }
+
+        });
+
+        // Add markers and Autocenter map
+        var bounds = new google.maps.LatLngBounds();
+
+        markers.forEach(function (marker) {
+            marker.setMap(map);
+            bounds.extend(marker.position);
+        });
+        google.maps.event.addListenerOnce(map, 'bounds_changed', function (event) {
+            this.setZoom(map.getZoom() - 1);
+            if (this.getZoom() > 15) {
+                this.setZoom(16);
+            }
+
+            console.log(this.getZoom())
+        });
+        map.fitBounds(bounds);
+        google.maps.event.addListener(map, 'idle', function (event) {
+            mapCenter = map.getCenter();
+        });
+        google.maps.event.addDomListener(map, 'resize', function () {
+            google.maps.event.trigger(map, "resize");
+            console.log('resized map')
+            map.fitBounds(bounds);
+        });
+
+
+    }
+
+    $(window).resize(function () {
+        initMap()
+        console.log('initialize map again')
+    })
+</script>
+
+
+<!--old key-->
+<!--<script src=“https://maps.googleapis.com/maps/api/js?key=AIzaSyBC8IslbyCGLVRy5TL7rjQrAeNj4opI4ic&callback=initMap” async defer></script>-->
+
+<!--new key-->
+<script src=“https://maps.googleapis.com/maps/api/js?key=AIzaSyBRQ0gD22UxKy7SmVzWmEcretx_wL1DYV0&callback=initMap” async defer></script>
+
+<style>
+    #map {
+        width: 100%;
+        margin: 0;
+        height: 400px;
+    }
+</style>
+
+<div class="section-content-item section-content-item-full">
+    <div class="location-map">
+        <div id="map"></div>
+    </div>
+</div>
+
+
