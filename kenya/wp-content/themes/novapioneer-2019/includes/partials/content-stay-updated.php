@@ -13,6 +13,6 @@
     </header>
 
     <div class="section-newsletter-form">
-        <?php echo do_shortcode('[gravityform id="7" title="false" description="false" tabindex="50"]'); ?>
+        <?php echo do_shortcode('[gravityform id="19" title="false" description="false" tabindex="50"]'); ?>
     </div>
 </section>
