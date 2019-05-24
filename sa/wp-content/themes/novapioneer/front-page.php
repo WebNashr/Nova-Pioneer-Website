@@ -5,76 +5,61 @@
  */
 get_header(); ?>
 
-<!--begin updates-2019-->
-<div class="updates-2019">
 <?php if (have_posts()): ?>
     <?php while (have_posts()): the_post(); ?>
-        <div class="trigger" style="position: absolute; top: 90px; z-index: 9999;"></div>
 
-        <section class="section section-carousel">
-            <?php if( have_rows('hero_slides') ): ?>
-            <?php while( have_rows('hero_slides') ): the_row();  ?>
-            <a class="section-carousel-slide" href="<?php echo $link ?>" <?php echo $target ?>>
-                <?php
-                    $image = get_sub_field('image');
-                    $size = '16-9-banner';
-                    if( $image ) {
-                    echo wp_get_attachment_image( $image, $size );
-                    }
-                ?>
-
-                <figcaption>
-                    <h1 class="extrabold"><?php the_sub_field('title'); ?> <span class="highlighted"><?php the_sub_field('title_highlight'); ?></span></h1>
-                    <p class="subheading"><?php the_sub_field('subtitle'); ?></p>
-                </figcaption>
-            </a>
-            <?php endwhile; ?>
-            <?php endif; ?>
+        <section class="section country-hero">
+            <div class="container hero-container">
+                <ul id="hero-slider">
+                    <?php foreach (get_field('hero_slides') as $hero_slide): $hero_slide = (object)$hero_slide; ?>
+                        <li>
+                            <?php $link = '#';
+                            $target = '';
+                            if ($hero_slide->has_link) {
+                                $link = $hero_slide->link;
+                                $target = 'target="_blank"';
+                            } ?>
+                            <a href="<?php echo $link ?>" <?php echo $target ?>>
+                                <img src="<?php echo $hero_slide->image; ?>">
+                                <div class="callout-box">
+                                    <div class="animated-headings">
+                                        <h1 class="hero-title"><?php echo $hero_slide->title; ?></h1>
+                                        <h2 class="hero-subtitle"><?php echo $hero_slide->subtitle; ?></h2>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </section>
 
 
-        <!--<div class="divider-rose">
-            <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
-                <g id="divider" transform="translate(0 -0.359)">
-                    <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
-                    <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
-                        <g id="white" transform="translate(0.59 0.36)">
-                        <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
-                        </g>
-                    </g>
-                    <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
-                    <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
-                    </g>
-                </g>
-            </svg>
-        </div>-->
+        <div class="trigger"></div>
 
 
-        <section class="section section-schools">
-            <!--<section>
-                <h2 style="text-align: center;">Our South African schools</h2>
-            </section>-->
+        <section class="section" style="padding:auto 0;">
+            <section>
+                <h2 style="text-align: center;">Our South African Schools</h2>
+            </section>
 
-            <h2><?php the_field('schools_list_title'); ?></h2>
-
-            <div class="section-school-list">
+            <div class="section-school-list sa-schools">
                 <?php $schools = get_field('schools'); ?>
                 <?php foreach ($schools as $school): $school = (object)$school; ?>
                     <a
                         href="<?php echo get_permalink($school->ID); ?>"
                         title="<?php echo $school->post_title; ?>"
-                        class="section-school-list-select country-list-item"
+                        class="section-school-list-select"
                     >
 
                         <img
                             class="school-photo"
-                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-triplet')[0]; ?>"
+                            src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-small')[0]; ?>"
                             alt="<?php echo $school->post_title; ?>"
                         >
 
                         <div class="school-summary">
-                            <h4><?php echo $school->post_title; ?></h4>
-                            <br>
+                            <h3><?php echo $school->post_title; ?></h3>
 
                             <?php
                                 $school_gender = get_field('school_gender', $school->ID);
@@ -88,8 +73,8 @@ get_header(); ?>
                                 }
                             ?>
                             <p>
-                                <?php echo $school_gender; ?>
-                                <br>
+                                <?php //echo $school_gender; ?>
+                                <!--<br>-->
                                 <?php echo get_field('booarding_or_day_school', $school->ID); ?>
                                 <br>
                                 <?php echo get_field('school_grades', $school->ID); ?>
@@ -98,306 +83,431 @@ get_header(); ?>
                                 <br>
                                 <?php echo get_field('school_curriculumn', $school->ID); ?>
                             </p>
-                            <br>
 
-                            <div class="button button-small button-green-lt">Read More</div>
+                            <div class="button button-tiny button-primary"> Read More</div>
                         </div>
                     </a>
-
                 <?php endforeach; ?>
             </div>
         </section>
 
-        <div class="divider-rose">
-            <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
-                <g id="divider" transform="translate(0 -0.359)">
-                    <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
-                    <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
-                        <g id="white" transform="translate(0.59 0.36)">
-                        <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
-                        </g>
-                    </g>
-                    <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
-                    <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
-                    </g>
-                </g>
-            </svg>
-        </div>
 
-        <section class="section section-admissions section-admissions-small">
-            <div class="card-container">
-                <figure class="card card-admissions card-admissions-small">
-                    <h4><?php the_field('admissions_title'); ?></h4>
-                    <br>
-                    <p><?php the_field('admissions_description'); ?></p>
-                    <br>
-                    <a class="button button-default button-orange-dk" href="<?php the_field('admissions_link') ?>" title="<?php the_field('admissions_button') ?>"><?php the_field('admissions_button') ?></a>
-                </figure>
+        <section class="section section-pair even-section section-our-students">
+            <div class="section-navigation">
+                <h2>Our Students</h2>
+                <div class="button-wrap">
+                    <a href="<?php echo site_url('/meet-the-students'); ?>" class="button button-small button-primary"
+                       title="">Meet the Students</a>
+                </div>
+            </div>
 
-                <?php if( have_rows('admissions_steps') ): ?>
-                    <?php while( have_rows('admissions_steps') ): the_row();  ?>
-                    <a class="card card-admissions card-admissions-small" href="<?php the_sub_field('link'); ?>" title="<?php the_sub_field('title'); ?>" target="_blank">
+            <div class="section-content even-section">
+
+                <div class="section-content-item section-content-item-half first-item">
+                    <?php $our_students_video = get_field('our_students_video');
+                    if (get_field('type', $our_students_video->ID)== ('student' || 'general' )):  ?>
+                    <?php echo get_field('our_students_description'); ?>
+
+                    <div class="testimonial pull-quote">
                         <?php
-                            $image = get_sub_field('image');
-                            $size = '1-1-square';
-                            if( $image ) {
-                            echo wp_get_attachment_image( $image, $size );
-                            }
+                        $vid_caption = get_field('video_caption', $our_students_video->ID);
+                        $student_name = get_field('student_name', $our_students_video->ID);
+                        $video = get_field('video', $our_students_video->ID);
+                        $grade = get_field('student_grade', $our_students_video->ID);
                         ?>
+                        <?php if ($vid_caption): ?>
+                            <blockquote>
+                                <svg aria-hidden="true">
+                                    <use
+                                        xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                </svg>
+                                <?php echo $vid_caption; ?>
+                                <cite><span><strong><?php echo $student_name; ?></strong>,</span> Nova Pioneer
+                                    <?php echo $grade; ?> Student</cite>
+                            </blockquote>
+                        <?php endif; ?>
+                    </div>
 
-                        <figcaption>
-                            <div class="admissions-number"><?php the_sub_field('number'); ?></div>
-                            <p class="admissions-title"><?php the_sub_field('title'); ?></p>
-                        </figcaption>
-                    </a>
-                    <?php endwhile; ?>
+                </div>
+
+                <div class="section-content-item section-content-item-half">
+                    <div class="media youtube-video">
+                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
+                        } else {
+                            echo $video;
+                        } ?>
+                    </div>
+                </div>
                 <?php endif; ?>
             </div>
         </section>
 
-        <div class="divider-rose">
-            <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
-                <g id="divider" transform="translate(0 -0.359)">
-                    <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
-                    <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
-                        <g id="white" transform="translate(0.59 0.36)">
-                        <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
-                        </g>
-                    </g>
-                    <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
-                    <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
-                    </g>
-                </g>
-            </svg>
-        </div>
 
-        <section class="section section-video-side section-video-side-left">
-            <div class="video-side-embed">
-                <div class="media youtube-video">
-                    <?php the_field('primary_school_video'); ?>
+        <section class="section section-pair section-learning-at-np">
+            <div class="section-navigation">
+                <h2>Learning at Nova Pioneer</h2>
+                <div class="button-wrap">
+                    <a href="<?php echo site_url('/our-approach'); ?>" class="button button-small button-primary"
+                       title="">Learn
+                        More</a>
                 </div>
             </div>
 
-            <div class="video-side-text">
-                <h3><?php the_field('primary_school_title'); ?></h3>
-                <br>
-                <?php the_field('primary_school_description'); ?>
-                <br>
-                <a href="" class="button button-small button-green-lt" title="">Apply now</a>
+            <div class="section-content">
+                <div class="section-content-item section-content-item-half first-item">
+                    <div class="testimonial pull-quote">
+                        <?php
+                        $learning_at_novapioneer_video = get_field('learning_at_novapioneer_video');
+                        $vid_caption = get_field('video_caption', $learning_at_novapioneer_video->ID);
+                        $caption_speaker = get_field('caption_speaker', $learning_at_novapioneer_video->ID);
+                        $caption_speaker_title = get_field('caption_speaker_title', $learning_at_novapioneer_video->ID);
+                        $video = get_field('video', $learning_at_novapioneer_video->ID);
+                        ?>
+                        <?php if ($vid_caption): ?>
+                            <blockquote>
+                                <svg aria-hidden="true">
+                                    <use
+                                        xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                </svg>
+                                <?php echo $vid_caption; ?>
+                                <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?>
+                                </cite>
+                            </blockquote>
+                        <?php endif ?>
+                    </div>
+                </div>
+                <div class="section-content-item section-content-item-half">
+                    <div class="media youtube-video ">
+                        <?php if (get_field('video_or_image', $our_students_video->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $our_students_video->ID) . '" />';
+                        } else {
+                            echo $video;
+                        } ?>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <div class="divider-rose">
-            <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
-                <g id="divider" transform="translate(0 -0.359)">
-                    <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
-                    <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
-                        <g id="white" transform="translate(0.59 0.36)">
-                        <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
-                        </g>
-                    </g>
-                    <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
-                    <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
-                    </g>
-                </g>
-            </svg>
+
+        <section class="full-width-image-container small-screens">
+            <figure class="full-width-image">
+                <?php if (get_field('below_learning_hero_image')): ?>
+                    <img src="<?php the_field('below_learning_hero_image'); ?>"/>
+                <?php endif; ?>
+
+                <div class="section-content full-image-caption">
+                    <figcaption>
+                        <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
+                    </figcaption>
+                </div>
+            </figure>
+        </section>
+
+
+        <section class="full-width-image-container large-screens" data-enllax-type="foreground">
+            <figure class="full-width-image <?php echo isOnMobile()->parallax ?>"
+                    style="background-image:url('<?php the_field('below_learning_hero_image') ?>');"
+                    data-enllax-ratio="<?php echo isOnMobile()->ratio ?>">
+                <div class="section-content full-image-caption animated caption">
+                    <figcaption>
+                        <p><?php echo get_field('below_learning_hero_image_text'); ?></p>
+                    </figcaption>
+                </div>
+            </figure>
+        </section>
+
+
+        <!-- <aside>
+            <figure class="full-width-image parallax" data-type="background" data-speed="7"
+                    style="background-image:url('<?php the_field('below_learning_hero_image') ?>');">
+                <div class="section-content full-image-caption animated caption">
+                    <figcaption>
+                        <p>We are developing generations of innovators and leaders who will shape the African Century.<a
+                                href="<?php echo site_url('/learning/'); ?>" class="">Learn More</a></p>
+                    </figcaption>
+                </div>
+            </figure>
+        </aside> -->
+
+
+        <div class="full-width-container" style="margin-bottom:0;">
+            <section class="section section-pair">
+                <?php
+                $video_from_influencer = get_field('video_from_influencer');
+                $vid_caption = get_field('video_caption', $video_from_influencer->ID);
+                $caption_speaker = get_field('caption_speaker', $video_from_influencer->ID);
+                $caption_speaker_title = get_field('caption_speaker_title', $video_from_influencer->ID);
+                $video = get_field('video', $video_from_influencer->ID);
+                ?>
+                <div class="section-content-item section-content-item-half first-item">
+                    <div class="media youtube-video">
+                        <?php if (get_field('video_or_image', $video_from_influencer->ID) == 'image') {
+                            echo '<img src="' . get_field('image', $video_from_influencer->ID) . '" />';
+                        } else {
+                            echo $video;
+                        } ?>
+                    </div>
+                </div>
+
+                <div class="section-content-item section-content-item-half">
+                    <h2 class="full-width-heading">The Nova Pioneer Way</h2>
+                    <div class="testimonial pull-quote">
+                        <?php if ($vid_caption): ?>
+                            <blockquote>
+                                <svg aria-hidden="true">
+                                    <use
+                                        xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                </svg>
+                                <?php echo $vid_caption; ?>
+                                <cite><span><strong><?php echo $caption_speaker; ?></strong>,</span> <?php echo $caption_speaker_title; ?>
+                                </cite>
+                            </blockquote>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+
+            </section>
         </div>
 
-        <section class="section section-video-side section-video-side-right">
-            <div class="video-side-embed">
-                <div class="media youtube-video">
-                    <?php the_field('secondary_school_video'); ?>
+
+        <section class="section section-pair">
+            <div class="section-navigation">
+                <h2>Global Leadership Team</h2>
+                <div class="button-wrap">
+                    <a href="<?php echo site_url('/global-leadership/'); ?>" class="button button-small button-primary"
+                       title="">Meet the team</a>
                 </div>
             </div>
 
-            <div class="video-side-text">
-                <h3><?php the_field('secondary_school_title'); ?></h3>
-                <br>
-                <?php the_field('secondary_school_description'); ?>
-                <br>
-                <a href="" class="button button-small button-orange-lt" title="">Apply now</a>
+            <div class="section-content">
+                <?php $leadership_team_members = get_field('leadership_team_members'); ?>
+                <?php foreach ($leadership_team_members as $member): ?>
+                    <div class="section-content-item section-content-item-quarter profile">
+                        <div class="image-wrap">
+                            <img
+                                src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($member->ID), 'profile-square')[0]; ?>"
+                                alt="<?php $member->post_title; ?>, <?php echo get_field('title', $member->ID); ?>"
+                                class="profile-img">
+                        </div>
+                        <h4 class="profile-name"
+                            title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></h4>
+                        <h6 class="profile-role"><?php echo get_field('title', $member->ID); ?></h6>
+                        <!-- <a href="<?php echo get_permalink($member->ID); ?>" class="profile-name" title="<?php $member->post_title; ?>"><?php echo $member->post_title; ?></a>
+                        <span class="profile-role"><?php echo get_field('title', $member->ID); ?></span> -->
+                    </div>
+                <?php endforeach; ?>
             </div>
         </section>
 
-        <div class="divider-rose">
-            <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
-                <g id="divider" transform="translate(0 -0.359)">
-                    <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
-                    <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
-                        <g id="white" transform="translate(0.59 0.36)">
-                        <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
-                        </g>
-                    </g>
-                    <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
-                    <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
-                    </g>
-                </g>
-            </svg>
-        </div>
+
+        <section class="section even-section">
+            <div class="general-notices-container">
+                <div
+                    class="large-notice-container" <?php if (get_field('admission_image')): echo 'style="background-image: url(' . get_field('admission_image') . ');"'; endif; ?>>
+                    <div class="large-notice">
+                        <div class="notice-content">
+                            <h1><?php echo get_field('admin_process_title'); ?></h1>
+                            <?php echo get_field('admission_call_to_action'); ?>
+                            <p class="call-to-action"><a href="<?php echo site_url('/admission-process') ?>"
+                                                         class="button button-small button-secondary">Admission
+                                    Process</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-notice-container"><?php
+                    $taxonomies = wp_get_post_terms(get_the_ID(), 'school', array("fields" => "all"));
+                    foreach ($taxonomies as $tax) {
+                        $taxies[] = $tax->slug;
+                    }
+                    ?>
+
+                    <?php echo get_nova_events($taxies); ?>
+
+                    <div class="small-notice">
+                        <h4>South Africa Fee Structure</h4>
+
+                        <a href="<?php echo site_url('fees-structure/') ?>"
+                           class="button button-small button-secondary">View Fees</a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="small-notice">
+                        <h4>Our Calendar</h4>
+                        <p><?php echo date('F Y'); ?> School Events</p>
+                        <a href="<?php echo site_url('/calendar'); ?>" class="button button-small button-secondary"
+                        >Calendar</a>
+                    </div>
+                </div>
+                <!-- <div class="small-notice-container">
+                <?php echo get_nova_events(); ?>
+            </div> -->
+
+            </div>
+        </section>
+
+
+        <aside>
+            <div class=" testimonial full-width-quote ">
+                <div class=" section content-slider-container testimonials">
+                    <ul id="testimonial-slider" class="content-slider">
+                        <?php foreach (get_field('testimonials') as $testimonial): $testimonial = (object)$testimonial; ?>
+                            <li class="single-testimonial">
+                                <figure class="full-width-figure">
+                                    <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'thumbnail'); ?>">
+                                </figure>
+                                <blockquote>
+                                    <svg aria-hidden="true">
+                                        <use
+                                            xlink:href="<?php echo novap_get_baseurl(); ?>/img/quote-mark-icon.svg#quote-mark"></use>
+                                    </svg>
+                                    <?php echo $testimonial->post_content; ?>
+                                    <p>
+                                        <cite><span><strong><?php echo get_field('reviewer_name', $testimonial->ID); ?></strong>
+                                                ,</span> <?php echo get_field('reviewer_title', $testimonial->ID); ?>
+                                        </cite></p>
+                                </blockquote>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     <?php endwhile; ?>
 
     <?php get_template_part('includes/partials/content', 'stay-updated'); ?>
+    <!-- <?php // get_template_part('includes/partials/content', 'rsvp-modal'); ?> no longer necessary -->
 
-    <?php endif; ?>
-
-    <div class="divider-rose">
-        <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
-            <g id="divider" transform="translate(0 -0.359)">
-                <g id="Group_4_Copy_6" data-name="Group 4 Copy 6">
-                <g id="logo-mark-white_copy_3" data-name="logo-mark-white copy 3" transform="translate(75)">
-                    <g id="white" transform="translate(0.59 0.36)">
-                    <path id="Shape" d="M18.628,46.819,5.246,38.949,0,33V16.943L2.726,9.58,16.7,1.514,24.467,0,38.145,8.072l5.143,6.149V30.168l-2.923,7.566L26.4,45.508l-7.77,1.311ZM9.9,18.325,6.373,20.351V38.017l12.52,7.365,5.3-.9-1.264-.75L9.9,36.014V18.325Zm1.375,12.64V35.23l12.282,7.278,2.615,1.549,13.088-7.285,2.01-5.2L27.217,39.4l-.336.187h-.005L26.2,39.58ZM38.386,10.5V27.484L32.8,30.375l-9.9,5.713L26.553,38.2l15.36-8.556V14.722ZM16.636,8.64h0L1.375,17.465V32.478L5,36.59V19.561l5.25-3.019L20.185,10.8,16.636,8.64Zm4.9,2.974h0L11.277,17.535V29.378L21.53,35.3l10.255-5.92V17.535L21.532,11.614ZM24.21,1.451,18.851,2.5l14.309,8.39V28.642l3.851-1.994V9Zm-7.555,5.59h0l4.7,2.866.527.321,9.909,5.722.025-4.257L16.932,2.964,3.842,10.522l-1.849,5L16.655,7.042Z" fill="#9b9b9b"/>
-                    </g>
-                </g>
-                <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="1" transform="translate(147 24)" fill="#9b9b9b"/>
-                <rect id="Rectangle_3_Copy" data-name="Rectangle 3 Copy" width="48" height="1" transform="translate(0 24)" fill="#9b9b9b"/>
-                </g>
-            </g>
-        </svg>
-    </div>
-</div>
-<!--end updates-2019-->
+<?php endif; ?>
 
 
 <script type="text/javascript">
-    (function ($) {
-        $(document).ready(function () {
-            function startWayPoint() {
-                $(function () {
-                    removeAnimateClasses();
+    $(document).ready(function () {
+        function startWayPoint() {
+            $(function () {
+                removeAnimateClasses();
 
-                    var inview1 = new Waypoint.Inview({
-                        element: $('.hero-title'),
-                        entered: function () {
-                            $(this.element).addClass('animated bounceInLeft');
-                            console.log('animated one');
+                var inview1 = new Waypoint.Inview({
+                    element: $('.hero-title'),
+                    entered: function () {
+                        $(this.element).addClass('animated bounceInLeft');
+                        console.log('animated one');
 
-                        }
-                    });
-
-                    var inview2 = new Waypoint.Inview({
-                        element: $('.hero-subtitle'),
-                        entered: function () {
-                            $(this.element).addClass('animated bounceInRight');
-                            console.log('animated two')
-
-                        }
-                    });
-                    console.log("12. Animated Country Hero titles");
-                    inview1.destroy()
-                    inview2.destroy()
-                    console.log('destroyed all');
-
+                    }
                 });
 
-                return true;
-            }
+                var inview2 = new Waypoint.Inview({
+                    element: $('.hero-subtitle'),
+                    entered: function () {
+                        $(this.element).addClass('animated bounceInRight');
+                        console.log('animated two')
 
-            function removeAnimateClasses() {
-                if ($('.hero-title').hasClass('animated') || $('.hero-title').hasClass('bounceInLeft')) {
-                    $('.hero-title').removeClass('animated bounceInLeft');
-                    console.log('class removed 1')
-                }
-                if ($('.hero-subtitle').hasClass('animated') || $('.hero-subtitle').hasClass('bounceInRight')) {
-                    $('.hero-subtitle').removeClass('animated bounceInRight');
-
-                }
-            }
-
-
-            $("#testimonial-slider").lightSlider({
-                item: 1,
-                autoWidth: false,
-                slideMove: 1, // slidemove will be 1 if loop is true
-                // slideMargin: 300, //500
-                addClass: '',
-                mode: "slide",
-                useCSS: true,
-                cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
-                easing: 'linear', //'for jquery animation',////
-                speed: 400, //ms'
-                auto: false,
-                loop: true,
-                // slideEndAnimation: true,
-                pause: 2000,
-                keyPress: false,
-                controls: true,
-                prevHtml: '',
-                nextHtml: '',
-                addClass: 'content-slider',
-                // currentPagerPosition: 'middle',
-                enableTouch: false,
-                enableDrag: false,
-                freeMove: false,
-                // swipeThreshold: 40,
-                responsive: [
-                    // {
-                    //     breakpoint: 1024,
-                    //     settings: {
-                    //         slideMargin: 500,
-                    //     }
-                    // },
-                    //   {
-                    //       breakpoint: 800,
-                    //       settings: {
-                    //           slideMargin: 500,
-                    //       }
-                    //   },
-
-                    {
-                        breakpoint: 800,
-                        settings: {
-                            auto: false,
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            auto: false,
-                        }
-                    },
-                    {
-                        breakpoint: 320,
-                        settings: {
-                            auto: false,
-                            slideMargin: 245,
-                        }
                     }
-                ]
+                });
+                console.log("12. Animated Country Hero titles");
+                inview1.destroy()
+                inview2.destroy()
+                console.log('destroyed all');
+
             });
 
+            return true;
+        }
 
-            $('#hero-slider').slippry({
-                auto: false,
-                speed: 800,
-                pause: 8000,
-                // adaptiveHeight: false,
-                autoHover: false,
-                onSlideBefore: function () {
-                    removeAnimateClasses();
+        function removeAnimateClasses() {
+            if ($('.hero-title').hasClass('animated') || $('.hero-title').hasClass('bounceInLeft')) {
+                $('.hero-title').removeClass('animated bounceInLeft');
+                console.log('class removed 1')
+            }
+            if ($('.hero-subtitle').hasClass('animated') || $('.hero-subtitle').hasClass('bounceInRight')) {
+                $('.hero-subtitle').removeClass('animated bounceInRight');
+
+            }
+        }
+
+
+        $("#testimonial-slider").lightSlider({
+            item: 1,
+            autoWidth: false,
+            slideMove: 1, // slidemove will be 1 if loop is true
+            // slideMargin: 300, //500
+            addClass: '',
+            mode: "slide",
+            useCSS: true,
+            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+            easing: 'linear', //'for jquery animation',////
+            speed: 400, //ms'
+            auto: false,
+            loop: true,
+            // slideEndAnimation: true,
+            pause: 2000,
+            keyPress: false,
+            controls: true,
+            prevHtml: '',
+            nextHtml: '',
+            addClass: 'content-slider',
+            // currentPagerPosition: 'middle',
+            enableTouch: false,
+            enableDrag: false,
+            freeMove: false,
+            // swipeThreshold: 40,
+            responsive: [
+                // {
+                //     breakpoint: 1024,
+                //     settings: {
+                //         slideMargin: 500,
+                //     }
+                // },
+                //   {
+                //       breakpoint: 800,
+                //       settings: {
+                //           slideMargin: 500,
+                //       }
+                //   },
+
+                {
+                    breakpoint: 800,
+                    settings: {
+                        auto: false,
+                    }
                 },
-                onSlideAfter: function () {
-
-                    return startWayPoint();
+                {
+                    breakpoint: 600,
+                    settings: {
+                        auto: false,
+                    }
                 },
-            });
-
-
-            $('.sy-controls a').click(function () {
-                startWayPoint()
-            })
-            startWayPoint()
-
-            $('.section-carousel').slick({
-                dots: true,
-                arrows: false,
-                infinite: true,
-                speed: 500,
-                fade: true,
-                cssEase: 'linear'
-            });
+                {
+                    breakpoint: 320,
+                    settings: {
+                        auto: false,
+                        slideMargin: 245,
+                    }
+                }
+            ]
         });
-    })(jQuery);
+
+
+        $('#hero-slider').slippry({
+            auto: true,
+            speed: 800,
+            pause: 8000,
+            autoHover: false,
+            onSlideBefore: function () {
+                removeAnimateClasses();
+            },
+            onSlideAfter: function () {
+
+                return startWayPoint();
+            },
+        });
+
+
+        $('.sy-controls a').click(function () {
+            startWayPoint()
+        })
+        startWayPoint()
+    });
 </script>
 
 
@@ -407,7 +517,8 @@ get_header(); ?>
     Add this script tag after the carousel options JS block on whichever page
     the carousel gets going on being a right pain in the footer!
 -->
-<!--<script type="text/javascript" src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>-->
+<script type="text/javascript"
+        src="<?php echo site_url('/wp-content/themes/novapioneer/js/parallax-effect.js'); ?>"></script>
 
 
 <?php get_footer(); ?>

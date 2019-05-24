@@ -1,18 +1,16 @@
+<section class="section section-pair section-subscribe">
+    <div class="section-navigation">
+        <h2>Stay Updated</h2>
+    </div>
 
-<section class="section section-newsletter" style="background-image: url('<?php echo novap_get_baseurl(); ?>img/logo/logo-mark-white.svg');">
-    <header class="section-newsletter-heading">
-        <h2><?php if(function_exists('dc_dcb_dev_content_block'))echo do_shortcode('[dcb name=newsletter-heading]'); ?></h2>
-        
-        <p><?php if(function_exists('dc_dcb_dev_content_block'))echo do_shortcode('[dcb name=newsletter-description]'); ?></p>
-
-        <figure>
-            <img src="<?php echo novap_get_baseurl(); ?>img/newsletter-square.jpg" alt="">
-            <?php //if(function_exists('dc_dcb_dev_content_block'))echo do_shortcode('[dcb name=newsletter-image]'); ?>
-            <figcaption></figcaption>
-        </figure>
-    </header>
-
-    <div class="section-newsletter-form">
-        <?php echo do_shortcode('[gravityform id="7" title="false" description="false" tabindex="50"]'); ?>
+    <div class="section-content">
+        <div class="section-content-item section-content-item-full">
+            <header>
+                <p>Enter your email address below and receive the latest Nova Pioneer news, upcoming events and admission opportunities.</p>
+            </header>
+            <div class="subscribe-form-container">
+            <?php echo do_shortcode('[gravityform id="6" title="false" description="false" tabindex="50"]'); ?>
+          </div>
+        </div>
     </div>
 </section>

@@ -26,10 +26,8 @@
         })(window, document, 'script', 'dataLayer', 'GTM-W89TX54');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick.css"/>
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.9.0/slick/slick-theme.css"/>
+
+
 </head>
 
 <body <?php body_class('body-south-africa'); ?>>
@@ -167,7 +165,26 @@
 
 
 <!-- page-header -->
-<header class="page-header <?php if (is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>" id="header-container">
+<header class="page-header <?php if (is_admin_bar_showing()): echo 'style="top:32px;"'; endif; ?>"
+        id="header-container">
+    <!-- <section class="header-section header-section-countries"> -->
+    <!-- we'll probably need to find a way to pick which country is selected -->
+    <!--<span class="country country-choose">Choose country</span>-->
+
+    <!-- <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke">
+                    <span class="flag-icon flag-icon-ke"></span>
+                    <span class="text">Kenya</span>
+                </a>
+
+                <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa country-chosen">
+                    <span class="flag-icon flag-icon-za"></span>
+                    <span class="text">South Africa</span>
+                </a>
+
+                <script>
+                    $('body').addClass('body-sa');
+                </script>
+            </section> -->
 
     <section class="header-section header-section-main">
         <a href="<?php echo home_url(); ?>" class="logo header-logo">
@@ -460,64 +477,17 @@
         )); ?>
         <!-- end navigation -->
 
-        <a id="header_apply" href="<?php echo site_url('/'.'apply-online/'); ?>" class="header-apply">Apply now</a>
+        <a id="header_apply" href="<?php echo site_url('/'.'apply-online/'); ?>" class="button button-small button-primary header-apply">Apply
+            now</a>
 
-        <section class="location-switch">
-            <div class="location-switch-container">
-                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke drop-list-item drop-list-selected">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="480" width="640" viewBox="0 0 640 480">
-                    <defs>
-                        <path stroke-miterlimit="10" d="M-28.58 47.5l1.733 1 46.713-80.91c2.732-.73 4.232-3.33 5.732-5.927 1-1.732 5-8.66 6.734-17.663-6.93 6.003-10.93 12.93-11.93 14.663-1.5 2.598-3 5.196-2.268 7.928z" id="a"/>
-                    </defs>
-                    <path d="M0 0h640v480H0z" fill="#fff"/>
-                    <path d="M0 0h640v144H0z"/>
-                    <path d="M0 336h640v144H0z" fill="#060"/>
-                    <g id="b" transform="matrix(3 0 0 3 320 240)">
-                        <use height="100%" width="100%" xlink:href="#a" stroke="#000"/>
-                        <use height="100%" width="100%" xlink:href="#a" fill="#fff"/>
-                    </g>
-                    <use height="100%" width="100%" xlink:href="#b" transform="matrix(-1 0 0 1 640 0)"/>
-                    <path d="M640.5 168H377c-9-24-39-72-57-72s-48 48-57 72H-.227v144H263c9 24 39 72 57 72s48-48 57-72h263.5V168z" fill="#b00"/>
-                    <path id="c" d="M377 312c9-24 15-48 15-72s-6-48-15-72c-9 24-15 48-15 72s6 48 15 72"/>
-                    <use height="100%" width="100%" xlink:href="#c" transform="matrix(-1 0 0 1 640 0)"/>
-                    <g transform="matrix(3 0 0 3 320 240)" fill="#fff">
-                        <ellipse rx="4" ry="6"/>
-                        <path id="d" d="M1 5.85s4 8 4 21-4 21-4 21z"/>
-                        <use height="100%" width="100%" xlink:href="#d" transform="scale(-1)"/>
-                        <use height="100%" width="100%" xlink:href="#d" transform="scale(-1 1)"/>
-                        <use height="100%" width="100%" xlink:href="#d" transform="scale(1 -1)"/>
-                    </g>
-                    </svg>
-                </a>
-
-                <a href="<?php echo novap_get_baseurl(); ?>/sa" class="country country-sa drop-list-item drop-list-option">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="480" width="640" viewBox="0 0 640 480">
-                    <defs>
-                        <clipPath id="a">
-                        <path fill-opacity=".67" d="M-71.873-.012h682.68v512.01h-682.68z"/>
-                        </clipPath>
-                    </defs>
-                    <g clip-path="url(#a)" transform="translate(67.379 .011) scale(.93748)">
-                        <g fill-rule="evenodd" stroke-width="1pt">
-                        <path d="M-71.878 407.837V104.428l225.832 151.627-225.832 151.793z"/>
-                        <path d="M82.217 512.121l253.538-170.644h360.372v170.644H82.217z" fill="#00c"/>
-                        <path d="M65.917.062l630.19.013v170.672H335.735S69.295-1.626 65.917.062z" fill="red"/>
-                        <path d="M-71.878 64.075v40.329L153.954 256.03-71.878 407.823v40.327l284.44-192.12-284.44-191.955z" fill="#fc0"/>
-                        <path d="M-71.878 64.075V.062h94.891l301.313 203.88h371.778v104.261H324.326L23.013 512.053h-94.89V448.15l284.439-192.12-284.44-191.955z" fill="#093"/>
-                        <path d="M23.013.062h59.194l253.538 170.673h360.372v33.207H324.339L23.025.062zM23.013 512.121h59.194l253.538-170.644h360.372v-33.206H324.339L23.025 512.12z" fill="#fff"/>
-                        </g>
-                    </g>
-                    </svg>
-                </a>
-            </div>
-
-            <script>
-                $('body').addClass('body-ke');
-            </script>
-        </section>
+        <!-- open search form -->
 
         <div id="icons-search">
-            <svg class="modal-control open open-search" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>search</title><path d="M16.464 15.05l4.243 4.243a1 1 0 0 1-1.414 1.414l-4.904-4.904a1 1 0 0 1 0-1.414 5.5 5.5 0 1 0-2.404 1.407 1 1 0 1 1 .54 1.926 7.5 7.5 0 1 1 3.94-2.672z" fill="#000" fill-rule="nonzero"/></svg>
+            <svg class="modal-control open open-search" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                viewBox="0 0 48 48">
+                <path
+                    d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
+            </svg>
 
             <!-- open small menu -->
             <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
@@ -525,6 +495,41 @@
                 <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
             </svg>
         </div>
+    </section>
+    <div class=" sticky-mobile-container">
+        <svg class="modal-control open open-menu" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+             viewBox="0 0 48 48">
+            <path d="M6 36h36v-4h-36v4zm0-10h36v-4h-36v4zm0-14v4h36v-4h-36z"/>
+        </svg>
+    </div>
+    <section class="header-section country-switch-container">
+        <!-- <div class="drop-list-container">
+                <a href="<?php echo novap_get_baseurl(); ?>sa" class="country country-sa drop-list-item drop-list-selected">
+                    <span class="flag-icon flag-icon-za"></span>
+                    <span class="text">South Africa</span>
+                </a>
+
+                <a href="<?php echo novap_get_baseurl(); ?>/kenya" class="country country-ke country-chosen drop-list-item drop-list-option">
+                    <span class="flag-icon flag-icon-ke"></span>
+                    <span class="text">Kenya</span>
+                </a>
+            </div> -->
+        <div class="drop-list-container">
+            <a href="<?php echo novap_get_baseurl(); ?>/sa"
+               class="country country-sa drop-list-item drop-list-selected">
+                <span class="flag-icon flag-icon-za"></span>
+                <span class="text">South Africa</span>
+            </a>
+
+            <a href="<?php echo novap_get_baseurl(); ?>/kenya"
+               class="country country-ke drop-list-item drop-list-option">
+                <span class="flag-icon flag-icon-ke"></span>
+                <span class="text">Kenya</span>
+            </a>
+        </div>
+        <script>
+            $('body').addClass('body-ke');
+        </script>
     </section>
 </header>
 <script type="text/javascript">
