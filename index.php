@@ -359,7 +359,7 @@
 
                     <a href="/sa" class="button button-default button-orange-lt" title="">South Africa</a>
 
-                    <a href="/careers" class="button button-default button-raspberry" title="">Careers</a>
+                    <a href="/kenya" class="button button-default button-raspberry" title="">Kenya</a>
                 </div>
             </section>
 
