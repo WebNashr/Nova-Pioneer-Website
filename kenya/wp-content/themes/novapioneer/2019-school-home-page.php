@@ -6,10 +6,10 @@
 get_header(); ?>
 
 <?php
-    // global $school;
-    // echo $school->post->ID;
+    global $school;
+    echo $school->post->ID;
 
-    $school = get_queried_object_id();
+    // $school = get_queried_object_id();
 ?>
 
 <?php if (have_posts()): ?>
