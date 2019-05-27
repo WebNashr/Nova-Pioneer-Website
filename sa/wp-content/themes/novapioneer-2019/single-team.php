@@ -31,7 +31,7 @@ get_header(); ?>
     <section class="section section-article section-article-profile">
         <article class="article">
             <aside class="article-meta">
-                <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '16-9-hero')[0]; ?>" alt="">
+                <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), '1-1-square')[0]; ?>" alt="">
 
                 <h5>
                     <?php if(get_field('title_in_full')): ?>
