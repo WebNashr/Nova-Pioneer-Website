@@ -72,19 +72,19 @@
 
     <section class="section section-signpost">
         <?php if(get_field('admissions_start_title')): ?>
-        <h2><?php get_field('admissions_start_title'); ?></h2>
+        <h2><?php the_field('admissions_start_title'); ?></h2>
         <?php else : ?>
         <h2>Start your journey with Nova Pioneer today</h2>
         <?php endif; ?>
 
         <?php if(get_field('admissions_start_description')): ?>
-        <?php get_field('admissions_start_description'); ?>
+        <?php the_field('admissions_start_description'); ?>
         <?php else : ?>
         <p>You and your child will be invited for an interview and assessment. The aim of this assessment is to get insight into the student as an individual in order to determine how we can best support and develop your child at Nova Pioneer.</p>
         <?php endif; ?>
 
         <?php if(get_field('admissions_start_link')): ?>
-        <a class="button button-large button-raspberry" href="<?php get_field('admissions_start_link'); ?>" title="<?php get_field('admissions_start_link_text'); ?>"><?php get_field('admissions_start_link_text'); ?></a>
+        <a class="button button-large button-raspberry" href="<?php the_field('admissions_start_link'); ?>" title="<?php the_field('admissions_start_link_text'); ?>"><?php get_field('admissions_start_link_text'); ?></a>
         <?php else : ?>
         <a class="button button-large button-raspberry" href="<?php echo home_url(); ?>apply-online" title="Apply now">Apply now</a>
         <?php endif; ?>
