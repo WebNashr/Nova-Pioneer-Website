@@ -10,7 +10,7 @@ get_header(); ?>
 <div class="updates-2019">
     <div class="trigger"></div>
 
-    <section class="section section-banner">
+    <section class="section section-banner" style="margin-bottom: 0rem;">
         <figure class="">
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
 
@@ -42,12 +42,13 @@ get_header(); ?>
 
     <!--<div class="trigger"></div>-->
 
+    <?php $locations = array(); // The school locations ?>
+
     <section class="section section-schools">
         <div class="section-school-list">
             <?php $schools = get_field('schools'); ?>
             <?php foreach ($schools as $school): $school = (object)$school; ?>
-                <div class="section-school-list-select"
-                >
+                <div class="section-school-list-select">
                     <img
                         class="school-photo"
                         src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-triplet')[0]; ?>"
@@ -99,6 +100,14 @@ get_header(); ?>
                         </p>
                     </div>
                 </div>
+
+                <?php
+                    array_push($locations, array(
+                        "latitude" => $school->latitude,
+                        "longitude" => $school->longitude,
+                        "info_text" => $school->info_text
+                    ));
+                ?>
             <?php endforeach; ?>
         </div>
     </section>
@@ -122,15 +131,6 @@ get_header(); ?>
     <section class="section section-contact-map">
         <h2 id="faqs">Find our schools</h2>
 
-        <?php 
-            $locations = array(); // The school locations
-
-            array_push($locations, array(
-                "latitude" => $school_branch->latitude,
-                "longitude" => $school_branch->longitude,
-                "info_text" => $school_branch->branch_name
-            ));
-        ?>
         <?php novap_render_google_map($locations); ?>
     </section>
 

@@ -834,8 +834,8 @@ get_header(); ?>
             <h2><?php the_field('school_contact_us_title'); ?></h2>
 
             <div class="school-summary">
-                <h4><?php echo $school->post_title; ?></h4>
-                <br>
+                <!--<h4><?php echo $school->post_title; ?></h4>
+                <br>-->
 
                 <p class="school-contact">
                     <span class="icon-heading">
@@ -844,7 +844,7 @@ get_header(); ?>
                         </span>
                         <span class="icon-label">Address</span>
                     </span>
-                    <?php echo get_field('physical_address', $school->ID); ?>
+                    <?php echo get_field('physical_address'); ?>
                 </p>
 
                 <p class="school-contact">
@@ -854,7 +854,7 @@ get_header(); ?>
                         </span>
                         <span class="icon-label">Reception</span>
                     </span>
-                    <?php echo get_field('main_phone_number', $school->ID); ?>
+                    <?php echo get_field('main_phone_number'); ?>
                 </p>
 
                 <p class="school-contact">
@@ -864,7 +864,7 @@ get_header(); ?>
                         </span>
                         <span class="icon-label">Admissions</span>
                     </span>
-                    <?php echo get_field('admission_enquiries_number', $school->ID); ?>
+                    <?php echo get_field('admission_enquiries_number'); ?>
                 </p>
 
                 <p class="school-contact">
@@ -874,22 +874,60 @@ get_header(); ?>
                         </span>
                         <span class="icon-label">Email</span>
                     </span>
-                    <?php echo get_field('email_address', $school->ID); ?>
+                    <?php echo get_field('email_address'); ?>
                 </p>
             </div>
         </header>
 
         <div class="section-school-contact-us-map">
-            <?php $locations = array();
-            if (get_field('map_embed_code')) {
-                $cood = explode(",", get_field('map_embed_code'));
-                array_push($locations, array(
-                    "latitude" => (float)$cood[0],
-                    "longitude" => (float)$cood[1],
-                    "info_text" => "Novapioneer " . get_the_title()
-                ));
-                novap_render_google_map($locations);
-            } ?>
+            <?php
+            // $locations = array();
+            // if (get_field('map_embed_code')) {
+            //     $cood = explode(",", get_field('map_embed_code'));
+            //     array_push($locations, array(
+            //         "latitude" => (float)$cood[0],
+            //         "longitude" => (float)$cood[1],
+            //         "info_text" => "Novapioneer " . get_the_title()
+            //     ));
+            //     novap_render_google_map($locations);
+            // }
+            ?>
+
+<div id="map"></div>
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        var uluru = {
+            lat: <?php the_field('latitude'); ?>,
+            lng: <?php the_field('longitude'); ?>
+        };
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 12, center: uluru}
+        );
+
+        var contentString = '<h5><?php the_field("alternate_title"); ?></h5>'+
+                            '<p><?php the_field("info_text"); ?></p>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map, title: "<?php the_field('alternate_title'); ?>"});
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    }
+
+    $(window).resize(function () {
+        initMap();
+        console.log('initialize map again');
+    })
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRQ0gD22UxKy7SmVzWmEcretx_wL1DYV0&callback=initMap"></script>
         </div>
     </section>
 
