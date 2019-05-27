@@ -20,10 +20,10 @@ gulp.task('js', function () {
         './bower_components/flexibility/flexibility.js',
         './bower_components/waypoints/lib/jquery.waypoints.min.js',
         './bower_components/slick-carousel/slick/slick.min.js',
-        // './assets-src/js/slippry/slippry.min.js',
+        './assets-src/js/slippry/slippry.min.js',
         './assets-src/js/bowser.js',
         './assets-src/js/scripts.js',
-        // './assets-src/js/lightslider/lightslider.js',
+        './assets-src/js/lightslider/lightslider.js',
         './assets-src/js/inview.js',
         // './assets-src/js/parallax-effect.js'
     ])
