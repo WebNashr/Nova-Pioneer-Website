@@ -851,7 +851,7 @@ get_header(); ?>
                         </span>
                         <span class="icon-label">Address</span>
                     </span>
-                    <?php echo get_field('physical_address', $school->ID); ?>
+                    <?php echo get_field('physical_address'); ?>
                 </p>
 
                 <p class="school-contact">
