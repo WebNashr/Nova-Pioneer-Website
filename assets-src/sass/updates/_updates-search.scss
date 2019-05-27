@@ -1,0 +1,108 @@
+
+/* search */
+/* ==================================================== */
+
+
+.updates-2019 {
+    .search-header {
+        h2 {
+
+        }
+
+        h2 span {
+            color: $raspberry;
+        }
+
+        p {
+            @include title(regular);
+            @include font-size(16px);
+            @include line-height(24px);
+            color: $grey-mdk;
+        }
+    }
+
+
+    .no-results {
+        margin: 3rem 0 0;
+        padding: 24px;
+        background: $grey-gh;
+        border-radius: 8px;
+    }
+
+    .no-results p {
+        @include title(regular);
+        @include font-size(16px);
+        @include line-height(24px);
+        color: $grey-mdk;
+    }
+
+
+    .result-title {
+        @include title(medium);
+        @include font-size(24px);
+        @include line-height(1.25);
+        color: $blue-dk;
+    }
+
+    .result-excerpt {
+        @include title(light);
+        @include font-size(16px);
+        @include line-height(24px);
+        color: $grey-mdk;
+    }
+
+    .result-url {
+        @include title(light);
+        @include font-size(13px);
+        @include line-height(1.5);
+        margin: 0 0 8px;
+        color: $blue-lt;
+    }
+
+    .result-date {
+        @include title(light);
+        @include font-size(13px);
+        @include line-height(1.5);
+        margin: 0 0 8px;
+        color: $grey-mdk;
+    }
+
+    &:not(:first-of-type) {
+        padding-top: 3rem;
+        border-top: 1px solid $grey-gh;
+    }
+
+    &:last-of-type {
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid $grey-gh;
+    }
+
+
+
+
+
+    .section-carousel-slide figcaption h1 {
+        @include title(black);
+        @include font-size(64px);
+        @include line-height(84px);
+        @extend %text-white;
+        margin-bottom: 2rem;
+
+        span.plain {
+            @extend %text-orange-lt;
+        }
+
+        span.highlighted {
+            @extend %text-orange-lt;
+        }
+    }
+
+    .section-carousel-slide figcaption p {
+        @include title(regular);
+        @include font-size(24px);
+        @include line-height(36px);
+        @extend %text-white;
+    }
+}
+
