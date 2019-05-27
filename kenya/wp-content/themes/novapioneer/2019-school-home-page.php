@@ -5,6 +5,13 @@
 
 get_header(); ?>
 
+<?php
+    // global $school;
+    // echo $school->post->ID;
+
+    $school = get_queried_object_id();
+?>
+
 <?php if (have_posts()): ?>
 <?php while (have_posts()): the_post(); ?>
 <div class="updates-2019">
