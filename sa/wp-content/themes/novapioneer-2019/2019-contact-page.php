@@ -10,7 +10,7 @@ get_header(); ?>
 <div class="updates-2019">
     <div class="trigger"></div>
     
-    <section class="section section-banner">
+    <section class="section section-banner" style="margin-bottom: 0rem;">
         <figure class="">
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
 
