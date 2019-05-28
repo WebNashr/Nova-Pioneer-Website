@@ -367,7 +367,7 @@
                             <?php if (!empty(get_field('description'))): ?>
                                 <p><?php the_field('description'); ?></p>
                             <?php else: ?>
-                                <p>Congratulations on taking your first step to becoming part of our cohort of innovators and leaders who will shape the African century. Someone from our Admissions office will get in touch soon.s</p>
+                                <p>Congratulations on taking your first step to becoming part of our cohort of innovators and leaders who will shape the African century. Someone from our Admissions office will get in touch soon.</p>
                             <?php endif ?>
 
                             <?php if (!empty(get_field('signpost'))): ?>
