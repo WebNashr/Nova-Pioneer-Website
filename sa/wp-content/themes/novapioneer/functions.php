@@ -366,7 +366,7 @@ function novap_render_google_map(array $locations)
     if (!empty($locations)):
 
         $map_view->render(array(
-            "locations" => json_encode($locations)
+            'locations' => json_encode($locations,JSON_FORCE_OBJECT)
         ));
 
     endif;
