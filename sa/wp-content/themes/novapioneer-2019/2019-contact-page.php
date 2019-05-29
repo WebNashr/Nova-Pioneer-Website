@@ -9,14 +9,14 @@ get_header(); ?>
 <?php while (have_posts()): the_post(); ?>
 <div class="updates-2019">
     <div class="trigger"></div>
-    
+
     <section class="section section-banner" style="margin-bottom: 0rem;">
         <figure class="">
             <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
 
             <figcaption class="flex-row">
                 <h1 class=""><?php the_field('alternate_title'); ?></h1>
-                
+
                 <div class="banner-social">
                     <span>Connect with us</span>
 
@@ -44,7 +44,10 @@ get_header(); ?>
 
     <section class="section section-schools" style="padding:auto 0;">
         <div class="section-school-list">
-            <?php $schools = get_field('schools'); ?>
+
+            <?php $schools = get_field('schools');
+            $locations = array(); // The school locations
+            ?>
             <?php foreach ($schools as $school): $school = (object)$school; ?>
                 <div class="section-school-list-select"
                 >
@@ -99,10 +102,18 @@ get_header(); ?>
                         </p>
                     </div>
                 </div>
+                <?php
+
+
+                array_push($locations, array(
+                    "latitude" => get_field('latitude',$school->ID),
+                    "longitude" => get_field('longitude',$school->ID),
+                    "info_text" => get_field('info_text',$school->ID)));
+                ?>
             <?php endforeach; ?>
         </div>
     </section>
-    
+
     <div class="divider-rose">
         <svg xmlns="http://www.w3.org/2000/svg" width="195" height="46.819" viewBox="0 0 195 46.819">
             <g id="divider" transform="translate(0 -0.359)">
@@ -118,19 +129,10 @@ get_header(); ?>
             </g>
         </svg>
     </div>
-    
+
     <section class="section section-contact-map">
         <h2 id="faqs">Find our schools</h2>
 
-        <?php 
-            $locations = array(); // The school locations
-
-            array_push($locations, array(
-                "latitude" => $school_branch->latitude,
-                "longitude" => $school_branch->longitude,
-                "info_text" => $school_branch->branch_name
-            ));
-        ?>
         <?php novap_render_google_map($locations); ?>
     </section>
 

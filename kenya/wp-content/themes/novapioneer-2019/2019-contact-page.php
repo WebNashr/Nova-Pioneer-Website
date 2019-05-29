@@ -103,9 +103,9 @@ get_header(); ?>
 
                 <?php
                     array_push($locations, array(
-                        "latitude" => $school->latitude,
-                        "longitude" => $school->longitude,
-                        "info_text" => $school->info_text
+                        "latitude" => get_field('latitude',$school->ID),
+                        "longitude" => get_field('longitude',$school->ID),
+                        "info_text" => get_field('info_text',$school->ID)
                     ));
                 ?>
             <?php endforeach; ?>
