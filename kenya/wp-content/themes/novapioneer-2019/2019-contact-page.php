@@ -12,7 +12,7 @@ get_header(); ?>
 
     <section class="section section-banner" style="margin-bottom: 0rem;">
         <figure class="">
-            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($school->ID), '16-9-hero')[0]; ?>" alt="">
+            <img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), '16-9-hero')[0]; ?>" alt="">
 
             <figcaption class="flex-row">
                 <h1 class=""><?php the_field('alternate_title'); ?></h1>
