@@ -131,7 +131,7 @@ get_header(); ?>
     <section class="section section-contact-map">
         <h2 id="faqs">Find our schools</h2>
 
-        <?php novap_render_google_map($locations); ?>
+        <?php var_dump($locations); novap_render_google_map($locations); ?>
     </section>
 
     <div class="divider-rose">
