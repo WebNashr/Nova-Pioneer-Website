@@ -3,7 +3,7 @@
 <script>
     console.log('safari map thingies')
     var map;
-    var locations_data = '{{locations}}';
+    var locations_data = '{{locations | raw }}';
     var locations = JSON.parse(locations_data.replace(/&quot;/ig, '"'));
 
     function initMap() {
